@@ -16,7 +16,7 @@
  */
 - (void)setTitleText:(NSString *)aTitleText;
 
-
+-(void)setTitleImage:(UIImage *)image;
 /**
  *  功能:显示左按钮
  *  aVisible:是否显示按钮

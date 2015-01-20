@@ -154,6 +154,13 @@
     titleTextLbl.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleTextLbl;
 }
+
+-(void)setTitleImage:(UIImage *)image
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 78, 22)];
+    imageView.image = image;
+    self.navigationItem.titleView = imageView;
+}
 #pragma mark - hud
 /**
  *  功能:显示hud
