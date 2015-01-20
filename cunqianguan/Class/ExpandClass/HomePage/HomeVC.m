@@ -7,21 +7,20 @@
 //
 
 #import "HomeVC.h"
-#import "BaseCollectionView.h"
 #import "AdvertiseView.h"
 #import "TapActionView.h"
-#import "BaseCollectionView.h"
 #import "MenuCell.h"
+#import "GridMenu.h"
 
 static NSString *  collectionCellID=@"MenuCell";
-@interface HomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface HomeVC ()<GridMenuDeleage>
 {
     TapActionView *_actionView;
     AdvertiseView *_adView;
-    BaseCollectionView *_collectionView;
     UIView *_dimView;
     NSArray *_menuImageArray;
     NSArray *_menuNameArray;
+    GridMenu *_gridMenu;
 }
 
 @end
@@ -33,7 +32,6 @@ static NSString *  collectionCellID=@"MenuCell";
     // Do any additional setup after loading the view from its nib.
     [self initNavBar];
     [self initAdView];
-    _menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -76,21 +74,30 @@ static NSString *  collectionCellID=@"MenuCell";
 }
 
 #pragma mark -- Private
+-(void)setUpGridMenu
+{
+    _menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    _menuImageArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 0;
+    
+    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 64, VIEW_WIDTH, 160) collectionViewLayout:flowLayout];
+    _gridMenu.backgroundColor = [UIColor whiteColor];
+    _gridMenu.gridMenuDelegate = self;
+    _gridMenu.dataSource = _gridMenu;
+    _gridMenu.delegate = _gridMenu;
+    UINib *cellNib=[UINib nibWithNibName:@"MenuCell" bundle:nil];
+    [_gridMenu registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
+    [_gridMenu setUpMenuData:@{@"gridName":_menuNameArray,@"gridImage":_menuImageArray}];
+}
+
 -(void)showMenu
 {
     if (_dimView == nil) {
-        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        [flowLayout setSectionInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.minimumLineSpacing = 0;
-        _collectionView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, 64, VIEW_WIDTH, 160) collectionViewLayout:flowLayout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
-        UINib *cellNib=[UINib nibWithNibName:@"MenuCell" bundle:nil];
-        [_collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
-        
+        [self setUpGridMenu];
         _dimView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
         _dimView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
         [_dimView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)]];
@@ -101,7 +108,7 @@ static NSString *  collectionCellID=@"MenuCell";
             
         }];
         [self.view addSubview:_dimView];
-        [self.view insertSubview:_collectionView aboveSubview:_dimView];
+        [self.view insertSubview:_gridMenu aboveSubview:_dimView];
         
     }
 }
@@ -111,10 +118,10 @@ static NSString *  collectionCellID=@"MenuCell";
     [UIView animateWithDuration:0.25 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
         _dimView.alpha = 0;
-        _collectionView.alpha = 0;
+        _gridMenu.alpha = 0;
     } completion:^(BOOL finished) {
-        [_collectionView removeFromSuperview];
-        _collectionView = nil;
+        [_gridMenu removeFromSuperview];
+        _gridMenu = nil;
         [_dimView removeFromSuperview];
         _dimView = nil;
     }];
@@ -130,28 +137,9 @@ static NSString *  collectionCellID=@"MenuCell";
 }
 */
 
-#pragma mark -- UICollectionDelegate &&  UICollectionDataSource
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return 8;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark -- GridMenuDelegate
+-(void)selectItem:(MenuCell *)cell
 {
-    return CGSizeMake(VIEW_WIDTH/4, 80);
+    NSLog(@"%ld----------->%@",(long)cell.tag,cell.menuLabel.text);
 }
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    MenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
-    cell.menuLabel.text = _menuNameArray[indexPath.row];
-    cell.menuImage.backgroundColor = [UIColor redColor];
-    return cell;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    MenuCell *cell = (MenuCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSLog(@"%ld----------->%@",(long)indexPath.row,cell.menuLabel.text);
-    [self dismissMenu];
-}
-
 @end

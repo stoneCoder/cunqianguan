@@ -7,7 +7,11 @@
 //
 
 #import "BaseCollectionView.h"
-
+@class MenuCell;
+@protocol GridMenuDeleage <NSObject>
+-(void)selectItem:(MenuCell *)cell;
+@end
 @interface GridMenu : BaseCollectionView
-
+@property (strong,nonatomic) id<GridMenuDeleage> gridMenuDelegate;
+-(void)setUpMenuData:(NSDictionary *)dictionary;
 @end

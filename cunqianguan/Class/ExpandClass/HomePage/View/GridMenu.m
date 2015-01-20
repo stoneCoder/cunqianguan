@@ -7,8 +7,13 @@
 //
 
 #import "GridMenu.h"
-
+#import "MenuCell.h"
+static NSString *  collectionCellID=@"MenuCell";
 @implementation GridMenu
+{
+    NSArray *_menuNameArray;
+    NSArray *_menuImageArray;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -17,5 +22,37 @@
     // Drawing code
 }
 */
+
+-(void)setUpMenuData:(NSDictionary *)dictionary
+{
+    _menuImageArray = [dictionary objectForKey:@"gridImage"];
+    _menuNameArray = [dictionary objectForKey:@"gridName"];
+    [self reloadData];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return 8;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.frame.size.width/4, 80);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    cell.tag = indexPath.row;
+    cell.menuLabel.text = _menuNameArray[indexPath.row];
+    cell.menuImage.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MenuCell *cell = (MenuCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (self.gridMenuDelegate && [self.gridMenuDelegate respondsToSelector:@selector(selectItem:)]) {
+        [self.gridMenuDelegate selectItem:cell];
+    }
+}
 
 @end
