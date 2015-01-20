@@ -40,6 +40,8 @@
 		B14071C71A6CED1900D1792F /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071C61A6CED1900D1792F /* AdvertiseView.m */; };
 		B14071CD1A6D015900D1792F /* TapActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071CC1A6D015900D1792F /* TapActionView.m */; };
 		B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071CE1A6D019900D1792F /* TapActionView.xib */; };
+		B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071D21A6DFAF100D1792F /* MenuCell.m */; };
+		B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071D31A6DFAF100D1792F /* MenuCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,9 @@
 		B14071CB1A6D015900D1792F /* TapActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapActionView.h; sourceTree = "<group>"; };
 		B14071CC1A6D015900D1792F /* TapActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapActionView.m; sourceTree = "<group>"; };
 		B14071CE1A6D019900D1792F /* TapActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapActionView.xib; sourceTree = "<group>"; };
+		B14071D11A6DFAF100D1792F /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		B14071D21A6DFAF100D1792F /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		B14071D31A6DFAF100D1792F /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +366,9 @@
 				B14071CB1A6D015900D1792F /* TapActionView.h */,
 				B14071CC1A6D015900D1792F /* TapActionView.m */,
 				B14071CE1A6D019900D1792F /* TapActionView.xib */,
+				B14071D11A6DFAF100D1792F /* MenuCell.h */,
+				B14071D21A6DFAF100D1792F /* MenuCell.m */,
+				B14071D31A6DFAF100D1792F /* MenuCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -456,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
@@ -525,6 +534,7 @@
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
+				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
