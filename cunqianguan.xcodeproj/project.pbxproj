@@ -43,6 +43,8 @@
 		B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071D21A6DFAF100D1792F /* MenuCell.m */; };
 		B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071D31A6DFAF100D1792F /* MenuCell.xib */; };
 		B14072151A6E386900D1792F /* GridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B14072141A6E386900D1792F /* GridMenu.m */; };
+		B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14072181A6E3EBE00D1792F /* LoginVC.m */; };
+		B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14072191A6E3EBE00D1792F /* LoginVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,9 @@
 		B14071D31A6DFAF100D1792F /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		B14072131A6E386900D1792F /* GridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMenu.h; sourceTree = "<group>"; };
 		B14072141A6E386900D1792F /* GridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMenu.m; sourceTree = "<group>"; };
+		B14072171A6E3EBE00D1792F /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		B14072181A6E3EBE00D1792F /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		B14072191A6E3EBE00D1792F /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +327,7 @@
 		B14071871A6CCD6D00D1792F /* ExpandClass */ = {
 			isa = PBXGroup;
 			children = (
+				B14072161A6E3EA700D1792F /* Login */,
 				B14071BE1A6CEC9400D1792F /* HomePage */,
 			);
 			path = ExpandClass;
@@ -376,6 +382,16 @@
 				B14072141A6E386900D1792F /* GridMenu.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B14072161A6E3EA700D1792F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B14072171A6E3EBE00D1792F /* LoginVC.h */,
+				B14072181A6E3EBE00D1792F /* LoginVC.m */,
+				B14072191A6E3EBE00D1792F /* LoginVC.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
@@ -469,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
@@ -526,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
+				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,

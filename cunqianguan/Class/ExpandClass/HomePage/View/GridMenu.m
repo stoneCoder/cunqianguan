@@ -27,6 +27,8 @@ static NSString *  collectionCellID=@"MenuCell";
 {
     _menuImageArray = [dictionary objectForKey:@"gridImage"];
     _menuNameArray = [dictionary objectForKey:@"gridName"];
+    UINib *cellNib=[UINib nibWithNibName:@"MenuCell" bundle:nil];
+    [self registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
     [self reloadData];
 }
 

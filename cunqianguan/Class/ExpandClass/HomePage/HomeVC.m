@@ -12,14 +12,11 @@
 #import "MenuCell.h"
 #import "GridMenu.h"
 
-static NSString *  collectionCellID=@"MenuCell";
 @interface HomeVC ()<GridMenuDeleage>
 {
     TapActionView *_actionView;
     AdvertiseView *_adView;
     UIView *_dimView;
-    NSArray *_menuImageArray;
-    NSArray *_menuNameArray;
     GridMenu *_gridMenu;
 }
 
@@ -76,8 +73,8 @@ static NSString *  collectionCellID=@"MenuCell";
 #pragma mark -- Private
 -(void)setUpGridMenu
 {
-    _menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
-    _menuImageArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    NSArray *menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    NSArray *menuImageArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setSectionInset:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -89,9 +86,7 @@ static NSString *  collectionCellID=@"MenuCell";
     _gridMenu.gridMenuDelegate = self;
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;
-    UINib *cellNib=[UINib nibWithNibName:@"MenuCell" bundle:nil];
-    [_gridMenu registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
-    [_gridMenu setUpMenuData:@{@"gridName":_menuNameArray,@"gridImage":_menuImageArray}];
+    [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":menuImageArray}];
 }
 
 -(void)showMenu
