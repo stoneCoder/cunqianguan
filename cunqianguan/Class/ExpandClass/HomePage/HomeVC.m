@@ -44,7 +44,7 @@
     //设置navigationbar的颜色
     [self.navigationController.navigationBar setBarTintColor:UIColorFromRGB(0x4DD8CB)];
     //设置navigationbar左边按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:Nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(showMenu:)];
     //设置navigationbar右边按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:Nil];
     //设置导航栏内容
@@ -65,6 +65,12 @@
     _actionView = [TapActionView init];
     [_actionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, SCREEN_HEIGTH - visiableY)];
     [self.view addSubview:_actionView];
+}
+
+#pragma Private
+-(void)showMenu
+{
+    
 }
 
 /*
