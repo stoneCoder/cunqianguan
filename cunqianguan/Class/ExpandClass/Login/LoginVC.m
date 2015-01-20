@@ -28,7 +28,7 @@
 -(void)initNavBar
 {
     //设置导航栏内容
-    [self setTitleText:@"登陆"];
+    [self setTitleText:@"登录"];
     [self makeNaviLeftButtonVisible:YES];
 }
 
