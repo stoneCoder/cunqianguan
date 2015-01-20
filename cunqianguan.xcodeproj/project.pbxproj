@@ -42,6 +42,7 @@
 		B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071CE1A6D019900D1792F /* TapActionView.xib */; };
 		B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071D21A6DFAF100D1792F /* MenuCell.m */; };
 		B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071D31A6DFAF100D1792F /* MenuCell.xib */; };
+		B14072151A6E386900D1792F /* GridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B14072141A6E386900D1792F /* GridMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		B14071D11A6DFAF100D1792F /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		B14071D21A6DFAF100D1792F /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		B14071D31A6DFAF100D1792F /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		B14072131A6E386900D1792F /* GridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMenu.h; sourceTree = "<group>"; };
+		B14072141A6E386900D1792F /* GridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +372,8 @@
 				B14071D11A6DFAF100D1792F /* MenuCell.h */,
 				B14071D21A6DFAF100D1792F /* MenuCell.m */,
 				B14071D31A6DFAF100D1792F /* MenuCell.xib */,
+				B14072131A6E386900D1792F /* GridMenu.h */,
+				B14072141A6E386900D1792F /* GridMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
