@@ -35,6 +35,10 @@
         [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
         [self.view addGestureRecognizer:recognizer];
     }
+    if (iOS7) {
+        self.edgesForExtendedLayout =UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 /**
@@ -60,7 +64,6 @@
  */
 -(void)setReturnBtnTitle:(NSString *)aTitle BadgeNumber:(int)aNumber{
     CGRect btnFrame;
-//    NSString * btnTitleStr=[NSString stringWithFormat:@"< %@", aTitle];
     NSString * btnTitleStr=aTitle;
     if (aNumber>0) {
         btnTitleStr=[NSString stringWithFormat:@"%@(%d)",aTitle,aNumber];
@@ -76,7 +79,7 @@
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
-//    button.backgroundColor = [UIColor blackColor];
+
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -86,31 +89,7 @@
         self.navigationItem.leftBarButtonItem = btnItem;
         
     }
-//    button.backgroundColor = [UIColor greenColor];
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-//        NSString * btnTitleStr;
-//    if (aNumber>0) {
-//        btnTitleStr=[NSString stringWithFormat:@"%@(%d)",aTitle,aNumber];
-//    }else{
-//        btnTitleStr=aTitle;
-//    }
-//    UIBarButtonItem * leftItem=[[UIBarButtonItem alloc]initWithTitle:btnTitleStr style:UIBarButtonItemStylePlain target:self action:@selector(leftBtnClicked:)];
-//    NSDictionary * styleAttributes=@{UITextAttributeTextColor: [UIColor whiteColor],UITextAttributeFont:[UIFont boldSystemFontOfSize:17]};
-//
-//    [leftItem setTitleTextAttributes:styleAttributes forState:UIControlStateNormal];
-//    [leftItem setTitleTextAttributes:styleAttributes forState:UIControlStateHighlighted];
-//    
-//    [leftItem setBackgroundImage:[UIImage imageNamed:@"title_left_btn"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//    [leftItem setBackgroundImage:[UIImage imageNamed:@"title_left_btn_sel"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-//    
-//    UIOffset  offset=UIOffsetMake(-20, 0);
-//    [leftItem setTitlePositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
-//    self.navigationItem.leftBarButtonItem=leftItem;
-//
-//    self.navigationItem.leftBarButtonItem.width=44;
-//
-    
 }
 
 
@@ -142,15 +121,12 @@
     }else{
         self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     }
-
-    
-//    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
+   
     return rightButton;
 }
 
--(void)hideReturnBtn{
-    
+-(void)hideReturnBtn
+{
     self.navigationItem.leftBarButtonItem=nil;
     
 }

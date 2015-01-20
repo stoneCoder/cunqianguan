@@ -11,6 +11,8 @@
 #import "TapActionView.h"
 #import "MenuCell.h"
 #import "GridMenu.h"
+#import "LoginVC.h"
+#import "BaseNC.h"
 
 @interface HomeVC ()<GridMenuDeleage>
 {
@@ -27,13 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self initNavBar];
-    [self initAdView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initNavBar];
+    [self initAdView];
     [self initActionView];
 }
 
@@ -44,8 +46,6 @@
 
 -(void)initNavBar
 {
-    //设置navigationbar的颜色
-    [self.navigationController.navigationBar setBarTintColor:UIColorFromRGB(0x4DD8CB)];
     //设置navigationbar左边按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(showMenu)];
     //设置navigationbar右边按钮
@@ -56,17 +56,18 @@
 
 -(void)initAdView
 {
-    _adView = [[AdvertiseView alloc] initWithFrame:CGRectMake(0, 64, VIEW_WIDTH, SCREEN_HEIGTH - 384)];
+    _adView = [[AdvertiseView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 320)];
     _adView.layer.borderWidth = 1;
     _adView.layer.borderColor = [UIColor yellowColor].CGColor;
+    _adView.backgroundColor = [UIColor redColor];
     [self.view addSubview:_adView];
 }
 
 -(void)initActionView
 {
-    CGFloat visiableY =  64 + _adView.frame.size.height;
+    CGFloat visiableY =   _adView.frame.size.height;
     _actionView = [TapActionView init];
-    [_actionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, SCREEN_HEIGTH - visiableY)];
+    [_actionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
     [self.view addSubview:_actionView];
 }
 
@@ -81,7 +82,7 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     
-    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 64, VIEW_WIDTH, 160) collectionViewLayout:flowLayout];
+    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 160) collectionViewLayout:flowLayout];
     _gridMenu.backgroundColor = [UIColor whiteColor];
     _gridMenu.gridMenuDelegate = self;
     _gridMenu.dataSource = _gridMenu;
@@ -135,6 +136,10 @@
 #pragma mark -- GridMenuDelegate
 -(void)selectItem:(MenuCell *)cell
 {
+    [self dismissMenu];
     NSLog(@"%ld----------->%@",(long)cell.tag,cell.menuLabel.text);
+    LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
+    BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 @end

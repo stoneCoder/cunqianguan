@@ -30,37 +30,17 @@
         [self setNeedsStatusBarAppearanceUpdate];
     }
     // Do any additional setup after loading the view.
-//    self.navigationBar.backgroundColor=[UIColor redColor];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationBar setBarTintColor:UIColorFromRGB(0x4DD8CB)];
 
-    if (iOS7) {
-         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg_ios7"] forBarMetrics:UIBarMetricsDefault];
-
-    } else {
-         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg"] forBarMetrics:UIBarMetricsDefault];
-         self.navigationBar.barTintColor = [UIColor redColor];
-        
-        /*
-        // 设置返回按钮
-        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0)
-                                                             forBarMetrics:UIBarMetricsDefault];
-        
-        // iOS6 去掉BackButtonItem的圆角
-        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:
-         [[UIImage imageNamed:@"icon-left-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 0)]
-                                                          forState:UIControlStateNormal
-                                                        barMetrics:UIBarMetricsDefault];
-        
-        [[UIBarButtonItem appearance] setTitleTextAttributes:
-         @{ UITextAttributeFont: [UIFont systemFontOfSize:17],
-            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]} forState:UIControlStateNormal];
-        
-        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage new]
-                                                forState:UIControlStateNormal
-                                              barMetrics:UIBarMetricsDefault];
-         */
-    }
+//    if (iOS7) {
+//         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg_ios7"] forBarMetrics:UIBarMetricsDefault];
+//
+//    } else {
+//         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg"] forBarMetrics:UIBarMetricsDefault];
+//         self.navigationBar.barTintColor = [UIColor redColor];
+//    }
    
 }
 -(UIStatusBarStyle)preferredStatusBarStyle
