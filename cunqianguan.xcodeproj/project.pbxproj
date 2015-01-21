@@ -37,7 +37,6 @@
 		B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071B01A6CD38E00D1792F /* UIView+MJExtension.m */; };
 		B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071C01A6CEC9400D1792F /* HomeVC.m */; };
 		B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071C11A6CEC9400D1792F /* HomeVC.xib */; };
-		B14071C71A6CED1900D1792F /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071C61A6CED1900D1792F /* AdvertiseView.m */; };
 		B14071CD1A6D015900D1792F /* TapActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071CC1A6D015900D1792F /* TapActionView.m */; };
 		B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071CE1A6D019900D1792F /* TapActionView.xib */; };
 		B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071D21A6DFAF100D1792F /* MenuCell.m */; };
@@ -45,6 +44,22 @@
 		B14072151A6E386900D1792F /* GridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B14072141A6E386900D1792F /* GridMenu.m */; };
 		B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14072181A6E3EBE00D1792F /* LoginVC.m */; };
 		B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14072191A6E3EBE00D1792F /* LoginVC.xib */; };
+		B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC4B1A6F7345004D245A /* SMBarButtonItem.m */; };
+		B140EC6D1A6F7345004D245A /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC4D1A6F7345004D245A /* SMButton.m */; };
+		B140EC6E1A6F7345004D245A /* SMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC4F1A6F7345004D245A /* SMCheckBox.m */; };
+		B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC531A6F7345004D245A /* SMIndication.m */; };
+		B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC551A6F7345004D245A /* SMNavigationBar.m */; };
+		B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC571A6F7345004D245A /* SMNavigationController.m */; };
+		B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC591A6F7345004D245A /* SMNavigationItem.m */; };
+		B140EC731A6F7345004D245A /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC5B1A6F7345004D245A /* SMPageControl.m */; };
+		B140EC771A6F7345004D245A /* SMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC631A6F7345004D245A /* SMTabBar.m */; };
+		B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC651A6F7345004D245A /* SMTabBarController.m */; };
+		B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC671A6F7345004D245A /* SMTabBarItem.m */; };
+		B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC691A6F7345004D245A /* SMTextView.m */; };
+		B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC6B1A6F7345004D245A /* SMViewController.m */; };
+		B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC7D1A6F7589004D245A /* AdvertisingView.m */; };
+		B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC811A6F78C3004D245A /* RegisterVC.m */; };
+		B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140EC821A6F78C3004D245A /* RegisterVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +135,6 @@
 		B14071BF1A6CEC9400D1792F /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		B14071C01A6CEC9400D1792F /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		B14071C11A6CEC9400D1792F /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
-		B14071C51A6CED1900D1792F /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
-		B14071C61A6CED1900D1792F /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
 		B14071CB1A6D015900D1792F /* TapActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapActionView.h; sourceTree = "<group>"; };
 		B14071CC1A6D015900D1792F /* TapActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapActionView.m; sourceTree = "<group>"; };
 		B14071CE1A6D019900D1792F /* TapActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapActionView.xib; sourceTree = "<group>"; };
@@ -133,6 +146,39 @@
 		B14072171A6E3EBE00D1792F /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B14072181A6E3EBE00D1792F /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		B14072191A6E3EBE00D1792F /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		B140EC4A1A6F7345004D245A /* SMBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBarButtonItem.h; sourceTree = "<group>"; };
+		B140EC4B1A6F7345004D245A /* SMBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBarButtonItem.m; sourceTree = "<group>"; };
+		B140EC4C1A6F7345004D245A /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMButton.h; sourceTree = "<group>"; };
+		B140EC4D1A6F7345004D245A /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMButton.m; sourceTree = "<group>"; };
+		B140EC4E1A6F7345004D245A /* SMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCheckBox.h; sourceTree = "<group>"; };
+		B140EC4F1A6F7345004D245A /* SMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCheckBox.m; sourceTree = "<group>"; };
+		B140EC501A6F7345004D245A /* SMConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMConstant.h; sourceTree = "<group>"; };
+		B140EC511A6F7345004D245A /* SMControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMControl.h; sourceTree = "<group>"; };
+		B140EC521A6F7345004D245A /* SMIndication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIndication.h; sourceTree = "<group>"; };
+		B140EC531A6F7345004D245A /* SMIndication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIndication.m; sourceTree = "<group>"; };
+		B140EC541A6F7345004D245A /* SMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNavigationBar.h; sourceTree = "<group>"; };
+		B140EC551A6F7345004D245A /* SMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavigationBar.m; sourceTree = "<group>"; };
+		B140EC561A6F7345004D245A /* SMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNavigationController.h; sourceTree = "<group>"; };
+		B140EC571A6F7345004D245A /* SMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavigationController.m; sourceTree = "<group>"; };
+		B140EC581A6F7345004D245A /* SMNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNavigationItem.h; sourceTree = "<group>"; };
+		B140EC591A6F7345004D245A /* SMNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavigationItem.m; sourceTree = "<group>"; };
+		B140EC5A1A6F7345004D245A /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		B140EC5B1A6F7345004D245A /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
+		B140EC621A6F7345004D245A /* SMTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTabBar.h; sourceTree = "<group>"; };
+		B140EC631A6F7345004D245A /* SMTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTabBar.m; sourceTree = "<group>"; };
+		B140EC641A6F7345004D245A /* SMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTabBarController.h; sourceTree = "<group>"; };
+		B140EC651A6F7345004D245A /* SMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTabBarController.m; sourceTree = "<group>"; };
+		B140EC661A6F7345004D245A /* SMTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTabBarItem.h; sourceTree = "<group>"; };
+		B140EC671A6F7345004D245A /* SMTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTabBarItem.m; sourceTree = "<group>"; };
+		B140EC681A6F7345004D245A /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTextView.h; sourceTree = "<group>"; };
+		B140EC691A6F7345004D245A /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTextView.m; sourceTree = "<group>"; };
+		B140EC6A1A6F7345004D245A /* SMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMViewController.h; sourceTree = "<group>"; };
+		B140EC6B1A6F7345004D245A /* SMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMViewController.m; sourceTree = "<group>"; };
+		B140EC7C1A6F7589004D245A /* AdvertisingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisingView.h; sourceTree = "<group>"; };
+		B140EC7D1A6F7589004D245A /* AdvertisingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisingView.m; sourceTree = "<group>"; };
+		B140EC801A6F78C3004D245A /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		B140EC811A6F78C3004D245A /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		B140EC821A6F78C3004D245A /* RegisterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +293,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B140EC491A6F7345004D245A /* SMControl */,
 				B14071A01A6CD38E00D1792F /* MJRefresh */,
 				B14071811A6CCC2C00D1792F /* IBActionSheet */,
 			);
@@ -370,8 +417,8 @@
 		B14071C41A6CED1900D1792F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B14071C51A6CED1900D1792F /* AdvertiseView.h */,
-				B14071C61A6CED1900D1792F /* AdvertiseView.m */,
+				B140EC7C1A6F7589004D245A /* AdvertisingView.h */,
+				B140EC7D1A6F7589004D245A /* AdvertisingView.m */,
 				B14071CB1A6D015900D1792F /* TapActionView.h */,
 				B14071CC1A6D015900D1792F /* TapActionView.m */,
 				B14071CE1A6D019900D1792F /* TapActionView.xib */,
@@ -387,11 +434,57 @@
 		B14072161A6E3EA700D1792F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B140EC7F1A6F78A4004D245A /* Register */,
 				B14072171A6E3EBE00D1792F /* LoginVC.h */,
 				B14072181A6E3EBE00D1792F /* LoginVC.m */,
 				B14072191A6E3EBE00D1792F /* LoginVC.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B140EC491A6F7345004D245A /* SMControl */ = {
+			isa = PBXGroup;
+			children = (
+				B140EC4A1A6F7345004D245A /* SMBarButtonItem.h */,
+				B140EC4B1A6F7345004D245A /* SMBarButtonItem.m */,
+				B140EC4C1A6F7345004D245A /* SMButton.h */,
+				B140EC4D1A6F7345004D245A /* SMButton.m */,
+				B140EC4E1A6F7345004D245A /* SMCheckBox.h */,
+				B140EC4F1A6F7345004D245A /* SMCheckBox.m */,
+				B140EC501A6F7345004D245A /* SMConstant.h */,
+				B140EC511A6F7345004D245A /* SMControl.h */,
+				B140EC521A6F7345004D245A /* SMIndication.h */,
+				B140EC531A6F7345004D245A /* SMIndication.m */,
+				B140EC541A6F7345004D245A /* SMNavigationBar.h */,
+				B140EC551A6F7345004D245A /* SMNavigationBar.m */,
+				B140EC561A6F7345004D245A /* SMNavigationController.h */,
+				B140EC571A6F7345004D245A /* SMNavigationController.m */,
+				B140EC581A6F7345004D245A /* SMNavigationItem.h */,
+				B140EC591A6F7345004D245A /* SMNavigationItem.m */,
+				B140EC5A1A6F7345004D245A /* SMPageControl.h */,
+				B140EC5B1A6F7345004D245A /* SMPageControl.m */,
+				B140EC621A6F7345004D245A /* SMTabBar.h */,
+				B140EC631A6F7345004D245A /* SMTabBar.m */,
+				B140EC641A6F7345004D245A /* SMTabBarController.h */,
+				B140EC651A6F7345004D245A /* SMTabBarController.m */,
+				B140EC661A6F7345004D245A /* SMTabBarItem.h */,
+				B140EC671A6F7345004D245A /* SMTabBarItem.m */,
+				B140EC681A6F7345004D245A /* SMTextView.h */,
+				B140EC691A6F7345004D245A /* SMTextView.m */,
+				B140EC6A1A6F7345004D245A /* SMViewController.h */,
+				B140EC6B1A6F7345004D245A /* SMViewController.m */,
+			);
+			path = SMControl;
+			sourceTree = "<group>";
+		};
+		B140EC7F1A6F78A4004D245A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B140EC801A6F78C3004D245A /* RegisterVC.h */,
+				B140EC811A6F78C3004D245A /* RegisterVC.m */,
+				B140EC821A6F78C3004D245A /* RegisterVC.xib */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
@@ -490,6 +583,7 @@
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
+				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 			);
@@ -545,29 +639,43 @@
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
+				B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */,
+				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
-				B14071C71A6CED1900D1792F /* AdvertiseView.m in Sources */,
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
+				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
+				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
+				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
 				B140719C1A6CCD7900D1792F /* BaseNC.m in Sources */,
+				B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */,
+				B140EC6E1A6F7345004D245A /* SMCheckBox.m in Sources */,
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
+				B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */,
+				B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */,
+				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
+				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
+				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
 				B140717D1A6CC9D000D1792F /* CMAlert.m in Sources */,
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
+				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
+				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
+				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,

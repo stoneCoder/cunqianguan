@@ -7,19 +7,21 @@
 //
 
 #import "HomeVC.h"
-#import "AdvertiseView.h"
 #import "TapActionView.h"
 #import "MenuCell.h"
 #import "GridMenu.h"
 #import "LoginVC.h"
 #import "BaseNC.h"
 
-@interface HomeVC ()<GridMenuDeleage>
+#import "AdvertisingView.h"
+#import "SMPageControl.h"
+
+@interface HomeVC ()<GridMenuDeleage,TapActionViewDelegate>
 {
     TapActionView *_actionView;
-    AdvertiseView *_adView;
     UIView *_dimView;
     GridMenu *_gridMenu;
+    SMPageControl *_pageControl;
 }
 
 @end
@@ -62,23 +64,34 @@
     self.navigationItem.rightBarButtonItem = rightBtnItem;
     //设置导航栏内容
     [self setTitleImage:[UIImage imageNamed:@"logo"]];
-    //[self setTitleText:@"保鲜期"];
 }
 
 -(void)initAdView
 {
-    _adView = [[AdvertiseView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 320)];
-    _adView.layer.borderWidth = 1;
-    _adView.layer.borderColor = [UIColor yellowColor].CGColor;
-    _adView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_adView];
+    _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 320)];
+    
+    AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    [adView addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
+    [_pageControl insertBannerPages:adView];
+    
+    adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    [_pageControl insertBannerPages:adView];
+    
+    adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    [_pageControl insertBannerPages:adView];
+    
+    [self.view addSubview:_pageControl];
 }
 
 -(void)initActionView
 {
-    CGFloat visiableY =   _adView.frame.size.height;
+    CGFloat visiableY =   _pageControl.frame.size.height;
     _actionView = [TapActionView init];
     [_actionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
+    _actionView.delegate = self;
     [self.view addSubview:_actionView];
 }
 
@@ -86,7 +99,11 @@
 -(void)setUpGridMenu
 {
     NSArray *menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
-    NSArray *menuImageArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < menuNameArray.count; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"lanmu%d",i+1];
+        [array addObject:imageName];
+    }
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setSectionInset:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -98,7 +115,7 @@
     _gridMenu.gridMenuDelegate = self;
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;
-    [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":menuImageArray}];
+    [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":array}];
 }
 
 -(void)showMenu
@@ -134,6 +151,11 @@
     }];
 }
 
+-(void)presentHelpView
+{
+    NSLog(@"23423423");
+}
+
 /*
 #pragma mark - Navigation
 
@@ -152,5 +174,35 @@
     LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
     BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark -- TapActionViewDelegate
+-(void)tapViewAction:(UIView *)tapView
+{
+    switch (tapView.tag) {
+        case 1000:
+            tapView.backgroundColor = UIColorFromRGB(0xed961a);
+            break;
+        case 1001:
+            tapView.backgroundColor = UIColorFromRGB(0x10b5cd);
+            break;
+        case 1002:
+            tapView.backgroundColor = UIColorFromRGB(0xe83434);
+            break;
+        case 1003:
+            tapView.backgroundColor = UIColorFromRGB(0x12c2b3);
+            break;
+        case 1004:
+            tapView.backgroundColor = UIColorFromRGB(0x38c470);
+            break;
+        case 1005:
+            tapView.backgroundColor = UIColorFromRGB(0x33a5c2);
+            break;
+        case 1006:
+            tapView.backgroundColor = UIColorFromRGB(0x5f8bcd);
+            break;
+        default:
+            break;
+    }
 }
 @end

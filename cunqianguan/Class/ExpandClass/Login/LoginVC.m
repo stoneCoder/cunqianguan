@@ -8,7 +8,7 @@
 
 #import "LoginVC.h"
 
-@interface LoginVC ()
+@interface LoginVC ()<UITextFieldDelegate>
 
 @end
 
@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initNavBar];
+    [self setUpTextField];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,12 +28,50 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -- Private
 -(void)initNavBar
 {
     //设置导航栏内容
     [self setTitleText:@"登录"];
     [self makeNaviLeftButtonVisible:YES];
+    
+    NSString *btnTitleStr = @"注册";
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+    [button setTitle:btnTitleStr forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+    
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    if (iOS7) {
+        //iOS7 custom leftBarButtonItem 偏移
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -10;
+        self.navigationItem.rightBarButtonItems = @[negativeSpacer, btnItem];
+    }else{
+        self.navigationItem.rightBarButtonItem = btnItem;
+    }
+    [button addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+-(void)setUpTextField
+{
+    _username.delegate = self;
+    _pwd.delegate = self;
+}
+
+-(void)hideKeyBoard
+{
+    [_username resignFirstResponder];
+    [_pwd resignFirstResponder];
+}
+
+- (IBAction)forgetPwdAction:(id)sender
+{
+    NSLog(@"13123");
+}
+
 
 - (void)leftBtnClicked:(id)sender
 {
@@ -39,14 +80,38 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)rightBtnClick:(id)sender
+{
+    
 }
-*/
+
+- (IBAction)registForThirdPart:(id)sender
+{
+    
+}
+
+#pragma mark -- UITextfiledDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField.returnKeyType == UIReturnKeyNext)
+    {
+        NSLog(@"I click username");
+        [_pwd becomeFirstResponder];
+        return YES;
+    }
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

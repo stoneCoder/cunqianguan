@@ -9,5 +9,7 @@
 #import "BaseVC.h"
 
 @interface LoginVC : BaseVC
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *pwd;
 
 @end

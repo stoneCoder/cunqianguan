@@ -33,19 +33,19 @@ static NSString *  collectionCellID=@"MenuCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return _menuNameArray.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.frame.size.width/4, 80);
+    return CGSizeMake(self.frame.size.width/4, self.frame.size.height/2);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     cell.tag = indexPath.row;
     cell.menuLabel.text = _menuNameArray[indexPath.row];
-    cell.menuImage.backgroundColor = [UIColor redColor];
+    cell.menuImage.image = [UIImage imageNamed:_menuImageArray[indexPath.row]];
     return cell;
 }
 

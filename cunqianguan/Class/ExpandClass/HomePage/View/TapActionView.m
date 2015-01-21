@@ -24,8 +24,28 @@
     TapActionView *tapActionView = nil;
     if ([nibs count]) {
         tapActionView = [nibs objectAtIndex:0];
+        [tapActionView setUpTapAction];
     }
     return tapActionView;
+}
+
+-(void)setUpTapAction
+{
+    [_taobaoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_zujiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_juyouhuiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_fanligouView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_duihuanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_shopView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    [_myView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+}
+
+-(void)tapView:(UITapGestureRecognizer *)tap
+{
+    UIView *tapView = (UIView *)tap.view;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tapViewAction:)]) {
+        [self.delegate tapViewAction:tapView];
+    }
 }
 
 
