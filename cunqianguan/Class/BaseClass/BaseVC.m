@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
+    [self setupLeftButton];
     //滑动返回
     if (self.navigationController.viewControllers.count>1) {
         UISwipeGestureRecognizer * recognizer=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(tuchReturnBack:)];
@@ -82,6 +82,27 @@
 
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -10;
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer, btnItem];
+    }else{
+        self.navigationItem.leftBarButtonItem = btnItem;
+        
+    }
+    [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark - 返回
+/**
+ * 设置返回
+ */
+-(void)setupLeftButton{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    if (iOS7) {
+        //iOS7 custom leftBarButtonItem 偏移
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         negativeSpacer.width = -10;
         self.navigationItem.leftBarButtonItems = @[negativeSpacer, btnItem];

@@ -16,4 +16,6 @@
 @property (strong, nonatomic) UIColor *unindicationColor;
 @property (nonatomic, assign) CGFloat lineWidth;
 
+@property (strong,nonatomic) UIImageView *imageView;
+
 @end

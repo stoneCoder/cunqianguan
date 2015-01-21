@@ -1,23 +1,23 @@
 //
-//  RegisterVC.m
+//  ForgetVC.m
 //  cunqianguan
 //
 //  Created by 四三一八 on 15/1/21.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "RegisterVC.h"
+#import "ForgetVC.h"
 
-@interface RegisterVC ()
+@interface ForgetVC ()
 
 @end
 
-@implementation RegisterVC
+@implementation ForgetVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"注册"];
+    [self setTitleText:@"忘记密码"];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 

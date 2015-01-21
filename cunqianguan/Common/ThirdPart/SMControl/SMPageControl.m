@@ -10,9 +10,9 @@
 #import "SMIndication.h"
 
 #define DEFAULT_BANNER_PAGENUMBER 6
-#define INDICATION_WIDTH 6
-#define INDICATION_HEIGHT 6
-#define INDICATION_SPACING 4
+#define INDICATION_WIDTH 18
+#define INDICATION_HEIGHT 4
+#define INDICATION_SPACING 8
 
 @interface SMPageControl ()
 

@@ -60,6 +60,8 @@
 		B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC7D1A6F7589004D245A /* AdvertisingView.m */; };
 		B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC811A6F78C3004D245A /* RegisterVC.m */; };
 		B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140EC821A6F78C3004D245A /* RegisterVC.xib */; };
+		B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC861A6F83D0004D245A /* ForgetVC.m */; };
+		B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140EC871A6F83D0004D245A /* ForgetVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +181,9 @@
 		B140EC801A6F78C3004D245A /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
 		B140EC811A6F78C3004D245A /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		B140EC821A6F78C3004D245A /* RegisterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
+		B140EC851A6F83D0004D245A /* ForgetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetVC.h; sourceTree = "<group>"; };
+		B140EC861A6F83D0004D245A /* ForgetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetVC.m; sourceTree = "<group>"; };
+		B140EC871A6F83D0004D245A /* ForgetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,6 +488,9 @@
 				B140EC801A6F78C3004D245A /* RegisterVC.h */,
 				B140EC811A6F78C3004D245A /* RegisterVC.m */,
 				B140EC821A6F78C3004D245A /* RegisterVC.xib */,
+				B140EC851A6F83D0004D245A /* ForgetVC.h */,
+				B140EC861A6F83D0004D245A /* ForgetVC.m */,
+				B140EC871A6F83D0004D245A /* ForgetVC.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -581,6 +589,7 @@
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
+				B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
@@ -673,6 +682,7 @@
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
+				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,

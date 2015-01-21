@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self hideReturnBtn];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -76,11 +77,11 @@
     [_pageControl insertBannerPages:adView];
     
     adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    adView.imageView.image = [UIImage imageNamed:@"banner1"];
     [_pageControl insertBannerPages:adView];
     
     adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    adView.imageView.image = [UIImage imageNamed:@"banner2"];
     [_pageControl insertBannerPages:adView];
     
     [self.view addSubview:_pageControl];

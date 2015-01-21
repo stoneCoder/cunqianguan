@@ -7,6 +7,8 @@
 //
 
 #import "LoginVC.h"
+#import "RegisterVC.h"
+#import "ForgetVC.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 
@@ -33,7 +35,6 @@
 {
     //设置导航栏内容
     [self setTitleText:@"登录"];
-    [self makeNaviLeftButtonVisible:YES];
     
     NSString *btnTitleStr = @"注册";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
@@ -69,7 +70,8 @@
 
 - (IBAction)forgetPwdAction:(id)sender
 {
-    NSLog(@"13123");
+    ForgetVC *forgetVC = [[ForgetVC alloc] init];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
 
@@ -82,7 +84,8 @@
 
 -(void)rightBtnClick:(id)sender
 {
-    
+    RegisterVC *registVC = [[RegisterVC alloc] init];
+    [self.navigationController pushViewController:registVC animated:YES];
 }
 
 - (IBAction)registForThirdPart:(id)sender
