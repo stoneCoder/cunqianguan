@@ -7,6 +7,7 @@
 //
 
 #import "BaseCollectionVC.h"
+#import "UIScrollView+MJRefresh.h"
 
 @interface BaseCollectionVC ()
 
@@ -28,8 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
- 
     [self setupLeftButton];
+    if (iOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+    }
 }
 
 #pragma mark - 返回
@@ -46,9 +50,9 @@
  */
 -(void)setupLeftButton{
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
-    [button setBackgroundImage:[UIImage imageNamed:@"back_button"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
 
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
@@ -74,7 +78,7 @@
     titleTextLbl.backgroundColor = [UIColor clearColor];
     titleTextLbl.text = aTitleText;
     titleTextLbl.textColor = [UIColor whiteColor];
-    titleTextLbl.font = [UIFont boldSystemFontOfSize:19.0];
+    titleTextLbl.font = [UIFont boldSystemFontOfSize:25.0];
     titleTextLbl.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleTextLbl;
 }
@@ -85,6 +89,24 @@
 - (void)leftBtnClicked:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)setRefreshEnabled:(BOOL)enabled
+{
+    if (enabled) {
+        [self.collectionView addHeaderWithTarget:self action:@selector(refresh)];
+        [self.collectionView addFooterWithTarget:self action:@selector(moreFresh)];
+    }
+}
+
+-(void)refresh
+{
+     [self.collectionView performSelector:@selector(headerEndRefreshing) withObject:nil afterDelay:2];
+}
+
+-(void)moreFresh
+{
+    [self.collectionView performSelector:@selector(footerEndRefreshing) withObject:nil afterDelay:2];
 }
 
 

@@ -113,6 +113,31 @@
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)setRigthBarWithArray:(NSArray *)array
+{
+    NSMutableArray *btnArray = [NSMutableArray array];
+    for (int i = 0 ; i < array.count; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+        [button addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = i;
+        [button setBackgroundImage:[UIImage imageNamed:array[i]] forState:UIControlStateNormal];
+        //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+        UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [btnArray addObject:btnItem];
+        if (iOS7) {//iOS7 custom rightBarButtonItem 偏移
+            UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+            spaceButtonItem.width = 15;
+            [btnArray addObject:spaceButtonItem];
+        }
+    }
+    self.navigationItem.rightBarButtonItems = btnArray;
+}
+
+-(void)rightBtnClick:(id)sender
+{
+    
+}
+
 
 #pragma mark - 设置右上按钮
 /**
@@ -171,7 +196,7 @@
     titleTextLbl.backgroundColor = [UIColor clearColor];
     titleTextLbl.text = aTitleText;
     titleTextLbl.textColor = [UIColor whiteColor];
-    titleTextLbl.font = [UIFont boldSystemFontOfSize:19.0];
+    titleTextLbl.font = [UIFont boldSystemFontOfSize:25.0];
     titleTextLbl.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleTextLbl;
 }

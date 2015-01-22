@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "cunqianguan/Class/BaseClass/BaseCollectionVC.m"
-            timestampString = "443435539.121185"
+            filePath = "cunqianguan/Class/ExpandClass/ReturnPage/View/CollectionReusableView.m"
+            timestampString = "443601410.245875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-leftBtnClicked:"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-awakeFromNib"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

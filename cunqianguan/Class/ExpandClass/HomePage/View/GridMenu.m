@@ -8,6 +8,9 @@
 
 #import "GridMenu.h"
 #import "MenuCell.h"
+#import "LoginVC.h"
+#import "BaseNC.h"
+
 static NSString *  collectionCellID=@"MenuCell";
 @implementation GridMenu
 {
@@ -54,6 +57,11 @@ static NSString *  collectionCellID=@"MenuCell";
     MenuCell *cell = (MenuCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (self.gridMenuDelegate && [self.gridMenuDelegate respondsToSelector:@selector(selectItem:)]) {
         [self.gridMenuDelegate selectItem:cell];
+    }else
+    {
+        LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
+        BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
     }
 }
 

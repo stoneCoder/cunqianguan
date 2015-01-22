@@ -45,6 +45,8 @@
  */
 -(UIButton*)setRightBarButtonWithTitle:(NSString*)title withTarget:(id)target withSelector:(SEL)sel;
 
+-(void)setRigthBarWithArray:(NSArray *)array;
+
 /**
  *  功能:显示hud
  */

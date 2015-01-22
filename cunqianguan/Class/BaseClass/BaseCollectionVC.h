@@ -18,6 +18,7 @@
 //隐藏返回按钮
 -(void)hideReturnBackButton;
 
+-(void)setRefreshEnabled:(BOOL)enabled;
 //显示hud
 - (void)showHUD;
 //隐藏hud
