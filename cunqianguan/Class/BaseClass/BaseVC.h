@@ -32,6 +32,10 @@
  *  功能:是否显示返回按钮
  */
 -(void)hideReturnBtn;
+/**
+ * 设置自定义Nav左侧按钮
+ */
+-(void)setLeftBtnWithImage:(NSDictionary *)imageName;
 
 
 /**
@@ -44,8 +48,10 @@
  *  @return 右按钮的自定义Button
  */
 -(UIButton*)setRightBarButtonWithTitle:(NSString*)title withTarget:(id)target withSelector:(SEL)sel;
-
--(void)setRigthBarWithArray:(NSArray *)array;
+/**
+ * 设置自定义Nav右侧按钮
+ */
+-(void)setRigthBarWithDic:(NSDictionary *)dictionary;
 
 /**
  *  功能:显示hud

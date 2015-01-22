@@ -94,7 +94,7 @@
 
 #pragma mark - 返回
 /**
- * 设置返回
+ * 设置Default返回
  */
 -(void)setupLeftButton{
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
@@ -113,15 +113,36 @@
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)setRigthBarWithArray:(NSArray *)array
+/**
+ * 设置自定义Nav左侧按钮
+ */
+-(void)setLeftBtnWithImage:(NSDictionary *)imageName
 {
+    //设置navigationbar左边按钮
+    NSString *nomarlName = [imageName objectForKey:@"nomarl"];
+    NSString *selectName = [imageName objectForKey:@"highlight"];
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:nomarlName] forState:UIControlStateNormal];
+    [leftButton setBackgroundImage:[UIImage imageNamed:selectName] forState:UIControlStateHighlighted];
+    [leftButton addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftBtnItem;
+}
+
+/**
+ * 设置自定义Nav右侧按钮
+ */
+-(void)setRigthBarWithDic:(NSDictionary *)dictionary
+{
+    NSArray *imageArray = [dictionary objectForKey:@"images"];
+    NSArray *selectImageArray = [dictionary objectForKey:@"imageshover"];
     NSMutableArray *btnArray = [NSMutableArray array];
-    for (int i = 0 ; i < array.count; i++) {
+    for (int i = 0 ; i < imageArray.count; i++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
         [button addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = i;
-        [button setBackgroundImage:[UIImage imageNamed:array[i]] forState:UIControlStateNormal];
-        //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:selectImageArray[i]] forState:UIControlStateHighlighted];
         UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         [btnArray addObject:btnItem];
         if (iOS7) {//iOS7 custom rightBarButtonItem 偏移
