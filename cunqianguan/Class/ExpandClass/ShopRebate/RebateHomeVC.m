@@ -18,7 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = UIColorFromRGB(0xECECEC);
-    [self setRigthBarWithArray:@[@"share",@"jiaoya",@"taobao_btn"]];
+    NSDictionary *imageDic = @{@"images":@[@"share",@"jiaoya",@"taobao_btn"],@"imageshover":@[@"share_hover",@"jiaoya_hover",@"taobao_btn_hover"]};
+    //[self setRigthBarWithImageDic:];
 }
 
 - (void)didReceiveMemoryWarning {
