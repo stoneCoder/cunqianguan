@@ -11,7 +11,7 @@
 @protocol GridMenuDeleage <NSObject>
 -(void)selectItem:(MenuCell *)cell;
 @end
-@interface GridMenu : BaseCollectionView
+@interface GridMenu : BaseCollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong,nonatomic) id<GridMenuDeleage> gridMenuDelegate;
 -(void)setUpMenuData:(NSDictionary *)dictionary;
 @end

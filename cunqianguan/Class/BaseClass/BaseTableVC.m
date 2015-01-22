@@ -52,12 +52,12 @@
 
 -(void)refresh
 {
-    
+    [self.tableView performSelector:@selector(headerEndRefreshing) withObject:nil afterDelay:2];
 }
 
 -(void)moreFresh
 {
-
+    [self.tableView performSelector:@selector(footerEndRefreshing) withObject:nil afterDelay:2];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgetVC">
             <connections>
+                <outlet property="emailtext" destination="Psv-wn-GcH" id="YmW-vT-7ZF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,11 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-x8-BFW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_center" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-x8-BFW">
                     <rect key="frame" x="15" y="160" width="290" height="44"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.87843137250000003" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入您的邮箱" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-wn-GcH">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的邮箱" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-wn-GcH">
                     <rect key="frame" x="27" y="167" width="266" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Hfy-p8-wdD"/>
@@ -29,14 +29,14 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqJ-fm-Fww">
                     <rect key="frame" x="15" y="220" width="290" height="44"/>
-                    <color key="backgroundColor" red="0.16078431372549018" green="0.65098039215686276" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="taX-st-v3Q"/>
                     </constraints>
-                    <state key="normal" title="找回密码">
+                    <state key="normal" title="找回密码" backgroundImage="confirmation">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" backgroundImage="confirmation_hover"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-4C-UoE">
                     <rect key="frame" x="100" y="29" width="121" height="103"/>
@@ -65,6 +65,11 @@
             <point key="canvasLocation" x="385" y="161"/>
         </view>
     </objects>
+    <resources>
+        <image name="confirmation" width="339" height="37"/>
+        <image name="confirmation_hover" width="339" height="37"/>
+        <image name="text_center" width="339" height="44"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
+                <outlet property="clearBtn" destination="zpO-kW-M2N" id="xRJ-df-W3A"/>
                 <outlet property="pwd" destination="yKV-ES-OL8" id="f00-Kc-Ib4"/>
                 <outlet property="username" destination="z1I-bZ-Amb" id="pL9-EI-npk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -118,18 +119,21 @@
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKV-ES-OL8">
                             <rect key="frame" x="50" y="67" width="210" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱/用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1I-bZ-Amb">
                             <rect key="frame" x="50" y="24" width="210" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpO-kW-M2N">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpO-kW-M2N">
                             <rect key="frame" x="276" y="28" width="16" height="22"/>
                             <state key="normal" image="clear">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clearAction:" destination="-1" eventType="touchUpInside" id="QZF-c5-vkZ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-tf-I0r">
                             <rect key="frame" x="266" y="73" width="33" height="17"/>
@@ -137,6 +141,9 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" image="pwd_show"/>
+                            <connections>
+                                <action selector="showPwdAction:" destination="-1" eventType="touchUpInside" id="i7m-vO-qFz"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="Dyy-ed-Ysx">
                             <rect key="frame" x="28" y="74" width="14" height="15"/>

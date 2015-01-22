@@ -93,7 +93,34 @@
     
 }
 
+- (IBAction)clearAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    _username.text = @"";
+    btn.hidden = YES;
+}
+
+- (IBAction)showPwdAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if (btn.selected) {
+        btn.selected = NO;
+        _pwd.secureTextEntry = YES;
+        return;
+    }
+    btn.selected = YES;
+    _pwd.secureTextEntry = NO;
+}
+
 #pragma mark -- UITextfiledDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == _username) {
+        _clearBtn.hidden = NO;
+    }
+    return YES;
+}
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     if(textField.returnKeyType == UIReturnKeyNext)

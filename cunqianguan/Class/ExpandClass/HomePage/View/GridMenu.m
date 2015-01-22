@@ -54,6 +54,9 @@ static NSString *  collectionCellID=@"MenuCell";
     MenuCell *cell = (MenuCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (self.gridMenuDelegate && [self.gridMenuDelegate respondsToSelector:@selector(selectItem:)]) {
         [self.gridMenuDelegate selectItem:cell];
+    }else
+    {
+        NSLog(@"1312312");
     }
 }
 

@@ -171,7 +171,7 @@
     titleTextLbl.backgroundColor = [UIColor clearColor];
     titleTextLbl.text = aTitleText;
     titleTextLbl.textColor = [UIColor whiteColor];
-    titleTextLbl.font = [UIFont boldSystemFontOfSize:19.0];
+    titleTextLbl.font = [UIFont boldSystemFontOfSize:25.0];
     titleTextLbl.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleTextLbl;
 }

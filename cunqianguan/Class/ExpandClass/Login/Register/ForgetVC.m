@@ -9,6 +9,7 @@
 #import "ForgetVC.h"
 
 @interface ForgetVC ()
+@property (weak, nonatomic) IBOutlet UITextField *emailtext;
 
 @end
 
@@ -38,7 +39,7 @@
 #pragma mark -- Private
 -(void)hideKeyBoard
 {
-    
+    [_emailtext resignFirstResponder];
 }
 
 @end

@@ -8,7 +8,10 @@
 
 #import "RegisterVC.h"
 
-@interface RegisterVC ()
+@interface RegisterVC ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *emailtext;
+@property (weak, nonatomic) IBOutlet UITextField *pwdtext;
 
 @end
 
@@ -18,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setTitleText:@"注册"];
+    _username.delegate = self;
+    _emailtext.delegate = self;
+    _pwdtext.delegate = self;
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 
@@ -38,7 +44,25 @@
 #pragma mark -- Private
 -(void)hideKeyBoard
 {
-    
+    [_username resignFirstResponder];
+    [_emailtext resignFirstResponder];
+    [_pwdtext resignFirstResponder];
+}
+
+#pragma mark -- UITextfiledDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == _username)
+    {
+        [_emailtext becomeFirstResponder];
+        return YES;
+    }else if (textField == _emailtext)
+    {
+        [_pwdtext becomeFirstResponder];
+        return YES;
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

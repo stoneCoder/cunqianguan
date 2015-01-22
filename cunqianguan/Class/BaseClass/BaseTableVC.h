@@ -10,7 +10,7 @@
 
 @interface BaseTableVC : BaseVC<UITableViewDataSource, UITableViewDelegate>{}
 @property(strong, nonatomic) IBOutlet UITableView *tableView;
-
+-(void)setRefreshEnabled:(BOOL)enabled;
 @end
 
 
