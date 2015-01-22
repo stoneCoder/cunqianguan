@@ -113,6 +113,25 @@
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)setRigthBarWithArray:(NSArray *)array
+{
+    NSMutableArray *btnArray = [NSMutableArray array];
+    for (int i = 0 ; i < array.count; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+        button.tag = i;
+        [button setBackgroundImage:[UIImage imageNamed:array[i]] forState:UIControlStateNormal];
+        //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+        UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [btnArray addObject:btnItem];
+        if (iOS7) {//iOS7 custom rightBarButtonItem 偏移
+            UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+            //spaceButtonItem.width = -10;
+            [btnArray addObject:spaceButtonItem];
+        }
+    }
+    self.navigationItem.rightBarButtonItems = btnArray;
+}
+
 
 #pragma mark - 设置右上按钮
 /**

@@ -38,24 +38,23 @@
                     </state>
                     <state key="selected" backgroundImage="confirmation_hover"/>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-4C-UoE">
-                    <rect key="frame" x="100" y="29" width="121" height="103"/>
-                    <color key="backgroundColor" red="0.14117647059999999" green="0.80392156859999997" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_password" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-4C-UoE">
+                    <rect key="frame" x="103" y="51" width="114" height="82"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="103" id="CaZ-Ij-ThY"/>
+                        <constraint firstAttribute="height" constant="82" id="CaZ-Ij-ThY"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Cis-4C-UoE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="1Fg-CA-jYD"/>
+                <constraint firstItem="Cis-4C-UoE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="1Fg-CA-jYD"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4ag-s8-8s0"/>
                 <constraint firstItem="XqJ-fm-Fww" firstAttribute="top" secondItem="3jP-x8-BFW" secondAttribute="bottom" constant="16" id="5vk-kn-Vp6"/>
                 <constraint firstItem="Psv-wn-GcH" firstAttribute="centerX" secondItem="3jP-x8-BFW" secondAttribute="centerX" id="IvO-KD-IJP"/>
-                <constraint firstItem="3jP-x8-BFW" firstAttribute="top" secondItem="Cis-4C-UoE" secondAttribute="bottom" constant="28" id="JTj-ah-CZf"/>
+                <constraint firstItem="3jP-x8-BFW" firstAttribute="top" secondItem="Cis-4C-UoE" secondAttribute="bottom" constant="27" id="JTj-ah-CZf"/>
                 <constraint firstItem="Psv-wn-GcH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="Trp-Bs-ZVU"/>
                 <constraint firstItem="XqJ-fm-Fww" firstAttribute="top" secondItem="Psv-wn-GcH" secondAttribute="bottom" constant="23" id="UCG-eH-jXr"/>
-                <constraint firstAttribute="trailing" secondItem="Cis-4C-UoE" secondAttribute="trailing" constant="99" id="Whh-yd-fOt"/>
+                <constraint firstAttribute="trailing" secondItem="Cis-4C-UoE" secondAttribute="trailing" constant="103" id="Whh-yd-fOt"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="leading" secondItem="XqJ-fm-Fww" secondAttribute="leading" id="bxu-h3-Zif"/>
                 <constraint firstItem="Cis-4C-UoE" firstAttribute="centerX" secondItem="Psv-wn-GcH" secondAttribute="centerX" id="hk3-zB-1uF"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="trailing" secondItem="XqJ-fm-Fww" secondAttribute="trailing" id="sgw-N9-52g"/>
@@ -68,6 +67,7 @@
     <resources>
         <image name="confirmation" width="339" height="37"/>
         <image name="confirmation_hover" width="339" height="37"/>
+        <image name="email_password" width="114" height="82"/>
         <image name="text_center" width="339" height="44"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

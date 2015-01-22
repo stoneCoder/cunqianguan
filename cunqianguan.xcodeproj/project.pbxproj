@@ -70,6 +70,8 @@
 		B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D453A1A70A4EE005AA895 /* GoodsCell.xib */; };
 		B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45461A70D254005AA895 /* GoodsSectionView.m */; };
 		B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D45471A70D254005AA895 /* GoodsSectionView.xib */; };
+		B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D454D1A70DA6E005AA895 /* RebateHomeVC.m */; };
+		B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D454E1A70DA6E005AA895 /* RebateHomeVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +207,9 @@
 		B14D45451A70D254005AA895 /* GoodsSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsSectionView.h; sourceTree = "<group>"; };
 		B14D45461A70D254005AA895 /* GoodsSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsSectionView.m; sourceTree = "<group>"; };
 		B14D45471A70D254005AA895 /* GoodsSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsSectionView.xib; sourceTree = "<group>"; };
+		B14D454C1A70DA6E005AA895 /* RebateHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RebateHomeVC.h; sourceTree = "<group>"; };
+		B14D454D1A70DA6E005AA895 /* RebateHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RebateHomeVC.m; sourceTree = "<group>"; };
+		B14D454E1A70DA6E005AA895 /* RebateHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RebateHomeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +407,7 @@
 		B14071871A6CCD6D00D1792F /* ExpandClass */ = {
 			isa = PBXGroup;
 			children = (
+				B14D454B1A70DA4F005AA895 /* ShopRebate */,
 				B14D45311A70A169005AA895 /* ReturnPage */,
 				B14072161A6E3EA700D1792F /* Login */,
 				B14071BE1A6CEC9400D1792F /* HomePage */,
@@ -545,6 +551,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B14D454B1A70DA4F005AA895 /* ShopRebate */ = {
+			isa = PBXGroup;
+			children = (
+				B14D454C1A70DA6E005AA895 /* RebateHomeVC.h */,
+				B14D454D1A70DA6E005AA895 /* RebateHomeVC.m */,
+				B14D454E1A70DA6E005AA895 /* RebateHomeVC.xib */,
+			);
+			path = ShopRebate;
+			sourceTree = "<group>";
+		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +664,7 @@
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
+				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +761,7 @@
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
+				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,

@@ -10,13 +10,12 @@
 #import "TapActionView.h"
 #import "MenuCell.h"
 #import "GridMenu.h"
-#import "LoginVC.h"
-#import "BaseNC.h"
 
 #import "AdvertisingView.h"
 #import "SMPageControl.h"
 #import "PresentTableView.h"
 #import "ReturnHomeVC.h"
+#import "RebateHomeVC.h"
 
 @interface HomeVC ()<TapActionViewDelegate>
 {
@@ -36,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _openView = 0;
     [self hideReturnBtn];
 }
 
@@ -46,6 +44,11 @@
     [self initNavBar];
     [self initAdView];
     [self initActionView];
+    if (_dimView) {
+        [_dimView removeFromSuperview];
+        _dimView = nil;
+        _openView = 0;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -216,22 +219,12 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark -- GridMenuDelegate
--(void)selectItem:(MenuCell *)cell
-{
-    [self dismissMenu:_openView];
-    NSLog(@"%ld----------->%@",(long)cell.tag,cell.menuLabel.text);
-    LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
-    BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
-}
-
 #pragma mark -- TapActionViewDelegate
 -(void)tapViewAction:(UIView *)tapView
 {
     switch (tapView.tag) {
         case 1000:
+            [self pushRebateHome];
             tapView.backgroundColor = UIColorFromRGB(0xed961a);
             break;
         case 1001:
@@ -269,5 +262,11 @@
     
     ReturnHomeVC *returnHomeVC =[[ReturnHomeVC alloc] initWithCollectionViewLayout:flowLayout];
     [self.navigationController pushViewController:returnHomeVC animated:YES];
+}
+
+-(void)pushRebateHome
+{
+    RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
+    [self.navigationController pushViewController:rebateHomeVC animated:YES];
 }
 @end
