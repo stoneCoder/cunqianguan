@@ -9,8 +9,9 @@
 #import "PolyDealVC.h"
 #import "PolyGoodsCell.h"
 #import "TouchPropagatedScrollView.h"
+#import "BaseSegment.h"
 
-@interface PolyDealVC ()
+@interface PolyDealVC ()<SegmentDelegate>
 {
     UIView *_selectTabV;
     TouchPropagatedScrollView *_navScrollV;
@@ -59,23 +60,13 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     
     
     _navScrollV = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
+    _navScrollV.segmentDelegate = self;
     _navScrollV.backgroundColor = [UIColor whiteColor];
     [_navScrollV setShowsHorizontalScrollIndicator:NO];
-    //_navScrollV.layer.shadowOpacity = 1;
-    
     NSArray *arT = @[@"测试1", @"测试2", @"测试3", @"测试4", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
-    for (int i = 0; i < [arT count]; i++)
-    {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(btnW * i, 0, btnW, btnH)];
-        [btn setTitle:[arT objectAtIndex:i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        btn.tag = i + 1;
-        [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_navScrollV addSubview:btn];
-    }
     [_navScrollV setContentSize:CGSizeMake(btnW * [arT count], btnH)];
+    [_navScrollV setItems:arT isShowLine:YES];
+    
     [self.view insertSubview:_navScrollV aboveSubview:self.collectionView];
 }
 
@@ -132,6 +123,14 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     }
 }
 
+#pragma mark -- SegmentDelegate
+-(void)selectIndex:(NSInteger)index
+{
+    CGFloat width = self.view.frame.size.width/4;
+    float xx = _navScrollV.frame.size.width * (index - 1) * (width / self.view.frame.size.width) - width;
+    [_navScrollV scrollRectToVisible:CGRectMake(xx, 0, _navScrollV.frame.size.width, _navScrollV.frame.size.height) animated:YES];
+}
+
 -(void)actionbtn:(UIButton *)btn
 {
     if(!btn.selected){
@@ -139,9 +138,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     }else{
         btn.selected = NO;
     }
-    CGFloat width = self.view.frame.size.width/5;
-    float xx = _navScrollV.frame.size.width * (btn.tag - 1) * (width / self.view.frame.size.width) - width;
-    [_navScrollV scrollRectToVisible:CGRectMake(xx, 0, _navScrollV.frame.size.width, _navScrollV.frame.size.height) animated:YES];
+    
 }
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource

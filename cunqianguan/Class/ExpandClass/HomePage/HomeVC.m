@@ -261,6 +261,30 @@
 
 
 #pragma mark -- push view fuction
+-(void)pushRebateHome
+{
+    RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
+    [self.navigationController pushViewController:rebateHomeVC animated:YES];
+}
+
+-(void)pushFootPrints
+{
+    FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
+    [self.navigationController pushViewController:footPrintsVC animated:YES];
+}
+
+-(void)pushPolyHome
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
+    [self.navigationController pushViewController:polyDealVC animated:YES];
+}
+
 -(void)pushReturnHome
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
@@ -272,24 +296,6 @@
     
     ReturnHomeVC *returnHomeVC =[[ReturnHomeVC alloc] initWithCollectionViewLayout:flowLayout];
     [self.navigationController pushViewController:returnHomeVC animated:YES];
-}
-
--(void)pushRebateHome
-{
-    RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
-    [self.navigationController pushViewController:rebateHomeVC animated:YES];
-}
-
--(void)pushPolyHome
-{
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(5, 5, 5, 5)];
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 5.0;
-    
-    PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
-    [self.navigationController pushViewController:polyDealVC animated:YES];
 }
 
 -(void)pushExChangeCenter
@@ -304,9 +310,4 @@
     [self.navigationController pushViewController:exchangeCenterVC animated:YES];
 }
 
--(void)pushFootPrints
-{
-    FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
-    [self.navigationController pushViewController:footPrintsVC animated:YES];
-}
 @end

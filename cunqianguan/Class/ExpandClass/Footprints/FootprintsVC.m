@@ -39,6 +39,7 @@ static NSString *CellID=@"FootPrintsCell";
     UINib *cellNib = [UINib nibWithNibName:@"FootPrintsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = UIColorFromRGB(0xececec);
     [self setRefreshEnabled:YES];
 }
 
