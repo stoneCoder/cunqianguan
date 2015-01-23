@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     if (self.tableView == nil) {
-        CGRect frame = CGRectMake(0, 0, 320, [UIScreen mainScreen].bounds.size.height - 108);
+        CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
         self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;

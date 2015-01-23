@@ -16,6 +16,8 @@
 #import "PresentTableView.h"
 #import "ReturnHomeVC.h"
 #import "RebateHomeVC.h"
+#import "PolyDealVC.h"
+#import "FootPrintsVC.h"
 
 @interface HomeVC ()<TapActionViewDelegate>
 {
@@ -223,9 +225,11 @@
             tapView.backgroundColor = UIColorFromRGB(0xed961a);
             break;
         case 1001:
+            [self pushFootPrints];
             tapView.backgroundColor = UIColorFromRGB(0x10b5cd);
             break;
         case 1002:
+            [self pushPolyHome];
             tapView.backgroundColor = UIColorFromRGB(0xe83434);
             break;
         case 1003:
@@ -246,6 +250,8 @@
     }
 }
 
+
+#pragma mark -- push view fuction
 -(void)pushReturnHome
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
@@ -263,5 +269,24 @@
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
     [self.navigationController pushViewController:rebateHomeVC animated:YES];
+}
+
+-(void)pushPolyHome
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(5, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 5.0;
+    [flowLayout setHeaderReferenceSize:CGSizeMake(320, 50)];
+    
+    PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
+    [self.navigationController pushViewController:polyDealVC animated:YES];
+}
+
+-(void)pushFootPrints
+{
+    FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
+    [self.navigationController pushViewController:footPrintsVC animated:YES];
 }
 @end

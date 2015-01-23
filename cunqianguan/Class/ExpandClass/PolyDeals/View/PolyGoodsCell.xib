@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PolyGoodsCell">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="220"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="spQ-FE-t4P">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                        <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男生秋冬" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-1s-GKI">
+                        <rect key="frame" x="5" y="167" width="150" height="19"/>
+                        <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="o3L-4c-SCa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥87.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4as-OY-A1I">
+                        <rect key="frame" x="1" y="195" width="60" height="21"/>
+                        <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Cvp-E8-rtY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1334人在抢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxu-eI-QMJ">
+                        <rect key="frame" x="69" y="194" width="85" height="21"/>
+                        <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VJP-fH-pqa">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                        <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="9Ry-bQ-t7K"/>
+                            <constraint firstAttribute="height" constant="40" id="MUj-jY-jTK"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="W1N-1s-GKI" firstAttribute="top" secondItem="spQ-FE-t4P" secondAttribute="bottom" constant="7" id="1bo-EW-pbr"/>
+                <constraint firstItem="spQ-FE-t4P" firstAttribute="leading" secondItem="VJP-fH-pqa" secondAttribute="leading" id="9jl-72-ij9"/>
+                <constraint firstItem="spQ-FE-t4P" firstAttribute="centerX" secondItem="W1N-1s-GKI" secondAttribute="centerX" id="DFm-nA-3LO"/>
+                <constraint firstAttribute="trailing" secondItem="jxu-eI-QMJ" secondAttribute="trailing" constant="6" id="EZV-vp-drh"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KcT-ut-hCC"/>
+                <constraint firstAttribute="trailing" secondItem="spQ-FE-t4P" secondAttribute="trailing" id="Lt9-3Q-JRB"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qjo-XT-gA4"/>
+                <constraint firstItem="spQ-FE-t4P" firstAttribute="top" secondItem="VJP-fH-pqa" secondAttribute="top" id="RND-Ee-F24"/>
+                <constraint firstItem="W1N-1s-GKI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ScB-ix-0i2"/>
+                <constraint firstAttribute="bottom" secondItem="4as-OY-A1I" secondAttribute="bottom" constant="4" id="TjB-mH-R81"/>
+                <constraint firstItem="jxu-eI-QMJ" firstAttribute="leading" secondItem="4as-OY-A1I" secondAttribute="trailing" constant="8" id="VT7-Vu-xD0"/>
+                <constraint firstItem="4as-OY-A1I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="daP-jQ-F6v"/>
+                <constraint firstItem="jxu-eI-QMJ" firstAttribute="baseline" secondItem="4as-OY-A1I" secondAttribute="baseline" id="pHM-6Q-qqv"/>
+                <constraint firstItem="4as-OY-A1I" firstAttribute="top" secondItem="W1N-1s-GKI" secondAttribute="bottom" constant="9" id="tE4-hI-Eyc"/>
+                <constraint firstItem="jxu-eI-QMJ" firstAttribute="top" secondItem="W1N-1s-GKI" secondAttribute="bottom" constant="8" symbolic="YES" id="z9d-Mm-dVJ"/>
+            </constraints>
+            <size key="customSize" width="172" height="221"/>
+            <point key="canvasLocation" x="-64" y="344"/>
+        </collectionViewCell>
+    </objects>
+</document>
