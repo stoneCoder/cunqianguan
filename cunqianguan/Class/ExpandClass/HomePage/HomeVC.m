@@ -18,6 +18,7 @@
 #import "RebateHomeVC.h"
 #import "PolyDealVC.h"
 #import "FootPrintsVC.h"
+#import "ExChangeCenterVC.h"
 
 @interface HomeVC ()<TapActionViewDelegate>
 {
@@ -221,28 +222,36 @@
 {
     switch (tapView.tag) {
         case 1000:
-            [self pushRebateHome];
+            //淘宝返利
             tapView.backgroundColor = UIColorFromRGB(0xed961a);
+            [self pushRebateHome];
             break;
         case 1001:
-            [self pushFootPrints];
+            //足迹
             tapView.backgroundColor = UIColorFromRGB(0x10b5cd);
+            [self pushFootPrints];
             break;
         case 1002:
-            [self pushPolyHome];
+            //聚优惠
             tapView.backgroundColor = UIColorFromRGB(0xe83434);
+            [self pushPolyHome];
             break;
         case 1003:
+            //返利购
             tapView.backgroundColor = UIColorFromRGB(0x12c2b3);
             [self pushReturnHome];
             break;
         case 1004:
+            //兑换中心
             tapView.backgroundColor = UIColorFromRGB(0x38c470);
+            [self pushExChangeCenter];
             break;
         case 1005:
+            //商城
             tapView.backgroundColor = UIColorFromRGB(0x33a5c2);
             break;
         case 1006:
+            //我的
             tapView.backgroundColor = UIColorFromRGB(0x5f8bcd);
             break;
         default:
@@ -256,9 +265,9 @@
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(5, 5, 5, 5)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
     flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 5.0;
+    flowLayout.minimumLineSpacing = 10.0;
     [flowLayout setHeaderReferenceSize:CGSizeMake(320, 180)];
     
     ReturnHomeVC *returnHomeVC =[[ReturnHomeVC alloc] initWithCollectionViewLayout:flowLayout];
@@ -278,10 +287,21 @@
     [flowLayout setSectionInset:UIEdgeInsetsMake(5, 5, 5, 5)];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 5.0;
-    [flowLayout setHeaderReferenceSize:CGSizeMake(320, 50)];
     
     PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
     [self.navigationController pushViewController:polyDealVC animated:YES];
+}
+
+-(void)pushExChangeCenter
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    ExChangeCenterVC *exchangeCenterVC = [[ExChangeCenterVC alloc] initWithCollectionViewLayout:flowLayout];
+    [self.navigationController pushViewController:exchangeCenterVC animated:YES];
 }
 
 -(void)pushFootPrints

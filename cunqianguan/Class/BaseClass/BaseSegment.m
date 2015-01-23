@@ -14,6 +14,7 @@
     NSMutableArray *views;
     float lineViewWidth;
     float lineViewHeight;
+    BOOL _isShowLine;
 }
 
 @property (nonatomic, weak) UIView * lineView;
@@ -51,8 +52,9 @@
     self.lineView = view;
 }
 
-- (void)setItems:(NSArray *)items
+- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine
 {
+    _isShowLine = isShowLine;
     lineViewWidth = self.bounds.size.width / items.count;
     if ([items isEqualToArray:_items]) {
         return;
@@ -69,7 +71,7 @@
         [btn setTitleColor:UIColorFromRGB(0x49c6db) forState:UIControlStateSelected];
         [btn setTitleColor:UIColorFromRGB(0x464646) forState:UIControlStateNormal];
         [btn setTitle:items[i] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        btn.titleLabel.font = [UIFont systemFontOfSize:16];
         if (self.selectIndex == i) {
             btn.selected = YES;
         }
@@ -77,13 +79,15 @@
         [self addSubview:btn];
         [btns addObject:btn];
     }
-    for (int i = 1; i < items.count; i++) {
-        UIView *fenggeView = [[UIView alloc] init];
-        fenggeView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
-        [self addSubview:fenggeView];
-        [views addObject:fenggeView];
+    if (_isShowLine) {
+        for (int i = 1; i < items.count; i++) {
+            UIView *fenggeView = [[UIView alloc] init];
+            fenggeView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+            [self addSubview:fenggeView];
+            [views addObject:fenggeView];
+        }
+        [self bringSubviewToFront:self.lineView];
     }
-    [self bringSubviewToFront:self.lineView];
     [self layoutSubviews];
 }
 
@@ -146,10 +150,12 @@
     [super layoutSubviews];
     
     float width = self.bounds.size.width / btns.count;
-    for (int i = 1; i < btns.count; i++) {
-        UIView *view = [views objectAtIndex:i-1];
-        view.frame  = CGRectMake(width * i, 0, 1, self.bounds.size.height / 2);
-        view.center = CGPointMake(view.center.x, self.bounds.size.height / 2);
+    if (_isShowLine) {
+        for (int i = 1; i < btns.count; i++) {
+            UIView *view = [views objectAtIndex:i-1];
+            view.frame  = CGRectMake(width * i, 0, 1, self.bounds.size.height / 2);
+            view.center = CGPointMake(view.center.x, self.bounds.size.height / 2);
+        }
     }
     for (int i = 0; i < btns.count; i++) {
         UIView *view = [btns objectAtIndex:i];

@@ -24,5 +24,5 @@
 - (void)setItemTitleFontSize:(CGFloat)size;
 - (void)hiddenSeparatorView:(BOOL)hidden;
 
-
+- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine;
 @end

@@ -48,9 +48,10 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 -(void)setUpSliderView
 {
-    float btnW = self.view.frame.size.width/5;
+    CGFloat btnW = self.view.frame.size.width/5;
+    CGFloat btnH = 44.0f;
     UIButton *selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [selectBtn setFrame:CGRectMake(self.view.frame.size.width - btnW, 0, btnW, 44)];
+    [selectBtn setFrame:CGRectMake(self.view.frame.size.width - btnW, 0, btnW, btnH)];
     [selectBtn setBackgroundColor:[UIColor redColor]];
     [selectBtn setTitle:@"+" forState:UIControlStateNormal];
     [selectBtn addTarget:self action:@selector(showSelectView:) forControlEvents:UIControlEventTouchUpInside];
@@ -60,12 +61,13 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     _navScrollV = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
     _navScrollV.backgroundColor = [UIColor whiteColor];
     [_navScrollV setShowsHorizontalScrollIndicator:NO];
+    //_navScrollV.layer.shadowOpacity = 1;
     
     NSArray *arT = @[@"测试1", @"测试2", @"测试3", @"测试4", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
     for (int i = 0; i < [arT count]; i++)
     {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(btnW * i, 0, btnW, 44)];
+        [btn setFrame:CGRectMake(btnW * i, 0, btnW, btnH)];
         [btn setTitle:[arT objectAtIndex:i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
@@ -73,13 +75,15 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
         [_navScrollV addSubview:btn];
     }
-    [_navScrollV setContentSize:CGSizeMake(btnW * [arT count], 44)];
+    [_navScrollV setContentSize:CGSizeMake(btnW * [arT count], btnH)];
     [self.view insertSubview:_navScrollV aboveSubview:self.collectionView];
 }
 
 -(void)setUpCollection
 {
+    CGFloat visiableY = _navScrollV.frame.size.height;
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
+    [self.collectionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, self.collectionView.frame.size.height - visiableY)];
     UINib *cellNib = [UINib nibWithNibName:@"PolyGoodsCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
     [self setRefreshEnabled:YES];
