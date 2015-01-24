@@ -84,6 +84,10 @@
 		B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F8E1A73632D00706772 /* PersonHeaderView.m */; };
 		B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F901A73633E00706772 /* PersonHeaderView.xib */; };
 		B1436F981A7377C000706772 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F951A7377C000706772 /* PopoverView.m */; };
+		B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9A1A73870C00706772 /* FinishInfoVC.m */; };
+		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
+		B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9F1A73895A00706772 /* BindAccountVC.m */; };
+		B1436FA21A73895A00706772 /* BindAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436FA01A73895A00706772 /* BindAccountVC.xib */; };
 		B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452C1A708B98005AA895 /* BaseTableView.m */; };
 		B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452F1A708BCC005AA895 /* PresentTableView.m */; };
 		B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45331A70A1BE005AA895 /* ReturnHomeVC.m */; };
@@ -252,6 +256,12 @@
 		B1436F951A7377C000706772 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		B1436F961A7377C000706772 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
 		B1436F971A7377C000706772 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
+		B1436F991A73870C00706772 /* FinishInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishInfoVC.h; sourceTree = "<group>"; };
+		B1436F9A1A73870C00706772 /* FinishInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishInfoVC.m; sourceTree = "<group>"; };
+		B1436F9B1A73870C00706772 /* FinishInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishInfoVC.xib; sourceTree = "<group>"; };
+		B1436F9E1A73895A00706772 /* BindAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindAccountVC.h; sourceTree = "<group>"; };
+		B1436F9F1A73895A00706772 /* BindAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindAccountVC.m; sourceTree = "<group>"; };
+		B1436FA01A73895A00706772 /* BindAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindAccountVC.xib; sourceTree = "<group>"; };
 		B14D452B1A708B98005AA895 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		B14D452C1A708B98005AA895 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		B14D452E1A708BCC005AA895 /* PresentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTableView.h; sourceTree = "<group>"; };
@@ -659,6 +669,12 @@
 				B140EC851A6F83D0004D245A /* ForgetVC.h */,
 				B140EC861A6F83D0004D245A /* ForgetVC.m */,
 				B140EC871A6F83D0004D245A /* ForgetVC.xib */,
+				B1436F991A73870C00706772 /* FinishInfoVC.h */,
+				B1436F9A1A73870C00706772 /* FinishInfoVC.m */,
+				B1436F9B1A73870C00706772 /* FinishInfoVC.xib */,
+				B1436F9E1A73895A00706772 /* BindAccountVC.h */,
+				B1436F9F1A73895A00706772 /* BindAccountVC.m */,
+				B1436FA01A73895A00706772 /* BindAccountVC.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -836,11 +852,13 @@
 				B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
 				B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */,
+				B1436FA21A73895A00706772 /* BindAccountVC.xib in Resources */,
 				B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
 				B109D5821A71EA5E00505D32 /* PolyDealVC.xib in Resources */,
+				B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
@@ -912,6 +930,7 @@
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
 				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
+				B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
 				B109D5981A72172900505D32 /* FootPrintsCell.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
@@ -934,6 +953,7 @@
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
+				B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,

@@ -90,7 +90,7 @@
 
 - (IBAction)registForThirdPart:(id)sender
 {
-    
+   
 }
 
 - (IBAction)clearAction:(id)sender
