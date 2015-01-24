@@ -30,7 +30,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setupLeftButton];
     //滑动返回
-    if (self.navigationController.viewControllers.count>1) {
+    if (self.navigationController.viewControllers.count >1) {
         UISwipeGestureRecognizer * recognizer=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(tuchReturnBack:)];
         [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
         [self.view addGestureRecognizer:recognizer];

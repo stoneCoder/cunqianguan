@@ -75,6 +75,12 @@
 		B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140EC821A6F78C3004D245A /* RegisterVC.xib */; };
 		B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B140EC861A6F83D0004D245A /* ForgetVC.m */; };
 		B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140EC871A6F83D0004D245A /* ForgetVC.xib */; };
+		B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F781A7326F400706772 /* PersonCenterVC.m */; };
+		B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F791A7326F400706772 /* PersonCenterVC.xib */; };
+		B1436F801A732D3C00706772 /* PersonInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F7E1A732D3C00706772 /* PersonInfoCell.m */; };
+		B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F7F1A732D3C00706772 /* PersonInfoCell.xib */; };
+		B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F891A7343FD00706772 /* PersonFooterView.m */; };
+		B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F8B1A73441400706772 /* PersonFooterView.xib */; };
 		B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452C1A708B98005AA895 /* BaseTableView.m */; };
 		B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452F1A708BCC005AA895 /* PresentTableView.m */; };
 		B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45331A70A1BE005AA895 /* ReturnHomeVC.m */; };
@@ -227,6 +233,15 @@
 		B140EC851A6F83D0004D245A /* ForgetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetVC.h; sourceTree = "<group>"; };
 		B140EC861A6F83D0004D245A /* ForgetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetVC.m; sourceTree = "<group>"; };
 		B140EC871A6F83D0004D245A /* ForgetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetVC.xib; sourceTree = "<group>"; };
+		B1436F771A7326F400706772 /* PersonCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterVC.h; sourceTree = "<group>"; };
+		B1436F781A7326F400706772 /* PersonCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterVC.m; sourceTree = "<group>"; };
+		B1436F791A7326F400706772 /* PersonCenterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCenterVC.xib; sourceTree = "<group>"; };
+		B1436F7D1A732D3C00706772 /* PersonInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoCell.h; sourceTree = "<group>"; };
+		B1436F7E1A732D3C00706772 /* PersonInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoCell.m; sourceTree = "<group>"; };
+		B1436F7F1A732D3C00706772 /* PersonInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoCell.xib; sourceTree = "<group>"; };
+		B1436F881A7343FD00706772 /* PersonFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFooterView.h; sourceTree = "<group>"; };
+		B1436F891A7343FD00706772 /* PersonFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFooterView.m; sourceTree = "<group>"; };
+		B1436F8B1A73441400706772 /* PersonFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonFooterView.xib; sourceTree = "<group>"; };
 		B14D452B1A708B98005AA895 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		B14D452C1A708B98005AA895 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		B14D452E1A708BCC005AA895 /* PresentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTableView.h; sourceTree = "<group>"; };
@@ -513,6 +528,7 @@
 		B14071871A6CCD6D00D1792F /* ExpandClass */ = {
 			isa = PBXGroup;
 			children = (
+				B1436F761A7326BD00706772 /* PersonCenter */,
 				B109D59B1A722D4000505D32 /* ExchangeCenter */,
 				B109D58E1A72168000505D32 /* Footprints */,
 				B109D5791A71E9AB00505D32 /* PolyDeals */,
@@ -634,6 +650,30 @@
 				B140EC871A6F83D0004D245A /* ForgetVC.xib */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		B1436F761A7326BD00706772 /* PersonCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B1436F7C1A732D1B00706772 /* View */,
+				B1436F771A7326F400706772 /* PersonCenterVC.h */,
+				B1436F781A7326F400706772 /* PersonCenterVC.m */,
+				B1436F791A7326F400706772 /* PersonCenterVC.xib */,
+			);
+			path = PersonCenter;
+			sourceTree = "<group>";
+		};
+		B1436F7C1A732D1B00706772 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1436F7D1A732D3C00706772 /* PersonInfoCell.h */,
+				B1436F7E1A732D3C00706772 /* PersonInfoCell.m */,
+				B1436F7F1A732D3C00706772 /* PersonInfoCell.xib */,
+				B1436F881A7343FD00706772 /* PersonFooterView.h */,
+				B1436F891A7343FD00706772 /* PersonFooterView.m */,
+				B1436F8B1A73441400706772 /* PersonFooterView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B14D45311A70A169005AA895 /* ReturnPage */ = {
@@ -761,6 +801,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */,
@@ -768,6 +809,7 @@
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
+				B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */,
 				B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
@@ -779,6 +821,7 @@
 				B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */,
 				B109D5991A72172900505D32 /* FootPrintsCell.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
+				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -852,6 +895,7 @@
 				B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */,
 				B140EC6E1A6F7345004D245A /* SMCheckBox.m in Sources */,
 				B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */,
+				B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */,
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
@@ -866,6 +910,7 @@
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,
+				B1436F801A732D3C00706772 /* PersonInfoCell.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
 				B14D453B1A70A4EE005AA895 /* GoodsCell.m in Sources */,
@@ -884,6 +929,7 @@
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
+				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,

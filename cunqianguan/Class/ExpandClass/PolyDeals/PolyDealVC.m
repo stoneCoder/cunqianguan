@@ -63,7 +63,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     _navScrollV.segmentDelegate = self;
     _navScrollV.backgroundColor = [UIColor whiteColor];
     [_navScrollV setShowsHorizontalScrollIndicator:NO];
-    NSArray *arT = @[@"测试1", @"测试2", @"测试3", @"测试4", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
+    NSArray *arT = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
     [_navScrollV setContentSize:CGSizeMake(btnW * [arT count], btnH)];
     [_navScrollV setItems:arT isShowLine:YES];
     

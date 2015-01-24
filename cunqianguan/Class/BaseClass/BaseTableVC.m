@@ -30,9 +30,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+-(void)createTableWithStye:(UITableViewStyle)style
+{
     if (self.tableView == nil) {
         CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
-        self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:frame style:style];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [self.view addSubview:self.tableView];

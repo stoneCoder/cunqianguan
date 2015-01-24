@@ -10,6 +10,7 @@
 
 @interface BaseTableVC : BaseVC<UITableViewDataSource, UITableViewDelegate>{}
 @property(strong, nonatomic) IBOutlet UITableView *tableView;
+-(void)createTableWithStye:(UITableViewStyle)style;
 -(void)setRefreshEnabled:(BOOL)enabled;
 @end
 

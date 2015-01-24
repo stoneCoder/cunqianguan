@@ -19,6 +19,7 @@
 #import "PolyDealVC.h"
 #import "FootPrintsVC.h"
 #import "ExChangeCenterVC.h"
+#import "PersonCenterVC.h"
 
 @interface HomeVC ()<TapActionViewDelegate>
 {
@@ -253,6 +254,7 @@
         case 1006:
             //我的
             tapView.backgroundColor = UIColorFromRGB(0x5f8bcd);
+            [self pushPersonCenter];
             break;
         default:
             break;
@@ -308,6 +310,12 @@
     
     ExChangeCenterVC *exchangeCenterVC = [[ExChangeCenterVC alloc] initWithCollectionViewLayout:flowLayout];
     [self.navigationController pushViewController:exchangeCenterVC animated:YES];
+}
+
+-(void)pushPersonCenter
+{
+    PersonCenterVC *personVC = [[PersonCenterVC alloc] init];
+    [self.navigationController pushViewController:personVC animated:YES];
 }
 
 @end
