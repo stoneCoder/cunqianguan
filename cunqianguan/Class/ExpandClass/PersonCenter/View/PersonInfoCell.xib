@@ -54,13 +54,13 @@
                     <constraint firstItem="nxa-FJ-B1P" firstAttribute="bottom" secondItem="2ZN-63-WCu" secondAttribute="bottom" constant="-1" id="FKz-0j-VxP"/>
                     <constraint firstItem="2ZN-63-WCu" firstAttribute="leading" secondItem="nxa-FJ-B1P" secondAttribute="trailing" constant="10" id="J5o-A5-jZQ"/>
                     <constraint firstItem="6Mz-Ve-Lu1" firstAttribute="leading" secondItem="397-Sh-PRG" secondAttribute="trailing" constant="4" id="KKo-D3-7PX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aQg-NI-dPa" secondAttribute="trailing" constant="-8" id="NoI-iC-bpt"/>
-                    <constraint firstItem="aQg-NI-dPa" firstAttribute="top" secondItem="6Mz-Ve-Lu1" secondAttribute="bottom" constant="30" id="SeY-vQ-qC2"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="aQg-NI-dPa" secondAttribute="bottom" constant="-8" id="VEJ-ee-b2S"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aQg-NI-dPa" secondAttribute="trailing" constant="312" id="NoI-iC-bpt"/>
+                    <constraint firstItem="aQg-NI-dPa" firstAttribute="top" secondItem="6Mz-Ve-Lu1" secondAttribute="bottom" constant="-13" id="SeY-vQ-qC2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="aQg-NI-dPa" secondAttribute="bottom" constant="35" id="VEJ-ee-b2S"/>
                     <constraint firstItem="397-Sh-PRG" firstAttribute="baseline" secondItem="nxa-FJ-B1P" secondAttribute="baseline" id="War-Mm-kRU"/>
                     <constraint firstItem="2ZN-63-WCu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="ggw-Xt-OdY"/>
                     <constraint firstItem="6Mz-Ve-Lu1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="mfm-P3-aaS"/>
-                    <constraint firstItem="aQg-NI-dPa" firstAttribute="top" secondItem="2ZN-63-WCu" secondAttribute="bottom" constant="11" id="tgj-FR-Dxh"/>
+                    <constraint firstItem="aQg-NI-dPa" firstAttribute="top" secondItem="2ZN-63-WCu" secondAttribute="bottom" constant="-32" id="tgj-FR-Dxh"/>
                     <constraint firstItem="2ZN-63-WCu" firstAttribute="centerY" secondItem="nxa-FJ-B1P" secondAttribute="centerY" id="uom-ap-Vy6"/>
                 </constraints>
             </tableViewCellContentView>

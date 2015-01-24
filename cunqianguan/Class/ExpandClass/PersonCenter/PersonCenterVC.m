@@ -8,9 +8,11 @@
 
 #import "PersonCenterVC.h"
 #import "PersonInfoCell.h"
+#import "PersonHeaderView.h"
 #import "PersonFooterView.h"
+#import "PopoverView.h"
 
-@interface PersonCenterVC ()
+@interface PersonCenterVC ()<PopoverViewDelegate>
 {
     NSDictionary *_localData;
 }
@@ -58,10 +60,22 @@ static NSString *FooterViewID = @"PersonFooterView";
     UINib *cellNib = [UINib nibWithNibName:@"PersonInfoCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     
+    PersonHeaderView *personHeaderView = [PersonHeaderView headerView];
+    self.tableView.tableHeaderView = personHeaderView;
+    
     PersonFooterView *personFooterView = [PersonFooterView footerView];
     personFooterView.backgroundColor = self.tableView.backgroundColor;
-    [personFooterView setFrame:CGRectMake(0, 0, VIEW_WIDTH, 120)];
     self.tableView.tableFooterView = personFooterView;
+    
+    [self popView:personHeaderView.progressView.frame];
+}
+
+-(void)popView:(CGRect)frame
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    view.backgroundColor = [UIColor redColor];
+    [view setCenter:CGPointMake(frame.size.width/2, frame.origin.y - view.frame.size.height/2)];
+    [self.tableView addSubview:view];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate

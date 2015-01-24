@@ -70,7 +70,7 @@
     if (_isShowLine) {
         for (int i = 1; i < items.count; i++) {
             UIView *fenggeView = [[UIView alloc] init];
-            fenggeView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+            fenggeView.backgroundColor = UIColorFromRGB(0xececec);
             [self addSubview:fenggeView];
             [views addObject:fenggeView];
         }

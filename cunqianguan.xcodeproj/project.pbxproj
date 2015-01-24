@@ -81,6 +81,9 @@
 		B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F7F1A732D3C00706772 /* PersonInfoCell.xib */; };
 		B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F891A7343FD00706772 /* PersonFooterView.m */; };
 		B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F8B1A73441400706772 /* PersonFooterView.xib */; };
+		B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F8E1A73632D00706772 /* PersonHeaderView.m */; };
+		B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F901A73633E00706772 /* PersonHeaderView.xib */; };
+		B1436F981A7377C000706772 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F951A7377C000706772 /* PopoverView.m */; };
 		B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452C1A708B98005AA895 /* BaseTableView.m */; };
 		B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452F1A708BCC005AA895 /* PresentTableView.m */; };
 		B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45331A70A1BE005AA895 /* ReturnHomeVC.m */; };
@@ -242,6 +245,13 @@
 		B1436F881A7343FD00706772 /* PersonFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFooterView.h; sourceTree = "<group>"; };
 		B1436F891A7343FD00706772 /* PersonFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFooterView.m; sourceTree = "<group>"; };
 		B1436F8B1A73441400706772 /* PersonFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonFooterView.xib; sourceTree = "<group>"; };
+		B1436F8D1A73632D00706772 /* PersonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderView.h; sourceTree = "<group>"; };
+		B1436F8E1A73632D00706772 /* PersonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderView.m; sourceTree = "<group>"; };
+		B1436F901A73633E00706772 /* PersonHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderView.xib; sourceTree = "<group>"; };
+		B1436F941A7377C000706772 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		B1436F951A7377C000706772 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		B1436F961A7377C000706772 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
+		B1436F971A7377C000706772 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
 		B14D452B1A708B98005AA895 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		B14D452C1A708B98005AA895 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		B14D452E1A708BCC005AA895 /* PresentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTableView.h; sourceTree = "<group>"; };
@@ -444,6 +454,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B1436F931A7377C000706772 /* PopoverView */,
 				B109D57A1A71EA1B00505D32 /* SliderView */,
 				B140EC491A6F7345004D245A /* SMControl */,
 				B14071A01A6CD38E00D1792F /* MJRefresh */,
@@ -672,8 +683,22 @@
 				B1436F881A7343FD00706772 /* PersonFooterView.h */,
 				B1436F891A7343FD00706772 /* PersonFooterView.m */,
 				B1436F8B1A73441400706772 /* PersonFooterView.xib */,
+				B1436F8D1A73632D00706772 /* PersonHeaderView.h */,
+				B1436F8E1A73632D00706772 /* PersonHeaderView.m */,
+				B1436F901A73633E00706772 /* PersonHeaderView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B1436F931A7377C000706772 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				B1436F941A7377C000706772 /* PopoverView.h */,
+				B1436F951A7377C000706772 /* PopoverView.m */,
+				B1436F961A7377C000706772 /* PopoverView_Configuration.h */,
+				B1436F971A7377C000706772 /* PopoverViewCompatibility.h */,
+			);
+			path = PopoverView;
 			sourceTree = "<group>";
 		};
 		B14D45311A70A169005AA895 /* ReturnPage */ = {
@@ -808,6 +833,7 @@
 				B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */,
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
+				B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
 				B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */,
 				B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */,
@@ -905,6 +931,7 @@
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
+				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
@@ -926,6 +953,7 @@
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
+				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
