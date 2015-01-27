@@ -15,6 +15,7 @@
     float lineViewWidth;
     float lineViewHeight;
     BOOL _isShowLine;
+    ShowSelectPlace _selectPlace;
 }
 
 @property (nonatomic, weak) UIView * lineView;
@@ -52,9 +53,10 @@
     self.lineView = view;
 }
 
-- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine
+- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine WithSelectPlace:(ShowSelectPlace)selectPlace
 {
     _isShowLine = isShowLine;
+    _selectPlace = selectPlace;
     lineViewWidth = self.bounds.size.width / items.count;
     if ([items isEqualToArray:_items]) {
         return;
@@ -161,7 +163,11 @@
         UIView *view = [btns objectAtIndex:i];
         view.frame  = CGRectMake(width * i, 0, width, self.bounds.size.height);
         if (self.selectIndex == i) {
-            self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, self.bounds.size.height - self.lineView.frame.size.height, lineViewWidth, lineViewHeight);
+            if (_selectPlace == ShowSelectPlaceFromTop) {
+                self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, 0, lineViewWidth, lineViewHeight);
+            }else if ( _selectPlace == ShowSelectPlaceFromBottom){
+                 self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, self.bounds.size.height - self.lineView.frame.size.height, lineViewWidth, lineViewHeight);
+            }
             self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (view.frame.size.width/2), self.lineView.center.y);
         }
     }

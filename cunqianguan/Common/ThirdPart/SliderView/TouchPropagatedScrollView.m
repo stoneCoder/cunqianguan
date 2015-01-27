@@ -6,7 +6,6 @@
 //
 
 #import "TouchPropagatedScrollView.h"
-
 @interface TouchPropagatedScrollView ()
 {
     NSMutableArray *btns;

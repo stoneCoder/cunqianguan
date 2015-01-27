@@ -9,7 +9,9 @@
 #import "ExChangeCenterVC.h"
 #import "BaseSegment.h"
 #import "ExChangeCell.h"
-#import <QuartzCore/QuartzCore.h>
+#import "ChangeProductVC.h"
+
+#import "ChangeRootVC.h"
 
 @interface ExChangeCenterVC ()
 {
@@ -39,7 +41,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
     _segment.backgroundColor = [UIColor whiteColor];
     _segment.layer.shadowOpacity = 1;
-    [_segment setItems:@[@"我能兑换",@"全部商品"] isShowLine:NO];
+    [_segment setItems:@[@"我能兑换",@"全部商品"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     [self.view insertSubview:_segment aboveSubview:self.collectionView];
 }
 
@@ -81,7 +83,9 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //ChangeProductVC *changeProductVC = [[ChangeProductVC alloc] init];
+    ChangeRootVC *changeRootVC = [[ChangeRootVC alloc] init];
+    [self.navigationController pushViewController:changeRootVC animated:YES];
 }
 
 @end

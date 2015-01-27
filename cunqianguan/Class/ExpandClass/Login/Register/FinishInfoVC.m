@@ -50,7 +50,7 @@
     _segment.backgroundColor = [UIColor whiteColor];
     _segment.layer.shadowOpacity = 1;
     _segment.delegate = self;
-    [_segment setItems:@[@"绑定已有账号",@"注册新账号"] isShowLine:NO];
+    [_segment setItems:@[@"绑定已有账号",@"注册新账号"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     [self.view insertSubview:_segment aboveSubview:self.view];
 }
 

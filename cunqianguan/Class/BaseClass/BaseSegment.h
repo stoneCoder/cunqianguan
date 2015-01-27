@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSInteger, ShowSelectPlace) {
+    ShowSelectPlaceFromTop,
+    ShowSelectPlaceFromBottom,
+};
 @protocol CCSegmentDelegate <NSObject>
 -(void)selectIndex:(NSInteger)index;
 @end
@@ -24,5 +28,5 @@
 - (void)setItemTitleFontSize:(CGFloat)size;
 - (void)hiddenSeparatorView:(BOOL)hidden;
 
-- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine;
+- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine WithSelectPlace:(ShowSelectPlace)selectPlace;
 @end

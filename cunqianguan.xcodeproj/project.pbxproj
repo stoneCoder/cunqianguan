@@ -88,6 +88,12 @@
 		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
 		B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9F1A73895A00706772 /* BindAccountVC.m */; };
 		B1436FA21A73895A00706772 /* BindAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436FA01A73895A00706772 /* BindAccountVC.xib */; };
+		B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498ADF1A7730E2001260EC /* ChangeProductVC.m */; };
+		B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AE01A7730E2001260EC /* ChangeProductVC.xib */; };
+		B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498AE41A775795001260EC /* ProductDetailHeaderView.m */; };
+		B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AE51A775795001260EC /* ProductDetailHeaderView.xib */; };
+		B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498AEE1A776225001260EC /* ChangeRootVC.m */; };
+		B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AEF1A776225001260EC /* ChangeRootVC.xib */; };
 		B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452C1A708B98005AA895 /* BaseTableView.m */; };
 		B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452F1A708BCC005AA895 /* PresentTableView.m */; };
 		B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45331A70A1BE005AA895 /* ReturnHomeVC.m */; };
@@ -262,6 +268,15 @@
 		B1436F9E1A73895A00706772 /* BindAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindAccountVC.h; sourceTree = "<group>"; };
 		B1436F9F1A73895A00706772 /* BindAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindAccountVC.m; sourceTree = "<group>"; };
 		B1436FA01A73895A00706772 /* BindAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindAccountVC.xib; sourceTree = "<group>"; };
+		B1498ADE1A7730E2001260EC /* ChangeProductVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeProductVC.h; sourceTree = "<group>"; };
+		B1498ADF1A7730E2001260EC /* ChangeProductVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeProductVC.m; sourceTree = "<group>"; };
+		B1498AE01A7730E2001260EC /* ChangeProductVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeProductVC.xib; sourceTree = "<group>"; };
+		B1498AE31A775795001260EC /* ProductDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailHeaderView.h; sourceTree = "<group>"; };
+		B1498AE41A775795001260EC /* ProductDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailHeaderView.m; sourceTree = "<group>"; };
+		B1498AE51A775795001260EC /* ProductDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailHeaderView.xib; sourceTree = "<group>"; };
+		B1498AED1A776225001260EC /* ChangeRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeRootVC.h; sourceTree = "<group>"; };
+		B1498AEE1A776225001260EC /* ChangeRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeRootVC.m; sourceTree = "<group>"; };
+		B1498AEF1A776225001260EC /* ChangeRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeRootVC.xib; sourceTree = "<group>"; };
 		B14D452B1A708B98005AA895 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		B14D452C1A708B98005AA895 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		B14D452E1A708BCC005AA895 /* PresentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTableView.h; sourceTree = "<group>"; };
@@ -372,9 +387,18 @@
 		B109D5A11A722E6D00505D32 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1498AE31A775795001260EC /* ProductDetailHeaderView.h */,
+				B1498AE41A775795001260EC /* ProductDetailHeaderView.m */,
+				B1498AE51A775795001260EC /* ProductDetailHeaderView.xib */,
 				B109D5A21A722E7D00505D32 /* ExChangeCell.h */,
 				B109D5A31A722E7D00505D32 /* ExChangeCell.m */,
 				B109D5A41A722E7D00505D32 /* ExChangeCell.xib */,
+				B1498ADE1A7730E2001260EC /* ChangeProductVC.h */,
+				B1498ADF1A7730E2001260EC /* ChangeProductVC.m */,
+				B1498AE01A7730E2001260EC /* ChangeProductVC.xib */,
+				B1498AED1A776225001260EC /* ChangeRootVC.h */,
+				B1498AEE1A776225001260EC /* ChangeRootVC.m */,
+				B1498AEF1A776225001260EC /* ChangeRootVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,10 +866,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
+				B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */,
+				B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */,
 				B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */,
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
 				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
@@ -917,6 +944,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */,
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
@@ -946,6 +974,7 @@
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
 				B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */,
+				B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */,
 				B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */,
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
@@ -978,6 +1007,7 @@
 				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
 				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
+				B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,
