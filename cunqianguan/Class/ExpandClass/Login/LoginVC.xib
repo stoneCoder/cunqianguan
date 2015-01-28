@@ -169,11 +169,11 @@
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="TK7-vy-LXN" secondAttribute="bottom" id="3Ih-Ch-AWO"/>
-                <constraint firstItem="ME4-MA-EDH" firstAttribute="trailing" secondItem="TK7-vy-LXN" secondAttribute="trailing" id="Kjm-Cs-8m6"/>
-                <constraint firstItem="ME4-MA-EDH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kQY-0Q-kPy"/>
-                <constraint firstItem="TK7-vy-LXN" firstAttribute="top" secondItem="ME4-MA-EDH" secondAttribute="bottom" constant="8" id="kng-O7-311"/>
+                <constraint firstItem="TK7-vy-LXN" firstAttribute="top" secondItem="ME4-MA-EDH" secondAttribute="bottom" constant="8" symbolic="YES" id="MUs-MF-Nbe"/>
+                <constraint firstItem="ME4-MA-EDH" firstAttribute="trailing" secondItem="TK7-vy-LXN" secondAttribute="trailing" id="mha-vC-uuE"/>
                 <constraint firstItem="TK7-vy-LXN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="psj-V8-vaf"/>
-                <constraint firstItem="ME4-MA-EDH" firstAttribute="leading" secondItem="TK7-vy-LXN" secondAttribute="leading" id="wkl-Gu-2L1"/>
+                <constraint firstItem="ME4-MA-EDH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wZ6-CT-ppW"/>
+                <constraint firstItem="ME4-MA-EDH" firstAttribute="leading" secondItem="TK7-vy-LXN" secondAttribute="leading" id="zss-cB-4GS"/>
             </constraints>
             <point key="canvasLocation" x="-691" y="282"/>
         </view>

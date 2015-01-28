@@ -36,5 +36,12 @@
     _pointImageView.layer.cornerRadius = _pointImageView.frame.size.width/2;
     _pointImageView.layer.masksToBounds = YES;
 }
+- (IBAction)btnAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if (_delegate && [_delegate respondsToSelector:@selector(btnAction:)]) {
+        [_delegate btnAction:btn.tag];
+    }
+}
 
 @end

@@ -10,9 +10,13 @@
 #import "PersonInfoCell.h"
 #import "PersonHeaderView.h"
 #import "PersonFooterView.h"
-#import "PopoverView.h"
 
-@interface PersonCenterVC ()<PopoverViewDelegate>
+#import "MyOrderVC.h"
+#import "AccountInfoVC.h"
+#import "MessageInfoVC.h"
+#import "MoreSettingVC.h"
+
+@interface PersonCenterVC ()<PersonHeaderDelegate>
 {
     NSDictionary *_localData;
 }
@@ -61,6 +65,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     
     PersonHeaderView *personHeaderView = [PersonHeaderView headerView];
+    personHeaderView.delegate = self;
     self.tableView.tableHeaderView = personHeaderView;
     
     PersonFooterView *personFooterView = [PersonFooterView footerView];
@@ -104,7 +109,53 @@ static NSString *FooterViewID = @"PersonFooterView";
 
     PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.titleLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+            break;
+        case 1:
+            if(indexPath.row == 0){
+                MyOrderVC *myOrderVC = [[MyOrderVC alloc] init];
+                [self.navigationController pushViewController:myOrderVC animated:YES];
+            }else if (indexPath.row == 1){
+                AccountInfoVC *accountInfoVC = [[AccountInfoVC alloc] init];
+                [self.navigationController pushViewController:accountInfoVC animated:YES];
+            }
+            break;
+        case 3:
+            if (indexPath.row == 0) {
+                
+            }else if (indexPath.row == 1){
+                MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
+                [self.navigationController pushViewController:moreSettingVC animated:YES];
+            }
+        default:
+            break;
+    }
+}
+
+#pragma MARK -- PersonHeaderDelegate
+-(void)btnAction:(NSInteger)tag
+{
+    switch (tag) {
+        case 1000:
+            break;
+        case 1001:
+            [self pushMsgInfo];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)pushMsgInfo
+{
+    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
 @end

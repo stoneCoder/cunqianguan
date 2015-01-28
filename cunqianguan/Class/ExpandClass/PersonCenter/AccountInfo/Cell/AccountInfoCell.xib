@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AccountInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09-03 09:08" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDp-z4-KHg">
+                        <rect key="frame" x="8" y="12" width="83" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="淘宝订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkJ-NI-FQQ">
+                        <rect key="frame" x="127" y="14" width="60" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+50集分宝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOF-H4-7HK">
+                        <rect key="frame" x="240" y="14" width="72" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QkJ-NI-FQQ" secondAttribute="bottom" constant="12" id="0A1-qc-izk"/>
+                    <constraint firstItem="QkJ-NI-FQQ" firstAttribute="leading" secondItem="PDp-z4-KHg" secondAttribute="trailing" constant="36" id="5B5-Lp-EB6"/>
+                    <constraint firstAttribute="bottom" secondItem="oOF-H4-7HK" secondAttribute="bottom" constant="11" id="Qgu-lI-O81"/>
+                    <constraint firstItem="QkJ-NI-FQQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="RPl-j8-nJA"/>
+                    <constraint firstAttribute="bottom" secondItem="PDp-z4-KHg" secondAttribute="bottom" constant="11" id="RmS-az-hRP"/>
+                    <constraint firstItem="oOF-H4-7HK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="Upf-bK-xNx"/>
+                    <constraint firstItem="PDp-z4-KHg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="Yu9-Ee-kXF"/>
+                    <constraint firstItem="PDp-z4-KHg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="eea-k8-QV1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="QkJ-NI-FQQ" secondAttribute="bottom" constant="4" id="iob-83-23a"/>
+                    <constraint firstAttribute="trailing" secondItem="oOF-H4-7HK" secondAttribute="trailing" constant="8" id="jCB-vP-fWf"/>
+                    <constraint firstItem="PDp-z4-KHg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="n0G-kI-ZN6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="200" y="357"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -78,7 +78,7 @@
         textStr = @"在\"足迹\"里，可以看到商品的具体返利，购买有返利！";
     }
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = textStr;
     return cell;
