@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "AccountInfoCell.h"
+#import "RunningWaterCell.h"
 
-@implementation AccountInfoCell
+@implementation RunningWaterCell
 
 - (void)awakeFromNib {
     // Initialization code

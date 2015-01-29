@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self setupLeftButton];
+    [self.view setBackgroundColor:UIColorFromRGB(0xececec)];
+    [self setReturnBtnTitle:_leftTitle WithImage:@""];
     //滑动返回
     if (self.navigationController.viewControllers.count >1) {
         UISwipeGestureRecognizer * recognizer=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(tuchReturnBack:)];
@@ -94,8 +94,9 @@
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)setReturnBtnTitle:(NSString *)aTitle
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName
 {
+    NSString *defaultImageName = @"back";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     CGRect btnFrame;
     NSString * btnTitleStr=aTitle;
@@ -106,8 +107,11 @@
     }else{
         btnFrame = CGRectMake(0,0,22,22);
     }
+    if (imageName.length > 0) {
+        defaultImageName = imageName;
+    }
     [button setFrame:btnFrame];
-    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
     //[button setBackgroundImage:[UIImage imageNamed:@"title_left_btn_sel"] forState:UIControlStateHighlighted];
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

@@ -11,8 +11,11 @@
 #import "PersonHeaderView.h"
 #import "PersonFooterView.h"
 
+#import "MoneyViewVC.h"
 #import "MyOrderVC.h"
-#import "AccountInfoVC.h"
+#import "AccountVC.h"
+#import "RunningWaterVC.h"
+#import "AddressManagerVC.h"
 #import "MessageInfoVC.h"
 #import "MoreSettingVC.h"
 
@@ -117,14 +120,28 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     switch (indexPath.section) {
         case 0:
+            [self pushMoneyViewWith:indexPath];
             break;
         case 1:
             if(indexPath.row == 0){
                 MyOrderVC *myOrderVC = [[MyOrderVC alloc] init];
+                myOrderVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:myOrderVC animated:YES];
             }else if (indexPath.row == 1){
-                AccountInfoVC *accountInfoVC = [[AccountInfoVC alloc] init];
+                RunningWaterVC *accountInfoVC = [[RunningWaterVC alloc] init];
+                accountInfoVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:accountInfoVC animated:YES];
+            }
+            break;
+        case 2:
+            if (indexPath.row == 0) {
+                AccountVC *accountVC = [[AccountVC alloc] init];
+                accountVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                [self.navigationController pushViewController:accountVC animated:YES];
+            }else if (indexPath.row == 1){
+                AddressManagerVC *addressManagerVC = [[AddressManagerVC alloc] init];
+                addressManagerVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                [self.navigationController pushViewController:addressManagerVC animated:YES];
             }
             break;
         case 3:
@@ -132,11 +149,21 @@ static NSString *FooterViewID = @"PersonFooterView";
                 
             }else if (indexPath.row == 1){
                 MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
+                moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:moreSettingVC animated:YES];
             }
+            break;
         default:
             break;
     }
+}
+
+-(void)pushMoneyViewWith:(NSIndexPath *)indexPath
+{
+    MoneyViewVC *moneyViewVC = [[MoneyViewVC alloc] init];
+    moneyViewVC.type = indexPath.row;
+    moneyViewVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+    [self.navigationController pushViewController:moneyViewVC animated:YES];
 }
 
 #pragma MARK -- PersonHeaderDelegate
@@ -156,6 +183,7 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)pushMsgInfo
 {
     MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
+    messageVC.leftTitle = @"消息";
     [self.navigationController pushViewController:messageVC animated:YES];
 }
 @end

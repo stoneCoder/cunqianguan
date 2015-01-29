@@ -1,19 +1,19 @@
 //
-//  MessageInfoVC.m
+//  AccountVC.m
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/1/28.
+//  Created by 四三一八 on 15/1/29.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "MessageInfoVC.h"
-#import "MessageInfoCell.h"
+#import "AccountVC.h"
+#import "AccountCell.h"
 
-@interface MessageInfoVC ()
+@interface AccountVC ()<AccountCellDelegate>
 
 @end
-static NSString *MessageInfoCellID = @"MessageInfoCell";
-@implementation MessageInfoVC
+static NSString *AccountCellID = @"AccountCell";
+@implementation AccountVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,48 +39,46 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 {
     [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    self.tableView.backgroundColor = UIColorFromRGB(0xececec);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UINib *CellNib = [UINib nibWithNibName:@"MessageInfoCell" bundle:nil];
-    [self.tableView registerNib:CellNib forCellReuseIdentifier:MessageInfoCellID];
-    
+    UINib *CellNib = [UINib nibWithNibName:@"AccountCell" bundle:nil];
+    [self.tableView registerNib:CellNib forCellReuseIdentifier:AccountCellID];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    ///[self setRefreshEnabled:YES];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 108;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    MessageInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:MessageInfoCellID];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.rightUtilityButtons = [self cellRightButtons];
-    //cell.delegate = self;
+    AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:AccountCellID];
+    cell.tag = indexPath.row;
+    cell.cellDelegate = self;
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
     [cell setCellHeight:cell.frame.size.height];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 0) {
+        [cell.cellBtn setTitle:@"修改支付宝账号" forState:UIControlStateNormal];
+    }else if (indexPath.row == 1){
+        [cell.cellBtn setTitle:@"修改银行卡账号" forState:UIControlStateNormal];
+        [cell.cellBtn setBackgroundColor:UIColorFromRGB(0xF14349)];
+    }
     return cell;
 }
 
-/**
- *  Cell滑动按钮
- *
- *  @return NSArray
- */
-- (NSArray *)cellRightButtons
+-(void)btnAction:(AccountCell *)cell
 {
-    NSMutableArray *rightUtilityButtons = [NSMutableArray array];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:UIColorFromRGB(0xff2222) title:@"删除"];
-    return rightUtilityButtons;
+    NSLog(@"%ld--------->",(long)cell.tag);
 }
-
 @end

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -54,7 +53,6 @@
                 <constraint firstAttribute="trailing" secondItem="bmO-VJ-zBw" secondAttribute="trailing" constant="5" id="2eD-JP-hFL"/>
                 <constraint firstItem="JnU-TC-OEj" firstAttribute="leading" secondItem="maJ-bz-rsj" secondAttribute="trailing" constant="31" id="FAB-aG-37N"/>
                 <constraint firstAttribute="trailing" secondItem="JnU-TC-OEj" secondAttribute="trailing" constant="5" id="IGx-T8-NPW"/>
-                <constraint firstItem="JnU-TC-OEj" firstAttribute="firstBaseline" secondItem="maJ-bz-rsj" secondAttribute="firstBaseline" id="KMA-Gg-Hhy"/>
                 <constraint firstItem="JnU-TC-OEj" firstAttribute="top" secondItem="4qH-Pw-xNt" secondAttribute="bottom" constant="7" id="Krc-pP-SiM"/>
                 <constraint firstItem="4qH-Pw-xNt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="NF9-cL-pf3"/>
                 <constraint firstItem="JnU-TC-OEj" firstAttribute="leading" secondItem="maJ-bz-rsj" secondAttribute="trailing" constant="31" id="QRA-1w-Sef"/>

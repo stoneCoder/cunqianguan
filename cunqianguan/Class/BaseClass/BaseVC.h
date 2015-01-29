@@ -10,7 +10,7 @@
 #import "MBProgressHUD.h"
 
 @interface BaseVC : UIViewController
-
+@property (strong,nonatomic) NSString *leftTitle;
 /**
  *  功能:设置导航栏个性化标题
  */
@@ -28,7 +28,7 @@
  */
 -(void)setReturnBtnTitle:(NSString *)aTitle BadgeNumber:(int)aNumber;
 
--(void)setReturnBtnTitle:(NSString *)aTitle;
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName;
 
 /**
  *  功能:是否显示返回按钮

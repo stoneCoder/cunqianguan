@@ -27,7 +27,6 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _orderType = YES;
-    [self setTitleText:@"我的订单"];
     [self setUpSegment];
     [self setUpTableView];
 }

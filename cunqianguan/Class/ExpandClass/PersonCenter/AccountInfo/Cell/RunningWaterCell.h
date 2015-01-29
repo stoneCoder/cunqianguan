@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountInfoCell : UITableViewCell
+@interface RunningWaterCell : UITableViewCell
 
 @end

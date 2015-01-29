@@ -6,24 +6,23 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "AccountInfoVC.h"
+#import "RunningWaterVC.h"
 #import "BaseSegment.h"
-#import "AccountInfoCell.h"
+#import "RunningWaterCell.h"
 
-@interface AccountInfoVC ()<CCSegmentDelegate>
+@interface RunningWaterVC ()<CCSegmentDelegate>
 {
     BaseSegment *_segment;
     UIView *_headView;
 }
 
 @end
-static NSString *AccountInfoCellID = @"AccountInfoCell";
-@implementation AccountInfoVC
+static NSString *RunningWaterCellID = @"RunningWaterCell";
+@implementation RunningWaterVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setReturnBtnTitle:@"会员中心"];
     [self setUpSegment];
     [self setUpTableView];
 }
@@ -59,8 +58,8 @@ static NSString *AccountInfoCellID = @"AccountInfoCell";
     [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
-    UINib *CellNib = [UINib nibWithNibName:@"AccountInfoCell" bundle:nil];
-    [self.tableView registerNib:CellNib forCellReuseIdentifier:AccountInfoCellID];
+    UINib *CellNib = [UINib nibWithNibName:@"RunningWaterCell" bundle:nil];
+    [self.tableView registerNib:CellNib forCellReuseIdentifier:RunningWaterCellID];
     
     self.tableView.tableHeaderView = _headView;
     
@@ -82,7 +81,7 @@ static NSString *AccountInfoCellID = @"AccountInfoCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    AccountInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:AccountInfoCellID];
+    RunningWaterCell *cell = [tableView dequeueReusableCellWithIdentifier:RunningWaterCellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

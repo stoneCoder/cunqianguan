@@ -104,6 +104,16 @@
 		B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D45471A70D254005AA895 /* GoodsSectionView.xib */; };
 		B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D454D1A70DA6E005AA895 /* RebateHomeVC.m */; };
 		B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D454E1A70DA6E005AA895 /* RebateHomeVC.xib */; };
+		B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30A91A79BE46005BF0EF /* AddressManagerVC.m */; };
+		B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30AA1A79BE46005BF0EF /* AddressManagerVC.xib */; };
+		B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30B91A79FB24005BF0EF /* MoneyViewVC.m */; };
+		B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30BA1A79FB24005BF0EF /* MoneyViewVC.xib */; };
+		B14E30C01A7A1AF5005BF0EF /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30BE1A7A1AF5005BF0EF /* AccountVC.m */; };
+		B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30BF1A7A1AF5005BF0EF /* AccountVC.xib */; };
+		B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30C31A7A1D00005BF0EF /* AccountCell.m */; };
+		B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30C51A7A1D0D005BF0EF /* AccountCell.xib */; };
+		B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30C91A7A262E005BF0EF /* AccountEditVC.m */; };
+		B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */; };
 		B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D449A1A7874F5008B8F4B /* MyOrderVC.m */; };
 		B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */; };
 		B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44A61A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m */; };
@@ -116,10 +126,10 @@
 		B15D44C71A788CB4008B8F4B /* TaoOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44C61A788CB4008B8F4B /* TaoOrderCell.xib */; };
 		B15D44CA1A78A7AF008B8F4B /* ShopOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44C91A78A7AF008B8F4B /* ShopOrderCell.m */; };
 		B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44CB1A78A866008B8F4B /* ShopOrderCell.xib */; };
-		B15D44D11A78B313008B8F4B /* AccountInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44CF1A78B313008B8F4B /* AccountInfoVC.m */; };
-		B15D44D21A78B313008B8F4B /* AccountInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44D01A78B313008B8F4B /* AccountInfoVC.xib */; };
-		B15D44D71A78B777008B8F4B /* AccountInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44D51A78B777008B8F4B /* AccountInfoCell.m */; };
-		B15D44D81A78B777008B8F4B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44D61A78B777008B8F4B /* AccountInfoCell.xib */; };
+		B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44CF1A78B313008B8F4B /* RunningWaterVC.m */; };
+		B15D44D21A78B313008B8F4B /* RunningWaterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44D01A78B313008B8F4B /* RunningWaterVC.xib */; };
+		B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44D51A78B777008B8F4B /* RunningWaterCell.m */; };
+		B15D44D81A78B777008B8F4B /* RunningWaterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44D61A78B777008B8F4B /* RunningWaterCell.xib */; };
 		B15D44DD1A78C3FE008B8F4B /* MessageInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44DB1A78C3FE008B8F4B /* MessageInfoVC.m */; };
 		B15D44DE1A78C3FE008B8F4B /* MessageInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44DC1A78C3FE008B8F4B /* MessageInfoVC.xib */; };
 		B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44E11A78CBD0008B8F4B /* MessageInfoCell.m */; };
@@ -315,6 +325,21 @@
 		B14D454C1A70DA6E005AA895 /* RebateHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RebateHomeVC.h; sourceTree = "<group>"; };
 		B14D454D1A70DA6E005AA895 /* RebateHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RebateHomeVC.m; sourceTree = "<group>"; };
 		B14D454E1A70DA6E005AA895 /* RebateHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RebateHomeVC.xib; sourceTree = "<group>"; };
+		B14E30A81A79BE46005BF0EF /* AddressManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressManagerVC.h; sourceTree = "<group>"; };
+		B14E30A91A79BE46005BF0EF /* AddressManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressManagerVC.m; sourceTree = "<group>"; };
+		B14E30AA1A79BE46005BF0EF /* AddressManagerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressManagerVC.xib; sourceTree = "<group>"; };
+		B14E30B81A79FB24005BF0EF /* MoneyViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyViewVC.h; sourceTree = "<group>"; };
+		B14E30B91A79FB24005BF0EF /* MoneyViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyViewVC.m; sourceTree = "<group>"; };
+		B14E30BA1A79FB24005BF0EF /* MoneyViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyViewVC.xib; sourceTree = "<group>"; };
+		B14E30BD1A7A1AF5005BF0EF /* AccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountVC.h; sourceTree = "<group>"; };
+		B14E30BE1A7A1AF5005BF0EF /* AccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountVC.m; sourceTree = "<group>"; };
+		B14E30BF1A7A1AF5005BF0EF /* AccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountVC.xib; sourceTree = "<group>"; };
+		B14E30C21A7A1D00005BF0EF /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		B14E30C31A7A1D00005BF0EF /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
+		B14E30C51A7A1D0D005BF0EF /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
+		B14E30C81A7A262E005BF0EF /* AccountEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditVC.h; sourceTree = "<group>"; };
+		B14E30C91A7A262E005BF0EF /* AccountEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditVC.m; sourceTree = "<group>"; };
+		B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditVC.xib; sourceTree = "<group>"; };
 		B15D44991A7874F5008B8F4B /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
 		B15D449A1A7874F5008B8F4B /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderVC.xib; sourceTree = "<group>"; };
@@ -337,12 +362,12 @@
 		B15D44C81A78A7AF008B8F4B /* ShopOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopOrderCell.h; sourceTree = "<group>"; };
 		B15D44C91A78A7AF008B8F4B /* ShopOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopOrderCell.m; sourceTree = "<group>"; };
 		B15D44CB1A78A866008B8F4B /* ShopOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopOrderCell.xib; sourceTree = "<group>"; };
-		B15D44CE1A78B313008B8F4B /* AccountInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoVC.h; sourceTree = "<group>"; };
-		B15D44CF1A78B313008B8F4B /* AccountInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoVC.m; sourceTree = "<group>"; };
-		B15D44D01A78B313008B8F4B /* AccountInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoVC.xib; sourceTree = "<group>"; };
-		B15D44D41A78B777008B8F4B /* AccountInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoCell.h; sourceTree = "<group>"; };
-		B15D44D51A78B777008B8F4B /* AccountInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoCell.m; sourceTree = "<group>"; };
-		B15D44D61A78B777008B8F4B /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
+		B15D44CE1A78B313008B8F4B /* RunningWaterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterVC.h; sourceTree = "<group>"; };
+		B15D44CF1A78B313008B8F4B /* RunningWaterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterVC.m; sourceTree = "<group>"; };
+		B15D44D01A78B313008B8F4B /* RunningWaterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningWaterVC.xib; sourceTree = "<group>"; };
+		B15D44D41A78B777008B8F4B /* RunningWaterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterCell.h; sourceTree = "<group>"; };
+		B15D44D51A78B777008B8F4B /* RunningWaterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterCell.m; sourceTree = "<group>"; };
+		B15D44D61A78B777008B8F4B /* RunningWaterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningWaterCell.xib; sourceTree = "<group>"; };
 		B15D44DA1A78C3FE008B8F4B /* MessageInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInfoVC.h; sourceTree = "<group>"; };
 		B15D44DB1A78C3FE008B8F4B /* MessageInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInfoVC.m; sourceTree = "<group>"; };
 		B15D44DC1A78C3FE008B8F4B /* MessageInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageInfoVC.xib; sourceTree = "<group>"; };
@@ -766,6 +791,8 @@
 		B1436F761A7326BD00706772 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B14E30B71A79FB08005BF0EF /* Money */,
+				B14E30A71A79BE23005BF0EF /* Address */,
 				B15D44E51A78D1FB008B8F4B /* More */,
 				B15D44D91A78C3BD008B8F4B /* Message */,
 				B15D44CD1A78B0AC008B8F4B /* AccountInfo */,
@@ -839,6 +866,36 @@
 			path = ShopRebate;
 			sourceTree = "<group>";
 		};
+		B14E30A71A79BE23005BF0EF /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				B14E30A81A79BE46005BF0EF /* AddressManagerVC.h */,
+				B14E30A91A79BE46005BF0EF /* AddressManagerVC.m */,
+				B14E30AA1A79BE46005BF0EF /* AddressManagerVC.xib */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		B14E30B71A79FB08005BF0EF /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				B14E30B81A79FB24005BF0EF /* MoneyViewVC.h */,
+				B14E30B91A79FB24005BF0EF /* MoneyViewVC.m */,
+				B14E30BA1A79FB24005BF0EF /* MoneyViewVC.xib */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		B14E30C71A7A2607005BF0EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B14E30C81A7A262E005BF0EF /* AccountEditVC.h */,
+				B14E30C91A7A262E005BF0EF /* AccountEditVC.m */,
+				B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B15D44981A7874A6008B8F4B /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,10 +943,14 @@
 		B15D44CD1A78B0AC008B8F4B /* AccountInfo */ = {
 			isa = PBXGroup;
 			children = (
+				B14E30C71A7A2607005BF0EF /* View */,
 				B15D44D31A78B75E008B8F4B /* Cell */,
-				B15D44CE1A78B313008B8F4B /* AccountInfoVC.h */,
-				B15D44CF1A78B313008B8F4B /* AccountInfoVC.m */,
-				B15D44D01A78B313008B8F4B /* AccountInfoVC.xib */,
+				B15D44CE1A78B313008B8F4B /* RunningWaterVC.h */,
+				B15D44CF1A78B313008B8F4B /* RunningWaterVC.m */,
+				B15D44D01A78B313008B8F4B /* RunningWaterVC.xib */,
+				B14E30BD1A7A1AF5005BF0EF /* AccountVC.h */,
+				B14E30BE1A7A1AF5005BF0EF /* AccountVC.m */,
+				B14E30BF1A7A1AF5005BF0EF /* AccountVC.xib */,
 			);
 			path = AccountInfo;
 			sourceTree = "<group>";
@@ -897,9 +958,12 @@
 		B15D44D31A78B75E008B8F4B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B15D44D41A78B777008B8F4B /* AccountInfoCell.h */,
-				B15D44D51A78B777008B8F4B /* AccountInfoCell.m */,
-				B15D44D61A78B777008B8F4B /* AccountInfoCell.xib */,
+				B15D44D41A78B777008B8F4B /* RunningWaterCell.h */,
+				B15D44D51A78B777008B8F4B /* RunningWaterCell.m */,
+				B15D44D61A78B777008B8F4B /* RunningWaterCell.xib */,
+				B14E30C21A7A1D00005BF0EF /* AccountCell.h */,
+				B14E30C31A7A1D00005BF0EF /* AccountCell.m */,
+				B14E30C51A7A1D0D005BF0EF /* AccountCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1030,8 +1094,10 @@
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
+				B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */,
 				B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */,
 				B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */,
+				B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
 				B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */,
 				B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */,
@@ -1047,17 +1113,20 @@
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
 				B15D44DE1A78C3FE008B8F4B /* MessageInfoVC.xib in Resources */,
+				B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
+				B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */,
 				B109D5821A71EA5E00505D32 /* PolyDealVC.xib in Resources */,
-				B15D44D21A78B313008B8F4B /* AccountInfoVC.xib in Resources */,
+				B15D44D21A78B313008B8F4B /* RunningWaterVC.xib in Resources */,
 				B15D44C71A788CB4008B8F4B /* TaoOrderCell.xib in Resources */,
 				B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */,
 				B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
+				B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */,
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
 				B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */,
-				B15D44D81A78B777008B8F4B /* AccountInfoCell.xib in Resources */,
+				B15D44D81A78B777008B8F4B /* RunningWaterCell.xib in Resources */,
 				B109D5991A72172900505D32 /* FootPrintsCell.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
@@ -1116,6 +1185,7 @@
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
+				B14E30C01A7A1AF5005BF0EF /* AccountVC.m in Sources */,
 				B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */,
 				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
@@ -1141,20 +1211,24 @@
 				B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */,
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
+				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
+				B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
 				B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */,
 				B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */,
 				B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */,
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
+				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
 				B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
-				B15D44D71A78B777008B8F4B /* AccountInfoCell.m in Sources */,
+				B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */,
+				B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,
 				B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */,
@@ -1179,7 +1253,7 @@
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
-				B15D44D11A78B313008B8F4B /* AccountInfoVC.m in Sources */,
+				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
 				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */,

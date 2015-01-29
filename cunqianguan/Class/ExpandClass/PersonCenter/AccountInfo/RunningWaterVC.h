@@ -8,6 +8,6 @@
 
 #import "BaseTableVC.h"
 
-@interface AccountInfoVC : BaseTableVC
+@interface RunningWaterVC : BaseTableVC
 
 @end
