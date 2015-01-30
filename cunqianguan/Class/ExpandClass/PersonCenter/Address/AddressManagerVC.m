@@ -48,7 +48,7 @@
     }];
 }
 
-#pragma MARK -- UITextFieldDelegate
+#pragma mark -- UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if (textField == _qqCodeText){

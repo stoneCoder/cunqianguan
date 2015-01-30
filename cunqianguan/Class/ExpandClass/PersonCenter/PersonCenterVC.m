@@ -17,6 +17,7 @@
 #import "RunningWaterVC.h"
 #import "AddressManagerVC.h"
 #import "MessageInfoVC.h"
+#import "InviteVC.h"
 #import "MoreSettingVC.h"
 
 @interface PersonCenterVC ()<PersonHeaderDelegate>
@@ -33,7 +34,6 @@ static NSString *FooterViewID = @"PersonFooterView";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"更多"]};
-    [self setTitleText:@"会员中心"];
     [self setUpNavBtn];
     [self setUpTableView];
     
@@ -146,7 +146,9 @@ static NSString *FooterViewID = @"PersonFooterView";
             break;
         case 3:
             if (indexPath.row == 0) {
-                
+                InviteVC *inviteVC = [[InviteVC alloc] init];
+                inviteVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                [self.navigationController pushViewController:inviteVC animated:YES];
             }else if (indexPath.row == 1){
                 MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
                 moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];

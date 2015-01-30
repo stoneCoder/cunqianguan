@@ -11,12 +11,15 @@
 #import "CMAlert.h"
 
 @interface BaseCollectionVC : UICollectionViewController
+@property (strong,nonatomic) NSString *leftTitle;
 /**
  *  功能:设置导航栏个性化标题
  */
 - (void)setTitleText:(NSString *)aTitleText;
 //隐藏返回按钮
 -(void)hideReturnBackButton;
+
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName;
 
 -(void)setRefreshEnabled:(BOOL)enabled;
 //显示hud

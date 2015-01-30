@@ -19,7 +19,6 @@ static NSString *CellID=@"FootPrintsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"足迹"];
     [self setUpNavbtn];
     [self setUpTableView];
 }

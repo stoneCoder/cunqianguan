@@ -21,6 +21,11 @@
 		B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D59E1A722DB000505D32 /* ExChangeCenterVC.xib */; };
 		B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B109D5A31A722E7D00505D32 /* ExChangeCell.m */; };
 		B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D5A41A722E7D00505D32 /* ExChangeCell.xib */; };
+		B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D729B1A7B616E0086F70A /* InviteRewardVC.m */; };
+		B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12D729C1A7B616E0086F70A /* InviteRewardVC.xib */; };
+		B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D72A11A7B799F0086F70A /* PersonInfoVC.m */; };
+		B12D72A41A7B799F0086F70A /* PersonInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12D72A21A7B799F0086F70A /* PersonInfoVC.xib */; };
+		B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D72A81A7B7AFD0086F70A /* PointView.m */; };
 		B14071391A6CAFF700D1792F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071381A6CAFF700D1792F /* main.m */; };
 		B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B140713B1A6CAFF700D1792F /* AppDelegate.m */; };
 		B14071441A6CAFF700D1792F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14071431A6CAFF700D1792F /* Images.xcassets */; };
@@ -136,6 +141,8 @@
 		B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44E31A78CBDC008B8F4B /* MessageInfoCell.xib */; };
 		B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44E71A78D219008B8F4B /* MoreSettingVC.m */; };
 		B15D44EA1A78D219008B8F4B /* MoreSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */; };
+		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
+		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +179,14 @@
 		B109D5A21A722E7D00505D32 /* ExChangeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeCell.h; sourceTree = "<group>"; };
 		B109D5A31A722E7D00505D32 /* ExChangeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeCell.m; sourceTree = "<group>"; };
 		B109D5A41A722E7D00505D32 /* ExChangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExChangeCell.xib; sourceTree = "<group>"; };
+		B12D729A1A7B616E0086F70A /* InviteRewardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteRewardVC.h; sourceTree = "<group>"; };
+		B12D729B1A7B616E0086F70A /* InviteRewardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteRewardVC.m; sourceTree = "<group>"; };
+		B12D729C1A7B616E0086F70A /* InviteRewardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteRewardVC.xib; sourceTree = "<group>"; };
+		B12D72A01A7B799F0086F70A /* PersonInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoVC.h; sourceTree = "<group>"; };
+		B12D72A11A7B799F0086F70A /* PersonInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoVC.m; sourceTree = "<group>"; };
+		B12D72A21A7B799F0086F70A /* PersonInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoVC.xib; sourceTree = "<group>"; };
+		B12D72A71A7B7AFD0086F70A /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
+		B12D72A81A7B7AFD0086F70A /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
 		B14071331A6CAFF700D1792F /* cunqianguan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cunqianguan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14071371A6CAFF700D1792F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14071381A6CAFF700D1792F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -377,6 +392,9 @@
 		B15D44E61A78D219008B8F4B /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
 		B15D44E71A78D219008B8F4B /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
 		B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreSettingVC.xib; sourceTree = "<group>"; };
+		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
+		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
+		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +503,44 @@
 				B1498AEF1A776225001260EC /* ChangeRootVC.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B12D72991A7B60BA0086F70A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B12D729A1A7B616E0086F70A /* InviteRewardVC.h */,
+				B12D729B1A7B616E0086F70A /* InviteRewardVC.m */,
+				B12D729C1A7B616E0086F70A /* InviteRewardVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B12D729F1A7B79830086F70A /* PersonInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B12D72A61A7B79FE0086F70A /* Cell */,
+				B12D72A51A7B79DA0086F70A /* View */,
+				B12D72A01A7B799F0086F70A /* PersonInfoVC.h */,
+				B12D72A11A7B799F0086F70A /* PersonInfoVC.m */,
+				B12D72A21A7B799F0086F70A /* PersonInfoVC.xib */,
+			);
+			path = PersonInfo;
+			sourceTree = "<group>";
+		};
+		B12D72A51A7B79DA0086F70A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B12D72A71A7B7AFD0086F70A /* PointView.h */,
+				B12D72A81A7B7AFD0086F70A /* PointView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B12D72A61A7B79FE0086F70A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B140712A1A6CAFF700D1792F = {
@@ -791,6 +847,8 @@
 		B1436F761A7326BD00706772 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B12D729F1A7B79830086F70A /* PersonInfo */,
+				B16868C21A7B244D00D37944 /* Invite */,
 				B14E30B71A79FB08005BF0EF /* Money */,
 				B14E30A71A79BE23005BF0EF /* Address */,
 				B15D44E51A78D1FB008B8F4B /* More */,
@@ -999,6 +1057,17 @@
 			path = More;
 			sourceTree = "<group>";
 		};
+		B16868C21A7B244D00D37944 /* Invite */ = {
+			isa = PBXGroup;
+			children = (
+				B12D72991A7B60BA0086F70A /* View */,
+				B16868C31A7B25F100D37944 /* InviteVC.h */,
+				B16868C41A7B25F100D37944 /* InviteVC.m */,
+				B16868C51A7B25F100D37944 /* InviteVC.xib */,
+			);
+			path = Invite;
+			sourceTree = "<group>";
+		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,6 +1164,7 @@
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */,
+				B12D72A41A7B799F0086F70A /* PersonInfoVC.xib in Resources */,
 				B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */,
 				B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */,
 				B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */,
@@ -1121,6 +1191,7 @@
 				B15D44C71A788CB4008B8F4B /* TaoOrderCell.xib in Resources */,
 				B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */,
 				B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */,
+				B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */,
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
@@ -1131,6 +1202,7 @@
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
+				B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1189,12 +1261,15 @@
 				B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */,
 				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
+				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
+				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
+				B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */,
 				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
 				B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
@@ -1261,6 +1336,7 @@
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
 				B15D44B51A787E03008B8F4B /* SWTableViewCell.m in Sources */,
 				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
+				B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */,
 				B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */,

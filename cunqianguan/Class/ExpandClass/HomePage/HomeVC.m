@@ -272,6 +272,7 @@
 -(void)pushFootPrints
 {
     FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
+    footPrintsVC.leftTitle = @"足迹";
     [self.navigationController pushViewController:footPrintsVC animated:YES];
 }
 
@@ -284,6 +285,7 @@
     flowLayout.minimumLineSpacing = 10.0;
     
     PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
+    polyDealVC.leftTitle = @"聚优惠";
     [self.navigationController pushViewController:polyDealVC animated:YES];
 }
 
@@ -297,6 +299,7 @@
     [flowLayout setHeaderReferenceSize:CGSizeMake(320, 180)];
     
     ReturnHomeVC *returnHomeVC =[[ReturnHomeVC alloc] initWithCollectionViewLayout:flowLayout];
+    returnHomeVC.leftTitle = @"返利购";
     [self.navigationController pushViewController:returnHomeVC animated:YES];
 }
 
@@ -309,12 +312,14 @@
     flowLayout.minimumLineSpacing = 10.0;
     
     ExChangeCenterVC *exchangeCenterVC = [[ExChangeCenterVC alloc] initWithCollectionViewLayout:flowLayout];
+    exchangeCenterVC.leftTitle = @"兑换中心";
     [self.navigationController pushViewController:exchangeCenterVC animated:YES];
 }
 
 -(void)pushPersonCenter
 {
     PersonCenterVC *personVC = [[PersonCenterVC alloc] init];
+    personVC.leftTitle = @"会员中心";
     [self.navigationController pushViewController:personVC animated:YES];
 }
 

@@ -9,6 +9,8 @@
 #import "AccountVC.h"
 #import "AccountCell.h"
 
+#import "AccountEditVC.h"
+
 @interface AccountVC ()<AccountCellDelegate>
 
 @end
@@ -79,6 +81,13 @@ static NSString *AccountCellID = @"AccountCell";
 
 -(void)btnAction:(AccountCell *)cell
 {
-    NSLog(@"%ld--------->",(long)cell.tag);
+    AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
+    if (cell.tag == 0) {
+        accountEditVC.leftTitle = @"修改支付宝账号";
+    }else if (cell.tag == 1){
+        accountEditVC.leftTitle = @"修改银行卡账号";
+    }
+    accountEditVC.viewType = cell.tag;
+    [self.navigationController pushViewController:accountEditVC animated:YES];
 }
 @end

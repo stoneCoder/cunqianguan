@@ -26,7 +26,6 @@ static NSString *  collectionCellID=@"ExChangeCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"兑换中心"];
     [self setUpSegment];
     [self setUpCollection];
 }

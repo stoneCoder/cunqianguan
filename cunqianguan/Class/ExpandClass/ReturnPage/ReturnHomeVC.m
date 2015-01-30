@@ -20,7 +20,6 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"返利购"];
     [self setUpCollection];
 }
 

@@ -102,7 +102,7 @@
     NSString * btnTitleStr=aTitle;
     if (btnTitleStr.length > 0) {
         btnTitleStr = [NSString stringWithFormat:@"%@",aTitle];
-        float width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:100];
+        float width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
         btnFrame = CGRectMake(0,0,width + 22,22);
     }else{
         btnFrame = CGRectMake(0,0,22,22);

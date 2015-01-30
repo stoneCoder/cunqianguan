@@ -24,7 +24,6 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"聚优惠"];
     [self setNavBtn];
     [self setUpSliderView];
     [self setUpSelectView];
