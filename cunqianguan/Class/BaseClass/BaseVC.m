@@ -112,7 +112,7 @@
     }
     [button setFrame:btnFrame];
     [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
-    //[button setBackgroundImage:[UIImage imageNamed:@"title_left_btn_sel"] forState:UIControlStateHighlighted];
+    //[button setBackgroundImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateHighlighted];
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];

@@ -16,6 +16,7 @@
 #import "AccountVC.h"
 #import "RunningWaterVC.h"
 #import "AddressManagerVC.h"
+#import "CollectVC.h"
 #import "MessageInfoVC.h"
 #import "InviteVC.h"
 #import "MoreSettingVC.h"
@@ -169,18 +170,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self.navigationController pushViewController:moneyViewVC animated:YES];
 }
 
--(void)pushMsgInfo
-{
-    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
-    messageVC.leftTitle = @"消息";
-    [self.navigationController pushViewController:messageVC animated:YES];
-}
 
 #pragma MARK -- PersonHeaderDelegate
 -(void)btnAction:(NSInteger)tag
 {
     switch (tag) {
         case 1000:
+            [self pushCollection];
             break;
         case 1001:
             [self pushMsgInfo];
@@ -188,6 +184,20 @@ static NSString *FooterViewID = @"PersonFooterView";
         default:
             break;
     }
+}
+
+-(void)pushCollection
+{
+    CollectVC *collectVC = [[CollectVC alloc] init];
+    collectVC.leftTitle = @"收藏";
+    [self.navigationController pushViewController:collectVC animated:YES];
+}
+
+-(void)pushMsgInfo
+{
+    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
+    messageVC.leftTitle = @"消息";
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 -(void)tapHeadImage
