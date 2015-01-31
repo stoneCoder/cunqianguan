@@ -1,24 +1,22 @@
 //
-//  ForgetVC.m
+//  CollectVC.m
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/1/21.
+//  Created by 四三一八 on 15/1/31.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "ForgetVC.h"
+#import "CollectVC.h"
 
-@interface ForgetVC ()
-@property (weak, nonatomic) IBOutlet UITextField *emailtext;
+@interface CollectVC ()
 
 @end
 
-@implementation ForgetVC
+@implementation CollectVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,10 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark -- Private
--(void)hideKeyBoard
-{
-    [_emailtext resignFirstResponder];
-}
 
 @end

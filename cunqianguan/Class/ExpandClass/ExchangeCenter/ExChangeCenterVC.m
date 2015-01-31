@@ -84,6 +84,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 {
     //ChangeProductVC *changeProductVC = [[ChangeProductVC alloc] init];
     ChangeRootVC *changeRootVC = [[ChangeRootVC alloc] init];
+    changeRootVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:changeRootVC animated:YES];
 }
 

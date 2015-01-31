@@ -22,7 +22,7 @@
 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
- return 4;
+  return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -30,10 +30,15 @@
     return 44;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headView =  [[UIView alloc] initWithFrame:[tableView rectForHeaderInSection:section]];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 100, 20)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 150, 20)];
     titleLabel.text = @"VIP返利率说明";
     [headView addSubview:titleLabel];
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, headView.frame.size.height, self.frame.size.width, 1)];
@@ -47,11 +52,17 @@
     static NSString *CellID = @"MoreCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellID];
     }
-    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = [UIImage imageNamed:@"back"];
-    cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",indexPath.row + 1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];
+    NSString *infoText = [NSString stringWithFormat:@"最高可获利商品利润的%@返利",@"%50"];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:infoText];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(infoText.length - 5,3)];
+    cell.detailTextLabel.attributedText = str;
     return cell;
 }
 

@@ -52,6 +52,7 @@
     
     ProductDetailHeaderView *headView = [ProductDetailHeaderView headerView];
     self.tableView.tableHeaderView = headView;
+    
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate

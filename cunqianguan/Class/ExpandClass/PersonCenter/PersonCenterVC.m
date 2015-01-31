@@ -19,6 +19,7 @@
 #import "MessageInfoVC.h"
 #import "InviteVC.h"
 #import "MoreSettingVC.h"
+#import "PersonInfoVC.h"
 
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
@@ -168,6 +169,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self.navigationController pushViewController:moneyViewVC animated:YES];
 }
 
+-(void)pushMsgInfo
+{
+    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
+    messageVC.leftTitle = @"消息";
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
+
 #pragma MARK -- PersonHeaderDelegate
 -(void)btnAction:(NSInteger)tag
 {
@@ -182,10 +190,11 @@ static NSString *FooterViewID = @"PersonFooterView";
     }
 }
 
--(void)pushMsgInfo
+-(void)tapHeadImage
 {
-    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
-    messageVC.leftTitle = @"消息";
-    [self.navigationController pushViewController:messageVC animated:YES];
+    PersonInfoVC *personInfoVC = [[PersonInfoVC alloc] init];
+    personInfoVC.leftTitle = @"个人信息";
+    [self.navigationController pushViewController:personInfoVC animated:YES];
 }
+
 @end

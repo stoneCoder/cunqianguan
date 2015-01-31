@@ -60,6 +60,7 @@ static NSString *  collectionCellID=@"MenuCell";
     }else
     {
         LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
+        loginVC.leftTitle = @"登录";
         BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
         [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
     }

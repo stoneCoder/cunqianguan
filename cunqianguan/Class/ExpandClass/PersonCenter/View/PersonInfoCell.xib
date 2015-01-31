@@ -67,7 +67,7 @@
                 <outlet property="pushImage" destination="2ZN-63-WCu" id="Wbl-L3-gYN"/>
                 <outlet property="titleLabel" destination="397-Sh-PRG" id="Fmn-xu-JU7"/>
             </connections>
-            <point key="canvasLocation" x="316" y="450"/>
+            <point key="canvasLocation" x="116" y="392"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

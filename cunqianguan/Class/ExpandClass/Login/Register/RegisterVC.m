@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setTitleText:@"注册"];
     _username.delegate = self;
     _emailtext.delegate = self;
     _pwdtext.delegate = self;

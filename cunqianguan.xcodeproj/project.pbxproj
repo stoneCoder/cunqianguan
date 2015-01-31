@@ -15,8 +15,6 @@
 		B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D58B1A71EE9800505D32 /* PolyGoodsCell.xib */; };
 		B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B109D5901A72169B00505D32 /* FootPrintsVC.m */; };
 		B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D5911A72169B00505D32 /* FootPrintsVC.xib */; };
-		B109D5981A72172900505D32 /* FootPrintsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B109D5961A72172900505D32 /* FootPrintsCell.m */; };
-		B109D5991A72172900505D32 /* FootPrintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D5971A72172900505D32 /* FootPrintsCell.xib */; };
 		B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B109D59D1A722DB000505D32 /* ExChangeCenterVC.m */; };
 		B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B109D59E1A722DB000505D32 /* ExChangeCenterVC.xib */; };
 		B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B109D5A31A722E7D00505D32 /* ExChangeCell.m */; };
@@ -119,6 +117,13 @@
 		B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30C51A7A1D0D005BF0EF /* AccountCell.xib */; };
 		B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30C91A7A262E005BF0EF /* AccountEditVC.m */; };
 		B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */; };
+		B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5E21A7C77A9002BF122 /* ProfileCell.m */; };
+		B14FE5E51A7C77A9002BF122 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5E31A7C77A9002BF122 /* ProfileCell.xib */; };
+		B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5E81A7C7FA4002BF122 /* VPImageCropperVC.m */; };
+		B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5EB1A7CADCB002BF122 /* FootPrintsCell.m */; };
+		B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5ED1A7CADED002BF122 /* FootPrintsCell.xib */; };
+		B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5F11A7CB40F002BF122 /* CollectVC.m */; };
+		B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5F21A7CB40F002BF122 /* CollectVC.xib */; };
 		B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D449A1A7874F5008B8F4B /* MyOrderVC.m */; };
 		B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */; };
 		B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44A61A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m */; };
@@ -170,9 +175,6 @@
 		B109D58F1A72169B00505D32 /* FootPrintsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootPrintsVC.h; sourceTree = "<group>"; };
 		B109D5901A72169B00505D32 /* FootPrintsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootPrintsVC.m; sourceTree = "<group>"; };
 		B109D5911A72169B00505D32 /* FootPrintsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootPrintsVC.xib; sourceTree = "<group>"; };
-		B109D5951A72172900505D32 /* FootPrintsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootPrintsCell.h; sourceTree = "<group>"; };
-		B109D5961A72172900505D32 /* FootPrintsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootPrintsCell.m; sourceTree = "<group>"; };
-		B109D5971A72172900505D32 /* FootPrintsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootPrintsCell.xib; sourceTree = "<group>"; };
 		B109D59C1A722DB000505D32 /* ExChangeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeCenterVC.h; sourceTree = "<group>"; };
 		B109D59D1A722DB000505D32 /* ExChangeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeCenterVC.m; sourceTree = "<group>"; };
 		B109D59E1A722DB000505D32 /* ExChangeCenterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExChangeCenterVC.xib; sourceTree = "<group>"; };
@@ -355,6 +357,17 @@
 		B14E30C81A7A262E005BF0EF /* AccountEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditVC.h; sourceTree = "<group>"; };
 		B14E30C91A7A262E005BF0EF /* AccountEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditVC.m; sourceTree = "<group>"; };
 		B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditVC.xib; sourceTree = "<group>"; };
+		B14FE5E11A7C77A9002BF122 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		B14FE5E21A7C77A9002BF122 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		B14FE5E31A7C77A9002BF122 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		B14FE5E71A7C7FA4002BF122 /* VPImageCropperVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperVC.h; sourceTree = "<group>"; };
+		B14FE5E81A7C7FA4002BF122 /* VPImageCropperVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperVC.m; sourceTree = "<group>"; };
+		B14FE5EA1A7CADCB002BF122 /* FootPrintsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootPrintsCell.h; sourceTree = "<group>"; };
+		B14FE5EB1A7CADCB002BF122 /* FootPrintsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootPrintsCell.m; sourceTree = "<group>"; };
+		B14FE5ED1A7CADED002BF122 /* FootPrintsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootPrintsCell.xib; sourceTree = "<group>"; };
+		B14FE5F01A7CB40F002BF122 /* CollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectVC.h; sourceTree = "<group>"; };
+		B14FE5F11A7CB40F002BF122 /* CollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectVC.m; sourceTree = "<group>"; };
+		B14FE5F21A7CB40F002BF122 /* CollectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectVC.xib; sourceTree = "<group>"; };
 		B15D44991A7874F5008B8F4B /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
 		B15D449A1A7874F5008B8F4B /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderVC.xib; sourceTree = "<group>"; };
@@ -468,9 +481,9 @@
 		B109D5941A7216F100505D32 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B109D5951A72172900505D32 /* FootPrintsCell.h */,
-				B109D5961A72172900505D32 /* FootPrintsCell.m */,
-				B109D5971A72172900505D32 /* FootPrintsCell.xib */,
+				B14FE5EA1A7CADCB002BF122 /* FootPrintsCell.h */,
+				B14FE5EB1A7CADCB002BF122 /* FootPrintsCell.m */,
+				B14FE5ED1A7CADED002BF122 /* FootPrintsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -539,6 +552,9 @@
 		B12D72A61A7B79FE0086F70A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B14FE5E11A7C77A9002BF122 /* ProfileCell.h */,
+				B14FE5E21A7C77A9002BF122 /* ProfileCell.m */,
+				B14FE5E31A7C77A9002BF122 /* ProfileCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -628,6 +644,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B14FE5E61A7C7FA4002BF122 /* VPImageCropper */,
 				B15D44A41A787E03008B8F4B /* SWTableViewCell */,
 				B1436F931A7377C000706772 /* PopoverView */,
 				B109D57A1A71EA1B00505D32 /* SliderView */,
@@ -847,6 +864,7 @@
 		B1436F761A7326BD00706772 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B14FE5EF1A7CB3E7002BF122 /* Collect */,
 				B12D729F1A7B79830086F70A /* PersonInfo */,
 				B16868C21A7B244D00D37944 /* Invite */,
 				B14E30B71A79FB08005BF0EF /* Money */,
@@ -952,6 +970,25 @@
 				B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B14FE5E61A7C7FA4002BF122 /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				B14FE5E71A7C7FA4002BF122 /* VPImageCropperVC.h */,
+				B14FE5E81A7C7FA4002BF122 /* VPImageCropperVC.m */,
+			);
+			path = VPImageCropper;
+			sourceTree = "<group>";
+		};
+		B14FE5EF1A7CB3E7002BF122 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				B14FE5F01A7CB40F002BF122 /* CollectVC.h */,
+				B14FE5F11A7CB40F002BF122 /* CollectVC.m */,
+				B14FE5F21A7CB40F002BF122 /* CollectVC.xib */,
+			);
+			path = Collect;
 			sourceTree = "<group>";
 		};
 		B15D44981A7874A6008B8F4B /* MyOrder */ = {
@@ -1183,6 +1220,7 @@
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
 				B15D44DE1A78C3FE008B8F4B /* MessageInfoVC.xib in Resources */,
+				B14FE5E51A7C77A9002BF122 /* ProfileCell.xib in Resources */,
 				B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
 				B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */,
@@ -1198,7 +1236,8 @@
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
 				B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */,
 				B15D44D81A78B777008B8F4B /* RunningWaterCell.xib in Resources */,
-				B109D5991A72172900505D32 /* FootPrintsCell.xib in Resources */,
+				B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */,
+				B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
@@ -1262,18 +1301,19 @@
 				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
+				B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
 				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
+				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
 				B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */,
 				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
 				B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
-				B109D5981A72172900505D32 /* FootPrintsCell.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
 				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
 				B140719C1A6CCD7900D1792F /* BaseNC.m in Sources */,
@@ -1286,6 +1326,7 @@
 				B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */,
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
+				B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */,
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */,
@@ -1318,6 +1359,7 @@
 				B15D44B41A787E03008B8F4B /* SWLongPressGestureRecognizer.m in Sources */,
 				B109D58C1A71EE9800505D32 /* PolyGoodsCell.m in Sources */,
 				B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */,
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,

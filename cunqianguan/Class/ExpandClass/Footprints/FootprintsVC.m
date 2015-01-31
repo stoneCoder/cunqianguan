@@ -71,8 +71,26 @@ static NSString *CellID=@"FootPrintsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FootPrintsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+    //FootPrintsCell1 *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+     FootPrintsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+    cell.rightUtilityButtons = [self cellRightButtons];
+    //cell.delegate = self;
+    cell.containingTableView = tableView;
+    [cell hideUtilityButtonsAnimated:NO];
+    [cell setCellHeight:cell.frame.size.height];
     return cell;
+}
+
+/**
+ *  Cell滑动按钮
+ *
+ *  @return NSArray
+ */
+- (NSArray *)cellRightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray array];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:UIColorFromRGB(0xff2222) title:@"删除"];
+    return rightUtilityButtons;
 }
 
 @end

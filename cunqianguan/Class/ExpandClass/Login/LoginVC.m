@@ -34,8 +34,6 @@
 -(void)initNavBar
 {
     //设置导航栏内容
-    [self setTitleText:@"登录"];
-    
     NSString *btnTitleStr = @"注册";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
@@ -71,6 +69,7 @@
 - (IBAction)forgetPwdAction:(id)sender
 {
     ForgetVC *forgetVC = [[ForgetVC alloc] init];
+    forgetVC.leftTitle = @"忘记密码";
     [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
@@ -85,6 +84,7 @@
 -(void)rightBtnClick:(id)sender
 {
     RegisterVC *registVC = [[RegisterVC alloc] init];
+    registVC.leftTitle = @"注册";
     [self.navigationController pushViewController:registVC animated:YES];
 }
 

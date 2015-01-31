@@ -8,6 +8,6 @@
 
 #import "BaseTableView.h"
 
-@interface PointView : BaseTableView
+@interface PointView : BaseTableView<UITableViewDataSource,UITableViewDelegate>
 
 @end

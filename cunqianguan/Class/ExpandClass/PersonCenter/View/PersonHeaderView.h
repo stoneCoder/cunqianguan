@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol PersonHeaderDelegate<NSObject>
 -(void)btnAction:(NSInteger)tag;
+-(void)tapHeadImage;
 @end
 @interface PersonHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;

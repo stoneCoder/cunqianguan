@@ -32,6 +32,8 @@
 {
     _headImageView.layer.cornerRadius = _headImageView.frame.size.width/2;
     _headImageView.layer.masksToBounds = YES;
+    _headImageView.userInteractionEnabled = YES;
+    [_headImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateInfo:)]];
     
     _pointImageView.layer.cornerRadius = _pointImageView.frame.size.width/2;
     _pointImageView.layer.masksToBounds = YES;
@@ -41,6 +43,13 @@
     UIButton *btn = (UIButton *)sender;
     if (_delegate && [_delegate respondsToSelector:@selector(btnAction:)]) {
         [_delegate btnAction:btn.tag];
+    }
+}
+
+-(void)updateInfo:(UITapGestureRecognizer *)tap
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(tapHeadImage)]) {
+        [_delegate tapHeadImage];
     }
 }
 
