@@ -55,6 +55,7 @@ static NSString *  collectionCellID=@"MenuCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MenuCell *cell = (MenuCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = UIColorFromRGB(0xececec);
     if (self.gridMenuDelegate && [self.gridMenuDelegate respondsToSelector:@selector(selectItem:)]) {
         [self.gridMenuDelegate selectItem:cell];
     }else

@@ -130,6 +130,11 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     [_navScrollV scrollRectToVisible:CGRectMake(xx, 0, _navScrollV.frame.size.width, _navScrollV.frame.size.height) animated:YES];
 }
 
+-(void)selectTitle:(NSString *)title
+{
+    
+}
+
 -(void)actionbtn:(UIButton *)btn
 {
     if(!btn.selected){

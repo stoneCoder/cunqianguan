@@ -146,6 +146,8 @@
 		B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44E31A78CBDC008B8F4B /* MessageInfoCell.xib */; };
 		B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44E71A78D219008B8F4B /* MoreSettingVC.m */; };
 		B15D44EA1A78D219008B8F4B /* MoreSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */; };
+		B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587F71A7F0F670032071C /* BaseMutableMenu.m */; };
+		B16587FB1A7F673B0032071C /* MutableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587FA1A7F673B0032071C /* MutableButton.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
 /* End PBXBuildFile section */
@@ -405,6 +407,10 @@
 		B15D44E61A78D219008B8F4B /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
 		B15D44E71A78D219008B8F4B /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
 		B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreSettingVC.xib; sourceTree = "<group>"; };
+		B16587F61A7F0F670032071C /* BaseMutableMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMutableMenu.h; sourceTree = "<group>"; };
+		B16587F71A7F0F670032071C /* BaseMutableMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMutableMenu.m; sourceTree = "<group>"; };
+		B16587F91A7F673B0032071C /* MutableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableButton.h; sourceTree = "<group>"; };
+		B16587FA1A7F673B0032071C /* MutableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableButton.m; sourceTree = "<group>"; };
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
@@ -453,6 +459,8 @@
 			children = (
 				B109D57B1A71EA1B00505D32 /* TouchPropagatedScrollView.h */,
 				B109D57C1A71EA1B00505D32 /* TouchPropagatedScrollView.m */,
+				B16587F91A7F673B0032071C /* MutableButton.h */,
+				B16587FA1A7F673B0032071C /* MutableButton.m */,
 			);
 			path = SliderView;
 			sourceTree = "<group>";
@@ -724,6 +732,8 @@
 				B14071971A6CCD7900D1792F /* BaseView.m */,
 				B14D452B1A708B98005AA895 /* BaseTableView.h */,
 				B14D452C1A708B98005AA895 /* BaseTableView.m */,
+				B16587F61A7F0F670032071C /* BaseMutableMenu.h */,
+				B16587F71A7F0F670032071C /* BaseMutableMenu.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -1306,6 +1316,7 @@
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
+				B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */,
 				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
 				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
@@ -1337,6 +1348,7 @@
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
+				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,

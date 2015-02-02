@@ -21,7 +21,9 @@
 #import "ExChangeCenterVC.h"
 #import "PersonCenterVC.h"
 
-@interface HomeVC ()<TapActionViewDelegate>
+#import "BaseMutableMenu.h"
+
+@interface HomeVC ()<TapActionViewDelegate,MutableMenuDelegate>
 {
     TapActionView *_actionView;
     UIView *_dimView;
@@ -30,6 +32,7 @@
     PresentTableView *_presentTable;
     UIButton *_closeBtn;
     NSInteger _openView;
+    BaseMutableMenu *_menu;
 }
 
 @end
@@ -67,7 +70,7 @@
     UIButton *rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search"] forState:UIControlStateNormal];
     [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search_hover"] forState:UIControlStateHighlighted];
-    //[rigthButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+    [rigthButton addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
     self.navigationItem.rightBarButtonItem = rightBtnItem;
     
@@ -105,6 +108,25 @@
 }
 
 #pragma mark -- Private
+- (void)test:(id)sender
+{
+    //NSArray *menuArr = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
+    NSDictionary *menuDic = @{@"全部":@[@{@"呵呵":@[@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1"]},@{@"什么":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]}]};
+    if (!_menu) {
+        _menu = [[BaseMutableMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
+        _menu.delegate = self;
+        [_menu initScrollView:menuDic WithDirectionType:1];
+        [self.view addSubview:_menu];
+        [_menu showView];
+    }
+}
+
+- (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu
+{
+    [_menu removeFromSuperview];
+    _menu = nil;
+}
+
 - (void)leftBtnClicked:(id)sender
 {
     _openView = 1;

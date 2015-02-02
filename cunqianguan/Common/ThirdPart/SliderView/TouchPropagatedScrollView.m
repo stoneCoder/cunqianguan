@@ -30,7 +30,6 @@
 
 -(void)_initUI
 {
-    lineViewHeight = 2;
     btns = [[NSMutableArray alloc] init];
     views = [[NSMutableArray alloc] init];
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
@@ -42,7 +41,14 @@
 - (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine
 {
     _isShowLine = isShowLine;
-    lineViewWidth = self.contentSize.width / items.count;
+    if (_DirectionType == HorizontalDirection) {
+        lineViewHeight = 2;
+        lineViewWidth = self.contentSize.width / items.count;
+    }else if (_DirectionType == VerticalDirection){
+        lineViewHeight = self.contentSize.height / items.count;
+        lineViewWidth = 5;
+    }
+    
     if ([items isEqualToArray:_items]) {
         return;
     }
@@ -59,8 +65,14 @@
         [btn setTitleColor:UIColorFromRGB(0x464646) forState:UIControlStateNormal];
         [btn setTitle:items[i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:16];
+        if (_isShowSelectBackgroundColor) {
+            btn.backgroundColor = UIColorFromRGB(0xececec);
+        }
         if (self.selectIndex == i) {
             btn.selected = YES;
+            if (_isShowSelectBackgroundColor) {
+               btn.backgroundColor = [UIColor whiteColor];
+            }
         }
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
@@ -90,15 +102,31 @@
     }
     UIButton *btn = [btns objectAtIndex:_selectIndex];
     btn.selected = NO;
+    if (_isShowSelectBackgroundColor) {
+        btn.backgroundColor = UIColorFromRGB(0xececec);
+    }
     _selectIndex = selectIndex;
     btn = [btns objectAtIndex:_selectIndex];
     btn.selected = YES;
+    if (_isShowSelectBackgroundColor) {
+        btn.backgroundColor = [UIColor whiteColor];
+    }
     
     if (animated) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.25];
     }
-    self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (btn.frame.size.width/2), self.lineView.center.y);
+    switch (_DirectionType) {
+        case HorizontalDirection:
+            self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (btn.frame.size.width/2), self.lineView.center.y);
+            break;
+        case VerticalDirection:
+            self.lineView.center = CGPointMake(self.lineView.center.x, ((_selectIndex+1)*2-1) * (btn.frame.size.height/2));
+            break;
+        default:
+            break;
+    }
+    
     if (animated) {
         [UIView commitAnimations];
     }
@@ -137,19 +165,50 @@
     [super layoutSubviews];
     
     float width = self.contentSize.width / btns.count;
+    float height = self.contentSize.height / btns.count;
     if (_isShowLine) {
         for (int i = 1; i < btns.count; i++) {
             UIView *view = [views objectAtIndex:i-1];
-            view.frame  = CGRectMake(width * i, 0, 1, self.bounds.size.height / 2);
-            view.center = CGPointMake(view.center.x, self.bounds.size.height / 2);
+            switch (_DirectionType) {
+                case HorizontalDirection:
+                    view.frame  = CGRectMake(width * i, 0, 1, self.bounds.size.height / 2);
+                    view.center = CGPointMake(view.center.x, self.bounds.size.height / 2);
+                    break;
+                case VerticalDirection:
+                    view.frame  = CGRectMake(0, height * i, self.bounds.size.width, 1);
+                    //view.center = CGPointMake(self.bounds.size.width / 2, view.center.y);
+                    break;
+                default:
+                    break;
+            }
         }
     }
     for (int i = 0; i < btns.count; i++) {
         UIView *view = [btns objectAtIndex:i];
-        view.frame  = CGRectMake(width * i, 0, width, self.bounds.size.height);
+        switch (_DirectionType) {
+            case HorizontalDirection:
+                view.frame  = CGRectMake(width * i, 0, width, self.bounds.size.height);
+                break;
+            case VerticalDirection:
+                view.frame  = CGRectMake(0, height * i, self.bounds.size.width, height);
+                break;
+            default:
+                break;
+        }
         if (self.selectIndex == i) {
-            self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, self.bounds.size.height - self.lineView.frame.size.height, lineViewWidth, lineViewHeight);
-            self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (view.frame.size.width/2), self.lineView.center.y);
+            switch (_DirectionType) {
+                case HorizontalDirection:
+                    self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, self.bounds.size.height - self.lineView.frame.size.height, lineViewWidth, lineViewHeight);
+                    self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (view.frame.size.width/2), self.lineView.center.y);
+                    break;
+                case VerticalDirection:
+                    self.lineView.frame = CGRectMake(0, _selectIndex * view.frame.size.height, lineViewWidth, lineViewHeight);
+                    self.lineView.center = CGPointMake(self.lineView.center.x, ((_selectIndex+1)*2-1) * (view.frame.size.height/2));
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }
@@ -160,7 +219,15 @@
         return;
     }
     [self setSelectIndex:btn.tag animated:YES];
+    [self selectTitle:btn.titleLabel.text];
     [self selectIndex:btn.tag];
+}
+
+-(void)selectTitle:(NSString *)title;
+{
+    if (self.segmentDelegate && [self.segmentDelegate respondsToSelector:@selector(selectIndex:)]) {
+        [self.segmentDelegate selectTitle:title];
+    }
 }
 
 -(void)selectIndex:(NSInteger)index
