@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MutableButton : UIButton
-
+@property (strong,nonatomic) NSIndexPath *indexPath;
 @end

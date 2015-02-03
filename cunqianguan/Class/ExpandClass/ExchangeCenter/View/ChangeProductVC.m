@@ -31,6 +31,14 @@
     
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [_webView loadHTMLString:@"" baseURL:nil];
+    [_webView stopLoading];
+    [_webView removeFromSuperview];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

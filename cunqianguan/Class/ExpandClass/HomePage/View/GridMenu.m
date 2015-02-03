@@ -10,6 +10,7 @@
 #import "MenuCell.h"
 #import "LoginVC.h"
 #import "BaseNC.h"
+#import "GoodsViewVC.h"
 
 static NSString *  collectionCellID=@"MenuCell";
 @implementation GridMenu
@@ -58,12 +59,7 @@ static NSString *  collectionCellID=@"MenuCell";
     cell.backgroundColor = UIColorFromRGB(0xececec);
     if (self.gridMenuDelegate && [self.gridMenuDelegate respondsToSelector:@selector(selectItem:)]) {
         [self.gridMenuDelegate selectItem:cell];
-    }else
-    {
-        LoginVC *loginVC = [[LoginVC alloc] initWithNibName:nil bundle:nil];
-        loginVC.leftTitle = @"登录";
-        BaseNC * nav = [[BaseNC alloc] initWithRootViewController:loginVC];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
+        cell.backgroundColor = [UIColor whiteColor];
     }
 }
 

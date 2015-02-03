@@ -20,6 +20,7 @@
     UIView *_btnView;
     UITableView *_btnTableView;
     CGFloat _cellHeight;
+    MutableButton *_selectBtn;
 }
 
 /*
@@ -34,7 +35,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
-        //[self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
         self.hidden = YES;
         _btnViewArray = [NSMutableArray array];
     }
@@ -62,15 +63,16 @@
     _tableBtnData = tableData;
     CGRect frame = _scrollView.frame;
     CGFloat btnViewWidth = self.frame.size.width - frame.size.width;
-    _btnTableView = [[UITableView alloc] initWithFrame:CGRectMake(frame.size.width, 0, btnViewWidth, self.frame.size.height) style:UITableViewStyleGrouped];
+    _btnTableView = [[UITableView alloc] initWithFrame:CGRectMake(frame.size.width, 0, btnViewWidth, self.frame.size.height) style:UITableViewStylePlain];
     _btnTableView.delegate = self;
     _btnTableView.dataSource = self;
-    _btnTableView.scrollEnabled = NO;
+    _btnTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _btnTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+    _btnTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:_btnTableView];
-    [_btnTableView reloadData];
 }
 
--(void)initBtnView:(NSArray *)btnArray WithHeigth:(CGFloat)heigth
+-(void)initBtnView:(NSArray *)btnArray WithHeigth:(CGFloat)heigth ForSection:(NSInteger)section
 {
     CGRect frame = _scrollView.frame;
     CGFloat btnViewWidth = self.frame.size.width - frame.size.width;
@@ -79,13 +81,17 @@
     
     CGFloat visiableX = 10,visiableY = 10,spaceNum = 10,btnWidth = (btnViewWidth - 40)/3,btnHeight = 44;
     for (int i = 0; i < btnArray.count; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
+        MutableButton *btn = [[MutableButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
+        btn.layer.cornerRadius = 3;
+        btn.layer.masksToBounds = YES;
         btn.backgroundColor = UIColorFromRGB(0XECECEC);
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [btn setTitle:btnArray[i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        btn.tag = i;
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:section];
+        btn.indexPath = indexPath;
         
         CGRect tmpFrame = btn.frame;
         if (btn.frame.origin.x + btnWidth >= btnViewWidth) {
@@ -96,22 +102,26 @@
         tmpFrame.origin.y = visiableY;
         btn.frame = tmpFrame;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        if ([_selectBtn.indexPath isEqual:indexPath]) {
+            btn.selected = YES;
+            btn.backgroundColor = UIColorFromRGB(0x40D0C2);
+        }
         [_btnView addSubview:btn];
+        [_btnViewArray addObject:btn];
         visiableX = btn.frame.origin.x + btnWidth + spaceNum;
     }
 }
 
--(void)btnClick:(UIButton *)btn
+-(void)btnClick:(MutableButton *)btn
 {
-    if (_selectIndex >= _btnViewArray.count) {
+    if ([_selectBtn.indexPath isEqual:btn.indexPath]) {
         return;
     }
-    UIButton *oldBtn = [_btnViewArray objectAtIndex:_selectIndex];
-    oldBtn.selected = NO;
-    oldBtn.backgroundColor = UIColorFromRGB(0xececec);
+    _selectBtn.selected = NO;
+    _selectBtn.backgroundColor = UIColorFromRGB(0xececec);
     
   
-    _selectIndex = btn.tag;
+    _selectBtn = btn;
     btn.selected = YES;
     btn.backgroundColor = UIColorFromRGB(0x40D0C2);
 }
@@ -138,8 +148,9 @@
 
 -(void)selectTitle:(NSString *)title
 {
-     _selectIndex = 0;
-     //[self intiBtnView:[_dataDic objectForKey:title]];
+    _selectBtn = nil;
+     _tableBtnData = [_dataDic objectForKey:title];
+    [_btnTableView reloadData];
 }
 
 -(void)selectIndex:(NSInteger)index
@@ -165,45 +176,44 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat heigth = LEFT_BTN_HEIGHT + BTN_SPACING;
+    
     NSArray *btnArray = [_tableBtnData[indexPath.section] objectForKey:[_tableBtnData[indexPath.section] allKeys][0]];
     NSInteger count = btnArray.count;
-    if (count%3 > 0) {
-        CGFloat rowHeigth = heigth *(count/3 + 1) + BTN_SPACING;
-        _cellHeight = rowHeigth;
-        return rowHeigth;
-    }
-    CGFloat rowHeigth = heigth*(count/3) + BTN_SPACING;
+    CGFloat rowHeigth = [self calculateHeigthForRow:count];
     _cellHeight = rowHeigth;
     return rowHeigth;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
+    NSArray *btnArray = [_tableBtnData[indexPath.section] objectForKey:[_tableBtnData[indexPath.section] allKeys][0]];
+    NSInteger count = btnArray.count;
+    
     static NSString *CellID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
     }
-    
-    [self initBtnView:[_tableBtnData[indexPath.section] objectForKey:[_tableBtnData[indexPath.section] allKeys][0]] WithHeigth:_cellHeight];
+    [self initBtnView:btnArray WithHeigth:[self calculateHeigthForRow:count] ForSection:indexPath.section];
     [cell.contentView addSubview:_btnView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
-
-//-(UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    [super hitTest:point withEvent:event];
-//    NSLog(@"======%@",NSStringFromCGPoint(point));
-//    if (CGRectContainsPoint(CGRectMake(-6, -6, 36, 36), point)) {
-//        return self;
-//    }
-//    return nil;
-//}
+#pragma mark -- Private
+-(CGFloat)calculateHeigthForRow:(NSInteger)count
+{
+    CGFloat rowHeigth,heigth = LEFT_BTN_HEIGHT + BTN_SPACING;;
+    if (count%3 > 0) {
+         rowHeigth = heigth *(count/3 + 1) + BTN_SPACING;
+    }else{
+        rowHeigth = heigth*(count/3) + BTN_SPACING;
+    }
+    return rowHeigth;
+}
 @end

@@ -39,11 +39,14 @@
     _gridMenu.backgroundColor = [UIColor whiteColor];
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;
+    _gridMenu.gridMenuDelegate = self;
     [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":array}];
 }
 
 -(void)selectItem:(MenuCell *)cell
 {
-    
+    if (_delegate && [_delegate respondsToSelector:@selector(tapItemWithCell:)]) {
+        [_delegate tapItemWithCell:cell];
+    }
 }
 @end

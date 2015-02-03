@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GridMenu.h"
+@class MenuCell;
+@protocol GoodsSectionViewDelagate<NSObject>
+-(void)tapItemWithCell:(MenuCell *)cell;
+@end
 
-@interface GoodsSectionView : UICollectionReusableView
-
+@interface GoodsSectionView : UICollectionReusableView<GridMenuDeleage>
+@property (strong,nonatomic) id<GoodsSectionViewDelagate> delegate;
 @end

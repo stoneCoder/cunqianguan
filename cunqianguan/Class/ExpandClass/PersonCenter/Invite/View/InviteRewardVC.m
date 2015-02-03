@@ -65,6 +65,7 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headView =  [[UIView alloc] initWithFrame:[tableView rectForHeaderInSection:section]];
+    headView.backgroundColor = [UIColor whiteColor];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 100, 20)];
     titleLabel.text = @"我的邀请";
     [headView addSubview:titleLabel];

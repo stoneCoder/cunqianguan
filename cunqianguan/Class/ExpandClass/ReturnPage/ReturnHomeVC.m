@@ -9,9 +9,13 @@
 #import "ReturnHomeVC.h"
 #import "GoodsCell.h"
 #import "GoodsSectionView.h"
+#import "ReturnHomeGoodsVC.h"
+#import "GoodsViewVC.h"
+#import "MenuCell.h"
+
 static NSString *  collectionCellID=@"GoodsCell";
 static NSString *  collectionHeadID=@"GoodsSectionView";
-@interface ReturnHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ReturnHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate,GoodsSectionViewDelagate>
 
 @end
 
@@ -74,13 +78,30 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 {
     GoodsSectionView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                    UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeadID forIndexPath:indexPath];
+    headerView.delegate = self;
     
     return headerView;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+    returnHomeGoodsVC.leftTitle = @"商品详情";
+    [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+}
+
+#pragma mark - 
+-(void)tapItemWithCell:(MenuCell *)cell
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+        
+    GoodsViewVC *goodsViewVC = [[GoodsViewVC alloc] initWithCollectionViewLayout:flowLayout];
+    goodsViewVC.leftTitle = cell.menuLabel.text;
+    [self.navigationController pushViewController:goodsViewVC animated:YES];
 }
 
 @end

@@ -14,7 +14,6 @@
 - (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu;
 @end
 @interface BaseMutableMenu : BaseView<SegmentDelegate,UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic) NSUInteger selectIndex;
 @property (strong,nonatomic) id<MutableMenuDelegate> delegate;
 
 -(void)initScrollView:(NSDictionary *)scrollMenuDic WithDirectionType:(NSInteger)directionType;

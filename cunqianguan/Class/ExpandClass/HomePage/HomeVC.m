@@ -22,8 +22,9 @@
 #import "PersonCenterVC.h"
 
 #import "BaseMutableMenu.h"
+#import "GoodsViewVC.h"
 
-@interface HomeVC ()<TapActionViewDelegate,MutableMenuDelegate>
+@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
     TapActionView *_actionView;
     UIView *_dimView;
@@ -32,7 +33,6 @@
     PresentTableView *_presentTable;
     UIButton *_closeBtn;
     NSInteger _openView;
-    BaseMutableMenu *_menu;
 }
 
 @end
@@ -110,21 +110,7 @@
 #pragma mark -- Private
 - (void)test:(id)sender
 {
-    //NSArray *menuArr = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
-    NSDictionary *menuDic = @{@"全部":@[@{@"呵呵":@[@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1"]},@{@"什么":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]}]};
-    if (!_menu) {
-        _menu = [[BaseMutableMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
-        _menu.delegate = self;
-        [_menu initScrollView:menuDic WithDirectionType:1];
-        [self.view addSubview:_menu];
-        [_menu showView];
-    }
-}
-
-- (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu
-{
-    [_menu removeFromSuperview];
-    _menu = nil;
+   
 }
 
 - (void)leftBtnClicked:(id)sender
@@ -162,6 +148,7 @@
     _gridMenu.backgroundColor = [UIColor whiteColor];
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;
+    _gridMenu.gridMenuDelegate = self;
     [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":array}];
 }
 
@@ -240,6 +227,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark -- GridMenuDeleage
+-(void)selectItem:(MenuCell *)cell
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    GoodsViewVC *goodsViewVC = [[GoodsViewVC alloc] initWithCollectionViewLayout:flowLayout];
+    goodsViewVC.leftTitle = cell.menuLabel.text;
+    [self.navigationController pushViewController:goodsViewVC animated:YES];
+}
+
 #pragma mark -- TapActionViewDelegate
 -(void)tapViewAction:(UIView *)tapView
 {
