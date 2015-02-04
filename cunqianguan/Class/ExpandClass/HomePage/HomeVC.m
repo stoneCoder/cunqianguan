@@ -23,6 +23,8 @@
 
 #import "BaseMutableMenu.h"
 #import "GoodsViewVC.h"
+#import "PolyScrollVC.h"
+#import "ExChangeScrollVC.h"
 
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
@@ -301,15 +303,9 @@
 
 -(void)pushPolyHome
 {
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 10.0;
-    
-    PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
-    polyDealVC.leftTitle = @"聚优惠";
-    [self.navigationController pushViewController:polyDealVC animated:YES];
+    PolyScrollVC *polyScrollVC = [[PolyScrollVC alloc] init];
+    polyScrollVC.leftTitle = @"聚优惠";
+    [self.navigationController pushViewController:polyScrollVC animated:YES];
 }
 
 -(void)pushReturnHome
@@ -328,15 +324,9 @@
 
 -(void)pushExChangeCenter
 {
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 10.0;
-    
-    ExChangeCenterVC *exchangeCenterVC = [[ExChangeCenterVC alloc] initWithCollectionViewLayout:flowLayout];
-    exchangeCenterVC.leftTitle = @"兑换中心";
-    [self.navigationController pushViewController:exchangeCenterVC animated:YES];
+    ExChangeScrollVC *exChangeScrollVC = [[ExChangeScrollVC alloc] init];
+    exChangeScrollVC.leftTitle = @"兑换中心";
+    [self.navigationController pushViewController:exChangeScrollVC animated:YES];
 }
 
 -(void)pushPersonCenter

@@ -147,12 +147,15 @@
 		B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44E71A78D219008B8F4B /* MoreSettingVC.m */; };
 		B15D44EA1A78D219008B8F4B /* MoreSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */; };
 		B161D7AF1A8097B7000F8DEF /* BaseSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7AE1A8097B7000F8DEF /* BaseSelectView.m */; };
-		B161D7B31A80B5FD000F8DEF /* ReturnHomeGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7B11A80B5FD000F8DEF /* ReturnHomeGoodsVC.m */; };
-		B161D7B41A80B5FD000F8DEF /* ReturnHomeGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161D7B21A80B5FD000F8DEF /* ReturnHomeGoodsVC.xib */; };
-		B161D7B81A80BA38000F8DEF /* PolyGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7B61A80BA38000F8DEF /* PolyGoodsDetailVC.m */; };
-		B161D7B91A80BA38000F8DEF /* PolyGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161D7B71A80BA38000F8DEF /* PolyGoodsDetailVC.xib */; };
 		B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7C01A80BED8000F8DEF /* GoodsViewVC.m */; };
 		B161D7C31A80BED8000F8DEF /* GoodsViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161D7C11A80BED8000F8DEF /* GoodsViewVC.xib */; };
+		B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6091A81A34000692A6C /* BaseWebVC.m */; };
+		B162D60E1A81A95900692A6C /* PolyGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */; };
+		B162D60F1A81A95900692A6C /* PolyGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */; };
+		B162D6131A81AE0000692A6C /* ReturnHomeGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6111A81AE0000692A6C /* ReturnHomeGoodsVC.m */; };
+		B162D6141A81AE0000692A6C /* ReturnHomeGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B162D6121A81AE0000692A6C /* ReturnHomeGoodsVC.xib */; };
+		B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6191A82036100692A6C /* PolyScrollVC.m */; };
+		B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D61C1A82048300692A6C /* ExChangeScrollVC.m */; };
 		B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587F71A7F0F670032071C /* BaseMutableMenu.m */; };
 		B16587FB1A7F673B0032071C /* MutableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587FA1A7F673B0032071C /* MutableButton.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
@@ -416,15 +419,21 @@
 		B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreSettingVC.xib; sourceTree = "<group>"; };
 		B161D7AD1A8097B7000F8DEF /* BaseSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectView.h; sourceTree = "<group>"; };
 		B161D7AE1A8097B7000F8DEF /* BaseSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectView.m; sourceTree = "<group>"; };
-		B161D7B01A80B5FD000F8DEF /* ReturnHomeGoodsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnHomeGoodsVC.h; sourceTree = "<group>"; };
-		B161D7B11A80B5FD000F8DEF /* ReturnHomeGoodsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnHomeGoodsVC.m; sourceTree = "<group>"; };
-		B161D7B21A80B5FD000F8DEF /* ReturnHomeGoodsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnHomeGoodsVC.xib; sourceTree = "<group>"; };
-		B161D7B51A80BA38000F8DEF /* PolyGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsDetailVC.h; sourceTree = "<group>"; };
-		B161D7B61A80BA38000F8DEF /* PolyGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsDetailVC.m; sourceTree = "<group>"; };
-		B161D7B71A80BA38000F8DEF /* PolyGoodsDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsDetailVC.xib; sourceTree = "<group>"; };
 		B161D7BF1A80BED8000F8DEF /* GoodsViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsViewVC.h; sourceTree = "<group>"; };
 		B161D7C01A80BED8000F8DEF /* GoodsViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsViewVC.m; sourceTree = "<group>"; };
 		B161D7C11A80BED8000F8DEF /* GoodsViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsViewVC.xib; sourceTree = "<group>"; };
+		B162D6081A81A34000692A6C /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
+		B162D6091A81A34000692A6C /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
+		B162D60B1A81A95900692A6C /* PolyGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsDetailVC.h; sourceTree = "<group>"; };
+		B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsDetailVC.m; sourceTree = "<group>"; };
+		B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsDetailVC.xib; sourceTree = "<group>"; };
+		B162D6101A81AE0000692A6C /* ReturnHomeGoodsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnHomeGoodsVC.h; sourceTree = "<group>"; };
+		B162D6111A81AE0000692A6C /* ReturnHomeGoodsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnHomeGoodsVC.m; sourceTree = "<group>"; };
+		B162D6121A81AE0000692A6C /* ReturnHomeGoodsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnHomeGoodsVC.xib; sourceTree = "<group>"; };
+		B162D6181A82036100692A6C /* PolyScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyScrollVC.h; sourceTree = "<group>"; };
+		B162D6191A82036100692A6C /* PolyScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyScrollVC.m; sourceTree = "<group>"; };
+		B162D61B1A82048300692A6C /* ExChangeScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeScrollVC.h; sourceTree = "<group>"; };
+		B162D61C1A82048300692A6C /* ExChangeScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeScrollVC.m; sourceTree = "<group>"; };
 		B16587F61A7F0F670032071C /* BaseMutableMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMutableMenu.h; sourceTree = "<group>"; };
 		B16587F71A7F0F670032071C /* BaseMutableMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMutableMenu.m; sourceTree = "<group>"; };
 		B16587F91A7F673B0032071C /* MutableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableButton.h; sourceTree = "<group>"; };
@@ -464,6 +473,8 @@
 		B109D5791A71E9AB00505D32 /* PolyDeals */ = {
 			isa = PBXGroup;
 			children = (
+				B162D6181A82036100692A6C /* PolyScrollVC.h */,
+				B162D6191A82036100692A6C /* PolyScrollVC.m */,
 				B109D5831A71EABC00505D32 /* View */,
 				B109D57E1A71EA5E00505D32 /* PolyDealVC.h */,
 				B109D57F1A71EA5E00505D32 /* PolyDealVC.m */,
@@ -489,9 +500,9 @@
 				B109D5891A71EE9800505D32 /* PolyGoodsCell.h */,
 				B109D58A1A71EE9800505D32 /* PolyGoodsCell.m */,
 				B109D58B1A71EE9800505D32 /* PolyGoodsCell.xib */,
-				B161D7B51A80BA38000F8DEF /* PolyGoodsDetailVC.h */,
-				B161D7B61A80BA38000F8DEF /* PolyGoodsDetailVC.m */,
-				B161D7B71A80BA38000F8DEF /* PolyGoodsDetailVC.xib */,
+				B162D60B1A81A95900692A6C /* PolyGoodsDetailVC.h */,
+				B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */,
+				B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,6 +535,8 @@
 				B109D59C1A722DB000505D32 /* ExChangeCenterVC.h */,
 				B109D59D1A722DB000505D32 /* ExChangeCenterVC.m */,
 				B109D59E1A722DB000505D32 /* ExChangeCenterVC.xib */,
+				B162D61B1A82048300692A6C /* ExChangeScrollVC.h */,
+				B162D61C1A82048300692A6C /* ExChangeScrollVC.m */,
 			);
 			path = ExchangeCenter;
 			sourceTree = "<group>";
@@ -757,6 +770,8 @@
 				B16587F71A7F0F670032071C /* BaseMutableMenu.m */,
 				B161D7AD1A8097B7000F8DEF /* BaseSelectView.h */,
 				B161D7AE1A8097B7000F8DEF /* BaseSelectView.m */,
+				B162D6081A81A34000692A6C /* BaseWebVC.h */,
+				B162D6091A81A34000692A6C /* BaseWebVC.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -964,9 +979,9 @@
 				B14D45451A70D254005AA895 /* GoodsSectionView.h */,
 				B14D45461A70D254005AA895 /* GoodsSectionView.m */,
 				B14D45471A70D254005AA895 /* GoodsSectionView.xib */,
-				B161D7B01A80B5FD000F8DEF /* ReturnHomeGoodsVC.h */,
-				B161D7B11A80B5FD000F8DEF /* ReturnHomeGoodsVC.m */,
-				B161D7B21A80B5FD000F8DEF /* ReturnHomeGoodsVC.xib */,
+				B162D6101A81AE0000692A6C /* ReturnHomeGoodsVC.h */,
+				B162D6111A81AE0000692A6C /* ReturnHomeGoodsVC.m */,
+				B162D6121A81AE0000692A6C /* ReturnHomeGoodsVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1237,7 +1252,6 @@
 			files = (
 				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
-				B161D7B91A80BA38000F8DEF /* PolyGoodsDetailVC.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */,
@@ -1246,8 +1260,8 @@
 				B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */,
 				B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
-				B161D7B41A80B5FD000F8DEF /* ReturnHomeGoodsVC.xib in Resources */,
 				B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */,
+				B162D6141A81AE0000692A6C /* ReturnHomeGoodsVC.xib in Resources */,
 				B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */,
 				B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */,
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
@@ -1283,6 +1297,7 @@
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
+				B162D60F1A81A95900692A6C /* PolyGoodsDetailVC.xib in Resources */,
 				B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1370,6 +1385,7 @@
 				B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */,
 				B161D7AF1A8097B7000F8DEF /* BaseSelectView.m in Sources */,
 				B14071B51A6CD38E00D1792F /* MJRefreshHeaderView.m in Sources */,
+				B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
 				B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */,
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
@@ -1387,7 +1403,7 @@
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
-				B161D7B31A80B5FD000F8DEF /* ReturnHomeGoodsVC.m in Sources */,
+				B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */,
 				B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */,
@@ -1403,6 +1419,7 @@
 				B15D44B31A787E03008B8F4B /* SWCellScrollView.m in Sources */,
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
 				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
+				B162D60E1A81A95900692A6C /* PolyGoodsDetailVC.m in Sources */,
 				B15D44B41A787E03008B8F4B /* SWLongPressGestureRecognizer.m in Sources */,
 				B109D58C1A71EE9800505D32 /* PolyGoodsCell.m in Sources */,
 				B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */,
@@ -1418,12 +1435,12 @@
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
+				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
 				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */,
 				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
-				B161D7B81A80BA38000F8DEF /* PolyGoodsDetailVC.m in Sources */,
 				B15D44B51A787E03008B8F4B /* SWTableViewCell.m in Sources */,
 				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
 				B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */,
@@ -1433,6 +1450,7 @@
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,
 				B15D44B71A787E03008B8F4B /* SWUtilityButtonView.m in Sources */,
+				B162D6131A81AE0000692A6C /* ReturnHomeGoodsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

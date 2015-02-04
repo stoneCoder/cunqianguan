@@ -9,5 +9,4 @@
 #import "BaseCollectionVC.h"
 
 @interface GoodsViewVC : BaseCollectionVC
-
 @end

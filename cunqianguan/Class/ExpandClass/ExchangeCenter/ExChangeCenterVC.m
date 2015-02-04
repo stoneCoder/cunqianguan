@@ -7,17 +7,11 @@
 //
 
 #import "ExChangeCenterVC.h"
-#import "BaseSegment.h"
 #import "ExChangeCell.h"
 #import "ChangeProductVC.h"
-
 #import "ChangeRootVC.h"
 
 @interface ExChangeCenterVC ()
-{
-    BaseSegment *_segment;
-}
-
 
 @end
 static NSString *  collectionCellID=@"ExChangeCell";
@@ -26,7 +20,6 @@ static NSString *  collectionCellID=@"ExChangeCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setUpSegment];
     [self setUpCollection];
 }
 
@@ -35,20 +28,9 @@ static NSString *  collectionCellID=@"ExChangeCell";
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUpSegment
-{
-    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
-    _segment.backgroundColor = [UIColor whiteColor];
-    _segment.layer.shadowOpacity = 1;
-    [_segment setItems:@[@"我能兑换",@"全部商品"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
-    [self.view insertSubview:_segment aboveSubview:self.collectionView];
-}
-
 -(void)setUpCollection
 {
-    CGFloat visiableY = _segment.frame.size.height;
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
-    [self.collectionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, self.collectionView.frame.size.height - visiableY)];
     UINib *cellNib = [UINib nibWithNibName:@"ExChangeCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
     [self setRefreshEnabled:YES];
@@ -82,7 +64,6 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //ChangeProductVC *changeProductVC = [[ChangeProductVC alloc] init];
     ChangeRootVC *changeRootVC = [[ChangeRootVC alloc] init];
     changeRootVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:changeRootVC animated:YES];

@@ -2,13 +2,13 @@
 //  ReturnHomeGoodsVC.h
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/2/3.
+//  Created by 四三一八 on 15/2/4.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "BaseVC.h"
+#import "BaseWebVC.h"
 
-@interface ReturnHomeGoodsVC : BaseVC
+@interface ReturnHomeGoodsVC : BaseWebVC
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end

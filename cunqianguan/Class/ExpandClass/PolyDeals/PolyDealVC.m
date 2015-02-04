@@ -14,10 +14,9 @@
 #import "BaseSelectView.h"
 #import "PolyGoodsDetailVC.h"
 
-@interface PolyDealVC ()<SegmentDelegate,BaseSelectViewDelegate>
+@interface PolyDealVC ()
 {
-    BaseSelectView *_selectTabV;
-    TouchPropagatedScrollView *_navScrollV;
+    NSMutableArray *_data;
 }
 
 @end
@@ -27,10 +26,23 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setUpNavBtn];
-    [self setUpSliderView];
-    [self setUpSelectView];
+    //[self setUpNavBtn];
+    _data = [NSMutableArray array];
     [self setUpCollection];
+}
+
+-(void)viewDidCurrentView
+{
+    if ([self.leftTitle isEqualToString:@"全部"]) {
+        for (int i = 0; i < 20; i++) {
+            [_data addObject:[NSString stringWithFormat:@"%d",i]];
+        }
+    }else{
+        for (int i = 0; i < 5; i++) {
+            [_data addObject:[NSString stringWithFormat:@"%d",i]];
+        }
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,47 +61,13 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     self.navigationItem.rightBarButtonItem = rightBtnItem;
 }
 
--(void)setUpSliderView
-{
-    CGFloat btnW = self.view.frame.size.width/5;
-    CGFloat btnH = 44.0f;
-    UIButton *selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [selectBtn setFrame:CGRectMake(self.view.frame.size.width - btnW, 0, btnW, btnH)];
-    [selectBtn setBackgroundColor:[UIColor redColor]];
-    [selectBtn setTitle:@"+" forState:UIControlStateNormal];
-    [selectBtn addTarget:self action:@selector(showSelectView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:selectBtn];
-    
-    
-    _navScrollV = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
-    _navScrollV.segmentDelegate = self;
-    _navScrollV.backgroundColor = [UIColor whiteColor];
-    [_navScrollV setShowsHorizontalScrollIndicator:NO];
-    NSArray *btnArray = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
-    [_navScrollV setContentSize:CGSizeMake(btnW * [btnArray count], btnH)];
-    [_navScrollV setItems:btnArray isShowLine:YES];
-    
-    [self.view insertSubview:_navScrollV aboveSubview:self.collectionView];
-}
-
 -(void)setUpCollection
 {
-    CGFloat visiableY = _navScrollV.frame.size.height;
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
-    [self.collectionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, self.collectionView.frame.size.height - visiableY)];
+    //[self.collectionView setFrame:CGRectMake(0, 0, VIEW_WIDTH, self.collectionView.frame.size.height)];
     UINib *cellNib = [UINib nibWithNibName:@"PolyGoodsCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
     [self setRefreshEnabled:YES];
-}
-
--(void)setUpSelectView
-{
-    NSArray *btnArray = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
-    _selectTabV = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, _navScrollV.frame.size.height + _navScrollV.frame.origin.y, self.collectionView.frame.size.width, VIEW_HEIGHT)];
-    [_selectTabV initView:btnArray];
-    _selectTabV.delegate = self;
-    [_selectTabV setHidden:YES];
-    [self.view insertSubview:_selectTabV belowSubview:_navScrollV];
 }
 
 /*
@@ -101,51 +79,9 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark -- Private
--(void)showSelectView:(UIButton *)btn
-{
-    if ([_selectTabV isHidden] == YES){
-        [_selectTabV showView];
-    }else{
-        [_selectTabV hideView];
-    }
-}
-
-#pragma mark -- BaseSelectViewDelegate
--(void)selectBtn:(NSInteger)index
-{
-    [_navScrollV setSelectIndex:index];
-    [self selectIndex:index];
-}
-
-#pragma mark -- SegmentDelegate
--(void)selectIndex:(NSInteger)index
-{
-    CGFloat width = self.view.frame.size.width/4;
-    float xx = _navScrollV.frame.size.width * (index - 1) * (width / self.view.frame.size.width) - width;
-    [_navScrollV scrollRectToVisible:CGRectMake(xx, 0, _navScrollV.frame.size.width, _navScrollV.frame.size.height) animated:YES];
-    
-    [_selectTabV setSelectIndex:index];
-}
-
--(void)selectTitle:(NSString *)title
-{
-    
-}
-
--(void)actionbtn:(UIButton *)btn
-{
-    if(!btn.selected){
-        btn.selected = YES;
-    }else{
-        btn.selected = NO;
-    }
-    
-}
-
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 16;
+    return [_data count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
