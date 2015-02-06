@@ -37,7 +37,7 @@
 #pragma mark -- Private
 -(void)refreshViewWithType:(ViewType)viewType
 {
-    _cashView.backgroundColor = UIColorFromRGB(0xececec);
+    //_cashView.backgroundColor = UIColorFromRGB(0xececec);
     switch (viewType) {
         case ViewTypeWithCash:
             _firstLabel.text = @"现金收入";

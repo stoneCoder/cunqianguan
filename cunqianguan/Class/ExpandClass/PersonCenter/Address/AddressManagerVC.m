@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _emptyView.backgroundColor = UIColorFromRGB(0xececec);
-    _editView.backgroundColor = UIColorFromRGB(0xececec);
+    //_editView.backgroundColor = UIColorFromRGB(0xececec);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -38,12 +38,14 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(10,_topView.frame.size.height+_topView.frame.origin.x + 50, SCREEN_WIDTH - 20, VIEW_HEIGHT - 184);
     UINib *cellNib = [UINib nibWithNibName:@"RunningWaterCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:InviteRewardCellID];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setRefreshEnabled:YES];
+    
+    CGFloat visiableY = _topView.frame.size.height + _topView.frame.origin.y + 50;
+    self.tableView.frame = CGRectMake(10,visiableY, SCREEN_WIDTH - 20, VIEW_HEIGHT - 184);
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
