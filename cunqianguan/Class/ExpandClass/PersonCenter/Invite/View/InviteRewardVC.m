@@ -38,7 +38,7 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(10, 120, VIEW_WIDTH - 20, VIEW_HEIGHT - 184);
+    self.tableView.frame = CGRectMake(10,_topView.frame.size.height+_topView.frame.origin.x + 50, SCREEN_WIDTH - 20, VIEW_HEIGHT - 184);
     UINib *cellNib = [UINib nibWithNibName:@"RunningWaterCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:InviteRewardCellID];
     

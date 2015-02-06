@@ -43,11 +43,11 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 */
 -(void)setUpSegment
 {
-    _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 45)];
-    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
+    _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
+    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
     _segment.delegate = self;
     [_segment setItems:@[@"收入",@"提现",@"待返利",@"兑换"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _segment.frame.size.height, VIEW_WIDTH, 1)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _segment.frame.size.height, SCREEN_WIDTH, 1)];
     lineView.backgroundColor = UIColorFromRGB(0xececec);
     [_headView addSubview:_segment];
     [_headView addSubview:lineView];

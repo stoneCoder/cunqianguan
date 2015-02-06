@@ -82,7 +82,7 @@
 
 -(void)initAdView
 {
-    _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 320)];
+    _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     
     AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
     adView.imageView.image = [UIImage imageNamed:@"banner"];
@@ -104,7 +104,7 @@
 {
     CGFloat visiableY =   _pageControl.frame.size.height;
     _actionView = [TapActionView init];
-    [_actionView setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
+    [_actionView setFrame:CGRectMake(0, visiableY, SCREEN_WIDTH, SCREEN_WIDTH)];
     _actionView.delegate = self;
     [self.view addSubview:_actionView];
 }

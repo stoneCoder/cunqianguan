@@ -27,7 +27,6 @@
 		B14071391A6CAFF700D1792F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071381A6CAFF700D1792F /* main.m */; };
 		B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B140713B1A6CAFF700D1792F /* AppDelegate.m */; };
 		B14071441A6CAFF700D1792F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14071431A6CAFF700D1792F /* Images.xcassets */; };
-		B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14071451A6CAFF700D1792F /* LaunchScreen.xib */; };
 		B14071531A6CAFF700D1792F /* cunqianguanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071521A6CAFF700D1792F /* cunqianguanTests.m */; };
 		B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071621A6CC51A00D1792F /* BaseConnect.m */; };
 		B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071731A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m */; };
@@ -207,7 +206,6 @@
 		B140713A1A6CAFF700D1792F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B140713B1A6CAFF700D1792F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B14071431A6CAFF700D1792F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B14071461A6CAFF700D1792F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B140714C1A6CAFF700D1792F /* cunqianguanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cunqianguanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14071511A6CAFF700D1792F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14071521A6CAFF700D1792F /* cunqianguanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cunqianguanTests.m; sourceTree = "<group>"; };
@@ -629,7 +627,6 @@
 				B140713A1A6CAFF700D1792F /* AppDelegate.h */,
 				B140713B1A6CAFF700D1792F /* AppDelegate.m */,
 				B14071431A6CAFF700D1792F /* Images.xcassets */,
-				B14071451A6CAFF700D1792F /* LaunchScreen.xib */,
 				B14071361A6CAFF700D1792F /* Supporting Files */,
 			);
 			path = cunqianguan;
@@ -1265,7 +1262,6 @@
 				B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */,
 				B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */,
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
-				B14071471A6CAFF700D1792F /* LaunchScreen.xib in Resources */,
 				B15D44EA1A78D219008B8F4B /* MoreSettingVC.xib in Resources */,
 				B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
@@ -1471,17 +1467,6 @@
 			targetProxy = B140714D1A6CAFF700D1792F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B14071451A6CAFF700D1792F /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B14071461A6CAFF700D1792F /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B14071541A6CAFF700D1792F /* Debug */ = {

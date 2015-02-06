@@ -47,6 +47,4 @@
         [self.delegate tapViewAction:tapView];
     }
 }
-
-
 @end

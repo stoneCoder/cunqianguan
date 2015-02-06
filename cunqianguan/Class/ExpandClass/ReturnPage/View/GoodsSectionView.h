@@ -14,5 +14,6 @@
 @end
 
 @interface GoodsSectionView : UICollectionReusableView<GridMenuDeleage>
+@property (strong,nonatomic) MenuCell *selectCell;
 @property (strong,nonatomic) id<GoodsSectionViewDelagate> delegate;
 @end

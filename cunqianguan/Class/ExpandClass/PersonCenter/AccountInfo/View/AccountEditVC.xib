@@ -38,9 +38,6 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nPB-wk-w92">
                             <rect key="frame" x="109" y="21" width="186" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="186" id="GrA-Ff-Fo2"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             <connections>
@@ -164,9 +161,6 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="esJ-Kl-3np">
                             <rect key="frame" x="115" y="22" width="180" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="180" id="1Zc-EQ-raB"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             <connections>
@@ -367,6 +361,8 @@
                 <constraint firstItem="R2D-S5-umf" firstAttribute="top" secondItem="Tqe-bw-4DT" secondAttribute="top" id="R2V-fc-rqb"/>
                 <constraint firstAttribute="bottom" secondItem="Tqe-bw-4DT" secondAttribute="bottom" id="azm-dU-2Dx"/>
                 <constraint firstItem="Tqe-bw-4DT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bYA-pk-4CG"/>
+                <constraint firstAttribute="trailing" secondItem="R2D-S5-umf" secondAttribute="trailing" id="bhb-l1-5tT"/>
+                <constraint firstAttribute="trailing" secondItem="Tqe-bw-4DT" secondAttribute="trailing" id="o2K-vR-3z9"/>
                 <constraint firstItem="R2D-S5-umf" firstAttribute="leading" secondItem="Tqe-bw-4DT" secondAttribute="leading" id="sCW-Fp-FiV"/>
             </constraints>
             <point key="canvasLocation" x="159" y="82"/>

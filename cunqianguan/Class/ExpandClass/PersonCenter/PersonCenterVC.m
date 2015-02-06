@@ -22,6 +22,8 @@
 #import "MoreSettingVC.h"
 #import "PersonInfoVC.h"
 
+#import "Masonry.h"
+
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
     NSDictionary *_localData;
@@ -72,19 +74,19 @@ static NSString *FooterViewID = @"PersonFooterView";
     PersonHeaderView *personHeaderView = [PersonHeaderView headerView];
     personHeaderView.delegate = self;
     self.tableView.tableHeaderView = personHeaderView;
-    
+   
     PersonFooterView *personFooterView = [PersonFooterView footerView];
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
     
-    [self popView:personHeaderView.progressView.frame];
+    //[self popView:personHeaderView.progressView.frame];
 }
 
 -(void)popView:(CGRect)frame
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
     view.backgroundColor = [UIColor redColor];
-    [view setCenter:CGPointMake(frame.size.width/2, frame.origin.y - view.frame.size.height/2)];
+    [view setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - view.frame.size.height/2)];
     [self.tableView addSubview:view];
 }
 

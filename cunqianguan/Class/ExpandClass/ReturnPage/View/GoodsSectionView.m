@@ -17,7 +17,6 @@
     // Initialization code
     [self setUpGridMenu];
     [self addSubview:_gridMenu];
-    self.backgroundColor = [UIColor redColor];
 }
 
 #pragma mark -- Private
@@ -35,7 +34,7 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     
-    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:flowLayout];
+    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.frame.size.height) collectionViewLayout:flowLayout];
     _gridMenu.backgroundColor = [UIColor whiteColor];
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;
@@ -45,6 +44,7 @@
 
 -(void)selectItem:(MenuCell *)cell
 {
+    _selectCell = cell;
     if (_delegate && [_delegate respondsToSelector:@selector(tapItemWithCell:)]) {
         [_delegate tapItemWithCell:cell];
     }

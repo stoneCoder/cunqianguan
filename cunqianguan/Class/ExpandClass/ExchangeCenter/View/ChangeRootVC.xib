@@ -30,9 +30,6 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5T-GY-O7z">
                             <rect key="frame" x="225" y="3" width="84" height="44"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="84" id="Y0t-Kf-cdi"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="我要兑换">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +59,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gu4-eu-5Fv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fKC-05-YdZ"/>
+                <constraint firstAttribute="trailing" secondItem="gu4-eu-5Fv" secondAttribute="trailing" id="lRs-Rd-u20"/>
+                <constraint firstAttribute="bottom" secondItem="gu4-eu-5Fv" secondAttribute="bottom" id="lum-bw-f7g"/>
                 <constraint firstAttribute="bottom" secondItem="gu4-eu-5Fv" secondAttribute="bottom" id="m0N-pf-n2B"/>
+                <constraint firstItem="gu4-eu-5Fv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mux-nJ-utt"/>
             </constraints>
             <point key="canvasLocation" x="507" y="307"/>
         </view>

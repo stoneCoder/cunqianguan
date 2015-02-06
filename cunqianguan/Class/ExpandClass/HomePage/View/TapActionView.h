@@ -24,5 +24,4 @@
 @property (strong,nonatomic) id<TapActionViewDelegate> delegate;
 +(TapActionView *)init;
 
-
 @end

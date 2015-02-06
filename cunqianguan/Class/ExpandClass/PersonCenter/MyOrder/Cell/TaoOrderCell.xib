@@ -155,6 +155,8 @@
                 <constraints>
                     <constraint firstItem="hcG-tr-gcU" firstAttribute="top" secondItem="PYD-4E-CN7" secondAttribute="topMargin" id="Kfl-Pe-1p9"/>
                     <constraint firstItem="hcG-tr-gcU" firstAttribute="leading" secondItem="PYD-4E-CN7" secondAttribute="leadingMargin" id="XoH-wU-Qdm"/>
+                    <constraint firstItem="hcG-tr-gcU" firstAttribute="trailing" secondItem="PYD-4E-CN7" secondAttribute="trailingMargin" id="v2H-wI-9Dy"/>
+                    <constraint firstItem="hcG-tr-gcU" firstAttribute="leading" secondItem="PYD-4E-CN7" secondAttribute="leadingMargin" id="zie-9c-r6U"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -35,7 +35,7 @@
 -(void)createTableWithStye:(UITableViewStyle)style
 {
     if (self.tableView == nil) {
-        CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
+        CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, [UIScreen mainScreen].bounds.size.height);
         self.tableView = [[UITableView alloc] initWithFrame:frame style:style];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;

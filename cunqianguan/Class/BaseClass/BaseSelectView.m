@@ -44,7 +44,7 @@
 
 -(void)createBtnWithArray:(NSArray *)btnArray
 {
-    CGFloat visiableX = 0,visiableY = 0,btnWidth = _btnView.frame.size.width/3,btnHeight = 44;
+    CGFloat visiableX = 0,visiableY = 0,btnWidth = floor(_btnView.frame.size.width/3),btnHeight = 44;
     for (int i = 0; i < btnArray.count; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
         btn.backgroundColor = [UIColor whiteColor];
@@ -57,7 +57,7 @@
         btn.tag = i;
         
         CGRect tmpFrame = btn.frame;
-        if (btn.frame.origin.x + btnWidth >= _btnView.frame.size.width) {
+        if (btn.frame.origin.x + btnWidth > _btnView.frame.size.width) {
             visiableY = btn.frame.origin.y + btnHeight;
             visiableX = 0;
         }

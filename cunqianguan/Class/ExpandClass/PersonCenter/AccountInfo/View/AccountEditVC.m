@@ -44,6 +44,7 @@
         case ViewTypeWithBank:
             _AlipayView.hidden = YES;
             _bankCardView.hidden = NO;
+            _bankCardView.backgroundColor = self.view.backgroundColor;
             break;
         default:
             break;

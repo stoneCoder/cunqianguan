@@ -55,7 +55,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellID];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"VIP%d",indexPath.row + 1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];

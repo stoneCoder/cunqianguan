@@ -32,7 +32,7 @@
 
 -(void)setUpWebView
 {
-    self.webView.frame = CGRectMake(0, 0, VIEW_WIDTH, self.webView.frame.size.height - _bottomView.frame.size.height - 64);
+    self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - _bottomView.frame.size.height - 64);
     self.webView.scalesPageToFit = YES;
     NSURL* url = [NSURL URLWithString:@"http://www.youku.com"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];

@@ -16,6 +16,9 @@
 static NSString *  collectionCellID=@"GoodsCell";
 static NSString *  collectionHeadID=@"GoodsSectionView";
 @interface ReturnHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate,GoodsSectionViewDelagate>
+{
+    GoodsSectionView *headerView;
+}
 
 @end
 
@@ -43,6 +46,13 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
     [self.collectionView registerNib:headNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeadID];
     
     [self setRefreshEnabled:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if(headerView.selectCell){
+        headerView.selectCell.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 /*
@@ -76,7 +86,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    GoodsSectionView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
+    headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                    UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeadID forIndexPath:indexPath];
     headerView.delegate = self;
     

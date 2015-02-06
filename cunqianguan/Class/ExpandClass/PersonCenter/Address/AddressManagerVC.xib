@@ -105,9 +105,6 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-a6-pa8">
                             <rect key="frame" x="64" y="11" width="220" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="220" id="QfA-HV-H7K"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             <connections>
@@ -302,6 +299,8 @@
             <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zhL-V8-9CE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="130" id="33A-8c-22W"/>
+                <constraint firstItem="Eno-gm-Xwg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="JGt-rn-x3k"/>
+                <constraint firstAttribute="trailing" secondItem="Eno-gm-Xwg" secondAttribute="trailing" constant="10" id="MjF-wZ-CVW"/>
                 <constraint firstAttribute="bottom" secondItem="zhL-V8-9CE" secondAttribute="bottom" constant="144" id="gI4-3V-Fvg"/>
                 <constraint firstItem="Eno-gm-Xwg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="joz-Hs-ksQ"/>
                 <constraint firstItem="zhL-V8-9CE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kis-7N-bZP"/>

@@ -9,5 +9,5 @@
 #import "BaseTableVC.h"
 
 @interface InviteRewardVC : BaseTableVC
-
+@property (strong, nonatomic) IBOutlet UIView *topView;
 @end
