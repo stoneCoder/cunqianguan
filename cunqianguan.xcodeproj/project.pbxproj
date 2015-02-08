@@ -88,8 +88,8 @@
 		B1436F981A7377C000706772 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F951A7377C000706772 /* PopoverView.m */; };
 		B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9A1A73870C00706772 /* FinishInfoVC.m */; };
 		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
-		B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9F1A73895A00706772 /* BindAccountVC.m */; };
-		B1436FA21A73895A00706772 /* BindAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436FA01A73895A00706772 /* BindAccountVC.xib */; };
+		B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968281A8741BA00DBC09B /* BindAccountVC.m */; };
+		B149682B1A8741BA00DBC09B /* BindAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14968291A8741BA00DBC09B /* BindAccountVC.xib */; };
 		B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498ADF1A7730E2001260EC /* ChangeProductVC.m */; };
 		B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AE01A7730E2001260EC /* ChangeProductVC.xib */; };
 		B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498AE41A775795001260EC /* ProductDetailHeaderView.m */; };
@@ -324,9 +324,9 @@
 		B1436F991A73870C00706772 /* FinishInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishInfoVC.h; sourceTree = "<group>"; };
 		B1436F9A1A73870C00706772 /* FinishInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishInfoVC.m; sourceTree = "<group>"; };
 		B1436F9B1A73870C00706772 /* FinishInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishInfoVC.xib; sourceTree = "<group>"; };
-		B1436F9E1A73895A00706772 /* BindAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindAccountVC.h; sourceTree = "<group>"; };
-		B1436F9F1A73895A00706772 /* BindAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindAccountVC.m; sourceTree = "<group>"; };
-		B1436FA01A73895A00706772 /* BindAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindAccountVC.xib; sourceTree = "<group>"; };
+		B14968271A8741BA00DBC09B /* BindAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindAccountVC.h; sourceTree = "<group>"; };
+		B14968281A8741BA00DBC09B /* BindAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindAccountVC.m; sourceTree = "<group>"; };
+		B14968291A8741BA00DBC09B /* BindAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindAccountVC.xib; sourceTree = "<group>"; };
 		B1498ADE1A7730E2001260EC /* ChangeProductVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeProductVC.h; sourceTree = "<group>"; };
 		B1498ADF1A7730E2001260EC /* ChangeProductVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeProductVC.m; sourceTree = "<group>"; };
 		B1498AE01A7730E2001260EC /* ChangeProductVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeProductVC.xib; sourceTree = "<group>"; };
@@ -893,6 +893,9 @@
 		B140EC7F1A6F78A4004D245A /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				B14968271A8741BA00DBC09B /* BindAccountVC.h */,
+				B14968281A8741BA00DBC09B /* BindAccountVC.m */,
+				B14968291A8741BA00DBC09B /* BindAccountVC.xib */,
 				B140EC801A6F78C3004D245A /* RegisterVC.h */,
 				B140EC811A6F78C3004D245A /* RegisterVC.m */,
 				B140EC821A6F78C3004D245A /* RegisterVC.xib */,
@@ -902,9 +905,6 @@
 				B1436F991A73870C00706772 /* FinishInfoVC.h */,
 				B1436F9A1A73870C00706772 /* FinishInfoVC.m */,
 				B1436F9B1A73870C00706772 /* FinishInfoVC.xib */,
-				B1436F9E1A73895A00706772 /* BindAccountVC.h */,
-				B1436F9F1A73895A00706772 /* BindAccountVC.m */,
-				B1436FA01A73895A00706772 /* BindAccountVC.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1250,6 +1250,7 @@
 				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
+				B149682B1A8741BA00DBC09B /* BindAccountVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
 				B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */,
 				B12D72A41A7B799F0086F70A /* PersonInfoVC.xib in Resources */,
@@ -1266,7 +1267,6 @@
 				B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
 				B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */,
-				B1436FA21A73895A00706772 /* BindAccountVC.xib in Resources */,
 				B140EC891A6F83D0004D245A /* ForgetVC.xib in Resources */,
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
@@ -1366,7 +1366,6 @@
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
 				B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */,
 				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
-				B1436FA11A73895A00706772 /* BindAccountVC.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
 				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
@@ -1443,6 +1442,7 @@
 				B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */,
+				B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,
 				B15D44B71A787E03008B8F4B /* SWUtilityButtonView.m in Sources */,

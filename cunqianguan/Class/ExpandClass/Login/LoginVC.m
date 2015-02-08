@@ -10,6 +10,11 @@
 #import "RegisterVC.h"
 #import "ForgetVC.h"
 
+#import "BindAccountVC.h"
+#import "FinishInfoVC.h"
+
+#import "BindAccountVC.h"
+
 @interface LoginVC ()<UITextFieldDelegate>
 
 @end
@@ -90,7 +95,18 @@
 
 - (IBAction)registForThirdPart:(id)sender
 {
-   
+    
+    UIButton *btn = (UIButton *)sender;
+    if (btn.tag == 1000) {
+        BindAccountVC *registVC = [[BindAccountVC alloc] init];
+        registVC.leftTitle = @"注册";
+        [self.navigationController pushViewController:registVC animated:YES];
+    }else{
+        FinishInfoVC *registVC = [[FinishInfoVC alloc] init];
+        registVC.leftTitle = @"注册";
+        [self.navigationController pushViewController:registVC animated:YES];
+    }
+    
 }
 
 - (IBAction)clearAction:(id)sender

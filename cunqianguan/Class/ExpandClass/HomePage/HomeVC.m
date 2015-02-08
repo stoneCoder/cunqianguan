@@ -26,6 +26,9 @@
 #import "PolyScrollVC.h"
 #import "ExChangeScrollVC.h"
 
+#import "LoginVC.h"
+#import "BaseNC.h"
+
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
     TapActionView *_actionView;
@@ -112,7 +115,9 @@
 #pragma mark -- Private
 - (void)test:(id)sender
 {
-   
+    LoginVC *loginVC = [[LoginVC alloc] init];
+    BaseNC *nav = [[BaseNC alloc] initWithRootViewController:loginVC];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)leftBtnClicked:(id)sender

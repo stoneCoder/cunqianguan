@@ -98,7 +98,6 @@
                         <constraint firstItem="Uk0-1h-5d6" firstAttribute="leading" secondItem="SgZ-5j-eAH" secondAttribute="leading" constant="5" id="g3a-sh-bXV"/>
                         <constraint firstAttribute="bottom" secondItem="cI1-Et-gwY" secondAttribute="bottom" constant="9" id="mbA-GJ-aEH"/>
                         <constraint firstItem="cI1-Et-gwY" firstAttribute="centerX" secondItem="SgZ-5j-eAH" secondAttribute="centerX" id="sLK-Oy-shC"/>
-                        <constraint firstAttribute="width" secondItem="SgZ-5j-eAH" secondAttribute="height" multiplier="160:53" id="vRG-yG-MHq"/>
                         <constraint firstAttribute="bottom" secondItem="Uk0-1h-5d6" secondAttribute="bottom" constant="12" id="yN6-NM-aKb"/>
                     </constraints>
                 </view>

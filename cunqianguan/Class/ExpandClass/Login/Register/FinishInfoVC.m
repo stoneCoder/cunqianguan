@@ -10,6 +10,7 @@
 #import "BindAccountVC.h"
 #import "RegisterVC.h"
 #import "BaseSegment.h"
+#import "BindAccountVC.h"
 
 @interface FinishInfoVC ()<CCSegmentDelegate>
 {
@@ -46,7 +47,7 @@
 */
 -(void)setUpSegment
 {
-    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
+    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
     _segment.backgroundColor = [UIColor whiteColor];
     _segment.layer.shadowOpacity = 1;
     _segment.delegate = self;

@@ -44,7 +44,7 @@ static NSString *ProfileCellID = @"ProfileCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 64);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - 64);
     self.tableView.scrollEnabled = NO;
 
     UINib *CellNib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
@@ -52,7 +52,7 @@ static NSString *ProfileCellID = @"ProfileCell";
    
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 108)];
     footerView.backgroundColor = UIColorFromRGB(0XECECEC);
-    PointView *pointView = [[PointView alloc] initWithFrame:CGRectMake(20, 40, VIEW_WIDTH - 40, 220) style:UITableViewStylePlain];
+    PointView *pointView = [[PointView alloc] initWithFrame:CGRectMake(20, 40, SCREEN_WIDTH - 40, 220) style:UITableViewStylePlain];
     if (iOS7) {
         [pointView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     }

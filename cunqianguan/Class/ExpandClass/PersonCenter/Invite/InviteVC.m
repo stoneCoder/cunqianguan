@@ -21,6 +21,8 @@
     _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜网后，只要在7天内注册，均为有效。";
     _pointLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _pointLabel.numberOfLines = 0;
+    
+    _scrollView.contentSize =  CGSizeMake(SCREEN_WIDTH, _scrollView.contentSize.height);
 }
 
 

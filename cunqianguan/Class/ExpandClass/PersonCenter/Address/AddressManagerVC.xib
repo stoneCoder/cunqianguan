@@ -24,14 +24,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhL-V8-9CE">
-                    <rect key="frame" x="0.0" y="130" width="138" height="274"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhL-V8-9CE">
+                    <rect key="frame" x="10" y="130" width="300" height="274"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8G-ot-aN3">
-                            <rect key="frame" x="15" y="201" width="108" height="44"/>
+                            <rect key="frame" x="5" y="202" width="290" height="44"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="z4f-bQ-tmc"/>
+                                <constraint firstAttribute="width" secondItem="s8G-ot-aN3" secondAttribute="height" multiplier="145:22" id="Mek-d9-qAv"/>
                             </constraints>
                             <state key="normal" title="添加收货地址">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,14 +42,14 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="s8G-ot-aN3" secondAttribute="bottom" constant="29" id="0H9-kn-CnP"/>
+                        <constraint firstAttribute="bottom" secondItem="s8G-ot-aN3" secondAttribute="bottom" constant="28" id="0H9-kn-CnP"/>
                         <constraint firstItem="s8G-ot-aN3" firstAttribute="centerX" secondItem="zhL-V8-9CE" secondAttribute="centerX" id="7Qc-AL-R6x"/>
-                        <constraint firstItem="s8G-ot-aN3" firstAttribute="leading" secondItem="zhL-V8-9CE" secondAttribute="leading" constant="15" id="HkG-XU-cRW"/>
+                        <constraint firstItem="s8G-ot-aN3" firstAttribute="leading" secondItem="zhL-V8-9CE" secondAttribute="leading" constant="5" id="HkG-XU-cRW"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-gm-Xwg">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-gm-Xwg">
                     <rect key="frame" x="10" y="20" width="300" height="320"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_top" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-UO-L3Z">
@@ -79,7 +79,7 @@
                                 <constraint firstAttribute="width" secondItem="dYr-om-I2A" secondAttribute="height" multiplier="145:22" id="VXC-5J-ixt"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-1n-cXZ">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-1n-cXZ">
                             <rect key="frame" x="64" y="97" width="220" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -95,8 +95,11 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="jRG-Mf-j6X">
                             <rect key="frame" x="5" y="176" width="290" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jRG-Mf-j6X" secondAttribute="height" multiplier="145:22" id="Ywg-Gw-V8e"/>
+                            </constraints>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EAG-6j-y2k">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EAG-6j-y2k">
                             <rect key="frame" x="64" y="183" width="220" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -116,7 +119,7 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-a6-pa8">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-a6-pa8">
                             <rect key="frame" x="64" y="11" width="220" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -130,7 +133,7 @@
                                 <constraint firstAttribute="width" secondItem="koB-iu-MUd" secondAttribute="height" multiplier="145:22" id="DcJ-V6-8tL"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-Xi-6yL">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-Xi-6yL">
                             <rect key="frame" x="64" y="140" width="220" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -148,7 +151,6 @@
                             <rect key="frame" x="5" y="246" width="290" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="EAZ-KZ-fHE" secondAttribute="height" multiplier="145:22" id="3Aw-DY-m7N"/>
-                                <constraint firstAttribute="height" constant="44" id="wAl-Kp-nwa"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="确认提交" backgroundImage="confirmation">
@@ -156,7 +158,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-Ko-FVO">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-Ko-FVO">
                             <rect key="frame" x="64" y="54" width="220" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -165,7 +167,6 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="EAZ-KZ-fHE" firstAttribute="top" secondItem="OWp-90-I9L" secondAttribute="bottom" constant="39" id="04K-8B-Lt6"/>
                         <constraint firstItem="dYr-om-I2A" firstAttribute="top" secondItem="C0u-0e-4fg" secondAttribute="bottom" constant="-1" id="47L-Nm-kPg"/>
@@ -230,6 +231,7 @@
                         <constraint firstItem="ZhY-UO-L3Z" firstAttribute="trailing" secondItem="dYr-om-I2A" secondAttribute="trailing" id="pNU-Da-xbU"/>
                         <constraint firstItem="pKW-a6-pa8" firstAttribute="trailing" secondItem="ZhG-Ko-FVO" secondAttribute="trailing" id="rKv-Jq-Yin"/>
                         <constraint firstItem="koB-iu-MUd" firstAttribute="top" secondItem="NPg-Dy-ntT" secondAttribute="bottom" constant="12" id="rTy-PC-DZm"/>
+                        <constraint firstItem="lSl-9f-nav" firstAttribute="top" secondItem="Eno-gm-Xwg" secondAttribute="top" constant="17" id="sI9-eb-fnm"/>
                         <constraint firstItem="pKW-a6-pa8" firstAttribute="centerY" secondItem="ZhY-UO-L3Z" secondAttribute="centerY" id="tR4-Yg-9UG"/>
                         <constraint firstItem="pKW-a6-pa8" firstAttribute="top" secondItem="Eno-gm-Xwg" secondAttribute="top" constant="11" id="tVf-J1-eow"/>
                         <constraint firstItem="ZhG-Ko-FVO" firstAttribute="trailing" secondItem="dOd-Xi-6yL" secondAttribute="trailing" id="udW-Sj-vrE"/>
@@ -249,7 +251,8 @@
                 <constraint firstItem="Eno-gm-Xwg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Onp-ZH-kYK"/>
                 <constraint firstAttribute="bottom" secondItem="zhL-V8-9CE" secondAttribute="bottom" constant="144" id="gI4-3V-Fvg"/>
                 <constraint firstItem="Eno-gm-Xwg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="iD0-0V-0vQ"/>
-                <constraint firstItem="zhL-V8-9CE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kis-7N-bZP"/>
+                <constraint firstItem="zhL-V8-9CE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kis-7N-bZP"/>
+                <constraint firstAttribute="trailing" secondItem="zhL-V8-9CE" secondAttribute="trailing" constant="10" id="tjU-IZ-9Be"/>
             </constraints>
             <point key="canvasLocation" x="192" y="291"/>
         </view>

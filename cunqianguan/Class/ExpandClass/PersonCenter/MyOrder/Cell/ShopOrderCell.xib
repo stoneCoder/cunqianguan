@@ -50,13 +50,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="254元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4L-Tm-Znf">
-                                <rect key="frame" x="181" y="46" width="47" height="21"/>
+                                <rect key="frame" x="181" y="46" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="待返利：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-Hs-JK4">
-                                <rect key="frame" x="104" y="74" width="66" height="21"/>
+                                <rect key="frame" x="104" y="74" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.54元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFS-Rj-3VF">
-                                <rect key="frame" x="175" y="74" width="45" height="21"/>
+                                <rect key="frame" x="169" y="74" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,14 +77,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Vgb-qA-ulg" secondAttribute="bottom" constant="2" id="1RR-sf-Zov"/>
-                            <constraint firstAttribute="trailing" secondItem="J4L-Tm-Znf" secondAttribute="trailing" constant="76" id="1aY-h3-VdE"/>
                             <constraint firstItem="ryR-dN-uDR" firstAttribute="leading" secondItem="JCn-aw-qlt" secondAttribute="trailing" constant="84" id="2CH-f2-myn"/>
                             <constraint firstItem="J4L-Tm-Znf" firstAttribute="top" secondItem="pGZ-C5-cvR" secondAttribute="top" constant="46" id="4NG-op-npF"/>
                             <constraint firstItem="jFS-Rj-3VF" firstAttribute="top" secondItem="J4L-Tm-Znf" secondAttribute="bottom" constant="7" id="4aC-7a-fja"/>
                             <constraint firstItem="ryR-dN-uDR" firstAttribute="top" secondItem="pGZ-C5-cvR" secondAttribute="top" constant="8" id="5VB-OW-qAr"/>
                             <constraint firstItem="2LT-2Q-eeD" firstAttribute="top" secondItem="pGZ-C5-cvR" secondAttribute="top" constant="37" id="8Tw-93-xm6"/>
                             <constraint firstAttribute="bottom" secondItem="Vgb-qA-ulg" secondAttribute="bottom" constant="2" id="9e2-E6-82A"/>
-                            <constraint firstAttribute="trailing" secondItem="jFS-Rj-3VF" secondAttribute="trailing" constant="84" id="9r2-xs-jJ1"/>
                             <constraint firstAttribute="bottom" secondItem="2LT-2Q-eeD" secondAttribute="bottom" constant="114" id="AwS-sq-edL"/>
                             <constraint firstItem="ryR-dN-uDR" firstAttribute="top" secondItem="pGZ-C5-cvR" secondAttribute="topMargin" id="BuD-iw-Xde"/>
                             <constraint firstAttribute="trailing" secondItem="Vgb-qA-ulg" secondAttribute="trailing" id="CWP-Di-hQw"/>

@@ -1,14 +1,16 @@
 //
-//  BindAccountVC.m
+//  RegisterVC.m
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/1/24.
+//  Created by 四三一八 on 15/1/21.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
 #import "BindAccountVC.h"
 
-@interface BindAccountVC ()
+@interface BindAccountVC ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *pwdtext;
 
 @end
 
@@ -17,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
+    _username.delegate = self;
+    _pwdtext.delegate = self;
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,11 +38,23 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+#pragma mark -- Private
 -(void)hideKeyBoard
 {
     [_username resignFirstResponder];
-    [_password resignFirstResponder];
+    [_pwdtext resignFirstResponder];
+}
+
+#pragma mark -- UITextfiledDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == _username)
+    {
+        [_pwdtext becomeFirstResponder];
+        return YES;
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

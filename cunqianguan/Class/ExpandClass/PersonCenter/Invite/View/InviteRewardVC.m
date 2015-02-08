@@ -44,8 +44,8 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setRefreshEnabled:YES];
     
-    CGFloat visiableY = _topView.frame.size.height + _topView.frame.origin.y + 50;
-    self.tableView.frame = CGRectMake(10,visiableY, SCREEN_WIDTH - 20, VIEW_HEIGHT - 184);
+    CGFloat visiableY = _topView.frame.size.height + _topView.frame.origin.y + 30;
+    self.tableView.frame = CGRectMake(10,visiableY, SCREEN_WIDTH - 20, SCREEN_HEIGTH - visiableY - 64);
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
