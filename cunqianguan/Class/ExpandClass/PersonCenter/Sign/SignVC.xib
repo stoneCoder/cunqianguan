@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignVC">
+            <connections>
+                <outlet property="calendarContentView" destination="glh-R9-pit" id="Bvv-JT-dsL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzB-8A-Y3d">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <color key="backgroundColor" red="0.18039215689999999" green="0.86274509799999999" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="kzB-8A-Y3d" secondAttribute="height" multiplier="320:49" id="PYz-04-q6o"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glh-R9-pit" customClass="JTCalendarContentView">
+                    <rect key="frame" x="0.0" y="48" width="320" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vZ-dK-4NZ">
+                    <rect key="frame" x="15" y="358" width="290" height="44"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8vZ-dK-4NZ" secondAttribute="height" multiplier="145:22" id="uMB-F2-qwO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="立即签到">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDl-Mm-QPr">
+                    <rect key="frame" x="15" y="423" width="290" height="70"/>
+                    <attributedString key="attributedText">
+                        <fragment content="每日在保鲜期网站或手机端签到可得积分。">
+                            <attributes>
+                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="14" name="STHeitiSC-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="连续签到5天即可获得超值奖励！">
+                            <attributes>
+                                <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="STHeitiSC-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="使用手机端签到任意一天，即可在获得超值奖励的同时获得额外奖励！期间如果中断，将会重新从第一天开始。">
+                            <attributes>
+                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="14" name="STHeitiSC-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="glh-R9-pit" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="0sQ-aX-Mrt"/>
+                <constraint firstAttribute="bottom" secondItem="8vZ-dK-4NZ" secondAttribute="bottom" constant="146" id="BrX-NS-e92"/>
+                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="leading" secondItem="oDl-Mm-QPr" secondAttribute="leading" id="EJH-ZB-Ew6"/>
+                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="FsT-im-Jfo"/>
+                <constraint firstAttribute="trailing" secondItem="glh-R9-pit" secondAttribute="trailing" id="I28-bT-XKP"/>
+                <constraint firstItem="glh-R9-pit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SL1-St-zbl"/>
+                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="top" secondItem="glh-R9-pit" secondAttribute="bottom" constant="10" id="TN4-Hk-vc8"/>
+                <constraint firstItem="oDl-Mm-QPr" firstAttribute="top" secondItem="8vZ-dK-4NZ" secondAttribute="bottom" constant="21" id="Xy4-Hr-Ag0"/>
+                <constraint firstItem="kzB-8A-Y3d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aT0-ne-KvR"/>
+                <constraint firstAttribute="trailing" secondItem="8vZ-dK-4NZ" secondAttribute="trailing" constant="15" id="bqf-DJ-VkY"/>
+                <constraint firstItem="glh-R9-pit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dho-Of-3uL"/>
+                <constraint firstItem="kzB-8A-Y3d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iUH-xI-kwD"/>
+                <constraint firstAttribute="trailing" secondItem="kzB-8A-Y3d" secondAttribute="trailing" id="mcC-jt-B63"/>
+                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="trailing" secondItem="oDl-Mm-QPr" secondAttribute="trailing" id="yKy-ES-aV9"/>
+            </constraints>
+            <point key="canvasLocation" x="319" y="417"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -22,7 +22,7 @@
 #import "MoreSettingVC.h"
 #import "PersonInfoVC.h"
 
-#import "Masonry.h"
+#import "SignVC.h"
 
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
@@ -80,6 +80,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     self.tableView.tableFooterView = personFooterView;
     
     //[self popView:personHeaderView.progressView.frame];
+}
+
+-(void)rightBtnClick:(UIButton *)btn
+{
+    SignVC *signVC = [[SignVC alloc] init];
+    signVC.leftTitle = @"签到";
+    [self.navigationController pushViewController:signVC animated:YES];
 }
 
 -(void)popView:(CGRect)frame
@@ -190,7 +197,14 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)pushCollection
 {
-    CollectVC *collectVC = [[CollectVC alloc] init];
+    
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    CollectVC *collectVC = [[CollectVC alloc] initWithCollectionViewLayout:flowLayout];
     collectVC.leftTitle = @"收藏";
     [self.navigationController pushViewController:collectVC animated:YES];
 }

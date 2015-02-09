@@ -90,6 +90,15 @@
 		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
 		B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968281A8741BA00DBC09B /* BindAccountVC.m */; };
 		B149682B1A8741BA00DBC09B /* BindAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14968291A8741BA00DBC09B /* BindAccountVC.xib */; };
+		B14968301A8758E800DBC09B /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = B149682D1A8758E800DBC09B /* NSData+Encryption.m */; };
+		B14968311A8758E800DBC09B /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B149682F1A8758E800DBC09B /* NSDate+Helper.m */; };
+		B14968441A875A4500DBC09B /* NSData+SWHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968341A875A4500DBC09B /* NSData+SWHex.m */; };
+		B14968451A875A4500DBC09B /* NSNumber+SWHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968361A875A4500DBC09B /* NSNumber+SWHex.m */; };
+		B14968461A875A4500DBC09B /* NSString+SWHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968381A875A4500DBC09B /* NSString+SWHex.m */; };
+		B14968471A875A4500DBC09B /* NSArray+SWJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B149683C1A875A4500DBC09B /* NSArray+SWJSON.m */; };
+		B14968481A875A4500DBC09B /* NSData+SWJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B149683E1A875A4500DBC09B /* NSData+SWJSON.m */; };
+		B14968491A875A4500DBC09B /* NSDictionary+SWJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968401A875A4500DBC09B /* NSDictionary+SWJSON.m */; };
+		B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B14968421A875A4500DBC09B /* NSString+SWJSON.m */; };
 		B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498ADF1A7730E2001260EC /* ChangeProductVC.m */; };
 		B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AE01A7730E2001260EC /* ChangeProductVC.xib */; };
 		B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498AE41A775795001260EC /* ProductDetailHeaderView.m */; };
@@ -157,6 +166,20 @@
 		B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D61C1A82048300692A6C /* ExChangeScrollVC.m */; };
 		B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587F71A7F0F670032071C /* BaseMutableMenu.m */; };
 		B16587FB1A7F673B0032071C /* MutableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B16587FA1A7F673B0032071C /* MutableButton.m */; };
+		B1668D041A88419E002CB98E /* CollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D021A88419E002CB98E /* CollectCell.m */; };
+		B1668D051A88419E002CB98E /* CollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1668D031A88419E002CB98E /* CollectCell.xib */; };
+		B1668D0E1A889931002CB98E /* SignVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D0C1A889931002CB98E /* SignVC.m */; };
+		B1668D0F1A889931002CB98E /* SignVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1668D0D1A889931002CB98E /* SignVC.xib */; };
+		B1668D461A88A2F4002CB98E /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D321A88A2F4002CB98E /* JTCalendar.m */; };
+		B1668D471A88A2F4002CB98E /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D341A88A2F4002CB98E /* JTCalendarAppearance.m */; };
+		B1668D481A88A2F4002CB98E /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D361A88A2F4002CB98E /* JTCalendarContentView.m */; };
+		B1668D491A88A2F4002CB98E /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D381A88A2F4002CB98E /* JTCalendarDayView.m */; };
+		B1668D4A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D3A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m */; };
+		B1668D4B1A88A2F4002CB98E /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D3C1A88A2F4002CB98E /* JTCalendarMenuView.m */; };
+		B1668D4C1A88A2F4002CB98E /* JTCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D3E1A88A2F4002CB98E /* JTCalendarMonthView.m */; };
+		B1668D4D1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D401A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m */; };
+		B1668D4E1A88A2F4002CB98E /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D431A88A2F4002CB98E /* JTCalendarWeekView.m */; };
+		B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D451A88A2F4002CB98E /* JTCircleView.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
 /* End PBXBuildFile section */
@@ -327,6 +350,26 @@
 		B14968271A8741BA00DBC09B /* BindAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindAccountVC.h; sourceTree = "<group>"; };
 		B14968281A8741BA00DBC09B /* BindAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindAccountVC.m; sourceTree = "<group>"; };
 		B14968291A8741BA00DBC09B /* BindAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindAccountVC.xib; sourceTree = "<group>"; };
+		B149682C1A8758E800DBC09B /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
+		B149682D1A8758E800DBC09B /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
+		B149682E1A8758E800DBC09B /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		B149682F1A8758E800DBC09B /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		B14968331A875A4500DBC09B /* NSData+SWHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SWHex.h"; sourceTree = "<group>"; };
+		B14968341A875A4500DBC09B /* NSData+SWHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SWHex.m"; sourceTree = "<group>"; };
+		B14968351A875A4500DBC09B /* NSNumber+SWHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+SWHex.h"; sourceTree = "<group>"; };
+		B14968361A875A4500DBC09B /* NSNumber+SWHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+SWHex.m"; sourceTree = "<group>"; };
+		B14968371A875A4500DBC09B /* NSString+SWHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SWHex.h"; sourceTree = "<group>"; };
+		B14968381A875A4500DBC09B /* NSString+SWHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SWHex.m"; sourceTree = "<group>"; };
+		B14968391A875A4500DBC09B /* SWHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHex.h; sourceTree = "<group>"; };
+		B149683B1A875A4500DBC09B /* NSArray+SWJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SWJSON.h"; sourceTree = "<group>"; };
+		B149683C1A875A4500DBC09B /* NSArray+SWJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SWJSON.m"; sourceTree = "<group>"; };
+		B149683D1A875A4500DBC09B /* NSData+SWJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SWJSON.h"; sourceTree = "<group>"; };
+		B149683E1A875A4500DBC09B /* NSData+SWJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SWJSON.m"; sourceTree = "<group>"; };
+		B149683F1A875A4500DBC09B /* NSDictionary+SWJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SWJSON.h"; sourceTree = "<group>"; };
+		B14968401A875A4500DBC09B /* NSDictionary+SWJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SWJSON.m"; sourceTree = "<group>"; };
+		B14968411A875A4500DBC09B /* NSString+SWJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SWJSON.h"; sourceTree = "<group>"; };
+		B14968421A875A4500DBC09B /* NSString+SWJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SWJSON.m"; sourceTree = "<group>"; };
+		B14968431A875A4500DBC09B /* SWJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWJSON.h; sourceTree = "<group>"; };
 		B1498ADE1A7730E2001260EC /* ChangeProductVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeProductVC.h; sourceTree = "<group>"; };
 		B1498ADF1A7730E2001260EC /* ChangeProductVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeProductVC.m; sourceTree = "<group>"; };
 		B1498AE01A7730E2001260EC /* ChangeProductVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeProductVC.xib; sourceTree = "<group>"; };
@@ -436,6 +479,33 @@
 		B16587F71A7F0F670032071C /* BaseMutableMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMutableMenu.m; sourceTree = "<group>"; };
 		B16587F91A7F673B0032071C /* MutableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableButton.h; sourceTree = "<group>"; };
 		B16587FA1A7F673B0032071C /* MutableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableButton.m; sourceTree = "<group>"; };
+		B1668D011A88419E002CB98E /* CollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectCell.h; sourceTree = "<group>"; };
+		B1668D021A88419E002CB98E /* CollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectCell.m; sourceTree = "<group>"; };
+		B1668D031A88419E002CB98E /* CollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectCell.xib; sourceTree = "<group>"; };
+		B1668D0B1A889931002CB98E /* SignVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignVC.h; sourceTree = "<group>"; };
+		B1668D0C1A889931002CB98E /* SignVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignVC.m; sourceTree = "<group>"; };
+		B1668D0D1A889931002CB98E /* SignVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignVC.xib; sourceTree = "<group>"; };
+		B1668D311A88A2F4002CB98E /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
+		B1668D321A88A2F4002CB98E /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
+		B1668D331A88A2F4002CB98E /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
+		B1668D341A88A2F4002CB98E /* JTCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarAppearance.m; sourceTree = "<group>"; };
+		B1668D351A88A2F4002CB98E /* JTCalendarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarContentView.h; sourceTree = "<group>"; };
+		B1668D361A88A2F4002CB98E /* JTCalendarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarContentView.m; sourceTree = "<group>"; };
+		B1668D371A88A2F4002CB98E /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
+		B1668D381A88A2F4002CB98E /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
+		B1668D391A88A2F4002CB98E /* JTCalendarMenuMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuMonthView.h; sourceTree = "<group>"; };
+		B1668D3A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuMonthView.m; sourceTree = "<group>"; };
+		B1668D3B1A88A2F4002CB98E /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
+		B1668D3C1A88A2F4002CB98E /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
+		B1668D3D1A88A2F4002CB98E /* JTCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthView.h; sourceTree = "<group>"; };
+		B1668D3E1A88A2F4002CB98E /* JTCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthView.m; sourceTree = "<group>"; };
+		B1668D3F1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
+		B1668D401A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
+		B1668D411A88A2F4002CB98E /* JTCalendarViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarViewDataSource.h; sourceTree = "<group>"; };
+		B1668D421A88A2F4002CB98E /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
+		B1668D431A88A2F4002CB98E /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
+		B1668D441A88A2F4002CB98E /* JTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCircleView.h; sourceTree = "<group>"; };
+		B1668D451A88A2F4002CB98E /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCircleView.m; sourceTree = "<group>"; };
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
@@ -683,6 +753,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B1668D301A88A2F4002CB98E /* JTCalendar */,
 				B14FE5E61A7C7FA4002BF122 /* VPImageCropper */,
 				B15D44A41A787E03008B8F4B /* SWTableViewCell */,
 				B1436F931A7377C000706772 /* PopoverView */,
@@ -716,6 +787,12 @@
 		B14071711A6CC8E900D1792F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B14968321A875A4500DBC09B /* SWHex */,
+				B149683A1A875A4500DBC09B /* SWJson */,
+				B149682C1A8758E800DBC09B /* NSData+Encryption.h */,
+				B149682D1A8758E800DBC09B /* NSData+Encryption.m */,
+				B149682E1A8758E800DBC09B /* NSDate+Helper.h */,
+				B149682F1A8758E800DBC09B /* NSDate+Helper.m */,
 				B14071721A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.h */,
 				B14071731A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m */,
 				B14071741A6CC90400D1792F /* UIView+UIViewExt.h */,
@@ -912,6 +989,7 @@
 		B1436F761A7326BD00706772 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B1668D0A1A889912002CB98E /* Sign */,
 				B14FE5EF1A7CB3E7002BF122 /* Collect */,
 				B12D729F1A7B79830086F70A /* PersonInfo */,
 				B16868C21A7B244D00D37944 /* Invite */,
@@ -954,6 +1032,36 @@
 				B1436F971A7377C000706772 /* PopoverViewCompatibility.h */,
 			);
 			path = PopoverView;
+			sourceTree = "<group>";
+		};
+		B14968321A875A4500DBC09B /* SWHex */ = {
+			isa = PBXGroup;
+			children = (
+				B14968331A875A4500DBC09B /* NSData+SWHex.h */,
+				B14968341A875A4500DBC09B /* NSData+SWHex.m */,
+				B14968351A875A4500DBC09B /* NSNumber+SWHex.h */,
+				B14968361A875A4500DBC09B /* NSNumber+SWHex.m */,
+				B14968371A875A4500DBC09B /* NSString+SWHex.h */,
+				B14968381A875A4500DBC09B /* NSString+SWHex.m */,
+				B14968391A875A4500DBC09B /* SWHex.h */,
+			);
+			path = SWHex;
+			sourceTree = "<group>";
+		};
+		B149683A1A875A4500DBC09B /* SWJson */ = {
+			isa = PBXGroup;
+			children = (
+				B149683B1A875A4500DBC09B /* NSArray+SWJSON.h */,
+				B149683C1A875A4500DBC09B /* NSArray+SWJSON.m */,
+				B149683D1A875A4500DBC09B /* NSData+SWJSON.h */,
+				B149683E1A875A4500DBC09B /* NSData+SWJSON.m */,
+				B149683F1A875A4500DBC09B /* NSDictionary+SWJSON.h */,
+				B14968401A875A4500DBC09B /* NSDictionary+SWJSON.m */,
+				B14968411A875A4500DBC09B /* NSString+SWJSON.h */,
+				B14968421A875A4500DBC09B /* NSString+SWJSON.m */,
+				B14968431A875A4500DBC09B /* SWJSON.h */,
+			);
+			path = SWJson;
 			sourceTree = "<group>";
 		};
 		B14D45311A70A169005AA895 /* ReturnPage */ = {
@@ -1035,6 +1143,7 @@
 		B14FE5EF1A7CB3E7002BF122 /* Collect */ = {
 			isa = PBXGroup;
 			children = (
+				B1668D001A884188002CB98E /* Cell */,
 				B14FE5F01A7CB40F002BF122 /* CollectVC.h */,
 				B14FE5F11A7CB40F002BF122 /* CollectVC.m */,
 				B14FE5F21A7CB40F002BF122 /* CollectVC.xib */,
@@ -1143,6 +1252,54 @@
 				B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		B1668D001A884188002CB98E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1668D011A88419E002CB98E /* CollectCell.h */,
+				B1668D021A88419E002CB98E /* CollectCell.m */,
+				B1668D031A88419E002CB98E /* CollectCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1668D0A1A889912002CB98E /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				B1668D0B1A889931002CB98E /* SignVC.h */,
+				B1668D0C1A889931002CB98E /* SignVC.m */,
+				B1668D0D1A889931002CB98E /* SignVC.xib */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		B1668D301A88A2F4002CB98E /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B1668D311A88A2F4002CB98E /* JTCalendar.h */,
+				B1668D321A88A2F4002CB98E /* JTCalendar.m */,
+				B1668D331A88A2F4002CB98E /* JTCalendarAppearance.h */,
+				B1668D341A88A2F4002CB98E /* JTCalendarAppearance.m */,
+				B1668D351A88A2F4002CB98E /* JTCalendarContentView.h */,
+				B1668D361A88A2F4002CB98E /* JTCalendarContentView.m */,
+				B1668D371A88A2F4002CB98E /* JTCalendarDayView.h */,
+				B1668D381A88A2F4002CB98E /* JTCalendarDayView.m */,
+				B1668D391A88A2F4002CB98E /* JTCalendarMenuMonthView.h */,
+				B1668D3A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m */,
+				B1668D3B1A88A2F4002CB98E /* JTCalendarMenuView.h */,
+				B1668D3C1A88A2F4002CB98E /* JTCalendarMenuView.m */,
+				B1668D3D1A88A2F4002CB98E /* JTCalendarMonthView.h */,
+				B1668D3E1A88A2F4002CB98E /* JTCalendarMonthView.m */,
+				B1668D3F1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.h */,
+				B1668D401A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m */,
+				B1668D411A88A2F4002CB98E /* JTCalendarViewDataSource.h */,
+				B1668D421A88A2F4002CB98E /* JTCalendarWeekView.h */,
+				B1668D431A88A2F4002CB98E /* JTCalendarWeekView.m */,
+				B1668D441A88A2F4002CB98E /* JTCircleView.h */,
+				B1668D451A88A2F4002CB98E /* JTCircleView.m */,
+			);
+			path = JTCalendar;
 			sourceTree = "<group>";
 		};
 		B16868C21A7B244D00D37944 /* Invite */ = {
@@ -1284,6 +1441,7 @@
 				B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */,
+				B1668D0F1A889931002CB98E /* SignVC.xib in Resources */,
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
 				B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */,
@@ -1293,6 +1451,7 @@
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
+				B1668D051A88419E002CB98E /* CollectCell.xib in Resources */,
 				B162D60F1A81A95900692A6C /* PolyGoodsDetailVC.xib in Resources */,
 				B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */,
 			);
@@ -1346,6 +1505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */,
+				B14968481A875A4500DBC09B /* NSData+SWJSON.m in Sources */,
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
@@ -1356,25 +1516,32 @@
 				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
 				B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
+				B1668D491A88A2F4002CB98E /* JTCalendarDayView.m in Sources */,
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
 				B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */,
 				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
+				B1668D4A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m in Sources */,
+				B1668D471A88A2F4002CB98E /* JTCalendarAppearance.m in Sources */,
 				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
 				B14071B21A6CD38E00D1792F /* MJRefreshBaseView.m in Sources */,
 				B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */,
 				B140EC721A6F7345004D245A /* SMNavigationItem.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
+				B1668D481A88A2F4002CB98E /* JTCalendarContentView.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
 				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
 				B140719C1A6CCD7900D1792F /* BaseNC.m in Sources */,
 				B15D44DD1A78C3FE008B8F4B /* MessageInfoVC.m in Sources */,
 				B15D44CA1A78A7AF008B8F4B /* ShopOrderCell.m in Sources */,
 				B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */,
+				B14968461A875A4500DBC09B /* NSString+SWHex.m in Sources */,
+				B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */,
 				B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */,
 				B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */,
+				B1668D4E1A88A2F4002CB98E /* JTCalendarWeekView.m in Sources */,
 				B140EC6E1A6F7345004D245A /* SMCheckBox.m in Sources */,
 				B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */,
 				B1436F8A1A7343FD00706772 /* PersonFooterView.m in Sources */,
@@ -1393,29 +1560,39 @@
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
+				B14968491A875A4500DBC09B /* NSDictionary+SWJSON.m in Sources */,
 				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
+				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
+				B1668D0E1A889931002CB98E /* SignVC.m in Sources */,
 				B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */,
 				B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */,
+				B14968441A875A4500DBC09B /* NSData+SWHex.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */,
 				B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,
+				B1668D4B1A88A2F4002CB98E /* JTCalendarMenuView.m in Sources */,
 				B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */,
 				B1436F801A732D3C00706772 /* PersonInfoCell.m in Sources */,
+				B1668D4C1A88A2F4002CB98E /* JTCalendarMonthView.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
+				B14968451A875A4500DBC09B /* NSNumber+SWHex.m in Sources */,
 				B14D453B1A70A4EE005AA895 /* GoodsCell.m in Sources */,
 				B140717D1A6CC9D000D1792F /* CMAlert.m in Sources */,
 				B15D44B31A787E03008B8F4B /* SWCellScrollView.m in Sources */,
+				B14968301A8758E800DBC09B /* NSData+Encryption.m in Sources */,
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
 				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
+				B1668D461A88A2F4002CB98E /* JTCalendar.m in Sources */,
 				B162D60E1A81A95900692A6C /* PolyGoodsDetailVC.m in Sources */,
 				B15D44B41A787E03008B8F4B /* SWLongPressGestureRecognizer.m in Sources */,
+				B1668D041A88419E002CB98E /* CollectCell.m in Sources */,
 				B109D58C1A71EE9800505D32 /* PolyGoodsCell.m in Sources */,
 				B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */,
@@ -1424,10 +1601,12 @@
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
+				B1668D4D1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m in Sources */,
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,
+				B14968311A8758E800DBC09B /* NSDate+Helper.m in Sources */,
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
 				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
@@ -1446,6 +1625,7 @@
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,
 				B15D44B71A787E03008B8F4B /* SWUtilityButtonView.m in Sources */,
+				B14968471A875A4500DBC09B /* NSArray+SWJSON.m in Sources */,
 				B162D6131A81AE0000692A6C /* ReturnHomeGoodsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

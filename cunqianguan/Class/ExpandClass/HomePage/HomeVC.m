@@ -116,6 +116,7 @@
 - (void)test:(id)sender
 {
     LoginVC *loginVC = [[LoginVC alloc] init];
+    loginVC.leftTitle = @"登陆";
     BaseNC *nav = [[BaseNC alloc] initWithRootViewController:loginVC];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }

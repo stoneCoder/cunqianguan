@@ -7,6 +7,12 @@
 //
 
 #import "BaseUtil.h"
+#import "NSData+Encryption.h"
+#import "SWHex.h"
+#import <CommonCrypto/CommonHMAC.h>
+#import <CommonCrypto/CommonCryptor.h>
+
+static NSString *const cryptPassword = @"me.baoxianqi.www";
 @implementation BaseUtil
 #pragma mark - 获取MD5字符串
 + (NSString *) stringFromMD5:(NSString*)string
@@ -84,6 +90,45 @@
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     BOOL isMatch = [pred evaluateWithObject:telphone];
     return isMatch;
+}
+
+#pragma mark - Encrypt / Decrypt With AES
++ (NSString*)encrypt:(NSString*)toBeEncString{
+    NSString *retString = nil;
+    NSError *err = nil;
+    NSData *data = [toBeEncString dataUsingEncoding:NSUTF8StringEncoding];
+    data = [data encryptWithKey:cryptPassword];
+    if (!err) {
+        retString = [data bytesString];
+    }else{
+        NSLog(@"%@",err);
+    }
+    return retString;
+}
++ (NSString*)decrypt:(NSString*)toBeDecString{
+    NSString *retString = nil;
+    NSError *err = nil;
+    NSData *data = [toBeDecString dataFromBytesString];
+    data = [data decryptWithKey:cryptPassword];
+    if (!err) {
+        retString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }else{
+        NSLog(@"%@",err);
+    }
+    return retString;
+}
+
++ (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key{
+    if (!key) {
+        key = cryptPassword;
+    }
+    const char *cKey  = [key cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];
+    char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:CC_SHA1_DIGEST_LENGTH];
+    NSString *hash = [HMAC base64Encoding];
+    return hash;
 }
 
 /*获取手机通讯录*/
