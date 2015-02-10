@@ -9,6 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignVC">
             <connections>
                 <outlet property="calendarContentView" destination="glh-R9-pit" id="Bvv-JT-dsL"/>
+                <outlet property="monthLabel" destination="vro-Ut-gxt" id="KMb-OJ-D1T"/>
+                <outlet property="topView" destination="kzB-8A-Y3d" id="aQ4-OU-NH1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,17 +21,61 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzB-8A-Y3d">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                    <color key="backgroundColor" red="0.18039215689999999" green="0.86274509799999999" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMS-XX-IkK">
+                            <rect key="frame" x="240" y="7" width="72" height="35"/>
+                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="向后">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="next:" destination="-1" eventType="touchUpInside" id="zT9-OS-Kig"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015年01月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vro-Ut-gxt">
+                            <rect key="frame" x="114" y="15" width="92" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-qI-OzD">
+                            <rect key="frame" x="8" y="7" width="72" height="35"/>
+                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jaz-qI-OzD" secondAttribute="height" multiplier="72:35" id="BqM-Nx-D5S"/>
+                            </constraints>
+                            <state key="normal" title="向前">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="previous:" destination="-1" eventType="touchUpInside" id="y4t-Ha-uAs"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="KMS-XX-IkK" secondAttribute="trailing" constant="8" id="4dm-50-7gW"/>
+                        <constraint firstAttribute="bottom" secondItem="vro-Ut-gxt" secondAttribute="bottom" constant="13" id="BR6-Ox-u4S"/>
+                        <constraint firstItem="jaz-qI-OzD" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="7" id="G88-Oa-CHX"/>
+                        <constraint firstItem="KMS-XX-IkK" firstAttribute="leading" secondItem="vro-Ut-gxt" secondAttribute="trailing" constant="34" id="KBS-fM-fn7"/>
+                        <constraint firstItem="vro-Ut-gxt" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="15" id="LKy-wt-1XK"/>
                         <constraint firstAttribute="width" secondItem="kzB-8A-Y3d" secondAttribute="height" multiplier="320:49" id="PYz-04-q6o"/>
+                        <constraint firstItem="KMS-XX-IkK" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="7" id="W4u-TS-h7T"/>
+                        <constraint firstItem="jaz-qI-OzD" firstAttribute="leading" secondItem="kzB-8A-Y3d" secondAttribute="leading" constant="8" id="YbG-y5-D92"/>
+                        <constraint firstAttribute="bottom" secondItem="jaz-qI-OzD" secondAttribute="bottom" constant="7" id="bFR-Ph-dfd"/>
+                        <constraint firstItem="vro-Ut-gxt" firstAttribute="centerX" secondItem="kzB-8A-Y3d" secondAttribute="centerX" id="raU-56-SYU"/>
+                        <constraint firstAttribute="bottom" secondItem="KMS-XX-IkK" secondAttribute="bottom" constant="7" id="tlc-FG-yEy"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glh-R9-pit" customClass="JTCalendarContentView">
-                    <rect key="frame" x="0.0" y="48" width="320" height="300"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="300"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="glh-R9-pit" secondAttribute="height" multiplier="16:15" id="lmW-Q7-0MR"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vZ-dK-4NZ">
-                    <rect key="frame" x="15" y="358" width="290" height="44"/>
+                    <rect key="frame" x="15" y="363" width="290" height="44"/>
                     <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="8vZ-dK-4NZ" secondAttribute="height" multiplier="145:22" id="uMB-F2-qwO"/>
@@ -38,9 +84,12 @@
                     <state key="normal" title="立即签到">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="signAction:" destination="-1" eventType="touchUpInside" id="EBo-Jt-bJL"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDl-Mm-QPr">
-                    <rect key="frame" x="15" y="423" width="290" height="70"/>
+                    <rect key="frame" x="15" y="425" width="290" height="70"/>
                     <attributedString key="attributedText">
                         <fragment content="每日在保鲜期网站或手机端签到可得积分。">
                             <attributes>
@@ -69,17 +118,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="glh-R9-pit" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="0sQ-aX-Mrt"/>
-                <constraint firstAttribute="bottom" secondItem="8vZ-dK-4NZ" secondAttribute="bottom" constant="146" id="BrX-NS-e92"/>
+                <constraint firstItem="glh-R9-pit" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="0sQ-aX-Mrt"/>
                 <constraint firstItem="8vZ-dK-4NZ" firstAttribute="leading" secondItem="oDl-Mm-QPr" secondAttribute="leading" id="EJH-ZB-Ew6"/>
                 <constraint firstItem="8vZ-dK-4NZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="FsT-im-Jfo"/>
                 <constraint firstAttribute="trailing" secondItem="glh-R9-pit" secondAttribute="trailing" id="I28-bT-XKP"/>
                 <constraint firstItem="glh-R9-pit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SL1-St-zbl"/>
-                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="top" secondItem="glh-R9-pit" secondAttribute="bottom" constant="10" id="TN4-Hk-vc8"/>
-                <constraint firstItem="oDl-Mm-QPr" firstAttribute="top" secondItem="8vZ-dK-4NZ" secondAttribute="bottom" constant="21" id="Xy4-Hr-Ag0"/>
+                <constraint firstItem="oDl-Mm-QPr" firstAttribute="top" secondItem="8vZ-dK-4NZ" secondAttribute="bottom" constant="18" id="Xy4-Hr-Ag0"/>
                 <constraint firstItem="kzB-8A-Y3d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aT0-ne-KvR"/>
                 <constraint firstAttribute="trailing" secondItem="8vZ-dK-4NZ" secondAttribute="trailing" constant="15" id="bqf-DJ-VkY"/>
-                <constraint firstItem="glh-R9-pit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dho-Of-3uL"/>
+                <constraint firstAttribute="leading" secondItem="glh-R9-pit" secondAttribute="leading" id="dho-Of-3uL"/>
+                <constraint firstItem="8vZ-dK-4NZ" firstAttribute="top" secondItem="glh-R9-pit" secondAttribute="bottom" constant="13" id="fEU-1S-dbE"/>
                 <constraint firstItem="kzB-8A-Y3d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iUH-xI-kwD"/>
                 <constraint firstAttribute="trailing" secondItem="kzB-8A-Y3d" secondAttribute="trailing" id="mcC-jt-B63"/>
                 <constraint firstItem="8vZ-dK-4NZ" firstAttribute="trailing" secondItem="oDl-Mm-QPr" secondAttribute="trailing" id="yKy-ES-aV9"/>

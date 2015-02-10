@@ -11,4 +11,6 @@
 @interface SignVC : BaseVC
 @property (strong, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @end

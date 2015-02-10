@@ -69,11 +69,12 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [self addSubview:dotView];
     dotView.hidden = YES;
 
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouch)];
-    self.userInteractionEnabled = YES;
-    [self addGestureRecognizer:gesture];
- 
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didDaySelected:) name:kJTCalendarDaySelected object:nil];
+    if (self.calendarManager.calendarAppearance.enableViewTap) {
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouch)];
+        self.userInteractionEnabled = YES;
+        [self addGestureRecognizer:gesture];
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didDaySelected:) name:kJTCalendarDaySelected object:nil];
 }
 
 - (void)layoutSubviews
@@ -149,18 +150,20 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     }
 }
 
+
 - (void)didDaySelected:(NSNotification *)notification
 {
-//    NSDate *dateSelected = [notification object];
-    
-//    if([self isSameDate:dateSelected]){
-//        if(!isSelected){
-//            [self setSelected:YES animated:YES];
-//        }
-//    }
-//    else if(isSelected){
-//        [self setSelected:NO animated:YES];
-//    }
+    id object = [notification object];
+    if ([object isKindOfClass:[NSDate class]]) {
+        NSDate *dateSelected = (NSDate *)object;
+        if([self isSameDate:dateSelected]){
+            if(!isSelected){
+                [self didTouch];
+            }
+        }
+    }else if([object isKindOfClass:[NSMutableArray class]]){
+        
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

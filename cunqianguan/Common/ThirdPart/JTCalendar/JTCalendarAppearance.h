@@ -56,21 +56,11 @@ typedef NS_ENUM(NSInteger, JTCalendarWeekDayFormat) {
 @property (assign, nonatomic) CGFloat dayCircleRatio;
 @property (assign, nonatomic) CGFloat dayDotRatio;
 
+@property (assign, nonatomic) BOOL enableViewTap;
+
 - (NSCalendar *)calendar;
 
 - (void)setDayDotColorForAll:(UIColor *)dotColor;
 - (void)setDayTextColorForAll:(UIColor *)textColor;
 
 @end
-
-// 版权属于原作者
-// http://code4app.com (cn) http://code4app.net (en)
-// 发布代码于最专业的源码分享网站: Code4App.com 
-
-// 版权属于原作者
-// http://code4app.com (cn) http://code4app.net (en)
-// 发布代码于最专业的源码分享网站: Code4App.com 
-
-// 版权属于原作者
-// http://code4app.com (cn) http://code4app.net (en)
-// 发布代码于最专业的源码分享网站: Code4App.com 

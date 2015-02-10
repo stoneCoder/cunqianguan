@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *progressView;
 @property (weak, nonatomic) IBOutlet UIImageView *pointImageView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) id<PersonHeaderDelegate> delegate;
 +(PersonHeaderView *)headerView;

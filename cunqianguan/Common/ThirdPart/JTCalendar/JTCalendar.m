@@ -27,7 +27,6 @@
     
     self->_currentDate = [NSDate date];
     calendarAppearance = [JTCalendarAppearance new];
-    
     return self;
 }
 
@@ -45,6 +44,12 @@
 //    [self.menuMonthsView setCurrentDate:self.currentDate];
 //    [self.menuMonthsView reloadAppearance];
 //}
+
+-(void)setMonthLabel:(UILabel *)monthLabel
+{
+    _monthLabel = monthLabel;
+    [self setMonthCurrent:self.currentDate];
+}
 
 - (void)setContentView:(JTCalendarContentView *)contentView
 {
@@ -92,6 +97,19 @@
     [self reloadData]; // For be on the good page and update all DayView
 }
 
+- (void)setMonthCurrent:(NSDate *)current
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+        dateFormatter.timeZone = self.calendarAppearance.calendar.timeZone;
+    }
+    
+    dateFormatter.dateFormat = @"YYYY年MM月";
+    _monthLabel.text = [dateFormatter stringFromDate:current];
+}
+
 - (JTCalendarAppearance *)calendarAppearance
 {
     return calendarAppearance;
@@ -131,7 +149,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self updatePage];
+    //[self updatePage];
 }
 
 - (void)updatePage
@@ -140,12 +158,11 @@
     CGFloat fractionalPage = self.contentView.contentOffset.x / pageWidth;
         
     int currentPage = roundf(fractionalPage);
-//    if (currentPage == (NUMBER_PAGES_LOADED / 2)){
-//        self.menuMonthsView.scrollEnabled = YES;
-//        self.contentView.scrollEnabled = YES;
-//        return;
-//    }
-    
+    if (currentPage == (NUMBER_PAGES_LOADED / 2)){
+        //self.menuMonthsView.scrollEnabled = YES;
+        self.contentView.scrollEnabled = YES;
+        return;
+    }
     NSCalendar *calendar = calendarAppearance.calendar;
     NSDateComponents *dayComponent = [NSDateComponents new];
     
@@ -157,11 +174,10 @@
     }
     
     NSDate *currentDate = [calendar dateByAddingComponents:dayComponent toDate:self.currentDate options:0];
-    
     [self setCurrentDate:currentDate];
-    
+    [self setMonthCurrent:currentDate];
     //self.menuMonthsView.scrollEnabled = YES;
-    self.contentView.scrollEnabled = YES;
+    self.contentView.scrollEnabled = NO;
 }
 
 - (void)loadNextMonth

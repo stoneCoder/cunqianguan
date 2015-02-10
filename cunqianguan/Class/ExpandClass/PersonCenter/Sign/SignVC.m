@@ -8,7 +8,7 @@
 
 #import "SignVC.h"
 
-
+static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 @interface SignVC ()<JTCalendarDataSource>
 {
     JTCalendar *_calendar;
@@ -36,8 +36,25 @@
     _calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
     _calendar.calendarAppearance.ratioContentMenu = 1.;
     
+    [_calendar setMonthLabel:_monthLabel];
+    self.calendarContentView.scrollEnabled = NO;
     [_calendar setContentView:self.calendarContentView];
     [_calendar setDataSource:self];
+}
+
+-(IBAction)next:(id)sender
+{
+    [_calendar loadNextMonth];
+}
+
+-(IBAction)previous:(id)sender
+{
+    [_calendar loadPreviousMonth];
+}
+
+- (IBAction)signAction:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJTCalendarDaySelected object:[NSDate new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -49,6 +66,11 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     _calendarContentView.hidden = YES;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]  removeObserver:self];
 }
 
 

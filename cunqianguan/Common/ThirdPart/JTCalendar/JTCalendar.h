@@ -16,6 +16,7 @@
 @interface JTCalendar : NSObject<UIScrollViewDelegate>
 
 //@property (weak, nonatomic) JTCalendarMenuView *menuMonthsView;
+@property (weak, nonatomic) UILabel *monthLabel;
 @property (weak, nonatomic) JTCalendarContentView *contentView;
 
 @property (weak, nonatomic) id<JTCalendarDataSource> dataSource;

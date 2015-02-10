@@ -31,7 +31,7 @@
 -(void)setUpView
 {
     _headImageView.layer.cornerRadius = _headImageView.frame.size.width/2;
-    _headImageView.layer.masksToBounds = YES;
+    _headImageView.clipsToBounds = YES;
     _headImageView.userInteractionEnabled = YES;
     [_headImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateInfo:)]];
     

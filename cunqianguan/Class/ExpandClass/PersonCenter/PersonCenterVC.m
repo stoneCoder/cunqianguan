@@ -27,6 +27,7 @@
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
     NSDictionary *_localData;
+    PersonHeaderView *personHeaderView;
 }
 
 @end
@@ -71,15 +72,16 @@ static NSString *FooterViewID = @"PersonFooterView";
     UINib *cellNib = [UINib nibWithNibName:@"PersonInfoCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     
-    PersonHeaderView *personHeaderView = [PersonHeaderView headerView];
+    personHeaderView = [PersonHeaderView headerView];
     personHeaderView.delegate = self;
     self.tableView.tableHeaderView = personHeaderView;
-   
+    
+    
     PersonFooterView *personFooterView = [PersonFooterView footerView];
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
     
-    //[self popView:personHeaderView.progressView.frame];
+    [self popView:personHeaderView.progressView.frame];
 }
 
 -(void)rightBtnClick:(UIButton *)btn
