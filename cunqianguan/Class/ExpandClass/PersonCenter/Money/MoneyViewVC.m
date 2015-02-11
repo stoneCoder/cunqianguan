@@ -7,7 +7,13 @@
 //
 
 #import "MoneyViewVC.h"
+#import "AliTransfersView.h"
+#import "BankTransfersView.h"
 @interface MoneyViewVC ()
+{
+    AliTransfersView *_aliTransfersView;
+    BankTransfersView *_bankTransfersView;
+}
 
 @end
 
@@ -17,7 +23,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self refreshViewWithType:_type];
+    
+    [self createAliView];
+    [self createBankView];
+    
 }
+
+-(void)createAliView
+{
+    if (!_aliTransfersView) {
+        _aliTransfersView = [AliTransfersView transfersView];
+        [self.view addSubview:_aliTransfersView];
+    }
+}
+
+-(void)createBankView
+{
+    if (!_bankTransfersView) {
+        _bankTransfersView = [BankTransfersView transfersView];
+        [self.view addSubview:_bankTransfersView];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,7 +87,25 @@
             _integralBtn.hidden = YES;
             _taoBtn.hidden = NO;
             break;
-        default:
+    }
+}
+- (IBAction)transForBank:(id)sender
+{
+    [self createBankView];
+    [_bankTransfersView showView];
+}
+- (IBAction)transForAlipay:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    [self createAliView];
+    switch (btn.tag) {
+        case 1000:
+            /*现金收入*/
+            [_aliTransfersView showView];
+            break;
+        case 1001:
+            /*集分宝收入*/
+            [_aliTransfersView showView];
             break;
     }
 }

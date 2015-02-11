@@ -132,6 +132,7 @@
 		B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5ED1A7CADED002BF122 /* FootPrintsCell.xib */; };
 		B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5F11A7CB40F002BF122 /* CollectVC.m */; };
 		B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5F21A7CB40F002BF122 /* CollectVC.xib */; };
+		B15032491A8AE315000A61FA /* BankTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032481A8AE315000A61FA /* BankTransfersView.xib */; };
 		B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D449A1A7874F5008B8F4B /* MyOrderVC.m */; };
 		B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */; };
 		B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44A61A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m */; };
@@ -182,6 +183,9 @@
 		B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D451A88A2F4002CB98E /* JTCircleView.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
+		B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910631A89E82200AE3F66 /* AliTransfersView.m */; };
+		B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910661A89E83500AE3F66 /* BankTransfersView.m */; };
+		B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C910681A89E96000AE3F66 /* AliTransfersView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +425,7 @@
 		B14FE5F01A7CB40F002BF122 /* CollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectVC.h; sourceTree = "<group>"; };
 		B14FE5F11A7CB40F002BF122 /* CollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectVC.m; sourceTree = "<group>"; };
 		B14FE5F21A7CB40F002BF122 /* CollectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectVC.xib; sourceTree = "<group>"; };
+		B15032481A8AE315000A61FA /* BankTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransfersView.xib; sourceTree = "<group>"; };
 		B15D44991A7874F5008B8F4B /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
 		B15D449A1A7874F5008B8F4B /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderVC.xib; sourceTree = "<group>"; };
@@ -509,6 +514,11 @@
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
+		B1C910621A89E82200AE3F66 /* AliTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliTransfersView.h; sourceTree = "<group>"; };
+		B1C910631A89E82200AE3F66 /* AliTransfersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliTransfersView.m; sourceTree = "<group>"; };
+		B1C910651A89E83500AE3F66 /* BankTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransfersView.h; sourceTree = "<group>"; };
+		B1C910661A89E83500AE3F66 /* BankTransfersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransfersView.m; sourceTree = "<group>"; };
+		B1C910681A89E96000AE3F66 /* AliTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AliTransfersView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1114,6 +1124,7 @@
 		B14E30B71A79FB08005BF0EF /* Money */ = {
 			isa = PBXGroup;
 			children = (
+				B1C910611A89E3D500AE3F66 /* View */,
 				B14E30B81A79FB24005BF0EF /* MoneyViewVC.h */,
 				B14E30B91A79FB24005BF0EF /* MoneyViewVC.m */,
 				B14E30BA1A79FB24005BF0EF /* MoneyViewVC.xib */,
@@ -1313,6 +1324,19 @@
 			path = Invite;
 			sourceTree = "<group>";
 		};
+		B1C910611A89E3D500AE3F66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1C910621A89E82200AE3F66 /* AliTransfersView.h */,
+				B1C910631A89E82200AE3F66 /* AliTransfersView.m */,
+				B1C910651A89E83500AE3F66 /* BankTransfersView.h */,
+				B1C910661A89E83500AE3F66 /* BankTransfersView.m */,
+				B1C910681A89E96000AE3F66 /* AliTransfersView.xib */,
+				B15032481A8AE315000A61FA /* BankTransfersView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1404,6 +1428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */,
 				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
@@ -1428,6 +1453,7 @@
 				B14071C31A6CEC9400D1792F /* HomeVC.xib in Resources */,
 				B14071B11A6CD38E00D1792F /* MJRefresh.bundle in Resources */,
 				B15D44DE1A78C3FE008B8F4B /* MessageInfoVC.xib in Resources */,
+				B15032491A8AE315000A61FA /* BankTransfersView.xib in Resources */,
 				B14FE5E51A7C77A9002BF122 /* ProfileCell.xib in Resources */,
 				B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
@@ -1550,6 +1576,7 @@
 				B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
 				B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */,
+				B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */,
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */,
@@ -1600,6 +1627,7 @@
 				B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */,
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
+				B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */,
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
 				B1668D4D1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m in Sources */,
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,

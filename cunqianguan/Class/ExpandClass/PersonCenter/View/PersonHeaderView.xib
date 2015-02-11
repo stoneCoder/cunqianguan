@@ -35,7 +35,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAv-ep-int">
-                            <rect key="frame" x="130" y="15" width="60" height="60"/>
+                            <rect key="frame" x="120" y="5" width="80" height="80"/>
                             <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="RAv-ep-int" secondAttribute="height" multiplier="1:1" id="jbz-Bb-TTi"/>
@@ -111,7 +111,7 @@
                     <constraints>
                         <constraint firstItem="iiM-e3-y3C" firstAttribute="bottom" secondItem="8qG-tW-VBJ" secondAttribute="bottom" id="1Ys-6q-A1s"/>
                         <constraint firstItem="iiM-e3-y3C" firstAttribute="top" secondItem="AH8-8P-eLy" secondAttribute="bottom" constant="57" id="3ST-QV-gkt"/>
-                        <constraint firstItem="OP5-cX-emr" firstAttribute="top" secondItem="RAv-ep-int" secondAttribute="bottom" constant="13" id="4VW-Wc-U1e"/>
+                        <constraint firstItem="OP5-cX-emr" firstAttribute="top" secondItem="RAv-ep-int" secondAttribute="bottom" constant="3" id="4VW-Wc-U1e"/>
                         <constraint firstItem="8qG-tW-VBJ" firstAttribute="top" secondItem="iiM-e3-y3C" secondAttribute="top" id="7nf-BQ-vCr"/>
                         <constraint firstItem="iiM-e3-y3C" firstAttribute="top" secondItem="MgZ-fJ-qFu" secondAttribute="bottom" constant="23" id="8kq-Wv-hsh"/>
                         <constraint firstItem="Yhi-2v-ifo" firstAttribute="top" secondItem="LdB-zL-cig" secondAttribute="bottom" constant="7" id="BqJ-Ml-5Fk"/>
@@ -132,7 +132,7 @@
                         <constraint firstItem="MgZ-fJ-qFu" firstAttribute="top" secondItem="OP5-cX-emr" secondAttribute="bottom" constant="9" id="iGt-zM-VPq"/>
                         <constraint firstItem="SeG-Xt-kCN" firstAttribute="top" secondItem="Yhi-2v-ifo" secondAttribute="bottom" constant="1" id="j0z-x6-XbL"/>
                         <constraint firstItem="OP5-cX-emr" firstAttribute="leading" secondItem="SeG-Xt-kCN" secondAttribute="trailing" constant="46" id="lPt-Yg-6yu"/>
-                        <constraint firstItem="RAv-ep-int" firstAttribute="top" secondItem="nd4-qK-Cxf" secondAttribute="top" constant="15" id="lQb-gP-CLd"/>
+                        <constraint firstItem="RAv-ep-int" firstAttribute="top" secondItem="nd4-qK-Cxf" secondAttribute="top" constant="5" id="lQb-gP-CLd"/>
                         <constraint firstAttribute="trailing" secondItem="zps-q8-ph8" secondAttribute="trailing" constant="44" id="lXk-kj-aYZ"/>
                         <constraint firstItem="LdB-zL-cig" firstAttribute="top" secondItem="nd4-qK-Cxf" secondAttribute="top" constant="23" id="pKn-nD-2Rq"/>
                         <constraint firstItem="AH8-8P-eLy" firstAttribute="leading" secondItem="OP5-cX-emr" secondAttribute="trailing" constant="44" id="rN9-db-M8M"/>
