@@ -133,6 +133,15 @@
 		B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5F11A7CB40F002BF122 /* CollectVC.m */; };
 		B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5F21A7CB40F002BF122 /* CollectVC.xib */; };
 		B15032491A8AE315000A61FA /* BankTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032481A8AE315000A61FA /* BankTransfersView.xib */; };
+		B150324D1A8B217F000A61FA /* PolyGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B150324B1A8B217F000A61FA /* PolyGoodsDetailVC.m */; };
+		B150324E1A8B217F000A61FA /* PolyGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B150324C1A8B217F000A61FA /* PolyGoodsDetailVC.xib */; };
+		B15032511A8B2BB3000A61FA /* PolyDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032501A8B2BB3000A61FA /* PolyDetailHeaderView.m */; };
+		B15032531A8B2BCA000A61FA /* PolyDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032521A8B2BCA000A61FA /* PolyDetailHeaderView.xib */; };
+		B15032571A8B3025000A61FA /* PolyGoodsRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032551A8B3025000A61FA /* PolyGoodsRootVC.m */; };
+		B15032581A8B3025000A61FA /* PolyGoodsRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032561A8B3025000A61FA /* PolyGoodsRootVC.xib */; };
+		B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B150325D1A8B3992000A61FA /* FavoriteView.m */; };
+		B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032611A8B3A82000A61FA /* FavoriteCell.m */; };
+		B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032621A8B3A82000A61FA /* FavoriteCell.xib */; };
 		B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D449A1A7874F5008B8F4B /* MyOrderVC.m */; };
 		B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */; };
 		B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44A61A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m */; };
@@ -159,8 +168,6 @@
 		B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7C01A80BED8000F8DEF /* GoodsViewVC.m */; };
 		B161D7C31A80BED8000F8DEF /* GoodsViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161D7C11A80BED8000F8DEF /* GoodsViewVC.xib */; };
 		B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6091A81A34000692A6C /* BaseWebVC.m */; };
-		B162D60E1A81A95900692A6C /* PolyGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */; };
-		B162D60F1A81A95900692A6C /* PolyGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */; };
 		B162D6131A81AE0000692A6C /* ReturnHomeGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6111A81AE0000692A6C /* ReturnHomeGoodsVC.m */; };
 		B162D6141A81AE0000692A6C /* ReturnHomeGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B162D6121A81AE0000692A6C /* ReturnHomeGoodsVC.xib */; };
 		B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B162D6191A82036100692A6C /* PolyScrollVC.m */; };
@@ -426,6 +433,20 @@
 		B14FE5F11A7CB40F002BF122 /* CollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectVC.m; sourceTree = "<group>"; };
 		B14FE5F21A7CB40F002BF122 /* CollectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectVC.xib; sourceTree = "<group>"; };
 		B15032481A8AE315000A61FA /* BankTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransfersView.xib; sourceTree = "<group>"; };
+		B150324A1A8B217F000A61FA /* PolyGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsDetailVC.h; sourceTree = "<group>"; };
+		B150324B1A8B217F000A61FA /* PolyGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsDetailVC.m; sourceTree = "<group>"; };
+		B150324C1A8B217F000A61FA /* PolyGoodsDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsDetailVC.xib; sourceTree = "<group>"; };
+		B150324F1A8B2BB3000A61FA /* PolyDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyDetailHeaderView.h; sourceTree = "<group>"; };
+		B15032501A8B2BB3000A61FA /* PolyDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyDetailHeaderView.m; sourceTree = "<group>"; };
+		B15032521A8B2BCA000A61FA /* PolyDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyDetailHeaderView.xib; sourceTree = "<group>"; };
+		B15032541A8B3025000A61FA /* PolyGoodsRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsRootVC.h; sourceTree = "<group>"; };
+		B15032551A8B3025000A61FA /* PolyGoodsRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsRootVC.m; sourceTree = "<group>"; };
+		B15032561A8B3025000A61FA /* PolyGoodsRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsRootVC.xib; sourceTree = "<group>"; };
+		B150325C1A8B3992000A61FA /* FavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteView.h; sourceTree = "<group>"; };
+		B150325D1A8B3992000A61FA /* FavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteView.m; sourceTree = "<group>"; };
+		B15032601A8B3A82000A61FA /* FavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCell.h; sourceTree = "<group>"; };
+		B15032611A8B3A82000A61FA /* FavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCell.m; sourceTree = "<group>"; };
+		B15032621A8B3A82000A61FA /* FavoriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		B15D44991A7874F5008B8F4B /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
 		B15D449A1A7874F5008B8F4B /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderVC.xib; sourceTree = "<group>"; };
@@ -470,9 +491,6 @@
 		B161D7C11A80BED8000F8DEF /* GoodsViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsViewVC.xib; sourceTree = "<group>"; };
 		B162D6081A81A34000692A6C /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
 		B162D6091A81A34000692A6C /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
-		B162D60B1A81A95900692A6C /* PolyGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsDetailVC.h; sourceTree = "<group>"; };
-		B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsDetailVC.m; sourceTree = "<group>"; };
-		B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsDetailVC.xib; sourceTree = "<group>"; };
 		B162D6101A81AE0000692A6C /* ReturnHomeGoodsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnHomeGoodsVC.h; sourceTree = "<group>"; };
 		B162D6111A81AE0000692A6C /* ReturnHomeGoodsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnHomeGoodsVC.m; sourceTree = "<group>"; };
 		B162D6121A81AE0000692A6C /* ReturnHomeGoodsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnHomeGoodsVC.xib; sourceTree = "<group>"; };
@@ -551,6 +569,7 @@
 		B109D5791A71E9AB00505D32 /* PolyDeals */ = {
 			isa = PBXGroup;
 			children = (
+				B150325F1A8B3A43000A61FA /* Cell */,
 				B162D6181A82036100692A6C /* PolyScrollVC.h */,
 				B162D6191A82036100692A6C /* PolyScrollVC.m */,
 				B109D5831A71EABC00505D32 /* View */,
@@ -578,9 +597,17 @@
 				B109D5891A71EE9800505D32 /* PolyGoodsCell.h */,
 				B109D58A1A71EE9800505D32 /* PolyGoodsCell.m */,
 				B109D58B1A71EE9800505D32 /* PolyGoodsCell.xib */,
-				B162D60B1A81A95900692A6C /* PolyGoodsDetailVC.h */,
-				B162D60C1A81A95900692A6C /* PolyGoodsDetailVC.m */,
-				B162D60D1A81A95900692A6C /* PolyGoodsDetailVC.xib */,
+				B150324A1A8B217F000A61FA /* PolyGoodsDetailVC.h */,
+				B150324B1A8B217F000A61FA /* PolyGoodsDetailVC.m */,
+				B150324C1A8B217F000A61FA /* PolyGoodsDetailVC.xib */,
+				B150324F1A8B2BB3000A61FA /* PolyDetailHeaderView.h */,
+				B15032501A8B2BB3000A61FA /* PolyDetailHeaderView.m */,
+				B15032521A8B2BCA000A61FA /* PolyDetailHeaderView.xib */,
+				B15032541A8B3025000A61FA /* PolyGoodsRootVC.h */,
+				B15032551A8B3025000A61FA /* PolyGoodsRootVC.m */,
+				B15032561A8B3025000A61FA /* PolyGoodsRootVC.xib */,
+				B150325C1A8B3992000A61FA /* FavoriteView.h */,
+				B150325D1A8B3992000A61FA /* FavoriteView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1162,6 +1189,16 @@
 			path = Collect;
 			sourceTree = "<group>";
 		};
+		B150325F1A8B3A43000A61FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B15032601A8B3A82000A61FA /* FavoriteCell.h */,
+				B15032611A8B3A82000A61FA /* FavoriteCell.m */,
+				B15032621A8B3A82000A61FA /* FavoriteCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B15D44981A7874A6008B8F4B /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,6 +1467,7 @@
 			files = (
 				B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */,
 				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
+				B150324E1A8B217F000A61FA /* PolyGoodsDetailVC.xib in Resources */,
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B149682B1A8741BA00DBC09B /* BindAccountVC.xib in Resources */,
@@ -1446,6 +1484,7 @@
 				B109D58D1A71EE9800505D32 /* PolyGoodsCell.xib in Resources */,
 				B14D45491A70D254005AA895 /* GoodsSectionView.xib in Resources */,
 				B15D44EA1A78D219008B8F4B /* MoreSettingVC.xib in Resources */,
+				B15032581A8B3025000A61FA /* PolyGoodsRootVC.xib in Resources */,
 				B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */,
 				B14D45361A70A1BE005AA895 /* ReturnHomeVC.xib in Resources */,
 				B1436F811A732D3C00706772 /* PersonInfoCell.xib in Resources */,
@@ -1457,6 +1496,7 @@
 				B14FE5E51A7C77A9002BF122 /* ProfileCell.xib in Resources */,
 				B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
+				B15032531A8B2BCA000A61FA /* PolyDetailHeaderView.xib in Resources */,
 				B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */,
 				B109D5821A71EA5E00505D32 /* PolyDealVC.xib in Resources */,
 				B161D7C31A80BED8000F8DEF /* GoodsViewVC.xib in Resources */,
@@ -1474,11 +1514,11 @@
 				B15D44D81A78B777008B8F4B /* RunningWaterCell.xib in Resources */,
 				B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */,
 				B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */,
+				B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B14D45501A70DA6E005AA895 /* RebateHomeVC.xib in Resources */,
 				B1668D051A88419E002CB98E /* CollectCell.xib in Resources */,
-				B162D60F1A81A95900692A6C /* PolyGoodsDetailVC.xib in Resources */,
 				B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1534,11 +1574,13 @@
 				B14968481A875A4500DBC09B /* NSData+SWJSON.m in Sources */,
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
+				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B14E30C01A7A1AF5005BF0EF /* AccountVC.m in Sources */,
 				B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */,
 				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
+				B15032571A8B3025000A61FA /* PolyGoodsRootVC.m in Sources */,
 				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
 				B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
@@ -1576,6 +1618,7 @@
 				B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
 				B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */,
+				B150324D1A8B217F000A61FA /* PolyGoodsDetailVC.m in Sources */,
 				B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */,
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
@@ -1594,6 +1637,7 @@
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
+				B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */,
 				B1668D0E1A889931002CB98E /* SignVC.m in Sources */,
 				B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */,
 				B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */,
@@ -1617,7 +1661,6 @@
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
 				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
 				B1668D461A88A2F4002CB98E /* JTCalendar.m in Sources */,
-				B162D60E1A81A95900692A6C /* PolyGoodsDetailVC.m in Sources */,
 				B15D44B41A787E03008B8F4B /* SWLongPressGestureRecognizer.m in Sources */,
 				B1668D041A88419E002CB98E /* CollectCell.m in Sources */,
 				B109D58C1A71EE9800505D32 /* PolyGoodsCell.m in Sources */,
@@ -1630,6 +1673,7 @@
 				B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */,
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
 				B1668D4D1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m in Sources */,
+				B15032511A8B2BB3000A61FA /* PolyDetailHeaderView.m in Sources */,
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,

@@ -12,7 +12,7 @@
 #import "BaseSegment.h"
 
 #import "BaseSelectView.h"
-#import "PolyGoodsDetailVC.h"
+#import "PolyGoodsRootVC.h"
 
 @interface PolyDealVC ()
 {
@@ -97,9 +97,9 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PolyGoodsDetailVC *polyGoodsDetailVC = [[PolyGoodsDetailVC alloc] init];
-    polyGoodsDetailVC.leftTitle = @"商品详情";
-    [self.navigationController pushViewController:polyGoodsDetailVC animated:YES];
+    PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+    polyGoodsRootVC.leftTitle = @"商品详情";
+    [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 }
 
 @end

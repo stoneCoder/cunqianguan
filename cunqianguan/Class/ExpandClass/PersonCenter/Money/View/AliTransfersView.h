@@ -8,7 +8,10 @@
 
 #import "BaseView.h"
 
-@interface AliTransfersView : BaseView
+@interface AliTransfersView : BaseView<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *numText;
+@property (weak, nonatomic) IBOutlet UITextField *pwdText;
+
 +(AliTransfersView *)transfersView;
 -(void)showView;
 -(void)hideView;

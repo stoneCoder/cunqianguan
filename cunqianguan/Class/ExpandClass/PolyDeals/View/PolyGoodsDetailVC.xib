@@ -3,12 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PolyGoodsDetailVC">
             <connections>
-                <outlet property="bottomView" destination="zTd-hg-XlS" id="Iwg-jg-PYg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,77 +14,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTd-hg-XlS">
-                    <rect key="frame" x="0.0" y="498" width="320" height="50"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yq-jk-ODH">
-                            <rect key="frame" x="214" y="3" width="99" height="44"/>
-                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="去抢购">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余00:02:01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlz-yc-P2K">
-                            <rect key="frame" x="13" y="6" width="73" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="143人正在抢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-ua-e8h">
-                            <rect key="frame" x="13" y="26" width="73" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:02后开抢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkx-KD-7aS">
-                            <rect key="frame" x="13" y="17" width="85" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="0yq-jk-ODH" secondAttribute="trailing" constant="7" id="6Wa-Ss-CDF"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="26" id="7zq-TH-u03"/>
-                        <constraint firstItem="Nlz-yc-P2K" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="6" id="Akm-bc-qMV"/>
-                        <constraint firstAttribute="bottom" secondItem="0yq-jk-ODH" secondAttribute="bottom" constant="3" id="AoE-K0-6Nf"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="top" secondItem="Nlz-yc-P2K" secondAttribute="top" constant="-3" id="AsT-pm-NeA"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="3" id="DYN-T8-n4A"/>
-                        <constraint firstAttribute="bottom" secondItem="Nlz-yc-P2K" secondAttribute="bottom" constant="29" id="FbY-TB-gfg"/>
-                        <constraint firstItem="Nlz-yc-P2K" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="6" id="GVr-b7-ACw"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="leading" secondItem="zTd-hg-XlS" secondAttribute="leading" constant="214" id="LxJ-at-gUu"/>
-                        <constraint firstAttribute="trailing" secondItem="0yq-jk-ODH" secondAttribute="trailing" constant="7" id="N1a-Zf-Csi"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="3" id="PFy-1u-Hkw"/>
-                        <constraint firstItem="Nlz-yc-P2K" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="6" id="Rdg-f9-kGK"/>
-                        <constraint firstItem="Wkx-KD-7aS" firstAttribute="leading" secondItem="zTd-hg-XlS" secondAttribute="leading" constant="13" id="VgU-oY-V4E"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="centerY" secondItem="zTd-hg-XlS" secondAttribute="centerY" id="W5T-32-KKS"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="trailing" secondItem="Nlz-yc-P2K" secondAttribute="trailing" id="Wtx-80-CEB"/>
-                        <constraint firstItem="Wkx-KD-7aS" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="17" id="Ylt-TY-5Qj"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="centerX" secondItem="Nlz-yc-P2K" secondAttribute="centerX" id="Z5h-wZ-Apw"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="baseline" secondItem="Wkx-KD-7aS" secondAttribute="baseline" constant="3" id="bNj-bZ-Qw0"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="leading" secondItem="zTd-hg-XlS" secondAttribute="leading" constant="13" id="eXY-WB-jl3"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="bottom" secondItem="zTd-hg-XlS" secondAttribute="bottomMargin" constant="-1" id="iJb-fr-LwR"/>
-                        <constraint firstItem="Nlz-yc-P2K" firstAttribute="leading" secondItem="zTd-hg-XlS" secondAttribute="leading" constant="13" id="jP3-aD-9H8"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="leading" secondItem="Nlz-yc-P2K" secondAttribute="leading" id="oUS-7E-ACc"/>
-                        <constraint firstItem="Wkx-KD-7aS" firstAttribute="leading" secondItem="Nlz-yc-P2K" secondAttribute="leading" id="oma-MT-tbz"/>
-                        <constraint firstItem="CTP-ua-e8h" firstAttribute="leading" secondItem="Wkx-KD-7aS" secondAttribute="leading" id="ovy-kh-JzX"/>
-                        <constraint firstAttribute="bottom" secondItem="Wkx-KD-7aS" secondAttribute="bottom" constant="18" id="pPN-Rp-aPe"/>
-                        <constraint firstAttribute="bottom" secondItem="CTP-ua-e8h" secondAttribute="bottom" constant="9" id="qrm-hb-zxb"/>
-                        <constraint firstItem="0yq-jk-ODH" firstAttribute="top" secondItem="zTd-hg-XlS" secondAttribute="top" constant="3" id="xH8-qA-QBC"/>
-                    </constraints>
-                </view>
-            </subviews>
-            <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="zTd-hg-XlS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0bn-OJ-2TR"/>
-                <constraint firstAttribute="trailing" secondItem="zTd-hg-XlS" secondAttribute="trailing" id="94G-Ns-Wma"/>
-                <constraint firstItem="zTd-hg-XlS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VjC-DS-99q"/>
-                <constraint firstAttribute="bottom" secondItem="zTd-hg-XlS" secondAttribute="bottom" id="raP-gM-s9M"/>
-                <constraint firstAttribute="bottom" secondItem="zTd-hg-XlS" secondAttribute="bottom" id="y8M-nU-sNj"/>
-            </constraints>
-            <point key="canvasLocation" x="-45" y="386"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-72" y="447"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

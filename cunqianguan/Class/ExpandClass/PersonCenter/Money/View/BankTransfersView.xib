@@ -225,6 +225,11 @@
                 <constraint firstItem="Llv-8D-Nw0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gss-vL-0CS"/>
                 <constraint firstAttribute="trailing" secondItem="Llv-8D-Nw0" secondAttribute="trailing" id="gGV-AJ-gTu"/>
             </constraints>
+            <connections>
+                <outlet property="contentView" destination="Llv-8D-Nw0" id="4m1-Sm-O3H"/>
+                <outlet property="numText" destination="a8b-QJ-O9K" id="0xK-xq-4QT"/>
+                <outlet property="pwdText" destination="9bC-3x-c5i" id="WrL-hS-WIE"/>
+            </connections>
             <point key="canvasLocation" x="350" y="367"/>
         </view>
     </objects>

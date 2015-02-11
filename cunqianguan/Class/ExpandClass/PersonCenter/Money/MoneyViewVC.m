@@ -84,8 +84,8 @@
             _firstLabel.text = @"积分收入";
             _secondLabel.text = @"待返利";
             _cashView.hidden = YES;
-            _integralBtn.hidden = YES;
-            _taoBtn.hidden = NO;
+            _integralBtn.hidden = NO;
+            _taoBtn.hidden = YES;
             break;
     }
 }

@@ -8,7 +8,10 @@
 
 #import "BaseView.h"
 
-@interface BankTransfersView : BaseView
+@interface BankTransfersView : BaseView<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *numText;
+@property (weak, nonatomic) IBOutlet UITextField *pwdText;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 +(BankTransfersView *)transfersView;
 -(void)showView;
 -(void)hideView;

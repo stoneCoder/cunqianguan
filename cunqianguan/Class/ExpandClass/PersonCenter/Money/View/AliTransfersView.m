@@ -32,6 +32,8 @@
 {
     self.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
+    _numText.delegate = self;
+    _pwdText.delegate = self;
 }
 - (IBAction)cancleAction:(id)sender
 {
@@ -52,5 +54,17 @@
     } completion:^(BOOL finished) {
         //[self removeFromSuperview];
     }];
+}
+
+#pragma mark -- UITextfiledDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == _numText)
+    {
+        [_pwdText becomeFirstResponder];
+        return YES;
+    }
+    [_pwdText resignFirstResponder];
+    return YES;
 }
 @end
