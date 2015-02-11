@@ -31,6 +31,9 @@
 #pragma mark NSDictionary或NSArray转化为JSON串
 + (NSString *)toJSONData:(id)theData;
 +(NSArray *)readCityTxt;
+
++ (NSString*)encrypt:(NSString*)toBeEncString;
++ (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key;
 @end
 
 

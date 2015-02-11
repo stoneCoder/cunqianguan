@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 WHZM. All rights reserved.
 //
 
-#define API @""
+#define API @"http://deve.baoxianqi.com/MobileApi/"
 
 #pragma mark - 单例
 
@@ -23,6 +23,7 @@ shared##className = [[self alloc] init]; \
 }); \
 return shared##className; \
 }
+
 
 #pragma mark - 颜色
 #define UIColorFromRGBA(rgb,a) [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:a]

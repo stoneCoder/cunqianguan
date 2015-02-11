@@ -12,7 +12,8 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonCryptor.h>
 
-static NSString *const cryptPassword = @"me.baoxianqi.www";
+static NSString *const cryptPassword = @"0123456789abcdef";
+static NSString *const hmacPassword = @"4318sqzs";
 @implementation BaseUtil
 #pragma mark - 获取MD5字符串
 + (NSString *) stringFromMD5:(NSString*)string
@@ -120,7 +121,7 @@ static NSString *const cryptPassword = @"me.baoxianqi.www";
 
 + (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key{
     if (!key) {
-        key = cryptPassword;
+        key = hmacPassword;
     }
     const char *cKey  = [key cStringUsingEncoding:NSUTF8StringEncoding];
     const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];

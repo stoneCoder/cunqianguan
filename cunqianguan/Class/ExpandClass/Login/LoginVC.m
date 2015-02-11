@@ -12,8 +12,10 @@
 
 #import "BindAccountVC.h"
 #import "FinishInfoVC.h"
-
 #import "BindAccountVC.h"
+
+#import "LoginConnect.h"
+#import "BaseUtil.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 
@@ -91,6 +93,21 @@
     RegisterVC *registVC = [[RegisterVC alloc] init];
     registVC.leftTitle = @"注册";
     [self.navigationController pushViewController:registVC animated:YES];
+}
+- (IBAction)loginAction:(id)sender
+{
+    NSString *username = _username.text;
+    NSString *pwd = _pwd.text;
+    if (username.length == 0 || pwd.length == 0) {
+        [self showStringHUD:@"用户名或密码不能为空！" second:2];
+        return;
+    }
+    pwd = [BaseUtil encrypt:pwd];
+    [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd ForUrl:@"login" success:^(id json) {
+        
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 - (IBAction)registForThirdPart:(id)sender

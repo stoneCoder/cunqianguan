@@ -11,8 +11,10 @@
 #import "UIView+UIViewExt.h"
 #import "AFHTTPRequestOperationManager+Progress.h"
 #import "CMAlert.h"
+#import "BaseUtil.h"
 
 @implementation BaseConnect
+
 +(void) post:(NSString*)uri Parameters:(NSDictionary *)parameters
      success:(void (^)(id json))success
      failure:(void (^)(id json))failure
@@ -118,17 +120,29 @@ connectionError:(void (^)(NSError *error))connectionError
 }
 
 +(void) post:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(AFHTTPRequestOperation * o, id json))success failure:(void (^)(AFHTTPRequestOperation * o, NSError * e))failure{
-    NSString* urlStr = uri;
+    NSString* urlStr = [NSString stringWithFormat:@"%@%@",API,uri];
+    
+    /*获取App版本*/
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [dic setObject:version forKey:@"ver"];
+    [dic setObject:[BaseUtil hmac_sha1:[BaseUtil toJSONData:dic] secret:@""] forKey:@"hash"];
+    
+    NSLog(@"request url is ----------> %@, and parameters is ---------> %@",urlStr,dic);
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/xml", nil];
-    [manager POST:urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+    [manager POST:urlStr parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation,responseObject);
+        NSLog(@"success----------->%@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(operation,error);
+         NSLog(@"failure----------->%@",error);
     }];
 }
 +(void) get:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(AFHTTPRequestOperation * o, id json))success failure:(void (^)(AFHTTPRequestOperation * o, NSError * e))failure{
-    NSString* urlStr = uri;
+    NSString* urlStr = [NSString stringWithFormat:@"%@%@",API,uri];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",nil];
     [manager GET:urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -142,6 +142,7 @@
 		B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B150325D1A8B3992000A61FA /* FavoriteView.m */; };
 		B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032611A8B3A82000A61FA /* FavoriteCell.m */; };
 		B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032621A8B3A82000A61FA /* FavoriteCell.xib */; };
+		B15032691A8B48C4000A61FA /* LoginConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032681A8B48C4000A61FA /* LoginConnect.m */; };
 		B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D449A1A7874F5008B8F4B /* MyOrderVC.m */; };
 		B15D449D1A7874F5008B8F4B /* MyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */; };
 		B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D44A61A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m */; };
@@ -447,6 +448,8 @@
 		B15032601A8B3A82000A61FA /* FavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCell.h; sourceTree = "<group>"; };
 		B15032611A8B3A82000A61FA /* FavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCell.m; sourceTree = "<group>"; };
 		B15032621A8B3A82000A61FA /* FavoriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
+		B15032671A8B48C4000A61FA /* LoginConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginConnect.h; sourceTree = "<group>"; };
+		B15032681A8B48C4000A61FA /* LoginConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginConnect.m; sourceTree = "<group>"; };
 		B15D44991A7874F5008B8F4B /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
 		B15D449A1A7874F5008B8F4B /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		B15D449B1A7874F5008B8F4B /* MyOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderVC.xib; sourceTree = "<group>"; };
@@ -816,6 +819,7 @@
 		B14071701A6CC8E900D1792F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B15032661A8B4895000A61FA /* BusinessLogics */,
 				B14071711A6CC8E900D1792F /* Categories */,
 			);
 			path = Modules;
@@ -1197,6 +1201,15 @@
 				B15032621A8B3A82000A61FA /* FavoriteCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B15032661A8B4895000A61FA /* BusinessLogics */ = {
+			isa = PBXGroup;
+			children = (
+				B15032671A8B48C4000A61FA /* LoginConnect.h */,
+				B15032681A8B48C4000A61FA /* LoginConnect.m */,
+			);
+			path = BusinessLogics;
 			sourceTree = "<group>";
 		};
 		B15D44981A7874A6008B8F4B /* MyOrder */ = {
@@ -1682,6 +1695,7 @@
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
 				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
+				B15032691A8B48C4000A61FA /* LoginConnect.m in Sources */,
 				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */,
