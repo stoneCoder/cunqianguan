@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Masonry.xcscheme</key>
+		<key>Pods-RNCryptor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11A704B7CEBA265FE75D8F78</key>
+		<key>3507A2E72BFA508E3A769846</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B94E7F41AE87F38AFBA747E</key>
+		<key>5CEC108800A8853B7B53CEB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C690EFFCC2B700A6C055D3B</key>
+		<key>5D852326E80BB69D5EF9D3A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91A3F549FBF4CBDEE31C4806</key>
+		<key>74310E62BC9C063B58A30873</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96A756BE14806E30B751D690</key>
+		<key>9A014173391946F1C3286E20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4C38C9EA0DEDBCA76134DB5</key>
+		<key>A7ACDA9AC1AC12B9CA305196</key>
 		<dict>
 			<key>primary</key>
 			<true/>

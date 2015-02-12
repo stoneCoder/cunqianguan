@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 #import "UIView+UIViewExt.h"
 #import "AFHTTPRequestOperationManager+Progress.h"
-#import "CMAlert.h"
+#import "BMAlert.h"
 #import "BaseUtil.h"
 
 @implementation BaseConnect
@@ -28,17 +28,19 @@ connectionError:(void (^)(NSError *error))connectionError
         }else{
             if (view) {
                 [view hideAllHUD];
-                [view showStringHUD:[json objectForKey:@"message"] second:2];
+                [view showStringHUD:[json objectForKey:@"info"] second:2];
             }
             if (failure) {
-                failure(json);
+                success(json);
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if (connectionError) {
             connectionError(error);
         }else{
-            [[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:uri];
+            [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+            } other:nil];
+            //[[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:uri];
         }
     }];
 }
@@ -59,7 +61,9 @@ connectionError:(void (^)(NSError *error))connectionError
             failure(json);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        [[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:uri];
+        [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+        } other:nil];
+        //[[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:uri];
     }];
 }
 
@@ -85,7 +89,9 @@ connectionError:(void (^)(NSError *error))connectionError
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        [[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:urlStr];
+        [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+        } other:nil];
+        //[[CMAlert sharedCMAlert] alert:@"网络连接错误" andInterfaceName:urlStr];
     }];
 }
 
@@ -106,14 +112,14 @@ connectionError:(void (^)(NSError *error))connectionError
     if ([dic isKindOfClass:[NSArray class]]) {
         return YES;
     }
-    NSString *resultKey = @"showMsg";
+    NSString *resultKey = @"status";
     if (![[dic allKeys] containsObject:resultKey]) {
         return YES;
     }
-    id result = dic[@"showMsg"];
+    id result = dic[@"status"];
     if ([result isKindOfClass:[NSString class]]) {
         return [result isEqualToString:@"true"];
-    }else if ([result isKindOfClass:[NSNumber class]]){
+    }else if ([result isKindOfClass:[NSNumber class]] && [result intValue] <= 1){
         return [result boolValue];
     }
     return NO;
@@ -121,7 +127,6 @@ connectionError:(void (^)(NSError *error))connectionError
 
 +(void) post:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(AFHTTPRequestOperation * o, id json))success failure:(void (^)(AFHTTPRequestOperation * o, NSError * e))failure{
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",API,uri];
-    
     /*获取App版本*/
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];

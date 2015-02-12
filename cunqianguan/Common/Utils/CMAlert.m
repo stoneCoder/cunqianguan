@@ -69,7 +69,7 @@ DEFINE_SINGLETON_FOR_CLASS(CMAlert)
     [self alert:aMessage];
 }
 
-- (void)alert:(NSString *)aMessage delegate:(id/*<UIAlertViewDelegate>*/)aDelegate
+- (void)alert:(NSString *)aMessage delegate:(id)aDelegate
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:aMessage

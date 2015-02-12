@@ -26,7 +26,7 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的邮箱" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-wn-GcH">
                     <rect key="frame" x="27" y="167" width="266" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqJ-fm-Fww">
                     <rect key="frame" x="15" y="220" width="290" height="44"/>
@@ -38,6 +38,9 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" backgroundImage="confirmation_hover"/>
+                    <connections>
+                        <action selector="findPwd:" destination="-1" eventType="touchUpInside" id="czp-7x-Zbw"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_password" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-4C-UoE">
                     <rect key="frame" x="103" y="51" width="114" height="82"/>

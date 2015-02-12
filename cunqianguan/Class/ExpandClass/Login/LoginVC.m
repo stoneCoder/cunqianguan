@@ -14,10 +14,16 @@
 #import "FinishInfoVC.h"
 #import "BindAccountVC.h"
 
+#import "PersonInfo.h"
 #import "LoginConnect.h"
 #import "BaseUtil.h"
+#import "BMAlert.h"
+#import "DoAlertView.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
+{
+    NSTimer *_hideTimer;
+}
 
 @end
 
@@ -103,9 +109,39 @@
         return;
     }
     pwd = [BaseUtil encrypt:pwd];
-    [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd ForUrl:@"login" success:^(id json) {
-        
+    [self showHUD:LOGIN_LOAD];
+    [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
+        [self hideAllHUD];
+        __weak NSString *weakName = username;
+        __weak NSString *weakPwd = pwd;
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            /*获取个人资料*/
+            PersonInfo *person = [PersonInfo sharedPersonInfo];
+            [person loginSuccessWith:[dic objectForKey:@"data"]];
+            [person getUserInfo:weakName withPwd:weakPwd success:^(id json) {
+                if([BaseConnect isSucceeded:json]){
+                    [person saveUserData];
+                    [self showStringHUD:@"登陆成功" second:2];
+                    _hideTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(dismisSelf) userInfo:nil repeats:NO];
+                }
+            } failure:^(id json) {
+                
+            }];
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+            return;
+        }
     } failure:^(NSError *err) {
+        [self hideAllHUD];
+        [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+        } other:nil];
+    }];
+}
+
+-(void)dismisSelf
+{
+    [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }

@@ -13,6 +13,7 @@
 #import <CommonCrypto/CommonCryptor.h>
 
 static NSString *const cryptPassword = @"0123456789abcdef";
+static NSString *const cryptViKey = @"0123456789123456";
 static NSString *const hmacPassword = @"4318sqzs";
 @implementation BaseUtil
 #pragma mark - 获取MD5字符串
@@ -98,7 +99,7 @@ static NSString *const hmacPassword = @"4318sqzs";
     NSString *retString = nil;
     NSError *err = nil;
     NSData *data = [toBeEncString dataUsingEncoding:NSUTF8StringEncoding];
-    data = [data encryptWithKey:cryptPassword];
+    data = [data encryptWithKey:cryptPassword andViKey:cryptViKey];
     if (!err) {
         retString = [data bytesString];
     }else{
@@ -110,7 +111,7 @@ static NSString *const hmacPassword = @"4318sqzs";
     NSString *retString = nil;
     NSError *err = nil;
     NSData *data = [toBeDecString dataFromBytesString];
-    data = [data decryptWithKey:cryptPassword];
+    data = [data decryptWithKey:cryptPassword andViKey:cryptViKey];
     if (!err) {
         retString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }else{

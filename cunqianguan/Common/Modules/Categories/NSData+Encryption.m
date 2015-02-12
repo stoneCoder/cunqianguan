@@ -8,10 +8,9 @@
 
 #import "NSData+Encryption.h"
 #import <CommonCrypto/CommonCrypto.h>
-
 @implementation NSData (Encryption)
 
-- (NSData *)transpose:(NSString *)keyValue forOperation:(NSInteger)operation
+- (NSData *)transposeWithAES256:(NSString *)keyValue forOperation:(NSInteger)operation
 {
     char key[kCCKeySizeAES256 + 1];
     bzero(key, sizeof(key));
@@ -41,14 +40,57 @@
     return [NSData dataWithBytesNoCopy:output length:actualSize];
 }
 
+- (NSData *)transposeWithAES128:(NSString *)keyValue andViKey:(NSString *)viKey forOperation:(NSInteger)operation
+{
+    char keyPtr[kCCKeySizeAES128 + 1];
+    memset(keyPtr, 0, sizeof(keyPtr));
+    [keyValue getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    char ivPtr[kCCBlockSizeAES128 + 1];
+    memset(ivPtr, 0, sizeof(ivPtr));
+    [viKey getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    
+    size_t numBytesCrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt((u_int32_t)operation,
+                                          kCCAlgorithmAES128,
+                                          kCCOptionPKCS7Padding,
+                                          keyPtr,
+                                          kCCBlockSizeAES128,
+                                          ivPtr,
+                                          [self bytes],
+                                          dataLength,
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesCrypted);
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesCrypted];
+    }
+    free(buffer);
+    return nil;
+}
+
 - (NSData *)encryptWithKey:(NSString *)key
 {
-    return [self transpose:key forOperation:kCCEncrypt];
+    return [self transposeWithAES256:key forOperation:kCCEncrypt];
 }
 
 - (NSData *)decryptWithKey:(NSString *)key
 {
-    return [self transpose:key forOperation:kCCDecrypt];
+    return [self transposeWithAES256:key forOperation:kCCDecrypt];
+}
+
+- (NSData *)encryptWithKey:(NSString *)key andViKey:(NSString *)viKey
+{
+    return [self transposeWithAES128:key andViKey:viKey forOperation:kCCEncrypt];
+}
+
+- (NSData *)decryptWithKey:(NSString *)key andViKey:(NSString *)viKey
+{
+    return [self transposeWithAES128:key andViKey:viKey forOperation:kCCDecrypt];
 }
 
 

@@ -42,3 +42,6 @@ return shared##className; \
 
 #pragma mark - 其他
 #define ccp CGPointMake
+#define DATA_LOAD @"正在加载。。"
+#define LOGIN_LOAD @"登陆中。。"
+#define ACTION_LOAD @"处理中。。"

@@ -7,6 +7,9 @@
 //
 
 #import "ForgetVC.h"
+#import "LoginConnect.h"
+#import "BaseConnect.h"
+#import "BMAlert.h"
 
 @interface ForgetVC ()
 @property (weak, nonatomic) IBOutlet UITextField *emailtext;
@@ -35,6 +38,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)findPwd:(id)sender
+{
+    NSString *email = _emailtext.text;
+    if (email.length == 0) {
+        [self showStringHUD:@"请输入邮箱地址" second:2];
+        return;
+    }
+    
+    [[LoginConnect sharedLoginConnect] findPwdByAccount:email success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [[BMAlert sharedBMAlert] alert:@"系统已将修改地址发送到您的邮箱中，请登陆邮箱中的地址设置新密码！" cancle:^(DoAlertView *alertView) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } other:^(DoAlertView *alertView) {
+                
+            }];
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
 #pragma mark -- Private
 -(void)hideKeyBoard
 {
