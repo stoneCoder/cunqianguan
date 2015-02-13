@@ -32,6 +32,9 @@ DEFINE_SINGLETON_FOR_HEADER(LoginConnect)
 
 -(void)bindOauth:(NSString *)email
          withPwd:(NSString *)pwd
+            name:(NSString *)username
+            uuid:(NSString *)uuid
+            type:(NSString *)type
          success:(void (^)(id json))success
          failure:(void (^)( NSError *err))failure;
 
