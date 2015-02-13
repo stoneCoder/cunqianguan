@@ -20,6 +20,8 @@
 #import "BMAlert.h"
 #import "DoAlertView.h"
 
+#import "UMSocial.h"
+
 @interface LoginVC ()<UITextFieldDelegate>
 {
     NSTimer *_hideTimer;
@@ -148,18 +150,67 @@
 
 - (IBAction)registForThirdPart:(id)sender
 {
-    
     UIButton *btn = (UIButton *)sender;
     if (btn.tag == 1000) {
-        BindAccountVC *registVC = [[BindAccountVC alloc] init];
-        registVC.leftTitle = @"注册";
-        [self.navigationController pushViewController:registVC animated:YES];
+        [self registForQQ];
     }else{
-        FinishInfoVC *registVC = [[FinishInfoVC alloc] init];
-        registVC.leftTitle = @"注册";
-        [self.navigationController pushViewController:registVC animated:YES];
+        [self registForWeibo];
     }
-    
+}
+
+-(void)registForWeibo
+{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        //          获取微博用户名、uid、token等
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
+                NSDictionary *dic = (NSDictionary *)json;
+                /*绑定过*/
+                if (![BaseConnect isSucceeded:dic]) {
+                    FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
+                    finishInfoVC.leftTitle = @"注册";
+                    finishInfoVC.uuid = snsAccount.usid;
+                    finishInfoVC.username = snsAccount.userName;
+                    finishInfoVC.type = @"wb";
+                    [self.navigationController pushViewController:finishInfoVC animated:YES];
+                }
+            } failure:^(NSError *err) {
+                
+            }];
+        }else{
+            
+        }
+    });
+}
+
+-(void)registForQQ
+{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
+                NSDictionary *dic = (NSDictionary *)json;
+                /*绑定过*/
+                if (![BaseConnect isSucceeded:dic]) {
+                    FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
+                    finishInfoVC.leftTitle = @"注册";
+                    finishInfoVC.uuid = snsAccount.usid;
+                    finishInfoVC.username = snsAccount.userName;
+                    finishInfoVC.type = @"qq";
+                    [self.navigationController pushViewController:finishInfoVC animated:YES];
+                }
+            } failure:^(NSError *err) {
+                
+            }];
+        }else{
+            
+        }
+    });
 }
 
 - (IBAction)clearAction:(id)sender

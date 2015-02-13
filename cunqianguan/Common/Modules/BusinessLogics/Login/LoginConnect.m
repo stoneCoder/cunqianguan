@@ -51,6 +51,18 @@ DEFINE_SINGLETON_FOR_CLASS(LoginConnect)
     } failure:^(id json) {
         failure(json);
     } withView:nil];
+}
 
+-(void)getUserByOauth:(NSString *)uuid
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getUserByOauth";
+    NSDictionary *dic =  @{@"uuid":uuid};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
 }
 @end

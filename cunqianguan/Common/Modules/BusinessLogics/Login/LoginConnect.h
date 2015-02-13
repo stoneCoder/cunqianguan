@@ -25,4 +25,14 @@ DEFINE_SINGLETON_FOR_HEADER(LoginConnect)
 -(void)findPwdByAccount:(NSString *)aAccount
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure;
+
+-(void)getUserByOauth:(NSString *)uuid
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure;
+
+-(void)bindOauth:(NSString *)email
+         withPwd:(NSString *)pwd
+         success:(void (^)(id json))success
+         failure:(void (^)( NSError *err))failure;
+
 @end

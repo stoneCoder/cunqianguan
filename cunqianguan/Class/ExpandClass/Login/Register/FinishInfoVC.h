@@ -9,5 +9,7 @@
 #import "BaseVC.h"
 
 @interface FinishInfoVC : BaseVC
-
+@property (strong, nonatomic) NSString *uuid;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *type;
 @end

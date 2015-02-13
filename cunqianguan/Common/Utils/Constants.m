@@ -9,7 +9,7 @@
 #import "Constants.h"
 
 //你猜不到我的密码吧？用于加密数据
-NSString *const kCryptPwd = @"com.yilonggu.www_Chat";
+NSString *const kCryptPwd = @"com.baoxianqi.www";
 
 // 个人资料保存地址
 NSString *const kCryptFilePath = @"Library/Application Support/001.dat";
@@ -29,3 +29,13 @@ NSInteger const kDisabledColor = 0xEF7F87;
 NSString *const kUploadPath = @"http://192.168.20.240/~zhouqiang/upload_file.php/?";
 
 NSString *const kImagePath = @"http://192.168.20.240/~zhouqiang/";
+
+NSString *const shareURL = @"http://www.baoxianqi.com";
+//友盟AppKey
+NSString *const UMengAppKey = @"54dd53cefd98c57dcf000736";
+//微信AppKey&AppID
+NSString *const WeChatAppKey = @"d79893620d4851faea30eb26e1221cbc";
+NSString *const WeChatAppID  = @"wx9af45d9c2a6fd036";
+//QQ AppKey&AppID
+NSString *const QQAppKey = @"dA20dR13RcQV3GnR";
+NSString *const QQAppID = @"1102956721";
