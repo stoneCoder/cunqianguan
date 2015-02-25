@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _btnArray = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
+    _btnArray = MENU_ARRAY;
     [self setUpSliderView];
     [self setupScrollView];
     [self setUpSelectView];
@@ -85,7 +85,7 @@
         polyDealVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
         [_scrollView addSubview:polyDealVC.view];
     }
-    [[self childViewControllers][0] viewDidCurrentView];
+    [[self childViewControllers][0] viewDidCurrentView:0];
 }
 
 -(void)setUpSelectView
@@ -137,7 +137,7 @@
     [_selectView setSelectIndex:index];
     _currentIndex = index;
     
-    [[self childViewControllers][index] viewDidCurrentView];
+    [[self childViewControllers][index] viewDidCurrentView:index];
 }
 
 -(void)selectTitle:(NSString *)title

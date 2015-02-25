@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -50,6 +50,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx9af45d9c2a6fd036</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>baoxianqi</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>baoxianqi1102956721</string>
 			</array>
 		</dict>
 	</array>

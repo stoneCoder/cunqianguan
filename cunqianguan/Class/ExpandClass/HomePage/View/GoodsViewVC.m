@@ -11,10 +11,21 @@
 #import "ReturnHomeGoodsVC.h"
 #import "BaseMutableMenu.h"
 
+#import "PersonInfo.h"
+#import "BaseConnect.h"
+#import "MongoConnect.h"
+
+#import "MongoListModel.h"
+
 static NSString *  collectionCellID=@"GoodsCell";
 @interface GoodsViewVC ()<UICollectionViewDataSource,UICollectionViewDelegate,MutableMenuDelegate>
 {
     BaseMutableMenu *_menu;
+    NSMutableArray *_data;
+    MongoListModel *_mongoListModel;
+    
+    NSInteger _category;
+    NSInteger _pageNum;
 }
 
 @end
@@ -24,8 +35,13 @@ static NSString *  collectionCellID=@"GoodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _data = [NSMutableArray array];
+    _category = 0;
+    _pageNum = 1;
     [self setUpNavBtn];
     [self setUpCollection];
+    
+    [self loadDataWith:_category andPage:_pageNum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,12 +70,10 @@ static NSString *  collectionCellID=@"GoodsCell";
 
 -(void)showMenu
 {
-    //NSArray *menuArr = @[@"全部", @"男装", @"女装", @"居家", @"测试5", @"测试6", @"测试7", @"测试8", @"测试9", @"测试10"];
-    NSDictionary *menuDic = @{@"全部":@[@{@"呵呵":@[@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1"]},@{@"什么":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]},@{@"什么1":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]},@{@"什么2":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]}],@"女装":@[@{@"嘿嘿":@[@"哇哈哈3",@"哇哈哈3",@"哇哈哈3",@"哇哈哈3",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈1",@"哇哈哈3",@"哇哈哈3",@"哇哈哈1",@"哇哈哈1"]},@{@"互殴":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]},@{@"什么1":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]},@{@"打算":@[@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2",@"哇哈哈2"]}]};
     if (!_menu) {
         _menu = [[BaseMutableMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
         _menu.delegate = self;
-        [_menu initScrollView:menuDic WithDirectionType:1];
+        [_menu initScrollViewWithDirectionType:1];
         [self.view addSubview:_menu];
         [_menu showView];
     }
@@ -74,6 +88,39 @@ static NSString *  collectionCellID=@"GoodsCell";
     [self setRefreshEnabled:YES];
 }
 
+-(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    PersonInfo *person = [PersonInfo sharedPersonInfo];
+    [[MongoConnect sharedMongoConnect] getMongoGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _mongoListModel = [[MongoListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:_mongoListModel.data];
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadDataWith:0 andPage:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadDataWith:_category andPage:_pageNum];
+    [super moreFresh];
+}
+
 - (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu
 {
     [_menu removeFromSuperview];
@@ -82,7 +129,7 @@ static NSString *  collectionCellID=@"GoodsCell";
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 16;
+    return _data.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -93,6 +140,7 @@ static NSString *  collectionCellID=@"GoodsCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     cell.tag = indexPath.row;
+    [cell loadCell:_data[indexPath.row]];
     return cell;
 }
 

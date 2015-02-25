@@ -9,5 +9,7 @@
 #import "BaseVC.h"
 
 @interface BindAccountVC : BaseVC
-
+@property (strong, nonatomic) NSString *uuid;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *type;
 @end

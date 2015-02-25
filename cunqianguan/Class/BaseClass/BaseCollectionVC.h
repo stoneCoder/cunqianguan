@@ -26,6 +26,7 @@
 - (void)showHUD;
 //隐藏hud
 - (void)hideHUD;
+- (void)hideAllHUD;
 //显示字符串hud
 - (void)showHUD:(NSString *)aMessage;
 //显示字符串hud几秒钟时间
@@ -34,4 +35,7 @@
  *  功能:接口请求失败
  */
 -(void)failureHideHUD;
+
+-(void)refresh;
+-(void)moreFresh;
 @end

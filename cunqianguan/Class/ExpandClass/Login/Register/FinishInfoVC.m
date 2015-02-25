@@ -59,6 +59,9 @@
 {
     CGFloat visiableY = _segment.frame.size.height;
     _accountVC = [[BindAccountVC alloc] init];
+    _accountVC.uuid = _uuid;
+    _accountVC.name = _username;
+    _accountVC.type = @"wb";
     [self addChildViewController:_accountVC];
     [_accountVC.view setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
     _accountVC.view.backgroundColor = UIColorFromRGB(0xececec);

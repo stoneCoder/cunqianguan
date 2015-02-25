@@ -190,6 +190,14 @@
 }
 
 /**
+ *  功能:隐藏所有hud
+ */
+- (void)hideAllHUD
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
+/**
  *  功能:接口请求失败
  */
 -(void)failureHideHUD{

@@ -57,6 +57,9 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" backgroundImage="confirmation_hover"/>
+                    <connections>
+                        <action selector="bindAction:" destination="-1" eventType="touchUpInside" id="w8g-Od-cWl"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意保鲜期返利网的" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1j-8m-zvb">
                     <rect key="frame" x="18" y="191" width="197" height="21"/>

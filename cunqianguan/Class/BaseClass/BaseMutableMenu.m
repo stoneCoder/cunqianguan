@@ -11,6 +11,10 @@
 #define LEFT_BTN_WIDTH 88
 #define LEFT_BTN_HEIGHT 44
 #define BTN_SPACING 10
+
+#import "BaseConnect.h"
+#import "MongoConnect.h"
+#import "CateModel.h"
 @implementation BaseMutableMenu
 {
     NSDictionary *_dataDic;
@@ -21,6 +25,7 @@
     UITableView *_btnTableView;
     CGFloat _cellHeight;
     MutableButton *_selectBtn;
+    NSMutableArray *_menuIdArray;
 }
 
 /*
@@ -42,25 +47,29 @@
     return self;
 }
 
--(void)initScrollView:(NSDictionary *)scrollMenuDic WithDirectionType:(NSInteger)directionType
+-(void)initScrollViewWithDirectionType:(NSInteger)directionType
 {
-    _dataDic = scrollMenuDic;
-    NSArray *keyArray = [scrollMenuDic allKeys];
+    NSArray *array = SELECT_ARRAY;
+    NSMutableArray *menuArray = [NSMutableArray arrayWithArray:array];
+    [menuArray removeObjectAtIndex:0];
+    
+    NSArray *idArray = SELECT_ID;
+    _menuIdArray = [NSMutableArray arrayWithArray:idArray];
+    [_menuIdArray removeObjectAtIndex:0];
+    
     _scrollView = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, LEFT_BTN_WIDTH, self.frame.size.height)];
     [_scrollView setDirectionType:directionType];
     [_scrollView setIsShowSelectBackgroundColor:YES];
     [_scrollView setShowsVerticalScrollIndicator:NO];
-    [_scrollView setContentSize:CGSizeMake(LEFT_BTN_WIDTH, LEFT_BTN_HEIGHT * [scrollMenuDic count])];
-    [_scrollView setItems:keyArray isShowLine:YES];
+    [_scrollView setContentSize:CGSizeMake(LEFT_BTN_WIDTH, LEFT_BTN_HEIGHT * [menuArray count])];
+    [_scrollView setItems:menuArray isShowLine:YES];
     _scrollView.segmentDelegate = self;
     [self addSubview:_scrollView];
-    
-    [self initBtnTable:[scrollMenuDic objectForKey:[keyArray firstObject]]];
+    [self initBtnTable];
 }
 
--(void)initBtnTable:(NSArray *)tableData
+-(void)initBtnTable
 {
-    _tableBtnData = tableData;
     CGRect frame = _scrollView.frame;
     CGFloat btnViewWidth = self.frame.size.width - frame.size.width;
     _btnTableView = [[UITableView alloc] initWithFrame:CGRectMake(frame.size.width, 0, btnViewWidth, self.frame.size.height) style:UITableViewStylePlain];
@@ -70,7 +79,23 @@
     _btnTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     _btnTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:_btnTableView];
+    
+    [self loadTableData:_menuIdArray[0]];
 }
+
+-(void)loadTableData:(NSString *)parentId
+{
+    [[MongoConnect sharedMongoConnect] getCateIndexById:parentId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _tableBtnData = [dic objectForKey:@"data"];
+            [_btnTableView reloadData];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
 
 -(void)initBtnView:(NSArray *)btnArray WithHeigth:(CGFloat)heigth ForSection:(NSInteger)section
 {
@@ -81,12 +106,14 @@
     
     CGFloat visiableX = 10,visiableY = 10,spaceNum = 10,btnWidth = (btnViewWidth - 40)/3,btnHeight = 44;
     for (int i = 0; i < btnArray.count; i++) {
+        CateModel *model = btnArray[i];
         MutableButton *btn = [[MutableButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = YES;
         btn.backgroundColor = UIColorFromRGB(0XECECEC);
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
-        [btn setTitle:btnArray[i] forState:UIControlStateNormal];
+        [btn setTitle:model.gname forState:UIControlStateNormal];
+        //btn.tag = [model.gid integerValue];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
@@ -148,14 +175,17 @@
 
 -(void)selectTitle:(NSString *)title
 {
-    _selectBtn = nil;
-     _tableBtnData = [_dataDic objectForKey:title];
-    [_btnTableView reloadData];
+//    _selectBtn = nil;
+//     _tableBtnData = [_dataDic objectForKey:title];
+//    [_btnTableView reloadData];
 }
 
 -(void)selectIndex:(NSInteger)index
 {
-    
+    _selectBtn = nil;
+    _btnView = nil;
+    [_btnView removeFromSuperview];
+    [self loadTableData:_menuIdArray[index]];
 }
 
 #pragma mark -- UITableViewDelegate && UITableViewDataSource
@@ -166,7 +196,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [_tableBtnData[section] allKeys][0];
+    return [_tableBtnData[section] objectForKey:@"name"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -182,16 +212,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSArray *btnArray = [_tableBtnData[indexPath.section] objectForKey:[_tableBtnData[indexPath.section] allKeys][0]];
+    NSDictionary *btnArray = [_tableBtnData[indexPath.section] objectForKey:@"top"];
     NSInteger count = btnArray.count;
     CGFloat rowHeigth = [self calculateHeigthForRow:count];
-    _cellHeight = rowHeigth;
     return rowHeigth;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    NSArray *btnArray = [_tableBtnData[indexPath.section] objectForKey:[_tableBtnData[indexPath.section] allKeys][0]];
+    NSDictionary *btnArray = [_tableBtnData[indexPath.section] objectForKey:@"top"];
     NSInteger count = btnArray.count;
     
     static NSString *CellID = @"cell";
@@ -199,13 +228,27 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
     }
-    [self initBtnView:btnArray WithHeigth:[self calculateHeigthForRow:count] ForSection:indexPath.section];
+    [self initBtnView:[self createDicWith:btnArray] WithHeigth:[self calculateHeigthForRow:count] ForSection:indexPath.section];
+    _btnView.backgroundColor = [UIColor redColor];
     [cell.contentView addSubview:_btnView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 #pragma mark -- Private
+-(NSArray *)createDicWith:(NSDictionary *)data
+{
+    NSMutableArray *array = [NSMutableArray array];
+    NSArray *keyArray = [data allKeys];
+    for (int i = 0; i < keyArray.count; i++) {
+        CateModel *cateModel = [[CateModel alloc] init];
+        NSString *gid = keyArray[i];
+        cateModel.gid = gid;
+        cateModel.gname = [data objectForKey:gid];
+        [array addObject:cateModel];
+    }
+    return array;
+}
 -(CGFloat)calculateHeigthForRow:(NSInteger)count
 {
     CGFloat rowHeigth,heigth = LEFT_BTN_HEIGHT + BTN_SPACING;;

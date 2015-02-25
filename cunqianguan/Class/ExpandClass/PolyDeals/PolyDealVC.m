@@ -14,9 +14,19 @@
 #import "BaseSelectView.h"
 #import "PolyGoodsRootVC.h"
 
+#import "BaseConnect.h"
+#import "JYHConnect.h"
+#import "PersonInfo.h"
+
+#import "JYHListModel.h"
+#import "JYHModel.h"
+
 @interface PolyDealVC ()
 {
     NSMutableArray *_data;
+    JYHListModel *_listModel;
+    NSInteger _pageNum;
+    NSInteger _category;
 }
 
 @end
@@ -26,23 +36,16 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //[self setUpNavBtn];
     _data = [NSMutableArray array];
+    _pageNum = 1;
+    _category = 0;
     [self setUpCollection];
 }
 
--(void)viewDidCurrentView
+-(void)viewDidCurrentView:(NSInteger)index
 {
-    if ([self.leftTitle isEqualToString:@"全部"]) {
-        for (int i = 0; i < 20; i++) {
-            [_data addObject:[NSString stringWithFormat:@"%d",i]];
-        }
-    }else{
-        for (int i = 0; i < 5; i++) {
-            [_data addObject:[NSString stringWithFormat:@"%d",i]];
-        }
-    }
-    [self.collectionView reloadData];
+    [_data removeAllObjects];
+    [self loadDataWith:index andPage:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +73,39 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     [self setRefreshEnabled:YES];
 }
 
+-(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    PersonInfo *person = [PersonInfo sharedPersonInfo];
+    [[JYHConnect sharedJYHConnect] getJYHGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _listModel = [[JYHListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:_listModel.data];
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadDataWith:_category andPage:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadDataWith:_category andPage:_pageNum];
+    [super moreFresh];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -91,6 +127,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PolyGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    [cell loadCell:_data[indexPath.row]];
     cell.tag = indexPath.row;
     return cell;
 }

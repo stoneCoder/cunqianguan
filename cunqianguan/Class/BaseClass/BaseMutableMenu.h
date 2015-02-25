@@ -16,7 +16,7 @@
 @interface BaseMutableMenu : BaseView<SegmentDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) id<MutableMenuDelegate> delegate;
 
--(void)initScrollView:(NSDictionary *)scrollMenuDic WithDirectionType:(NSInteger)directionType;
+-(void)initScrollViewWithDirectionType:(NSInteger)directionType;
 -(void)showView;
 -(void)hideView;
 @end

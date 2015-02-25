@@ -107,7 +107,7 @@
     NSString *username = _username.text;
     NSString *pwd = _pwd.text;
     if (username.length == 0 || pwd.length == 0) {
-        [self showStringHUD:@"用户名或密码不能为空！" second:2];
+        [self showStringHUD:@"用户名或密码不能为空！" second:HUD_SHOW_SECOND];
         return;
     }
     pwd = [BaseUtil encrypt:pwd];
@@ -124,14 +124,14 @@
             [person getUserInfo:weakName withPwd:weakPwd success:^(id json) {
                 if([BaseConnect isSucceeded:json]){
                     [person saveUserData];
-                    [self showStringHUD:@"登陆成功" second:2];
+                    [self showStringHUD:@"登陆成功" second:HUD_SHOW_SECOND];
                     _hideTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(dismisSelf) userInfo:nil repeats:NO];
                 }
             } failure:^(id json) {
                 
             }];
         }else{
-            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+            [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
             return;
         }
     } failure:^(NSError *err) {
@@ -245,7 +245,6 @@
 {
     if(textField.returnKeyType == UIReturnKeyNext)
     {
-        NSLog(@"I click username");
         [_pwd becomeFirstResponder];
         return YES;
     }

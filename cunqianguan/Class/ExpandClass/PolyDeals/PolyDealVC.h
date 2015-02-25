@@ -9,5 +9,5 @@
 #import "BaseCollectionVC.h"
 
 @interface PolyDealVC : BaseCollectionVC
--(void)viewDidCurrentView;
+-(void)viewDidCurrentView:(NSInteger)index;
 @end

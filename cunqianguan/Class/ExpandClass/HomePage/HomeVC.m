@@ -29,6 +29,11 @@
 #import "LoginVC.h"
 #import "BaseNC.h"
 
+#import "BaseConnect.h"
+#import "HomeConnect.h"
+#import "AdListModel.h"
+#import "AdModel.h"
+
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
     TapActionView *_actionView;
@@ -100,6 +105,7 @@
     [adView addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
     [_pageControl insertBannerPages:adView];
     
+    [self loadAdView];
     [self.view addSubview:_pageControl];
 }
 
@@ -110,6 +116,25 @@
     [_actionView setFrame:CGRectMake(0, visiableY, SCREEN_WIDTH, SCREEN_WIDTH)];
     _actionView.delegate = self;
     [self.view addSubview:_actionView];
+}
+
+-(void)loadAdView
+{
+    NSDictionary *dic = [NSDictionary dictionary];
+    [[HomeConnect sharedHomeConnect] getIndexAdWith:dic success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            AdListModel *adListModel = [[AdListModel alloc] initWithDictionary:dic error:nil];
+            for (int i = 0; i < adListModel.data.count; i++) {
+                AdModel *adModel = adListModel.data[i];
+                AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+                [adView.imageView sd_setImageWithURL:[NSURL URLWithString:adModel.pic_url]];
+                [_pageControl insertBannerPages:adView];
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 #pragma mark -- Private

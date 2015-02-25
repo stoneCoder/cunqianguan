@@ -8,6 +8,11 @@
 
 #import "BindAccountVC.h"
 
+#import "PersonInfo.h"
+#import "LoginConnect.h"
+#import "BaseUtil.h"
+#import "BMAlert.h"
+
 @interface BindAccountVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *pwdtext;
@@ -27,6 +32,23 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)bindAction:(id)sender
+{
+    NSString *username = _username.text;
+    NSString *pwd = _pwdtext.text;
+    if (username.length == 0 || pwd.length == 0) {
+        [self showStringHUD:@"用户名或密码不能为空！" second:HUD_SHOW_SECOND];
+        return;
+    }
+    pwd = [BaseUtil encrypt:pwd];
+    [self showHUD:LOGIN_LOAD];
+    
+    [[LoginConnect sharedLoginConnect] bindOauth:username withPwd:pwd name:_name uuid:_uuid type:_type success:^(id json) {
+        
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 /*

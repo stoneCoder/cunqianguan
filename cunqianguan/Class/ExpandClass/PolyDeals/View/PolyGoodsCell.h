@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JYHModel.h"
 @interface PolyGoodsCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *qLabel;
+-(void)loadCell:(JYHModel *)jyhModel;
 @end

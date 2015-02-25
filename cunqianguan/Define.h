@@ -1,13 +1,14 @@
 //
-//  Define.h
-//  AutoTour
 //
-//  Created by hanjin on 14-3-10.
-//  Copyright (c) 2014年 WHZM. All rights reserved.
+//  Define.m
+//  cunqianguan
+//
+//  Created by 四三一八 on 15/1/20.
+//  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#define API @"http://deve.baoxianqi.com/MobileApi/"
-
+#define API @"http://www.baoxianqi.com/MobileApi/"
+//#define API @"http://deve.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
@@ -45,3 +46,9 @@ return shared##className; \
 #define DATA_LOAD @"正在加载。。"
 #define LOGIN_LOAD @"登陆中。。"
 #define ACTION_LOAD @"处理中。。"
+#define HUD_SHOW_SECOND 2
+#define PAGE_COUNT 20
+#define MENU_ARRAY @[@"全部", @"男装", @"女装", @"居家", @"母婴", @"鞋包", @"配饰", @"美食", @"数码", @"美妆", @"热卖"]
+#define SELECT_ARRAY  @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+#define SELECT_ID @[@"0",@"1", @"8", @"16", @"22", @"29",@"36", @"43"];
+#define INTERFACE_VERSION @"2.0"
