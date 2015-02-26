@@ -45,7 +45,8 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 -(void)viewDidCurrentView:(NSInteger)index
 {
     [_data removeAllObjects];
-    [self loadDataWith:index andPage:1];
+    _category = index;
+    [self loadDataWith:_category andPage:1];
 }
 
 - (void)didReceiveMemoryWarning {
