@@ -42,6 +42,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 -(void)saveUserData;
 
 -(void)getUserInfo:(NSString *)userName withPwd:(NSString *)pwd success:(void (^)(id json))success failure:(void (^)(id json))failure;
+-(void)getAvaterWithId:(NSString *)userId success:(void (^)(id json))success failure:(void (^)(id json))failure;
 
 -(void)isLoginWithcompletion:(void (^)(BOOL flag))completion;
 -(void)isLoginWithPresent:(void (^)(BOOL flag))completion WithType:(BOOL)presentType;

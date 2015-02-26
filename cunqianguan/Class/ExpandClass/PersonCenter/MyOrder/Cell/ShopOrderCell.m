@@ -26,4 +26,27 @@
     
     // Configure the view for the selected state
 }
+
+-(void)loadCell:(OrderModel *)model
+{
+    NSString *typeStr;
+    switch (model.type) {
+        case 0:
+            typeStr = @"订单失效";
+            break;
+        case 1:
+            typeStr = @"已返利";
+            break;
+        case 2:
+            typeStr = @"待返利";
+            break;
+    }
+    _typeLabel.text = typeStr;
+    
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    _priceLabel.text = [NSString stringWithFormat:@"%.2f元",model.pay_price];
+    _moneyLable.text = [NSString stringWithFormat:@"%ld元",model.fanli];
+    _timeLabel.text = [NSString stringWithFormat:@"跟单时间：%@",model.time];
+
+}
 @end

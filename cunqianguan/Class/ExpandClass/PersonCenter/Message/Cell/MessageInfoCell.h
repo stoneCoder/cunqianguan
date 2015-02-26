@@ -7,7 +7,9 @@
 //
 
 #import "SWTableViewCell.h"
-
+#import "MsgModel.h"
 @interface MessageInfoCell : SWTableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *tipImage;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+-(void)loadCell:(MsgModel *)model;
 @end

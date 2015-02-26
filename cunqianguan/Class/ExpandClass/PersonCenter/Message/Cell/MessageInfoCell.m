@@ -17,5 +17,14 @@
     // Drawing code
 }
 */
-
+ //0 通知 1 公告
+-(void)loadCell:(MsgModel *)model
+{
+    _infoLabel.text = model.contents;
+    if (model.types == 0) {
+        _tipImage.image = [UIImage imageNamed:@"msg_tip_noti"];
+    }else if (model.types == 1) {
+        _tipImage.image = [UIImage imageNamed:@"msg_tip_post"];
+    }
+}
 @end

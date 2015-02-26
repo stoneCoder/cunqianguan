@@ -23,11 +23,13 @@
 #import "PersonInfoVC.h"
 
 #import "SignVC.h"
+#import "PersonInfo.h"
 
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
     NSDictionary *_localData;
     PersonHeaderView *personHeaderView;
+    PersonInfo *_info;
 }
 
 @end
@@ -41,6 +43,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
+    _info = [PersonInfo sharedPersonInfo];
     
 }
 
@@ -60,14 +63,13 @@ static NSString *FooterViewID = @"PersonFooterView";
 */
 -(void)setUpNavBtn
 {
-    [self setRigthBarWithDic:@{@"images":@[@"refresh"],@"imageshover":@[@"refresh_hover"]}];
+    [self setRigthBarWithDic:@{@"images":@[@"sign"]}];
 }
 
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStyleGrouped];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UINib *cellNib = [UINib nibWithNibName:@"PersonInfoCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
@@ -99,6 +101,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self.tableView addSubview:view];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (_info.userId) {
+        [personHeaderView loadView:_info];
+    }
+}
+
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -124,7 +133,23 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
 
     PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.titleLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.infoLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+                break;
+            case 1:
+                cell.infoLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTb];
+                break;
+            case 2:
+                cell.infoLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
+                break;
+        }
+    }else{
+        cell.infoLabel.hidden = YES;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

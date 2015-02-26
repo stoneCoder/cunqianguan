@@ -165,7 +165,7 @@
 
 -(void)setUpGridMenu
 {
-    NSArray *menuNameArray = @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
+    NSArray *menuNameArray = SELECT_ARRAY;
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < menuNameArray.count; i++) {
         NSString *imageName = [NSString stringWithFormat:@"lanmu%d",i+1];
@@ -270,6 +270,7 @@
     flowLayout.minimumLineSpacing = 10.0;
     
     GoodsViewVC *goodsViewVC = [[GoodsViewVC alloc] initWithCollectionViewLayout:flowLayout];
+    goodsViewVC.queryType = cell.tag;
     goodsViewVC.leftTitle = cell.menuLabel.text;
     [self.navigationController pushViewController:goodsViewVC animated:YES];
 }

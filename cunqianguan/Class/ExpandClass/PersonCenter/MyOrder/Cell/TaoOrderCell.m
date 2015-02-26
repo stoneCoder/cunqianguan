@@ -23,8 +23,17 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
+-(void)loadCell:(OrderModel *)model
+{
+    _orderNumLabel.text = model.trade_id;
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    _infoLabel.text = model.title;
+    _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _infoLabel.numberOfLines = 0;
+    
+    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",model.fanli];
+    _timeLabel.text = [NSString stringWithFormat:@"返利时间：%@",model.time];
+}
 @end

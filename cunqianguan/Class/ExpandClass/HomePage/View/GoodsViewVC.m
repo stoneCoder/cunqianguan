@@ -36,7 +36,7 @@ static NSString *  collectionCellID=@"GoodsCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _data = [NSMutableArray array];
-    _category = 0;
+    _category = _queryType;
     _pageNum = 1;
     [self setUpNavBtn];
     [self setUpCollection];
@@ -121,10 +121,17 @@ static NSString *  collectionCellID=@"GoodsCell";
     [super moreFresh];
 }
 
+#pragma mark -- BaseMutableMenuDelegate
 - (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu
 {
     [_menu removeFromSuperview];
     _menu = nil;
+}
+
+-(void)clickAction:(MutableButton *)button
+{
+    [_menu hideView];
+    [self loadDataWith:button.tag andPage:1];
 }
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource

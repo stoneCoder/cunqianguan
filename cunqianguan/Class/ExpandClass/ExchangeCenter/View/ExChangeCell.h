@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ExChangeModel.h"
 @interface ExChangeCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stockLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointLabel;
+-(void)loadCell:(ExChangeModel *)model;
 @end

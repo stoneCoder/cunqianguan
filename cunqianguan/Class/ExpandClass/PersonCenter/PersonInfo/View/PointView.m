@@ -55,11 +55,19 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellID];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-    cell.textLabel.text = [NSString stringWithFormat:@"VIP%d",indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",(long)(indexPath.row + 1)];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];
-    NSString *infoText = [NSString stringWithFormat:@"最高可获利商品利润的%@返利",@"%50"];
+    NSString *fanStr = @"50%";
+    if (indexPath.row == 1) {
+        fanStr = @"55%";
+    }else if (indexPath.row == 2){
+        fanStr = @"58%";
+    }else if (indexPath.row == 3){
+        fanStr = @"60%";
+    }
+    NSString *infoText = [NSString stringWithFormat:@"最高可获利商品利润的%@返利",fanStr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:infoText];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(infoText.length - 5,3)];
     cell.detailTextLabel.attributedText = str;

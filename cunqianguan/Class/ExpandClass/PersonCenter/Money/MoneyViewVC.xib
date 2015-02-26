@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoneyViewVC">
             <connections>
+                <outlet property="bottomView" destination="OlR-SB-HBf" id="dNS-o7-cPl"/>
                 <outlet property="cashView" destination="3zO-gL-REH" id="SNz-lT-gLD"/>
                 <outlet property="firstLabel" destination="FwO-3a-CyI" id="dzJ-mx-Wtd"/>
                 <outlet property="firstNumLabel" destination="M3B-2h-KXU" id="JFe-FS-tPk"/>
@@ -56,7 +57,7 @@
                     <color key="textColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-gL-REH">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-gL-REH">
                     <rect key="frame" x="15" y="126" width="290" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5L-pD-n7s">
@@ -99,10 +100,10 @@
                     </constraints>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-eG-hpI">
-                    <rect key="frame" x="15" y="129" width="290" height="44"/>
+                    <rect key="frame" x="15" y="78" width="290" height="44"/>
                     <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Ee3-Wf-BoI"/>
+                        <constraint firstAttribute="width" secondItem="xgN-eG-hpI" secondAttribute="height" multiplier="145:22" id="DRI-mJ-Cbm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="去保鲜期网站兑换商品">
@@ -134,7 +135,7 @@
                 <constraint firstItem="xgN-eG-hpI" firstAttribute="trailing" secondItem="Q1h-V4-802" secondAttribute="trailing" id="6bi-eE-grG"/>
                 <constraint firstItem="YSb-Xn-8PN" firstAttribute="trailing" secondItem="OlR-SB-HBf" secondAttribute="trailing" id="DCK-mH-LSS"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="DNK-mn-SSu"/>
-                <constraint firstItem="xgN-eG-hpI" firstAttribute="top" secondItem="Q1h-V4-802" secondAttribute="top" id="EAt-5K-JXj"/>
+                <constraint firstItem="xgN-eG-hpI" firstAttribute="top" secondItem="Q1h-V4-802" secondAttribute="top" constant="-51" id="EAt-5K-JXj"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="top" secondItem="FwO-3a-CyI" secondAttribute="bottom" constant="12" id="GnP-Vr-OXY"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="leading" secondItem="YSb-Xn-8PN" secondAttribute="leading" id="HfF-iJ-lop"/>
                 <constraint firstItem="Q1h-V4-802" firstAttribute="top" secondItem="OlR-SB-HBf" secondAttribute="bottom" constant="22" id="IVl-gN-GLX"/>

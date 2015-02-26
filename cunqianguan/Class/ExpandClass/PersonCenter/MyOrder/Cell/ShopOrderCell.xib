@@ -41,7 +41,6 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xon-39-f2Y">
                                 <rect key="frame" x="8" y="46" width="88" height="98"/>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单金额：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnN-qX-MhQ">
                                 <rect key="frame" x="104" y="46" width="75" height="21"/>
@@ -147,6 +146,14 @@
                     <constraint firstItem="pGZ-C5-cvR" firstAttribute="trailing" secondItem="3cr-O7-bXa" secondAttribute="trailingMargin" id="yTH-hb-n9W"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="moneyLable" destination="jFS-Rj-3VF" id="xBF-ai-4aL"/>
+                <outlet property="orderNumLabel" destination="EUM-Su-BLy" id="euO-vn-mwr"/>
+                <outlet property="priceLabel" destination="J4L-Tm-Znf" id="KrY-s5-GGT"/>
+                <outlet property="productImage" destination="Xon-39-f2Y" id="d1N-34-wUU"/>
+                <outlet property="timeLabel" destination="Vgb-qA-ulg" id="T2p-zj-BXF"/>
+                <outlet property="typeLabel" destination="JCn-aw-qlt" id="grC-WQ-VdP"/>
+            </connections>
             <point key="canvasLocation" x="265" y="445"/>
         </tableViewCell>
     </objects>

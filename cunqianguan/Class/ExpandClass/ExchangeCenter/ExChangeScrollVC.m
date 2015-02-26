@@ -76,6 +76,7 @@
         exchangeCenterVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
         [_scrollView addSubview:exchangeCenterVC.view];
     }
+    [[self childViewControllers][0] viewDidCurrentView:0];
 }
 
 #pragma mark -- CCSegmentDelegate
@@ -87,6 +88,7 @@
     [_scrollView scrollRectToVisible:CGRectMake(index*VIEW_WIDTH, 0, VIEW_WIDTH, VIEW_HEIGHT) animated:YES];
     
     _currentIndex = index;
+    [[self childViewControllers][index] viewDidCurrentView:index];
 }
 
 #pragma mark -- UIScrollViewDelegate

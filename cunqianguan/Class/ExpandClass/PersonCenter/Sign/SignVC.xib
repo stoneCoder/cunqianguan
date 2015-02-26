@@ -23,9 +23,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMS-XX-IkK">
-                            <rect key="frame" x="240" y="7" width="72" height="35"/>
-                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="向后">
+                            <rect key="frame" x="216" y="15" width="22" height="22"/>
+                            <state key="normal" image="date_right">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -39,12 +38,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-qI-OzD">
-                            <rect key="frame" x="8" y="7" width="72" height="35"/>
-                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="82" y="15" width="22" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="jaz-qI-OzD" secondAttribute="height" multiplier="72:35" id="BqM-Nx-D5S"/>
+                                <constraint firstAttribute="width" secondItem="jaz-qI-OzD" secondAttribute="height" multiplier="72:35" constant="-23.257142857142853" id="BqM-Nx-D5S"/>
                             </constraints>
-                            <state key="normal" title="向前">
+                            <state key="normal" image="date_left">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -54,17 +52,17 @@
                     </subviews>
                     <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="KMS-XX-IkK" secondAttribute="trailing" constant="8" id="4dm-50-7gW"/>
+                        <constraint firstAttribute="trailing" secondItem="KMS-XX-IkK" secondAttribute="trailing" constant="82" id="4dm-50-7gW"/>
                         <constraint firstAttribute="bottom" secondItem="vro-Ut-gxt" secondAttribute="bottom" constant="13" id="BR6-Ox-u4S"/>
-                        <constraint firstItem="jaz-qI-OzD" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="7" id="G88-Oa-CHX"/>
-                        <constraint firstItem="KMS-XX-IkK" firstAttribute="leading" secondItem="vro-Ut-gxt" secondAttribute="trailing" constant="34" id="KBS-fM-fn7"/>
+                        <constraint firstItem="jaz-qI-OzD" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="15" id="G88-Oa-CHX"/>
+                        <constraint firstItem="KMS-XX-IkK" firstAttribute="leading" secondItem="vro-Ut-gxt" secondAttribute="trailing" constant="10" id="KBS-fM-fn7"/>
                         <constraint firstItem="vro-Ut-gxt" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="15" id="LKy-wt-1XK"/>
                         <constraint firstAttribute="width" secondItem="kzB-8A-Y3d" secondAttribute="height" multiplier="320:49" id="PYz-04-q6o"/>
-                        <constraint firstItem="KMS-XX-IkK" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="7" id="W4u-TS-h7T"/>
-                        <constraint firstItem="jaz-qI-OzD" firstAttribute="leading" secondItem="kzB-8A-Y3d" secondAttribute="leading" constant="8" id="YbG-y5-D92"/>
-                        <constraint firstAttribute="bottom" secondItem="jaz-qI-OzD" secondAttribute="bottom" constant="7" id="bFR-Ph-dfd"/>
+                        <constraint firstItem="KMS-XX-IkK" firstAttribute="top" secondItem="kzB-8A-Y3d" secondAttribute="top" constant="15" id="W4u-TS-h7T"/>
+                        <constraint firstItem="jaz-qI-OzD" firstAttribute="leading" secondItem="kzB-8A-Y3d" secondAttribute="leading" constant="82" id="YbG-y5-D92"/>
+                        <constraint firstAttribute="bottom" secondItem="jaz-qI-OzD" secondAttribute="bottom" constant="12" id="bFR-Ph-dfd"/>
                         <constraint firstItem="vro-Ut-gxt" firstAttribute="centerX" secondItem="kzB-8A-Y3d" secondAttribute="centerX" id="raU-56-SYU"/>
-                        <constraint firstAttribute="bottom" secondItem="KMS-XX-IkK" secondAttribute="bottom" constant="7" id="tlc-FG-yEy"/>
+                        <constraint firstAttribute="bottom" secondItem="KMS-XX-IkK" secondAttribute="bottom" constant="12" id="tlc-FG-yEy"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glh-R9-pit" customClass="JTCalendarContentView">
@@ -135,6 +133,10 @@
             <point key="canvasLocation" x="319" y="417"/>
         </view>
     </objects>
+    <resources>
+        <image name="date_left" width="7" height="12"/>
+        <image name="date_right" width="7" height="12"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

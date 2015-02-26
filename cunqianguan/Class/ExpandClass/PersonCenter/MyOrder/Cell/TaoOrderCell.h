@@ -7,7 +7,12 @@
 //
 
 #import "SWTableViewCell.h"
-
+#import "OrderModel.h"
 @interface TaoOrderCell : SWTableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *orderNumLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+-(void)loadCell:(OrderModel *)model;
 @end

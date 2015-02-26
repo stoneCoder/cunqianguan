@@ -7,7 +7,13 @@
 //
 
 #import "SWTableViewCell.h"
-
+#import "OrderModel.h"
 @interface ShopOrderCell : SWTableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderNumLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLable;
+-(void)loadCell:(OrderModel *)model;
 @end

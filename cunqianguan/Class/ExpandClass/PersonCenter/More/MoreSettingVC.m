@@ -11,6 +11,7 @@
 @interface MoreSettingVC ()
 {
     NSDictionary *_localData;
+    NSDictionary *_localImageData;
 }
 
 @end
@@ -20,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _localData = @{@"0":@[@"话费充值",@"检查更新",@"意见反馈",@"帮助中心",@"消息设置"],@"1":@[@"清理缓存",@"关于我们"],@"2":@[@"退出登陆"]};
+    _localData = @{@"0":@[@"检查更新",@"意见反馈",@"帮助中心",@"消息设置"],@"1":@[@"清理缓存",@"关于我们"],@"2":@[@"退出登陆"]};
+    _localImageData = @{@"0":@[@"more_01",@"more_02",@"more_03",@"more_04"],@"1":@[@"more_05",@"more_06"],@"2":@[@"more_06"]};
     [self setUpTableView];
 }
 
@@ -74,7 +76,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
     }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = [UIImage imageNamed:@"back"];
+    NSString *imageName = [_localImageData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:imageName];
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     cell.textLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
     return cell;

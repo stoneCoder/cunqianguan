@@ -87,6 +87,15 @@
 		B1436F981A7377C000706772 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F951A7377C000706772 /* PopoverView.m */; };
 		B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9A1A73870C00706772 /* FinishInfoVC.m */; };
 		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
+		B14379681A9EB55100D00625 /* ExChangeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379671A9EB55100D00625 /* ExChangeConnect.m */; };
+		B143796C1A9EB74700D00625 /* ExChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B143796B1A9EB74700D00625 /* ExChangeModel.m */; };
+		B143796F1A9EB80A00D00625 /* ExChangeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B143796E1A9EB80A00D00625 /* ExChangeListModel.m */; };
+		B14379731A9EC1F300D00625 /* FootConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379721A9EC1F300D00625 /* FootConnect.m */; };
+		B14379771A9EEF7500D00625 /* PersonConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379761A9EEF7500D00625 /* PersonConnect.m */; };
+		B143797B1A9EF47800D00625 /* MsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B143797A1A9EF47800D00625 /* MsgModel.m */; };
+		B143797E1A9EF51400D00625 /* MsgListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B143797D1A9EF51400D00625 /* MsgListModel.m */; };
+		B14379811A9F0EC400D00625 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379801A9F0EC400D00625 /* OrderModel.m */; };
+		B14379841A9F0FB800D00625 /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379831A9F0FB800D00625 /* OrderListModel.m */; };
 		B14729A11A8C799B00524510 /* DoAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14729A01A8C799B00524510 /* DoAlertView.m */; };
 		B14729A41A8C7AA700524510 /* UIImage+ResizeMagick.m in Sources */ = {isa = PBXBuildFile; fileRef = B14729A31A8C7AA700524510 /* UIImage+ResizeMagick.m */; };
 		B14729A71A8C7E8700524510 /* BMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B14729A61A8C7E8700524510 /* BMAlert.m */; };
@@ -398,6 +407,24 @@
 		B1436F991A73870C00706772 /* FinishInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishInfoVC.h; sourceTree = "<group>"; };
 		B1436F9A1A73870C00706772 /* FinishInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishInfoVC.m; sourceTree = "<group>"; };
 		B1436F9B1A73870C00706772 /* FinishInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishInfoVC.xib; sourceTree = "<group>"; };
+		B14379661A9EB55100D00625 /* ExChangeConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeConnect.h; sourceTree = "<group>"; };
+		B14379671A9EB55100D00625 /* ExChangeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeConnect.m; sourceTree = "<group>"; };
+		B143796A1A9EB74700D00625 /* ExChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeModel.h; sourceTree = "<group>"; };
+		B143796B1A9EB74700D00625 /* ExChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeModel.m; sourceTree = "<group>"; };
+		B143796D1A9EB80A00D00625 /* ExChangeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeListModel.h; sourceTree = "<group>"; };
+		B143796E1A9EB80A00D00625 /* ExChangeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeListModel.m; sourceTree = "<group>"; };
+		B14379711A9EC1F300D00625 /* FootConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootConnect.h; sourceTree = "<group>"; };
+		B14379721A9EC1F300D00625 /* FootConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootConnect.m; sourceTree = "<group>"; };
+		B14379751A9EEF7500D00625 /* PersonConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonConnect.h; sourceTree = "<group>"; };
+		B14379761A9EEF7500D00625 /* PersonConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonConnect.m; sourceTree = "<group>"; };
+		B14379791A9EF47800D00625 /* MsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgModel.h; sourceTree = "<group>"; };
+		B143797A1A9EF47800D00625 /* MsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgModel.m; sourceTree = "<group>"; };
+		B143797C1A9EF51400D00625 /* MsgListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgListModel.h; sourceTree = "<group>"; };
+		B143797D1A9EF51400D00625 /* MsgListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgListModel.m; sourceTree = "<group>"; };
+		B143797F1A9F0EC400D00625 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		B14379801A9F0EC400D00625 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
+		B14379821A9F0FB800D00625 /* OrderListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListModel.h; sourceTree = "<group>"; };
+		B14379831A9F0FB800D00625 /* OrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListModel.m; sourceTree = "<group>"; };
 		B147299F1A8C799B00524510 /* DoAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoAlertView.h; sourceTree = "<group>"; };
 		B14729A01A8C799B00524510 /* DoAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoAlertView.m; sourceTree = "<group>"; };
 		B14729A21A8C7AA700524510 /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
@@ -1234,6 +1261,59 @@
 			path = PopoverView;
 			sourceTree = "<group>";
 		};
+		B14379651A9EB53D00D00625 /* ExChange */ = {
+			isa = PBXGroup;
+			children = (
+				B14379661A9EB55100D00625 /* ExChangeConnect.h */,
+				B14379671A9EB55100D00625 /* ExChangeConnect.m */,
+			);
+			path = ExChange;
+			sourceTree = "<group>";
+		};
+		B14379691A9EB73600D00625 /* ExChange */ = {
+			isa = PBXGroup;
+			children = (
+				B143796A1A9EB74700D00625 /* ExChangeModel.h */,
+				B143796B1A9EB74700D00625 /* ExChangeModel.m */,
+				B143796D1A9EB80A00D00625 /* ExChangeListModel.h */,
+				B143796E1A9EB80A00D00625 /* ExChangeListModel.m */,
+			);
+			path = ExChange;
+			sourceTree = "<group>";
+		};
+		B14379701A9EC1E100D00625 /* Foot */ = {
+			isa = PBXGroup;
+			children = (
+				B14379711A9EC1F300D00625 /* FootConnect.h */,
+				B14379721A9EC1F300D00625 /* FootConnect.m */,
+			);
+			path = Foot;
+			sourceTree = "<group>";
+		};
+		B14379741A9EEF6800D00625 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				B14379751A9EEF7500D00625 /* PersonConnect.h */,
+				B14379761A9EEF7500D00625 /* PersonConnect.m */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		B14379781A9EF45800D00625 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				B14379791A9EF47800D00625 /* MsgModel.h */,
+				B143797A1A9EF47800D00625 /* MsgModel.m */,
+				B143797C1A9EF51400D00625 /* MsgListModel.h */,
+				B143797D1A9EF51400D00625 /* MsgListModel.m */,
+				B143797F1A9F0EC400D00625 /* OrderModel.h */,
+				B14379801A9F0EC400D00625 /* OrderModel.m */,
+				B14379821A9F0FB800D00625 /* OrderListModel.h */,
+				B14379831A9F0FB800D00625 /* OrderListModel.m */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
 		B147299E1A8C799B00524510 /* DoAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1385,6 +1465,9 @@
 		B15032661A8B4895000A61FA /* BusinessLogics */ = {
 			isa = PBXGroup;
 			children = (
+				B14379741A9EEF6800D00625 /* Person */,
+				B14379701A9EC1E100D00625 /* Foot */,
+				B14379651A9EB53D00D00625 /* ExChange */,
 				B158A7161A9DA16F00C6FD3F /* Mongo */,
 				B158A70B1A9D788E00C6FD3F /* JYH */,
 				B158A6CC1A9D683300C6FD3F /* Home */,
@@ -1469,6 +1552,8 @@
 		B158A6F71A9D6BE900C6FD3F /* BusinessModel */ = {
 			isa = PBXGroup;
 			children = (
+				B14379781A9EF45800D00625 /* Person */,
+				B14379691A9EB73600D00625 /* ExChange */,
 				B158A71A1A9DA33900C6FD3F /* Mongo */,
 				B158A70F1A9D7A5600C6FD3F /* JYH */,
 				B158A6F81A9D6BFB00C6FD3F /* Home */,
@@ -1990,7 +2075,9 @@
 				B1668D491A88A2F4002CB98E /* JTCalendarDayView.m in Sources */,
 				B14071991A6CCD7900D1792F /* BaseCollectionView.m in Sources */,
 				B14071771A6CC90400D1792F /* UIView+UIViewExt.m in Sources */,
+				B143797B1A9EF47800D00625 /* MsgModel.m in Sources */,
 				B158A6F21A9D6BBB00C6FD3F /* JSONHTTPClient.m in Sources */,
+				B14379841A9F0FB800D00625 /* OrderListModel.m in Sources */,
 				B14071631A6CC51A00D1792F /* BaseConnect.m in Sources */,
 				B16587F81A7F0F670032071C /* BaseMutableMenu.m in Sources */,
 				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
@@ -2025,6 +2112,7 @@
 				B162D61D1A82048300692A6C /* ExChangeScrollVC.m in Sources */,
 				B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */,
 				B14FE5EC1A7CADCB002BF122 /* FootPrintsCell.m in Sources */,
+				B143796C1A9EB74700D00625 /* ExChangeModel.m in Sources */,
 				B150324D1A8B217F000A61FA /* PolyGoodsDetailVC.m in Sources */,
 				B158A6ED1A9D6BBB00C6FD3F /* JSONModelArray.m in Sources */,
 				B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */,
@@ -2053,6 +2141,7 @@
 				B14729A41A8C7AA700524510 /* UIImage+ResizeMagick.m in Sources */,
 				B14968441A875A4500DBC09B /* NSData+SWHex.m in Sources */,
 				B158A6FE1A9D6D4B00C6FD3F /* AdListModel.m in Sources */,
+				B14379771A9EEF7500D00625 /* PersonConnect.m in Sources */,
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */,
 				B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */,
@@ -2074,12 +2163,15 @@
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
 				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
 				B14729A11A8C799B00524510 /* DoAlertView.m in Sources */,
+				B14379731A9EC1F300D00625 /* FootConnect.m in Sources */,
 				B1668D461A88A2F4002CB98E /* JTCalendar.m in Sources */,
 				B15D44B41A787E03008B8F4B /* SWLongPressGestureRecognizer.m in Sources */,
 				B158A7201A9DA36C00C6FD3F /* MongoListModel.m in Sources */,
+				B14379681A9EB55100D00625 /* ExChangeConnect.m in Sources */,
 				B1668D041A88419E002CB98E /* CollectCell.m in Sources */,
 				B14729A71A8C7E8700524510 /* BMAlert.m in Sources */,
 				B109D58C1A71EE9800505D32 /* PolyGoodsCell.m in Sources */,
+				B14379811A9F0EC400D00625 /* OrderModel.m in Sources */,
 				B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
@@ -2089,6 +2181,7 @@
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
 				B158A6EC1A9D6BBB00C6FD3F /* JSONModel.m in Sources */,
+				B143796F1A9EB80A00D00625 /* ExChangeListModel.m in Sources */,
 				B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */,
 				B158A7191A9DA18000C6FD3F /* MongoConnect.m in Sources */,
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
@@ -2110,6 +2203,7 @@
 				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */,
+				B143797E1A9EF51400D00625 /* MsgListModel.m in Sources */,
 				B14D454F1A70DA6E005AA895 /* RebateHomeVC.m in Sources */,
 				B14071C21A6CEC9400D1792F /* HomeVC.m in Sources */,
 				B158A6CF1A9D684A00C6FD3F /* HomeConnect.m in Sources */,

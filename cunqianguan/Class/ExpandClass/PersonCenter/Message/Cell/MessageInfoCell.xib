@@ -15,10 +15,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-HG-Jzd">
-                        <rect key="frame" x="8" y="10" width="49" height="24"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="8" y="8" width="44" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="49" id="IfJ-tE-lIc"/>
+                            <constraint firstAttribute="width" constant="44" id="IfJ-tE-lIc"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您好，保鲜期双11活动马上就要开始了" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjR-TW-bei">
@@ -29,14 +28,18 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="ciD-HG-Jzd" secondAttribute="bottom" constant="1" id="9gd-1y-Qzq"/>
-                    <constraint firstItem="NjR-TW-bei" firstAttribute="leading" secondItem="ciD-HG-Jzd" secondAttribute="trailing" constant="14" id="Hmk-ZH-BOY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ciD-HG-Jzd" secondAttribute="bottom" constant="-1" id="9gd-1y-Qzq"/>
+                    <constraint firstItem="NjR-TW-bei" firstAttribute="leading" secondItem="ciD-HG-Jzd" secondAttribute="trailing" constant="19" id="Hmk-ZH-BOY"/>
                     <constraint firstItem="NjR-TW-bei" firstAttribute="top" secondItem="RJN-16-h1a" secondAttribute="topMargin" constant="6" id="ZkE-R4-YMV"/>
                     <constraint firstItem="NjR-TW-bei" firstAttribute="trailing" secondItem="RJN-16-h1a" secondAttribute="trailingMargin" id="oaE-ch-NJT"/>
-                    <constraint firstItem="ciD-HG-Jzd" firstAttribute="top" secondItem="RJN-16-h1a" secondAttribute="topMargin" constant="2" id="qea-Rb-pXI"/>
+                    <constraint firstItem="ciD-HG-Jzd" firstAttribute="top" secondItem="RJN-16-h1a" secondAttribute="topMargin" id="qea-Rb-pXI"/>
                     <constraint firstItem="ciD-HG-Jzd" firstAttribute="leading" secondItem="RJN-16-h1a" secondAttribute="leadingMargin" id="rYe-1U-kzh"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="infoLabel" destination="NjR-TW-bei" id="mAz-X7-8z6"/>
+                <outlet property="tipImage" destination="ciD-HG-Jzd" id="Guk-DS-80J"/>
+            </connections>
             <point key="canvasLocation" x="606" y="405"/>
         </tableViewCell>
     </objects>

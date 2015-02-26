@@ -38,7 +38,6 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-D3-LOe">
                                 <rect key="frame" x="7" y="44" width="92" height="97"/>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小米手机壳红米手机套" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9C-dS-HKe">
                                 <rect key="frame" x="107" y="44" width="170" height="21"/>
@@ -81,7 +80,6 @@
                             <constraint firstItem="cZv-XE-HAx" firstAttribute="top" secondItem="hcG-tr-gcU" secondAttribute="top" constant="123" id="AwR-Zf-Zfj"/>
                             <constraint firstItem="21P-U7-pPV" firstAttribute="top" secondItem="hcG-tr-gcU" secondAttribute="top" constant="8" id="B4n-N7-XnX"/>
                             <constraint firstItem="cZv-XE-HAx" firstAttribute="leading" secondItem="hcG-tr-gcU" secondAttribute="leading" constant="132" id="Bfb-hV-hme"/>
-                            <constraint firstItem="k9C-dS-HKe" firstAttribute="leading" secondItem="hcG-tr-gcU" secondAttribute="leading" constant="107" id="CV1-90-4F8"/>
                             <constraint firstAttribute="trailing" secondItem="ofs-oC-JWt" secondAttribute="trailing" id="DXe-TJ-Abs"/>
                             <constraint firstItem="oU5-4D-8eq" firstAttribute="top" secondItem="hcG-tr-gcU" secondAttribute="top" constant="123" id="EEy-eh-Vqe"/>
                             <constraint firstItem="oU5-4D-8eq" firstAttribute="top" secondItem="gYb-A5-E58" secondAttribute="top" id="Ees-le-pgO"/>
@@ -160,6 +158,13 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="infoLabel" destination="k9C-dS-HKe" id="YME-Li-LkU"/>
+                <outlet property="moneyLabel" destination="cZv-XE-HAx" id="nri-AI-56a"/>
+                <outlet property="orderNumLabel" destination="21P-U7-pPV" id="lid-jl-dEW"/>
+                <outlet property="productImage" destination="ZFf-D3-LOe" id="H6N-KM-8Bq"/>
+                <outlet property="timeLabel" destination="gYb-A5-E58" id="bhj-B2-7Ki"/>
+            </connections>
             <point key="canvasLocation" x="-58" y="229"/>
         </tableViewCell>
     </objects>

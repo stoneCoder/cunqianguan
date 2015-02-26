@@ -27,13 +27,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8W-Fi-9xr">
-                    <rect key="frame" x="215" y="22" width="20" height="22"/>
-                    <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="213" y="27" width="12" height="12"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="22" id="A3u-88-7yP"/>
-                        <constraint firstAttribute="width" constant="20" id="tLv-X2-PfJ"/>
+                        <constraint firstAttribute="height" constant="12" id="A3u-88-7yP"/>
+                        <constraint firstAttribute="width" constant="12" id="tLv-X2-PfJ"/>
                     </constraints>
-                    <state key="normal">
+                    <state key="normal" image="tip">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -59,17 +58,17 @@
             <constraints>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="bottom" constant="23" id="0dh-K6-KlO"/>
                 <constraint firstItem="j8i-4x-9Hl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="73" id="8QC-8x-reg"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="5" id="KSo-UD-pmC"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="3" id="KSo-UD-pmC"/>
                 <constraint firstItem="uO9-Es-Dn6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="Lzz-i8-Wux"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="uO9-Es-Dn6" secondAttribute="bottom" constant="22" id="MvI-5w-fCX"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="XNS-Rn-djZ"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="wFy-kB-Q9e" secondAttribute="bottom" constant="25" id="bWz-np-xzT"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="top" id="fck-qR-08k"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="top" constant="5" id="fck-qR-08k"/>
                 <constraint firstItem="wFy-kB-Q9e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="gAQ-Hb-1JN"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m59-02-3hJ"/>
                 <constraint firstItem="wFy-kB-Q9e" firstAttribute="leading" secondItem="j8i-4x-9Hl" secondAttribute="trailing" constant="2" id="p0n-0h-Y6u"/>
                 <constraint firstItem="j8i-4x-9Hl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="pgY-cM-8Gr"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="5" id="rmA-h7-ceB"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="3" id="rmA-h7-ceB"/>
                 <constraint firstItem="uO9-Es-Dn6" firstAttribute="leading" secondItem="wFy-kB-Q9e" secondAttribute="trailing" constant="1" id="sKG-4S-jdG"/>
                 <constraint firstAttribute="bottom" secondItem="ynq-Oz-Jjy" secondAttribute="bottom" constant="10" id="sYF-B8-IVX"/>
                 <constraint firstItem="uO9-Es-Dn6" firstAttribute="leading" secondItem="wFy-kB-Q9e" secondAttribute="trailing" constant="1" id="uw3-X8-1ad"/>
@@ -78,6 +77,9 @@
             <point key="canvasLocation" x="-420" y="195"/>
         </view>
     </objects>
+    <resources>
+        <image name="tip" width="12" height="12"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

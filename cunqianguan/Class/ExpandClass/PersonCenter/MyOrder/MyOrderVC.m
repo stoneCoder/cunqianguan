@@ -12,10 +12,19 @@
 #import "TaoOrderCell.h"
 #import "ShopOrderCell.h"
 
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "PersonInfo.h"
+#import "OrderListModel.h"
+
 @interface MyOrderVC ()<CCSegmentDelegate>
 {
     BaseSegment *_segment;
-    BOOL _orderType;
+    NSInteger _orderType;
+    NSMutableArray *_data;
+    NSInteger _pageNum;
+    PersonInfo *_info;
+    OrderListModel *_listModel;
 }
 
 @end
@@ -26,9 +35,13 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _orderType = YES;
+    _orderType = 0;
+    _pageNum = 1;
+    _data = [NSMutableArray array];
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpSegment];
     [self setUpTableView];
+    [self loadDataWith:_orderType andPage:_pageNum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,11 +83,45 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     [self setRefreshEnabled:YES];
 }
 
+/*type 0 淘宝 1 商城*/
+-(void)loadDataWith:(NSInteger)type andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getOrderInfo:_info.email pwd:_info.password withType:type andPage:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _listModel = [[OrderListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:_listModel.data];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadDataWith:_orderType andPage:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadDataWith:_orderType andPage:_pageNum];
+    [super moreFresh];
+}
+
+
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,7 +131,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_orderType) {
+    if (_orderType == 0) {
         TaoOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:TaoOrderCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.rightUtilityButtons = [self cellRightButtons];
@@ -92,6 +139,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
         cell.containingTableView = tableView;
         [cell hideUtilityButtonsAnimated:NO];
         [cell setCellHeight:cell.frame.size.height];
+        [cell loadCell:_data[indexPath.row]];
         return cell;
     }else
     {
@@ -102,6 +150,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
         cell.containingTableView = tableView;
         [cell hideUtilityButtonsAnimated:NO];
         [cell setCellHeight:cell.frame.size.height];
+        [cell loadCell:_data[indexPath.row]];
         return cell;
     }
     
@@ -125,12 +174,12 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 {
     switch (index) {
         case 0:
-            _orderType = YES;
-            [self.tableView reloadData];
+            _orderType = 0;
+            [self loadDataWith:_orderType andPage:1];
             break;
          case 1:
-            _orderType = NO;
-            [self.tableView reloadData];
+            _orderType = 1;
+            [self loadDataWith:_orderType andPage:1];
             break;
         default:
             break;

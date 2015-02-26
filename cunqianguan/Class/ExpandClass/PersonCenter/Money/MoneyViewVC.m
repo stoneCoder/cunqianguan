@@ -9,10 +9,12 @@
 #import "MoneyViewVC.h"
 #import "AliTransfersView.h"
 #import "BankTransfersView.h"
+#import "PersonInfo.h"
 @interface MoneyViewVC ()
 {
     AliTransfersView *_aliTransfersView;
     BankTransfersView *_bankTransfersView;
+    PersonInfo *_info;
 }
 
 @end
@@ -64,7 +66,7 @@
 #pragma mark -- Private
 -(void)refreshViewWithType:(ViewType)viewType
 {
-    //_cashView.backgroundColor = UIColorFromRGB(0xececec);
+    _info = [PersonInfo sharedPersonInfo];
     switch (viewType) {
         case ViewTypeWithCash:
             _firstLabel.text = @"现金收入";
@@ -72,6 +74,9 @@
             _cashView.hidden = NO;
             _integralBtn.hidden = YES;
             _taoBtn.hidden = YES;
+            
+            _firstNumLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+            _secondNumLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashTo];
             break;
         case ViewTypeWithTao:
             _firstLabel.text = @"淘宝集分宝收入";
@@ -79,16 +84,26 @@
             _cashView.hidden = YES;
             _integralBtn.hidden = YES;
             _taoBtn.hidden = NO;
+            
+            _firstNumLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTb];
+            _secondNumLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTbTo];
             break;
         case ViewTypeWithIntegral:
             _firstLabel.text = @"积分收入";
-            _secondLabel.text = @"待返利";
+            _secondLabel.hidden = YES;
+            _secondNumLabel.hidden = YES;
             _cashView.hidden = YES;
             _integralBtn.hidden = NO;
             _taoBtn.hidden = YES;
+            _bottomView.hidden = YES;
+            _firstNumLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
+            _secondNumLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointTbTo];
             break;
     }
+    
 }
+
+
 - (IBAction)transForBank:(id)sender
 {
     [self createBankView];

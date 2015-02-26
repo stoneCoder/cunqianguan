@@ -11,7 +11,6 @@
 @interface PersonInfoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *pushImage;
 @property (weak, nonatomic) IBOutlet UIImageView *poingImage;
 
 @end

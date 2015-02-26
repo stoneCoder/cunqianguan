@@ -85,14 +85,16 @@
 
 -(void)loadTableData:(NSString *)parentId
 {
+    [self showHUD:DATA_LOAD];
     [[MongoConnect sharedMongoConnect] getCateIndexById:parentId success:^(id json) {
+        [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _tableBtnData = [dic objectForKey:@"data"];
             [_btnTableView reloadData];
         }
     } failure:^(NSError *err) {
-        
+        [self hideAllHUD];
     }];
 }
 
@@ -103,6 +105,9 @@
     CGFloat btnViewWidth = self.frame.size.width - frame.size.width;
     _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,btnViewWidth, heigth)];
     _btnView.backgroundColor = [UIColor whiteColor];
+    if (_btnView) {
+        [_btnView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
     
     CGFloat visiableX = 10,visiableY = 10,spaceNum = 10,btnWidth = (btnViewWidth - 40)/3,btnHeight = 44;
     for (int i = 0; i < btnArray.count; i++) {
@@ -113,7 +118,7 @@
         btn.backgroundColor = UIColorFromRGB(0XECECEC);
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [btn setTitle:model.gname forState:UIControlStateNormal];
-        //btn.tag = [model.gid integerValue];
+        btn.tag = [model.gid integerValue];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
@@ -151,6 +156,10 @@
     _selectBtn = btn;
     btn.selected = YES;
     btn.backgroundColor = UIColorFromRGB(0x40D0C2);
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(clickAction:)]) {
+        [_delegate clickAction:btn];
+    }
 }
 
 -(void)showView
@@ -183,8 +192,6 @@
 -(void)selectIndex:(NSInteger)index
 {
     _selectBtn = nil;
-    _btnView = nil;
-    [_btnView removeFromSuperview];
     [self loadTableData:_menuIdArray[index]];
 }
 
@@ -229,7 +236,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
     }
     [self initBtnView:[self createDicWith:btnArray] WithHeigth:[self calculateHeigthForRow:count] ForSection:indexPath.section];
-    _btnView.backgroundColor = [UIColor redColor];
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell.contentView addSubview:_btnView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

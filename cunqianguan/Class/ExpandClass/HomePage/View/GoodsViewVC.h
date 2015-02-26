@@ -9,4 +9,5 @@
 #import "BaseCollectionVC.h"
 
 @interface GoodsViewVC : BaseCollectionVC
+@property (assign, nonatomic) NSInteger queryType;
 @end

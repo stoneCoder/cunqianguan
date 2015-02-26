@@ -32,12 +32,30 @@
 {
     _headImageView.layer.cornerRadius = _headImageView.frame.size.width/2;
     _headImageView.clipsToBounds = YES;
+    _headImageView.layer.borderWidth = 3;
+    _headImageView.layer.borderColor = UIColorFromRGB(0x31b6ac).CGColor;
     _headImageView.userInteractionEnabled = YES;
     [_headImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateInfo:)]];
     
     _pointImageView.layer.cornerRadius = _pointImageView.frame.size.width/2;
     _pointImageView.layer.masksToBounds = YES;
 }
+
+-(void)loadView:(PersonInfo *)info
+{
+    [info getAvaterWithId:info.userId success:^(id json) {
+        [info saveUserData];
+
+        _nameLabel.text = info.username;
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo]];
+        _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
+        _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
+        _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
+    } failure:^(id json) {
+        
+    }];
+}
+
 - (IBAction)btnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;

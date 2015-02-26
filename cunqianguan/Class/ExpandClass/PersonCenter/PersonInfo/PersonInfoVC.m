@@ -59,6 +59,7 @@ static NSString *ProfileCellID = @"ProfileCell";
     pointView.delegate = pointView;
     pointView.dataSource = pointView;
     pointView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    pointView.scrollEnabled = NO;
     [footerView addSubview:pointView];
     self.tableView.tableFooterView = footerView;
 }

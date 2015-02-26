@@ -14,4 +14,13 @@
     // Initialization code
 }
 
+-(void)loadCell:(ExChangeModel *)model
+{
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    
+    _titleLabel.text = model.title;
+    _pointLabel.text = [NSString stringWithFormat:@"%ld积分",(long)model.point];
+    _stockLabel.text = [NSString stringWithFormat:@"剩%ld件",(long)model.in_stock];
+    
+}
 @end

@@ -16,7 +16,7 @@ DEFINE_SINGLETON_FOR_CLASS(JYHConnect)
           withCategory:(NSInteger)category
                andPage:(NSInteger)pageNum
                success:(void (^)(id json))success
-               failure:(void (^)( NSError *err))failure;
+               failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getJYHGoods";
     userId = userId?userId:@"";

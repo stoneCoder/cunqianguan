@@ -13,11 +13,22 @@
 #import "GoodsViewVC.h"
 #import "MenuCell.h"
 
+#import "PersonInfo.h"
+#import "MongoConnect.h"
+#import "BaseConnect.h"
+#import "MongoListModel.h"
+
 static NSString *  collectionCellID=@"GoodsCell";
 static NSString *  collectionHeadID=@"GoodsSectionView";
 @interface ReturnHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate,GoodsSectionViewDelagate>
 {
     GoodsSectionView *headerView;
+    
+    NSMutableArray *_data;
+    MongoListModel *_mongoListModel;
+    
+    NSInteger _category;
+    NSInteger _pageNum;
 }
 
 @end
@@ -27,7 +38,11 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _category = 0;
+    _pageNum = 1;
+    _data = [NSMutableArray array];
     [self setUpCollection];
+    [self loadDataWith:_category andPage:_pageNum];
 }
 
 
@@ -46,6 +61,39 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
     [self.collectionView registerNib:headNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeadID];
     
     [self setRefreshEnabled:YES];
+}
+
+-(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    PersonInfo *person = [PersonInfo sharedPersonInfo];
+    [[MongoConnect sharedMongoConnect] getMongoGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _mongoListModel = [[MongoListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:_mongoListModel.data];
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadDataWith:0 andPage:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadDataWith:_category andPage:_pageNum];
+    [super moreFresh];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -70,7 +118,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 16;
+    return _data.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -81,6 +129,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     cell.tag = indexPath.row;
+    [cell loadCell:_data[indexPath.row]];
     return cell;
 }
 
@@ -110,6 +159,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
     flowLayout.minimumLineSpacing = 10.0;
         
     GoodsViewVC *goodsViewVC = [[GoodsViewVC alloc] initWithCollectionViewLayout:flowLayout];
+    goodsViewVC.queryType = cell.tag;
     goodsViewVC.leftTitle = cell.menuLabel.text;
     [self.navigationController pushViewController:goodsViewVC animated:YES];
 }

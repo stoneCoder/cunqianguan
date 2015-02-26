@@ -9,5 +9,5 @@
 #import "BaseCollectionVC.h"
 
 @interface ExChangeCenterVC : BaseCollectionVC
-
+-(void)viewDidCurrentView:(NSInteger)index;
 @end

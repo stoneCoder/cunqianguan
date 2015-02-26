@@ -11,16 +11,39 @@
 #import "ChangeProductVC.h"
 #import "ChangeRootVC.h"
 
+#import "ExChangeConnect.h"
+#import "BaseConnect.h"
+#import "PersonInfo.h"
+#import "ExChangeListModel.h"
 @interface ExChangeCenterVC ()
 
 @end
 static NSString *  collectionCellID=@"ExChangeCell";
 @implementation ExChangeCenterVC
+{
+    NSMutableArray *_data;
+    ExChangeListModel *_listModel;
+    NSInteger _pageNum;
+    PersonInfo *_info;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _data = [NSMutableArray array];
+    _pageNum = 1;
     [self setUpCollection];
+}
+
+-(void)viewDidCurrentView:(NSInteger)index;
+{
+    [_data removeAllObjects];
+    NSString *userId = [PersonInfo sharedPersonInfo].userId;
+    if (index == 0) {
+        userId = @"";
+    }
+    [self loadDataWithId:userId andPage:_pageNum];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +59,25 @@ static NSString *  collectionCellID=@"ExChangeCell";
     [self setRefreshEnabled:YES];
 }
 
+-(void)loadDataWithId:(NSString *)userId andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    [[ExChangeConnect sharedExChangeConnect] getExchangeList:userId success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _listModel = [[ExChangeListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:_listModel.data];
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -48,7 +90,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 16;
+    return _data.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -59,6 +101,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ExChangeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     cell.tag = indexPath.row;
+    [cell loadCell:_data[indexPath.row]];
     return cell;
 }
 

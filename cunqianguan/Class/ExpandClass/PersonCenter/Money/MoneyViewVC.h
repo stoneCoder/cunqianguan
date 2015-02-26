@@ -21,5 +21,7 @@ typedef NS_ENUM(NSInteger, ViewType) {
 @property (weak, nonatomic) IBOutlet UIButton *integralBtn;
 @property (weak, nonatomic) IBOutlet UIButton *taoBtn;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bottomView;
+
 @property (assign,nonatomic) NSInteger type;
 @end

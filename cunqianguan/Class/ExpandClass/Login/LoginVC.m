@@ -120,6 +120,7 @@
         if ([BaseConnect isSucceeded:dic]) {
             /*获取个人资料*/
             PersonInfo *person = [PersonInfo sharedPersonInfo];
+            person.password = pwd;
             [person loginSuccessWith:[dic objectForKey:@"data"]];
             [person getUserInfo:weakName withPwd:weakPwd success:^(id json) {
                 if([BaseConnect isSucceeded:json]){

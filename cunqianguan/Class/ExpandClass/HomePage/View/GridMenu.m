@@ -46,8 +46,9 @@ static NSString *  collectionCellID=@"MenuCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *selectIdArray = SELECT_ID;
     MenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
-    cell.tag = indexPath.row;
+    cell.tag = [selectIdArray[indexPath.row] integerValue];
     cell.menuLabel.text = _menuNameArray[indexPath.row];
     cell.menuImage.image = [UIImage imageNamed:_menuImageArray[indexPath.row]];
     return cell;

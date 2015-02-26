@@ -12,6 +12,8 @@
 @property(strong, nonatomic) IBOutlet UITableView *tableView;
 -(void)createTableWithStye:(UITableViewStyle)style;
 -(void)setRefreshEnabled:(BOOL)enabled;
+-(void)refresh;
+-(void)moreFresh;
 @end
 
 

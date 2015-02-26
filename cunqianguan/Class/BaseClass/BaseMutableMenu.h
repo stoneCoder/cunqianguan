@@ -10,8 +10,10 @@
 #import "TouchPropagatedScrollView.h"
 #import "MutableButton.h"
 @class BaseMutableMenu;
+@class MutableButton;
 @protocol MutableMenuDelegate<NSObject>
 - (void)popoverViewDidDismiss:(BaseMutableMenu *)mutableMenu;
+- (void)clickAction:(MutableButton *)button;
 @end
 @interface BaseMutableMenu : BaseView<SegmentDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) id<MutableMenuDelegate> delegate;

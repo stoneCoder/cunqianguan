@@ -90,7 +90,6 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     self.userId = [dic objectForKey:@"uid"];
     self.username = [dic objectForKey:@"username"];
     self.email = [dic objectForKey:@"email"];
-    self.password = [dic objectForKey:@"password"];
     [self saveUserData];
 }
 
@@ -152,6 +151,31 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _isBindAli = [[data objectForKey:@"isbind_tb"] boolValue];
             _isBindQQ = [[data objectForKey:@"isbind_qq"] boolValue];
             _isBindSina = [[data objectForKey:@"isbind_sina"] boolValue];
+        }
+    } failure:^(id json) {
+        failure(json);
+    } connectionError:^(NSError *error) {
+        if (error) {
+            failure(error);
+        }else{
+            [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+            } other:nil];
+            ;
+        }
+    } withView:nil];
+}
+
+-(void)getAvaterWithId:(NSString *)userId success:(void (^)(id json))success failure:(void (^)(id json))failure
+{
+    NSString *url = @"getAvatar";
+    NSDictionary *dic = @{@"uid":userId};
+    
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:json]) {
+            NSDictionary *data = [dic objectForKey:@"data"];
+            _photo = [data objectForKey:@"avatar"];
         }
     } failure:^(id json) {
         failure(json);
