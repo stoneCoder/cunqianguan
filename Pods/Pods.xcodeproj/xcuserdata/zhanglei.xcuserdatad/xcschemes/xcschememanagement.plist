@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Pods-RNCryptor.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Pods-Reachability.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,7 +42,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3507A2E72BFA508E3A769846</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5CEC108800A8853B7B53CEB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D852326E80BB69D5EF9D3A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74310E62BC9C063B58A30873</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>761EEE8DABD71145B863F4AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A014173391946F1C3286E20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7ACDA9AC1AC12B9CA305196</key>
 		<dict>
 			<key>primary</key>
 			<true/>
