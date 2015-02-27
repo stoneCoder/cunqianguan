@@ -27,4 +27,35 @@ DEFINE_SINGLETON_FOR_CLASS(JYHConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getJYHGoodById:(NSString *)userId
+           andGoodKey:(NSString *)goodKey
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getJyhGood";
+    userId = userId?userId:@"";
+    NSDictionary *dic =  @{@"uid":userId,@"goodkey":goodKey};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getJyhGoodsTomorrowById:(NSString *)userId
+                  withCategory:(NSInteger)category
+                       andPage:(NSInteger)pageNum
+                       success:(void (^)(id json))success
+                       failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getJyhGoodsTomorrow";
+    userId = userId?userId:@"";
+    NSDictionary *dic =  @{@"uid":userId,@"category":@(category),@"page":@(pageNum),@"perpage":@(PAGE_COUNT)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

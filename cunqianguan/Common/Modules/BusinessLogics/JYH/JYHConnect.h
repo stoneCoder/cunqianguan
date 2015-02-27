@@ -16,4 +16,15 @@ DEFINE_SINGLETON_FOR_HEADER(JYHConnect)
                andPage:(NSInteger)pageNum
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure;
+
+-(void)getJYHGoodById:(NSString *)userId
+          andGoodKey:(NSString *)goodKey
+               success:(void (^)(id json))success
+               failure:(void (^)( NSError *err))failure;
+
+-(void)getJyhGoodsTomorrowById:(NSString *)userId
+                  withCategory:(NSInteger)category
+                       andPage:(NSInteger)pageNum
+                       success:(void (^)(id json))success
+                       failure:(void (^)( NSError *err))failure;
 @end

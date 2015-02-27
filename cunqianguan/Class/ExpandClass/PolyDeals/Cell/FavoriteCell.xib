@@ -3,44 +3,46 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FavoriteCell">
             <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥87.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-ch-M0D">
-                        <rect key="frame" x="17" y="98" width="60" height="21"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="20" y="98" width="60" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="eet-1V-f2h"/>
+                            <constraint firstAttribute="width" secondItem="3Sd-ch-M0D" secondAttribute="height" multiplier="3:1" id="DzH-0d-N2S"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-4i-qsa">
                         <rect key="frame" x="8" y="8" width="84" height="84"/>
-                        <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="3Sd-ch-M0D" firstAttribute="top" secondItem="rkb-4i-qsa" secondAttribute="bottom" constant="6" id="3b5-iy-lbx"/>
-                <constraint firstAttribute="trailing" secondItem="3Sd-ch-M0D" secondAttribute="trailing" constant="23" id="80V-0J-hWS"/>
-                <constraint firstItem="rkb-4i-qsa" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" id="H5B-7M-K6n"/>
-                <constraint firstItem="rkb-4i-qsa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="JhD-2e-M9H"/>
-                <constraint firstItem="rkb-4i-qsa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="M1w-Cd-rKx"/>
-                <constraint firstAttribute="bottom" secondItem="3Sd-ch-M0D" secondAttribute="bottom" constant="1" id="R4v-wU-hLh"/>
-                <constraint firstItem="3Sd-ch-M0D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="17" id="o6T-zS-U69"/>
+                <constraint firstItem="3Sd-ch-M0D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="0s4-Ux-YPo"/>
+                <constraint firstAttribute="trailing" secondItem="rkb-4i-qsa" secondAttribute="trailing" constant="8" id="7g8-CA-3YQ"/>
+                <constraint firstItem="rkb-4i-qsa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="ACb-U9-MYo"/>
+                <constraint firstAttribute="trailing" secondItem="3Sd-ch-M0D" secondAttribute="trailing" constant="20" id="Coh-U9-Jl0"/>
+                <constraint firstItem="rkb-4i-qsa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="DH4-xC-jUo"/>
+                <constraint firstItem="3Sd-ch-M0D" firstAttribute="top" secondItem="rkb-4i-qsa" secondAttribute="bottom" constant="6" id="hke-Sf-d1y"/>
+                <constraint firstAttribute="bottom" secondItem="3Sd-ch-M0D" secondAttribute="bottom" constant="2" id="p0F-em-Yci"/>
             </constraints>
+            <connections>
+                <outlet property="priceLabel" destination="3Sd-ch-M0D" id="4JU-kG-PJm"/>
+                <outlet property="productImage" destination="rkb-4i-qsa" id="zy5-XT-4OU"/>
+            </connections>
             <point key="canvasLocation" x="297" y="306"/>
         </collectionViewCell>
     </objects>

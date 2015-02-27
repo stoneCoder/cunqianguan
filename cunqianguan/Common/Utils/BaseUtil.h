@@ -34,6 +34,8 @@
 
 + (NSString*)encrypt:(NSString*)toBeEncString;
 + (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key;
+
++ (NSString *)hexStringFromString:(NSString *)string;
 @end
 
 

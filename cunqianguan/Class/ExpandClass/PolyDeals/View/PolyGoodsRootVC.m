@@ -9,7 +9,17 @@
 #import "PolyGoodsRootVC.h"
 #import "PolyGoodsDetailVC.h"
 
+#import "PersonInfo.h"
+#import "JYHDetailModel.h"
+#import "JYHConnect.h"
+#import "BaseConnect.h"
 @interface PolyGoodsRootVC ()
+{
+    PolyGoodsDetailVC *_polyGoodsDetailVC;
+    JYHDetailModel *_detailModel;
+    NSTimer *_countDownTimer;
+    NSInteger _countDownTime;
+}
 
 @end
 
@@ -19,6 +29,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setUpTableView];
+    [self loadData:_model];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [_countDownTimer invalidate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,10 +47,122 @@
     _actionBtn.layer.cornerRadius = 2;
     _actionBtn.layer.masksToBounds = YES;
     _bottomView.layer.shadowOpacity = 0.1;
-    PolyGoodsDetailVC *polyGoodsDetailVC = [[PolyGoodsDetailVC alloc] init];
-    [self addChildViewController:polyGoodsDetailVC];
-    [self.view insertSubview:polyGoodsDetailVC.view belowSubview:_bottomView];
+    _polyGoodsDetailVC = [[PolyGoodsDetailVC alloc] init];
+    [self addChildViewController:_polyGoodsDetailVC];
+    [self.view insertSubview:_polyGoodsDetailVC.view belowSubview:_bottomView];
 }
+
+-(void)loadData:(JYHModel *)model
+{
+    [self showHUD:DATA_LOAD];
+    PersonInfo *info = [PersonInfo sharedPersonInfo];
+    NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
+    [[JYHConnect sharedJYHConnect] getJYHGoodById:info.userId andGoodKey:goodKey success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            NSDictionary *data = [dic objectForKey:@"data"];
+            _detailModel = [[JYHDetailModel alloc] initWithDictionary:data error:nil];
+            [self refreshBottomView];
+            [_polyGoodsDetailVC reloadView:_detailModel];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refreshBottomView
+{
+    _countDownTime = _detailModel.time;
+    //1 开枪中   2 明日10点  3即将开始 其它 抢光
+    NSInteger type = _detailModel.status;
+    if (type == 1) {
+        _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setTitle:@"去抢购" forState:UIControlStateNormal];
+        
+        NSString *grabText = [NSString stringWithFormat:@"%ld人正在抢",_detailModel.qcount];
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:grabText];
+        [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x61C6BE) range:NSMakeRange(0,grabText.length - 4)];
+        _grabLabel.attributedText = str;
+        
+        [self startTimer:[NSNumber numberWithInteger:type]];
+    }else if (type == 2){
+        _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setTitle:@"明日10点" forState:UIControlStateNormal];
+        
+        _actionBtn.userInteractionEnabled = NO;
+        
+        [self startTimer:[NSNumber numberWithInteger:type]];
+    }else if (type == 3){
+        _actionBtn.backgroundColor = [UIColor whiteColor];
+        _actionBtn.userInteractionEnabled = NO;
+        [_actionBtn setTitle:@"即将开始" forState:UIControlStateNormal];
+        [_actionBtn setTitleColor:UIColorFromRGB(0xD0D0D0) forState:UIControlStateNormal];
+        
+        _grabLabel.hidden = YES;
+        _countDownLabel.hidden = YES;
+        _timeLabel.hidden = NO;
+        
+        [self startTimer:[NSNumber numberWithInteger:_detailModel.status]];
+    }else{
+        _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
+        
+        _grabLabel.hidden = YES;
+        _countDownLabel.hidden = YES;
+    }
+}
+
+-(void)startTimer:(NSNumber *)type
+{
+    _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(handleCountDownTimer:) userInfo:type repeats:YES];
+}
+
+-(void)handleCountDownTimer:(NSTimer *)timer
+{
+    _countDownTime --;
+    if (_countDownTime == 0) {
+        [_countDownTimer invalidate];
+    }
+    NSString *text = @"";
+    NSInteger type = [[timer userInfo] integerValue];
+    switch (type) {
+        case 1:
+            text = [NSString stringWithFormat:@"剩余%@",[self mathTime:_countDownTime]];
+            _countDownLabel.text = text;
+            break;
+        case 2:
+            text = [NSString stringWithFormat:@"剩余%@",[self mathTime:_countDownTime]];
+            _countDownLabel.text = text;
+            break;
+        case 3:
+            text = [NSString stringWithFormat:@"%@后开抢",[self mathTime:_countDownTime]];
+            _timeLabel.text = text;
+            break;
+    }
+    
+}
+
+
+-(NSString *)mathTime:(NSInteger)time
+{
+    NSString *timeString=@"";
+    NSString *day = @"";
+    NSString *house=@"";
+    NSString *min=@"";
+    NSString *sen=@"";
+    //秒
+    sen = [NSString stringWithFormat:@"%.2ld",time%60];
+    //分
+    min = [NSString stringWithFormat:@"%.2ld", time/60%60];
+    //小时
+    house = [NSString stringWithFormat:@"%.2ld",time/3600%60];
+    //天
+    day = [NSString stringWithFormat:@"%d天",(int)time/3600/24];
+    timeString=[NSString stringWithFormat:@"%@%@:%@:%@",day,house,min,sen];
+    return timeString;
+}
+
 
 /*
 #pragma mark - Navigation

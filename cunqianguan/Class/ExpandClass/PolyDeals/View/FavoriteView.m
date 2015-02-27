@@ -42,6 +42,7 @@ static NSString *collectionCellID = @"FavoriteCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FavoriteCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    [cell loadCell:_dataArray[indexPath.row]];
     return cell;
 }
 

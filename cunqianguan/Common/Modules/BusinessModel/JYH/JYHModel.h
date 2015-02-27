@@ -9,7 +9,7 @@
 #import "JSONModel.h"
 @protocol JYHModel @end
 @interface JYHModel : JSONModel
-@property (strong,nonatomic) NSString *iosid;
+@property (strong,nonatomic) NSString *productId;
 @property (strong,nonatomic) NSString *title;
 @property (assign,nonatomic) CGFloat price;
 @property (assign,nonatomic) CGFloat price_old;
@@ -19,5 +19,5 @@
 
 @property (assign,nonatomic) NSInteger today;
 @property (strong,nonatomic) NSString *xiaob;
-@property (assign,nonatomic) NSInteger zk;
+@property (assign,nonatomic) CGFloat zk;
 @end

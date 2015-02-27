@@ -186,7 +186,9 @@
         [btnArray addObject:btnItem];
         if (iOS7) {//iOS7 custom rightBarButtonItem 偏移
             UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-            spaceButtonItem.width = 15;
+            if(imageArray.count > 1){
+                spaceButtonItem.width = 15;
+            }
             [btnArray addObject:spaceButtonItem];
         }
     }

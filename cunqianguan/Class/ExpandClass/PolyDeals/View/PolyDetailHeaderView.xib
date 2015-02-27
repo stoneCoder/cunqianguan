@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -19,9 +20,9 @@
                             <rect key="frame" x="0.0" y="139" width="320" height="41"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夏日么么茶斑点衣服" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-Pp-acH" userLabel="Label - productTitle">
-                                    <rect key="frame" x="8" y="8" width="194" height="28"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="28"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="194" id="N7F-WV-jar"/>
+                                        <constraint firstAttribute="width" secondItem="hBU-Pp-acH" secondAttribute="height" multiplier="76:7" id="s09-xY-MFO"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -49,63 +50,29 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥87.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-4X-RR2">
                             <rect key="frame" x="8" y="16" width="60" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Fed-4X-RR2" secondAttribute="height" multiplier="20:7" id="ySW-By-UwG"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtz-2G-d7s">
                             <rect key="frame" x="83" y="16" width="43" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="43" id="rrC-yL-6j4"/>
+                                <constraint firstAttribute="width" secondItem="Vtz-2G-d7s" secondAttribute="height" multiplier="43:21" id="rZD-kY-CqE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="包邮" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-Lu-rhN">
-                            <rect key="frame" x="214" y="17" width="33" height="21"/>
-                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="33" id="W2e-Nh-yDH"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍下改价" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWz-Ro-UOO">
-                            <rect key="frame" x="252" y="17" width="60" height="21"/>
-                            <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.3折" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDm-Lk-KTe">
-                            <rect key="frame" x="169" y="17" width="40" height="21"/>
-                            <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="Jjc-ti-6m4"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="bDm-Lk-KTe" secondAttribute="bottom" constant="12" id="0DS-HG-CYt"/>
                         <constraint firstItem="Vtz-2G-d7s" firstAttribute="leading" secondItem="Fed-4X-RR2" secondAttribute="trailing" constant="15" id="5uJ-ob-xUl"/>
                         <constraint firstItem="Vtz-2G-d7s" firstAttribute="bottom" secondItem="Fed-4X-RR2" secondAttribute="bottom" id="7qy-rJ-YhV"/>
-                        <constraint firstItem="4Ci-Lu-rhN" firstAttribute="leading" secondItem="bDm-Lk-KTe" secondAttribute="trailing" constant="5" id="Aoh-Pd-1Vy"/>
                         <constraint firstAttribute="bottom" secondItem="Fed-4X-RR2" secondAttribute="bottom" constant="13" id="BgK-nh-Doa"/>
-                        <constraint firstItem="OWz-Ro-UOO" firstAttribute="trailing" secondItem="poQ-1o-W8O" secondAttribute="trailingMargin" id="FgO-14-SeG"/>
-                        <constraint firstAttribute="bottom" secondItem="OWz-Ro-UOO" secondAttribute="bottom" constant="12" id="PvA-EW-6yx"/>
-                        <constraint firstItem="4Ci-Lu-rhN" firstAttribute="baseline" secondItem="bDm-Lk-KTe" secondAttribute="baseline" id="QZU-0c-qgs"/>
-                        <constraint firstItem="4Ci-Lu-rhN" firstAttribute="top" secondItem="poQ-1o-W8O" secondAttribute="top" constant="17" id="SjH-Il-nfk"/>
                         <constraint firstItem="Fed-4X-RR2" firstAttribute="top" secondItem="poQ-1o-W8O" secondAttribute="top" constant="16" id="TXm-ss-5G4"/>
                         <constraint firstItem="Vtz-2G-d7s" firstAttribute="top" secondItem="Fed-4X-RR2" secondAttribute="top" id="i3D-2T-XdN"/>
-                        <constraint firstItem="OWz-Ro-UOO" firstAttribute="leading" secondItem="4Ci-Lu-rhN" secondAttribute="trailing" constant="5" id="j55-Ey-bJg"/>
-                        <constraint firstItem="bDm-Lk-KTe" firstAttribute="top" secondItem="poQ-1o-W8O" secondAttribute="top" constant="17" id="lLC-lh-Qbu"/>
-                        <constraint firstItem="4Ci-Lu-rhN" firstAttribute="baseline" secondItem="OWz-Ro-UOO" secondAttribute="baseline" id="lf0-Rg-pNK"/>
-                        <constraint firstItem="OWz-Ro-UOO" firstAttribute="top" secondItem="poQ-1o-W8O" secondAttribute="top" constant="17" id="nJc-Lu-hqJ"/>
                         <constraint firstItem="Fed-4X-RR2" firstAttribute="leading" secondItem="poQ-1o-W8O" secondAttribute="leadingMargin" id="u4W-dn-Wug"/>
                     </constraints>
                 </view>
@@ -123,7 +90,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="nameView" destination="3HT-a1-m3j" id="xkv-tO-V7e"/>
+                <outlet property="oldPriceLabel" destination="Vtz-2G-d7s" id="DcA-pF-SUO"/>
+                <outlet property="priceLabel" destination="Fed-4X-RR2" id="SzF-LF-mGT"/>
                 <outlet property="productTitle" destination="hBU-Pp-acH" id="Uyw-vs-dCF"/>
+                <outlet property="scrollView" destination="0eS-jU-ZsH" id="8dx-BQ-Oco"/>
+                <outlet property="titleView" destination="poQ-1o-W8O" id="V3E-Zn-CA2"/>
             </connections>
             <point key="canvasLocation" x="365" y="250"/>
         </view>

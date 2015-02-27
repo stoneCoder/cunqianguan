@@ -10,10 +10,19 @@
 #import "PolyDetailHeaderView.h"
 #import "FavoriteView.h"
 
+#import "JYHConnect.h"
+#import "BaseConnect.h"
+#import "PersonInfo.h"
+#import "JYHDetailModel.h"
+
+#import "BaseUtil.h"
 @interface PolyGoodsDetailVC ()
 {
     FavoriteView *_favoriteView;
+    PolyDetailHeaderView *_headView;
+    
     NSMutableArray *_collectionArray;
+    JYHDetailModel *_detailModel;
 }
 
 
@@ -25,9 +34,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _collectionArray = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
-        [_collectionArray addObject:[NSString stringWithFormat:@"%d",i]];
-    }
     [self setUpTableView];
 }
 
@@ -41,19 +47,33 @@
     [self createTableWithStye:UITableViewStyleGrouped];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
-    PolyDetailHeaderView *headView = [PolyDetailHeaderView headerView];
-    self.tableView.tableHeaderView = headView;
+    _headView = [PolyDetailHeaderView headerView];
+    self.tableView.tableHeaderView = _headView;
 }
 
+-(void)reloadView:(JYHDetailModel *)model
+{
+    _detailModel = model;
+    [_collectionArray addObjectsFromArray:_detailModel.rec];
+    [_headView loadData:_detailModel];
+    [self.tableView reloadData];
+}
+
+
 #pragma mark -- Private
+-(CGFloat)mathCellHeigth
+{
+    return [BaseUtil getHeightByString:_detailModel.xiaob font:[UIFont systemFontOfSize:15.0f] allwidth:VIEW_WIDTH - 40];
+}
+
 -(CGFloat)mathCollectionHeigth
 {
     CGFloat height = 120;
     NSInteger count = _collectionArray.count;
     if (count%3 > 1) {
-        height = 120*(count/3 + count%3);
+        height = 120*(count/3 + count%3) + 10;
     }else{
-        height = 120*count/3;
+        height = 120*count/3 + 10;
     }
     return height;
 }
@@ -90,7 +110,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 50;
+        return [self mathCellHeigth];
     }else if (section == 1){
         return [self mathCollectionHeigth];
     }
@@ -100,18 +120,18 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
+        CGFloat heigth = [self mathCellHeigth];
         CGRect frame = [self.tableView rectForFooterInSection:section];
         frame.origin.y = 0;
-        
+        frame.size.height = heigth;
         UIView *view = [[UIView alloc] initWithFrame:frame];
         view.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, 44)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, heigth)];
         label.font = [UIFont systemFontOfSize:15.0f];
         label.textColor = UIColorFromRGB(0xABABAB);
         label.numberOfLines = 0;
         label.lineBreakMode = NSLineBreakByCharWrapping;
-        NSString *labelText = @"口感好，膏多黄多!默认发4只母4只公,要全母请拍下备注。 现在购买2份就可送4只。公母随机发哦~限时限量送完为止！";
-        label.text = labelText;
+        label.text = _detailModel.xiaob;
         [view addSubview:label];
         return view;
     }else if (section == 1){

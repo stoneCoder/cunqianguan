@@ -10,6 +10,7 @@
 #import "TouchPropagatedScrollView.h"
 #import "BaseSelectView.h"
 #import "PolyDealVC.h"
+#import "PolyTomorrowVC.h"
 
 @interface PolyScrollVC ()<SegmentDelegate,BaseSelectViewDelegate,UIScrollViewDelegate>
 {
@@ -28,15 +29,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _btnArray = MENU_ARRAY;
+    [self setUpRightBtn];
     [self setUpSliderView];
     [self setupScrollView];
     [self setUpSelectView];
-    
+ 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -- 初始化界面
+- (void)setUpRightBtn
+{
+    [self setRigthBarWithDic:@{@"images":@[@"left_menu"]}];
 }
 
 -(void)setUpSliderView
@@ -107,6 +115,19 @@
 }
  */
 #pragma mark -- Private
+-(void)rightBtnClick:(id)sender
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    PolyTomorrowVC *polyTomorrowVC = [[PolyTomorrowVC alloc] initWithCollectionViewLayout:flowLayout];
+    polyTomorrowVC.leftTitle = @"明日预告";
+    [self.navigationController pushViewController:polyTomorrowVC animated:YES];
+}
+
 -(void)showSelectView:(UIButton *)btn
 {
     if ([_selectView isHidden]){

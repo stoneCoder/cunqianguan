@@ -9,7 +9,7 @@
 #import "JSONModel.h"
 @protocol ExChangeModel @end
 @interface ExChangeModel : JSONModel
-@property (strong, nonatomic) NSString *iosid;
+@property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSString *cate_id;
 @property (strong, nonatomic) NSString *pic_url;
 @property (assign, nonatomic) NSInteger in_stock;

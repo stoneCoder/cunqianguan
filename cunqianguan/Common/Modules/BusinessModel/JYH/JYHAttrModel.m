@@ -1,14 +1,14 @@
 //
-//  MsgModel.m
+//  JYHAttrModel.m
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/2/26.
+//  Created by 四三一八 on 15/2/27.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#import "MsgModel.h"
+#import "JYHAttrModel.h"
 
-@implementation MsgModel
+@implementation JYHAttrModel
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
     return YES;
@@ -17,7 +17,7 @@
 +(JSONKeyMapper*)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"id": @"msgId"
+                                                       @"border-color": @"borderColor"
                                                        }];
 }
 @end

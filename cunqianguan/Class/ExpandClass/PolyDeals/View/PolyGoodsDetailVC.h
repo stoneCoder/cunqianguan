@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableVC.h"
-
+#import "JYHDetailModel.h"
 @interface PolyGoodsDetailVC : BaseTableVC
-
+-(void)reloadView:(JYHDetailModel *)model;
 @end

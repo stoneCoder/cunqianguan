@@ -9,7 +9,7 @@
 #import "JSONModel.h"
 @protocol MsgModel @end
 @interface MsgModel : JSONModel
-@property (strong,nonatomic) NSString *iosid;
+@property (strong,nonatomic) NSString *msgId;
 @property (strong,nonatomic) NSString *addTime;
 @property (strong,nonatomic) NSString *addtime_date;
 @property (strong,nonatomic) NSString *addtime_show;

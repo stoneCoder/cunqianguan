@@ -14,14 +14,21 @@
     // Initialization code
 }
 
--(void)loadCell:(JYHModel *)jyhModel
+-(void)loadCell:(JYHModel *)model withType:(NSInteger)type
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:jyhModel.pic_url]];
-    _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)jyhModel.qcount];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    if (type == 0) {
+        _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)model.qcount];
+    }else{
+        switch (model.status) {
+            case 3:
+                 _qLabel.text = @"未开始";
+                break;
+            }
+    }
+    _title.text = model.title;
     
-    _title.text = jyhModel.title;
-    
-    NSString *priceText = [NSString stringWithFormat:@"￥%.2f",jyhModel.price];
+    NSString *priceText = [NSString stringWithFormat:@"￥%.2f",model.price];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0,1)];
     _priceLabel.attributedText = str;

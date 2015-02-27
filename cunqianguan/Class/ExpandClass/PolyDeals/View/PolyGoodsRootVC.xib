@@ -10,6 +10,9 @@
             <connections>
                 <outlet property="actionBtn" destination="uEv-sc-OdT" id="uZn-Ez-jTa"/>
                 <outlet property="bottomView" destination="Tv0-Qn-aNu" id="PS4-09-o1Q"/>
+                <outlet property="countDownLabel" destination="Nb9-PF-HLN" id="8qt-aj-NqS"/>
+                <outlet property="grabLabel" destination="rMs-BD-v5d" id="g3E-4w-dhw"/>
+                <outlet property="timeLabel" destination="xMW-fi-xrg" id="RFb-PJ-KLP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,7 +46,7 @@
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:02后开抢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMW-fi-xrg">
                             <rect key="frame" x="13" y="17" width="85" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>

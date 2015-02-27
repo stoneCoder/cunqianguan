@@ -82,6 +82,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
                      failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getMessageInfo";
+    userId = userId?userId:@"";
     NSDictionary *dic =  @{@"uid":userId,@"page":@(page),@"perpage":@(PAGE_COUNT)};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
