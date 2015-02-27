@@ -110,7 +110,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return [self mathCellHeigth];
+        return [self mathCellHeigth] + 10;
     }else if (section == 1){
         return [self mathCollectionHeigth];
     }
