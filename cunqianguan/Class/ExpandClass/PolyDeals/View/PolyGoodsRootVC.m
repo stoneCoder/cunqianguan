@@ -13,6 +13,7 @@
 #import "JYHDetailModel.h"
 #import "JYHConnect.h"
 #import "BaseConnect.h"
+#import "BaseUtil.h"
 @interface PolyGoodsRootVC ()
 {
     PolyGoodsDetailVC *_polyGoodsDetailVC;
@@ -74,7 +75,7 @@
 -(void)refreshBottomView
 {
     _countDownTime = _detailModel.time;
-    //1 开枪中   2 明日10点  3即将开始 其它 抢光
+    //1 开枪中   2 今日10点  3即将开始 其它 抢光
     NSInteger type = _detailModel.status;
     if (type == 1) {
         _actionBtn.backgroundColor = [UIColor redColor];
@@ -88,7 +89,7 @@
         [self startTimer:[NSNumber numberWithInteger:type]];
     }else if (type == 2){
         _actionBtn.backgroundColor = [UIColor redColor];
-        [_actionBtn setTitle:@"明日10点" forState:UIControlStateNormal];
+        [_actionBtn setTitle:@"今日10点" forState:UIControlStateNormal];
         
         _actionBtn.userInteractionEnabled = NO;
         
@@ -127,43 +128,17 @@
     NSString *text = @"";
     NSInteger type = [[timer userInfo] integerValue];
     switch (type) {
-        case 1:
-            text = [NSString stringWithFormat:@"剩余%@",[self mathTime:_countDownTime]];
-            _countDownLabel.text = text;
-            break;
-        case 2:
-            text = [NSString stringWithFormat:@"剩余%@",[self mathTime:_countDownTime]];
-            _countDownLabel.text = text;
-            break;
         case 3:
-            text = [NSString stringWithFormat:@"%@后开抢",[self mathTime:_countDownTime]];
+            text = [NSString stringWithFormat:@"%@后开抢",[BaseUtil mathTime:_countDownTime]];
             _timeLabel.text = text;
+            break;
+        default:
+            text = [NSString stringWithFormat:@"剩余%@",[BaseUtil mathTime:_countDownTime]];
+            _countDownLabel.text = text;
             break;
     }
     
 }
-
-
--(NSString *)mathTime:(NSInteger)time
-{
-    NSString *timeString=@"";
-    NSString *day = @"";
-    NSString *house=@"";
-    NSString *min=@"";
-    NSString *sen=@"";
-    //秒
-    sen = [NSString stringWithFormat:@"%.2ld",time%60];
-    //分
-    min = [NSString stringWithFormat:@"%.2ld", time/60%60];
-    //小时
-    house = [NSString stringWithFormat:@"%.2ld",time/3600%60];
-    //天
-    day = [NSString stringWithFormat:@"%d天",(int)time/3600/24];
-    timeString=[NSString stringWithFormat:@"%@%@:%@:%@",day,house,min,sen];
-    return timeString;
-}
-
-
 /*
 #pragma mark - Navigation
 

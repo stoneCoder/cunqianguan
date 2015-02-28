@@ -10,5 +10,5 @@
 
 @interface ReturnHomeGoodsVC : BaseWebVC
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
-
+@property (strong, nonatomic) NSString *goodKey;
 @end

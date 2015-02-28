@@ -24,4 +24,17 @@ DEFINE_SINGLETON_FOR_CLASS(ExChangeConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)exchangeGoodsDetail:(NSString *)productId
+                   success:(void (^)(id json))success
+                   failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"exchangeGoodsDetail";
+    NSDictionary *dic = @{@"id":productId};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

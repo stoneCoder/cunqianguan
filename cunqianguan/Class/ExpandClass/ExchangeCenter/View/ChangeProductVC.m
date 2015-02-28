@@ -9,14 +9,18 @@
 #import "ChangeProductVC.h"
 #import "ProductDetailHeaderView.h"
 #import "BaseSegment.h"
-
+#import "ExChangeModel.h"
+#import "Constants.h"
 @interface ChangeProductVC ()<CCSegmentDelegate>
 {
     BOOL _isTrueProduct;
     BaseSegment *_segment;
-    UIWebView *_webView;
+    UIScrollView *_scrollView;
     UITextView *_textView;
     UIView *_tabView;
+    ProductDetailHeaderView *_headView;
+    ExChangeModel *_model;
+    ExChangeDetailModel *_detailModel;
 }
 
 @end
@@ -29,14 +33,6 @@
     [self setUpTableView];
     _isTrueProduct = YES;
     
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [_webView loadHTMLString:@"" baseURL:nil];
-    [_webView stopLoading];
-    [_webView removeFromSuperview];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,9 +54,16 @@
     [self createTableWithStye:UITableViewStyleGrouped];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
-    ProductDetailHeaderView *headView = [ProductDetailHeaderView headerView];
-    self.tableView.tableHeaderView = headView;
-    
+    _headView = [ProductDetailHeaderView headerView];
+    self.tableView.tableHeaderView = _headView;
+}
+
+-(void)reloadView:(ExChangeModel *)model andDetail:(ExChangeDetailModel *)detailModel
+{
+    _model = model;
+    _detailModel = detailModel;
+    [_headView loadData:_model];
+    [self.tableView reloadData];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
@@ -94,18 +97,42 @@
         frame.origin.y = 0;
         _tabView = [[UIView alloc] initWithFrame:frame];
         _textView = [[UITextView alloc] initWithFrame:frame];
-        _textView.text = @"ASDASDASD";
+        _textView.editable = NO;
+        if (_detailModel.rules.count > 0) {
+            NSArray *rules = _detailModel.rules[0];
+            NSString *str = @"兑换说明\n";
+            for (int i = 0; i < rules.count; i++) {
+                NSString *rule = [NSString stringWithFormat:@"%d.%@\n",(i+1),rules[i]];
+                str = [str stringByAppendingString:rule];
+            }
+            
+            NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+            [attrStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17.0f] range:NSMakeRange(0,4)];
+            [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15.0f] range:NSMakeRange(4,str.length - 4)];
+            
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = 5;// 字体的行间距
+            paragraphStyle.paragraphSpacing = 5;
+            [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, str.length)];
+        
+            _textView.attributedText = attrStr;
+        }
         
         if (_isTrueProduct) {
-            _webView = [[UIWebView alloc] initWithFrame:frame];
-            _webView.scalesPageToFit = YES;
-            [_tabView addSubview:_webView];
-            
-            NSURL* url = [NSURL URLWithString:@"http://www.youku.com"];
-            NSURLRequest* request = [NSURLRequest requestWithURL:url];
-            [_webView loadRequest:request];
-            
-            [_tabView insertSubview:_textView belowSubview:_webView];
+            _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+            [_tabView addSubview:_scrollView];
+            if (_detailModel.pics.count > 0) {
+                NSArray *pics = _detailModel.pics;
+                CGFloat visiableY = 0;
+                for (int i = 0; i < pics.count; i++) {
+                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, visiableY, frame.size.width, frame.size.height/pics.count)];
+                    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",shareURL,pics[i]]]];
+                    [_scrollView addSubview:imageView];
+                    visiableY = imageView.frame.size.height + imageView.frame.origin.x;
+                }
+                [_scrollView setContentSize:CGSizeMake(frame.size.width, frame.size.height + 100)];
+            }
+            [_tabView insertSubview:_textView belowSubview:_scrollView];
         }else
         {
             [_tabView addSubview:_textView];
@@ -136,7 +163,7 @@
     if (_isTrueProduct) {
         switch (index) {
             case 0:
-                [_tabView bringSubviewToFront:_webView];
+                [_tabView bringSubviewToFront:_scrollView];
                 break;
             case 1:
                 [_tabView bringSubviewToFront:_textView];

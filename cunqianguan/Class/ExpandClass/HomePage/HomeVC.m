@@ -61,6 +61,7 @@
     [self initNavBar];
     [self initAdView];
     [self initActionView];
+    [self loadAdView];
     if (_dimView) {
         [_dimView removeFromSuperview];
         _dimView = nil;
@@ -105,7 +106,6 @@
     [adView addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
     [_pageControl insertBannerPages:adView];
     
-    [self loadAdView];
     [self.view addSubview:_pageControl];
 }
 

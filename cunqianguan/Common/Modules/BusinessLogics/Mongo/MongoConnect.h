@@ -20,4 +20,8 @@ DEFINE_SINGLETON_FOR_HEADER(MongoConnect)
 -(void)getCateIndexById:(NSString *)parentId
                 success:(void (^)(id json))success
                 failure:(void (^)( NSError *err))failure;
+
+-(void)getGoodsDetail:(NSString *)goodKey
+                  success:(void (^)(id json))success
+                  failure:(void (^)( NSError *err))failure;
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeRootVC">
@@ -23,6 +24,9 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩3234件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2h9-Wb-veH">
                             <rect key="frame" x="12" y="16" width="64" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2h9-Wb-veH" secondAttribute="height" multiplier="32:9" id="Z6T-ZF-eBx"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.76078431369999999" green="0.76078431369999999" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -41,16 +45,12 @@
                         <constraint firstItem="v5T-GY-O7z" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="225" id="6u5-In-jN1"/>
                         <constraint firstItem="v5T-GY-O7z" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="3" id="Ao3-Wk-Ym4"/>
                         <constraint firstItem="2h9-Wb-veH" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="12" id="DhN-ib-o3i"/>
-                        <constraint firstItem="2h9-Wb-veH" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="16" id="Ec9-A8-SP6"/>
                         <constraint firstItem="2h9-Wb-veH" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="16" id="HcZ-1b-1gZ"/>
                         <constraint firstAttribute="bottom" secondItem="v5T-GY-O7z" secondAttribute="bottom" constant="3" id="IDv-5f-ygp"/>
-                        <constraint firstItem="2h9-Wb-veH" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="12" id="Ny9-89-1Su"/>
                         <constraint firstAttribute="bottom" secondItem="2h9-Wb-veH" secondAttribute="bottom" constant="16" id="OGE-HI-ioR"/>
                         <constraint firstItem="2h9-Wb-veH" firstAttribute="centerY" secondItem="gu4-eu-5Fv" secondAttribute="centerY" id="WSw-Gi-LFM"/>
                         <constraint firstAttribute="trailing" secondItem="v5T-GY-O7z" secondAttribute="trailing" constant="11" id="a65-yh-hEr"/>
-                        <constraint firstItem="2h9-Wb-veH" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="12" id="glH-p4-3Tm"/>
                         <constraint firstAttribute="trailing" secondItem="v5T-GY-O7z" secondAttribute="trailing" constant="11" id="rho-jX-6DT"/>
-                        <constraint firstItem="2h9-Wb-veH" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="16" id="rl6-q4-TMT"/>
                         <constraint firstItem="v5T-GY-O7z" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="3" id="tbf-H8-bpu"/>
                         <constraint firstItem="v5T-GY-O7z" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="3" id="zMd-N4-Ehp"/>
                     </constraints>

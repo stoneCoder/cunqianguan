@@ -30,6 +30,20 @@
     return productDetailHeaderView;
 }
 
+-(void)loadData:(ExChangeModel *)model
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    CGRect frame = _scrollview.frame;
+    frame.size.width = SCREEN_WIDTH;
+    imageView.frame = frame;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    [_scrollview addSubview:imageView];
+    
+    _titleLabel.text = model.title;
+    
+    _pointLabel.text = [NSString stringWithFormat:@"%ld积分",(long)model.point];
+}
+
 
 //-(void)loadPage:(ProductDetailModel *)model{
 //   

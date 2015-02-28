@@ -210,19 +210,23 @@ static NSString *const hmacPassword = @"4318sqzs";
     return data;
 }
 
-+ (NSString *)hexStringFromString:(NSString *)string{
-    NSData *myD = [string dataUsingEncoding:NSUTF8StringEncoding];
-    Byte *bytes = (Byte *)[myD bytes];
-    //下面是Byte 转换为16进制。
-    NSString *hexStr=@"";
-    for(int i=0;i<[myD length];i++)
-    {
-        NSString *newHexStr = [NSString stringWithFormat:@"%x",bytes[i]&0xff];///16进制数
-        if([newHexStr length]==1)
-            hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
-        else
-            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr]; 
-    } 
-    return hexStr; 
+#pragma mark -- 计算倒计时
++(NSString *)mathTime:(NSInteger)time
+{
+    NSString *timeString=@"";
+    NSString *day = @"";
+    NSString *house=@"";
+    NSString *min=@"";
+    NSString *sen=@"";
+    //秒
+    sen = [NSString stringWithFormat:@"%.2ld",time%60];
+    //分
+    min = [NSString stringWithFormat:@"%.2ld", time/60%60];
+    //小时
+    house = [NSString stringWithFormat:@"%.2ld",time/3600%24];
+    //天
+    day = [NSString stringWithFormat:@"%d天",(int)time/3600/24];
+    timeString=[NSString stringWithFormat:@"%@%@:%@:%@",day,house,min,sen];
+    return timeString;
 }
 @end

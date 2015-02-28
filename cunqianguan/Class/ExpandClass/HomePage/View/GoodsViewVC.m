@@ -154,6 +154,8 @@ static NSString *  collectionCellID=@"GoodsCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+    MongoModel *model = _data[indexPath.row];
+    returnHomeGoodsVC.goodKey = model.goodkey;
     returnHomeGoodsVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
 }

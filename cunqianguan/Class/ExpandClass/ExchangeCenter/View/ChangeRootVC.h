@@ -7,10 +7,10 @@
 //
 
 #import "BaseVC.h"
-
+#import "ExChangeModel.h"
 @interface ChangeRootVC : BaseVC
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *actionBtn;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-
+@property (strong, nonatomic) ExChangeModel *model;
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ExChangeModel.h"
 @interface ProductDetailHeaderView : UIView
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointLabel;
 +(ProductDetailHeaderView *)headerView;
+-(void)loadData:(ExChangeModel *)model;
 @end

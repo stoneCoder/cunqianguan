@@ -7,7 +7,9 @@
 //
 
 #import "BaseTableVC.h"
+#import "ExChangeModel.h"
+#import "ExChangeDetailModel.h"
 
 @interface ChangeProductVC : BaseTableVC
-
+-(void)reloadView:(ExChangeModel *)model andDetail:(ExChangeDetailModel *)detailModel;
 @end

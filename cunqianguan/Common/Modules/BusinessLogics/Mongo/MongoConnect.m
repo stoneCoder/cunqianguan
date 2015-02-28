@@ -39,4 +39,17 @@ DEFINE_SINGLETON_FOR_CLASS(MongoConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getGoodsDetail:(NSString *)goodKey
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getGoodsDetail";
+    NSDictionary *dic =  @{@"goodkey":goodKey};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

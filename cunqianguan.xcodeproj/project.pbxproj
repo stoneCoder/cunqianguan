@@ -119,6 +119,8 @@
 		B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AE51A775795001260EC /* ProductDetailHeaderView.xib */; };
 		B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1498AEE1A776225001260EC /* ChangeRootVC.m */; };
 		B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1498AEF1A776225001260EC /* ChangeRootVC.xib */; };
+		B14B90911AA1518400E34347 /* MongoDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14B90901AA1518400E34347 /* MongoDetailModel.m */; };
+		B14B90941AA18DD600E34347 /* ExChangeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14B90931AA18DD600E34347 /* ExChangeDetailModel.m */; };
 		B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452C1A708B98005AA895 /* BaseTableView.m */; };
 		B14D45301A708BCC005AA895 /* PresentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D452F1A708BCC005AA895 /* PresentTableView.m */; };
 		B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D45331A70A1BE005AA895 /* ReturnHomeVC.m */; };
@@ -474,6 +476,10 @@
 		B1498AED1A776225001260EC /* ChangeRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeRootVC.h; sourceTree = "<group>"; };
 		B1498AEE1A776225001260EC /* ChangeRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeRootVC.m; sourceTree = "<group>"; };
 		B1498AEF1A776225001260EC /* ChangeRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeRootVC.xib; sourceTree = "<group>"; };
+		B14B908F1AA1518400E34347 /* MongoDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MongoDetailModel.h; sourceTree = "<group>"; };
+		B14B90901AA1518400E34347 /* MongoDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MongoDetailModel.m; sourceTree = "<group>"; };
+		B14B90921AA18DD600E34347 /* ExChangeDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeDetailModel.h; sourceTree = "<group>"; };
+		B14B90931AA18DD600E34347 /* ExChangeDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeDetailModel.m; sourceTree = "<group>"; };
 		B14D452B1A708B98005AA895 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		B14D452C1A708B98005AA895 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		B14D452E1A708BCC005AA895 /* PresentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTableView.h; sourceTree = "<group>"; };
@@ -1294,6 +1300,8 @@
 				B143796B1A9EB74700D00625 /* ExChangeModel.m */,
 				B143796D1A9EB80A00D00625 /* ExChangeListModel.h */,
 				B143796E1A9EB80A00D00625 /* ExChangeListModel.m */,
+				B14B90921AA18DD600E34347 /* ExChangeDetailModel.h */,
+				B14B90931AA18DD600E34347 /* ExChangeDetailModel.m */,
 			);
 			path = ExChange;
 			sourceTree = "<group>";
@@ -1633,6 +1641,8 @@
 				B158A71F1A9DA36C00C6FD3F /* MongoListModel.m */,
 				B158A72A1A9DC96900C6FD3F /* CateModel.h */,
 				B158A72B1A9DC96900C6FD3F /* CateModel.m */,
+				B14B908F1AA1518400E34347 /* MongoDetailModel.h */,
+				B14B90901AA1518400E34347 /* MongoDetailModel.m */,
 			);
 			path = Mongo;
 			sourceTree = "<group>";
@@ -2086,6 +2096,7 @@
 				B158A6F01A9D6BBB00C6FD3F /* NSArray+JSONModel.m in Sources */,
 				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
+				B14B90941AA18DD600E34347 /* ExChangeDetailModel.m in Sources */,
 				B14E30C01A7A1AF5005BF0EF /* AccountVC.m in Sources */,
 				B140EC781A6F7345004D245A /* SMTabBarController.m in Sources */,
 				B158A6EF1A9D6BBB00C6FD3F /* JSONModelError.m in Sources */,
@@ -2177,6 +2188,7 @@
 				B1668D4B1A88A2F4002CB98E /* JTCalendarMenuView.m in Sources */,
 				B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */,
 				B1436F801A732D3C00706772 /* PersonInfoCell.m in Sources */,
+				B14B90911AA1518400E34347 /* MongoDetailModel.m in Sources */,
 				B1668D4C1A88A2F4002CB98E /* JTCalendarMonthView.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
