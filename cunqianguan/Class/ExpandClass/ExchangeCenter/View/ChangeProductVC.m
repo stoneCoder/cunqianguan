@@ -120,17 +120,18 @@
         
         if (_isTrueProduct) {
             _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+            _scrollView.backgroundColor = [UIColor whiteColor];
             [_tabView addSubview:_scrollView];
             if (_detailModel.pics.count > 0) {
                 NSArray *pics = _detailModel.pics;
-                CGFloat visiableY = 0;
+                CGFloat visiableY = 0,visiableHeight = 150;
                 for (int i = 0; i < pics.count; i++) {
-                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, visiableY, frame.size.width, frame.size.height/pics.count)];
+                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, visiableY, frame.size.width, visiableHeight)];
                     [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",shareURL,pics[i]]]];
                     [_scrollView addSubview:imageView];
-                    visiableY = imageView.frame.size.height + imageView.frame.origin.x;
+                    visiableY = imageView.frame.size.height + imageView.frame.origin.y;
                 }
-                [_scrollView setContentSize:CGSizeMake(frame.size.width, frame.size.height + 100)];
+                [_scrollView setContentSize:CGSizeMake(frame.size.width, pics.count*visiableHeight + 100)];
             }
             [_tabView insertSubview:_textView belowSubview:_scrollView];
         }else
