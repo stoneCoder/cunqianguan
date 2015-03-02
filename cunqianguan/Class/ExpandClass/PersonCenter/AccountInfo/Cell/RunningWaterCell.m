@@ -20,4 +20,13 @@
     // Configure the view for the selected state
 }
 
+-(void)loadCell:(RunningWaterModel *)model
+{
+    _timeLabel.text = [NSString stringWithFormat:@"%@ %@",model.date,model.time];
+    
+    _titleLabel.text = model.content;
+    
+    _infoLabel.text = model.status;
+}
+
 @end

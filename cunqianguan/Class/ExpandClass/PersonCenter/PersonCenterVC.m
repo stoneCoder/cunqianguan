@@ -14,7 +14,7 @@
 #import "MoneyViewVC.h"
 #import "MyOrderVC.h"
 #import "AccountVC.h"
-#import "RunningWaterVC.h"
+#import "RunningWaterScrollVC.h"
 #import "AddressManagerVC.h"
 #import "CollectVC.h"
 #import "MessageInfoVC.h"
@@ -166,7 +166,7 @@ static NSString *FooterViewID = @"PersonFooterView";
                 myOrderVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:myOrderVC animated:YES];
             }else if (indexPath.row == 1){
-                RunningWaterVC *accountInfoVC = [[RunningWaterVC alloc] init];
+                RunningWaterScrollVC *accountInfoVC = [[RunningWaterScrollVC alloc] init];
                 accountInfoVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:accountInfoVC animated:YES];
             }

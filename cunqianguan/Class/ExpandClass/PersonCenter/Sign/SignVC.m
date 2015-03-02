@@ -21,6 +21,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _scrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
     [self setUpCalendar];
 }
 
@@ -66,6 +67,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 -(void)viewWillDisappear:(BOOL)animated
 {
     _calendarContentView.hidden = YES;
+    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH, SCREEN_HEIGTH + 100)];
 }
 
 - (void)dealloc

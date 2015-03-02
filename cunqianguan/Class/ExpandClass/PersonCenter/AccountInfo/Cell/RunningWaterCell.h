@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RunningWaterModel.h"
 @interface RunningWaterCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-
+-(void)loadCell:(RunningWaterModel *)model;
 @end

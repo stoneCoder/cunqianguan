@@ -14,7 +14,15 @@
 #import "VPImageCropperVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "BaseUtil.h"
+#import "PersonInfo.h"
+
 @interface PersonInfoVC ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,VPImageCropperDelegate,IBActionSheetDelegate>
+{
+    PersonInfo *_info;
+}
 
 @end
 static NSString *ProfileCellID = @"ProfileCell";
@@ -23,6 +31,7 @@ static NSString *ProfileCellID = @"ProfileCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpTableView];
 }
 
@@ -81,6 +90,7 @@ static NSString *ProfileCellID = @"ProfileCell";
     ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileCellID];
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.headImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_info.photo]]];
     return cell;
 }
 
@@ -136,7 +146,7 @@ static NSString *ProfileCellID = @"ProfileCell";
     [picker dismissViewControllerAnimated:YES completion:^() {
         UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         // 裁剪
-        VPImageCropperVC *imgEditorVC = [[VPImageCropperVC alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 64.0f, VIEW_WIDTH, VIEW_HEIGHT) limitScaleRatio:3.0];
+        VPImageCropperVC *imgEditorVC = [[VPImageCropperVC alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 64.0f, VIEW_WIDTH, VIEW_HEIGHT) limitScaleRatio:5.0];
         imgEditorVC.delegate = self;
         [self presentViewController:imgEditorVC animated:YES completion:NULL];
     }];
@@ -149,10 +159,26 @@ static NSString *ProfileCellID = @"ProfileCell";
 
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperVC *)cropperViewController didFinished:(UIImage *)editedImage {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    ProfileCell *cell = (ProfileCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.headImageView.image = editedImage;
+    
     [cropperViewController dismissViewControllerAnimated:YES completion:NULL];
+    NSString *imageName = [BaseUtil generateUUID];
+    NSString *filePath = [BaseUtil saveImageToPhotoDirectory:[BaseUtil imageWithImage:editedImage scaledToSize:CGSizeMake(90, 90)] withName:imageName];
+    [self showHUD:ACTION_LOAD];
+    [[PersonConnect sharedPersonConnect] updateAvatar:_info.userId andFilePath:filePath success:^(id json) {
+         [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            ProfileCell *cell = (ProfileCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            cell.headImageView.image = editedImage;
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+    
+    
 }
 
 - (void)imageCropperDidCancel:(VPImageCropperVC *)cropperViewController {

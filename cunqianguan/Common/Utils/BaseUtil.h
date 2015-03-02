@@ -13,6 +13,8 @@
 
 @interface BaseUtil : NSObject
 
+#define PHOTO_DIR_PATH [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Photos"]
+
 + (NSString *) stringFromMD5:(NSString*)string;
 + (NSString *) stringFromBASE64:(NSString*)string;
 
@@ -36,6 +38,10 @@
 + (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key;
 
 + (NSString *)mathTime:(NSInteger)time;
+
++ (UIImage *)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
++ (NSString*) saveImageToPhotoDirectory:(UIImage *)currentImage withName:(NSString *)imageName;
++ (NSString *)generateUUID;
 @end
 
 

@@ -158,6 +158,9 @@
 		B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B150325D1A8B3992000A61FA /* FavoriteView.m */; };
 		B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15032611A8B3A82000A61FA /* FavoriteCell.m */; };
 		B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032621A8B3A82000A61FA /* FavoriteCell.xib */; };
+		B151FE9D1AA4284600BFC5C3 /* RunningWaterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FE9C1AA4284600BFC5C3 /* RunningWaterModel.m */; };
+		B151FEA01AA428A700BFC5C3 /* RunningWaterListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */; };
+		B151FEA31AA42DBA00BFC5C3 /* RunningWaterScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FEA21AA42DBA00BFC5C3 /* RunningWaterScrollVC.m */; };
 		B158A6CF1A9D684A00C6FD3F /* HomeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B158A6CE1A9D684A00C6FD3F /* HomeConnect.m */; };
 		B158A6EC1A9D6BBB00C6FD3F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B158A6D31A9D6BBB00C6FD3F /* JSONModel.m */; };
 		B158A6ED1A9D6BBB00C6FD3F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B158A6D51A9D6BBB00C6FD3F /* JSONModelArray.m */; };
@@ -537,6 +540,12 @@
 		B15032601A8B3A82000A61FA /* FavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCell.h; sourceTree = "<group>"; };
 		B15032611A8B3A82000A61FA /* FavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCell.m; sourceTree = "<group>"; };
 		B15032621A8B3A82000A61FA /* FavoriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
+		B151FE9B1AA4284600BFC5C3 /* RunningWaterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterModel.h; sourceTree = "<group>"; };
+		B151FE9C1AA4284600BFC5C3 /* RunningWaterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterModel.m; sourceTree = "<group>"; };
+		B151FE9E1AA428A700BFC5C3 /* RunningWaterListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterListModel.h; sourceTree = "<group>"; };
+		B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterListModel.m; sourceTree = "<group>"; };
+		B151FEA11AA42DBA00BFC5C3 /* RunningWaterScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterScrollVC.h; sourceTree = "<group>"; };
+		B151FEA21AA42DBA00BFC5C3 /* RunningWaterScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterScrollVC.m; sourceTree = "<group>"; };
 		B158A6CD1A9D684A00C6FD3F /* HomeConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeConnect.h; sourceTree = "<group>"; };
 		B158A6CE1A9D684A00C6FD3F /* HomeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeConnect.m; sourceTree = "<group>"; };
 		B158A6D21A9D6BBB00C6FD3F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
@@ -1335,6 +1344,10 @@
 				B14379801A9F0EC400D00625 /* OrderModel.m */,
 				B14379821A9F0FB800D00625 /* OrderListModel.h */,
 				B14379831A9F0FB800D00625 /* OrderListModel.m */,
+				B151FE9B1AA4284600BFC5C3 /* RunningWaterModel.h */,
+				B151FE9C1AA4284600BFC5C3 /* RunningWaterModel.m */,
+				B151FE9E1AA428A700BFC5C3 /* RunningWaterListModel.h */,
+				B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1702,6 +1715,8 @@
 				B14E30BD1A7A1AF5005BF0EF /* AccountVC.h */,
 				B14E30BE1A7A1AF5005BF0EF /* AccountVC.m */,
 				B14E30BF1A7A1AF5005BF0EF /* AccountVC.xib */,
+				B151FEA11AA42DBA00BFC5C3 /* RunningWaterScrollVC.h */,
+				B151FEA21AA42DBA00BFC5C3 /* RunningWaterScrollVC.m */,
 			);
 			path = AccountInfo;
 			sourceTree = "<group>";
@@ -2140,6 +2155,7 @@
 				B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */,
 				B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */,
 				B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */,
+				B151FE9D1AA4284600BFC5C3 /* RunningWaterModel.m in Sources */,
 				B1668D4E1A88A2F4002CB98E /* JTCalendarWeekView.m in Sources */,
 				B140EC6E1A6F7345004D245A /* SMCheckBox.m in Sources */,
 				B14D45351A70A1BE005AA895 /* ReturnHomeVC.m in Sources */,
@@ -2185,6 +2201,7 @@
 				B158A6F51A9D6BBB00C6FD3F /* JSONValueTransformer+CustomTransformer.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,
+				B151FEA01AA428A700BFC5C3 /* RunningWaterListModel.m in Sources */,
 				B14729B41A8C917100524510 /* Constants.m in Sources */,
 				B1668D4B1A88A2F4002CB98E /* JTCalendarMenuView.m in Sources */,
 				B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */,
@@ -2252,6 +2269,7 @@
 				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
 				B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */,
 				B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */,
+				B151FEA31AA42DBA00BFC5C3 /* RunningWaterScrollVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */,
 				B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */,

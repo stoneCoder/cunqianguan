@@ -50,7 +50,7 @@
                 <outlet property="timeLabel" destination="PDp-z4-KHg" id="jhC-Ge-3pF"/>
                 <outlet property="titleLabel" destination="QkJ-NI-FQQ" id="Rsf-80-e41"/>
             </connections>
-            <point key="canvasLocation" x="200" y="357"/>
+            <point key="canvasLocation" x="219" y="366"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

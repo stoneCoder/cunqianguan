@@ -7,7 +7,7 @@
 //
 
 #import "PersonHeaderView.h"
-
+#import "BaseUtil.h"
 @implementation PersonHeaderView
 
 /*
@@ -47,7 +47,8 @@
         [info saveUserData];
 
         _nameLabel.text = info.username;
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo]];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:info.photo]]];
+        _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
         _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
         _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
         _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
