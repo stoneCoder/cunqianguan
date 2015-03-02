@@ -9,5 +9,5 @@
 #import "BaseTableVC.h"
 
 @interface RunningWaterVC : BaseTableVC
-
+-(void)viewDidCurrentView:(NSInteger)type;
 @end

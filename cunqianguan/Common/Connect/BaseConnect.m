@@ -71,6 +71,7 @@ connectionError:(void (^)(NSError *error))connectionError
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",nil];
     
+    NSLog(@"request url is ----------> %@, and parameters is ---------> %@",urlStr,parameters);
     [manager POST:urlStr parameters:parameters progress:NULL constructingBodyWithBlock:^(id<AFMultipartFormData> formdata){
         NSURL *url = [NSURL fileURLWithPath:filePath];
         [formdata appendPartWithFileURL:url name:filename error:nil];
@@ -78,6 +79,7 @@ connectionError:(void (^)(NSError *error))connectionError
         if ([BaseConnect isSucceeded:responseObject]) {
             if (success) {
                 success(responseObject);
+                NSLog(@"success----------->%@",responseObject);
             }
         }else{
             if (view) {
@@ -86,6 +88,7 @@ connectionError:(void (^)(NSError *error))connectionError
             }
             if (failure) {
                 failure(responseObject);
+                NSLog(@"failure----------->%@",responseObject);
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){

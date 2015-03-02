@@ -229,4 +229,115 @@ static NSString *const hmacPassword = @"4318sqzs";
     timeString=[NSString stringWithFormat:@"%@%@:%@:%@",day,house,min,sen];
     return timeString;
 }
+
+#pragma mark -- 图片保存本地
++ (NSString*) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
+{
+    NSData *imageData = UIImagePNGRepresentation(currentImage);
+    
+    if (!imageData) {
+        imageData = UIImageJPEGRepresentation(currentImage, 1);
+    }
+    
+    // 获取沙盒目录
+    NSString *fullPath = [PHOTO_DIR_PATH stringByAppendingPathComponent:imageName];
+    [BaseUtil createDirectory:PHOTO_DIR_PATH];
+    // 将图片写入文件
+    if (![imageData writeToFile:fullPath atomically:NO]) {
+        return nil;
+    }
+    return fullPath;
+}
+
++ (BOOL)saveImage:(UIImage *)currentImage withFullFilePath:(NSString *)filePath
+{
+    NSData *imageData = UIImagePNGRepresentation(currentImage);//(currentImage, 1);
+    
+    if (!imageData) {
+        imageData = UIImageJPEGRepresentation(currentImage, 1);
+    }
+    NSString *directory = [filePath stringByDeletingLastPathComponent];
+    
+    [BaseUtil createDirectory:directory];
+    // 将图片写入文件
+    if (![imageData writeToFile:filePath atomically:NO]) {
+        return NO;
+    }
+    return YES;
+}
+
++ (NSString*) saveImageToPhotoDirectory:(UIImage *)currentImage withName:(NSString *)imageName
+{
+    // 获取沙盒目录
+    NSString *fullPath = [PHOTO_DIR_PATH stringByAppendingPathComponent:imageName];
+    if ([self saveImage:currentImage withFullFilePath:fullPath]) {
+        return fullPath;
+    }
+    return nil;
+}
+
++ (BOOL)moveFile:(NSString*)currentPath to:(NSString*)toPath{
+    if (currentPath.length ==0 || toPath.length == 0){
+        return NO;
+    }
+   
+    NSString *toPathDir = [toPath stringByDeletingLastPathComponent];
+    [BaseUtil createDirectory:toPathDir];
+    NSError *err = nil;
+    [[NSFileManager defaultManager] moveItemAtPath:currentPath toPath:toPath error:&err];
+    if (err) {
+        return NO;
+    }else{
+        NSLog(@"================File Moved To: ===============\n%@",toPath);
+    }
+    return YES;
+}
+
++ (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // End the context
+    UIGraphicsEndImageContext();
+    // Return the new image.
+    return newImage;
+}
+
+
+
++ (UIImage*)getPhoto:(NSString*)photoName{
+    NSString *imagePath = [PHOTO_DIR_PATH stringByAppendingPathComponent:photoName];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    return image;
+}
+
++ (BOOL)createDirectory:(NSString*)path{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDIR = NO;
+    [fileManager fileExistsAtPath:path isDirectory:&isDIR];
+    if (!isDIR) {
+        [fileManager removeItemAtPath:path error:nil];
+        return [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return YES;
+}
+
++ (NSString *)generateUUID
+{
+    NSString *result = nil;
+    
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    if (uuid)
+    {
+        result = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
+        CFRelease(uuid);
+    }
+    
+    return result;
+}
 @end
