@@ -89,7 +89,7 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)rightBtnClick:(UIButton *)btn
 {
     SignVC *signVC = [[SignVC alloc] init];
-    signVC.leftTitle = @"签到";
+    signVC.leftTitle = @"每日签到";
     [self.navigationController pushViewController:signVC animated:YES];
 }
 

@@ -37,11 +37,10 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)commonInit
 {
     isSelected = NO;
-    self.isOtherMonth = NO;
-    
+
     circleView = [JTCircleView new];
     [self addSubview:circleView];
-    circleView.hidden = YES;
+    //circleView.hidden = YES;
     
     textLabel = [UILabel new];
     [self addSubview:textLabel];
@@ -50,19 +49,14 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [self addSubview:dotView];
     dotView.hidden = YES;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didDaySelected:) name:kJTCalendarDaySelected object:nil];
+    [self configureConstraintsForSubviews];
 }
 
 -(void)loadCell:(SignModel *)model
 {
     _model = model;
-    textLabel.text = [NSString stringWithFormat:@"%.2ld",model.showday];
+    textLabel.text = [NSString stringWithFormat:@"%.2ld",(long)model.showday];
     [self setSelected:model.issign animated:YES];
-}
-
-- (void)layoutSubviews
-{
-    [self configureConstraintsForSubviews];
 }
 
 
@@ -91,48 +85,6 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     dotView.layer.cornerRadius = sizeDot / 2.;
 }
 
-- (void)setDate:(NSDate *)date
-{
-    static NSDateFormatter *dateFormatter;
-//    if(!dateFormatter){
-//        dateFormatter = [NSDateFormatter new];
-//        dateFormatter.timeZone = self.calendarManager.calendarAppearance.calendar.timeZone;
-//        [dateFormatter setDateFormat:@"dd"];
-//    }
-//    
-//    self->_date = date;
-//    
-//    textLabel.text = [dateFormatter stringFromDate:date];
-    
-    cacheIsToday = -1;
-    cacheCurrentDateText = nil;
-}
-
-- (void)didTouch:(BOOL)selected
-{
-    [self setSelected:selected animated:YES];
-    //[self.calendarManager setCurrentDateSelected:self.date];
-    
-    //[self.calendarManager.dataSource calendarDidDateSelected:self.calendarManager date:self.date];
-    
-//    if(!self.isOtherMonth){
-//        return;
-//    }
-    
-//    NSInteger currentMonthIndex = [self monthIndexForDate:self.date];
-//    NSInteger calendarMonthIndex = [self monthIndexForDate:self.calendarManager.currentDate];
-//    
-//    currentMonthIndex = currentMonthIndex % 12;
-//    
-//    if(currentMonthIndex == (calendarMonthIndex + 1) % 12){
-//        [self.calendarManager loadNextMonth];
-//    }
-//    else if(currentMonthIndex == (calendarMonthIndex + 12 - 1) % 12){
-//        [self.calendarManager loadPreviousMonth];
-//    }
-}
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     if(isSelected == selected){
@@ -145,23 +97,25 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     CGAffineTransform tr = CGAffineTransformIdentity;
     CGFloat opacity = 1.;
     
+    //选中
     if(_model.issign){
+        //连续选中
            if(_model.comb){
                 circleView.color = [UIColor colorWithRed:71./256. green:217/256. blue:204/256. alpha:1.];
                 textLabel.textColor = [UIColor whiteColor];
-                dotView.hidden = NO;
+                //dotView.hidden = NO;
                 dotView.color = [UIColor whiteColor];
             }else{
-                circleView.color = [UIColor colorWithRed:71./256. green:217/256. blue:204/256. alpha:1.];
+                circleView.color = [UIColor whiteColor];
                 textLabel.textColor = [UIColor blackColor];
-                dotView.color = [UIColor whiteColor];
             }
+        circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+        tr = CGAffineTransformIdentity;
     }else{
-            textLabel.textColor = [UIColor blackColor];
-            circleView.hidden = NO;
+        textLabel.textColor = [UIColor blackColor];
+        opacity = 0.;
     }
-    circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-    tr = CGAffineTransformIdentity;
+    
     
     if(animated){
         [UIView animateWithDuration:.3 animations:^{
@@ -173,20 +127,6 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         circleView.layer.opacity = opacity;
         circleView.transform = tr;
     }
-}
-
-- (void)setIsOtherMonth:(BOOL)isOtherMonth
-{
-    //self->_isOtherMonth = isOtherMonth;
-    [self setSelected:isSelected animated:NO];
-}
-
-- (void)reloadData
-{
-    //dotView.hidden = ![self.calendarManager.dataSource calendarHaveEvent:self.calendarManager date:self.date];
-    
-    //BOOL selected = [self isSameDate:[self.calendarManager currentDateSelected]];
-    //[self setSelected:selected animated:NO];
 }
 
 - (BOOL)isToday

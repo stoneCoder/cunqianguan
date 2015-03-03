@@ -16,7 +16,6 @@
 static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 @interface SignVC ()<JTCalendarDataSource>
 {
-    JTCalendar *_calendar;
     PersonInfo *_info;
     SignDataModel *_dataModel;
     CalendarView *_calendarView;
@@ -41,15 +40,6 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 
 -(void)setUpCalendar
 {
-//    _calendar = [JTCalendar new];
-//    _calendar.calendarAppearance.calendar.firstWeekday = 1; // Sunday == 1, Saturday == 7
-//    _calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
-//    _calendar.calendarAppearance.ratioContentMenu = 1.;
-//    
-//    [_calendar setMonthLabel:_monthLabel];
-//    self.calendarContentView.scrollEnabled = NO;
-//    [_calendar setContentView:self.calendarContentView];
-//    [_calendar setDataSource:self];
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setSectionInset:UIEdgeInsetsMake(1, 1, 1, 1)];
@@ -77,24 +67,32 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 
 -(IBAction)next:(id)sender
 {
-    [_calendar loadNextMonth];
+    
 }
 
 -(IBAction)previous:(id)sender
 {
-    [_calendar loadPreviousMonth];
+    
 }
 
 - (IBAction)signAction:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kJTCalendarDaySelected object:[NSDate new]];
+    [self showHUD:ACTION_LOAD];
+    [[PersonConnect sharedPersonConnect] signin:_info.userId success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [self loadData:_info.userId];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[_calendar reloadData];
     CGRect frame = _calendarContentView.frame;
     _calendarView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     [self loadData:_info.userId];
