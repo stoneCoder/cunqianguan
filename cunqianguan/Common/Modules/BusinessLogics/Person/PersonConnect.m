@@ -131,4 +131,30 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getSignStatus:(NSString *)uid
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getSignStatus";
+    NSDictionary *dic =  @{@"uid":uid};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)signin:(NSString *)uid
+      success:(void (^)(id json))success
+      failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"signin";
+    NSDictionary *dic =  @{@"uid":uid};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

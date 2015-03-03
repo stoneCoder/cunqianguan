@@ -53,4 +53,12 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
                 andPage:(NSInteger)page
                 success:(void (^)(id json))success
                 failure:(void (^)( NSError *err))failure;
+
+-(void)getSignStatus:(NSString *)uid
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure;
+
+-(void)signin:(NSString *)uid
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure;
 @end

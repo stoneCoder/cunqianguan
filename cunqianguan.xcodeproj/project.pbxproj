@@ -148,6 +148,10 @@
 		B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5ED1A7CADED002BF122 /* FootPrintsCell.xib */; };
 		B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5F11A7CB40F002BF122 /* CollectVC.m */; };
 		B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5F21A7CB40F002BF122 /* CollectVC.xib */; };
+		B15022DB1AA556BD008850F3 /* SignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B15022DA1AA556BD008850F3 /* SignModel.m */; };
+		B15022DE1AA55787008850F3 /* SignDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B15022DD1AA55787008850F3 /* SignDataModel.m */; };
+		B15022EA1AA5A95D008850F3 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B15022E91AA5A95D008850F3 /* CalendarView.m */; };
+		B15022EE1AA5A9A5008850F3 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15022ED1AA5A9A5008850F3 /* CalendarViewCell.m */; };
 		B15032491A8AE315000A61FA /* BankTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15032481A8AE315000A61FA /* BankTransfersView.xib */; };
 		B150324D1A8B217F000A61FA /* PolyGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B150324B1A8B217F000A61FA /* PolyGoodsDetailVC.m */; };
 		B150324E1A8B217F000A61FA /* PolyGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B150324C1A8B217F000A61FA /* PolyGoodsDetailVC.xib */; };
@@ -525,6 +529,14 @@
 		B14FE5F01A7CB40F002BF122 /* CollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectVC.h; sourceTree = "<group>"; };
 		B14FE5F11A7CB40F002BF122 /* CollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectVC.m; sourceTree = "<group>"; };
 		B14FE5F21A7CB40F002BF122 /* CollectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectVC.xib; sourceTree = "<group>"; };
+		B15022D91AA556BD008850F3 /* SignModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignModel.h; sourceTree = "<group>"; };
+		B15022DA1AA556BD008850F3 /* SignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignModel.m; sourceTree = "<group>"; };
+		B15022DC1AA55787008850F3 /* SignDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignDataModel.h; sourceTree = "<group>"; };
+		B15022DD1AA55787008850F3 /* SignDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignDataModel.m; sourceTree = "<group>"; };
+		B15022E81AA5A95D008850F3 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		B15022E91AA5A95D008850F3 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
+		B15022EC1AA5A9A5008850F3 /* CalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewCell.h; sourceTree = "<group>"; };
+		B15022ED1AA5A9A5008850F3 /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		B15032481A8AE315000A61FA /* BankTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransfersView.xib; sourceTree = "<group>"; };
 		B150324A1A8B217F000A61FA /* PolyGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsDetailVC.h; sourceTree = "<group>"; };
 		B150324B1A8B217F000A61FA /* PolyGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsDetailVC.m; sourceTree = "<group>"; };
@@ -1348,6 +1360,10 @@
 				B151FE9C1AA4284600BFC5C3 /* RunningWaterModel.m */,
 				B151FE9E1AA428A700BFC5C3 /* RunningWaterListModel.h */,
 				B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */,
+				B15022D91AA556BD008850F3 /* SignModel.h */,
+				B15022DA1AA556BD008850F3 /* SignModel.m */,
+				B15022DC1AA55787008850F3 /* SignDataModel.h */,
+				B15022DD1AA55787008850F3 /* SignDataModel.m */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1488,6 +1504,24 @@
 				B14FE5F21A7CB40F002BF122 /* CollectVC.xib */,
 			);
 			path = Collect;
+			sourceTree = "<group>";
+		};
+		B15022E71AA5A91A008850F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B15022E81AA5A95D008850F3 /* CalendarView.h */,
+				B15022E91AA5A95D008850F3 /* CalendarView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B15022EB1AA5A981008850F3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B15022EC1AA5A9A5008850F3 /* CalendarViewCell.h */,
+				B15022ED1AA5A9A5008850F3 /* CalendarViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B150325F1A8B3A43000A61FA /* Cell */ = {
@@ -1865,6 +1899,8 @@
 		B1668D0A1A889912002CB98E /* Sign */ = {
 			isa = PBXGroup;
 			children = (
+				B15022EB1AA5A981008850F3 /* Cell */,
+				B15022E71AA5A91A008850F3 /* View */,
 				B1668D0B1A889931002CB98E /* SignVC.h */,
 				B1668D0C1A889931002CB98E /* SignVC.m */,
 				B1668D0D1A889931002CB98E /* SignVC.xib */,
@@ -2110,6 +2146,7 @@
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B158A72C1A9DC96900C6FD3F /* CateModel.m in Sources */,
 				B158A6F01A9D6BBB00C6FD3F /* NSArray+JSONModel.m in Sources */,
+				B15022DE1AA55787008850F3 /* SignDataModel.m in Sources */,
 				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B14B90941AA18DD600E34347 /* ExChangeDetailModel.m in Sources */,
@@ -2187,6 +2224,7 @@
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
+				B15022EA1AA5A95D008850F3 /* CalendarView.m in Sources */,
 				B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */,
 				B1668D0E1A889931002CB98E /* SignVC.m in Sources */,
 				B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */,
@@ -2230,6 +2268,7 @@
 				B14379811A9F0EC400D00625 /* OrderModel.m in Sources */,
 				B15D44B21A787E03008B8F4B /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */,
+				B15022EE1AA5A9A5008850F3 /* CalendarViewCell.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B158A7121A9D7A7400C6FD3F /* JYHModel.m in Sources */,
 				B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */,
@@ -2250,6 +2289,7 @@
 				B14071981A6CCD7900D1792F /* BaseSegment.m in Sources */,
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B158A6FB1A9D6C1300C6FD3F /* AdModel.m in Sources */,
+				B15022DB1AA556BD008850F3 /* SignModel.m in Sources */,
 				B158A6EE1A9D6BBB00C6FD3F /* JSONModelClassProperty.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,

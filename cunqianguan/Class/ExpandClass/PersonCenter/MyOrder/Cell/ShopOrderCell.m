@@ -45,7 +45,7 @@
     
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
     _priceLabel.text = [NSString stringWithFormat:@"%.2f元",model.pay_price];
-    _moneyLable.text = [NSString stringWithFormat:@"%ld元",model.fanli];
+    _moneyLable.text = [NSString stringWithFormat:@"%ld元",(long)model.fanli];
     _timeLabel.text = [NSString stringWithFormat:@"跟单时间：%@",model.time];
 
 }

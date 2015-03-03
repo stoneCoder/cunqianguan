@@ -8,7 +8,8 @@
 #import "JTCalendarDayView.h"
 
 #import "JTCircleView.h"
-
+#import "SignModel.h"
+#import "BaseUtil.h"
 @interface JTCalendarDayView (){
     JTCircleView *circleView;
     UILabel *textLabel;
@@ -69,11 +70,11 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [self addSubview:dotView];
     dotView.hidden = YES;
 
-    if (self.calendarManager.calendarAppearance.enableViewTap) {
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouch)];
-        self.userInteractionEnabled = YES;
-        [self addGestureRecognizer:gesture];
-    }
+//    if (self.calendarManager.calendarAppearance.enableViewTap) {
+//        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouch)];
+//        self.userInteractionEnabled = YES;
+//        [self addGestureRecognizer:gesture];
+//    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didDaySelected:) name:kJTCalendarDaySelected object:nil];
 }
 
@@ -124,9 +125,9 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     cacheCurrentDateText = nil;
 }
 
-- (void)didTouch
+- (void)didTouch:(BOOL)selected
 {
-    [self setSelected:YES animated:YES];
+    [self setSelected:selected animated:YES];
     [self.calendarManager setCurrentDateSelected:self.date];
     
 //    [[NSNotificationCenter defaultCenter] postNotificationName:kJTCalendarDaySelected object:self.date];
@@ -158,11 +159,21 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         NSDate *dateSelected = (NSDate *)object;
         if([self isSameDate:dateSelected]){
             if(!isSelected){
-                [self didTouch];
+                [self didTouch:YES];
             }
         }
-    }else if([object isKindOfClass:[NSMutableArray class]]){
-        
+    }else if([object isKindOfClass:[NSArray class]]){
+        NSArray *dateArray = (NSArray *)object;
+        for (int i = 0; i < dateArray.count; i++) {
+            SignModel *model = dateArray[i];
+            NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.showdayios];
+            NSLog(@"%@<-------------->%@<-------------->%d",date,self.date,model.issign);
+            if ([self.date isEqualToDate:date]) {
+                if (!isSelected && model.issign) {
+                    [self didTouch:model.issign];
+                }
+            }
+        }
     }
 }
 
@@ -262,7 +273,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     if(!dateFormatter){
         dateFormatter = [NSDateFormatter new];
         dateFormatter.timeZone = self.calendarManager.calendarAppearance.calendar.timeZone;
-        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     
     if(!cacheCurrentDateText){

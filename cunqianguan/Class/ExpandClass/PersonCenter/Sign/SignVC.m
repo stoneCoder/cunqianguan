@@ -7,11 +7,19 @@
 //
 
 #import "SignVC.h"
+#import "CalendarView.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
 
+#import "PersonInfo.h"
+#import "SignDataModel.h"
 static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 @interface SignVC ()<JTCalendarDataSource>
 {
     JTCalendar *_calendar;
+    PersonInfo *_info;
+    SignDataModel *_dataModel;
+    CalendarView *_calendarView;
 }
 
 @end
@@ -21,8 +29,9 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _scrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpCalendar];
+    [self setUpLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,15 +41,38 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 
 -(void)setUpCalendar
 {
-    _calendar = [JTCalendar new];
-    _calendar.calendarAppearance.calendar.firstWeekday = 1; // Sunday == 1, Saturday == 7
-    _calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
-    _calendar.calendarAppearance.ratioContentMenu = 1.;
+//    _calendar = [JTCalendar new];
+//    _calendar.calendarAppearance.calendar.firstWeekday = 1; // Sunday == 1, Saturday == 7
+//    _calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
+//    _calendar.calendarAppearance.ratioContentMenu = 1.;
+//    
+//    [_calendar setMonthLabel:_monthLabel];
+//    self.calendarContentView.scrollEnabled = NO;
+//    [_calendar setContentView:self.calendarContentView];
+//    [_calendar setDataSource:self];
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(1, 1, 1, 1)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 2;
     
-    [_calendar setMonthLabel:_monthLabel];
-    self.calendarContentView.scrollEnabled = NO;
-    [_calendar setContentView:self.calendarContentView];
-    [_calendar setDataSource:self];
+    _calendarView = [[CalendarView alloc] initWithFrame:_calendarContentView.frame collectionViewLayout:flowLayout];
+    _calendarView.backgroundColor = [UIColor whiteColor];
+    _calendarView.dataSource = _calendarView;
+    _calendarView.delegate = _calendarView;
+    [_calendarContentView addSubview:_calendarView];
+
+}
+
+-(void)setUpLabel
+{
+    _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _infoLabel.numberOfLines = 0;
+    
+    NSString *infoText = @"每日在保鲜期网站或手机端签到可得积分。连续签到5天即可获得超值奖励！使用手机端签到任意一天，即可在获得超值奖励的同时获得额外奖励！期间如果中断，将会重新从第一天开始。";
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:infoText];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(19,15)];
+    _infoLabel.attributedText = str;
 }
 
 -(IBAction)next:(id)sender
@@ -58,21 +90,41 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [[NSNotificationCenter defaultCenter] postNotificationName:kJTCalendarDaySelected object:[NSDate new]];
 }
 
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_calendar reloadData];
+    //[_calendar reloadData];
+    CGRect frame = _calendarContentView.frame;
+    _calendarView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    [self loadData:_info.userId];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     _calendarContentView.hidden = YES;
-    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH, SCREEN_HEIGTH + 100)];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]  removeObserver:self];
+}
+
+-(void)loadData:(NSString *)userId
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getSignStatus:userId success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _dataModel = [[SignDataModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+            if (_dataModel.logs.count > 0) {
+                [_calendarView reloadDataWith:_dataModel.logs];
+            }
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
 }
 
 

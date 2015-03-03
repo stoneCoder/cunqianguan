@@ -81,7 +81,7 @@
         _actionBtn.backgroundColor = [UIColor redColor];
         [_actionBtn setTitle:@"去抢购" forState:UIControlStateNormal];
         
-        NSString *grabText = [NSString stringWithFormat:@"%ld人正在抢",_detailModel.qcount];
+        NSString *grabText = [NSString stringWithFormat:@"%ld人正在抢",(long)_detailModel.qcount];
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:grabText];
         [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x61C6BE) range:NSMakeRange(0,grabText.length - 4)];
         _grabLabel.attributedText = str;

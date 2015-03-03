@@ -105,6 +105,8 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     if (_info.userId) {
         [personHeaderView loadView:_info];
+    }else{
+        personHeaderView.nameLabel.text = @"请登录";
     }
 }
 

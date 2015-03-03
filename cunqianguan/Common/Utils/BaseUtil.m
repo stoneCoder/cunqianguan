@@ -61,6 +61,14 @@ static NSString *const hmacPassword = @"4318sqzs";
     return detaildate;
 }
 
++(NSDate*)convertDateFromString:(NSString*)dateTime WithType:(NSString *)type
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateFormat:type];
+    NSDate *date=[formatter dateFromString:dateTime];
+    return date;
+}
+
 +(float)getHeightByString:(NSString *)text font:(UIFont*)widthfont allwidth:(float)allwidth{
     return ceilf([BaseUtil sizeOfTextInFont:text width:allwidth height:NSIntegerMax font:widthfont].height);
 }
@@ -219,11 +227,11 @@ static NSString *const hmacPassword = @"4318sqzs";
     NSString *min=@"";
     NSString *sen=@"";
     //秒
-    sen = [NSString stringWithFormat:@"%.2ld",time%60];
+    sen = [NSString stringWithFormat:@"%.2d",(int)time%60];
     //分
-    min = [NSString stringWithFormat:@"%.2ld", time/60%60];
+    min = [NSString stringWithFormat:@"%.2d", (int)time/60%60];
     //小时
-    house = [NSString stringWithFormat:@"%.2ld",time/3600%24];
+    house = [NSString stringWithFormat:@"%.2d",(int)time/3600%24];
     //天
     day = [NSString stringWithFormat:@"%d天",(int)time/3600/24];
     timeString=[NSString stringWithFormat:@"%@%@:%@:%@",day,house,min,sen];

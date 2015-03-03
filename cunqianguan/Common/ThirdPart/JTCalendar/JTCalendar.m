@@ -7,7 +7,7 @@
 
 #import "JTCalendar.h"
 
-#define NUMBER_PAGES_LOADED 5 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
+#define NUMBER_PAGES_LOADED 1 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
 
 @interface JTCalendar(){
     JTCalendarAppearance *calendarAppearance;

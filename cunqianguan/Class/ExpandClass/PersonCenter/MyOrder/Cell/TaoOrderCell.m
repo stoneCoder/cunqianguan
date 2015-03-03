@@ -33,7 +33,7 @@
     _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _infoLabel.numberOfLines = 0;
     
-    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",model.fanli];
+    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)model.fanli];
     _timeLabel.text = [NSString stringWithFormat:@"返利时间：%@",model.time];
 }
 @end

@@ -17,6 +17,7 @@
 
 + (NSString *) stringFromMD5:(NSString*)string;
 + (NSString *) stringFromBASE64:(NSString*)string;
++ (NSDate*)convertDateFromString:(NSString*)dateTime WithType:(NSString *)type;
 
 + (NSString *)transformLongToStrDate:(long)dateTimeLong WithType:(NSString *)type;
 + (NSDate *)transformLongToDate:(long)dateTimeLong WithType:(NSString *)type;
