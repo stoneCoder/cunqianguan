@@ -69,6 +69,14 @@ static NSString *const hmacPassword = @"4318sqzs";
     return date;
 }
 
++ (NSString *)convertStringFromDate:(NSDate *)date WithType:(NSString *)type
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:type];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
+}
+
 +(float)getHeightByString:(NSString *)text font:(UIFont*)widthfont allwidth:(float)allwidth{
     return ceilf([BaseUtil sizeOfTextInFont:text width:allwidth height:NSIntegerMax font:widthfont].height);
 }
@@ -348,4 +356,40 @@ static NSString *const hmacPassword = @"4318sqzs";
     
     return result;
 }
+
++ (NSString *)transformBankCard:(NSString *)cardNum
+{
+    if ([BaseUtil checkCardNo:cardNum]) {
+        NSString *firstStr = [cardNum substringWithRange:NSMakeRange(0,4)];
+        NSString *secondStr = [cardNum substringWithRange:NSMakeRange(cardNum.length - 5,4)];
+        cardNum = [NSString stringWithFormat:@"%@ ******** %@",firstStr,secondStr];
+    }
+    return cardNum;
+}
+
++ (BOOL)checkCardNo:(NSString*) cardNo{
+    int sum = 0;
+    int len = cardNo.length;
+    int i = 0;
+    
+    while (i < len) {
+        NSString *tmpString = [cardNo substringWithRange:NSMakeRange(len - 1 - i, 1)];
+        int tmpVal = [tmpString intValue];
+        if (i % 2 != 0) {
+            tmpVal *= 2;
+            if(tmpVal>=10) {
+                tmpVal -= 9;
+            }
+        }
+        sum += tmpVal;
+        i++;
+    }
+    
+    if((sum % 10) == 0)
+        return YES;
+    else
+        return NO;
+}
+
+
 @end

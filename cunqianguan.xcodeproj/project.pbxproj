@@ -264,6 +264,8 @@
 		B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D451A88A2F4002CB98E /* JTCircleView.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
+		B198C18E1AA6E11C0098B9A1 /* BankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B198C18D1AA6E11C0098B9A1 /* BankModel.m */; };
+		B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */; };
 		B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910631A89E82200AE3F66 /* AliTransfersView.m */; };
 		B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910661A89E83500AE3F66 /* BankTransfersView.m */; };
 		B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C910681A89E96000AE3F66 /* AliTransfersView.xib */; };
@@ -738,6 +740,10 @@
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
+		B198C18C1AA6E11C0098B9A1 /* BankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankModel.h; sourceTree = "<group>"; };
+		B198C18D1AA6E11C0098B9A1 /* BankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankModel.m; sourceTree = "<group>"; };
+		B19F8B871AA6C29E004BF6FC /* CalenderDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderDayView.h; sourceTree = "<group>"; };
+		B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderDayView.m; sourceTree = "<group>"; };
 		B1C910621A89E82200AE3F66 /* AliTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliTransfersView.h; sourceTree = "<group>"; };
 		B1C910631A89E82200AE3F66 /* AliTransfersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliTransfersView.m; sourceTree = "<group>"; };
 		B1C910651A89E83500AE3F66 /* BankTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransfersView.h; sourceTree = "<group>"; };
@@ -1364,6 +1370,8 @@
 				B15022DA1AA556BD008850F3 /* SignModel.m */,
 				B15022DC1AA55787008850F3 /* SignDataModel.h */,
 				B15022DD1AA55787008850F3 /* SignDataModel.m */,
+				B198C18C1AA6E11C0098B9A1 /* BankModel.h */,
+				B198C18D1AA6E11C0098B9A1 /* BankModel.m */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1520,6 +1528,8 @@
 			children = (
 				B15022EC1AA5A9A5008850F3 /* CalendarViewCell.h */,
 				B15022ED1AA5A9A5008850F3 /* CalendarViewCell.m */,
+				B19F8B871AA6C29E004BF6FC /* CalenderDayView.h */,
+				B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2171,6 +2181,7 @@
 				B16868C61A7B25F100D37944 /* InviteVC.m in Sources */,
 				B158A70E1A9D78AA00C6FD3F /* JYHConnect.m in Sources */,
 				B1668D4A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m in Sources */,
+				B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */,
 				B1668D471A88A2F4002CB98E /* JTCalendarAppearance.m in Sources */,
 				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,
@@ -2290,6 +2301,7 @@
 				B14071761A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m in Sources */,
 				B158A6FB1A9D6C1300C6FD3F /* AdModel.m in Sources */,
 				B15022DB1AA556BD008850F3 /* SignModel.m in Sources */,
+				B198C18E1AA6E11C0098B9A1 /* BankModel.m in Sources */,
 				B158A6EE1A9D6BBB00C6FD3F /* JSONModelClassProperty.m in Sources */,
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,

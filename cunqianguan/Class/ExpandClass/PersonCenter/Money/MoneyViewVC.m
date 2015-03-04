@@ -9,6 +9,9 @@
 #import "MoneyViewVC.h"
 #import "AliTransfersView.h"
 #import "BankTransfersView.h"
+#import "ExChangeScrollVC.h"
+#import "BMAlert.h"
+
 #import "PersonInfo.h"
 @interface MoneyViewVC ()
 {
@@ -106,9 +109,26 @@
 
 - (IBAction)transForBank:(id)sender
 {
+    NSInteger cashAll = _info.cashAll;
+    if (cashAll < 30) {
+        [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
+            
+        } other:^(DoAlertView *alertView) {
+            
+        }];
+        return;
+    }
     [self createBankView];
     [_bankTransfersView showView];
 }
+
+- (IBAction)transForWebSite:(id)sender
+{
+    ExChangeScrollVC *exChangeScrollVC = [[ExChangeScrollVC alloc] init];
+    exChangeScrollVC.leftTitle = @"兑换中心";
+    [self.navigationController pushViewController:exChangeScrollVC animated:YES];
+}
+
 - (IBAction)transForAlipay:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
@@ -116,13 +136,31 @@
     switch (btn.tag) {
         case 1000:
             /*现金收入*/
-            [_aliTransfersView showView];
+            if (_info.cashAll < 30) {
+                [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
+                    
+                } other:^(DoAlertView *alertView) {
+                    
+                }];
+                return;
+            }
+            [_aliTransfersView showView:1];
             break;
         case 1001:
             /*集分宝收入*/
-            [_aliTransfersView showView];
+            if (_info.pointSite < 100) {
+                [[BMAlert sharedBMAlert] alert:@"您的集分宝小于100元，无法提现！" cancle:^(DoAlertView *alertView) {
+                    
+                } other:^(DoAlertView *alertView) {
+                    
+                }];
+                return;
+            }
+            [_aliTransfersView showView:2];
             break;
     }
 }
+
+#pragma mark -- Private
 
 @end

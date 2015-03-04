@@ -124,4 +124,10 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
     [cell loadCell:_data[indexPath.row]];
     return cell;
 }
+
+#pragma mark -- CCSegment
+-(void)selectIndex:(NSInteger)index
+{
+    
+}
 @end

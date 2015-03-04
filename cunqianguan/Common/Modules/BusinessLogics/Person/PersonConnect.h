@@ -55,10 +55,28 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
                 failure:(void (^)( NSError *err))failure;
 
 -(void)getSignStatus:(NSString *)uid
+            withTime:(NSString *)ptime
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure;
 
 -(void)signin:(NSString *)uid
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure;
+
+-(void)initSignStatus:(NSString *)useId
+         success:(void (^)(id json))success
+         failure:(void (^)( NSError *err))failure;
+
+
+-(void)getUserBankInfo:(NSString *)email
+                andPwd:(NSString *)pwd
+               success:(void (^)(id json))success
+               failure:(void (^)( NSError *err))failure;
+
+-(void)getUserExtract:(NSString *)email
+               andPwd:(NSString *)pwd
+            withMoney:(NSInteger)money
+                 type:(NSInteger)type
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure;
 @end

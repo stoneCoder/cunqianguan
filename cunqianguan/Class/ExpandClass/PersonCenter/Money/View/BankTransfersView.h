@@ -12,7 +12,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *numText;
 @property (weak, nonatomic) IBOutlet UITextField *pwdText;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+
 +(BankTransfersView *)transfersView;
--(void)showView;
+-(void)showView; 
 -(void)hideView;
 @end

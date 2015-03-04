@@ -90,7 +90,7 @@ static NSString *ProfileCellID = @"ProfileCell";
     ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileCellID];
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.headImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_info.photo]]];
+    [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_info.photo]];
     return cell;
 }
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "SignModel.h"
 @interface CalendarViewCell : UICollectionViewCell
--(void)loadCell:(SignModel *)model;
+-(void)loadCell:(SignModel *)model andNowDate:(NSDate *)date;
 @end

@@ -9,5 +9,5 @@
 #import "BaseCollectionView.h"
 
 @interface CalendarView : BaseCollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
--(void)reloadDataWith:(NSArray *)data;
+-(void)reloadDataWith:(NSArray *)data andNowDate:(NSDate *)date;
 @end

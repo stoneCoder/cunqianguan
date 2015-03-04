@@ -24,7 +24,8 @@
 
 #import "SignVC.h"
 #import "PersonInfo.h"
-
+#import "PersonConnect.h"
+#import "BaseConnect.h"
 @interface PersonCenterVC ()<PersonHeaderDelegate>
 {
     NSDictionary *_localData;
@@ -40,11 +41,20 @@ static NSString *FooterViewID = @"PersonFooterView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
-    _info = [PersonInfo sharedPersonInfo];
-    
+    [self initSignStatus];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (_info.userId) {
+        [personHeaderView loadView:_info];
+    }else{
+        personHeaderView.nameLabel.text = @"请登录";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,13 +111,19 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self.tableView addSubview:view];
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+-(void)initSignStatus
 {
-    if (_info.userId) {
-        [personHeaderView loadView:_info];
-    }else{
-        personHeaderView.nameLabel.text = @"请登录";
-    }
+    NSString *userId = _info.userId?_info.userId:@"";
+    [[PersonConnect sharedPersonConnect] initSignStatus:userId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _info.isSignToday = [dic objectForKey:@"data"];
+            [_info saveUserData];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate

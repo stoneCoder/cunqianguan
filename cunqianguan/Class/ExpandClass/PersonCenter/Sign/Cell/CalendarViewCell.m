@@ -8,7 +8,7 @@
 
 #import "CalendarViewCell.h"
 #import "JTCircleView.h"
-
+#import "BaseUtil.h"
 static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 @implementation CalendarViewCell{
     JTCircleView *circleView;
@@ -20,6 +20,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     int cacheIsToday;
     NSString *cacheCurrentDateText;
     SignModel *_model;
+    NSDate *_nowDate;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -52,9 +53,10 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [self configureConstraintsForSubviews];
 }
 
--(void)loadCell:(SignModel *)model
+-(void)loadCell:(SignModel *)model andNowDate:(NSDate *)date
 {
     _model = model;
+    _nowDate = date;
     textLabel.text = [NSString stringWithFormat:@"%.2ld",(long)model.showday];
     [self setSelected:model.issign animated:YES];
 }
@@ -103,16 +105,23 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
            if(_model.comb){
                 circleView.color = [UIColor colorWithRed:71./256. green:217/256. blue:204/256. alpha:1.];
                 textLabel.textColor = [UIColor whiteColor];
-                //dotView.hidden = NO;
+                dotView.hidden = NO;
                 dotView.color = [UIColor whiteColor];
             }else{
                 circleView.color = [UIColor whiteColor];
                 textLabel.textColor = [UIColor blackColor];
             }
+        if ([self isOtherMonth]) {
+            textLabel.textColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:1.];
+        }
         circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
         tr = CGAffineTransformIdentity;
     }else{
-        textLabel.textColor = [UIColor blackColor];
+        if ([self isOtherMonth]) {
+            textLabel.textColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:1.];
+        }else{
+            textLabel.textColor = [UIColor blackColor];
+        }
         opacity = 0.;
     }
     
@@ -129,45 +138,13 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     }
 }
 
-- (BOOL)isToday
+-(BOOL)isOtherMonth
 {
-    if(cacheIsToday == 0){
+    NSString *dateStr = [BaseUtil convertStringFromDate:_nowDate WithType:@"yyyy-MM"];
+    NSString *nowDateStr = [BaseUtil convertStringFromDate:[NSDate dateWithTimeIntervalSince1970:_model.showdayios] WithType:@"yyyy-MM"];
+    if ([dateStr isEqualToString:nowDateStr]) {
         return NO;
     }
-    else if(cacheIsToday == 1){
-        return YES;
-    }
-    else{
-        if([self isSameDate:[NSDate date]]){
-            cacheIsToday = 1;
-            return YES;
-        }
-        else{
-            cacheIsToday = 0;
-            return NO;
-        }
-    }
-}
-
-- (BOOL)isSameDate:(NSDate *)date
-{
-//    static NSDateFormatter *dateFormatter;
-//    if(!dateFormatter){
-//        dateFormatter = [NSDateFormatter new];
-//        dateFormatter.timeZone = self.calendarManager.calendarAppearance.calendar.timeZone;
-//        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-//    }
-//    
-//    if(!cacheCurrentDateText){
-//        cacheCurrentDateText = [dateFormatter stringFromDate:self.date];
-//    }
-//    
-//    NSString *dateText2 = [dateFormatter stringFromDate:date];
-//    
-//    if ([cacheCurrentDateText isEqualToString:dateText2]) {
-//        return YES;
-//    }
-    
-    return NO;
+    return YES;
 }
 @end

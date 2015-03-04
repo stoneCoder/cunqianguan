@@ -11,8 +11,14 @@
 @interface AliTransfersView : BaseView<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numText;
 @property (weak, nonatomic) IBOutlet UITextField *pwdText;
+@property (weak, nonatomic) IBOutlet UILabel *aliNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *canMoneyTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+
 
 +(AliTransfersView *)transfersView;
--(void)showView;
+-(void)showView:(NSInteger)type; //1 现金提现到支付宝 2 集分宝提现到支付宝
 -(void)hideView;
 @end

@@ -17,7 +17,9 @@
 
 + (NSString *) stringFromMD5:(NSString*)string;
 + (NSString *) stringFromBASE64:(NSString*)string;
+
 + (NSDate*)convertDateFromString:(NSString*)dateTime WithType:(NSString *)type;
++ (NSString *)convertStringFromDate:(NSDate *)date WithType:(NSString *)type;
 
 + (NSString *)transformLongToStrDate:(long)dateTimeLong WithType:(NSString *)type;
 + (NSDate *)transformLongToDate:(long)dateTimeLong WithType:(NSString *)type;
@@ -43,6 +45,8 @@
 + (UIImage *)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 + (NSString*) saveImageToPhotoDirectory:(UIImage *)currentImage withName:(NSString *)imageName;
 + (NSString *)generateUUID;
+
++ (NSString *)transformBankCard:(NSString *)cardNum;
 @end
 
 

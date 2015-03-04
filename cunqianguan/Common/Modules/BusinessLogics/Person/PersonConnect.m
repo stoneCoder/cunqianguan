@@ -133,11 +133,12 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 }
 
 -(void)getSignStatus:(NSString *)uid
+            withTime:(NSString *)ptime
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getSignStatus";
-    NSDictionary *dic =  @{@"uid":uid};
+    NSDictionary *dic =  @{@"uid":uid,@"ptime":ptime};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {
@@ -151,6 +152,49 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 {
     NSString *url = @"signin";
     NSDictionary *dic =  @{@"uid":uid};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)initSignStatus:(NSString *)useId
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"todaySign";
+    NSDictionary *dic =  @{@"uid":useId};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getUserBankInfo:(NSString *)email
+                andPwd:(NSString *)pwd
+               success:(void (^)(id json))success
+               failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getUserBankInfo";
+    NSDictionary *dic =  @{@"email":email,@"password":pwd};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getUserExtract:(NSString *)email
+               andPwd:(NSString *)pwd
+            withMoney:(NSInteger)money
+                 type:(NSInteger)type
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getUserExtract";
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"money":@(money),@"type":@(type)};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

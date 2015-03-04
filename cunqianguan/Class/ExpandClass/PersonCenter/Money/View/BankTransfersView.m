@@ -8,8 +8,16 @@
 
 #import "BankTransfersView.h"
 
+#import "BaseUtil.h"
+#import "PersonInfo.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "BankModel.h"
 @implementation BankTransfersView
-
+{
+    PersonInfo *_info;
+    BankModel *_model;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -30,6 +38,7 @@
 
 -(void)setUpView
 {
+    _info = [PersonInfo sharedPersonInfo];
     self.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
     _numText.delegate = self;
@@ -40,8 +49,58 @@
     [self hideView];
 }
 
+- (IBAction)submitAction:(id)sender
+{
+    NSString *money = _numText.text;
+    NSString *pwd = _pwdText.text;
+    if (money.length == 0 || pwd.length == 0) {
+        [self showStringHUD:@"请填写完整" second:2];
+        return;
+    }
+    if([money integerValue] > _info.cashAll){
+        [self showStringHUD:@"提现数量不能大于可提现数量！" second:2];
+        return;
+    }
+    
+    if([money integerValue] < 30 || [money integerValue]%5 != 0){
+        [self showStringHUD:@"提现金额需大于等于30且为5的整数倍！" second:2];
+        return;
+    }
+    pwd = [BaseUtil encrypt:pwd];
+    [self showHUD:ACTION_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)loadData
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+            _nameLabel.text = _model.name;
+            _cityLabel.text = _model.city;
+            _bankNameLabel.text = _model.bankname;
+            _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+            _cardNumLabel.text = [BaseUtil transformBankCard:_model.bank];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
 -(void)showView
 {
+    [self loadData];
     [UIView animateWithDuration:0.25 animations:^{
         self.hidden = NO;
     }];

@@ -8,10 +8,11 @@
 
 #import "CalendarView.h"
 #import "CalendarViewCell.h"
-static NSString *collectionCellID = @"CalendarViewCell";
+static NSString *calendarCellID = @"CalendarViewCell";
 @implementation CalendarView
 {
     NSArray *_data;
+    NSDate *_nowDate;
 }
 
 /*
@@ -30,15 +31,16 @@ static NSString *collectionCellID = @"CalendarViewCell";
     return self;
 }
 
--(void)reloadDataWith:(NSArray *)data
+-(void)reloadDataWith:(NSArray *)data andNowDate:(NSDate *)date;
 {
     _data = data;
+    _nowDate = date;
     [self reloadData];
 }
 
 -(void)setUpView
 {
-    [self registerClass:[CalendarViewCell class] forCellWithReuseIdentifier:collectionCellID];
+    [self registerClass:[CalendarViewCell class] forCellWithReuseIdentifier:calendarCellID];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
@@ -52,9 +54,9 @@ static NSString *collectionCellID = @"CalendarViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CalendarViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    CalendarViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:calendarCellID forIndexPath:indexPath];
     SignModel *model = _data[indexPath.row];
-    [cell loadCell:model];
+    [cell loadCell:model andNowDate:_nowDate];
     return cell;
 }
 

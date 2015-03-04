@@ -113,7 +113,6 @@
     pwd = [BaseUtil encrypt:pwd];
     [self showHUD:LOGIN_LOAD];
     [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
-        [self hideAllHUD];
         __weak NSString *weakName = username;
         __weak NSString *weakPwd = pwd;
         NSDictionary *dic = (NSDictionary *)json;
@@ -123,6 +122,7 @@
             person.password = pwd;
             [person loginSuccessWith:[dic objectForKey:@"data"]];
             [person getUserInfo:weakName withPwd:weakPwd success:^(id json) {
+                [self hideAllHUD];
                 if([BaseConnect isSucceeded:json]){
                     [person saveUserData];
                     [self showStringHUD:@"登陆成功" second:HUD_SHOW_SECOND];

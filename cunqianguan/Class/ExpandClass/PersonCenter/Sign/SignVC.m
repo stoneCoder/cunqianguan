@@ -8,9 +8,11 @@
 
 #import "SignVC.h"
 #import "CalendarView.h"
+#import "CalenderDayView.h"
+
 #import "PersonConnect.h"
 #import "BaseConnect.h"
-
+#import "BaseUtil.h"
 #import "PersonInfo.h"
 #import "SignDataModel.h"
 static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
@@ -19,6 +21,8 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     PersonInfo *_info;
     SignDataModel *_dataModel;
     CalendarView *_calendarView;
+    CalenderDayView *_dayView;
+    NSDate *_showDate;
 }
 
 @end
@@ -31,6 +35,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     _info = [PersonInfo sharedPersonInfo];
     [self setUpCalendar];
     [self setUpLabel];
+    [self setUpBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,20 +43,28 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)setUpCalendar
 {
+    
+    _dayView = [[CalenderDayView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
+    [_dayView reloadAppearance];
+    [_calendarContentView addSubview:_dayView];
+    
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setSectionInset:UIEdgeInsetsMake(1, 1, 1, 1)];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 2;
     
-    _calendarView = [[CalendarView alloc] initWithFrame:_calendarContentView.frame collectionViewLayout:flowLayout];
+    CGRect frame = _calendarContentView.frame;
+    frame.size.width = _dayView.frame.size.width;
+    frame.origin.y = _dayView.frame.size.height + _dayView.frame.origin.y;
+    _calendarView = [[CalendarView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
     _calendarView.backgroundColor = [UIColor whiteColor];
-    _calendarView.dataSource = _calendarView;
     _calendarView.delegate = _calendarView;
+    _calendarView.dataSource = _calendarView;
     [_calendarContentView addSubview:_calendarView];
-
 }
 
 -(void)setUpLabel
@@ -65,14 +78,23 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     _infoLabel.attributedText = str;
 }
 
+-(void)setUpBtn
+{
+    if (_info.isSignToday) {
+        [_actionBtn setTitle:@"今日已签到" forState:UIControlStateNormal];
+        [_actionBtn setBackgroundColor:[UIColor grayColor]];
+        _actionBtn.userInteractionEnabled = NO;
+    }
+}
+
 -(IBAction)next:(id)sender
 {
-    
+    [self loadDataWithTime:[self calculateDate:+1]];
 }
 
 -(IBAction)previous:(id)sender
 {
-    
+    [self loadDataWithTime:[self calculateDate:-1]];
 }
 
 - (IBAction)signAction:(id)sender
@@ -82,7 +104,11 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
-            [self loadData:_info.userId];
+            [_actionBtn setTitle:@"今日已签到" forState:UIControlStateNormal];
+            [_actionBtn setBackgroundColor:[UIColor grayColor]];
+            _info.isSignToday = 1;
+            [_info saveUserData];
+            [self loadDataWithTime:[BaseUtil convertStringFromDate:[NSDate date] WithType:@"yyyy-MM"]];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
@@ -93,9 +119,12 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    CGRect frame = _calendarContentView.frame;
-    _calendarView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-    [self loadData:_info.userId];
+//    CGRect viewFrame = _calendarView.frame;
+//    CGRect frame = _calendarContentView.frame;
+//    viewFrame.size.width = frame.size.width;
+//    viewFrame.size.height = frame.size.height;
+//    _calendarView.frame = viewFrame;
+    [self loadDataWithTime:[BaseUtil convertStringFromDate:[NSDate date] WithType:@"yyyy-MM"]];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -108,16 +137,19 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     [[NSNotificationCenter defaultCenter]  removeObserver:self];
 }
 
--(void)loadData:(NSString *)userId
+-(void)loadDataWithTime:(NSString *)ptime
 {
     [self showHUD:DATA_LOAD];
-    [[PersonConnect sharedPersonConnect] getSignStatus:userId success:^(id json) {
+    [[PersonConnect sharedPersonConnect] getSignStatus:_info.userId withTime:ptime  success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _dataModel = [[SignDataModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
             if (_dataModel.logs.count > 0) {
-                [_calendarView reloadDataWith:_dataModel.logs];
+                _showDate = [BaseUtil convertDateFromString:_dataModel.ptime WithType:@"yyyy-MM"];
+                [_calendarView reloadDataWith:_dataModel.logs andNowDate:_showDate];
+                NSArray *times = [_dataModel.ptime componentsSeparatedByString:@"-"];
+                _monthLabel.text = [NSString stringWithFormat:@"%@年%@月",times[0],times[1]];
             }
         }
     } failure:^(NSError *err) {
@@ -137,14 +169,23 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 {
     NSLog(@"Date: %@", date);
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Private
+-(NSString *)calculateDate:(NSInteger)month
+{
+    if (!_showDate) {
+        _showDate = [NSDate date];
+    }
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = nil;
+    comps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:_showDate];
+    NSDateComponents *adcomps = [[NSDateComponents alloc] init];
+    [adcomps setYear:0];
+    [adcomps setMonth:month];
+    [adcomps setDay:0];
+    NSDate *newdate = [calendar dateByAddingComponents:adcomps toDate:_showDate options:0];
+    _showDate = newdate;
+    return [BaseUtil convertStringFromDate:newdate WithType:@"yyyy-MM"];
 }
-*/
-
 @end
