@@ -58,7 +58,6 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     flowLayout.minimumLineSpacing = 2;
     
     CGRect frame = _calendarContentView.frame;
-    frame.size.width = _dayView.frame.size.width;
     frame.origin.y = _dayView.frame.size.height + _dayView.frame.origin.y;
     _calendarView = [[CalendarView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
     _calendarView.backgroundColor = [UIColor whiteColor];
@@ -119,11 +118,11 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    CGRect viewFrame = _calendarView.frame;
-//    CGRect frame = _calendarContentView.frame;
-//    viewFrame.size.width = frame.size.width;
-//    viewFrame.size.height = frame.size.height;
-//    _calendarView.frame = viewFrame;
+    CGRect viewFrame = _calendarView.frame;
+    CGRect frame = _calendarContentView.frame;
+    viewFrame.size.width = frame.size.width;
+    viewFrame.size.height = frame.size.height - _dayView.frame.size.height;
+    _calendarView.frame = viewFrame;
     [self loadDataWithTime:[BaseUtil convertStringFromDate:[NSDate date] WithType:@"yyyy-MM"]];
 }
 

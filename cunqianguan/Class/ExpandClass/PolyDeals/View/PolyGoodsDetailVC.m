@@ -45,7 +45,7 @@
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStyleGrouped];
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 104);
     
     _headView = [PolyDetailHeaderView headerView];
     self.tableView.tableHeaderView = _headView;

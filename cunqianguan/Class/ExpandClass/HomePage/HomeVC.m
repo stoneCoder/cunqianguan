@@ -53,20 +53,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self hideReturnBtn];
+    [self initNavBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self initNavBar];
     [self initAdView];
     [self initActionView];
-    [self loadAdView];
     if (_dimView) {
         [_dimView removeFromSuperview];
         _dimView = nil;
         _openView = 0;
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self loadAdView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -263,6 +266,8 @@
 #pragma mark -- GridMenuDeleage
 -(void)selectItem:(MenuCell *)cell
 {
+    [self hideMenu];
+    
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
