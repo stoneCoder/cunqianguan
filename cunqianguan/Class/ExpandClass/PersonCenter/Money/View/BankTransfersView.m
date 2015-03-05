@@ -47,6 +47,9 @@
 - (IBAction)cancleAction:(id)sender
 {
     [self hideView];
+    [_numText resignFirstResponder];
+    [_pwdText resignFirstResponder];
+    [self returnNormalPath];
 }
 
 - (IBAction)submitAction:(id)sender
@@ -71,9 +74,7 @@
     [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        if ([BaseConnect isSucceeded:dic]) {
-            [self showStringHUD:[dic objectForKey:@"info"] second:2];
-        }
+        [self showStringHUD:[dic objectForKey:@"info"] second:2];
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
@@ -92,6 +93,8 @@
             _bankNameLabel.text = _model.bankname;
             _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
             _cardNumLabel.text = [BaseUtil transformBankCard:_model.bank];
+            _numText.text = @"";
+            _pwdText.text = @"";
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];

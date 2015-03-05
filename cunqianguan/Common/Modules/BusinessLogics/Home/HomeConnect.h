@@ -14,4 +14,8 @@ DEFINE_SINGLETON_FOR_HEADER(HomeConnect)
 -(void)getIndexAdWith:(NSDictionary *)dic
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure;
+
+-(void)gethotmalllist:(NSString *)userId
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure;
 @end

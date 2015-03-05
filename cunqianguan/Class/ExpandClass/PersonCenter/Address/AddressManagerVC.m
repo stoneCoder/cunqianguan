@@ -7,10 +7,13 @@
 //
 
 #import "AddressManagerVC.h"
-
+#import "PersonInfo.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
 @interface AddressManagerVC ()<UITextFieldDelegate>
 {
     BOOL _isHaveAddress;
+    PersonInfo *_info;
 }
 
 @end
@@ -20,8 +23,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //_emptyView.backgroundColor = UIColorFromRGB(0xececec);
+    _emptyView.backgroundColor = UIColorFromRGB(0xececec);
     //_editView.backgroundColor = UIColorFromRGB(0xececec);
+    _info = [PersonInfo sharedPersonInfo];
+    if (_info.consignee) {
+        _isHaveAddress = YES;
+        _emptyView.hidden = YES;
+        _editView.hidden = NO;
+        _subBtn.hidden = YES;
+        [self disabledit:NO];
+        [self loadData];
+        [self setUpNavBtn];
+    }else{
+        _isHaveAddress = NO;
+        _emptyView.hidden = NO;
+        _editView.hidden = YES;
+    }
+}
+
+-(void)setUpNavBtn
+{
+    if (_isHaveAddress) {
+        [self setRigthBarWithDic:@{@"images":@[@"more_02"]}];
+    }
+}
+
+-(void)rightBtnClick:(id)sender
+{
+    [self disabledit:YES];
+    _subBtn.hidden = NO;
+    [_receiveText becomeFirstResponder];
+}
+
+#pragma mark -- Private
+-(void)disabledit:(BOOL)enabled
+{
+    _receiveText.enabled = enabled;
+    _addressText.enabled = enabled;
+    _zipCodeText.enabled = enabled;
+    _qqCodeText.enabled = enabled;
+    _phoneText.enabled = enabled;
+}
+
+-(void)loadData
+{
+    _receiveText.text = _info.consignee;
+    _addressText.text = _info.location;
+    _zipCodeText.text = _info.zipCode;
+    _qqCodeText.text = _info.qq;
+    _phoneText.text = _info.phone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +95,39 @@
         _editView.hidden = NO;
     } completion:^(BOOL finished) {
         
+    }];
+}
+- (IBAction)subAction:(id)sender
+{
+    NSString *consignee = _receiveText.text;
+    NSString *location = _addressText.text;
+    NSString *zipCode = _zipCodeText.text;
+    NSString *qqCode = _qqCodeText.text;
+    NSString *phone = _phoneText.text;
+    
+    if (consignee.length == 0 || location.length == 0 || zipCode.length == 0 || qqCode.length == 0 || phone.length == 0) {
+        [self showStringHUD:@"请填写完整" second:2];
+        return;
+    }
+    
+    [self showHUD:ACTION_LOAD];
+    [[PersonConnect sharedPersonConnect] updateAddress:_info.email pwd:_info.password consignee:consignee location:location zipCode:zipCode qq:qqCode phone:phone success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        if ([BaseConnect isSucceeded:dic]) {
+            _info.consignee = consignee;
+            _info.location = location;
+            _info.zipCode = zipCode;
+            _info.qq = qqCode;
+            _info.phone = phone;
+            [_info saveUserData];
+            
+            [self disabledit:NO];
+            _subBtn.hidden = YES;
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
     }];
 }
 

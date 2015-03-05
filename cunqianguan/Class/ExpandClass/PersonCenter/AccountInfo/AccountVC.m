@@ -10,8 +10,16 @@
 #import "AccountCell.h"
 
 #import "AccountEditVC.h"
-
+#import "PersonInfo.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "BankModel.h"
+#import "BaseUtil.h"
 @interface AccountVC ()<AccountCellDelegate>
+{
+    PersonInfo *_info;
+    BankModel *_model;
+}
 
 @end
 static NSString *AccountCellID = @"AccountCell";
@@ -20,12 +28,29 @@ static NSString *AccountCellID = @"AccountCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpTableView];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loadData
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
 }
 
 /*
@@ -76,6 +101,15 @@ static NSString *AccountCellID = @"AccountCell";
         [cell.cellBtn setTitle:@"修改银行卡账号" forState:UIControlStateNormal];
         [cell.cellBtn setBackgroundColor:UIColorFromRGB(0xF14349)];
     }
+    if (_model) {
+        if (indexPath.row == 0) {
+            cell.infoLabel.text = _model.alipay;
+        }else if (indexPath.row == 1){
+            cell.infoLabel.text = [BaseUtil transformBankCard:_model.bank];
+        }
+    }else{
+        cell.infoLabel.text = @"未绑定";
+    }
     return cell;
 }
 
@@ -88,6 +122,7 @@ static NSString *AccountCellID = @"AccountCell";
         accountEditVC.leftTitle = @"修改银行卡账号";
     }
     accountEditVC.viewType = cell.tag;
+    accountEditVC.model = _model;
     [self.navigationController pushViewController:accountEditVC animated:YES];
 }
 @end

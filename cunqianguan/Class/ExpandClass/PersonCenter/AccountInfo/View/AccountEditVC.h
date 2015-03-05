@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC.h"
+#import "BankModel.h"
 typedef NS_ENUM(NSInteger, ViewType) {
     ViewTypeWithAipay,
     ViewTypeWithBank,
@@ -23,4 +24,5 @@ typedef NS_ENUM(NSInteger, ViewType) {
 @property (weak, nonatomic) IBOutlet UITextField *bankPwdText;
 
 @property (assign,nonatomic) NSInteger viewType;
+@property (strong, nonatomic) BankModel *model;
 @end

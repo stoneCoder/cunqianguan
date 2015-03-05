@@ -23,4 +23,19 @@ DEFINE_SINGLETON_FOR_CLASS(HomeConnect)
         failure(json);
     } withView:nil];
 }
+
+
+-(void)gethotmalllist:(NSString *)userId
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"gethotmalllist";
+    userId = userId?userId:@"";
+    NSDictionary *dic = @{@"uid":userId};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

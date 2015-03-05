@@ -15,6 +15,7 @@
                 <outlet property="phoneText" destination="EAG-6j-y2k" id="Rez-JI-2W9"/>
                 <outlet property="qqCodeText" destination="dOd-Xi-6yL" id="4T5-1y-nCI"/>
                 <outlet property="receiveText" destination="pKW-a6-pa8" id="ajL-WM-Zdg"/>
+                <outlet property="subBtn" destination="EAZ-KZ-fHE" id="u3t-DD-y1A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="zipCodeText" destination="pRt-1n-cXZ" id="sHV-kJ-SyZ"/>
             </connections>
@@ -25,28 +26,50 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhL-V8-9CE">
-                    <rect key="frame" x="10" y="130" width="300" height="274"/>
+                    <rect key="frame" x="10" y="80" width="300" height="274"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无收货地址" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4u-ls-fox">
+                            <rect key="frame" x="108" y="175" width="85" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="r4u-ls-fox" secondAttribute="height" multiplier="17:4" id="cJr-TX-VbH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="address_empty" translatesAutoresizingMaskIntoConstraints="NO" id="zQV-j9-QZ8">
+                            <rect key="frame" x="97" y="30" width="106" height="141"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zQV-j9-QZ8" secondAttribute="height" multiplier="106:141" id="X4n-8H-eu6"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8G-ot-aN3">
                             <rect key="frame" x="5" y="202" width="290" height="44"/>
-                            <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="s8G-ot-aN3" secondAttribute="height" multiplier="145:22" id="Mek-d9-qAv"/>
                             </constraints>
-                            <state key="normal" title="添加收货地址">
+                            <state key="normal" image="confirm_address">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" image="confirm_address_hover"/>
                             <connections>
                                 <action selector="addAddress:" destination="-1" eventType="touchUpInside" id="FCz-DC-Had"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="s8G-ot-aN3" secondAttribute="bottom" constant="28" id="0H9-kn-CnP"/>
                         <constraint firstItem="s8G-ot-aN3" firstAttribute="centerX" secondItem="zhL-V8-9CE" secondAttribute="centerX" id="7Qc-AL-R6x"/>
+                        <constraint firstItem="r4u-ls-fox" firstAttribute="top" secondItem="zQV-j9-QZ8" secondAttribute="bottom" constant="4" id="DiG-8F-9ve"/>
                         <constraint firstItem="s8G-ot-aN3" firstAttribute="leading" secondItem="zhL-V8-9CE" secondAttribute="leading" constant="5" id="HkG-XU-cRW"/>
+                        <constraint firstAttribute="bottom" secondItem="s8G-ot-aN3" secondAttribute="bottom" constant="28" id="LHU-uE-NLq"/>
+                        <constraint firstItem="r4u-ls-fox" firstAttribute="leading" secondItem="zhL-V8-9CE" secondAttribute="leading" constant="108" id="PzQ-cj-CJd"/>
+                        <constraint firstAttribute="trailing" secondItem="zQV-j9-QZ8" secondAttribute="trailing" constant="97" id="lsQ-wI-7E7"/>
+                        <constraint firstItem="zQV-j9-QZ8" firstAttribute="top" secondItem="zhL-V8-9CE" secondAttribute="top" constant="30" id="nbd-rs-kP9"/>
+                        <constraint firstAttribute="trailing" secondItem="r4u-ls-fox" secondAttribute="trailing" constant="107" id="ryt-dc-ERH"/>
+                        <constraint firstItem="s8G-ot-aN3" firstAttribute="top" secondItem="r4u-ls-fox" secondAttribute="bottom" constant="7" id="ut7-AW-q5p"/>
+                        <constraint firstItem="zQV-j9-QZ8" firstAttribute="leading" secondItem="zhL-V8-9CE" secondAttribute="leading" constant="97" id="xpz-M0-zNH"/>
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-gm-Xwg">
@@ -157,6 +180,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="subAction:" destination="-1" eventType="touchUpInside" id="OnH-iP-qgq"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-Ko-FVO">
                             <rect key="frame" x="64" y="54" width="220" height="30"/>
@@ -246,18 +272,20 @@
             </subviews>
             <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="zhL-V8-9CE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="130" id="33A-8c-22W"/>
+                <constraint firstItem="zhL-V8-9CE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="33A-8c-22W"/>
                 <constraint firstAttribute="trailing" secondItem="Eno-gm-Xwg" secondAttribute="trailing" constant="10" id="Cbu-ze-B9e"/>
                 <constraint firstItem="Eno-gm-Xwg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Onp-ZH-kYK"/>
-                <constraint firstAttribute="bottom" secondItem="zhL-V8-9CE" secondAttribute="bottom" constant="144" id="gI4-3V-Fvg"/>
                 <constraint firstItem="Eno-gm-Xwg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="iD0-0V-0vQ"/>
                 <constraint firstItem="zhL-V8-9CE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kis-7N-bZP"/>
                 <constraint firstAttribute="trailing" secondItem="zhL-V8-9CE" secondAttribute="trailing" constant="10" id="tjU-IZ-9Be"/>
             </constraints>
-            <point key="canvasLocation" x="192" y="291"/>
+            <point key="canvasLocation" x="3" y="356"/>
         </view>
     </objects>
     <resources>
+        <image name="address_empty" width="106" height="141"/>
+        <image name="confirm_address" width="290" height="44"/>
+        <image name="confirm_address_hover" width="290" height="44"/>
         <image name="confirmation" width="339" height="37"/>
         <image name="text_bottom" width="339" height="44"/>
         <image name="text_center" width="339" height="44"/>

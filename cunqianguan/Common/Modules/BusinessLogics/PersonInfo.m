@@ -137,6 +137,8 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _consignee = [data objectForKey:@"consignee"];
             _location = [data objectForKey:@"location"];
             _qq = [data objectForKey:@"qq"];
+            _zipCode = [data objectForKey:@"zip_code"];
+            _phone = [data objectForKey:@"phone"];
             _collectionCount = [[data objectForKey:@"collection_count"] integerValue];
             _level = [[data objectForKey:@"level"] integerValue];
             _userExp = [[data objectForKey:@"exp"] integerValue];

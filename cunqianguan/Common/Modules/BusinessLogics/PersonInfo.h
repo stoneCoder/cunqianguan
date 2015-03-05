@@ -19,6 +19,8 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 @property (nonatomic, retain) NSString * consignee;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * qq;
+@property (nonatomic, retain) NSString * zipCode;
+@property (nonatomic, retain) NSString * phone;
 
 @property (nonatomic, assign) NSInteger collectionCount;
 @property (nonatomic, assign) NSInteger level;

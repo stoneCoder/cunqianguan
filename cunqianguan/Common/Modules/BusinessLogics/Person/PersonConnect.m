@@ -193,8 +193,97 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure
 {
-    NSString *url = @"getUserExtract";
+    NSString *url = @"userExtract";
     NSDictionary *dic =  @{@"email":email,@"password":pwd,@"money":@(money),@"type":@(type)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getBankList:(NSDictionary *)dic
+           success:(void (^)(id json))success
+           failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getBankList";
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)updateAlipay:(NSString *)email
+                pwd:(NSString *)pwd
+         aliaccount:(NSString *)account
+            success:(void (^)(id json))success
+            failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"updateAlipay";
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"alipay_account":account};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)updateBankAccount:(NSString *)email
+                     pwd:(NSString *)pwd
+             bankaccount:(NSString *)account
+               consignee:(NSString *)consignee
+                    area:(NSInteger)areaId
+                    bank:(NSInteger)bankId
+                 success:(void (^)(id json))success
+                 failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"updateBankAccount";
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"bank_account":account,@"consignee":consignee,@"area_id":@(areaId),@"bank_id":@(bankId)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getTopArea:(NSDictionary *)dic
+          success:(void (^)(id json))success
+          failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getTopArea";
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)getSubArea:(NSInteger)areaId
+          success:(void (^)(id json))success
+          failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getSubArea";
+    NSDictionary *dic = @{@"id":@(areaId)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
+
+-(void)updateAddress:(NSString *)email
+                 pwd:(NSString *)pwd
+           consignee:(NSString *)consignee
+            location:(NSString *)location
+             zipCode:(NSString *)zipCode
+                  qq:(NSString *)qqCode
+               phone:(NSString *)phone
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"updateAddress";
+    NSDictionary *dic = @{@"email":email,@"password":pwd,@"consignee":consignee,@"location":location,@"zip_code":zipCode,@"qq":qqCode,@"phone":phone};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

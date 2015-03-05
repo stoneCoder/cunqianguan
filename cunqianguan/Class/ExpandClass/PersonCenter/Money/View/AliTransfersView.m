@@ -49,6 +49,8 @@
 - (IBAction)cancleAction:(id)sender
 {
     [self hideView];
+    [_numText resignFirstResponder];
+    [_pwdText resignFirstResponder];
 }
 
 - (IBAction)submitAction:(id)sender
@@ -89,9 +91,7 @@
     [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:_type success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        if ([BaseConnect isSucceeded:dic]) {
-            [self showStringHUD:[dic objectForKey:@"info"] second:2];
-        }
+        [self showStringHUD:[dic objectForKey:@"info"] second:2];
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
@@ -137,6 +137,8 @@
             }else if (_type == 2){
                 _moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)_info.pointSite];
             }
+            _numText.text = @"";
+            _pwdText.text = @"";
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];

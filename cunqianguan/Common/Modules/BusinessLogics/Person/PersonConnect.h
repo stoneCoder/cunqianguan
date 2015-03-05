@@ -79,4 +79,42 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
                  type:(NSInteger)type
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure;
+
+-(void)getBankList:(NSDictionary *)dic
+           success:(void (^)(id json))success
+           failure:(void (^)( NSError *err))failure;
+
+-(void)updateAlipay:(NSString *)email
+                pwd:(NSString *)pwd
+         aliaccount:(NSString *)account
+            success:(void (^)(id json))success
+            failure:(void (^)( NSError *err))failure;
+
+-(void)updateBankAccount:(NSString *)email
+                pwd:(NSString *)pwd
+         bankaccount:(NSString *)account
+               consignee:(NSString *)consignee
+                    area:(NSInteger)areaId
+                    bank:(NSInteger)bankId
+            success:(void (^)(id json))success
+            failure:(void (^)( NSError *err))failure;
+
+-(void)getTopArea:(NSDictionary *)dic
+          success:(void (^)(id json))success
+          failure:(void (^)( NSError *err))failure;
+
+-(void)getSubArea:(NSInteger)areaId
+          success:(void (^)(id json))success
+          failure:(void (^)( NSError *err))failure;
+
+-(void)updateAddress:(NSString *)email
+                 pwd:(NSString *)pwd
+           consignee:(NSString *)consignee
+            location:(NSString *)location
+             zipCode:(NSString *)zipCode
+                  qq:(NSString *)qqCode
+               phone:(NSString *)phone
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure;
+
 @end

@@ -20,6 +20,7 @@
 #import "FootPrintsVC.h"
 #import "ExChangeCenterVC.h"
 #import "PersonCenterVC.h"
+#import "HotShopVC.h"
 
 #import "BaseMutableMenu.h"
 #import "GoodsViewVC.h"
@@ -312,6 +313,7 @@
         case 1005:
             //商城
             tapView.backgroundColor = UIColorFromRGB(0x33a5c2);
+            [self pushHotShop];
             break;
         case 1006:
             //我的
@@ -357,6 +359,19 @@
     ReturnHomeVC *returnHomeVC =[[ReturnHomeVC alloc] initWithCollectionViewLayout:flowLayout];
     returnHomeVC.leftTitle = @"返利购";
     [self.navigationController pushViewController:returnHomeVC animated:YES];
+}
+
+-(void)pushHotShop
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 10.0;
+    
+    HotShopVC *hotShopVC =[[HotShopVC alloc] initWithCollectionViewLayout:flowLayout];
+    hotShopVC.leftTitle = @"商城";
+    [self.navigationController pushViewController:hotShopVC animated:YES];
 }
 
 -(void)pushExChangeCenter
