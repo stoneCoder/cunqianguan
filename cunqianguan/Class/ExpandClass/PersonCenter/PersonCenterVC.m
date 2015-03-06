@@ -45,13 +45,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
-    [self initSignStatus];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     if (_info.userId) {
         [personHeaderView loadView:_info];
+        [self initSignStatus];
     }else{
         personHeaderView.nameLabel.text = @"请登录";
     }
@@ -118,7 +118,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     [[PersonConnect sharedPersonConnect] initSignStatus:userId success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
-            _info.isSignToday = [dic objectForKey:@"data"];
+            _info.isSignToday = [[dic objectForKey:@"data"] boolValue];
             [_info saveUserData];
         }
     } failure:^(NSError *err) {
