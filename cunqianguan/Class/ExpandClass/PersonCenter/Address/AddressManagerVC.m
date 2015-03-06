@@ -26,7 +26,7 @@
     _emptyView.backgroundColor = UIColorFromRGB(0xececec);
     //_editView.backgroundColor = UIColorFromRGB(0xececec);
     _info = [PersonInfo sharedPersonInfo];
-    if (_info.consignee) {
+    if (_info.consignee && ![_info.consignee isEqual:[NSNull null]]) {
         _isHaveAddress = YES;
         _emptyView.hidden = YES;
         _editView.hidden = NO;

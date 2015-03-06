@@ -2,13 +2,18 @@
 //  RebateHomeVC.m
 //  cunqianguan
 //
-//  Created by 四三一八 on 15/1/22.
+//  Created by 四三一八 on 15/3/6.
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
 #import "RebateHomeVC.h"
+#import "Constants.h"
 
-@interface RebateHomeVC ()
+#import "PersonInfo.h"
+@interface RebateHomeVC ()<UIWebViewDelegate>
+{
+    PersonInfo *_info;
+}
 
 @end
 
@@ -17,23 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self hideReturnBtn];
-    [self setUpNavBtn];
-    
-}
-
--(void)setUpNavBtn
-{
-    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"home_hover"] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(pushToHome) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.leftBarButtonItem = leftBtnItem;
-    self.navigationItem.leftBarButtonItem = leftBtnItem;
-    
-    NSDictionary *imageDic = @{@"images":@[@"share",@"jiaoya",@"taobao_btn"],@"imageshover":@[@"share_hover",@"jiaoya_hover",@"taobao_btn_hover"]};
-    [self setRigthBarWithDic:imageDic];
+    _info = [PersonInfo sharedPersonInfo];
+    [self setUpWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,15 +31,25 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)pushToHome
+-(void)setUpWebView
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - 64);
+    self.webView.scalesPageToFit = YES;
+    self.webView.delegate = self;
+
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@&uid=%@",aiTaoUrl,MM,_info.userId];
+    NSURL* url = [NSURL URLWithString:urlStr];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
 }
 
--(void)rightBtnClick:(id)sender
+- (void)leftBtnClicked:(id)sender
 {
-    UIButton *btn = (UIButton *)sender;
-    NSLog(@"%ld---------->qweqweqwe",(long)btn.tag);
+    if ([self.webView canGoBack]) {
+        [self.webView goBack];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 /*
@@ -61,5 +61,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark -- WebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showHUD:DATA_LOAD];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideAllHUD];
+}
 
 @end

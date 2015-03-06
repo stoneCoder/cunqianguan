@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CollectModel.h"
 @interface CollectCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saleNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fanliLabel;
+-(void)loadCell:(CollectModel *)model;
 @end

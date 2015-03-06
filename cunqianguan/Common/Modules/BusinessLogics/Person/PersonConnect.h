@@ -24,9 +24,11 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
             success:(void (^)(id json))success
             failure:(void (^)( NSError *err))failure;
 
--(void)getUserFavorite:(NSString *)userId
-            success:(void (^)(id json))success
-            failure:(void (^)( NSError *err))failure;
+-(void)getUserFavorite:(NSString *)email
+                   pwd:(NSString *)pwd
+                  page:(NSInteger)page
+               success:(void (^)(id json))success
+               failure:(void (^)( NSError *err))failure;
 
 -(void)addUserFavorite:(NSString *)userId
            withGoodKey:(NSString *)goodKey

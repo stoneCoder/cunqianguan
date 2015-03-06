@@ -330,6 +330,7 @@
 -(void)pushRebateHome
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
+    rebateHomeVC.leftTitle = @"淘宝返利";
     [self.navigationController pushViewController:rebateHomeVC animated:YES];
 }
 
@@ -365,9 +366,9 @@
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(5, 5, 0, 5)];
     flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 10.0;
+    flowLayout.minimumLineSpacing = 5.0;
     
     HotShopVC *hotShopVC =[[HotShopVC alloc] initWithCollectionViewLayout:flowLayout];
     hotShopVC.leftTitle = @"商城";

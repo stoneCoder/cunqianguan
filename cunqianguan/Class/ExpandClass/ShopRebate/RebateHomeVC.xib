@@ -14,64 +14,10 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanlitishi" translatesAutoresizingMaskIntoConstraints="NO" id="T1o-vL-czz">
-                    <rect key="frame" x="0.0" y="114" width="320" height="433"/>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8Y-9y-W7N">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sousuo" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-u3-ZDo">
-                            <rect key="frame" x="16" y="9" width="290" height="40"/>
-                            <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入宝贝关键字" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9at-n2-UNH">
-                            <rect key="frame" x="58" y="11" width="207" height="36"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeT-op-wsh">
-                            <rect key="frame" x="273" y="17" width="23" height="23"/>
-                            <state key="normal" image="sousuo_btn">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="9at-n2-UNH" firstAttribute="top" secondItem="S8Y-9y-W7N" secondAttribute="top" constant="11" id="Ace-oo-Ri8"/>
-                        <constraint firstItem="FeT-op-wsh" firstAttribute="leading" secondItem="9at-n2-UNH" secondAttribute="trailing" constant="8" symbolic="YES" id="Bgf-dt-kyk"/>
-                        <constraint firstAttribute="bottom" secondItem="t8S-u3-ZDo" secondAttribute="bottom" constant="7" id="IQd-MC-s6N"/>
-                        <constraint firstItem="t8S-u3-ZDo" firstAttribute="leading" secondItem="S8Y-9y-W7N" secondAttribute="leading" constant="16" id="TJP-2K-nm5"/>
-                        <constraint firstItem="t8S-u3-ZDo" firstAttribute="centerX" secondItem="9at-n2-UNH" secondAttribute="centerX" id="ZZI-Dv-RaZ"/>
-                        <constraint firstItem="FeT-op-wsh" firstAttribute="centerY" secondItem="S8Y-9y-W7N" secondAttribute="centerY" id="ZfU-aL-P12"/>
-                        <constraint firstAttribute="trailing" secondItem="t8S-u3-ZDo" secondAttribute="trailing" constant="14" id="a7h-zg-2zP"/>
-                        <constraint firstItem="t8S-u3-ZDo" firstAttribute="top" secondItem="S8Y-9y-W7N" secondAttribute="top" constant="9" id="ddn-CV-ALe"/>
-                        <constraint firstItem="FeT-op-wsh" firstAttribute="top" secondItem="S8Y-9y-W7N" secondAttribute="top" constant="17" id="mM0-uI-DcA"/>
-                        <constraint firstItem="9at-n2-UNH" firstAttribute="leading" secondItem="S8Y-9y-W7N" secondAttribute="leading" constant="58" id="nzN-0n-OEO"/>
-                        <constraint firstItem="t8S-u3-ZDo" firstAttribute="centerY" secondItem="9at-n2-UNH" secondAttribute="centerY" id="swK-Ef-obe"/>
-                    </constraints>
-                </view>
-            </subviews>
-            <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="T1o-vL-czz" firstAttribute="leading" secondItem="S8Y-9y-W7N" secondAttribute="leading" id="0nJ-1C-Yx9"/>
-                <constraint firstItem="S8Y-9y-W7N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AnR-EL-9p9"/>
-                <constraint firstAttribute="trailing" secondItem="T1o-vL-czz" secondAttribute="trailing" id="Ezh-TG-LcJ"/>
-                <constraint firstItem="S8Y-9y-W7N" firstAttribute="trailing" secondItem="T1o-vL-czz" secondAttribute="trailing" id="K0R-FH-xNc"/>
-                <constraint firstAttribute="bottom" secondItem="T1o-vL-czz" secondAttribute="bottom" constant="1" id="PgJ-qW-hwC"/>
-                <constraint firstItem="S8Y-9y-W7N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="l7G-oR-mgb"/>
-                <constraint firstItem="T1o-vL-czz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="rwR-UM-CYJ"/>
-                <constraint firstItem="T1o-vL-czz" firstAttribute="top" secondItem="S8Y-9y-W7N" secondAttribute="bottom" constant="58" id="uOS-57-3Of"/>
-            </constraints>
-            <point key="canvasLocation" x="-156" y="110"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="64" y="235"/>
         </view>
     </objects>
-    <resources>
-        <image name="fanlitishi" width="375" height="437"/>
-        <image name="sousuo" width="345" height="40"/>
-        <image name="sousuo_btn" width="23" height="23"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

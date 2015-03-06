@@ -33,3 +33,7 @@ extern NSString *const WeChatAppID;
 extern NSString *const QQAppKey;
 extern NSString *const QQAppID;
 
+extern NSString *const MM;
+
+extern NSString *const aiTaoUrl;
+

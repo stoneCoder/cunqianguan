@@ -47,12 +47,14 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
     } withView:nil];
 }
 
--(void)getUserFavorite:(NSString *)userId
+-(void)getUserFavorite:(NSString *)email
+                   pwd:(NSString *)pwd
+                  page:(NSInteger)page
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getUserFavorite";
-    NSDictionary *dic =  @{@"uid":userId};
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"page":@(page),@"perpage":@(PAGE_COUNT)};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

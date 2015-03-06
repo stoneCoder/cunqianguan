@@ -129,9 +129,10 @@
                     _hideTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(dismisSelf) userInfo:nil repeats:NO];
                 }
             } failure:^(id json) {
-                
+                 [self hideAllHUD];
             }];
         }else{
+            [self hideAllHUD];
             [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
             return;
         }

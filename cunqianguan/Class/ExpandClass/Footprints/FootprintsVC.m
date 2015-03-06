@@ -9,8 +9,16 @@
 #import "FootPrintsVC.h"
 #import "FootPrintsCell.h"
 
-
-@interface FootPrintsVC ()
+#import "FootConnect.h"
+#import "BaseConnect.h"
+#import "PersonInfo.h"
+#import "FootListModel.h"
+@interface FootPrintsVC ()<SWTableViewCellDelegate>
+{
+    PersonInfo *_info;
+    NSInteger _pageNum;
+    NSMutableArray *_data;
+}
 
 @end
 static NSString *CellID=@"FootPrintsCell";
@@ -19,8 +27,12 @@ static NSString *CellID=@"FootPrintsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _pageNum = 1;
+    _info = [PersonInfo sharedPersonInfo];
+    _data = [NSMutableArray array];
     [self setUpNavbtn];
     [self setUpTableView];
+    [self loadData:_pageNum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,10 +69,42 @@ static NSString *CellID=@"FootPrintsCell";
     NSLog(@"%ld------------->",(long)btn.tag);
 }
 
+-(void)loadData:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    [[FootConnect sharedFootConnect] getTraceGoods:_info.userId withPage:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            FootListModel *listModel = [[FootListModel alloc] initWithDictionary:dic error:nil];
+            if(page == 1){
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:listModel.data];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadData:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadData:_pageNum];
+    [super moreFresh];
+}
+
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,13 +115,14 @@ static NSString *CellID=@"FootPrintsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //FootPrintsCell1 *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
-     FootPrintsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+    FootPrintsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
     cell.rightUtilityButtons = [self cellRightButtons];
-    //cell.delegate = self;
+    cell.delegate = self;
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
     [cell setCellHeight:cell.frame.size.height];
+    cell.tag = indexPath.row;
+    [cell loadCell:_data[indexPath.row]];
     return cell;
 }
 
@@ -91,6 +136,37 @@ static NSString *CellID=@"FootPrintsCell";
     NSMutableArray *rightUtilityButtons = [NSMutableArray array];
     [rightUtilityButtons sw_addUtilityButtonWithColor:UIColorFromRGB(0xff2222) title:@"删除"];
     return rightUtilityButtons;
+}
+
+#pragma mark - SWTableViewCell delegate
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
+    FootModel *model = _data[cell.tag];
+    switch (index) {
+        case 0:
+            // 置顶
+            [self deleteFootTrace:model.goodkey];
+            break;
+    }
+}
+
+-(void)deleteFootTrace:(NSString *)goodKey
+{
+    [self showHUD:ACTION_LOAD];
+    [[FootConnect sharedFootConnect] delTrace:_info.userId withGoodKey:goodKey success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        if ([BaseConnect isSucceeded:dic]) {
+            [self hideAllHUD];
+            [self loadData:1];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell{
+    return YES;
 }
 
 @end

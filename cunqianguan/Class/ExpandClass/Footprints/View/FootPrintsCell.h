@@ -7,7 +7,13 @@
 //
 
 #import "SWTableViewCell.h"
-
+#import "FootModel.h"
 @interface FootPrintsCell : SWTableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLable;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fanliLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+-(void)loadCell:(FootModel *)model;
 @end

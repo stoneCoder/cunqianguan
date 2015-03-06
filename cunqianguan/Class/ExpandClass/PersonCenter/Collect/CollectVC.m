@@ -9,7 +9,16 @@
 #import "CollectVC.h"
 #import "CollectCell.h"
 
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "PersonInfo.h"
+#import "CollectListModel.h"
 @interface CollectVC ()
+{
+    NSInteger _pageNum;
+    NSMutableArray *_data;
+    PersonInfo *_info;
+}
 
 @end
 static NSString *collectID = @"CollectCell";
@@ -18,7 +27,11 @@ static NSString *collectID = @"CollectCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _pageNum = 1;
+    _data = [NSMutableArray array];
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpCollection];
+    [self loadData:_pageNum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +56,41 @@ static NSString *collectID = @"CollectCell";
     [self setRefreshEnabled:YES];
 }
 
+-(void)loadData:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserFavorite:_info.email pwd:_info.password page:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            CollectListModel *listModel = [[CollectListModel alloc] initWithDictionary:dic error:nil];
+            if (page == 1) {
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:listModel.data];
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadData:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadData:_pageNum];
+    [super moreFresh];
+}
+
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return _data.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -56,6 +101,7 @@ static NSString *collectID = @"CollectCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CollectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectID forIndexPath:indexPath];
     cell.tag = indexPath.row;
+    [cell loadCell:_data[indexPath.row]];
     return cell;
 }
 

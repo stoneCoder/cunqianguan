@@ -39,3 +39,7 @@ NSString *const WeChatAppID  = @"wx9af45d9c2a6fd036";
 //QQ AppKey&AppID
 NSString *const QQAppKey = @"dA20dR13RcQV3GnR";
 NSString *const QQAppID = @"1102956721";
+
+NSString *const MM = @"mm_27280417_3404443_14496902";
+
+NSString *const aiTaoUrl = @"http://ai.m.taobao.com?pid=";
