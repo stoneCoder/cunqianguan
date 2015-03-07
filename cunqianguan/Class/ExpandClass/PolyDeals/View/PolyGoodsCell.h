@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *qLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *hotTipImage;
+
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type;
 @end

@@ -42,7 +42,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
-    _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"更多"]};
+    _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"话费充值",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
 }
@@ -206,6 +206,10 @@ static NSString *FooterViewID = @"PersonFooterView";
                 inviteVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:inviteVC animated:YES];
             }else if (indexPath.row == 1){
+                MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
+                moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                [self.navigationController pushViewController:moreSettingVC animated:YES];
+            }else if (indexPath.row == 2){
                 MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
                 moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:moreSettingVC animated:YES];

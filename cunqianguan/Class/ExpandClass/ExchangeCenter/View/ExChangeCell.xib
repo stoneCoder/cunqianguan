@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,23 +15,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="216"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmO-VJ-zBw">
-                        <rect key="frame" x="5" y="3" width="150" height="162"/>
+                        <rect key="frame" x="5" y="3" width="150" height="153"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bmO-VJ-zBw" secondAttribute="height" multiplier="50:51" id="nk7-Rm-Wav"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1050积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-bz-rsj">
                         <rect key="frame" x="4" y="197" width="60" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="maJ-bz-rsj" secondAttribute="height" multiplier="60:17" id="ezL-tX-88a"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.18039215689999999" green="0.86274509799999999" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="剩20340件" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnU-TC-OEj">
-                        <rect key="frame" x="96" y="197" width="59" height="17"/>
+                        <rect key="frame" x="90" y="197" width="67" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JnU-TC-OEj" secondAttribute="height" multiplier="59:15" id="2Bd-eu-LC7"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男生秋冬" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qH-Pw-xNt">
-                        <rect key="frame" x="5" y="169" width="150" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="5" y="164" width="150" height="31"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,20 +49,18 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="JnU-TC-OEj" firstAttribute="leading" secondItem="maJ-bz-rsj" secondAttribute="trailing" constant="32" id="0el-rf-Y6K"/>
-                <constraint firstAttribute="trailing" secondItem="bmO-VJ-zBw" secondAttribute="trailing" constant="5" id="2eD-JP-hFL"/>
-                <constraint firstItem="maJ-bz-rsj" firstAttribute="top" secondItem="4qH-Pw-xNt" secondAttribute="bottom" constant="7" id="9S5-ZM-RFe"/>
-                <constraint firstAttribute="trailing" secondItem="4qH-Pw-xNt" secondAttribute="trailing" constant="5" id="Avb-cy-yOK"/>
-                <constraint firstItem="4qH-Pw-xNt" firstAttribute="top" secondItem="bmO-VJ-zBw" secondAttribute="bottom" constant="4" id="FQH-oF-hrA"/>
-                <constraint firstItem="4qH-Pw-xNt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Gkc-GS-3lO"/>
-                <constraint firstAttribute="trailing" secondItem="JnU-TC-OEj" secondAttribute="trailing" constant="5" id="IGx-T8-NPW"/>
-                <constraint firstItem="JnU-TC-OEj" firstAttribute="top" secondItem="4qH-Pw-xNt" secondAttribute="bottom" constant="7" id="RyX-1R-8V6"/>
-                <constraint firstItem="JnU-TC-OEj" firstAttribute="baseline" secondItem="maJ-bz-rsj" secondAttribute="baseline" id="WSW-83-KcE"/>
-                <constraint firstItem="JnU-TC-OEj" firstAttribute="leading" secondItem="maJ-bz-rsj" secondAttribute="trailing" constant="32" id="XC9-ga-2Ae"/>
-                <constraint firstAttribute="bottom" secondItem="maJ-bz-rsj" secondAttribute="bottom" constant="2" id="XXJ-TL-95o"/>
-                <constraint firstItem="bmO-VJ-zBw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="Yhx-Kd-Dq8"/>
-                <constraint firstItem="maJ-bz-rsj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="u54-k2-Bc0"/>
-                <constraint firstItem="bmO-VJ-zBw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="xfO-ET-S9V"/>
+                <constraint firstItem="4qH-Pw-xNt" firstAttribute="top" secondItem="bmO-VJ-zBw" secondAttribute="bottom" constant="8" id="7D0-o8-bU1"/>
+                <constraint firstItem="4qH-Pw-xNt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="IEJ-IL-kj9"/>
+                <constraint firstAttribute="trailing" secondItem="JnU-TC-OEj" secondAttribute="trailing" constant="3" id="Kuf-F2-a8S"/>
+                <constraint firstAttribute="trailing" secondItem="4qH-Pw-xNt" secondAttribute="trailing" constant="5" id="LbS-Fg-eCp"/>
+                <constraint firstItem="maJ-bz-rsj" firstAttribute="top" secondItem="4qH-Pw-xNt" secondAttribute="bottom" constant="2" id="NdQ-Oa-v5r"/>
+                <constraint firstItem="bmO-VJ-zBw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="P5v-Rt-18W"/>
+                <constraint firstItem="maJ-bz-rsj" firstAttribute="baseline" secondItem="JnU-TC-OEj" secondAttribute="baseline" id="QBN-ry-bYp"/>
+                <constraint firstAttribute="bottom" secondItem="maJ-bz-rsj" secondAttribute="bottom" constant="2" id="Snf-LM-UcZ"/>
+                <constraint firstAttribute="trailing" secondItem="bmO-VJ-zBw" secondAttribute="trailing" constant="5" id="gU8-OT-aYP"/>
+                <constraint firstItem="maJ-bz-rsj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="mEF-rn-y5e"/>
+                <constraint firstItem="bmO-VJ-zBw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="pug-DR-UKE"/>
+                <constraint firstItem="maJ-bz-rsj" firstAttribute="top" secondItem="JnU-TC-OEj" secondAttribute="top" id="z9n-tw-bRi"/>
             </constraints>
             <size key="customSize" width="146" height="194"/>
             <connections>
@@ -61,7 +69,7 @@
                 <outlet property="stockLabel" destination="JnU-TC-OEj" id="Uor-uY-vzS"/>
                 <outlet property="titleLabel" destination="4qH-Pw-xNt" id="6h6-SL-PRc"/>
             </connections>
-            <point key="canvasLocation" x="423" y="394"/>
+            <point key="canvasLocation" x="-121" y="400"/>
         </collectionViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

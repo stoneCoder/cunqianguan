@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CollectModel.h"
+#import "CheckmarkView.h"
 @interface CollectCell : UICollectionViewCell
+@property (nonatomic, strong) CheckmarkView *checkmarkView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

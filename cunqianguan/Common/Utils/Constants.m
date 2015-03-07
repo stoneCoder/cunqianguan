@@ -43,3 +43,9 @@ NSString *const QQAppID = @"1102956721";
 NSString *const MM = @"mm_27280417_3404443_14496902";
 
 NSString *const aiTaoUrl = @"http://ai.m.taobao.com?pid=";
+
+NSString *const MALL_TB_URL1 = @"http://www.tmall.com/?force=m&pid=";
+
+NSString *const MALL_TB_URL2 = @"http://m.taobao.com/channel/chn/mobile/tejia_taoke.php?pid=";
+
+NSString *const MALL_TB_URL3 = @"http://m.trip.taobao.com/trip/index.html?pid=";

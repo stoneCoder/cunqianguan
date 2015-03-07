@@ -10,7 +10,7 @@
 @protocol CollectModel @end
 @interface CollectModel : JSONModel
 @property (assign, nonatomic) NSInteger commissionRate;
-@property (strong, nonatomic) NSString *goodKey;
+@property (strong, nonatomic) NSString *goodkey;
 @property (strong, nonatomic) NSString *itemUrl;
 @property (strong, nonatomic) NSString *picUrl;
 @property (assign, nonatomic) CGFloat price;

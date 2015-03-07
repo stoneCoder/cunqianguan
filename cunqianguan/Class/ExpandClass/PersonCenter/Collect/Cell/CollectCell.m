@@ -14,6 +14,12 @@
     // Initialization code
     _titleLabel.numberOfLines = 0;
     _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    _checkmarkView = [[CheckmarkView alloc] initWithFrame:CGRectMake(10, 10, 24.0, 24.0)];
+    _checkmarkView.autoresizingMask = UIViewAutoresizingNone;
+    _checkmarkView.hidden = YES;
+    _checkmarkView.assetCollectionCell = self;
+    [self addSubview:_checkmarkView];
 }
 
 -(void)loadCell:(CollectModel *)model

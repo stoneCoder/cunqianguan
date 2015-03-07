@@ -35,6 +35,8 @@
 #import "AdListModel.h"
 #import "AdModel.h"
 
+#import "AppDelegate.h"
+
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
     TapActionView *_actionView;
@@ -148,6 +150,8 @@
     loginVC.leftTitle = @"登陆";
     BaseNC *nav = [[BaseNC alloc] initWithRootViewController:loginVC];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
+//    AppDelegate * del=(AppDelegate *)[UIApplication sharedApplication].delegate;
+//    [del presentShareView:self];
 }
 
 - (void)leftBtnClicked:(id)sender

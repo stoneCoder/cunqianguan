@@ -8,16 +8,22 @@
 
 #import "CollectVC.h"
 #import "CollectCell.h"
+#import "AllCheckView.h"
 
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "PersonInfo.h"
 #import "CollectListModel.h"
-@interface CollectVC ()
+#import "UIBarButtonItem+Badge.h"
+@interface CollectVC ()<AllCheckViewDelegate,CheckmarkViewDelegate>
 {
     NSInteger _pageNum;
     NSMutableArray *_data;
     PersonInfo *_info;
+    AllCheckView *_checkView;
+    BOOL _isAllCheck;
+    BOOL _isEditModel;
+    NSMutableArray *_checkArray;
 }
 
 @end
@@ -28,9 +34,14 @@ static NSString *collectID = @"CollectCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _pageNum = 1;
+    _isAllCheck = NO;
+    _isEditModel = NO;
     _data = [NSMutableArray array];
+    _checkArray = [NSMutableArray array];
     _info = [PersonInfo sharedPersonInfo];
+    [self setUpNavBtn];
     [self setUpCollection];
+    [self setUpBottom];
     [self loadData:_pageNum];
 }
 
@@ -48,12 +59,32 @@ static NSString *collectID = @"CollectCell";
     // Pass the selected object to the new view controller.
 }
 */
+-(void)setUpNavBtn
+{
+    UIButton *rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
+    [rigthButton setBackgroundImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [rigthButton setBackgroundImage:[UIImage imageNamed:@"delete_down"] forState:UIControlStateHighlighted];
+    [rigthButton addTarget:self action:@selector(deleteModel:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
+    self.navigationItem.rightBarButtonItem = rightBtnItem;
+}
+
 -(void)setUpCollection
 {
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
     UINib *cellNib = [UINib nibWithNibName:@"CollectCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectID];
     [self setRefreshEnabled:YES];
+}
+
+-(void)setUpBottom
+{
+    _checkView = [AllCheckView init];
+    _checkView.hidden = YES;
+    _checkView.delegate = self;
+    _checkView.frame = CGRectMake(0, VIEW_HEIGHT - 100, SCREEN_WIDTH, 100);
+    _checkView.layer.shadowOpacity = 0.1;
+    [self.view insertSubview:_checkView aboveSubview:self.collectionView];
 }
 
 -(void)loadData:(NSInteger)page
@@ -88,6 +119,13 @@ static NSString *collectID = @"CollectCell";
     [super moreFresh];
 }
 
+-(void)deleteModel:(id)sender
+{
+    _isEditModel = YES;
+    _checkView.hidden = NO;
+    [self.collectionView reloadData];
+}
+
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return _data.count;
@@ -101,12 +139,89 @@ static NSString *collectID = @"CollectCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CollectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectID forIndexPath:indexPath];
     cell.tag = indexPath.row;
+    cell.checkmarkView.tag = indexPath.row;
+    cell.checkmarkView.delegate = self;
     [cell loadCell:_data[indexPath.row]];
+    if (_isEditModel) {
+        cell.checkmarkView.hidden = NO;
+        if (_isAllCheck) {
+            [cell.checkmarkView check];
+        }else{
+            [cell.checkmarkView uncheck];
+        }
+    }else{
+        cell.checkmarkView.hidden = YES;
+    }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
+}
+
+#pragma mark --  CheckmarkViewDelegate
+-(BOOL)checkmarkViewShouldCheck:(CheckmarkView*)checkmarkView
+{
+    return YES;
+}
+
+-(void)checkmarkViewDidCheck:(CheckmarkView*)checkmarkView
+{
+    CollectModel *model = _data[checkmarkView.tag];
+    NSString *goodKey = model.goodkey;
+    if (![_checkArray containsObject:goodKey]) {
+        [_checkArray addObject:goodKey];
+    }
+}
+
+-(void)checkmarkViewDidUncheck:(CheckmarkView*)checkmarkView
+{
+    CollectModel *model = _data[checkmarkView.tag];
+    NSString *goodKey = model.goodkey;
+    [_checkArray removeObject:goodKey];
+}
+#pragma mark -- AllCheckViewDelegate
+-(void)allCheckAction
+{
+    if (_isAllCheck) {
+        _isAllCheck = NO;
+    }else{
+        _isAllCheck = YES;
+    }
+    [self.collectionView reloadData];
+}
+
+-(void)cancleAction
+{
+    _isAllCheck = NO;
+    _isEditModel = NO;
+    _checkView.hidden = YES;
+    [self.collectionView reloadData];
+}
+
+-(void)submitAction
+{
+    NSLog(@"%@------------->",_checkArray);
+    if (_checkArray.count == 0) {
+        [self showStringHUD:@"请选择需删除选项" second:2];
+    }else{
+        [self showHUD:ACTION_LOAD];
+        NSString *goodKeys = [_checkArray componentsJoinedByString:@","];
+        [[PersonConnect sharedPersonConnect] delUserFavorite:_info.userId withGoodKey:goodKeys success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+            if ([BaseConnect isSucceeded:dic]) {
+                _isAllCheck = NO;
+                _isEditModel = NO;
+                _checkView.hidden = YES;
+                [self loadData:1];
+            }
+        } failure:^(NSError *err) {
+            [self hideAllHUD];
+        }];
+    }
+    
 }
 @end

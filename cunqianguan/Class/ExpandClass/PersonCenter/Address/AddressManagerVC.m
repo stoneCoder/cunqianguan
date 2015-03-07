@@ -44,7 +44,7 @@
 -(void)setUpNavBtn
 {
     if (_isHaveAddress) {
-        [self setRigthBarWithDic:@{@"images":@[@"more_02"]}];
+        [self setRigthBarWithDic:@{@"images":@[@"edit"],@"imageshover":@[@"edit_down"]}];
     }
 }
 

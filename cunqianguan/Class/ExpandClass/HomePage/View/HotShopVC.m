@@ -9,6 +9,7 @@
 #import "HotShopVC.h"
 #import "HotShopCell.h"
 
+#import "Constants.h"
 #import "PersonInfo.h"
 #import "HomeConnect.h"
 #import "BaseConnect.h"
@@ -30,6 +31,7 @@ static NSString *hotShopCellID = @"HotShopCell";
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
     _data = [NSMutableArray array];
+    [self initLocalData];
     [self setUpCollection];
     [self loadData];
 }
@@ -53,6 +55,30 @@ static NSString *hotShopCellID = @"HotShopCell";
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
     UINib *cellNib=[UINib nibWithNibName:@"HotShopCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:hotShopCellID];
+}
+
+-(void)initLocalData
+{
+    HotShopModel *tmall = [[HotShopModel alloc] init];
+    tmall.mallName = @"天猫商城";
+    tmall.fanli = @"55%";
+    tmall.logo = @"tmall_shop";
+    tmall.fanliUrl = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL1,MM,_info.userId];
+    [_data addObject:tmall];
+    
+    HotShopModel *dayBuy = [[HotShopModel alloc] init];
+    dayBuy.mallName = @"天天特价";
+    dayBuy.fanli = @"55%";
+    dayBuy.logo = @"day_shop";
+    dayBuy.fanliUrl = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL2,MM,_info.userId];
+    [_data addObject:dayBuy];
+    
+    HotShopModel *taobao = [[HotShopModel alloc] init];
+    taobao.mallName = @"淘宝旅行";
+    taobao.fanli = @"55%";
+    taobao.logo = @"ali_travel";
+    taobao.fanliUrl = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL3,MM,_info.userId];
+    [_data addObject:taobao];
 }
 
 -(void)loadData

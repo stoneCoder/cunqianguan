@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
 -(void)loadCell:(ExChangeModel *)model

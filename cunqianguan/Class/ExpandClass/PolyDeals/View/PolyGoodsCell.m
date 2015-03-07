@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _title.numberOfLines = 0;
+    _title.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type
@@ -19,6 +21,7 @@
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
     if (type == 0) {
         _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)model.qcount];
+        _hotTipImage.hidden = NO;
     }else{
         switch (model.status) {
             case 3:

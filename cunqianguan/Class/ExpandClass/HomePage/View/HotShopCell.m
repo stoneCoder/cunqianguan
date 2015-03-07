@@ -16,7 +16,11 @@
 
 -(void)loadCell:(HotShopModel *)model
 {
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logo]];
+    if ([model.mallName isEqualToString:@"天猫商城"] || [model.mallName isEqualToString:@"天天特价"] || [model.mallName isEqualToString:@"淘宝旅行"]) {
+        _logoImageView.image = [UIImage imageNamed:model.logo];
+    }else{
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logo]];
+    }
     
     NSString *priceText = [NSString stringWithFormat:@"最高返利%@",model.fanli];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];

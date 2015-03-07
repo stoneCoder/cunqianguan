@@ -16,7 +16,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaHandler.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UMSocialUIDelegate>
 
 @end
 static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
@@ -52,6 +52,16 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     //[UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://test.4318.com"];
 }
 
+-(void)presentShareView:(UIViewController *)controller
+{
+    [UMSocialSnsService presentSnsIconSheetView:controller
+                                         appKey:nil
+                                      shareText:@"你要分享的文字"
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToTencent,nil]
+                                       delegate:self];
+}
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return  [UMSocialSnsService handleOpenURL:url];
@@ -63,6 +73,18 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
 {
     return  [UMSocialSnsService handleOpenURL:url];
 }
+
+#pragma mark -- 
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

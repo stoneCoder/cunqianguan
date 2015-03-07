@@ -292,4 +292,11 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getUserInvite:(NSString *)userId
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure
+{
+    
+}
 @end

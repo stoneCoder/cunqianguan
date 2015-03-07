@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
 -(void)loadCell:(MongoModel *)mongoModel
@@ -25,7 +27,7 @@
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0,1)];
     _priceLabel.attributedText = str;
     
-    NSString *oldPriceText = [NSString stringWithFormat:@"%.2f",mongoModel.price_old];
+    NSString *oldPriceText = [NSString stringWithFormat:@"￥%.2f",mongoModel.price_old];
     NSMutableAttributedString *oldStr = [[NSMutableAttributedString alloc] initWithString:oldPriceText];
     [oldStr addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, oldPriceText.length)];
     _oldPriceLabel.attributedText = oldStr;

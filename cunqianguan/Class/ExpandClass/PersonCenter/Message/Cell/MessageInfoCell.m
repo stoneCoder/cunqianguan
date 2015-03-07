@@ -17,6 +17,13 @@
     // Drawing code
 }
 */
+
+- (void)awakeFromNib {
+    // Initialization code
+    _infoLabel.numberOfLines = 0;
+    _infoLabel.lineBreakMode = NSLineBreakByCharWrapping;
+}
+
  //0 通知 1 公告
 -(void)loadCell:(MsgModel *)model
 {

@@ -13,6 +13,8 @@
 #import "BaseConnect.h"
 #import "MsgListModel.h"
 #import "PersonInfo.h"
+
+#import "BaseUtil.h"
 @interface MessageInfoVC ()<SWTableViewCellDelegate>
 
 @end
@@ -99,7 +101,8 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    MsgModel *model = _data[indexPath.row];
+    return [self mathCellHeigth:model.contents];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,8 +117,14 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
     [cell loadCell:model];
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
-    [cell setCellHeight:cell.frame.size.height];
+    [cell setCellHeight:[self mathCellHeigth:model.contents]];
     return cell;
+}
+
+#pragma mark -- Private
+-(CGFloat)mathCellHeigth:(NSString *)str
+{
+    return [BaseUtil getHeightByString:str font:[UIFont systemFontOfSize:13.0f] allwidth:SCREEN_WIDTH - 40] + 30;
 }
 
 /**

@@ -37,3 +37,9 @@ extern NSString *const MM;
 
 extern NSString *const aiTaoUrl;
 
+extern NSString *const MALL_TB_URL1;
+
+extern NSString *const MALL_TB_URL2;
+
+extern NSString *const MALL_TB_URL3;
+
