@@ -112,8 +112,8 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.rightUtilityButtons = [self cellRightButtons];
     cell.delegate = self;
-    MsgModel *model = _data[indexPath.row];
-    cell.tag = [model.msgId integerValue];;
+    cell.tag = indexPath.row;
+     MsgModel *model = _data[indexPath.row];
     [cell loadCell:model];
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
@@ -141,7 +141,8 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 
 #pragma mark - SWTableViewCell delegate
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
-    NSArray *dataArr = @[@(cell.tag)];
+    MsgModel *model = _data[cell.tag];
+    NSArray *dataArr = @[model.msgId];
     switch (index) {
         case 0:
             // 置顶
