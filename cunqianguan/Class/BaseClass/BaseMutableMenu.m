@@ -116,7 +116,7 @@
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = YES;
         btn.backgroundColor = UIColorFromRGB(0XECECEC);
-        btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+        btn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [btn setTitle:model.gname forState:UIControlStateNormal];
         btn.tag = [model.gid integerValue];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

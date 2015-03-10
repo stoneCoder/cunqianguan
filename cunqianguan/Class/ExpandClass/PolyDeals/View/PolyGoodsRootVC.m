@@ -9,6 +9,9 @@
 #import "PolyGoodsRootVC.h"
 #import "PolyGoodsDetailVC.h"
 
+#import "PopoverView.h"
+#import "PopView.h"
+
 #import "PersonInfo.h"
 #import "JYHDetailModel.h"
 #import "JYHConnect.h"
@@ -20,6 +23,8 @@
     JYHDetailModel *_detailModel;
     NSTimer *_countDownTimer;
     NSInteger _countDownTime;
+    
+    UIButton *rigthButton;
 }
 
 @end
@@ -29,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setUpNavBtn];
     [self setUpTableView];
     [self loadData:_model];
 }
@@ -42,6 +48,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 -(void)setUpTableView
 {
@@ -71,6 +78,26 @@
         [self hideAllHUD];
     }];
 }
+
+-(void)setUpNavBtn
+{
+    rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
+    [rigthButton setBackgroundImage:[UIImage imageNamed:@"left_menu"] forState:UIControlStateNormal];
+    [rigthButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
+    self.navigationItem.rightBarButtonItem = rightBtnItem;
+}
+
+-(void)showMenu
+{
+    CGPoint point=CGPointMake(CGRectGetMidX(rigthButton.frame), CGRectGetMinY(rigthButton.frame));
+    PopView *popView = [[PopView alloc] initWithFrame:CGRectMake(0, 0, 155, 60)];
+    //    [popView.myAttentionView addTarget:self action:@selector(changeDiscoveryList) forControlEvents:UIControlEventTouchUpInside];
+    //    [popView.manageAttentionView addTarget:self action:@selector(manageMyGame) forControlEvents:UIControlEventTouchUpInside];
+    PopoverView *popoverView = [[PopoverView alloc] init];
+    [popoverView showAtPoint:point inView:self.view withContentView:popView];
+}
+
 
 -(void)refreshBottomView
 {

@@ -38,6 +38,10 @@ static NSString *msgSetCellId = @"MsgSetCell";
 {
     [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    
+    UINib *cellNib = [UINib nibWithNibName:@"MsgSetCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:msgSetCellId];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -63,14 +67,12 @@ static NSString *msgSetCellId = @"MsgSetCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellID = @"MsgSetCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
+    MsgSetCell *cell = [tableView dequeueReusableCellWithIdentifier:msgSetCellId];
+    cell.titleLabel.text = _localData[indexPath.row];
+    if (indexPath.row == _localData.count - 1) {
+        cell.switchBtn.hidden = YES;
+        cell.infoLabel.hidden = NO;
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
-    cell.textLabel.text = _localData[indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

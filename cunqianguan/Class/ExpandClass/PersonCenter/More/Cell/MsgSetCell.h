@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MsgSetCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UIButton *switchBtn;
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 
 @end

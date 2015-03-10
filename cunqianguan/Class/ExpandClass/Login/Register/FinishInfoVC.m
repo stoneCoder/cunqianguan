@@ -61,7 +61,7 @@
     _accountVC = [[BindAccountVC alloc] init];
     _accountVC.uuid = _uuid;
     _accountVC.name = _username;
-    _accountVC.type = @"wb";
+    _accountVC.type = _type;
     [self addChildViewController:_accountVC];
     [_accountVC.view setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
     _accountVC.view.backgroundColor = UIColorFromRGB(0xececec);

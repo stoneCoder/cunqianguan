@@ -7,6 +7,7 @@
 //
 
 #import "BindAccountVC.h"
+#import "LocalWebVC.h"
 
 #import "PersonInfo.h"
 #import "LoginConnect.h"
@@ -45,10 +46,18 @@
     [self showHUD:LOGIN_LOAD];
     
     [[LoginConnect sharedLoginConnect] bindOauth:username withPwd:pwd name:_name uuid:_uuid type:_type success:^(id json) {
-        
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:2];
     } failure:^(NSError *err) {
-        
+        [self hideAllHUD];
     }];
+}
+- (IBAction)protocolAction:(id)sender {
+    LocalWebVC *loaclWebVC = [[LocalWebVC alloc] init];
+    loaclWebVC.leftTitle = @"用户协议";
+    loaclWebVC.loadType = 1;
+    [self.navigationController pushViewController:loaclWebVC animated:YES];
 }
 
 /*

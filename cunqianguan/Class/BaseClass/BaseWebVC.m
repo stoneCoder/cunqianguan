@@ -52,7 +52,8 @@
         NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
     }else{
         //天天特价
-        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=1"]) {
+        
+        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=1"].location != NSNotFound) {
             //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
             //
             //            } other:^(DoAlertView *alertView) {
@@ -60,7 +61,7 @@
             //            }];
         }
         //聚优惠
-        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=2"]) {
+        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=2"].location != NSNotFound) {
 //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
 //                
 //            } other:^(DoAlertView *alertView) {
@@ -68,7 +69,7 @@
 //            }];
         }
         //淘宝旅行
-        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=3"]) {
+        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=3"].location != NSNotFound) {
             //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
             //
             //            } other:^(DoAlertView *alertView) {
@@ -76,7 +77,7 @@
             //            }];
         }
         //天猫超市详情页面
-        if ([accesUrl containsString:@"http://tun.tmall.com/"]) {
+        if ([accesUrl rangeOfString:@"http://tun.tmall.com/"].location != NSNotFound) {
             //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
             //
             //            } other:^(DoAlertView *alertView) {

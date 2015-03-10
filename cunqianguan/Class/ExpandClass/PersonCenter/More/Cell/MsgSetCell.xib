@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -16,16 +16,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvI-Mb-YNZ">
-                        <rect key="frame" x="16" y="12" width="40" height="20"/>
+                        <rect key="frame" x="16" y="15" width="170" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="OvI-Mb-YNZ" secondAttribute="height" multiplier="2:1" id="bvG-nC-VLd"/>
+                            <constraint firstAttribute="width" secondItem="OvI-Mb-YNZ" secondAttribute="height" multiplier="17:2" id="fd1-Tj-KoV"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zs-VF-8Al">
-                        <rect key="frame" x="261" y="15" width="43" height="19"/>
+                        <rect key="frame" x="261" y="18" width="43" height="19"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="4Zs-VF-8Al" secondAttribute="height" multiplier="43:19" id="odf-ig-j9j"/>
                         </constraints>
@@ -35,7 +35,7 @@
                         <state key="selected" image="massage_close"/>
                     </button>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00-23:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCB-bN-PrK">
-                        <rect key="frame" x="228" y="15" width="76" height="21"/>
+                        <rect key="frame" x="228" y="18" width="76" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="kCB-bN-PrK" secondAttribute="height" multiplier="76:21" id="gCJ-g6-lZo"/>
                         </constraints>
@@ -47,16 +47,21 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="4Zs-VF-8Al" secondAttribute="trailing" constant="16" id="0M6-Nm-4Jb"/>
                     <constraint firstItem="OvI-Mb-YNZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="14j-P7-ePd"/>
-                    <constraint firstAttribute="bottom" secondItem="OvI-Mb-YNZ" secondAttribute="bottom" constant="17" id="8Wz-KZ-8iq"/>
-                    <constraint firstItem="4Zs-VF-8Al" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Dti-Ix-NVS"/>
-                    <constraint firstAttribute="bottom" secondItem="kCB-bN-PrK" secondAttribute="bottom" constant="13" id="X6l-ad-qnu"/>
-                    <constraint firstItem="kCB-bN-PrK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="csR-qO-nxP"/>
+                    <constraint firstAttribute="bottom" secondItem="OvI-Mb-YNZ" secondAttribute="bottom" constant="14" id="8Wz-KZ-8iq"/>
+                    <constraint firstItem="4Zs-VF-8Al" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="Dti-Ix-NVS"/>
+                    <constraint firstAttribute="bottom" secondItem="kCB-bN-PrK" secondAttribute="bottom" constant="10" id="X6l-ad-qnu"/>
+                    <constraint firstItem="kCB-bN-PrK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="csR-qO-nxP"/>
                     <constraint firstAttribute="trailing" secondItem="kCB-bN-PrK" secondAttribute="trailing" constant="16" id="hQ0-T3-IxA"/>
-                    <constraint firstAttribute="bottom" secondItem="4Zs-VF-8Al" secondAttribute="bottom" constant="15" id="nCv-Li-gwz"/>
-                    <constraint firstItem="OvI-Mb-YNZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="o08-LF-oRf"/>
+                    <constraint firstAttribute="bottom" secondItem="4Zs-VF-8Al" secondAttribute="bottom" constant="12" id="nCv-Li-gwz"/>
+                    <constraint firstItem="OvI-Mb-YNZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="o08-LF-oRf"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="333" y="345"/>
+            <connections>
+                <outlet property="infoLabel" destination="kCB-bN-PrK" id="KAI-2l-2ZD"/>
+                <outlet property="switchBtn" destination="4Zs-VF-8Al" id="hf6-cv-qb2"/>
+                <outlet property="titleLabel" destination="OvI-Mb-YNZ" id="DYZ-DU-Xsi"/>
+            </connections>
+            <point key="canvasLocation" x="333" y="342"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -7,6 +7,7 @@
 //
 
 #import "RegisterVC.h"
+#import "LocalWebVC.h"
 
 #import "BMAlert.h"
 #import "BaseUtil.h"
@@ -64,6 +65,13 @@
         [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
         } other:nil];
     }];
+}
+- (IBAction)protocolAction:(id)sender
+{
+    LocalWebVC *loaclWebVC = [[LocalWebVC alloc] init];
+    loaclWebVC.leftTitle = @"用户协议";
+    loaclWebVC.loadType = 1;
+    [self.navigationController pushViewController:loaclWebVC animated:YES];
 }
 #pragma mark -- Private
 -(void)hideKeyBoard

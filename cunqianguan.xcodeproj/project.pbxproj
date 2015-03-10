@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48913D931AAF1F8600DEA83C /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D901AAF1F8600DEA83C /* PopView.m */; };
+		48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D921AAF1F8600DEA83C /* PopViewCell.m */; };
 		97DA9493BBBE4D7CFF653414 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2973A8EA4747C20640F7CB2E /* libPods.a */; };
 		B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */; };
 		B10922A81AA7FFF30073CE63 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A71AA7FFF30073CE63 /* CityModel.m */; };
@@ -308,6 +310,10 @@
 /* Begin PBXFileReference section */
 		0DF6B965DE082AD71CDE37F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2973A8EA4747C20640F7CB2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		48913D8F1AAF1F8600DEA83C /* PopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
+		48913D901AAF1F8600DEA83C /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
+		48913D911AAF1F8600DEA83C /* PopViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewCell.h; sourceTree = "<group>"; };
+		48913D921AAF1F8600DEA83C /* PopViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewCell.m; sourceTree = "<group>"; };
 		9E12974C1BF2517CF6783FAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B10922A21AA7F8B80073CE63 /* TGCCustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGCCustomPickerView.h; sourceTree = "<group>"; };
 		B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGCCustomPickerView.m; sourceTree = "<group>"; };
@@ -868,6 +874,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48913D8E1AAF1F8500DEA83C /* PopView */ = {
+			isa = PBXGroup;
+			children = (
+				48913D8F1AAF1F8600DEA83C /* PopView.h */,
+				48913D901AAF1F8600DEA83C /* PopView.m */,
+				48913D911AAF1F8600DEA83C /* PopViewCell.h */,
+				48913D921AAF1F8600DEA83C /* PopViewCell.m */,
+			);
+			path = PopView;
+			sourceTree = "<group>";
+		};
 		76D0D892DA74ECAAF7F3E11E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1122,6 +1139,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				48913D8E1AAF1F8500DEA83C /* PopView */,
 				B1E6B5591AAE7448005CB5AF /* SFHF */,
 				B10922A11AA7F8B80073CE63 /* PickerView */,
 				B158A6D01A9D6BBB00C6FD3F /* JSONModel */,
@@ -2455,6 +2473,7 @@
 				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B1E6B58A1AAEDB0E005CB5AF /* LocalWebVC.m in Sources */,
+				48913D931AAF1F8600DEA83C /* PopView.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
@@ -2512,6 +2531,7 @@
 				B15022EE1AA5A9A5008850F3 /* CalendarViewCell.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */,
+				48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */,
 				B152C08B1AA98DC300D18AFB /* CollectListModel.m in Sources */,
 				B158A7121A9D7A7400C6FD3F /* JYHModel.m in Sources */,
 				B152C0811AA93F2400D18AFB /* FootModel.m in Sources */,
