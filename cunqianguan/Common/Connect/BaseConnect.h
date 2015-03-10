@@ -49,5 +49,4 @@ connectionError:(void (^)(NSError *error))connectionError
 
 
 +(BOOL)isSucceeded:(NSDictionary *)dic;
-
 @end

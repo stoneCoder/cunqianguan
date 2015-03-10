@@ -35,7 +35,6 @@
 {
     self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - 64);
     self.webView.scalesPageToFit = YES;
-    self.webView.delegate = self;
 
     NSString *urlStr = [NSString stringWithFormat:@"%@%@&uid=%@",aiTaoUrl,MM,_info.userId];
     NSURL* url = [NSURL URLWithString:urlStr];
@@ -61,14 +60,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark -- WebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [self showHUD:DATA_LOAD];
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self hideAllHUD];
-}
-
 @end

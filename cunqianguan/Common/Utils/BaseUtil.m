@@ -391,5 +391,8 @@ static NSString *const hmacPassword = @"4318sqzs";
         return NO;
 }
 
-
++ (BOOL)isInstallApp:(NSString *)url
+{
+  return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]];
+}
 @end

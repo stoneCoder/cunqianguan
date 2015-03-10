@@ -49,3 +49,13 @@ NSString *const MALL_TB_URL1 = @"http://www.tmall.com/?force=m&pid=";
 NSString *const MALL_TB_URL2 = @"http://m.taobao.com/channel/chn/mobile/tejia_taoke.php?pid=";
 
 NSString *const MALL_TB_URL3 = @"http://m.trip.taobao.com/trip/index.html?pid=";
+
+
+NSString *const TB_REBATE_FINAL_DETAIL_URL_REG = @"http://h5\\.m\\.taobao\\.com/awp/core/detail\\.\\w*\\?.*ali_trackid=2.*";
+NSString *const TM_REBATE_FINAL_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*ali_trackid=2.*";
+NSString *const TB_ORI_DETAIL_URL_REG = @"http://h5\\.m\\.taobao\\.com/awp/core/detail\\.\\w*\\?.*.*";
+NSString *const TM_ORI_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*.*";
+NSString *const JUHUASUAN_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*jhs.*";
+NSString *const JUHUASUAN_MAIN_URL_REG = @"http://ai\\.m\\.taobao\\.com/bu\\.\\w*\\?.*.*";
+
+

@@ -43,19 +43,27 @@
 
 -(void)loadView:(PersonInfo *)info
 {
-    [info getAvaterWithId:info.userId success:^(id json) {
-        [info saveUserData];
-
-        _nameLabel.text = info.username;
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
+    if (info.userId) {
+        [info getAvaterWithId:info.userId success:^(id json) {
+            [info saveUserData];
+            
+            _nameLabel.text = info.username;
+            [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
+            }];
+            _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
+            _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
+            _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
+        } failure:^(id json) {
+            
         }];
-        _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
-        _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
-        _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
-    } failure:^(id json) {
-        
-    }];
+    }else{
+        _nameLabel.text = @"请登录";
+        _collectLabel.hidden = YES;
+        _msgLabel.hidden = YES;
+        _vipImage.hidden = YES;
+    }
+    
 }
 
 - (IBAction)btnAction:(id)sender

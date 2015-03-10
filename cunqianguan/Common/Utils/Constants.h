@@ -43,3 +43,11 @@ extern NSString *const MALL_TB_URL2;
 
 extern NSString *const MALL_TB_URL3;
 
+
+extern NSString *const TB_REBATE_FINAL_DETAIL_URL_REG;
+extern NSString *const TM_REBATE_FINAL_DETAIL_URL_REG;
+extern NSString *const TB_ORI_DETAIL_URL_REG;
+extern NSString *const TM_ORI_DETAIL_URL_REG;
+extern NSString *const JUHUASUAN_DETAIL_URL_REG;
+extern NSString *const JUHUASUAN_MAIN_URL_REG;
+

@@ -7,8 +7,9 @@
 //
 
 #import "BaseWebVC.h"
-
-@interface BaseWebVC ()
+#import "TBUrlUtil.h"
+#import "BMAlert.h"
+@interface BaseWebVC ()<UIWebViewDelegate>
 
 @end
 
@@ -20,6 +21,7 @@
     if (self.webView == nil) {
         CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
         self.webView = [[UIWebView alloc] initWithFrame:frame];
+        self.webView.delegate = self;
         [self.view addSubview:self.webView];
     }
 }
@@ -35,6 +37,54 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -- UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showHUD:DATA_LOAD];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *accesUrl = webView.request.URL.absoluteString;
+    NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
+    if (type != NOT_TB_URL) {
+        NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
+    }else{
+        //天天特价
+        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=1"]) {
+            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
+            //
+            //            } other:^(DoAlertView *alertView) {
+            //
+            //            }];
+        }
+        //聚优惠
+        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=2"]) {
+//            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
+//                
+//            } other:^(DoAlertView *alertView) {
+//                
+//            }];
+        }
+        //淘宝旅行
+        if ([accesUrl containsString:@"http://ai.m.taobao.com/bu.html"] && [accesUrl containsString:@"&id=3"]) {
+            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
+            //
+            //            } other:^(DoAlertView *alertView) {
+            //
+            //            }];
+        }
+        //天猫超市详情页面
+        if ([accesUrl containsString:@"http://tun.tmall.com/"]) {
+            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
+            //
+            //            } other:^(DoAlertView *alertView) {
+            //
+            //            }];
+        }
+    }
+    [self hideAllHUD];
 }
 
 

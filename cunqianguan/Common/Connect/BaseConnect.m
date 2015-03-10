@@ -12,6 +12,7 @@
 #import "AFHTTPRequestOperationManager+Progress.h"
 #import "BMAlert.h"
 #import "BaseUtil.h"
+#import "Constants.h"
 
 @implementation BaseConnect
 

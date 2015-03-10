@@ -18,7 +18,7 @@
 
 -(void)loadCell:(MongoModel *)mongoModel
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:mongoModel.pic_url]];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:mongoModel.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     
     _titleLabel.text = mongoModel.title;
     

@@ -7,7 +7,9 @@
 //
 
 #import "MoreSettingVC.h"
-
+#import "SignatureVC.h"
+#import "HelpInfoVC.h"
+#import "MsgSetVC.h"
 @interface MoreSettingVC ()
 {
     NSDictionary *_localData;
@@ -21,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _localData = @{@"0":@[@"检查更新",@"意见反馈",@"帮助中心",@"消息设置"],@"1":@[@"清理缓存",@"关于我们"]};
-    _localImageData = @{@"0":@[@"more_01",@"more_02",@"more_03",@"more_04"],@"1":@[@"more_05",@"more_06"]};
+    _localData = @{@"0":@[/*@"检查更新",*/@"意见反馈",@"帮助中心",@"消息设置"],@"1":@[@"清理缓存",@"关于我们"]};
+    _localImageData = @{@"0":@[/*@"more_01",*/@"more_02",@"more_03",@"more_04"],@"1":@[@"more_05",@"more_06"]};
     [self setUpTableView];
 }
 
@@ -30,7 +32,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 /*
 #pragma mark - Navigation
 
@@ -81,6 +85,24 @@
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     cell.textLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger index = indexPath.row;
+    if(index == 0){
+        SignatureVC *signatureVC = [[SignatureVC alloc] init];
+        signatureVC.leftTitle = @"意见反馈";
+        [self.navigationController pushViewController:signatureVC animated:YES];
+    }else if(index == 1){
+        HelpInfoVC *helpInfoVC = [[HelpInfoVC alloc] init];
+        helpInfoVC.leftTitle = @"帮助中心";
+        [self.navigationController pushViewController:helpInfoVC animated:YES];
+    }else if(index == 2){
+        MsgSetVC *msgSetVC = [[MsgSetVC alloc] init];
+        msgSetVC.leftTitle = @"消息设置";
+        [self.navigationController pushViewController:msgSetVC animated:YES];
+    }
 }
 
 @end

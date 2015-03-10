@@ -11,7 +11,9 @@
 #import "MongoConnect.h"
 #import "BaseConnect.h"
 #import "MongoDetailModel.h"
-@interface ReturnHomeGoodsVC ()<UIWebViewDelegate>
+
+#import "TBUrlUtil.h"
+@interface ReturnHomeGoodsVC ()
 {
     MongoDetailModel *_model;
 }
@@ -41,7 +43,6 @@
 {
     self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - _bottomView.frame.size.height - 64);
     self.webView.scalesPageToFit = YES;
-    self.webView.delegate = self;
 }
 
 -(void)loadData:(NSString *)key
@@ -84,13 +85,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark -- WebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [self showHUD:DATA_LOAD];
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self hideAllHUD];
-}
 @end

@@ -47,6 +47,8 @@
 + (NSString *)generateUUID;
 
 + (NSString *)transformBankCard:(NSString *)cardNum;
+
++ (BOOL)isInstallApp:(NSString *)url;
 @end
 
 

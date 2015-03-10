@@ -8,6 +8,7 @@
 
 #import "PolyDetailHeaderView.h"
 #import "BaseUtil.h"
+#import "UIImage+Resize.h"
 @implementation PolyDetailHeaderView
 
 /*
@@ -31,6 +32,7 @@
 -(void)setUpView
 {
     _nameView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
+    _scrollView.scrollEnabled = NO;
 }
 
 -(void)loadData:(JYHDetailModel *)model
@@ -39,7 +41,9 @@
     CGRect frame = _scrollView.frame;
     frame.size.width = SCREEN_WIDTH;
     imageView.frame = frame;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+    }];
     [_scrollView insertSubview:imageView belowSubview:_nameView];
     
     

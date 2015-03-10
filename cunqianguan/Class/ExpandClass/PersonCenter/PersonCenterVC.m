@@ -49,12 +49,9 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (_info.userId) {
-        [personHeaderView loadView:_info];
-        [self initSignStatus];
-    }else{
-        personHeaderView.nameLabel.text = @"请登录";
-    }
+    
+    [personHeaderView loadView:_info];
+    [self initSignStatus];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,7 +165,11 @@ static NSString *FooterViewID = @"PersonFooterView";
     }else{
         cell.infoLabel.hidden = YES;
     }
+    if (indexPath.row == _localData.count-1) {
+        cell.separatorInset = UIEdgeInsetsMake(0.f, cell.bounds.size.width, 0.f, 0.f);
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundView = [UIView new];
     return cell;
 }
 

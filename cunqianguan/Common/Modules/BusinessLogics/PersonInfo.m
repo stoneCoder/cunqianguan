@@ -17,7 +17,10 @@
 #import "BaseConnect.h"
 #import "BMAlert.h"
 
+#import "SFHFKeychainUtils.h"
 
+
+#define SERVICE_NAME @"baoxianqi"
 @implementation PersonInfo
 DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 
@@ -84,21 +87,42 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 }
 
 #pragma mark - 缓存用户数据
-
 -(void)loginSuccessWith:(NSDictionary *)dic
 {
+    NSError *error = nil;
     self.userId = [dic objectForKey:@"uid"];
     self.username = [dic objectForKey:@"username"];
     self.email = [dic objectForKey:@"email"];
-    [self saveUserData];
+    if ([SFHFKeychainUtils storeUsername:self.email andPassword:self.password forServiceName:SERVICE_NAME updateExisting:YES error:&error]) {
+        [[NSUserDefaults standardUserDefaults] setObject:self.email forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self saveUserData];
+    } else {
+        NSLog(@"%@", error);
+    }
+}
+
+- (NSString*)getAccountPassword:(NSString*)userName
+{
+    NSError *error = nil;
+    NSString *password = [SFHFKeychainUtils getPasswordForUsername:userName andServiceName:SERVICE_NAME error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    return password;
 }
 
 -(void)loginOut
 {
-    self.userId = @"";
-    self.username = @"";
-    self.password = @"";
-    [self saveUserData];
+    NSError *error = nil;
+    if ([SFHFKeychainUtils deleteItemForUsername:self.email andServiceName:SERVICE_NAME error:&error]) {
+        self.userId = @"";
+        self.username = @"";
+        self.password = @"";
+        [self saveUserData];
+    } else {
+        NSLog(@"%@", error);
+    }
 }
 
 #pragma MARK - check isLogin
@@ -108,7 +132,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 }
 -(void)isLoginWithPresent:(void (^)(BOOL flag))completion WithType:(BOOL)presentType
 {
-    [self loadUserData];
+    _password = [self getAccountPassword:self.email];
     if (_password && _password.length > 0) {
         completion(YES);
         return;

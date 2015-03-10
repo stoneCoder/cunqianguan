@@ -18,7 +18,7 @@
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     if (type == 0) {
         _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)model.qcount];
         _hotTipImage.hidden = NO;

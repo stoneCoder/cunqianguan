@@ -299,4 +299,20 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 {
     
 }
+
+-(void)responseMsg:(NSString *)username
+               pws:(NSString *)password
+           content:(NSString *)content
+           success:(void (^)(id json))success
+           failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"responseMsg";
+    NSDictionary *dic = @{@"email":username,@"password":password,@"content":content};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+ 
+}
 @end

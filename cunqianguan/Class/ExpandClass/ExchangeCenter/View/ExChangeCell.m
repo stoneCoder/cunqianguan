@@ -18,7 +18,7 @@
 
 -(void)loadCell:(ExChangeModel *)model
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     
     _titleLabel.text = model.title;
     _pointLabel.text = [NSString stringWithFormat:@"%ld积分",(long)model.point];

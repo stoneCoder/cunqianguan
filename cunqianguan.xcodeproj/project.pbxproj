@@ -286,6 +286,23 @@
 		B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910631A89E82200AE3F66 /* AliTransfersView.m */; };
 		B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910661A89E83500AE3F66 /* BankTransfersView.m */; };
 		B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C910681A89E96000AE3F66 /* AliTransfersView.xib */; };
+		B1E6B55C1AAE7448005CB5AF /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B55B1AAE7448005CB5AF /* SFHFKeychainUtils.m */; };
+		B1E6B56A1AAE7A50005CB5AF /* SignatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5681AAE7A50005CB5AF /* SignatureVC.m */; };
+		B1E6B56B1AAE7A50005CB5AF /* SignatureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5691AAE7A50005CB5AF /* SignatureVC.xib */; };
+		B1E6B5741AAE882D005CB5AF /* HelpInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5721AAE882D005CB5AF /* HelpInfoVC.m */; };
+		B1E6B5751AAE882D005CB5AF /* HelpInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5731AAE882D005CB5AF /* HelpInfoVC.xib */; };
+		B1E6B5791AAE89BB005CB5AF /* MsgSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5771AAE89BB005CB5AF /* MsgSetVC.m */; };
+		B1E6B57A1AAE89BB005CB5AF /* MsgSetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5781AAE89BB005CB5AF /* MsgSetVC.xib */; };
+		B1E6B57E1AAE9521005CB5AF /* TBUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B57D1AAE9521005CB5AF /* TBUrlUtil.m */; };
+		B1E6B5811AAECB8D005CB5AF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5801AAECB8D005CB5AF /* UIImage+Resize.m */; };
+		B1E6B5851AAECD78005CB5AF /* TipInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5831AAECD78005CB5AF /* TipInfoVC.m */; };
+		B1E6B5861AAECD78005CB5AF /* TipInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5841AAECD78005CB5AF /* TipInfoVC.xib */; };
+		B1E6B58A1AAEDB0E005CB5AF /* LocalWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5881AAEDB0E005CB5AF /* LocalWebVC.m */; };
+		B1E6B58B1AAEDB0E005CB5AF /* LocalWebVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5891AAEDB0E005CB5AF /* LocalWebVC.xib */; };
+		B1E6B58D1AAEDD08005CB5AF /* protocolfb.html in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B58C1AAEDD08005CB5AF /* protocolfb.html */; };
+		B1E6B58F1AAEDD13005CB5AF /* intro.html in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B58E1AAEDD13005CB5AF /* intro.html */; };
+		B1E6B5941AAEE877005CB5AF /* MsgSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5921AAEE877005CB5AF /* MsgSetCell.m */; };
+		B1E6B5951AAEE877005CB5AF /* MsgSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5931AAEE877005CB5AF /* MsgSetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -797,6 +814,32 @@
 		B1C910651A89E83500AE3F66 /* BankTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransfersView.h; sourceTree = "<group>"; };
 		B1C910661A89E83500AE3F66 /* BankTransfersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransfersView.m; sourceTree = "<group>"; };
 		B1C910681A89E96000AE3F66 /* AliTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AliTransfersView.xib; sourceTree = "<group>"; };
+		B1E6B55A1AAE7448005CB5AF /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		B1E6B55B1AAE7448005CB5AF /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		B1E6B5671AAE7A50005CB5AF /* SignatureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureVC.h; sourceTree = "<group>"; };
+		B1E6B5681AAE7A50005CB5AF /* SignatureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureVC.m; sourceTree = "<group>"; };
+		B1E6B5691AAE7A50005CB5AF /* SignatureVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignatureVC.xib; sourceTree = "<group>"; };
+		B1E6B5711AAE882D005CB5AF /* HelpInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpInfoVC.h; sourceTree = "<group>"; };
+		B1E6B5721AAE882D005CB5AF /* HelpInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpInfoVC.m; sourceTree = "<group>"; };
+		B1E6B5731AAE882D005CB5AF /* HelpInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpInfoVC.xib; sourceTree = "<group>"; };
+		B1E6B5761AAE89BB005CB5AF /* MsgSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgSetVC.h; sourceTree = "<group>"; };
+		B1E6B5771AAE89BB005CB5AF /* MsgSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgSetVC.m; sourceTree = "<group>"; };
+		B1E6B5781AAE89BB005CB5AF /* MsgSetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgSetVC.xib; sourceTree = "<group>"; };
+		B1E6B57C1AAE9521005CB5AF /* TBUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUrlUtil.h; sourceTree = "<group>"; };
+		B1E6B57D1AAE9521005CB5AF /* TBUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUrlUtil.m; sourceTree = "<group>"; };
+		B1E6B57F1AAECB8D005CB5AF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		B1E6B5801AAECB8D005CB5AF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		B1E6B5821AAECD78005CB5AF /* TipInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipInfoVC.h; sourceTree = "<group>"; };
+		B1E6B5831AAECD78005CB5AF /* TipInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipInfoVC.m; sourceTree = "<group>"; };
+		B1E6B5841AAECD78005CB5AF /* TipInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipInfoVC.xib; sourceTree = "<group>"; };
+		B1E6B5871AAEDB0E005CB5AF /* LocalWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalWebVC.h; sourceTree = "<group>"; };
+		B1E6B5881AAEDB0E005CB5AF /* LocalWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalWebVC.m; sourceTree = "<group>"; };
+		B1E6B5891AAEDB0E005CB5AF /* LocalWebVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalWebVC.xib; sourceTree = "<group>"; };
+		B1E6B58C1AAEDD08005CB5AF /* protocolfb.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = protocolfb.html; sourceTree = "<group>"; };
+		B1E6B58E1AAEDD13005CB5AF /* intro.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = intro.html; sourceTree = "<group>"; };
+		B1E6B5911AAEE877005CB5AF /* MsgSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgSetCell.h; sourceTree = "<group>"; };
+		B1E6B5921AAEE877005CB5AF /* MsgSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgSetCell.m; sourceTree = "<group>"; };
+		B1E6B5931AAEE877005CB5AF /* MsgSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgSetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1029,6 +1072,8 @@
 		B14071361A6CAFF700D1792F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6B58E1AAEDD13005CB5AF /* intro.html */,
+				B1E6B58C1AAEDD08005CB5AF /* protocolfb.html */,
 				B14071801A6CCB9100D1792F /* cunqianguan.pch */,
 				B14071651A6CC6CB00D1792F /* Define.h */,
 				B14071371A6CAFF700D1792F /* Info.plist */,
@@ -1077,6 +1122,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6B5591AAE7448005CB5AF /* SFHF */,
 				B10922A11AA7F8B80073CE63 /* PickerView */,
 				B158A6D01A9D6BBB00C6FD3F /* JSONModel */,
 				B15DC8961A8D8C7400298C7D /* UMSocial_Sdk_Extra_Frameworks */,
@@ -1105,6 +1151,8 @@
 				B140717B1A6CC9D000D1792F /* CMAlert.m */,
 				B14729A51A8C7E8700524510 /* BMAlert.h */,
 				B14729A61A8C7E8700524510 /* BMAlert.m */,
+				B1E6B57C1AAE9521005CB5AF /* TBUrlUtil.h */,
+				B1E6B57D1AAE9521005CB5AF /* TBUrlUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1122,6 +1170,8 @@
 		B14071711A6CC8E900D1792F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6B57F1AAECB8D005CB5AF /* UIImage+Resize.h */,
+				B1E6B5801AAECB8D005CB5AF /* UIImage+Resize.m */,
 				B1B350261AAA9C6A00D574E3 /* UIBarButtonItem+Badge.h */,
 				B1B350271AAA9C6A00D574E3 /* UIBarButtonItem+Badge.m */,
 				B14968321A875A4500DBC09B /* SWHex */,
@@ -1903,6 +1953,8 @@
 		B15D44E51A78D1FB008B8F4B /* More */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6B5901AAEE851005CB5AF /* Cell */,
+				B1E6B5611AAE79EF005CB5AF /* View */,
 				B15D44E61A78D219008B8F4B /* MoreSettingVC.h */,
 				B15D44E71A78D219008B8F4B /* MoreSettingVC.m */,
 				B15D44E81A78D219008B8F4B /* MoreSettingVC.xib */,
@@ -2081,6 +2133,47 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B1E6B5591AAE7448005CB5AF /* SFHF */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6B55A1AAE7448005CB5AF /* SFHFKeychainUtils.h */,
+				B1E6B55B1AAE7448005CB5AF /* SFHFKeychainUtils.m */,
+			);
+			path = SFHF;
+			sourceTree = "<group>";
+		};
+		B1E6B5611AAE79EF005CB5AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6B5671AAE7A50005CB5AF /* SignatureVC.h */,
+				B1E6B5681AAE7A50005CB5AF /* SignatureVC.m */,
+				B1E6B5691AAE7A50005CB5AF /* SignatureVC.xib */,
+				B1E6B5711AAE882D005CB5AF /* HelpInfoVC.h */,
+				B1E6B5721AAE882D005CB5AF /* HelpInfoVC.m */,
+				B1E6B5731AAE882D005CB5AF /* HelpInfoVC.xib */,
+				B1E6B5761AAE89BB005CB5AF /* MsgSetVC.h */,
+				B1E6B5771AAE89BB005CB5AF /* MsgSetVC.m */,
+				B1E6B5781AAE89BB005CB5AF /* MsgSetVC.xib */,
+				B1E6B5821AAECD78005CB5AF /* TipInfoVC.h */,
+				B1E6B5831AAECD78005CB5AF /* TipInfoVC.m */,
+				B1E6B5841AAECD78005CB5AF /* TipInfoVC.xib */,
+				B1E6B5871AAEDB0E005CB5AF /* LocalWebVC.h */,
+				B1E6B5881AAEDB0E005CB5AF /* LocalWebVC.m */,
+				B1E6B5891AAEDB0E005CB5AF /* LocalWebVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B1E6B5901AAEE851005CB5AF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6B5911AAEE877005CB5AF /* MsgSetCell.h */,
+				B1E6B5921AAEE877005CB5AF /* MsgSetCell.m */,
+				B1E6B5931AAEE877005CB5AF /* MsgSetCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		F2B2DD9202C1CD8212935C9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2164,9 +2257,13 @@
 				B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */,
 				B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
+				B1E6B5751AAE882D005CB5AF /* HelpInfoVC.xib in Resources */,
+				B1E6B57A1AAE89BB005CB5AF /* MsgSetVC.xib in Resources */,
 				B109D5931A72169B00505D32 /* FootPrintsVC.xib in Resources */,
 				B152C07D1AA9368700D18AFB /* RebateHomeVC.xib in Resources */,
+				B1E6B58B1AAEDB0E005CB5AF /* LocalWebVC.xib in Resources */,
 				B162D6141A81AE0000692A6C /* ReturnHomeGoodsVC.xib in Resources */,
+				B1E6B5861AAECD78005CB5AF /* TipInfoVC.xib in Resources */,
 				B15DC88C1A8D88B600298C7D /* UMSCommentDetailController.xib in Resources */,
 				B1498AE71A775795001260EC /* ProductDetailHeaderView.xib in Resources */,
 				B10922B61AA84EF70073CE63 /* HotShopCell.xib in Resources */,
@@ -2189,10 +2286,13 @@
 				B14E30C11A7A1AF5005BF0EF /* AccountVC.xib in Resources */,
 				B109D5A61A722E7D00505D32 /* ExChangeCell.xib in Resources */,
 				B15032531A8B2BCA000A61FA /* PolyDetailHeaderView.xib in Resources */,
+				B1E6B5951AAEE877005CB5AF /* MsgSetCell.xib in Resources */,
 				B15DC8921A8D88B600298C7D /* UMSnsAccountViewController.xib in Resources */,
 				B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */,
+				B1E6B58F1AAEDD13005CB5AF /* intro.html in Resources */,
 				B109D5821A71EA5E00505D32 /* PolyDealVC.xib in Resources */,
 				B15DC88A1A8D88B600298C7D /* UMSocialLocalizable.strings in Resources */,
+				B1E6B56B1AAE7A50005CB5AF /* SignatureVC.xib in Resources */,
 				B161D7C31A80BED8000F8DEF /* GoodsViewVC.xib in Resources */,
 				B15DC8911A8D88B600298C7D /* UMSLoginViewController.xib in Resources */,
 				B15D44D21A78B313008B8F4B /* RunningWaterVC.xib in Resources */,
@@ -2206,6 +2306,7 @@
 				B15DC88F1A8D88B600298C7D /* UMShareEditViewController.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */,
+				B1E6B58D1AAEDD08005CB5AF /* protocolfb.html in Resources */,
 				B15DBA221AA04F83005FBC2C /* PolyTomorrowVC.xib in Resources */,
 				B1668D0F1A889931002CB98E /* SignVC.xib in Resources */,
 				B15DC8931A8D88B600298C7D /* UMSShareListController.xib in Resources */,
@@ -2307,12 +2408,14 @@
 				B158A6F31A9D6BBB00C6FD3F /* JSONModel+networking.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
 				B1668D481A88A2F4002CB98E /* JTCalendarContentView.m in Sources */,
+				B1E6B5851AAECD78005CB5AF /* TipInfoVC.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
 				B14729AE1A8C88D400524510 /* PersonInfo.m in Sources */,
 				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
 				B10922B01AA84B5F0073CE63 /* HotShopVC.m in Sources */,
 				B140719C1A6CCD7900D1792F /* BaseNC.m in Sources */,
 				B15D44DD1A78C3FE008B8F4B /* MessageInfoVC.m in Sources */,
+				B1E6B5811AAECB8D005CB5AF /* UIImage+Resize.m in Sources */,
 				B15D44CA1A78A7AF008B8F4B /* ShopOrderCell.m in Sources */,
 				B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */,
 				B14968461A875A4500DBC09B /* NSString+SWHex.m in Sources */,
@@ -2348,15 +2451,19 @@
 				B14071D41A6DFAF100D1792F /* MenuCell.m in Sources */,
 				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
 				B14968491A875A4500DBC09B /* NSDictionary+SWJSON.m in Sources */,
+				B1E6B5741AAE882D005CB5AF /* HelpInfoVC.m in Sources */,
 				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
+				B1E6B58A1AAEDB0E005CB5AF /* LocalWebVC.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
+				B1E6B56A1AAE7A50005CB5AF /* SignatureVC.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
 				B15022EA1AA5A95D008850F3 /* CalendarView.m in Sources */,
 				B10922AB1AA801730073CE63 /* CityListModel.m in Sources */,
 				B10922B51AA84EF70073CE63 /* HotShopCell.m in Sources */,
+				B1E6B5941AAEE877005CB5AF /* MsgSetCell.m in Sources */,
 				B15032631A8B3A82000A61FA /* FavoriteCell.m in Sources */,
 				B1668D0E1A889931002CB98E /* SignVC.m in Sources */,
 				B162D61A1A82036100692A6C /* PolyScrollVC.m in Sources */,
@@ -2422,6 +2529,7 @@
 				B158A6F61A9D6BBB00C6FD3F /* JSONValueTransformer.m in Sources */,
 				B158A6F11A9D6BBB00C6FD3F /* JSONAPI.m in Sources */,
 				B158A7151A9D7C1600C6FD3F /* JYHListModel.m in Sources */,
+				B1E6B55C1AAE7448005CB5AF /* SFHFKeychainUtils.m in Sources */,
 				B15DBA1A1AA00DF7005FBC2C /* JYHAttrModel.m in Sources */,
 				B1668D4D1A88A2F4002CB98E /* JTCalendarMonthWeekDaysView.m in Sources */,
 				B15032511A8B2BB3000A61FA /* PolyDetailHeaderView.m in Sources */,
@@ -2438,6 +2546,7 @@
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
 				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
 				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
+				B1E6B5791AAE89BB005CB5AF /* MsgSetVC.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15DBA211AA04F83005FBC2C /* PolyTomorrowVC.m in Sources */,
 				B15D44E91A78D219008B8F4B /* MoreSettingVC.m in Sources */,
@@ -2454,6 +2563,7 @@
 				B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B10922BC1AA852910073CE63 /* HotShopListModel.m in Sources */,
+				B1E6B57E1AAE9521005CB5AF /* TBUrlUtil.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,
 				B15D44B71A787E03008B8F4B /* SWUtilityButtonView.m in Sources */,
 				B14968471A875A4500DBC09B /* NSArray+SWJSON.m in Sources */,
