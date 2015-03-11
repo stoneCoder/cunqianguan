@@ -9,8 +9,12 @@
 #import "BaseCollectionVC.h"
 #import "UIScrollView+MJRefresh.h"
 #import "BaseUtil.h"
-
+#import "GMDCircleLoader.h"
 @interface BaseCollectionVC ()
+{
+    UIView *_bgView;
+}
+
 
 @end
 
@@ -214,5 +218,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)showLoaderView:(UIView *)view
+{
+    _bgView = [[UIView alloc] initWithFrame:CGRectZero];
+    _bgView.backgroundColor = UIColorFromRGB(0xf0f0f0);
+    if (view) {
+        _bgView.frame = view.frame;
+        [view addSubview:_bgView];
+    }else{
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0;
+        _bgView.frame =  frame;
+        [self.view addSubview:_bgView];
+    }
+    int index = [BaseUtil getRandomNumber:0 to:6];
+    NSString *tipsStr = TIPS_ARRAY[index];
+    [GMDCircleLoader setOnView:_bgView withTitle:DATA_LOAD andTip:tipsStr  animated:YES];
+}
+
+-(void)showLoaderView
+{
+    [self showLoaderView:nil];
+}
+
+-(void)hideLoaderView
+{
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+    _bgView.hidden = YES;
+    [_bgView removeFromSuperview];
+    _bgView = nil;
+}
 
 @end

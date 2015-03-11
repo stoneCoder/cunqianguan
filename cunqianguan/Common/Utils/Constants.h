@@ -34,14 +34,11 @@ extern NSString *const QQAppKey;
 extern NSString *const QQAppID;
 
 extern NSString *const MM;
-
 extern NSString *const aiTaoUrl;
-
 extern NSString *const MALL_TB_URL1;
-
 extern NSString *const MALL_TB_URL2;
-
 extern NSString *const MALL_TB_URL3;
+extern NSString *const CallS_RECHARGE_URL;
 
 
 extern NSString *const TB_REBATE_FINAL_DETAIL_URL_REG;

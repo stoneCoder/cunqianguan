@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol PersonFooterDelegate<NSObject>
+-(void)helpInfoClick;
+@end
 @interface PersonFooterView : UIView
+@property (strong, nonatomic) id<PersonFooterDelegate> delegate;
 +(PersonFooterView *)footerView;
 @end

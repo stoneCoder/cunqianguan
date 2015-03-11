@@ -118,7 +118,9 @@ static NSString *collectionCellID = @"PolyGoodsCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
-    polyGoodsRootVC.model = _data[indexPath.row];
+    JYHModel *model = _data[indexPath.row];
+    NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
+    polyGoodsRootVC.goodKey = goodKey;
     polyGoodsRootVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 

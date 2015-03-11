@@ -9,6 +9,8 @@
 #import "PolyGoodsDetailVC.h"
 #import "PolyDetailHeaderView.h"
 #import "FavoriteView.h"
+#import "ReturnHomeGoodsVC.h"
+#import "PolyGoodsRootVC.h"
 
 #import "JYHConnect.h"
 #import "BaseConnect.h"
@@ -16,7 +18,7 @@
 #import "JYHDetailModel.h"
 
 #import "BaseUtil.h"
-@interface PolyGoodsDetailVC ()
+@interface PolyGoodsDetailVC ()<FavoriteViewDelegate>
 {
     FavoriteView *_favoriteView;
     PolyDetailHeaderView *_headView;
@@ -40,6 +42,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 -(void)setUpTableView
@@ -146,6 +153,7 @@
         _favoriteView.backgroundColor = [UIColor whiteColor];
         _favoriteView.dataSource = _favoriteView;
         _favoriteView.delegate = _favoriteView;
+        _favoriteView.favoriteViewDelegate = self;
         [_favoriteView setUpFavoriteData:_collectionArray];
         return _favoriteView;
     }
@@ -173,6 +181,16 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+#pragma mark -- FavoriteViewDelegate
+-(void)clickItemCell:(JYHItemModel *)model
+{
+    PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+    NSString *goodkey = [NSString stringWithFormat:@"1000_%@",model.productId];
+    polyGoodsRootVC.goodKey = goodkey;
+    polyGoodsRootVC.leftTitle = @"商品详情";
+    [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 }
 
 

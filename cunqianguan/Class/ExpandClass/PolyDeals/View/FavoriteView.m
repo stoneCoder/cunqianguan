@@ -8,7 +8,7 @@
 
 #import "FavoriteView.h"
 #import "FavoriteCell.h"
-
+#import "ReturnHomeGoodsVC.h"
 static NSString *collectionCellID = @"FavoriteCell";
 @implementation FavoriteView
 {
@@ -50,5 +50,9 @@ static NSString *collectionCellID = @"FavoriteCell";
 {
     FavoriteCell *cell = (FavoriteCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = UIColorFromRGB(0xececec);
+    JYHItemModel *model = _dataArray[indexPath.row];
+    if (_favoriteViewDelegate && [_favoriteViewDelegate respondsToSelector:@selector(clickItemCell:)]) {
+        [_favoriteViewDelegate clickItemCell:model];
+    }
 }
 @end

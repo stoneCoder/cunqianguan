@@ -11,7 +11,6 @@
 #import "BaseSelectView.h"
 #import "PolyDealVC.h"
 #import "PolyTomorrowVC.h"
-
 @interface PolyScrollVC ()<SegmentDelegate,BaseSelectViewDelegate,UIScrollViewDelegate>
 {
     TouchPropagatedScrollView *_navScrollV;
@@ -33,7 +32,6 @@
     [self setUpSliderView];
     [self setupScrollView];
     [self setUpSelectView];
- 
 }
 
 - (void)didReceiveMemoryWarning {

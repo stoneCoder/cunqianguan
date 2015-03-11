@@ -15,9 +15,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="220"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="spQ-FE-t4P">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="spQ-FE-t4P" secondAttribute="height" multiplier="16:17" id="7Qt-ni-T37"/>
+                            <constraint firstAttribute="width" secondItem="spQ-FE-t4P" secondAttribute="height" multiplier="1:1" id="Scj-EK-ycD"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥87.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4as-OY-A1I">
@@ -39,13 +39,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_goods" translatesAutoresizingMaskIntoConstraints="NO" id="VJP-fH-pqa">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="VJP-fH-pqa" secondAttribute="height" multiplier="1:1" id="x7z-nO-cyW"/>
+                            <constraint firstAttribute="height" constant="28" id="pmz-3h-WpQ"/>
+                            <constraint firstAttribute="width" constant="28" id="xpF-fE-18O"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男生秋冬" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-1s-GKI">
-                        <rect key="frame" x="5" y="173" width="150" height="17"/>
+                        <rect key="frame" x="5" y="163" width="150" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -58,21 +59,18 @@
                 <constraint firstItem="4as-OY-A1I" firstAttribute="top" secondItem="W1N-1s-GKI" secondAttribute="bottom" constant="8" id="2BA-YT-WA1"/>
                 <constraint firstItem="4as-OY-A1I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="2wy-Fj-pKD"/>
                 <constraint firstItem="W1N-1s-GKI" firstAttribute="top" secondItem="spQ-FE-t4P" secondAttribute="bottom" constant="3" id="3lD-fO-gtP"/>
-                <constraint firstAttribute="trailing" secondItem="VJP-fH-pqa" secondAttribute="trailing" constant="130" id="5Pd-hp-KxF"/>
                 <constraint firstAttribute="bottom" secondItem="jxu-eI-QMJ" secondAttribute="bottom" constant="4" id="8l4-ns-Aee"/>
-                <constraint firstItem="spQ-FE-t4P" firstAttribute="leading" secondItem="VJP-fH-pqa" secondAttribute="leading" id="9jl-72-ij9"/>
                 <constraint firstAttribute="trailing" secondItem="jxu-eI-QMJ" secondAttribute="trailing" constant="4" id="G8Y-th-XTq"/>
                 <constraint firstAttribute="trailing" secondItem="W1N-1s-GKI" secondAttribute="trailing" constant="5" id="GOo-In-aQo"/>
                 <constraint firstItem="W1N-1s-GKI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ICX-9m-DRR"/>
-                <constraint firstItem="VJP-fH-pqa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Iyc-KJ-Ejt"/>
-                <constraint firstItem="VJP-fH-pqa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KcT-ut-hCC"/>
                 <constraint firstAttribute="trailing" secondItem="spQ-FE-t4P" secondAttribute="trailing" id="Lt9-3Q-JRB"/>
-                <constraint firstItem="VJP-fH-pqa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qjo-XT-gA4"/>
-                <constraint firstItem="spQ-FE-t4P" firstAttribute="top" secondItem="VJP-fH-pqa" secondAttribute="top" id="RND-Ee-F24"/>
-                <constraint firstItem="VJP-fH-pqa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SG6-4Z-sRW"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NN3-WD-QOR"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Oom-Ce-plK"/>
                 <constraint firstAttribute="bottom" secondItem="4as-OY-A1I" secondAttribute="bottom" constant="4" id="TjB-mH-R81"/>
                 <constraint firstItem="4as-OY-A1I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="daP-jQ-F6v"/>
                 <constraint firstItem="jxu-eI-QMJ" firstAttribute="top" secondItem="W1N-1s-GKI" secondAttribute="bottom" constant="11" id="diQ-Kd-pJ8"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="leading" secondItem="spQ-FE-t4P" secondAttribute="leading" id="ls5-6v-jiQ"/>
+                <constraint firstItem="VJP-fH-pqa" firstAttribute="top" secondItem="spQ-FE-t4P" secondAttribute="top" id="rRk-k4-xys"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4as-OY-A1I" secondAttribute="bottom" constant="4" id="sxG-SV-dj8"/>
             </constraints>
             <size key="customSize" width="172" height="221"/>

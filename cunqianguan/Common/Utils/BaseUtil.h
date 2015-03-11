@@ -49,6 +49,8 @@
 + (NSString *)transformBankCard:(NSString *)cardNum;
 
 + (BOOL)isInstallApp:(NSString *)url;
+
++ (int)getRandomNumber:(int)from to:(int)to;
 @end
 
 

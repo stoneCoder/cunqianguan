@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MsgSetCell;
+@protocol MsgSetCellDelegate<NSObject>
+-(void)tapSwitch:(MsgSetCell *)cell;
+//-(void)tapTimeAction:(MsgSetCell *)cell;
+@end
 
 @interface MsgSetCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *switchBtn;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+
+@property (strong, nonatomic) id<MsgSetCellDelegate> delegate;
 
 @end

@@ -40,7 +40,7 @@ static NSString *  collectionCellID=@"GoodsCell";
     _pageNum = 1;
     [self setUpNavBtn];
     [self setUpCollection];
-    
+    [self showLoaderView];
     [self loadDataWith:_category andPage:_pageNum];
 }
 
@@ -90,10 +90,9 @@ static NSString *  collectionCellID=@"GoodsCell";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     PersonInfo *person = [PersonInfo sharedPersonInfo];
     [[MongoConnect sharedMongoConnect] getMongoGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _mongoListModel = [[MongoListModel alloc] initWithDictionary:dic error:nil];
@@ -104,7 +103,7 @@ static NSString *  collectionCellID=@"GoodsCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

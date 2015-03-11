@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    //[_infoLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tipToChangeTime)]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,5 +20,17 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)switchAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(tapSwitch:)]) {
+        [_delegate tapSwitch:self];
+    }
+}
 
+//-(void)tipToChangeTime
+//{
+//    if (_delegate && [_delegate respondsToSelector:@selector(tapTimeAction:)]) {
+//        [_delegate tapTimeAction:self];
+//    }
+//}
 @end

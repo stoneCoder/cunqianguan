@@ -155,7 +155,7 @@
                 <outlet property="progressView" destination="iiM-e3-y3C" id="VFZ-cq-UBH"/>
                 <outlet property="vipImage" destination="MgZ-fJ-qFu" id="4gq-Qd-bY6"/>
             </connections>
-            <point key="canvasLocation" x="-731" y="112"/>
+            <point key="canvasLocation" x="-997" y="12"/>
         </view>
     </objects>
     <resources>

@@ -8,6 +8,7 @@
 
 #import "HotShopVC.h"
 #import "HotShopCell.h"
+#import "HotDetailShopVC.h"
 
 #import "Constants.h"
 #import "PersonInfo.h"
@@ -33,6 +34,7 @@ static NSString *hotShopCellID = @"HotShopCell";
     _data = [NSMutableArray array];
     [self initLocalData];
     [self setUpCollection];
+    [self showLoaderView];
     [self loadData];
 }
 
@@ -83,9 +85,8 @@ static NSString *hotShopCellID = @"HotShopCell";
 
 -(void)loadData
 {
-    [self showHUD:DATA_LOAD];
     [[HomeConnect sharedHomeConnect] gethotmalllist:_info.userId success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             HotShopListModel *listModel = [[HotShopListModel alloc] initWithDictionary:dic error:nil];
@@ -93,7 +94,7 @@ static NSString *hotShopCellID = @"HotShopCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 #pragma mark -- UICollectionDelegate && UICollectionDataSource
@@ -114,7 +115,15 @@ static NSString *hotShopCellID = @"HotShopCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    HotShopModel *model = _data[indexPath.row];
+    NSString *urlPath = model.fanliUrl;
+    if (indexPath.row > 2) {
+        urlPath = [NSString stringWithFormat:@"%@",urlPath];
+    }
+    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+    hotDetailShopVC.leftTitle = model.mallName;
+    hotDetailShopVC.urlPath = urlPath;
+    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
 }
 
 @end

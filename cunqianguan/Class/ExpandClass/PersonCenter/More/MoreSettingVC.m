@@ -10,6 +10,7 @@
 #import "SignatureVC.h"
 #import "HelpInfoVC.h"
 #import "MsgSetVC.h"
+#import "AboutUsVC.h"
 @interface MoreSettingVC ()
 {
     NSDictionary *_localData;
@@ -90,19 +91,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger index = indexPath.row;
-    if(index == 0){
-        SignatureVC *signatureVC = [[SignatureVC alloc] init];
-        signatureVC.leftTitle = @"意见反馈";
-        [self.navigationController pushViewController:signatureVC animated:YES];
-    }else if(index == 1){
-        HelpInfoVC *helpInfoVC = [[HelpInfoVC alloc] init];
-        helpInfoVC.leftTitle = @"帮助中心";
-        [self.navigationController pushViewController:helpInfoVC animated:YES];
-    }else if(index == 2){
-        MsgSetVC *msgSetVC = [[MsgSetVC alloc] init];
-        msgSetVC.leftTitle = @"消息设置";
-        [self.navigationController pushViewController:msgSetVC animated:YES];
+    if (indexPath.section == 0) {
+        if(index == 0){
+            SignatureVC *signatureVC = [[SignatureVC alloc] init];
+            signatureVC.leftTitle = @"意见反馈";
+            [self.navigationController pushViewController:signatureVC animated:YES];
+        }else if(index == 1){
+            HelpInfoVC *helpInfoVC = [[HelpInfoVC alloc] init];
+            helpInfoVC.leftTitle = @"帮助中心";
+            [self.navigationController pushViewController:helpInfoVC animated:YES];
+        }else if(index == 2){
+            MsgSetVC *msgSetVC = [[MsgSetVC alloc] init];
+            msgSetVC.leftTitle = @"消息设置";
+            [self.navigationController pushViewController:msgSetVC animated:YES];
+        }
+    }else if (indexPath.section == 1){
+        if(index == 0){
+           
+        }else if(index == 1){
+            AboutUsVC *aboutUseVC = [[AboutUsVC alloc] init];
+            aboutUseVC.leftTitle = @"关于我们";
+            [self.navigationController pushViewController:aboutUseVC animated:YES];
+        }
     }
+   
 }
 
 @end

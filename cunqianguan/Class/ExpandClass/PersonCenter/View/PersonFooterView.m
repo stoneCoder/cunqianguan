@@ -7,7 +7,7 @@
 //
 
 #import "PersonFooterView.h"
-
+#import "TipInfoVC.h"
 @implementation PersonFooterView
 
 /*
@@ -27,6 +27,12 @@
         //[tapActionView setUpTapAction];
     }
     return personFooterView;
+}
+- (IBAction)btnAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(btnAction:)]) {
+        [_delegate helpInfoClick];
+    }
 }
 
 @end

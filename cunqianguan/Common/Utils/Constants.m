@@ -41,15 +41,12 @@ NSString *const QQAppKey = @"dA20dR13RcQV3GnR";
 NSString *const QQAppID = @"1102956721";
 
 NSString *const MM = @"mm_27280417_3404443_14496902";
-
 NSString *const aiTaoUrl = @"http://ai.m.taobao.com?pid=";
-
 NSString *const MALL_TB_URL1 = @"http://www.tmall.com/?force=m&pid=";
-
 NSString *const MALL_TB_URL2 = @"http://m.taobao.com/channel/chn/mobile/tejia_taoke.php?pid=";
-
 NSString *const MALL_TB_URL3 = @"http://m.trip.taobao.com/trip/index.html?pid=";
-
+NSString *const CallS_RECHARGE_URL = @"http://wvs.m.taobao.com?pid=";
+//+ MM + "&backHiddenFlag=1&unid=";
 
 NSString *const TB_REBATE_FINAL_DETAIL_URL_REG = @"http://h5\\.m\\.taobao\\.com/awp/core/detail\\.\\w*\\?.*ali_trackid=2.*";
 NSString *const TM_REBATE_FINAL_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*ali_trackid=2.*";

@@ -42,6 +42,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
     _pageNum = 1;
     _data = [NSMutableArray array];
     [self setUpCollection];
+    [self showLoaderView];
     [self loadDataWith:_category andPage:_pageNum];
 }
 
@@ -65,10 +66,9 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     PersonInfo *person = [PersonInfo sharedPersonInfo];
     [[MongoConnect sharedMongoConnect] getMongoGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _mongoListModel = [[MongoListModel alloc] initWithDictionary:dic error:nil];
@@ -79,7 +79,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

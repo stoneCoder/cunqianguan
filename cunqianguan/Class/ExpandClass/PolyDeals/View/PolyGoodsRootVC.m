@@ -8,6 +8,7 @@
 
 #import "PolyGoodsRootVC.h"
 #import "PolyGoodsDetailVC.h"
+#import "ReturnHomeGoodsVC.h"
 
 #import "PopoverView.h"
 #import "PopView.h"
@@ -17,6 +18,8 @@
 #import "JYHConnect.h"
 #import "BaseConnect.h"
 #import "BaseUtil.h"
+
+#import "AppDelegate.h"
 @interface PolyGoodsRootVC ()
 {
     PolyGoodsDetailVC *_polyGoodsDetailVC;
@@ -36,17 +39,18 @@
     // Do any additional setup after loading the view from its nib.
     [self setUpNavBtn];
     [self setUpTableView];
-    [self loadData:_model];
+    [self loadData:_goodKey];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [_countDownTimer invalidate];
+    //[_countDownTimer invalidate];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [_countDownTimer invalidate];
 }
 
 
@@ -60,11 +64,11 @@
     [self.view insertSubview:_polyGoodsDetailVC.view belowSubview:_bottomView];
 }
 
--(void)loadData:(JYHModel *)model
+-(void)loadData:(NSString *)goodKey
 {
     [self showHUD:DATA_LOAD];
     PersonInfo *info = [PersonInfo sharedPersonInfo];
-    NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
+    //NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
     [[JYHConnect sharedJYHConnect] getJYHGoodById:info.userId andGoodKey:goodKey success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
@@ -82,20 +86,18 @@
 -(void)setUpNavBtn
 {
     rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [rigthButton setBackgroundImage:[UIImage imageNamed:@"left_menu"] forState:UIControlStateNormal];
-    [rigthButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+    [rigthButton setBackgroundImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+    [rigthButton setBackgroundImage:[UIImage imageNamed:@"share_hover"] forState:UIControlStateSelected];
+    [rigthButton addTarget:self action:@selector(shareInfo) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
     self.navigationItem.rightBarButtonItem = rightBtnItem;
 }
 
--(void)showMenu
+-(void)shareInfo
 {
-    CGPoint point=CGPointMake(CGRectGetMidX(rigthButton.frame), CGRectGetMinY(rigthButton.frame));
-    PopView *popView = [[PopView alloc] initWithFrame:CGRectMake(0, 0, 155, 60)];
-    //    [popView.myAttentionView addTarget:self action:@selector(changeDiscoveryList) forControlEvents:UIControlEventTouchUpInside];
-    //    [popView.manageAttentionView addTarget:self action:@selector(manageMyGame) forControlEvents:UIControlEventTouchUpInside];
-    PopoverView *popoverView = [[PopoverView alloc] init];
-    [popoverView showAtPoint:point inView:self.view withContentView:popView];
+    NSString *shareContent = SHARE_CONTEXT(_detailModel.price,_detailModel.pic_url);
+    UIImage *shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_detailModel.pic_url]]];
+    [(AppDelegate *)([UIApplication sharedApplication].delegate) presentShareView:self withContent:shareContent andImage:shareImage];
 }
 
 
@@ -133,9 +135,9 @@
         
         [self startTimer:[NSNumber numberWithInteger:_detailModel.status]];
     }else{
-        _actionBtn.backgroundColor = [UIColor redColor];
+        _actionBtn.backgroundColor = [UIColor lightGrayColor];
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
-        
+        _actionBtn.userInteractionEnabled = NO;
         _grabLabel.hidden = YES;
         _countDownLabel.hidden = YES;
     }
@@ -165,6 +167,14 @@
             break;
     }
     
+}
+- (IBAction)grabAction:(id)sender
+{
+    ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+    NSString *goodkey = [NSString stringWithFormat:@"1000_%@",_detailModel.item_id];
+    returnHomeGoodsVC.goodKey = goodkey;
+    returnHomeGoodsVC.leftTitle = @"淘宝";
+    [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
 }
 /*
 #pragma mark - Navigation

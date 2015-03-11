@@ -21,12 +21,14 @@
 #import "InviteVC.h"
 #import "MoreSettingVC.h"
 #import "PersonInfoVC.h"
+#import "TipInfoVC.h"
+#import "CallsRechargeVC.h"
 
 #import "SignVC.h"
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
-@interface PersonCenterVC ()<PersonHeaderDelegate>
+@interface PersonCenterVC ()<PersonHeaderDelegate,PersonFooterDelegate>
 {
     NSDictionary *_localData;
     PersonHeaderView *personHeaderView;
@@ -87,6 +89,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     
     
     PersonFooterView *personFooterView = [PersonFooterView footerView];
+    personFooterView.delegate = self;
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
     
@@ -207,9 +210,9 @@ static NSString *FooterViewID = @"PersonFooterView";
                 inviteVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
                 [self.navigationController pushViewController:inviteVC animated:YES];
             }else if (indexPath.row == 1){
-                MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
-                moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:moreSettingVC animated:YES];
+                CallsRechargeVC *callsRechargeVC = [[CallsRechargeVC alloc] init];
+                callsRechargeVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                [self.navigationController pushViewController:callsRechargeVC animated:YES];
             }else if (indexPath.row == 2){
                 MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
                 moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
@@ -271,6 +274,15 @@ static NSString *FooterViewID = @"PersonFooterView";
     PersonInfoVC *personInfoVC = [[PersonInfoVC alloc] init];
     personInfoVC.leftTitle = @"个人信息";
     [self.navigationController pushViewController:personInfoVC animated:YES];
+}
+
+#pragma mark -- PersonFooterDelegate
+-(void)helpInfoClick
+{
+    TipInfoVC *infoVC = [[TipInfoVC alloc] init];
+    infoVC.leftTitle = @"帮助中心";
+    [infoVC reloadDataWith:@{@"title":@"什么是累计获得金额？",@"info":@"累计获得金额等于（积分+集分宝+现金）收入的总和！\n其中100积分等同于1元钱\n100集分宝等同于1元钱"}];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 @end

@@ -42,6 +42,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     if (index == 0) {
         userId = @"";
     }
+    [self showLoaderView:self.collectionView];
     [self loadDataWithId:userId andPage:_pageNum];
     
 }
@@ -61,9 +62,8 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 -(void)loadDataWithId:(NSString *)userId andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     [[ExChangeConnect sharedExChangeConnect] getExchangeList:userId success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[ExChangeListModel alloc] initWithDictionary:dic error:nil];
@@ -74,7 +74,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

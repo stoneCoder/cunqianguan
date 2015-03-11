@@ -334,7 +334,7 @@
 -(void)pushRebateHome
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
-    rebateHomeVC.leftTitle = @"淘宝返利";
+    rebateHomeVC.leftTitle = @"逛淘宝";
     [self.navigationController pushViewController:rebateHomeVC animated:YES];
 }
 

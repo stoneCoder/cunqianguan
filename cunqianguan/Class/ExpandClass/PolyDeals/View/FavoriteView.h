@@ -7,8 +7,12 @@
 //
 
 #import "BaseCollectionView.h"
-
+@class JYHItemModel;
+@protocol FavoriteViewDelegate<NSObject>
+-(void)clickItemCell:(JYHItemModel *)model;
+@end
 @interface FavoriteView : BaseCollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (strong, nonatomic) id<FavoriteViewDelegate> favoriteViewDelegate;
 -(void)setUpFavoriteData:(NSArray *)array;
 
 @end

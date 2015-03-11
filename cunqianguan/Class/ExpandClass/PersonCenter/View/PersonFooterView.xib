@@ -35,6 +35,9 @@
                     <state key="normal" image="tip">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="how-xP-tfJ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynq-Oz-Jjy">
                     <rect key="frame" x="15" y="66" width="290" height="44"/>

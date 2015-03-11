@@ -395,4 +395,9 @@ static NSString *const hmacPassword = @"4318sqzs";
 {
   return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]];
 }
+
++ (int)getRandomNumber:(int)from to:(int)to
+{
+    return (int)(from + (arc4random() % (to - from + 1))); //+1,result is [from to]; else is [from, to)!!!!!!!
+}
 @end

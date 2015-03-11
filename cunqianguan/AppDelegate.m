@@ -52,12 +52,12 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     //[UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://test.4318.com"];
 }
 
--(void)presentShareView:(UIViewController *)controller
+-(void)presentShareView:(UIViewController *)controller withContent:(NSString *)content andImage:(UIImage *)image
 {
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:nil
-                                      shareText:@"你要分享的文字"
-                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                      shareText:content
+                                     shareImage:image
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToTencent,nil]
                                        delegate:self];
 }

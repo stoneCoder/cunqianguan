@@ -20,7 +20,6 @@
 
 #import "JYHListModel.h"
 #import "JYHModel.h"
-
 @interface PolyDealVC ()
 {
     NSMutableArray *_data;
@@ -46,6 +45,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 {
     [_data removeAllObjects];
     _category = index;
+    [self showLoaderView:self.collectionView];
     [self loadDataWith:_category andPage:1];
 }
 
@@ -68,7 +68,6 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 -(void)setUpCollection
 {
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
-    //[self.collectionView setFrame:CGRectMake(0, 0, VIEW_WIDTH, self.collectionView.frame.size.height)];
     UINib *cellNib = [UINib nibWithNibName:@"PolyGoodsCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
     [self setRefreshEnabled:YES];
@@ -76,10 +75,9 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     PersonInfo *person = [PersonInfo sharedPersonInfo];
     [[JYHConnect sharedJYHConnect] getJYHGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[JYHListModel alloc] initWithDictionary:dic error:nil];
@@ -90,7 +88,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 
@@ -136,9 +134,10 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
-    polyGoodsRootVC.model = _data[indexPath.row];
+    JYHModel *model = _data[indexPath.row];
+    NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
+    polyGoodsRootVC.goodKey = goodKey;
     polyGoodsRootVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 }
-
 @end
