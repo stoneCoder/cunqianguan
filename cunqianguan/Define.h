@@ -54,13 +54,13 @@ return shared##className; \
 #define INTERFACE_VERSION @"2.0"
 #define TIPS_ARRAY @[@"小贴士：见你所爱，勿忘收藏",@"小贴士：长按商品，即取消收藏",@"小贴士：足迹，留下您所浏览的商品返利",@"小贴士：淘宝新规，确认收货才见订单",@"小贴士：同类APP，保鲜期返利最高哦",@"小贴士：凡返利购商品，俱详细返利比",@"小贴士：手机签到，得额外奖励"]
 
-#define SHARE_CONTEXT(money,url) [NSString stringWithFormat:@"只要%.2f元,刚刚在 @保鲜期官网 上发现了这个宝贝，非常喜欢，还有返利，赶快来抢吧！%@",money,url];
+#define SHARE_CONTEXT(money) [NSString stringWithFormat:@"只要%.2f元,刚刚在 @保鲜期官网 上发现了这个宝贝，非常喜欢，还有返利，赶快来抢吧！",money];
 #define BASE_URL @"www.baoxianqi.com/"
 
-#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=qz&uid=",BASE_URL,goodKey,userId];
+#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=qz&uid=%@",BASE_URL,goodKey,userId];
 
-#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wx&uid=",BASE_URL,goodKey,userId];
+#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wx&uid=%@",BASE_URL,goodKey,userId];
 
-#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=",BASE_URL,goodKey,userId];
+#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 
-#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wb&uid=",BASE_URL,goodKey,userId];
+#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wb&uid=%@",BASE_URL,goodKey,userId];

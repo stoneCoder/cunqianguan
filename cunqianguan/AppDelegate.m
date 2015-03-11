@@ -18,6 +18,7 @@
 
 @interface AppDelegate ()<UMSocialUIDelegate>
 
+
 @end
 static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
 @implementation AppDelegate
@@ -47,19 +48,9 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:shareURL];
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil ,需要 #import "UMSocialSinaHandler.h"
-    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://test.4318.com"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:shareURL];
     //打开腾讯微博SSO开关，设置回调地址,需要 #import "UMSocialTencentWeiboHandler.h"
     //[UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://test.4318.com"];
-}
-
--(void)presentShareView:(UIViewController *)controller withContent:(NSString *)content andImage:(UIImage *)image
-{
-    [UMSocialSnsService presentSnsIconSheetView:controller
-                                         appKey:nil
-                                      shareText:content
-                                     shareImage:image
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToTencent,nil]
-                                       delegate:self];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

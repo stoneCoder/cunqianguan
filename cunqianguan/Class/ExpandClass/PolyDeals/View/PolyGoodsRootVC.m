@@ -18,11 +18,11 @@
 #import "JYHConnect.h"
 #import "BaseConnect.h"
 #import "BaseUtil.h"
-
-#import "AppDelegate.h"
+#import "ShareUtil.h"
 @interface PolyGoodsRootVC ()
 {
     PolyGoodsDetailVC *_polyGoodsDetailVC;
+    PersonInfo *_info;
     JYHDetailModel *_detailModel;
     NSTimer *_countDownTimer;
     NSInteger _countDownTime;
@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpNavBtn];
     [self setUpTableView];
     [self loadData:_goodKey];
@@ -67,9 +68,7 @@
 -(void)loadData:(NSString *)goodKey
 {
     [self showHUD:DATA_LOAD];
-    PersonInfo *info = [PersonInfo sharedPersonInfo];
-    //NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
-    [[JYHConnect sharedJYHConnect] getJYHGoodById:info.userId andGoodKey:goodKey success:^(id json) {
+    [[JYHConnect sharedJYHConnect] getJYHGoodById:_info.userId andGoodKey:goodKey success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -95,9 +94,8 @@
 
 -(void)shareInfo
 {
-    NSString *shareContent = SHARE_CONTEXT(_detailModel.price,_detailModel.pic_url);
-    UIImage *shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_detailModel.pic_url]]];
-    [(AppDelegate *)([UIApplication sharedApplication].delegate) presentShareView:self withContent:shareContent andImage:shareImage];
+    NSString *shareContent = SHARE_CONTEXT(_detailModel.price);
+    [ShareUtil presentShareView:self content:shareContent imageUrl:_detailModel.pic_url goodKey:_detailModel.item_id andUserId:_info.userId];
 }
 
 

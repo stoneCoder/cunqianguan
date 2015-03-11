@@ -12,6 +12,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)presentShareView:(UIViewController *)controller withContent:(NSString *)content andImage:(UIImage *)image;
 @end
 

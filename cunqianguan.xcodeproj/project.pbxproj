@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		487112F61AB069730089CE0A /* ShareUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 487112F51AB069730089CE0A /* ShareUtil.m */; };
 		48913D931AAF1F8600DEA83C /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D901AAF1F8600DEA83C /* PopView.m */; };
 		48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D921AAF1F8600DEA83C /* PopViewCell.m */; };
 		97DA9493BBBE4D7CFF653414 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2973A8EA4747C20640F7CB2E /* libPods.a */; };
@@ -317,6 +318,8 @@
 /* Begin PBXFileReference section */
 		0DF6B965DE082AD71CDE37F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2973A8EA4747C20640F7CB2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		487112F41AB069730089CE0A /* ShareUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtil.h; sourceTree = "<group>"; };
+		487112F51AB069730089CE0A /* ShareUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtil.m; sourceTree = "<group>"; };
 		48913D8F1AAF1F8600DEA83C /* PopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
 		48913D901AAF1F8600DEA83C /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
 		48913D911AAF1F8600DEA83C /* PopViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewCell.h; sourceTree = "<group>"; };
@@ -1199,6 +1202,8 @@
 				B14729A61A8C7E8700524510 /* BMAlert.m */,
 				B1E6B57C1AAE9521005CB5AF /* TBUrlUtil.h */,
 				B1E6B57D1AAE9521005CB5AF /* TBUrlUtil.m */,
+				487112F41AB069730089CE0A /* ShareUtil.h */,
+				487112F51AB069730089CE0A /* ShareUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2478,6 +2483,7 @@
 				B15D44CA1A78A7AF008B8F4B /* ShopOrderCell.m in Sources */,
 				B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */,
 				B14968461A875A4500DBC09B /* NSString+SWHex.m in Sources */,
+				487112F61AB069730089CE0A /* ShareUtil.m in Sources */,
 				B15DBA141AA00B41005FBC2C /* JYHDetailModel.m in Sources */,
 				B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */,
 				B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */,
