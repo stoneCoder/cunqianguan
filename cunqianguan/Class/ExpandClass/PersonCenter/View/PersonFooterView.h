@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol PersonFooterDelegate<NSObject>
 -(void)helpInfoClick;
+-(void)loginOutClick;
 @end
 @interface PersonFooterView : UIView
 @property (strong, nonatomic) id<PersonFooterDelegate> delegate;

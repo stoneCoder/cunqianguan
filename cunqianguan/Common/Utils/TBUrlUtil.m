@@ -41,15 +41,15 @@ DEFINE_SINGLETON_FOR_CLASS(TBUrlUtil)
 {
     NSString *itemId;
     NSError *error;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(\\w+)=([^&]+)" options:0 error:&error];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"id=([^&]+)" options:0 error:&error];
     if (regex != nil) {
         NSTextCheckingResult *firstMatch=[regex firstMatchInString:url options:0 range:NSMakeRange(0, [url length])];
         if (firstMatch) {
             NSRange resultRange = [firstMatch rangeAtIndex:0];
             //从urlString当中截取数据
-            itemId = [url substringWithRange:resultRange];
-            //输出结果
-            NSLog(@"access url is %@------------->product id is %@",url,itemId);
+            itemId = [[url substringWithRange:resultRange] substringFromIndex:3];
+            
+            //输出结果 NSLog(@"access url is %@------------->product id is %@",url,itemId);
         }
     }
     return  itemId;

@@ -20,6 +20,8 @@ connectionError:(void (^)(NSError *error))connectionError
 
 +(void) get:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(id json))success failure:(void (^)(id json))failure withView:(UIView*)view;
 
++(void) postAbsolutePath:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(id json))success failure:(void (^)(NSError * e))failure;
+
 
 /**
  *  上传文件

@@ -30,8 +30,14 @@
 }
 - (IBAction)btnAction:(id)sender
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(btnAction:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(helpInfoClick)]) {
         [_delegate helpInfoClick];
+    }
+}
+- (IBAction)loginOutAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(loginOutClick)]) {
+        [_delegate loginOutClick];
     }
 }
 

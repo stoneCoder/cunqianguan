@@ -8,8 +8,17 @@
 
 #import "BaseWebVC.h"
 #import "TBUrlUtil.h"
+#import "BaseUtil.h"
 #import "BMAlert.h"
+#import "PersonInfo.h"
+#import "FootConnect.h"
+#import "BaseConnect.h"
+#import "Constants.h"
 @interface BaseWebVC ()<UIWebViewDelegate>
+{
+    PersonInfo *_info;
+    BOOL _isAddTrance;
+}
 
 @end
 
@@ -18,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _info = [PersonInfo sharedPersonInfo];
+    _isAddTrance = NO;
     if (self.webView == nil) {
         CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
         self.webView = [[UIWebView alloc] initWithFrame:frame];
@@ -46,19 +57,25 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+     __block NSString *userId = _info.userId?_info.userId:@"";
     NSString *accesUrl = webView.request.URL.absoluteString;
     NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
-    if (type != NOT_TB_URL) {
-        NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
+    if (type < 4) {
+        __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
+        if (!_isAddTrance) {
+            if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
+                productId = [NSString stringWithFormat:@"0_%@",productId];
+            }else if (type == TM_ORI_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL){
+                productId = [NSString stringWithFormat:@"999_%@",productId];
+            }
+            //添加足迹
+            [self addTrace:userId WithProduct:productId andType:type inView:webView];
+        }
     }else{
         //天天特价
-        
         if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=1"].location != NSNotFound) {
-            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
-            //
-            //            } other:^(DoAlertView *alertView) {
-            //
-            //            }];
+            NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL2,MM,[BaseUtil encrypt:userId]];
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
         }
         //聚优惠
         if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=2"].location != NSNotFound) {
@@ -70,11 +87,8 @@
         }
         //淘宝旅行
         if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=3"].location != NSNotFound) {
-            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
-            //
-            //            } other:^(DoAlertView *alertView) {
-            //
-            //            }];
+            NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL3,MM,[BaseUtil encrypt:userId]];
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
         }
         //天猫超市详情页面
         if ([accesUrl rangeOfString:@"http://tun.tmall.com/"].location != NSNotFound) {
@@ -88,6 +102,82 @@
     [self hideAllHUD];
 }
 
+#pragma mark -- Private 添加足迹
+-(void)addTrace:(NSString *)userId WithProduct:(NSString *)productId andType:(NSInteger)type inView:(UIWebView *)webView
+{
+    //添加足迹
+    [[FootConnect sharedFootConnect] addTrace:userId withGoodKey:productId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        //添加足迹失败
+        if ([BaseConnect isSucceeded:dic]) {
+            //添加足迹成功
+            _isAddTrance = YES;
+            [_info saveTraceFlag:@"YES"];
+        }else{
+            //访问淘宝
+            if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
+                [self addTaobaoTrace:userId WithProduct:productId];
+            }else if (type == TM_ORI_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL){
+                //访问天猫
+                [self addTmallTrace:userId WithProduct:productId inView:webView];
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
+#pragma mark -- 添加淘宝足迹
+-(void)addTaobaoTrace:(NSString *)userId WithProduct:(NSString *)productId
+{
+    //获取淘宝产品信息
+    [[FootConnect sharedFootConnect] getTaobaoProductInfo:productId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if (dic.count > 0) {
+            NSString *key = [[dic objectForKey:@"ret"][0] componentsSeparatedByString:@"::"][0];
+            if ([key isEqualToString:@"SUCCESS"]) {
+                NSDictionary *goodInfo = [[dic objectForKey:@"data"] objectForKey:@"itemInfoModel"];
+                NSString *title = [goodInfo objectForKey:@"title"];
+                NSString *pic_url = [goodInfo objectForKey:@"picsPath"][0];
+                /*获取价格*/
+                NSArray *data = [[dic objectForKey:@"data"] objectForKey:@"apiStack"];
+                NSString *info = [data[0] objectForKey:@"value"];
+                NSArray *priceInfo = [[[[BaseUtil jsonStrToDic:info] objectForKey:@"data"] objectForKey:@"itemInfoModel"] objectForKey:@"priceUnits"];
+                NSString *price = [priceInfo[0] objectForKey:@"price"];
+                [[FootConnect sharedFootConnect] addTrace:userId goodKey:productId title:title picUrl:pic_url price:price success:^(id json) {
+                    NSDictionary *dic = (NSDictionary *)json;
+                    if ([BaseConnect isSucceeded:dic]) {
+                        _isAddTrance = YES;
+                        [_info saveTraceFlag:@"YES"];
+                    }
+                } failure:^(NSError *err) {
+                    
+                }];
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
+#pragma mark -- 添加天猫足迹
+-(void)addTmallTrace:(NSString *)userId WithProduct:(NSString *)productId inView:(UIWebView *)webView
+{
+    NSString *price = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('ui-yen')[0].innerHTML"];
+    price = [price substringFromIndex:1];
+    NSString *pic_url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('s-showcase').getElementsByTagName('img')[0].src"];
+    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('s-title').getElementsByTagName('h1')[0].innerHTML"];
+    [[FootConnect sharedFootConnect] addTrace:userId goodKey:productId title:title picUrl:pic_url price:price success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _isAddTrance = YES;
+            [_info saveTraceFlag:@"YES"];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+
+}
 
 /*
 #pragma mark - Navigation

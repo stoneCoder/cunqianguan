@@ -16,6 +16,14 @@ DEFINE_SINGLETON_FOR_HEADER(FootConnect)
         success:(void (^)(id json))success
         failure:(void (^)( NSError *err))failure;
 
+-(void)addTrace:(NSString *)userId
+        goodKey:(NSString *)goodKey
+          title:(NSString *)title
+         picUrl:(NSString *)picUrl
+          price:(NSString *)price
+        success:(void (^)(id json))success
+        failure:(void (^)( NSError *err))failure;
+
 -(void)getTraceGoods:(NSString *)userId
     withPage:(NSInteger)page
         success:(void (^)(id json))success
@@ -25,4 +33,8 @@ DEFINE_SINGLETON_FOR_HEADER(FootConnect)
              withGoodKey:(NSString *)goodKey
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure;
+
+-(void)getTaobaoProductInfo:(NSString *)productId
+                    success:(void (^)(id json))success
+                    failure:(void (^)( NSError *err))failure;
 @end

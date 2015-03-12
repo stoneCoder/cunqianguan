@@ -313,6 +313,8 @@
 		B1E6B58F1AAEDD13005CB5AF /* intro.html in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B58E1AAEDD13005CB5AF /* intro.html */; };
 		B1E6B5941AAEE877005CB5AF /* MsgSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E6B5921AAEE877005CB5AF /* MsgSetCell.m */; };
 		B1E6B5951AAEE877005CB5AF /* MsgSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E6B5931AAEE877005CB5AF /* MsgSetCell.xib */; };
+		B1F873201AB1899F00B1D4B0 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F8731F1AB1899F00B1D4B0 /* EmptyView.m */; };
+		B1F873221AB189B300B1D4B0 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F873211AB189B300B1D4B0 /* EmptyView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -867,6 +869,9 @@
 		B1E6B5911AAEE877005CB5AF /* MsgSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgSetCell.h; sourceTree = "<group>"; };
 		B1E6B5921AAEE877005CB5AF /* MsgSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgSetCell.m; sourceTree = "<group>"; };
 		B1E6B5931AAEE877005CB5AF /* MsgSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgSetCell.xib; sourceTree = "<group>"; };
+		B1F8731E1AB1899F00B1D4B0 /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
+		B1F8731F1AB1899F00B1D4B0 /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
+		B1F873211AB189B300B1D4B0 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1366,6 +1371,9 @@
 				B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */,
 				B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */,
 				B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */,
+				B1F8731E1AB1899F00B1D4B0 /* EmptyView.h */,
+				B1F8731F1AB1899F00B1D4B0 /* EmptyView.m */,
+				B1F873211AB189B300B1D4B0 /* EmptyView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2314,6 +2322,7 @@
 				B14E30BC1A79FB24005BF0EF /* MoneyViewVC.xib in Resources */,
 				B12D72A41A7B799F0086F70A /* PersonInfoVC.xib in Resources */,
 				B1498AF11A776225001260EC /* ChangeRootVC.xib in Resources */,
+				B1F873221AB189B300B1D4B0 /* EmptyView.xib in Resources */,
 				B15D44CC1A78A866008B8F4B /* ShopOrderCell.xib in Resources */,
 				B14E30AC1A79BE46005BF0EF /* AddressManagerVC.xib in Resources */,
 				B14071D51A6DFAF100D1792F /* MenuCell.xib in Resources */,
@@ -2582,6 +2591,7 @@
 				B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */,
 				48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */,
 				B152C08B1AA98DC300D18AFB /* CollectListModel.m in Sources */,
+				B1F873201AB1899F00B1D4B0 /* EmptyView.m in Sources */,
 				B158A7121A9D7A7400C6FD3F /* JYHModel.m in Sources */,
 				B152C0811AA93F2400D18AFB /* FootModel.m in Sources */,
 				B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */,

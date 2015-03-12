@@ -22,15 +22,19 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
     [UMSocialData defaultData].extConfig.qqData.url = SHARE_QQ_URL(goodKey,userId);
     [UMSocialData defaultData].extConfig.wechatSessionData.url = SHARE_WC_URL(goodKey,userId);
     [UMSocialData defaultData].extConfig.wechatTimelineData.url = SHARE_QQ_URL(goodKey,userId);
+    NSString *shareWebText = SHARE_WB_URL(goodKey, userId);
+    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@%@",content,shareWebText];
     
-    
-    //修改集成面板数据
-    //    UMSocialSnsPlatform *sinaPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-    //    sinaPlatform.bigImageName = @"icon";
-    //    sinaPlatform.displayName = @"哇哈哈";
-    //    sinaPlatform.snsClickHandler = ^(UIViewController *presentingController, UMSocialControllerService * socialControllerService, BOOL isPresentInController){
-    //        NSLog(@"点击新浪微博的响应");
-    //    };
+        //修改集成面板数据
+//        UMSocialSnsPlatform *sinaPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+//        sinaPlatform.snsClickHandler = ^(UIViewController *presentingController, UMSocialControllerService * socialControllerService, BOOL isPresentInController){
+//            
+//            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToSina] content:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social" image:nil location:nil urlResource:nil presentedController:controller completion:^(UMSocialResponseEntity *response){
+//                if (response.responseCode == UMSResponseCodeSuccess) {
+//                    NSLog(@"分享成功！");
+//                }
+//            }];
+//        };
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:nil

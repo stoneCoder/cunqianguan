@@ -216,4 +216,16 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     } withView:nil];
 }
 
+#pragma mark -- 足迹相关
+- (BOOL)isNewTrace
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"newFoot"] boolValue];
+}
+
+- (void)saveTraceFlag:(NSString *)flag
+{
+    [[NSUserDefaults standardUserDefaults] setObject:flag forKey:@"newFoot"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

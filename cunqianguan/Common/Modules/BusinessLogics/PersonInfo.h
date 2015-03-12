@@ -49,4 +49,8 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 
 -(void)isLoginWithcompletion:(void (^)(BOOL flag))completion;
 -(void)isLoginWithPresent:(void (^)(BOOL flag))completion WithType:(BOOL)presentType;
+
+
+- (BOOL)isNewTrace;
+- (void)saveTraceFlag:(NSString *)flag;
 @end

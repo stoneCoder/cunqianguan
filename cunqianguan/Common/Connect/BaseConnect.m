@@ -150,6 +150,21 @@ connectionError:(void (^)(NSError *error))connectionError
          NSLog(@"failure----------->%@",error);
     }];
 }
+
+
++(void) postAbsolutePath:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(id json))success failure:(void (^)(NSError * e))failure{
+    NSLog(@"request url is ----------> %@, and parameters is ---------> %@",uri,parameters);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+    [manager POST:uri parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+        NSLog(@"success----------->%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+        NSLog(@"failure----------->%@",error);
+    }];
+}
+
 +(void) get:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(AFHTTPRequestOperation * o, id json))success failure:(void (^)(AFHTTPRequestOperation * o, NSError * e))failure{
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",API,uri];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

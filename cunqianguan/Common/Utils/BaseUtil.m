@@ -215,6 +215,16 @@ static NSString *const hmacPassword = @"4318sqzs";
     }
 }
 
++ (NSDictionary *)jsonStrToDic:(NSString *)str
+{
+    NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&err];
+    return dic;
+}
+
 +(NSArray *)readCityTxt
 {
     NSString* path = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"txt"];

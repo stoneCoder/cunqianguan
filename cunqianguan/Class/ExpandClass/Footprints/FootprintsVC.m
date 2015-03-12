@@ -52,7 +52,7 @@ static NSString *CellID=@"FootPrintsCell";
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = UIColorFromRGB(0xececec);
-    [self setRefreshEnabled:YES];
+    //[self setRefreshEnabled:YES];
 }
 
 /*

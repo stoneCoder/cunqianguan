@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *duihuanView;
 @property (weak, nonatomic) IBOutlet UIView *shopView;
 @property (weak, nonatomic) IBOutlet UIView *myView;
+@property (weak, nonatomic) IBOutlet UIImageView *tipImage;
 
 @property (strong,nonatomic) id<TapActionViewDelegate> delegate;
 +(TapActionView *)init;

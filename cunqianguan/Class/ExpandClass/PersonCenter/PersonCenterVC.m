@@ -23,6 +23,7 @@
 #import "PersonInfoVC.h"
 #import "TipInfoVC.h"
 #import "CallsRechargeVC.h"
+#import "BMAlert.h"
 
 #import "SignVC.h"
 #import "PersonInfo.h"
@@ -283,6 +284,15 @@ static NSString *FooterViewID = @"PersonFooterView";
     infoVC.leftTitle = @"帮助中心";
     [infoVC reloadDataWith:@{@"title":@"什么是累计获得金额？",@"info":@"累计获得金额等于（积分+集分宝+现金）收入的总和！\n其中100积分等同于1元钱\n100集分宝等同于1元钱"}];
     [self.navigationController pushViewController:infoVC animated:YES];
+}
+
+-(void)loginOutClick
+{
+    [[BMAlert sharedBMAlert] alert:@"确认退出？" cancle:^(DoAlertView *alertView) {
+        
+    } other:^(DoAlertView *alertView) {
+        [_info loginOut];
+    }];
 }
 
 @end

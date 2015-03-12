@@ -34,6 +34,7 @@
 #import "HomeConnect.h"
 #import "AdListModel.h"
 #import "AdModel.h"
+#import "PersonInfo.h"
 
 #import "AppDelegate.h"
 
@@ -46,6 +47,7 @@
     PresentTableView *_presentTable;
     UIButton *_closeBtn;
     NSInteger _openView;
+    PersonInfo *_info;
 }
 
 @end
@@ -55,6 +57,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     [self hideReturnBtn];
     [self initNavBar];
 }
@@ -64,6 +67,7 @@
     [super viewWillAppear:animated];
     [self initAdView];
     [self initActionView];
+    _actionView.tipImage.hidden = ![_info isNewTrace];
     if (_dimView) {
         [_dimView removeFromSuperview];
         _dimView = nil;
@@ -340,9 +344,12 @@
 
 -(void)pushFootPrints
 {
-    FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
-    footPrintsVC.leftTitle = @"足迹";
-    [self.navigationController pushViewController:footPrintsVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        [_info saveTraceFlag:@"NO"];
+        FootPrintsVC *footPrintsVC = [[FootPrintsVC alloc] init];
+        footPrintsVC.leftTitle = @"足迹";
+        [self.navigationController pushViewController:footPrintsVC animated:YES];
+    } WithType:YES];
 }
 
 -(void)pushPolyHome
@@ -381,9 +388,11 @@
 
 -(void)pushExChangeCenter
 {
-    ExChangeScrollVC *exChangeScrollVC = [[ExChangeScrollVC alloc] init];
-    exChangeScrollVC.leftTitle = @"兑换中心";
-    [self.navigationController pushViewController:exChangeScrollVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        ExChangeScrollVC *exChangeScrollVC = [[ExChangeScrollVC alloc] init];
+        exChangeScrollVC.leftTitle = @"兑换中心";
+        [self.navigationController pushViewController:exChangeScrollVC animated:YES];
+    } WithType:YES];
 }
 
 -(void)pushPersonCenter

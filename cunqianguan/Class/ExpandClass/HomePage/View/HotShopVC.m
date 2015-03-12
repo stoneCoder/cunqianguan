@@ -117,9 +117,6 @@ static NSString *hotShopCellID = @"HotShopCell";
 {
     HotShopModel *model = _data[indexPath.row];
     NSString *urlPath = model.fanliUrl;
-    if (indexPath.row > 2) {
-        urlPath = [NSString stringWithFormat:@"%@",urlPath];
-    }
     HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
     hotDetailShopVC.leftTitle = model.mallName;
     hotDetailShopVC.urlPath = urlPath;

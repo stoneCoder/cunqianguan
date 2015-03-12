@@ -95,7 +95,7 @@
 -(void)shareInfo
 {
     NSString *shareContent = SHARE_CONTEXT(_detailModel.price);
-    [ShareUtil presentShareView:self content:shareContent imageUrl:_detailModel.pic_url goodKey:_detailModel.item_id andUserId:_info.userId];
+    [ShareUtil presentShareView:self content:shareContent imageUrl:_detailModel.pic_url goodKey:_detailModel.item_id andUserId:[BaseUtil encrypt:_info.userId]];
 }
 
 
