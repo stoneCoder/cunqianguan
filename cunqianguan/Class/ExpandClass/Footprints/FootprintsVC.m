@@ -48,6 +48,7 @@ static NSString *CellID=@"FootPrintsCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     UINib *cellNib = [UINib nibWithNibName:@"FootPrintsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellID];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

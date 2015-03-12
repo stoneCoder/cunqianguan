@@ -28,6 +28,12 @@
     }
     return personFooterView;
 }
+
+-(void)loadView:(PersonInfo *)info
+{
+    _priceLable.text = [NSString stringWithFormat:@"%d",info.cashAll];
+}
+
 - (IBAction)btnAction:(id)sender
 {
     if (_delegate && [_delegate respondsToSelector:@selector(helpInfoClick)]) {

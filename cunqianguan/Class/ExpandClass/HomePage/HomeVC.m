@@ -40,6 +40,7 @@
 
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
 {
+    UIScrollView *_scrollView;
     TapActionView *_actionView;
     UIView *_dimView;
     GridMenu *_gridMenu;
@@ -60,6 +61,7 @@
     _info = [PersonInfo sharedPersonInfo];
     [self hideReturnBtn];
     [self initNavBar];
+    [self initScrollView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -76,7 +78,9 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self loadAdView];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^(void){
+        [self loadAdView];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +103,13 @@
     [self setTitleImage:[UIImage imageNamed:@"logo"]];
 }
 
+-(void)initScrollView
+{
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    [_scrollView setContentSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGTH + 1)];
+    [self.view addSubview:_scrollView];
+}
+
 -(void)initAdView
 {
     _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
@@ -116,7 +127,7 @@
     [adView addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
     [_pageControl insertBannerPages:adView];
     
-    [self.view addSubview:_pageControl];
+    [_scrollView addSubview:_pageControl];
 }
 
 -(void)initActionView
@@ -125,7 +136,7 @@
     _actionView = [TapActionView init];
     [_actionView setFrame:CGRectMake(0, visiableY, SCREEN_WIDTH, SCREEN_WIDTH)];
     _actionView.delegate = self;
-    [self.view addSubview:_actionView];
+    [_scrollView addSubview:_actionView];
 }
 
 -(void)loadAdView
@@ -150,10 +161,6 @@
 #pragma mark -- Private
 - (void)test:(id)sender
 {
-    LoginVC *loginVC = [[LoginVC alloc] init];
-    loginVC.leftTitle = @"登陆";
-    BaseNC *nav = [[BaseNC alloc] initWithRootViewController:loginVC];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 //    AppDelegate * del=(AppDelegate *)[UIApplication sharedApplication].delegate;
 //    [del presentShareView:self];
 }

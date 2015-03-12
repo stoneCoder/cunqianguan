@@ -116,9 +116,12 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 {
     NSError *error = nil;
     if ([SFHFKeychainUtils deleteItemForUsername:self.email andServiceName:SERVICE_NAME error:&error]) {
-        self.userId = @"";
-        self.username = @"";
-        self.password = @"";
+        self.userId = nil;
+        self.username = nil;
+        self.password = nil;
+        self.cashAll = 0;
+        self.pointSite = 0;
+        self.pointTb = 0;
         [self saveUserData];
     } else {
         NSLog(@"%@", error);
@@ -139,7 +142,9 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     }else
     {
         if (presentType) {
-             BaseNC *nai = [[NSClassFromString(@"BaseNC") alloc] initWithRootViewController:[[NSClassFromString(@"LoginVC") alloc] init]];
+             LoginVC *loginVC = [[LoginVC alloc] init];
+             loginVC.leftTitle = @"登录";
+             BaseNC *nai = [[NSClassFromString(@"BaseNC") alloc] initWithRootViewController:loginVC];
             [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nai animated:YES completion:nil];
         }else
         {

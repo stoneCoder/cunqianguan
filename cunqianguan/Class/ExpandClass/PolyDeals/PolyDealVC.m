@@ -26,6 +26,7 @@
     JYHListModel *_listModel;
     NSInteger _pageNum;
     NSInteger _category;
+    PersonInfo *_info;
 }
 
 @end
@@ -35,6 +36,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     _data = [NSMutableArray array];
     _pageNum = 1;
     _category = 0;
@@ -75,8 +77,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    PersonInfo *person = [PersonInfo sharedPersonInfo];
-    [[JYHConnect sharedJYHConnect] getJYHGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
+    [[JYHConnect sharedJYHConnect] getJYHGoodsById:_info.userId withCategory:category andPage:page success:^(id json) {
         [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -133,11 +134,14 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
-    JYHModel *model = _data[indexPath.row];
-    NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
-    polyGoodsRootVC.goodKey = goodKey;
-    polyGoodsRootVC.leftTitle = @"商品详情";
-    [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+        JYHModel *model = _data[indexPath.row];
+        NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
+        polyGoodsRootVC.goodKey = goodKey;
+        polyGoodsRootVC.leftTitle = @"商品详情";
+        [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
+    } WithType:YES];
+    
 }
 @end

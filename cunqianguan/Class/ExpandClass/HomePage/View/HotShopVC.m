@@ -115,12 +115,14 @@ static NSString *hotShopCellID = @"HotShopCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HotShopModel *model = _data[indexPath.row];
-    NSString *urlPath = model.fanliUrl;
-    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
-    hotDetailShopVC.leftTitle = model.mallName;
-    hotDetailShopVC.urlPath = urlPath;
-    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        HotShopModel *model = _data[indexPath.row];
+        NSString *urlPath = model.fanliUrl;
+        HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+        hotDetailShopVC.leftTitle = model.mallName;
+        hotDetailShopVC.urlPath = urlPath;
+        [self.navigationController pushViewController:hotDetailShopVC animated:YES];
+    } WithType:YES];
 }
 
 @end

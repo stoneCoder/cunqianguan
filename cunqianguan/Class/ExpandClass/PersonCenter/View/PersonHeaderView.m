@@ -54,6 +54,10 @@
             _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
             _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
             _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
+            
+            _collectLabel.hidden = NO;
+            _msgLabel.hidden = NO;
+            _vipImage.hidden = NO;
         } failure:^(id json) {
             
         }];

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonInfo.h"
 @protocol PersonFooterDelegate<NSObject>
 -(void)helpInfoClick;
 -(void)loginOutClick;
 @end
 @interface PersonFooterView : UIView
+@property (strong, nonatomic) IBOutlet UILabel *priceLable;
 @property (strong, nonatomic) id<PersonFooterDelegate> delegate;
 +(PersonFooterView *)footerView;
+-(void)loadView:(PersonInfo *)info;
 @end

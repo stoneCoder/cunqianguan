@@ -30,6 +30,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     _data = [NSMutableArray array];
     _pageNum = 1;
     [self setUpCollection];
@@ -38,8 +39,8 @@ static NSString *  collectionCellID=@"ExChangeCell";
 -(void)viewDidCurrentView:(NSInteger)index;
 {
     [_data removeAllObjects];
-    NSString *userId = [PersonInfo sharedPersonInfo].userId;
-    if (index == 0) {
+    NSString *userId = _info.userId;
+    if (index == 1) {
         userId = @"";
     }
     [self showLoaderView:self.collectionView];

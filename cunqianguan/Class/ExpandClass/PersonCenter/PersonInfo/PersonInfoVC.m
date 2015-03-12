@@ -91,6 +91,7 @@ static NSString *ProfileCellID = @"ProfileCell";
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_info.photo]];
+    cell.nameLabel.text = _info.username;
     return cell;
 }
 

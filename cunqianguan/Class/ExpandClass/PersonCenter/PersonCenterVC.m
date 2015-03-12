@@ -33,6 +33,7 @@
 {
     NSDictionary *_localData;
     PersonHeaderView *personHeaderView;
+    PersonFooterView *personFooterView;
     PersonInfo *_info;
 }
 
@@ -44,7 +45,6 @@ static NSString *FooterViewID = @"PersonFooterView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _info = [PersonInfo sharedPersonInfo];
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"话费充值",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
@@ -52,14 +52,21 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
-    [personHeaderView loadView:_info];
-    [self initSignStatus];
+    [self reloadView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)reloadView
+{
+    _info = [PersonInfo sharedPersonInfo];
+    [personHeaderView loadView:_info];
+    [personFooterView loadView:_info];
+    [self.tableView reloadData];
+    [self initSignStatus];
 }
 
 /*
@@ -89,7 +96,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     self.tableView.tableHeaderView = personHeaderView;
     
     
-    PersonFooterView *personFooterView = [PersonFooterView footerView];
+    personFooterView = [PersonFooterView footerView];
     personFooterView.delegate = self;
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
@@ -169,60 +176,56 @@ static NSString *FooterViewID = @"PersonFooterView";
     }else{
         cell.infoLabel.hidden = YES;
     }
-    if (indexPath.row == _localData.count-1) {
-        cell.separatorInset = UIEdgeInsetsMake(0.f, cell.bounds.size.width, 0.f, 0.f);
-    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundView = [UIView new];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
-        case 0:
-            [self pushMoneyViewWith:indexPath];
-            break;
-        case 1:
-            if(indexPath.row == 0){
-                MyOrderVC *myOrderVC = [[MyOrderVC alloc] init];
-                myOrderVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:myOrderVC animated:YES];
-            }else if (indexPath.row == 1){
-                RunningWaterScrollVC *accountInfoVC = [[RunningWaterScrollVC alloc] init];
-                accountInfoVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:accountInfoVC animated:YES];
-            }
-            break;
-        case 2:
-            if (indexPath.row == 0) {
-                AccountVC *accountVC = [[AccountVC alloc] init];
-                accountVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:accountVC animated:YES];
-            }else if (indexPath.row == 1){
-                AddressManagerVC *addressManagerVC = [[AddressManagerVC alloc] init];
-                addressManagerVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:addressManagerVC animated:YES];
-            }
-            break;
-        case 3:
-            if (indexPath.row == 0) {
-                InviteVC *inviteVC = [[InviteVC alloc] init];
-                inviteVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:inviteVC animated:YES];
-            }else if (indexPath.row == 1){
-                CallsRechargeVC *callsRechargeVC = [[CallsRechargeVC alloc] init];
-                callsRechargeVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:callsRechargeVC animated:YES];
-            }else if (indexPath.row == 2){
-                MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
-                moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-                [self.navigationController pushViewController:moreSettingVC animated:YES];
-            }
-            break;
-        default:
-            break;
-    }
+    [_info isLoginWithPresent:^(BOOL flag) {
+        switch (indexPath.section) {
+            case 0:
+                [self pushMoneyViewWith:indexPath];
+                break;
+            case 1:
+                if(indexPath.row == 0){
+                    MyOrderVC *myOrderVC = [[MyOrderVC alloc] init];
+                    myOrderVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:myOrderVC animated:YES];
+                }else if (indexPath.row == 1){
+                    RunningWaterScrollVC *accountInfoVC = [[RunningWaterScrollVC alloc] init];
+                    accountInfoVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:accountInfoVC animated:YES];
+                }
+                break;
+            case 2:
+                if (indexPath.row == 0) {
+                    AccountVC *accountVC = [[AccountVC alloc] init];
+                    accountVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:accountVC animated:YES];
+                }else if (indexPath.row == 1){
+                    AddressManagerVC *addressManagerVC = [[AddressManagerVC alloc] init];
+                    addressManagerVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:addressManagerVC animated:YES];
+                }
+                break;
+            case 3:
+                if (indexPath.row == 0) {
+                    InviteVC *inviteVC = [[InviteVC alloc] init];
+                    inviteVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:inviteVC animated:YES];
+                }else if (indexPath.row == 1){
+                    CallsRechargeVC *callsRechargeVC = [[CallsRechargeVC alloc] init];
+                    callsRechargeVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:callsRechargeVC animated:YES];
+                }else if (indexPath.row == 2){
+                    MoreSettingVC *moreSettingVC = [[MoreSettingVC alloc] init];
+                    moreSettingVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    [self.navigationController pushViewController:moreSettingVC animated:YES];
+                }
+                break;
+        }
+    } WithType:YES];
 }
 
 -(void)pushMoneyViewWith:(NSIndexPath *)indexPath
@@ -251,30 +254,35 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)pushCollection
 {
-    
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 10.0;
-    
-    CollectVC *collectVC = [[CollectVC alloc] initWithCollectionViewLayout:flowLayout];
-    collectVC.leftTitle = @"收藏";
-    [self.navigationController pushViewController:collectVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.minimumLineSpacing = 10.0;
+        
+        CollectVC *collectVC = [[CollectVC alloc] initWithCollectionViewLayout:flowLayout];
+        collectVC.leftTitle = @"收藏";
+        [self.navigationController pushViewController:collectVC animated:YES];
+    } WithType:YES];
 }
 
 -(void)pushMsgInfo
 {
-    MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
-    messageVC.leftTitle = @"消息";
-    [self.navigationController pushViewController:messageVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        MessageInfoVC *messageVC = [[MessageInfoVC alloc] init];
+        messageVC.leftTitle = @"消息";
+        [self.navigationController pushViewController:messageVC animated:YES];
+    } WithType:YES];
 }
 
 -(void)tapHeadImage
 {
-    PersonInfoVC *personInfoVC = [[PersonInfoVC alloc] init];
-    personInfoVC.leftTitle = @"个人信息";
-    [self.navigationController pushViewController:personInfoVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        PersonInfoVC *personInfoVC = [[PersonInfoVC alloc] init];
+        personInfoVC.leftTitle = @"个人信息";
+        [self.navigationController pushViewController:personInfoVC animated:YES];
+    } WithType:YES];
 }
 
 #pragma mark -- PersonFooterDelegate
@@ -289,9 +297,10 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)loginOutClick
 {
     [[BMAlert sharedBMAlert] alert:@"确认退出？" cancle:^(DoAlertView *alertView) {
-        
-    } other:^(DoAlertView *alertView) {
         [_info loginOut];
+        [self reloadView];
+    } other:^(DoAlertView *alertView) {
+        
     }];
 }
 

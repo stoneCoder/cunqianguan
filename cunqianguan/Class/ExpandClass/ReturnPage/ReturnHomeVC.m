@@ -29,6 +29,8 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
     
     NSInteger _category;
     NSInteger _pageNum;
+    
+    PersonInfo *_info;
 }
 
 @end
@@ -38,6 +40,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     _category = 0;
     _pageNum = 1;
     _data = [NSMutableArray array];
@@ -66,8 +69,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    PersonInfo *person = [PersonInfo sharedPersonInfo];
-    [[MongoConnect sharedMongoConnect] getMongoGoodsById:person.userId withCategory:category andPage:page success:^(id json) {
+    [[MongoConnect sharedMongoConnect] getMongoGoodsById:_info.userId withCategory:category andPage:page success:^(id json) {
         [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -144,11 +146,13 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
-    MongoModel *model = _data[indexPath.row];
-    returnHomeGoodsVC.goodKey = model.goodkey;
-    returnHomeGoodsVC.leftTitle = @"商品详情";
-    [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+        MongoModel *model = _data[indexPath.row];
+        returnHomeGoodsVC.goodKey = model.goodkey;
+        returnHomeGoodsVC.leftTitle = @"商品详情";
+        [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+    } WithType:YES];
 }
 
 #pragma mark - 

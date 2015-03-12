@@ -103,9 +103,17 @@ static NSString *AccountCellID = @"AccountCell";
     }
     if (_model) {
         if (indexPath.row == 0) {
-            cell.infoLabel.text = _model.alipay;
+            if (_model.alipay) {
+                cell.infoLabel.text = _model.alipay;
+            }else{
+                cell.infoLabel.text = @"未绑定";
+            }
         }else if (indexPath.row == 1){
-            cell.infoLabel.text = [BaseUtil transformBankCard:_model.bank];
+            if (_model.bank) {
+                cell.infoLabel.text = [BaseUtil transformBankCard:_model.bank];
+            }else{
+                cell.infoLabel.text = @"未绑定";
+            }
         }
     }else{
         cell.infoLabel.text = @"未绑定";

@@ -104,6 +104,11 @@
 }
 - (IBAction)loginAction:(id)sender
 {
+    [self loginForService];
+}
+
+-(void)loginForService
+{
     NSString *username = _username.text;
     NSString *pwd = _pwd.text;
     if (username.length == 0 || pwd.length == 0) {
@@ -129,7 +134,7 @@
                     _hideTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(dismisSelf) userInfo:nil repeats:NO];
                 }
             } failure:^(id json) {
-                 [self hideAllHUD];
+                [self hideAllHUD];
             }];
         }else{
             [self hideAllHUD];
@@ -141,6 +146,7 @@
         [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
         } other:nil];
     }];
+
 }
 
 -(void)dismisSelf
@@ -251,6 +257,7 @@
         return YES;
     }
     [textField resignFirstResponder];
+    [self loginForService];
     return YES;
 }
 
