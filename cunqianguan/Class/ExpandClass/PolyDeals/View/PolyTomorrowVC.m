@@ -77,6 +77,10 @@ static NSString *collectionCellID = @"PolyGoodsCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:_listModel.data];
+            if (_data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.collectionView.hidden = YES;
+            }
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {

@@ -80,7 +80,7 @@ static NSString *SearchCellID = @"SearchViewCell";
     self.tableView.hidden = YES;
     UINib *cellNib = [UINib nibWithNibName:@"SearchViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:SearchCellID];
-    //[self setRefreshEnabled:YES];
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
     [_data addObjectsFromArray:[[SearchHistoryKeyWord sharedSearchHistoryKeyWord] currentHistoryKeyWordList]];
     if (_data.count > 0) {
@@ -105,6 +105,7 @@ static NSString *SearchCellID = @"SearchViewCell";
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if (dic.count > 0) {
+            [_data removeAllObjects];
             [_searchBar.searchTextField resignFirstResponder];
             [_data addObjectsFromArray:[dic objectForKey:@"result"]];
             self.tableView.hidden = NO;

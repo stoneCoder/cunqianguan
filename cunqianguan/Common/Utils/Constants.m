@@ -12,7 +12,8 @@
 NSString *const kCryptPwd = @"com.baoxianqi.www";
 
 // 个人资料保存地址
-NSString *const kCryptFilePath = @"Library/Application Support/001.dat";
+NSString *const kCryptFilePath = @"Library/Support/";
+NSString *const kCryptFile = @"Library/Support/001.dat";
 
 // 历史用户保存地址
 NSString *const kUsernameList = @"Library/001.dat";

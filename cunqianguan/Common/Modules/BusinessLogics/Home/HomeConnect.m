@@ -44,6 +44,7 @@ DEFINE_SINGLETON_FOR_CLASS(HomeConnect)
             failure:(void (^)( NSError *err))failure
 {
     NSString *searchUrl = [NSString stringWithFormat:@"%@%@",SEARCH_URL,text];
+    searchUrl = [searchUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [BaseConnect postAbsolutePath:searchUrl Parameters:[NSDictionary dictionary] success:^(id json) {
         success(json);
     } failure:^(NSError *e) {

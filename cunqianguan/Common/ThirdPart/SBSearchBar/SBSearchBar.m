@@ -16,7 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(2, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 5)];
+        self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 5)];
         self.searchTextField.placeholder = @"输入宝贝关键字查返利";
         self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
         [self.cancelButton setImage:[UIImage imageNamed:@"inner_search_btn"] forState:UIControlStateNormal];
@@ -27,7 +27,7 @@
 
 -(void) setFrame:(CGRect)frame{
     [super setFrame:frame];
-    self.searchTextField.frame = CGRectMake(2, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+    self.searchTextField.frame = CGRectMake(5, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     [self willMoveToSuperview:nil];
 }
 
@@ -42,7 +42,7 @@
 
     CGRect frame = self.searchTextField.frame;
     frame.origin = CGPointZero;
-    frame.origin.x = 0;
+    frame.origin.x = 5;
     frame.size.width = CGRectGetWidth(self.frame) - CGRectGetWidth(self.cancelButton.frame) - 15;
     self.searchTextField.frame = frame;
     

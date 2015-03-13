@@ -67,7 +67,7 @@ static NSString *CellID=@"FootPrintsCell";
 */
 -(void)rightBtnClick:(UIButton *)btn
 {
-    NSLog(@"%ld------------->",(long)btn.tag);
+    [self loadData:1];
 }
 
 -(void)loadData:(NSInteger)page

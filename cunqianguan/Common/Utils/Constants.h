@@ -10,6 +10,7 @@
 
 extern NSString *const kCryptPwd;
 extern NSString *const kCryptFilePath;
+extern NSString *const kCryptFile;
 extern NSString *const kUsernameList;
 
 extern NSString *const kDefaultGroupName;

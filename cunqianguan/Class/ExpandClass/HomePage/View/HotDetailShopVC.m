@@ -43,6 +43,8 @@
 
 -(void)loadViewWithData:(NSString *)urlPath
 {
+    //中文URL处理办法
+    urlPath = [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL* url = [NSURL URLWithString:urlPath];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];

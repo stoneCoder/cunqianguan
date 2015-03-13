@@ -26,12 +26,16 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 
 -(void)loadUserData{
     // 存储在Library路径下，文件名为001.dat。不要取有意义的文件名。
-    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:kCryptFilePath];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:kCryptFile];
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:kCryptFilePath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSDictionary *dic;
     if (![fileManager fileExistsAtPath:filePath]) {
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        if ([fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil]) {
+            [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        }
     }
+    
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *err = nil;
@@ -45,7 +49,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
 }
 
 -(void)saveUserData{
-    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:kCryptFilePath];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:kCryptFile];
     NSError *err;
     NSDictionary *dic = [self dictionaryValue];
     NSData *encryData = [RNEncryptor encryptData:[dic JSONData] withSettings:kRNCryptorAES256Settings password:kCryptPwd error:&err];
