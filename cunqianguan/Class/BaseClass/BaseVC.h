@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
-
+#import "DefaultEmptyView.h"
 @interface BaseVC : UIViewController
 @property (strong,nonatomic) NSString *leftTitle;
+@property (strong, nonatomic) DefaultEmptyView *defaultEmptyView;
 /**
  *  功能:设置导航栏个性化标题
  */

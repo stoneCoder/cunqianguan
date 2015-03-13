@@ -8,7 +8,7 @@
 
 #import "HomeConnect.h"
 #import "BaseConnect.h"
-
+#import "Constants.h"
 @implementation HomeConnect
 DEFINE_SINGLETON_FOR_CLASS(HomeConnect)
 
@@ -37,5 +37,17 @@ DEFINE_SINGLETON_FOR_CLASS(HomeConnect)
     } failure:^(id json) {
         failure(json);
     } withView:nil];
+}
+
+-(void)searchByText:(NSString *)text
+            success:(void (^)(id json))success
+            failure:(void (^)( NSError *err))failure
+{
+    NSString *searchUrl = [NSString stringWithFormat:@"%@%@",SEARCH_URL,text];
+    [BaseConnect postAbsolutePath:searchUrl Parameters:[NSDictionary dictionary] success:^(id json) {
+        success(json);
+    } failure:^(NSError *e) {
+        failure(e);
+    }];
 }
 @end

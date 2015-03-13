@@ -55,4 +55,6 @@ NSString *const TM_ORI_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\
 NSString *const JUHUASUAN_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*jhs.*";
 NSString *const JUHUASUAN_MAIN_URL_REG = @"http://ai\\.m\\.taobao\\.com/bu\\.\\w*\\?.*.*";
 
+NSString *const SEARCH_URL = @"http://suggest.taobao.com/sug?code=utf-8&callback=&q=";
+
 

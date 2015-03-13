@@ -9,5 +9,5 @@
 #import "BaseTableVC.h"
 
 @interface MyOrderVC : BaseTableVC
-
+-(void)viewDidCurrentView:(NSInteger)type;
 @end

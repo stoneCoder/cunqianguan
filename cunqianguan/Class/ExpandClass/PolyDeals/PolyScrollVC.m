@@ -42,7 +42,7 @@
 #pragma mark -- 初始化界面
 - (void)setUpRightBtn
 {
-    [self setRigthBarWithDic:@{@"images":@[@"left_menu"]}];
+    [self setRigthBarWithDic:@{@"images":@[@"yushou"],@"imageshover":@[@"yushou_hover"]}];
 }
 
 -(void)setUpSliderView
@@ -51,8 +51,8 @@
     CGFloat btnH = 44.0f;
     UIButton *selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [selectBtn setFrame:CGRectMake(self.view.frame.size.width - btnW, 0, btnW, btnH)];
-    [selectBtn setBackgroundColor:[UIColor redColor]];
-    [selectBtn setTitle:@"+" forState:UIControlStateNormal];
+    [selectBtn setImage:[UIImage imageNamed:@"zhankai"] forState:UIControlStateNormal];
+    [selectBtn setBackgroundColor:[UIColor whiteColor]];
     [selectBtn addTarget:self action:@selector(showSelectView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:selectBtn];
     

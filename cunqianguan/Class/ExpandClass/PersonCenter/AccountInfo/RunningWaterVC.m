@@ -85,6 +85,10 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:_listModel.data];
+            if (_data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.tableView.hidden = YES;
+            }
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {

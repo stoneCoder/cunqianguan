@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 #import "CMAlert.h"
-
+#import "DefaultEmptyView.h"
 @interface BaseCollectionVC : UICollectionViewController
 @property (strong,nonatomic) NSString *leftTitle;
+@property (strong, nonatomic) DefaultEmptyView *defaultEmptyView;
 /**
  *  功能:设置导航栏个性化标题
  */

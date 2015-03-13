@@ -39,8 +39,16 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = YES;
     }
+    [self setUpEmptyView];
 }
 
+-(void)setUpEmptyView
+{
+    _defaultEmptyView = [DefaultEmptyView init];
+    _defaultEmptyView.frame = self.view.frame;
+    _defaultEmptyView.hidden = YES;
+    [self.view addSubview:_defaultEmptyView];
+}
 #pragma mark - 返回
 /**
  *  功能:隐藏返回

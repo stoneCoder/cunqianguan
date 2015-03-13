@@ -64,3 +64,5 @@ return shared##className; \
 #define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 
 #define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wb&uid=%@",BASE_URL,goodKey,userId];
+
+#define SEARCH_URL(searchText,mm,userId) [NSString stringWithFormat:@"http://ai.m.taobao.com/search.html?q=%@&pid=%@&unid=%@",searchText,mm,userId]

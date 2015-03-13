@@ -82,6 +82,12 @@ static NSString *CellID=@"FootPrintsCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:listModel.data];
+            if (_data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.emptydetailInfoLabel.hidden = NO;
+                self.defaultEmptyView.emptydetailInfoLabel.text = @"赶快去浏览商品吧";
+                self.tableView.hidden = YES;
+            }
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {

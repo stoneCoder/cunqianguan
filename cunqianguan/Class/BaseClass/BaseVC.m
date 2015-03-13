@@ -9,8 +9,9 @@
 #import "BaseVC.h"
 #import "CMAlert.h"
 #import "BaseUtil.h"
-
+#import "DefaultEmptyView.h"
 @interface BaseVC ()
+
 
 @end
 
@@ -41,8 +42,16 @@
         self.edgesForExtendedLayout =UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    [self setUpEmptyView];
 }
 
+-(void)setUpEmptyView
+{
+    _defaultEmptyView = [DefaultEmptyView init];
+    _defaultEmptyView.frame = self.view.frame;
+    _defaultEmptyView.hidden = YES;
+    [self.view addSubview:_defaultEmptyView];
+}
 /**
  *  功能:滑动返回
  */

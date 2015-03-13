@@ -27,7 +27,6 @@
     _titleArray = @[@"收入",@"提现",@"待返利",@"兑换"];
     [self setUpSegment];
     [self setupScrollView];
-    [[self childViewControllers][0] viewDidCurrentView:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +58,7 @@
         runningWaterVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
         [_scrollView addSubview:runningWaterVC.view];
     }
+    [[self childViewControllers][0] viewDidCurrentView:0];
 }
 
 #pragma mark -- CCSegmentDelegate

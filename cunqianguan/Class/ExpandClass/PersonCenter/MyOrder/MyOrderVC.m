@@ -39,14 +39,19 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     _pageNum = 1;
     _data = [NSMutableArray array];
     _info = [PersonInfo sharedPersonInfo];
-    [self setUpSegment];
     [self setUpTableView];
-    [self loadDataWith:_orderType andPage:_pageNum];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidCurrentView:(NSInteger)type
+{
+    _orderType = type;
+    [self loadDataWith:_orderType andPage:_pageNum];
 }
 
 /*
@@ -58,15 +63,6 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     // Pass the selected object to the new view controller.
 }
 */
-
--(void)setUpSegment
-{
-    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
-    _segment.delegate = self;
-    [_segment setItems:@[@"淘宝订单",@"商城订单"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
-    [self.view addSubview:_segment];
-}
-
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
@@ -96,6 +92,14 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:_listModel.data];
+            if (type == 0 && _data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.emptydetailInfoLabel.hidden = NO;
+                self.tableView.hidden = YES;
+            }else if (type == 1 && _data.count == 0){
+                self.defaultEmptyView.hidden = NO;
+                self.tableView.hidden = YES;
+            }
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {

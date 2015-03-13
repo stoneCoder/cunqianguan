@@ -21,6 +21,7 @@
 #import "ExChangeCenterVC.h"
 #import "PersonCenterVC.h"
 #import "HotShopVC.h"
+#import "SearchViewVC.h"
 
 #import "BaseMutableMenu.h"
 #import "GoodsViewVC.h"
@@ -67,6 +68,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [_info loadUserData];
     [self initAdView];
     [self initActionView];
     _actionView.tipImage.hidden = ![_info isNewTrace];
@@ -161,8 +163,8 @@
 #pragma mark -- Private
 - (void)test:(id)sender
 {
-//    AppDelegate * del=(AppDelegate *)[UIApplication sharedApplication].delegate;
-//    [del presentShareView:self];
+    SearchViewVC *searchVC = [[SearchViewVC alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 - (void)leftBtnClicked:(id)sender

@@ -25,6 +25,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     ExChangeListModel *_listModel;
     NSInteger _pageNum;
     PersonInfo *_info;
+    NSInteger _type;
 }
 
 - (void)viewDidLoad {
@@ -38,6 +39,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 -(void)viewDidCurrentView:(NSInteger)index;
 {
+    _type = index;
     [_data removeAllObjects];
     NSString *userId = _info.userId;
     if (index == 1) {
@@ -72,6 +74,12 @@ static NSString *  collectionCellID=@"ExChangeCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:_listModel.data];
+            if (_type == 0 && _data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.emptyInfoLabel.text = @"没有可兑换的商品";
+                self.defaultEmptyView.emptydetailInfoLabel.text = @"购物和签到均可获得积分哦";
+                self.collectionView.hidden = YES;
+            }
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
