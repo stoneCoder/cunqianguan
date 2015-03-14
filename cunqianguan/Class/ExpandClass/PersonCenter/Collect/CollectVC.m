@@ -42,6 +42,7 @@ static NSString *collectID = @"CollectCell";
     [self setUpNavBtn];
     [self setUpCollection];
     [self setUpBottom];
+    [self showLoaderView:self.collectionView];
     [self loadData:_pageNum];
 }
 
@@ -89,9 +90,8 @@ static NSString *collectID = @"CollectCell";
 
 -(void)loadData:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     [[PersonConnect sharedPersonConnect] getUserFavorite:_info.email pwd:_info.password page:page success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             CollectListModel *listModel = [[CollectListModel alloc] initWithDictionary:dic error:nil];
@@ -99,10 +99,14 @@ static NSString *collectID = @"CollectCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:listModel.data];
+            if (_data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.collectionView.hidden = YES;
+            }
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

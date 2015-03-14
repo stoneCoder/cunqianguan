@@ -17,6 +17,6 @@ DEFINE_SINGLETON_FOR_HEADER(ShareUtil)
                andUserId:(NSString *)userId;
 
 + (void)presentInviteView:(UIViewController *)controller
-                 content:(NSString *)content
-                 imageUrl:(NSString *)imageUrl;
+                  content:(NSString *)content
+                   strUrl:(NSString *)urlPath;
 @end

@@ -48,7 +48,7 @@ static NSString *SearchCellID = @"SearchViewCell";
 {
     _searchBar = [[SBSearchBar alloc]initWithFrame:CGRectMake(3, 2, SCREEN_WIDTH - 55,40)];
     _searchBar.delegate = self;
-    _searchBar.backgroundColor = [UIColor clearColor];
+    //_searchBar.backgroundColor = [UIColor clearColor];
 
     UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH - 55, 40)];
     searchView.backgroundColor = [UIColor whiteColor];

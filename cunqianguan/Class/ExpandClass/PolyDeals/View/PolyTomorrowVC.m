@@ -38,6 +38,7 @@ static NSString *collectionCellID = @"PolyGoodsCell";
     _category = 0;
     _pageNum = 1;
     [self setUpCollection];
+    [self showLoaderView:self.collectionView];
     [self loadDataWith:_category andPage:_pageNum];
 }
 
@@ -66,10 +67,9 @@ static NSString *collectionCellID = @"PolyGoodsCell";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
     PersonInfo *person = [PersonInfo sharedPersonInfo];
     [[JYHConnect sharedJYHConnect] getJyhGoodsTomorrowById:person.userId withCategory:category andPage:page success:^(id json) {
-        [self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[JYHListModel alloc] initWithDictionary:dic error:nil];
@@ -84,7 +84,7 @@ static NSString *collectionCellID = @"PolyGoodsCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

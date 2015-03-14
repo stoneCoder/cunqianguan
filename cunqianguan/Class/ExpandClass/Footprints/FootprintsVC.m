@@ -162,7 +162,6 @@ static NSString *CellID=@"FootPrintsCell";
     [[FootConnect sharedFootConnect] delTrace:_info.userId withGoodKey:goodKey success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
         if ([BaseConnect isSucceeded:dic]) {
             [self hideAllHUD];
             [self loadData:1];

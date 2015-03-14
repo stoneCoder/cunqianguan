@@ -105,7 +105,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
     } withView:nil];
 }
 
--(void)delMessage:(NSArray *)msgArray
+-(void)delMessage:(NSString *)msgArray
           success:(void (^)(id json))success
           failure:(void (^)( NSError *err))failure
 {
@@ -294,10 +294,17 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 }
 
 -(void)getUserInvite:(NSString *)userId
+                page:(NSInteger)page
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure
 {
-    
+    NSString *url = @"getUserInviteInfo";
+    NSDictionary *dic = @{@"uid":userId,@"page":@(page)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
 }
 
 -(void)responseMsg:(NSString *)username

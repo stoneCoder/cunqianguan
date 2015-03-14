@@ -8,8 +8,14 @@
 
 #import "InviteVC.h"
 #import "InviteRewardVC.h"
-
+#import "PersonInfo.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "ShareUtil.h"
 @interface InviteVC ()
+{
+    PersonInfo *_info;
+}
 
 @end
 
@@ -18,18 +24,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜网后，只要在7天内注册，均为有效。";
+    _info = [PersonInfo sharedPersonInfo];
+    _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜期网后，只要在7天内注册，均为有效。";
     _pointLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _pointLabel.numberOfLines = 0;
-    
-    _scrollView.contentSize =  CGSizeMake(SCREEN_WIDTH, _scrollView.contentSize.height);
+    [self loadDataWith:_info.userId andType:0];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loadDataWith:(NSString *)userId andType:(NSInteger)type
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserInvite:_info.userId page:1 success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            NSDictionary *data  = [dic objectForKey:@"data"];
+            NSString  *inviteUrl = [data objectForKey:@"invite_url"];
+            if (type == 1) {
+                [ShareUtil presentInviteView:self content:nil strUrl:inviteUrl];
+            }else{
+                NSNumber *fanliTotle = [data objectForKey:@"fanlimoneyTotal"];
+                if (![fanliTotle isEqual:[NSNull null]]) {
+                    _totelMoneyLabel.text = [[NSString alloc] initWithFormat:@"%@",fanliTotle];
+                }
+                NSNumber *userTotle = [data objectForKey:@"userTotal"];
+                if (![userTotle isEqual:[NSNull null]] && userTotle != nil) {
+                    _totelInviteLabel.text = [[NSString alloc] initWithFormat:@"%@",userTotle];
+                }
+                
+            }
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+- (IBAction)inviteAction:(id)sender
+{
+    [self loadDataWith:_info.userId andType:1];
+}
+
 - (IBAction)watchInviteReword:(id)sender
 {
     InviteRewardVC *inviteRewardVC = [[InviteRewardVC alloc] init];

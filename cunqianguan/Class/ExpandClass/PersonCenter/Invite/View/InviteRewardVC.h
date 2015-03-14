@@ -10,4 +10,6 @@
 
 @interface InviteRewardVC : BaseTableVC
 @property (strong, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalInviteLabel;
 @end

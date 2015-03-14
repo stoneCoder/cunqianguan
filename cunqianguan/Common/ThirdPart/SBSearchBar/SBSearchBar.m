@@ -18,6 +18,7 @@
     if (self) {
         self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 5)];
         self.searchTextField.placeholder = @"输入宝贝关键字查返利";
+        //self.searchTextField.backgroundColor = [UIColor redColor];
         self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
         [self.cancelButton setImage:[UIImage imageNamed:@"inner_search_btn"] forState:UIControlStateNormal];
         [self.cancelButton addTarget:self action:@selector(searchBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -27,15 +28,14 @@
 
 -(void) setFrame:(CGRect)frame{
     [super setFrame:frame];
-    self.searchTextField.frame = CGRectMake(5, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     [self willMoveToSuperview:nil];
 }
 
 - (void) willMoveToSuperview:(UIView *)newSuperview{
     
     self.searchTextField.delegate = self;
-    //self.searchTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.searchTextField setReturnKeyType:UIReturnKeySearch];
+    self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self addSubview:self.searchTextField];
     [self.searchTextField setTextColor:textColor];
     

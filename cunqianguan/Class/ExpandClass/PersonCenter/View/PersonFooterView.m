@@ -31,7 +31,7 @@
 
 -(void)loadView:(PersonInfo *)info
 {
-    _priceLable.text = [NSString stringWithFormat:@"%d",info.cashAll];
+    _priceLable.text = [NSString stringWithFormat:@"%ld",(long)info.cashAll];
 }
 
 - (IBAction)btnAction:(id)sender

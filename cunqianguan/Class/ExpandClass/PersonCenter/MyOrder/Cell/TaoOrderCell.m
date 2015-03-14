@@ -27,13 +27,17 @@
 
 -(void)loadCell:(OrderModel *)model
 {
-    _orderNumLabel.text = model.trade_id;
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    _orderNumLabel.text = [NSString stringWithFormat:@"订单号：%@",model.trade_id];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     _infoLabel.text = model.title;
     _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _infoLabel.numberOfLines = 0;
     
-    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)model.fanli];
-    _timeLabel.text = [NSString stringWithFormat:@"返利时间：%@",model.time];
+    NSString *moneyText = [NSString stringWithFormat:@"返%ld集分宝",(long)model.fanli];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:moneyText];
+    [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2db8ad) range:NSMakeRange(1,moneyText.length - 4)];
+    _moneyLabel.attributedText = str;
+    
+    _timeLabel.text = [NSString stringWithFormat:@"%@",model.time];
 }
 @end

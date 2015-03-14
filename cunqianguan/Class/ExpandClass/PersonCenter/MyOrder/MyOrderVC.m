@@ -19,7 +19,6 @@
 
 @interface MyOrderVC ()<CCSegmentDelegate>
 {
-    BaseSegment *_segment;
     NSInteger _orderType;
     NSMutableArray *_data;
     NSInteger _pageNum;
@@ -66,7 +65,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 104);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UINib *taoCellNib = [UINib nibWithNibName:@"TaoOrderCell" bundle:nil];
@@ -75,7 +74,6 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     UINib *shopCellNib = [UINib nibWithNibName:@"ShopOrderCell" bundle:nil];
     [self.tableView registerNib:shopCellNib forCellReuseIdentifier:ShopOrderCellID];
     
-    self.tableView.tableHeaderView = _segment;
     [self setRefreshEnabled:YES];
 }
 

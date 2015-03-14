@@ -10,15 +10,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProductDetailHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-0D-tzR">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
-                    <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pG-LT-b3x" userLabel="View - titleView">
-                    <rect key="frame" x="0.0" y="184" width="320" height="46"/>
+                    <rect key="frame" x="0.0" y="224" width="320" height="46"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夏日么么茶斑点衣服" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="lYc-ac-goM" userLabel="Label - productTitle">
                             <rect key="frame" x="7" y="11" width="194" height="28"/>
@@ -52,9 +51,9 @@
                 <constraint firstAttribute="bottom" secondItem="6pG-LT-b3x" secondAttribute="bottom" id="CPX-Ao-8kw"/>
                 <constraint firstAttribute="trailing" secondItem="vAB-0D-tzR" secondAttribute="trailing" id="DFE-Uj-Nh0"/>
                 <constraint firstItem="vAB-0D-tzR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LEf-e2-cKa"/>
-                <constraint firstItem="6pG-LT-b3x" firstAttribute="top" secondItem="vAB-0D-tzR" secondAttribute="bottom" id="Ydg-kS-J71"/>
+                <constraint firstItem="6pG-LT-b3x" firstAttribute="top" secondItem="vAB-0D-tzR" secondAttribute="bottom" constant="-1" id="Ydg-kS-J71"/>
                 <constraint firstItem="6pG-LT-b3x" firstAttribute="trailing" secondItem="vAB-0D-tzR" secondAttribute="trailing" id="Z8B-AF-C9G"/>
-                <constraint firstItem="6pG-LT-b3x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="184" id="io6-GH-CyO"/>
+                <constraint firstItem="6pG-LT-b3x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="224" id="io6-GH-CyO"/>
                 <constraint firstItem="6pG-LT-b3x" firstAttribute="leading" secondItem="vAB-0D-tzR" secondAttribute="leading" id="wBh-Jq-ECn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

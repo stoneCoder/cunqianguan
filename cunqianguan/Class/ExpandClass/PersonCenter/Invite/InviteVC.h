@@ -11,5 +11,7 @@
 @interface InviteVC : BaseVC
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *pointLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totelMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totelInviteLabel;
 
 @end

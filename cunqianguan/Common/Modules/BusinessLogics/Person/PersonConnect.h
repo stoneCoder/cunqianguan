@@ -45,7 +45,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure;
 
--(void)delMessage:(NSArray *)msgArray
+-(void)delMessage:(NSString *)msgArray
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure;
 
@@ -120,6 +120,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
              failure:(void (^)( NSError *err))failure;
 
 -(void)getUserInvite:(NSString *)userId
+                page:(NSInteger)page
              success:(void (^)(id json))success
              failure:(void (^)( NSError *err))failure;
 

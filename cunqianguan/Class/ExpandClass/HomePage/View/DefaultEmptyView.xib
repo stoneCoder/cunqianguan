@@ -19,10 +19,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-Mq-WMZ">
-                    <rect key="frame" x="131" y="237" width="58" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="hcQ-Mq-WMZ" secondAttribute="height" multiplier="58:21" id="ipq-s0-dnv"/>
-                    </constraints>
+                    <rect key="frame" x="131" y="237" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -39,10 +36,7 @@
                     </state>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="淘宝订单需要付款后才能看到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z59-Rf-4AW">
-                    <rect key="frame" x="60" y="273" width="200" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Z59-Rf-4AW" secondAttribute="height" multiplier="200:21" id="dVC-67-ztu"/>
-                    </constraints>
+                    <rect key="frame" x="60" y="269" width="200" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>

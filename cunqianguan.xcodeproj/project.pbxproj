@@ -176,6 +176,8 @@
 		B151FE9D1AA4284600BFC5C3 /* RunningWaterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FE9C1AA4284600BFC5C3 /* RunningWaterModel.m */; };
 		B151FEA01AA428A700BFC5C3 /* RunningWaterListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */; };
 		B151FEA31AA42DBA00BFC5C3 /* RunningWaterScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B151FEA21AA42DBA00BFC5C3 /* RunningWaterScrollVC.m */; };
+		B15284461AB41B340028B5D4 /* InviteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B15284451AB41B340028B5D4 /* InviteModel.m */; };
+		B15284491AB41BA00028B5D4 /* InviteListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B15284481AB41BA00028B5D4 /* InviteListModel.m */; };
 		B152C07C1AA9368700D18AFB /* RebateHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B152C07A1AA9368700D18AFB /* RebateHomeVC.m */; };
 		B152C07D1AA9368700D18AFB /* RebateHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152C07B1AA9368700D18AFB /* RebateHomeVC.xib */; };
 		B152C0811AA93F2400D18AFB /* FootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B152C0801AA93F2400D18AFB /* FootModel.m */; };
@@ -635,6 +637,10 @@
 		B151FE9F1AA428A700BFC5C3 /* RunningWaterListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterListModel.m; sourceTree = "<group>"; };
 		B151FEA11AA42DBA00BFC5C3 /* RunningWaterScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningWaterScrollVC.h; sourceTree = "<group>"; };
 		B151FEA21AA42DBA00BFC5C3 /* RunningWaterScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningWaterScrollVC.m; sourceTree = "<group>"; };
+		B15284441AB41B340028B5D4 /* InviteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteModel.h; sourceTree = "<group>"; };
+		B15284451AB41B340028B5D4 /* InviteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteModel.m; sourceTree = "<group>"; };
+		B15284471AB41BA00028B5D4 /* InviteListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteListModel.h; sourceTree = "<group>"; };
+		B15284481AB41BA00028B5D4 /* InviteListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteListModel.m; sourceTree = "<group>"; };
 		B152C0791AA9368700D18AFB /* RebateHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RebateHomeVC.h; sourceTree = "<group>"; };
 		B152C07A1AA9368700D18AFB /* RebateHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RebateHomeVC.m; sourceTree = "<group>"; };
 		B152C07B1AA9368700D18AFB /* RebateHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RebateHomeVC.xib; sourceTree = "<group>"; };
@@ -1578,6 +1584,10 @@
 				B10922A71AA7FFF30073CE63 /* CityModel.m */,
 				B10922A91AA801730073CE63 /* CityListModel.h */,
 				B10922AA1AA801730073CE63 /* CityListModel.m */,
+				B15284441AB41B340028B5D4 /* InviteModel.h */,
+				B15284451AB41B340028B5D4 /* InviteModel.m */,
+				B15284471AB41BA00028B5D4 /* InviteListModel.h */,
+				B15284481AB41BA00028B5D4 /* InviteListModel.m */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -2518,6 +2528,7 @@
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B15032571A8B3025000A61FA /* PolyGoodsRootVC.m in Sources */,
 				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
+				B15284491AB41BA00028B5D4 /* InviteListModel.m in Sources */,
 				B152C07C1AA9368700D18AFB /* RebateHomeVC.m in Sources */,
 				B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */,
 				B14071B31A6CD38E00D1792F /* MJRefreshConst.m in Sources */,
@@ -2589,6 +2600,7 @@
 				B152C0841AA940AD00D18AFB /* FootListModel.m in Sources */,
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
+				B15284461AB41B340028B5D4 /* InviteModel.m in Sources */,
 				B14968491A875A4500DBC09B /* NSDictionary+SWJSON.m in Sources */,
 				B1E6B5741AAE882D005CB5AF /* HelpInfoVC.m in Sources */,
 				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,

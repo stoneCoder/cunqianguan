@@ -8,7 +8,7 @@
 //
 
 #import "ProductDetailHeaderView.h"
-#import "UIImageView+WebCache.h"
+#import "UIImage+Resize.h"
 
 @implementation ProductDetailHeaderView
 - (id)initWithFrame:(CGRect)frame
@@ -36,7 +36,9 @@
     CGRect frame = _scrollview.frame;
     frame.size.width = SCREEN_WIDTH;
     imageView.frame = frame;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+    }];
     [_scrollview addSubview:imageView];
     
     _titleLabel.text = model.title;

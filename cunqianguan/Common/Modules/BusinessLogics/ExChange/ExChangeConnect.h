@@ -12,6 +12,7 @@
 DEFINE_SINGLETON_FOR_HEADER(ExChangeConnect)
 
 -(void)getExchangeList:(NSString *)userId
+              WithAble:(NSInteger)able
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure;
 

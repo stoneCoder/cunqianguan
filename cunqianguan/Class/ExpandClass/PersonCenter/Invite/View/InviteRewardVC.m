@@ -8,8 +8,16 @@
 
 #import "InviteRewardVC.h"
 #import "RunningWaterCell.h"
-
+#import "PersonInfo.h"
+#import "PersonConnect.h"
+#import "BaseConnect.h"
+#import "InviteListModel.h"
 @interface InviteRewardVC ()
+{
+    PersonInfo *_info;
+    NSMutableArray *_data;
+    NSInteger _pageNum;
+}
 
 @end
 static NSString *InviteRewardCellID = @"InviteRewardCell";
@@ -18,7 +26,11 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _pageNum = 1;
+    _info = [PersonInfo sharedPersonInfo];
+    _data = [NSMutableArray array];
     [self setUpTableView];
+    [self loadDataWith:_info.userId andPage:_pageNum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,10 +60,57 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
     self.tableView.frame = CGRectMake(10,visiableY, SCREEN_WIDTH - 20, SCREEN_HEIGTH - visiableY - 64);
 }
 
+#pragma mark -- 加载数据
+-(void)loadDataWith:(NSString *)userId andPage:(NSInteger)page
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserInvite:_info.userId page:page success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            NSDictionary *data  = [dic objectForKey:@"data"];
+            NSNumber *fanliTotle = [data objectForKey:@"fanlimoneyTotal"];
+            if (![fanliTotle isEqual:[NSNull null]]) {
+                _totalMoneyLabel.text = [[NSString alloc] initWithFormat:@"%@",fanliTotle];
+            }
+            NSNumber *userTotle = [data objectForKey:@"userTotal"];
+            if (![userTotle isEqual:[NSNull null]] && userTotle != nil) {
+                _totalInviteLabel.text = [[NSString alloc] initWithFormat:@"%@",userTotle];
+            }
+            InviteListModel *listModel = [[InviteListModel alloc] initWithDictionary:data error:nil];
+            if(page == 1){
+                [_data removeAllObjects];
+            }
+            [_data addObjectsFromArray:listModel.moneylog];
+            if (_data.count == 0) {
+                self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.frame = self.tableView.frame;
+                self.tableView.hidden = YES;
+            }
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)refresh
+{
+    [self loadDataWith:_info.userId andPage:1];
+    [super refresh];
+}
+
+-(void)moreFresh
+{
+    _pageNum ++;
+    [self loadDataWith:_info.userId andPage:_pageNum];
+    [super moreFresh];
+}
+
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return _data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,14 +139,7 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RunningWaterCell *cell = [tableView dequeueReusableCellWithIdentifier:InviteRewardCellID];
-    cell.timeLabel.text = @"飞翔的徐飞";
-    cell.titleLabel.text = @"返利收益大于1元";
-    
-    NSString *infoText = @"已奖励2元";
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:infoText];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(infoText.length - 2,infoText.length - 3)];
-    cell.infoLabel.attributedText = str;
-    
+    [cell loadCellWith:_data[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

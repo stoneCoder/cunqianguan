@@ -26,6 +26,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     NSInteger _pageNum;
     PersonInfo *_info;
     NSInteger _type;
+    NSInteger _able;
 }
 
 - (void)viewDidLoad {
@@ -34,6 +35,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     _info = [PersonInfo sharedPersonInfo];
     _data = [NSMutableArray array];
     _pageNum = 1;
+    _able = 0;
     [self setUpCollection];
 }
 
@@ -42,8 +44,10 @@ static NSString *  collectionCellID=@"ExChangeCell";
     _type = index;
     [_data removeAllObjects];
     NSString *userId = _info.userId;
-    if (index == 1) {
-        userId = @"";
+    if (index == 0) {
+        _able = 1;
+    }else{
+        _able = 0;
     }
     [self showLoaderView:self.collectionView];
     [self loadDataWithId:userId andPage:_pageNum];
@@ -65,7 +69,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 -(void)loadDataWithId:(NSString *)userId andPage:(NSInteger)page
 {
-    [[ExChangeConnect sharedExChangeConnect] getExchangeList:userId success:^(id json) {
+    [[ExChangeConnect sharedExChangeConnect] getExchangeList:userId WithAble:_able success:^(id json) {
         [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {

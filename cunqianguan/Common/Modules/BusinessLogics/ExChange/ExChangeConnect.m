@@ -12,12 +12,13 @@
 @implementation ExChangeConnect
 DEFINE_SINGLETON_FOR_CLASS(ExChangeConnect)
 -(void)getExchangeList:(NSString *)userId
+               WithAble:(NSInteger)able
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getExchangeList";
     userId = userId?userId:@"";
-    NSDictionary *dic = @{@"uid":userId};
+    NSDictionary *dic = @{@"uid":userId,@"able":@(able)};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

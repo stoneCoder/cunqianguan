@@ -147,15 +147,16 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
     MsgModel *model = _data[cell.tag];
     NSArray *dataArr = @[model.msgId];
+    NSString *str = [dataArr componentsJoinedByString:@","];
     switch (index) {
         case 0:
             // 置顶
-            [self deleteMsg:dataArr];
+            [self deleteMsg:str];
             break;
     }
 }
 
--(void)deleteMsg:(NSArray *)msgArray
+-(void)deleteMsg:(NSString *)msgArray
 {
     [self showHUD:ACTION_LOAD];
     [[PersonConnect sharedPersonConnect] delMessage:msgArray success:^(id json) {

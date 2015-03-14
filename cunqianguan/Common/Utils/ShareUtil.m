@@ -46,15 +46,18 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
 
 + (void)presentInviteView:(UIViewController *)controller
                   content:(NSString *)content
-                 imageUrl:(NSString *)imageUrl
+                  strUrl:(NSString *)urlPath
 {
-    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:imageUrl];
+    [UMSocialData defaultData].extConfig.qqData.url = urlPath;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = urlPath;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = urlPath;
+    [UMSocialData defaultData].extConfig.sinaData.shareText = urlPath;
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:nil
                                       shareText:content
                                      shareImage:nil
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToWechatSession,UMShareToSina,nil]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                        delegate:nil];
 }
 

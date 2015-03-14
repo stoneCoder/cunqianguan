@@ -39,6 +39,7 @@
         self.tableView = [[UITableView alloc] initWithFrame:frame style:style];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        self.tableView.backgroundColor = UIColorFromRGB(0xececec);
         [self.view addSubview:self.tableView];
     }
     if (iOS7) {
