@@ -172,20 +172,21 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _qq = [data objectForKey:@"qq"];
             _zipCode = [data objectForKey:@"zip_code"];
             _phone = [data objectForKey:@"phone"];
-            _collectionCount = [[data objectForKey:@"collection_count"] integerValue];
-            _level = [[data objectForKey:@"level"] integerValue];
-            _userExp = [[data objectForKey:@"exp"] integerValue];
-            _nextUserExp = [[data objectForKey:@"exp_next"] integerValue];
-            _cash = [[data objectForKey:@"cash"] integerValue];
+            _collectionCount = [[data objectForKey:@"collection_count"] intValue];
+            _level = [[data objectForKey:@"level"] intValue];
+            _userExp = [[data objectForKey:@"exp"] intValue];
+            _nextUserExp = [[data objectForKey:@"exp_next"] intValue];
+            _cash = [[data objectForKey:@"cash"] floatValue];
             _pointTb = [[data objectForKey:@"point_tb"] integerValue];
             _pointSite = [[data objectForKey:@"point_site"] integerValue];
-            _cashAll = [[data objectForKey:@"cash_all"] integerValue];
+            _cashAll = [[data objectForKey:@"cash_all"] floatValue];
             _messageCount = [[data objectForKey:@"message_count"] integerValue];
             _pointTbTo = [[data objectForKey:@"point_tb_to"] integerValue];
             _cashTo = [[data objectForKey:@"cash_to"] integerValue];
             _isBindAli = [[data objectForKey:@"isbind_tb"] boolValue];
             _isBindQQ = [[data objectForKey:@"isbind_qq"] boolValue];
             _isBindSina = [[data objectForKey:@"isbind_sina"] boolValue];
+            [self saveUserData];
         }
     } failure:^(id json) {
         failure(json);

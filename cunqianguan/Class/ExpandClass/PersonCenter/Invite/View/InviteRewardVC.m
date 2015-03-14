@@ -69,16 +69,16 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             NSDictionary *data  = [dic objectForKey:@"data"];
-            NSNumber *fanliTotle = [data objectForKey:@"fanlimoneyTotal"];
-            if (![fanliTotle isEqual:[NSNull null]]) {
-                _totalMoneyLabel.text = [[NSString alloc] initWithFormat:@"%@",fanliTotle];
-            }
-            NSNumber *userTotle = [data objectForKey:@"userTotal"];
-            if (![userTotle isEqual:[NSNull null]] && userTotle != nil) {
-                _totalInviteLabel.text = [[NSString alloc] initWithFormat:@"%@",userTotle];
-            }
             InviteListModel *listModel = [[InviteListModel alloc] initWithDictionary:data error:nil];
             if(page == 1){
+                NSNumber *fanliTotle = [data objectForKey:@"fanlimoneyTotal"];
+                if (![fanliTotle isEqual:[NSNull null]]) {
+                    _totalMoneyLabel.text = [[NSString alloc] initWithFormat:@"%@",fanliTotle];
+                }
+                NSNumber *userTotle = [data objectForKey:@"userTotal"];
+                if (![userTotle isEqual:[NSNull null]] && userTotle != nil) {
+                    _totalInviteLabel.text = [[NSString alloc] initWithFormat:@"%@",userTotle];
+                }
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:listModel.moneylog];

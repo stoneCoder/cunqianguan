@@ -213,14 +213,22 @@ static NSString *collectID = @"CollectCell";
         [self showHUD:ACTION_LOAD];
         NSString *goodKeys = [_checkArray componentsJoinedByString:@","];
         [[PersonConnect sharedPersonConnect] delUserFavorite:_info.userId withGoodKey:goodKeys success:^(id json) {
-            [self hideAllHUD];
             NSDictionary *dic = (NSDictionary *)json;
-            [self showStringHUD:[dic objectForKey:@"info"] second:2];
             if ([BaseConnect isSucceeded:dic]) {
-                _isAllCheck = NO;
-                _isEditModel = NO;
-                _checkView.hidden = YES;
-                [self loadData:1];
+                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+                    [self hideAllHUD];
+                    NSDictionary *dic = (NSDictionary *)json;
+                    if ([BaseConnect isSucceeded:dic]) {
+                        _isAllCheck = NO;
+                        _isEditModel = NO;
+                        _checkView.hidden = YES;
+                        [self loadData:1];
+                    }
+                } failure:^(id json) {
+                    
+                }];
+            }else{
+                [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
             }
         } failure:^(NSError *err) {
             [self hideAllHUD];

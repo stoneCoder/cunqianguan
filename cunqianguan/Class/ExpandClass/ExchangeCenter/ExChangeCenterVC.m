@@ -81,6 +81,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
             if (_type == 0 && _data.count == 0) {
                 self.defaultEmptyView.hidden = NO;
                 self.defaultEmptyView.emptyInfoLabel.text = @"没有可兑换的商品";
+                self.defaultEmptyView.emptydetailInfoLabel.hidden = NO;
                 self.defaultEmptyView.emptydetailInfoLabel.text = @"购物和签到均可获得积分哦";
                 self.collectionView.hidden = YES;
             }

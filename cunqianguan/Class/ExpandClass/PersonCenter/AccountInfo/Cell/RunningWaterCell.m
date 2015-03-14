@@ -22,7 +22,8 @@
 
 -(void)loadCell:(RunningWaterModel *)model
 {
-    _timeLabel.text = [NSString stringWithFormat:@"%@ %@",model.date,model.time];
+    
+    _timeLabel.text = [NSString stringWithFormat:@"%@ %@",[model.date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],[model.time stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     
     _titleLabel.text = model.content;
     

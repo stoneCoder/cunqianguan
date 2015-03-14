@@ -46,7 +46,7 @@
             NSDictionary *data  = [dic objectForKey:@"data"];
             NSString  *inviteUrl = [data objectForKey:@"invite_url"];
             if (type == 1) {
-                [ShareUtil presentInviteView:self content:nil strUrl:inviteUrl];
+                [ShareUtil presentInviteView:self content:inviteUrl strUrl:inviteUrl];
             }else{
                 NSNumber *fanliTotle = [data objectForKey:@"fanlimoneyTotal"];
                 if (![fanliTotle isEqual:[NSNull null]]) {

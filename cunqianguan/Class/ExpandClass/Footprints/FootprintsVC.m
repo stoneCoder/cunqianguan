@@ -10,6 +10,7 @@
 #import "FootPrintsCell.h"
 
 #import "FootConnect.h"
+#import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "PersonInfo.h"
 #import "FootListModel.h"
@@ -141,7 +142,9 @@ static NSString *CellID=@"FootPrintsCell";
 - (NSArray *)cellRightButtons
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray array];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:UIColorFromRGB(0xcccccc) title:@"收藏"];
     [rightUtilityButtons sw_addUtilityButtonWithColor:UIColorFromRGB(0xff2222) title:@"删除"];
+    
     return rightUtilityButtons;
 }
 
@@ -150,6 +153,10 @@ static NSString *CellID=@"FootPrintsCell";
     FootModel *model = _data[cell.tag];
     switch (index) {
         case 0:
+            // 收藏
+            [self addUserFavorite:model.goodkey];
+            break;
+        case 1:
             // 置顶
             [self deleteFootTrace:model.goodkey];
             break;
@@ -165,6 +172,33 @@ static NSString *CellID=@"FootPrintsCell";
         if ([BaseConnect isSucceeded:dic]) {
             [self hideAllHUD];
             [self loadData:1];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)addUserFavorite:(NSString *)goodKey
+{
+    [self showHUD:ACTION_LOAD];
+    [[PersonConnect sharedPersonConnect] addUserFavorite:_info.userId withGoodKey:goodKey  success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        __block NSString *resultStr = [dic objectForKey:@"info"];
+        if ([BaseConnect isSucceeded:dic]) {
+            [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+                NSDictionary *dic = (NSDictionary *)json;
+                if ([BaseConnect isSucceeded:dic]) {
+                    [self showStringHUD:resultStr second:1.5];
+                    [self.tableView reloadData];
+                }
+            } failure:^(id json) {
+                
+            }];
+        }else{
+            [self showStringHUD:@"收藏失败，请重试" second:1.5];
+            [self.tableView reloadData];
+
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];

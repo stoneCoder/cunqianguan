@@ -97,7 +97,7 @@
     UIButton *rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search"] forState:UIControlStateNormal];
     [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search_hover"] forState:UIControlStateHighlighted];
-    [rigthButton addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
+    [rigthButton addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
     self.navigationItem.rightBarButtonItem = rightBtnItem;
     
@@ -161,7 +161,7 @@
 }
 
 #pragma mark -- Private
-- (void)test:(id)sender
+- (void)searchAction:(id)sender
 {
     SearchViewVC *searchVC = [[SearchViewVC alloc] init];
     [self.navigationController pushViewController:searchVC animated:YES];

@@ -129,7 +129,6 @@
             [person getUserInfo:weakName withPwd:weakPwd success:^(id json) {
                 [self hideAllHUD];
                 if([BaseConnect isSucceeded:json]){
-                    [person saveUserData];
                     [self showStringHUD:@"登陆成功" second:HUD_SHOW_SECOND];
                     _hideTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(dismisSelf) userInfo:nil repeats:NO];
                 }
