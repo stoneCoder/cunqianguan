@@ -10,9 +10,6 @@
 #import "PolyGoodsDetailVC.h"
 #import "ReturnHomeGoodsVC.h"
 
-#import "PopoverView.h"
-#import "PopView.h"
-
 #import "PersonInfo.h"
 #import "JYHDetailModel.h"
 #import "JYHConnect.h"

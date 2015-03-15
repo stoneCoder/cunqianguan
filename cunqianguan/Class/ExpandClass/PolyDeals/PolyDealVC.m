@@ -57,16 +57,6 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     
 }
 
--(void)setUpNavBtn
-{
-    UIButton *rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search"] forState:UIControlStateNormal];
-    [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search_hover"] forState:UIControlStateHighlighted];
-    //[rigthButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rigthButton];
-    self.navigationItem.rightBarButtonItem = rightBtnItem;
-}
-
 -(void)setUpCollection
 {
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);

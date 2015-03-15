@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		487112F61AB069730089CE0A /* ShareUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 487112F51AB069730089CE0A /* ShareUtil.m */; };
-		48913D931AAF1F8600DEA83C /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D901AAF1F8600DEA83C /* PopView.m */; };
-		48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48913D921AAF1F8600DEA83C /* PopViewCell.m */; };
+		48AC87591AB58233003CEF48 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48AC87581AB58233003CEF48 /* PopoverView.m */; };
 		97DA9493BBBE4D7CFF653414 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2973A8EA4747C20640F7CB2E /* libPods.a */; };
 		B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */; };
 		B10922A81AA7FFF30073CE63 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A71AA7FFF30073CE63 /* CityModel.m */; };
@@ -97,7 +96,6 @@
 		B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F8B1A73441400706772 /* PersonFooterView.xib */; };
 		B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F8E1A73632D00706772 /* PersonHeaderView.m */; };
 		B1436F911A73633E00706772 /* PersonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F901A73633E00706772 /* PersonHeaderView.xib */; };
-		B1436F981A7377C000706772 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F951A7377C000706772 /* PopoverView.m */; };
 		B1436F9C1A73870C00706772 /* FinishInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1436F9A1A73870C00706772 /* FinishInfoVC.m */; };
 		B1436F9D1A73870C00706772 /* FinishInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1436F9B1A73870C00706772 /* FinishInfoVC.xib */; };
 		B14379681A9EB55100D00625 /* ExChangeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B14379671A9EB55100D00625 /* ExChangeConnect.m */; };
@@ -332,10 +330,8 @@
 		2973A8EA4747C20640F7CB2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		487112F41AB069730089CE0A /* ShareUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtil.h; sourceTree = "<group>"; };
 		487112F51AB069730089CE0A /* ShareUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtil.m; sourceTree = "<group>"; };
-		48913D8F1AAF1F8600DEA83C /* PopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
-		48913D901AAF1F8600DEA83C /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
-		48913D911AAF1F8600DEA83C /* PopViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewCell.h; sourceTree = "<group>"; };
-		48913D921AAF1F8600DEA83C /* PopViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewCell.m; sourceTree = "<group>"; };
+		48AC87571AB58233003CEF48 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		48AC87581AB58233003CEF48 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		9E12974C1BF2517CF6783FAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B10922A21AA7F8B80073CE63 /* TGCCustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGCCustomPickerView.h; sourceTree = "<group>"; };
 		B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGCCustomPickerView.m; sourceTree = "<group>"; };
@@ -496,10 +492,6 @@
 		B1436F8D1A73632D00706772 /* PersonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderView.h; sourceTree = "<group>"; };
 		B1436F8E1A73632D00706772 /* PersonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderView.m; sourceTree = "<group>"; };
 		B1436F901A73633E00706772 /* PersonHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderView.xib; sourceTree = "<group>"; };
-		B1436F941A7377C000706772 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
-		B1436F951A7377C000706772 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
-		B1436F961A7377C000706772 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
-		B1436F971A7377C000706772 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
 		B1436F991A73870C00706772 /* FinishInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishInfoVC.h; sourceTree = "<group>"; };
 		B1436F9A1A73870C00706772 /* FinishInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishInfoVC.m; sourceTree = "<group>"; };
 		B1436F9B1A73870C00706772 /* FinishInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishInfoVC.xib; sourceTree = "<group>"; };
@@ -931,10 +923,8 @@
 		48913D8E1AAF1F8500DEA83C /* PopView */ = {
 			isa = PBXGroup;
 			children = (
-				48913D8F1AAF1F8600DEA83C /* PopView.h */,
-				48913D901AAF1F8600DEA83C /* PopView.m */,
-				48913D911AAF1F8600DEA83C /* PopViewCell.h */,
-				48913D921AAF1F8600DEA83C /* PopViewCell.m */,
+				48AC87571AB58233003CEF48 /* PopoverView.h */,
+				48AC87581AB58233003CEF48 /* PopoverView.m */,
 			);
 			path = PopView;
 			sourceTree = "<group>";
@@ -1214,7 +1204,6 @@
 				B1668D301A88A2F4002CB98E /* JTCalendar */,
 				B14FE5E61A7C7FA4002BF122 /* VPImageCropper */,
 				B15D44A41A787E03008B8F4B /* SWTableViewCell */,
-				B1436F931A7377C000706772 /* PopoverView */,
 				B109D57A1A71EA1B00505D32 /* SliderView */,
 				B140EC491A6F7345004D245A /* SMControl */,
 				B14071A01A6CD38E00D1792F /* MJRefresh */,
@@ -1506,17 +1495,6 @@
 				B1436F901A73633E00706772 /* PersonHeaderView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B1436F931A7377C000706772 /* PopoverView */ = {
-			isa = PBXGroup;
-			children = (
-				B1436F941A7377C000706772 /* PopoverView.h */,
-				B1436F951A7377C000706772 /* PopoverView.m */,
-				B1436F961A7377C000706772 /* PopoverView_Configuration.h */,
-				B1436F971A7377C000706772 /* PopoverViewCompatibility.h */,
-			);
-			path = PopoverView;
 			sourceTree = "<group>";
 		};
 		B14379651A9EB53D00D00625 /* ExChange */ = {
@@ -2591,6 +2569,7 @@
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */,
+				48AC87591AB58233003CEF48 /* PopoverView.m in Sources */,
 				B10A14961AAFE272002DD2D7 /* GMDCircleLoader.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
 				B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */,
@@ -2606,7 +2585,6 @@
 				B16587FB1A7F673B0032071C /* MutableButton.m in Sources */,
 				B140719B1A6CCD7900D1792F /* BaseTBC.m in Sources */,
 				B1E6B58A1AAEDB0E005CB5AF /* LocalWebVC.m in Sources */,
-				48913D931AAF1F8600DEA83C /* PopView.m in Sources */,
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
@@ -2667,7 +2645,6 @@
 				B15022EE1AA5A9A5008850F3 /* CalendarViewCell.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
 				B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */,
-				48913D941AAF1F8600DEA83C /* PopViewCell.m in Sources */,
 				B152C08B1AA98DC300D18AFB /* CollectListModel.m in Sources */,
 				B1F873201AB1899F00B1D4B0 /* DefaultEmptyView.m in Sources */,
 				B158A7121A9D7A7400C6FD3F /* JYHModel.m in Sources */,
@@ -2705,7 +2682,6 @@
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
 				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
-				B1436F981A7377C000706772 /* PopoverView.m in Sources */,
 				B1E6B5791AAE89BB005CB5AF /* MsgSetVC.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,
 				B15DBA211AA04F83005FBC2C /* PolyTomorrowVC.m in Sources */,
