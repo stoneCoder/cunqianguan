@@ -136,7 +136,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     if (_orderType == 0) {
         TaoOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:TaoOrderCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.rightUtilityButtons = [self cellRightButtons];
+        //cell.rightUtilityButtons = [self cellRightButtons];
         //cell.delegate = self;
         cell.containingTableView = tableView;
         [cell hideUtilityButtonsAnimated:NO];
@@ -147,7 +147,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
     {
         ShopOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:ShopOrderCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.rightUtilityButtons = [self cellRightButtons];
+        //cell.rightUtilityButtons = [self cellRightButtons];
         //cell.delegate = self;
         cell.containingTableView = tableView;
         [cell hideUtilityButtonsAnimated:NO];

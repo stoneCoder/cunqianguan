@@ -21,7 +21,7 @@
 -(void)hideReturnBackButton;
 
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName;
-
+-(void)setRigthBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets;
 -(void)setRefreshEnabled:(BOOL)enabled;
 //显示hud
 - (void)showHUD;

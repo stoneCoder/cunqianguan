@@ -29,6 +29,12 @@
 
 - (IBAction)checkAction:(id)sender
 {
+    UIButton *btn = (UIButton *)sender;
+    if (btn.selected) {
+        btn.selected = NO;
+    }else{
+        btn.selected = YES;
+    }
     if (_delegate && [_delegate respondsToSelector:@selector(allCheckAction)]) {
         [_delegate allCheckAction];
     }

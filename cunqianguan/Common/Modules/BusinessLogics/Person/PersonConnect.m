@@ -106,11 +106,12 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 }
 
 -(void)delMessage:(NSString *)msgArray
+       WithUserId:(NSString *)userId
           success:(void (^)(id json))success
           failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"delMessage";
-    NSDictionary *dic =  @{@"mid":msgArray};
+    NSDictionary *dic =  @{@"mid":msgArray,@"uid":userId};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

@@ -30,7 +30,8 @@
 -(void)setReturnBtnTitle:(NSString *)aTitle BadgeNumber:(int)aNumber;
 
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName;
-
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage;
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets;
 /**
  *  功能:是否显示返回按钮
  */

@@ -15,7 +15,11 @@
 #import "PersonInfo.h"
 
 #import "BaseUtil.h"
+#import "BMAlert.h"
 @interface MessageInfoVC ()<SWTableViewCellDelegate>
+{
+    PersonInfo *_info;
+}
 
 @end
 static NSString *MessageInfoCellID = @"MessageInfoCell";
@@ -29,6 +33,7 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info= [PersonInfo sharedPersonInfo];
     _data = [NSMutableArray array];
     _pageNum = 1;
     [self setUpTableView];
@@ -64,7 +69,7 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 -(void)loadData:(NSInteger)page
 {
     [self showHUD:DATA_LOAD];
-    [[PersonConnect sharedPersonConnect] getMessageInfo:[PersonInfo sharedPersonInfo].userId withPage:page success:^(id json) {
+    [[PersonConnect sharedPersonConnect] getMessageInfo:_info.userId withPage:page success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -158,15 +163,20 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 
 -(void)deleteMsg:(NSString *)msgArray
 {
-    [self showHUD:ACTION_LOAD];
-    [[PersonConnect sharedPersonConnect] delMessage:msgArray success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        if ([BaseConnect isSucceeded:dic]) {
-            [self loadData:1];
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
+    [self.tableView reloadData];
+    [[BMAlert sharedBMAlert] alert:@"是否确认删除" cancle:^(DoAlertView *alertView) {
+        [self showHUD:ACTION_LOAD];
+        [[PersonConnect sharedPersonConnect] delMessage:msgArray WithUserId:_info.userId  success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                [self loadData:1];
+            }
+        } failure:^(NSError *err) {
+            [self hideAllHUD];
+        }];
+    } other:^(DoAlertView *alertView) {
+        
     }];
 }
 

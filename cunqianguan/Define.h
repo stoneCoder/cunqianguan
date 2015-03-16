@@ -48,7 +48,8 @@ return shared##className; \
 #define ACTION_LOAD @"处理中。。"
 #define HUD_SHOW_SECOND 2
 #define PAGE_COUNT 20
-#define MENU_ARRAY @[@"热卖", @"男装", @"女装", @"居家", @"母婴", @"鞋包", @"配饰", @"美食", @"数码", @"美妆", @"热卖"]
+#define MENU_ARRAY @[@"热卖", @"女装", @"鞋包", @"美妆", @"美食", @"配饰", @"数码", @"居家", @"母婴", @"男装"]
+#define MENU_ID @[@"10", @"2", @"5", @"9", @"7", @"6", @"8",@"3", @"4", @"1"];
 #define SELECT_ARRAY  @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
 #define SELECT_ID @[@"0",@"1", @"8", @"16", @"22", @"29",@"36", @"43"];
 #define INTERFACE_VERSION @"2.0"

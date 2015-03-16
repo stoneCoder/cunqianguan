@@ -116,6 +116,48 @@
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)setRigthBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
+    CGRect btnFrame;
+    NSString * btnTitleStr=aTitle;
+    if (btnTitleStr.length > 0) {
+        btnTitleStr = [NSString stringWithFormat:@"%@",aTitle];
+        float width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
+        btnFrame = CGRectMake(0,0,22 + width +50,22);
+    }else{
+        btnFrame = CGRectMake(0,0,22,22);
+    }
+    [button setFrame:btnFrame];
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    if (highlightImage) {
+        [button setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateHighlighted];
+    }
+    [button setTitle:btnTitleStr forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, btnFrame.size.width - 22, 0, 0);
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -10;
+        self.navigationItem.rightBarButtonItems = @[negativeSpacer, btnItem];
+    }else{
+        self.navigationItem.rightBarButtonItem = btnItem;
+        
+    }
+    [button addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)rightBtnClick:(id)sender
+{
+    
+}
+
 
 #pragma mark-导航相关
 /**

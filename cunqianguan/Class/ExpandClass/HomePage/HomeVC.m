@@ -36,6 +36,7 @@
 #import "AdListModel.h"
 #import "AdModel.h"
 #import "PersonInfo.h"
+#import "UIImage+Resize.h"
 
 #import "AppDelegate.h"
 
@@ -63,13 +64,14 @@
     [self hideReturnBtn];
     [self initNavBar];
     [self initScrollView];
+    [self initAdView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [_info loadUserData];
-    [self initAdView];
+    
     [self initActionView];
     _actionView.tipImage.hidden = ![_info isNewTrace];
     if (_dimView) {
@@ -80,9 +82,9 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    dispatch_async(dispatch_get_global_queue(0, 0), ^(void){
-        [self loadAdView];
-    });
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^(void){
+//        [self loadAdView];
+//    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +109,7 @@
 
 -(void)initScrollView
 {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64)];
     [_scrollView setContentSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGTH + 1)];
     [self.view addSubview:_scrollView];
 }
@@ -116,18 +118,24 @@
 {
     _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     
+//    AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+//    UIImage *image = [UIImage imageNamed:@"banner"];
+//    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
+//    adView.imageView.image = image;
+//    [_pageControl insertBannerPages:adView];
+    
     AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    adView.imageView.image = [UIImage imageNamed:@"banner"];
+    UIImage *image = [UIImage imageNamed:@"banner1"];
+    //[image imageByScalingAndCroppingForSize:_pageControl.frame.size];
+    adView.imageView.image = image;
     [_pageControl insertBannerPages:adView];
     
-    adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    adView.imageView.image = [UIImage imageNamed:@"banner1"];
-    [_pageControl insertBannerPages:adView];
-    
-    adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    adView.imageView.image = [UIImage imageNamed:@"banner2"];
-    [adView addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
-    [_pageControl insertBannerPages:adView];
+    AdvertisingView *adView1 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+    UIImage *image1 = [UIImage imageNamed:@"banner2"];
+    //[image1 imageByScalingAndCroppingForSize:_pageControl.frame.size];
+    adView1.imageView.image = image1;
+    [adView1 addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
+    [_pageControl insertBannerPages:adView1];
     
     [_scrollView addSubview:_pageControl];
 }
@@ -151,7 +159,9 @@
             for (int i = 0; i < adListModel.data.count; i++) {
                 AdModel *adModel = adListModel.data[i];
                 AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-                [adView.imageView sd_setImageWithURL:[NSURL URLWithString:adModel.pic_url]];
+                [adView.imageView sd_setImageWithURL:[NSURL URLWithString:adModel.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
+                }];
                 [_pageControl insertBannerPages:adView];
             }
         }

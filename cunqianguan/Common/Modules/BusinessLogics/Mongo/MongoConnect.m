@@ -19,7 +19,7 @@ DEFINE_SINGLETON_FOR_CLASS(MongoConnect)
 {
     NSString *url = @"getMongoGoods";
     userId = userId?userId:@"";
-    NSDictionary *dic =  @{@"uid":userId,@"category":@(category),@"page":@(pageNum),@"perpage":@(PAGE_COUNT)};
+    NSDictionary *dic =  @{@"uid":userId,@"gid":@(category),@"page":@(pageNum),@"perpage":@(PAGE_COUNT)};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {
@@ -41,11 +41,12 @@ DEFINE_SINGLETON_FOR_CLASS(MongoConnect)
 }
 
 -(void)getGoodsDetail:(NSString *)goodKey
+           WithUserId:(NSString *)userId
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"getGoodsDetail";
-    NSDictionary *dic =  @{@"goodkey":goodKey};
+    NSDictionary *dic =  @{@"goodkey":goodKey,@"uid":userId};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

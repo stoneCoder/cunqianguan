@@ -79,6 +79,7 @@ static NSString *collectionCellID = @"PolyGoodsCell";
             [_data addObjectsFromArray:_listModel.data];
             if (_data.count == 0) {
                 self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.emptyInfoLabel.text = @"每日下午4点更新";
                 self.collectionView.hidden = YES;
             }
             [self.collectionView reloadData];

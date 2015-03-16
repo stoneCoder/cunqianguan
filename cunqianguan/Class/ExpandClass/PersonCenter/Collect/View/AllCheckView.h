@@ -14,6 +14,7 @@
 @end
 
 @interface AllCheckView : BaseView
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
 @property (strong, nonatomic) id<AllCheckViewDelegate> delegate;
 +(AllCheckView *)init;
 @end

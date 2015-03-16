@@ -26,28 +26,22 @@
     MongoDetailModel *_model;
     UIBarButtonItem *_footPrintItem;
     NSArray *_moreBtnArray;
+    NSArray *_moreImageArray;
+    NSInteger _isFav;
 }
 
 @end
-
+static NSString *kNavBarFinish = @"kNavBarFinish";
 @implementation ReturnHomeGoodsVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
-    [self setUpNavBar];
     [self setUpWebView];
     [self loadData:_goodKey];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    if ([_info isNewTrace]) {
-        _footPrintItem.badgeValue = @" ";
-    }else{
-        _footPrintItem.badgeValue = @"";
-    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNavBar) name:kNavBarFinish object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +52,7 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNavBarFinish object:nil];
 }
 
 -(void)setUpNavBar
@@ -70,8 +65,8 @@
     _footPrintItem = [[UIBarButtonItem alloc] initWithCustomView:footBtn];
     //更多按钮
     UIButton *moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [moreBtn setBackgroundImage:[UIImage imageNamed:@"taobao_btn"] forState:UIControlStateNormal];
-    [moreBtn setBackgroundImage:[UIImage imageNamed:@"taobao_btn_hover"] forState:UIControlStateHighlighted];
+    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_btn"] forState:UIControlStateNormal];
+    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_btn_hover"] forState:UIControlStateHighlighted];
     [moreBtn addTarget:self action:@selector(moreAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *moreButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
     
@@ -91,12 +86,15 @@
 -(void)loadData:(NSString *)key
 {
     [self showHUD:DATA_LOAD];
-    [[MongoConnect sharedMongoConnect] getGoodsDetail:key success:^(id json) {
+    [[MongoConnect sharedMongoConnect] getGoodsDetail:key WithUserId:_info.userId success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             NSDictionary *data = [dic objectForKey:@"data"];
             _model = [[MongoDetailModel alloc] initWithDictionary:data error:nil];
+            _isFav = _model.isfav;
             [self loadWebView:_model.fan_url];
+            [self setUpNavBar];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNavBarFinish object:nil];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
@@ -119,6 +117,7 @@
     }
 }
 
+#pragma mark -- Private
 -(void)pushToFootPrint:(id)sender
 {
     [_info isLoginWithPresent:^(BOOL flag) {
@@ -133,21 +132,29 @@
 {
     UIButton *btn = (UIButton *)sender;
     CGPoint point = CGPointMake(CGRectGetWidth(btn.frame)/2 + btn.frame.origin.x, btn.frame.origin.y + btn.frame.size.height + 20);
+    NSString *collectImageName = @"shoucang_btn";
+    if (_isFav == 1) {
+        collectImageName = @"shoucang_hover";
+    }
     if ([BaseUtil isInstallApp:@"taobao://"]) {
-        _moreBtnArray = @[@"刷新",@"用淘宝客户端打开",@"收藏",@"分享"];
+        _moreBtnArray = @[@"刷新",@"淘宝App打开",@"收藏",@"分享"];
+        _moreImageArray = @[@"refresh_btn",@"tao_btn",collectImageName,@"share_btn"];
     }else{
         _moreBtnArray = @[@"刷新",@"收藏",@"分享"];
+        _moreImageArray = @[@"refresh_btn",collectImageName,@"share_btn"];
     }
     
-    PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:_moreBtnArray images:nil];
+    PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:_moreBtnArray images:_moreImageArray];
     pop.selectRowAtIndex = ^(NSInteger index){
         if ([BaseUtil isInstallApp:@"taobao://"]) {
             switch (index) {
                 case 0:
                     [self loadData:_goodKey];
                     break;
+                case 1:
+                    break;
                 case 2:
-                    [self addCollectInfo];
+                    [self addCollectInfo:_isFav];
                     break;
                 case 3:
                     [self shareProduct];
@@ -159,7 +166,7 @@
                     [self loadData:_goodKey];
                     break;
                 case 1:
-                    [self addCollectInfo];
+                    [self addCollectInfo:_isFav];
                     break;
                 case 2:
                     [self shareProduct];
@@ -170,35 +177,69 @@
     [pop show];
 }
 
+-(void)refreshNavBar
+{
+    if ([_info isNewTrace]) {
+        _footPrintItem.badgeValue = @" ";
+    }else{
+        _footPrintItem.badgeValue = @"";
+    }
+}
+
 
 #pragma mark -- Private
--(void)addCollectInfo
+-(void)addCollectInfo:(NSInteger)type
 {
     [self showHUD:ACTION_LOAD];
-    [[PersonConnect sharedPersonConnect] addUserFavorite:_info.userId withGoodKey:_goodKey  success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        __block NSString *resultStr = [dic objectForKey:@"info"];
-        if ([BaseConnect isSucceeded:dic]) {
-            [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
-                NSDictionary *dic = (NSDictionary *)json;
-                if ([BaseConnect isSucceeded:dic]) {
-                    [self showStringHUD:resultStr second:1.5];
-                }
-            } failure:^(id json) {
-                
-            }];
-        }else{
-            [self showStringHUD:@"收藏失败，请重试" second:1.5];
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
+    if (type == 0) {
+        /*添加收藏*/
+        [[PersonConnect sharedPersonConnect] addUserFavorite:_info.userId withGoodKey:_goodKey  success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+                    NSDictionary *dic = (NSDictionary *)json;
+                    if ([BaseConnect isSucceeded:dic]) {
+                        _isFav = 1;
+                        [self showStringHUD:@"收藏成功" second:1.5];
+                    }
+                } failure:^(id json) {
+                    
+                }];
+            }else{
+                [self showStringHUD:@"收藏失败，请重试" second:1.5];
+            }
+        } failure:^(NSError *err) {
+            [self hideAllHUD];
+        }];
+    }else{
+       /*取消收藏*/
+        [[PersonConnect sharedPersonConnect] delUserFavorite:_info.userId withGoodKey:_goodKey  success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+                    NSDictionary *dic = (NSDictionary *)json;
+                    if ([BaseConnect isSucceeded:dic]) {
+                        _isFav = 0;
+                        [self showStringHUD:@"取消收藏成功" second:1.5];
+                    }
+                } failure:^(id json) {
+                    
+                }];
+            }else{
+                [self showStringHUD:@"取消收藏失败，请重试" second:1.5];
+            }
+        } failure:^(NSError *err) {
+            [self hideAllHUD];
+        }];
+    }
 }
 
 -(void)shareProduct
 {
-    [ShareUtil presentShareView:self content:@"" imageUrl:@"" goodKey:_goodKey andUserId:_info.userId];
+    NSString *shareContent = SHARE_CONTEXT(_model.price);
+    [ShareUtil presentShareView:self content:shareContent imageUrl:_model.pic_url goodKey:_goodKey andUserId:[BaseUtil encrypt:_info.userId]];
 }
 
 /*

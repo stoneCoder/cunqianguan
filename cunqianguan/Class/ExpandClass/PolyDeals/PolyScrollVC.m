@@ -17,6 +17,7 @@
     UIScrollView *_scrollView;
     BaseSelectView *_selectView;
     NSArray *_btnArray;
+    NSArray *_btnIdArray;
     NSInteger _currentIndex;
 }
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _btnArray = MENU_ARRAY;
+    _btnIdArray = MENU_ID;
     [self setUpRightBtn];
     [self setUpSliderView];
     [self setupScrollView];
@@ -91,7 +93,7 @@
         polyDealVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
         [_scrollView addSubview:polyDealVC.view];
     }
-    [[self childViewControllers][0] viewDidCurrentView:0];
+    [[self childViewControllers][0] viewDidCurrentView:[_btnIdArray[0] integerValue]];
 }
 
 -(void)setUpSelectView
@@ -99,6 +101,7 @@
     _selectView = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, _navScrollV.frame.size.height + _navScrollV.frame.origin.y, VIEW_WIDTH, VIEW_HEIGHT)];
     [_selectView initView:_btnArray];
     _selectView.delegate = self;
+    [_selectView setSelectIndex:_currentIndex];
     [_selectView setHidden:YES];
     [self.view insertSubview:_selectView aboveSubview:_scrollView];
 }
@@ -156,7 +159,7 @@
     [_selectView setSelectIndex:index];
     _currentIndex = index;
     
-    [[self childViewControllers][index] viewDidCurrentView:index];
+    [[self childViewControllers][index] viewDidCurrentView:[_btnIdArray[index] integerValue]];
 }
 
 -(void)selectTitle:(NSString *)title

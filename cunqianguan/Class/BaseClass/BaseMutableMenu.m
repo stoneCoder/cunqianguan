@@ -26,6 +26,7 @@
     CGFloat _cellHeight;
     MutableButton *_selectBtn;
     NSMutableArray *_menuIdArray;
+    NSString *_parentId;
 }
 
 /*
@@ -80,11 +81,13 @@
     _btnTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:_btnTableView];
     
+    
     [self loadTableData:_menuIdArray[0]];
 }
 
 -(void)loadTableData:(NSString *)parentId
 {
+    _parentId = parentId;
     [self showHUD:DATA_LOAD];
     [[MongoConnect sharedMongoConnect] getCateIndexById:parentId success:^(id json) {
         [self hideAllHUD];
@@ -117,8 +120,11 @@
         btn.layer.masksToBounds = YES;
         btn.backgroundColor = UIColorFromRGB(0XECECEC);
         btn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        btn.titleLabel.numberOfLines = 0;
+        btn.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
         [btn setTitle:model.gname forState:UIControlStateNormal];
         btn.tag = [model.gid integerValue];
+        btn.parentId = [_parentId integerValue];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
@@ -134,7 +140,7 @@
         tmpFrame.origin.y = visiableY;
         btn.frame = tmpFrame;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        if ([_selectBtn.indexPath isEqual:indexPath]) {
+        if ([_selectBtn.indexPath isEqual:indexPath] && _selectBtn.parentId == [_parentId integerValue]) {
             btn.selected = YES;
             btn.backgroundColor = UIColorFromRGB(0x40D0C2);
         }
@@ -146,7 +152,7 @@
 
 -(void)btnClick:(MutableButton *)btn
 {
-    if ([_selectBtn.indexPath isEqual:btn.indexPath]) {
+    if ([_selectBtn.indexPath isEqual:btn.indexPath] && _selectBtn.parentId == [_parentId integerValue]) {
         return;
     }
     _selectBtn.selected = NO;
@@ -174,7 +180,7 @@
     [UIView animateWithDuration:0.25 animations:^{
             self.hidden = YES;
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+        //[self removeFromSuperview];
     }];
     
     if (_delegate && [_delegate respondsToSelector:@selector(popoverViewDidDismiss:)]) {
@@ -191,7 +197,8 @@
 
 -(void)selectIndex:(NSInteger)index
 {
-    _selectBtn = nil;
+    //_selectBtn = nil;
+    [_scrollView setSelectIndex:index];
     [self loadTableData:_menuIdArray[index]];
 }
 

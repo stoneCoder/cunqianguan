@@ -22,6 +22,7 @@ DEFINE_SINGLETON_FOR_HEADER(MongoConnect)
                 failure:(void (^)( NSError *err))failure;
 
 -(void)getGoodsDetail:(NSString *)goodKey
+           WithUserId:(NSString *)userId
                   success:(void (^)(id json))success
                   failure:(void (^)( NSError *err))failure;
 @end

@@ -10,4 +10,5 @@
 
 @interface MutableButton : UIButton
 @property (strong,nonatomic) NSIndexPath *indexPath;
+@property (assign,nonatomic) NSInteger parentId;
 @end

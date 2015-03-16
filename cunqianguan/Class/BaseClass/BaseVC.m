@@ -105,6 +105,17 @@
 
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName
 {
+    [self setReturnBtnTitle:aTitle WithImage:imageName andHighlightImage:nil];
+}
+
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage
+
+{
+    [self setReturnBtnTitle:aTitle WithImage:imageName andHighlightImage:highlightImage edgeInsetsWithTitle:0];
+}
+
+-(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
+{
     NSString *defaultImageName = @"back";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     CGRect btnFrame;
@@ -112,7 +123,7 @@
     if (btnTitleStr.length > 0) {
         btnTitleStr = [NSString stringWithFormat:@"%@",aTitle];
         float width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
-        btnFrame = CGRectMake(0,0,width + 22,22);
+        btnFrame = CGRectMake(0,0,width + 22 + insets,22);
     }else{
         btnFrame = CGRectMake(0,0,22,22);
     }
@@ -121,12 +132,15 @@
     }
     [button setFrame:btnFrame];
     [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
-    //[button setBackgroundImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateHighlighted];
+    if (highlightImage) {
+        [button setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateHighlighted];
+    }
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     if (iOS7) {//iOS7 custom leftBarButtonItem 偏移

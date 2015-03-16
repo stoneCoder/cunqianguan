@@ -46,6 +46,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
                failure:(void (^)( NSError *err))failure;
 
 -(void)delMessage:(NSString *)msgArray
+       WithUserId:(NSString *)userId
               success:(void (^)(id json))success
               failure:(void (^)( NSError *err))failure;
 
