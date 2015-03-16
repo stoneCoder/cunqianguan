@@ -64,14 +64,13 @@
     [self hideReturnBtn];
     [self initNavBar];
     [self initScrollView];
-    [self initAdView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [_info loadUserData];
-    
+    [self initAdView];
     [self initActionView];
     _actionView.tipImage.hidden = ![_info isNewTrace];
     if (_dimView) {
@@ -109,7 +108,7 @@
 
 -(void)initScrollView
 {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
     [_scrollView setContentSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGTH + 1)];
     [self.view addSubview:_scrollView];
 }
@@ -123,16 +122,15 @@
 //    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
 //    adView.imageView.image = image;
 //    [_pageControl insertBannerPages:adView];
-    
     AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
     UIImage *image = [UIImage imageNamed:@"banner1"];
-    //[image imageByScalingAndCroppingForSize:_pageControl.frame.size];
+    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
     adView.imageView.image = image;
     [_pageControl insertBannerPages:adView];
     
     AdvertisingView *adView1 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
     UIImage *image1 = [UIImage imageNamed:@"banner2"];
-    //[image1 imageByScalingAndCroppingForSize:_pageControl.frame.size];
+    [image1 imageByScalingAndCroppingForSize:_pageControl.frame.size];
     adView1.imageView.image = image1;
     [adView1 addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
     [_pageControl insertBannerPages:adView1];

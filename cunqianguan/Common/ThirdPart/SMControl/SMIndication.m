@@ -15,15 +15,15 @@
 - (void)setIndicating:(BOOL)indicating
 {
     _indicating = indicating;
-    //[self setNeedsDisplay];
-    _imageView.highlighted = _indicating;
+    [self setNeedsDisplay];
+    //_imageView.highlighted = _indicating;
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qiehuan"] highlightedImage:[UIImage imageNamed:@"qiehuan_hover"]];
-    [self addSubview:_imageView];
+    //_imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qiehuan"] highlightedImage:[UIImage imageNamed:@"qiehuan_hover"]];
+    //[self addSubview:_imageView];
     if (self) {
         self.indicating = NO;
         self.fillIndication = YES;

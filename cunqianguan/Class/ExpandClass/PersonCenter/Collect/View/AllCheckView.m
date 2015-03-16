@@ -42,6 +42,7 @@
 
 - (IBAction)cancleAction:(id)sender
 {
+    _checkBtn.selected = NO;
     if (_delegate && [_delegate respondsToSelector:@selector(cancleAction)]) {
         [_delegate cancleAction];
     }

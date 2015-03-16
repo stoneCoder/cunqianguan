@@ -48,6 +48,7 @@ static NSString *  collectionCellID=@"GoodsCell";
     [self setUpLeftBtn:self.leftTitle];
     [self setUpRightBtn];
     [self setUpCollection];
+    [self showLoaderView];
     [self loadDataWith:_category andPage:_pageNum];
 }
 
@@ -138,7 +139,6 @@ static NSString *  collectionCellID=@"GoodsCell";
 
 -(void)loadDataWith:(NSInteger)category andPage:(NSInteger)page
 {
-    [self showLoaderView];
     _category = category;
     [[MongoConnect sharedMongoConnect] getMongoGoodsById:_info.userId withCategory:category andPage:page success:^(id json) {
         [self hideLoaderView];

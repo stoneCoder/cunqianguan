@@ -62,6 +62,9 @@
     NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
     if (type < 4) {
         __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
+        if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+        }
         if (!_isAddTrance) {
             if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
                 productId = [NSString stringWithFormat:@"0_%@",productId];

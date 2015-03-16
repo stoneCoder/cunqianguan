@@ -17,6 +17,7 @@
 #import "MongoDetailModel.h"
 #import "PersonConnect.h"
 
+#import "Constants.h"
 #import "BaseUtil.h"
 #import "TBUrlUtil.h"
 #import "ShareUtil.h"
@@ -28,10 +29,11 @@
     NSArray *_moreBtnArray;
     NSArray *_moreImageArray;
     NSInteger _isFav;
+    NSString *_finalUrl;
 }
 
 @end
-static NSString *kNavBarFinish = @"kNavBarFinish";
+
 @implementation ReturnHomeGoodsVC
 
 - (void)viewDidLoad {
@@ -40,8 +42,8 @@ static NSString *kNavBarFinish = @"kNavBarFinish";
     _info = [PersonInfo sharedPersonInfo];
     [self setUpWebView];
     [self loadData:_goodKey];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNavBar) name:kNavBarFinish object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUpNavBar:) name:kWebUrlFinal object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,17 +54,21 @@ static NSString *kNavBarFinish = @"kNavBarFinish";
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNavBarFinish object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kWebUrlFinal object:nil];
 }
 
--(void)setUpNavBar
+-(void)setUpNavBar:(NSNotification *)notification
 {
+    if (notification) {
+        _finalUrl = notification.object;
+    }
     //足迹按钮
     UIButton *footBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [footBtn setBackgroundImage:[UIImage imageNamed:@"jiaoya"] forState:UIControlStateNormal];
     [footBtn setBackgroundImage:[UIImage imageNamed:@"jiaoya_hover"] forState:UIControlStateHighlighted];
     [footBtn addTarget:self action:@selector(pushToFootPrint:) forControlEvents:UIControlEventTouchUpInside];
     _footPrintItem = [[UIBarButtonItem alloc] initWithCustomView:footBtn];
+    [self refreshNavBar];
     //更多按钮
     UIButton *moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_btn"] forState:UIControlStateNormal];
@@ -93,8 +99,6 @@ static NSString *kNavBarFinish = @"kNavBarFinish";
             _model = [[MongoDetailModel alloc] initWithDictionary:data error:nil];
             _isFav = _model.isfav;
             [self loadWebView:_model.fan_url];
-            [self setUpNavBar];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNavBarFinish object:nil];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
@@ -152,6 +156,7 @@ static NSString *kNavBarFinish = @"kNavBarFinish";
                     [self loadData:_goodKey];
                     break;
                 case 1:
+                    [self pushToOtherApp];
                     break;
                 case 2:
                     [self addCollectInfo:_isFav];
@@ -240,6 +245,17 @@ static NSString *kNavBarFinish = @"kNavBarFinish";
 {
     NSString *shareContent = SHARE_CONTEXT(_model.price);
     [ShareUtil presentShareView:self content:shareContent imageUrl:_model.pic_url goodKey:_goodKey andUserId:[BaseUtil encrypt:_info.userId]];
+}
+
+-(void)pushToOtherApp
+{
+    if(_finalUrl){
+        NSString *openUrl = [NSString stringWithFormat:@"taobao://%@",[_finalUrl componentsSeparatedByString:@"://"][1]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:openUrl]];
+    }else{
+        [self showStringHUD:@"商品获取失败" second:1.5];
+    }
+   
 }
 
 /*

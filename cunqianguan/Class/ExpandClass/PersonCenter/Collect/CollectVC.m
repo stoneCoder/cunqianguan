@@ -222,6 +222,7 @@ static NSString *collectID = @"CollectCell";
                         _isAllCheck = NO;
                         _isEditModel = NO;
                         _checkView.hidden = YES;
+                        _checkView.checkBtn.selected = NO;
                         [self loadData:1];
                     }
                 } failure:^(id json) {
