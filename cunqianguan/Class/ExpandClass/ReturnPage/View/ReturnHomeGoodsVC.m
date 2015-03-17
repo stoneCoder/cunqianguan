@@ -61,6 +61,9 @@
 {
     if (notification) {
         _finalUrl = notification.object;
+        if (!_finalUrl) {
+            _finalUrl = _model.fan_url;
+        }
     }
     //足迹按钮
     UIButton *footBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
@@ -140,7 +143,8 @@
     if (_isFav == 1) {
         collectImageName = @"shoucang_hover";
     }
-    if ([BaseUtil isInstallApp:@"taobao://"]) {
+    NSInteger type = [TBUrlUtil matchUrlWithWebSite:_finalUrl];
+    if ([BaseUtil isInstallApp:@"taobao://"] && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
         _moreBtnArray = @[@"刷新",@"淘宝App打开",@"收藏",@"分享"];
         _moreImageArray = @[@"refresh_btn",@"tao_btn",collectImageName,@"share_btn"];
     }else{

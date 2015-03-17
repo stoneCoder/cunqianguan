@@ -64,6 +64,8 @@
         __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
         if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+        }else{
+           [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
         }
         if (!_isAddTrance) {
             if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
@@ -101,6 +103,7 @@
             //
             //            }];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
     }
     [self hideAllHUD];
 }
