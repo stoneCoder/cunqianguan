@@ -123,9 +123,11 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     CGFloat height = 20.0f;
     UIFont *font = [UIFont systemFontOfSize:12.0f];
-    NSString *str = [NSString stringWithFormat:@"%d/%d",_info.userExp,_info.nextUserExp];
+    NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
     CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
-    _popTipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    if (!_popTipView) {
+        _popTipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    }
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:_popTipView.frame];
     imageView.image = [UIImage imageNamed:@"jifen"];
@@ -139,7 +141,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     [imageView addSubview:label];
     
     [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
-    [self.tableView addSubview:_popTipView];
+    [personHeaderView addSubview:_popTipView];
 }
 
 

@@ -36,6 +36,11 @@
     [self loadViewWithData:_urlPath];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self refreshNavBar];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
