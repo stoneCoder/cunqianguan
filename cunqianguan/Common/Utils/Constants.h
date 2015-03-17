@@ -52,4 +52,5 @@ extern NSString *const JUHUASUAN_MAIN_URL_REG;
 extern NSString *const SEARCH_URL;
 
 extern NSString *const kWebUrlFinal;
+extern NSString *const kExChangeSuccess;
 

@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *qqCodeText;
 @property (weak, nonatomic) IBOutlet UITextField *phoneText;
 
+@property (assign, nonatomic) BOOL isExChange;
+@property (strong, nonatomic) NSString *productId;
+
 @end

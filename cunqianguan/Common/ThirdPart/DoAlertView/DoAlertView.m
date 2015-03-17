@@ -154,6 +154,25 @@
         [NSTimer scheduledTimerWithTimeInterval:dDuration target:self selector:@selector(onTimer) userInfo:nil repeats:NO];
 }
 
+- (void)doTextFieldYesNo:(NSString *)strTitle
+             placeholder:(NSString *)placeholderText
+            cancleButton:(NSString *)cancleTitle
+             otherButton:(NSString *)otherTitle
+                     yes:(DoAlertViewHandler)yes
+                      no:(DoAlertViewHandler)no
+{
+    _strAlertTitle  = strTitle;
+    _bNeedNo        = YES;
+    _placeholderText = placeholderText;
+    _cancleTitle = cancleTitle;
+    _otherTitle = otherTitle;
+    
+    _doYes  = yes;
+    _doNo   = no;
+    
+    [self showAlertViewWithText];
+}
+
 - (void)onTimer
 {
     [self hideAlert];
@@ -278,6 +297,134 @@
         window.rootViewController = viewController;
         _alertWindow = window;
 
+        self.frame = window.frame;
+        _vAlert.center = window.center;
+    }
+    [_alertWindow makeKeyAndVisible];
+    
+    if (_dRound > 0)
+    {
+        CALayer *layer = [_vAlert layer];
+        [layer setMasksToBounds:YES];
+        [layer setCornerRadius:_dRound];
+    }
+    
+    [self showAnimation];
+}
+
+-(void)showAlertViewWithText
+{
+    double dHeight = 0;
+    self.backgroundColor = DO_DIMMED_COLOR;
+    
+    // make back view -----------------------------------------------------------------------------------------------
+    _vAlert = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DO_VIEW_WIDTH, 0)];
+    _vAlert.backgroundColor = DO_RGBA(255, 255, 255, 0.9);
+    [self addSubview:_vAlert];
+    
+    // Title --------------------------------------------------------------------------------------------------------
+    if (_strAlertTitle != nil && _strAlertTitle.length > 0)
+    {
+        UIView *vTitle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _vAlert.frame.size.width, 0)];
+        
+        if (_bDestructive)
+            vTitle.backgroundColor = DO_DESTRUCTIVE_BOX;
+        else
+            vTitle.backgroundColor = DO_TITLE_BOX_BG;
+        [_vAlert addSubview:vTitle];
+        
+        UIImageView *lbImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 8, 22, 22)];
+        lbImage.image = [UIImage imageNamed:@"tishi_01"];
+        lbImage.backgroundColor = DO_TITLE_BOX_BG;
+        [vTitle addSubview:lbImage];
+        
+        CGFloat visiableX = lbImage.frame.size.width + lbImage.frame.origin.x + 5;
+        UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(visiableX, DO_TITLE_INSET.top,
+                                                                     _vAlert.frame.size.width - visiableX , 0)];
+        lbTitle.textAlignment = NSTextAlignmentLeft;
+        lbTitle.textColor = [UIColor whiteColor];
+        lbTitle.text = _strAlertTitle;
+        [self setLabelAttributes:lbTitle];
+        lbTitle.frame = CGRectMake(visiableX, DO_TITLE_INSET.top, lbTitle.frame.size.width, [self getTextHeight:lbTitle] + 10);
+        [vTitle addSubview:lbTitle];
+        
+        vTitle.frame = CGRectMake(0, 0, _vAlert.frame.size.width, lbTitle.frame.size.height + (DO_TITLE_INSET.top + DO_TITLE_INSET.bottom));
+        dHeight = vTitle.frame.size.height + 1;
+    }
+    
+    // Body ---------------------------------------------------------------------------------------------------------
+    UIView *vBody = [[UIView alloc] initWithFrame:CGRectMake(0, dHeight - 0.5, _vAlert.frame.size.width, 0)];
+    [_vAlert addSubview:vBody];
+    if (_bDestructive)
+        vBody.backgroundColor = DO_DESTRUCTIVE_BOX;
+    else
+        vBody.backgroundColor = DO_NORMAL_BOX;
+    
+    // Content ------------------------------------------------------------------------------------------------------
+    double dContentOffset = [self addContent:vBody];
+    
+    // Body text ----------------------------------------------------------------------------------------------------
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(DO_LABEL_INSET.left, DO_LABEL_INSET.top + dContentOffset,
+                                                                _vAlert.frame.size.width - (DO_LABEL_INSET.left + DO_LABEL_INSET.right) , 0)];
+    _textField.placeholder = _placeholderText;
+    _textField.borderStyle = UITextBorderStyleRoundedRect;
+    _textField.frame = CGRectMake(DO_LABEL_INSET.left, _textField.frame.origin.y, _textField.frame.size.width, 35);
+    [vBody addSubview:_textField];
+    
+    vBody.frame = CGRectMake(0, dHeight - 0.5, _vAlert.frame.size.width,
+                             dContentOffset + _textField.frame.size.height + (DO_LABEL_INSET.top + DO_LABEL_INSET.bottom) + 0.5);
+    dHeight += vBody.frame.size.height;
+    
+    // No button -----------------------------------------------------------------------------------------------------
+    if (_doNo != nil)
+    {
+        UIButton *btNo = [UIButton buttonWithType:UIButtonTypeCustom];
+        btNo.frame = CGRectMake(0, dHeight, _vAlert.frame.size.width / 2.0 - 1, 40);
+        btNo.backgroundColor = DO_NORMAL_BOX;
+        btNo.tag = DO_NO_TAG;
+        btNo.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [btNo setTitle:_otherTitle forState:UIControlStateNormal];
+        [btNo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btNo addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_vAlert addSubview:btNo];
+    }
+    
+    // Yes button -----------------------------------------------------------------------------------------------------
+    if (_doYes != nil)
+    {
+        UIButton *btYes = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (_doNo == nil)
+            btYes.frame = CGRectMake(0, dHeight, _vAlert.frame.size.width, 40);
+        else
+            btYes.frame = CGRectMake(_vAlert.frame.size.width / 2.0 - 0.5, dHeight, _vAlert.frame.size.width / 2.0 + 0.5, 40);
+        
+        btYes.backgroundColor = DO_NORMAL_BOX;
+        btYes.tag = DO_YES_TAG;
+        btYes.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [btYes setTitle:_cancleTitle forState:UIControlStateNormal];
+        [btYes setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btYes addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_vAlert addSubview:btYes];
+        
+        dHeight += 40;
+    }
+    
+    _vAlert.frame = CGRectMake(0, 0, DO_VIEW_WIDTH, dHeight);
+    
+    DoAlertViewController *viewController = [[DoAlertViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.alertView = self;
+    
+    if (!_alertWindow)
+    {
+        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        window.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        window.opaque = NO;
+        window.windowLevel = UIWindowLevelAlert;
+        window.rootViewController = viewController;
+        _alertWindow = window;
+        
         self.frame = window.frame;
         _vAlert.center = window.center;
     }

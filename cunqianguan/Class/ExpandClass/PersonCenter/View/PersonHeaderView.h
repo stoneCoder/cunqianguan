@@ -16,6 +16,7 @@
 @interface PersonHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView *progressBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *pointImageView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *collectLabel;

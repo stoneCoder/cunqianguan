@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BaseNC.h"
 #import "HomeVC.h"
+#import "GuideVC.h"
 
 #import "Constants.h"
 #import "UMSocial.h"
@@ -36,6 +37,13 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     [self.window makeKeyAndVisible];
     
     [self setUpUMengSDK];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"showGuide"]) {
+        GuideVC *guideVC = [[GuideVC alloc] initWithNibName:nil bundle:nil];
+        [nav presentViewController:guideVC animated:NO completion:^{
+            
+        }];
+    }
     return YES;
 }
 

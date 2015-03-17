@@ -22,6 +22,7 @@
 #import "PersonCenterVC.h"
 #import "HotShopVC.h"
 #import "SearchViewVC.h"
+#import "InviteVC.h"
 
 #import "BaseMutableMenu.h"
 #import "GoodsViewVC.h"
@@ -116,16 +117,18 @@
 -(void)initAdView
 {
     _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
+    _pageControl.backgroundColor = [UIColor greenColor];
+    AdvertisingView *adView2 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
+    UIImage *image2 = [UIImage imageNamed:@"banner"];
+    [image2 imageByScalingAndCroppingForSize:_pageControl.frame.size];
+    adView2.imageView.image = image2;
+    [_pageControl insertBannerPages:adView2];
     
-//    AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-//    UIImage *image = [UIImage imageNamed:@"banner"];
-//    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
-//    adView.imageView.image = image;
-//    [_pageControl insertBannerPages:adView];
     AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
     UIImage *image = [UIImage imageNamed:@"banner1"];
     [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
     adView.imageView.image = image;
+    [adView addTarget:self action:@selector(inviteFriend) forControlEvents:UIControlEventTouchUpInside];
     [_pageControl insertBannerPages:adView];
     
     AdvertisingView *adView1 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
@@ -278,6 +281,14 @@
         _dimView = nil;
         _openView = 0;
     }];
+}
+
+-(void)inviteFriend
+{
+    InviteVC *inviteVC = [[InviteVC alloc] init];
+    inviteVC.leftTitle = @"邀请好友";
+    [self.navigationController pushViewController:inviteVC animated:YES];
+
 }
 
 /*

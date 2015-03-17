@@ -47,7 +47,6 @@ NSString *const MALL_TB_URL1 = @"http://www.tmall.com/?force=m&pid=";
 NSString *const MALL_TB_URL2 = @"http://m.taobao.com/channel/chn/mobile/tejia_taoke.php?pid=";
 NSString *const MALL_TB_URL3 = @"http://m.trip.taobao.com/trip/index.html?pid=";
 NSString *const CallS_RECHARGE_URL = @"http://wvs.m.taobao.com?pid=";
-//+ MM + "&backHiddenFlag=1&unid=";
 
 NSString *const TB_REBATE_FINAL_DETAIL_URL_REG = @"http://h5\\.m\\.taobao\\.com/awp/core/detail\\.\\w*\\?.*ali_trackid=2.*";
 NSString *const TM_REBATE_FINAL_DETAIL_URL_REG = @"http://detail\\.m\\.tmall\\.com/item\\.\\w*\\?.*ali_trackid=2.*";
@@ -59,5 +58,7 @@ NSString *const JUHUASUAN_MAIN_URL_REG = @"http://ai\\.m\\.taobao\\.com/bu\\.\\w
 NSString *const SEARCH_URL = @"http://suggest.taobao.com/sug?code=utf-8&callback=&q=";
 
 NSString *const kWebUrlFinal = @"kWebUrlFinal";
+
+NSString *const kExChangeSuccess = @"kExChangeSuccess";
 
 

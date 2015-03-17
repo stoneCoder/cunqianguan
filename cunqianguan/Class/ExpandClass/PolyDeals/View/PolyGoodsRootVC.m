@@ -99,12 +99,12 @@
 -(void)refreshBottomView
 {
     _countDownTime = _detailModel.time;
+    _actionBtn.layer.cornerRadius = 3.0f;
     //1 开枪中   2 今日10点  3即将开始 其它 抢光
     NSInteger type = _detailModel.status;
     if (type == 1) {
         _actionBtn.backgroundColor = [UIColor redColor];
         [_actionBtn setTitle:@"去抢购" forState:UIControlStateNormal];
-        
         NSString *grabText = [NSString stringWithFormat:@"%ld人正在抢",(long)_detailModel.qcount];
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:grabText];
         [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x61C6BE) range:NSMakeRange(0,grabText.length - 4)];

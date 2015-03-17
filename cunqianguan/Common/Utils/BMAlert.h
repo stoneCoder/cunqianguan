@@ -12,4 +12,5 @@ typedef void(^DoActionViewHandler)(DoAlertView *alertView);
 @interface BMAlert : NSObject
 DEFINE_SINGLETON_FOR_HEADER(BMAlert)
 - (void)alert:(NSString *)aMessage cancle:(DoActionViewHandler)cancle other:(DoActionViewHandler)other;
+- (void)alertTextFieldWithplaceholder:(NSString *)placeholderText Cancle:(DoActionViewHandler)cancle other:(DoActionViewHandler)other;
 @end

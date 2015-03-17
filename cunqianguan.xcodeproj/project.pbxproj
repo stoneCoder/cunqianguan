@@ -292,6 +292,10 @@
 		B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910631A89E82200AE3F66 /* AliTransfersView.m */; };
 		B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910661A89E83500AE3F66 /* BankTransfersView.m */; };
 		B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C910681A89E96000AE3F66 /* AliTransfersView.xib */; };
+		B1DC32C11AB7F13B0022224D /* GuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC32BF1AB7F13B0022224D /* GuideVC.m */; };
+		B1DC32C21AB7F13B0022224D /* GuideVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DC32C01AB7F13B0022224D /* GuideVC.xib */; };
+		B1DC32C51AB7F2300022224D /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC32C41AB7F2300022224D /* GuideView.m */; };
+		B1DC32CB1AB8003A0022224D /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC32CA1AB8003A0022224D /* CustomPageControl.m */; };
 		B1E2B87F1AB27FF700D0FCA5 /* SearchViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E2B87D1AB27FF700D0FCA5 /* SearchViewVC.m */; };
 		B1E2B8801AB27FF700D0FCA5 /* SearchViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E2B87E1AB27FF700D0FCA5 /* SearchViewVC.xib */; };
 		B1E2B8841AB2897300D0FCA5 /* SBSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E2B8831AB2897300D0FCA5 /* SBSearchBar.m */; };
@@ -843,6 +847,13 @@
 		B1C910651A89E83500AE3F66 /* BankTransfersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransfersView.h; sourceTree = "<group>"; };
 		B1C910661A89E83500AE3F66 /* BankTransfersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransfersView.m; sourceTree = "<group>"; };
 		B1C910681A89E96000AE3F66 /* AliTransfersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AliTransfersView.xib; sourceTree = "<group>"; };
+		B1DC32BE1AB7F13B0022224D /* GuideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideVC.h; sourceTree = "<group>"; };
+		B1DC32BF1AB7F13B0022224D /* GuideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideVC.m; sourceTree = "<group>"; };
+		B1DC32C01AB7F13B0022224D /* GuideVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideVC.xib; sourceTree = "<group>"; };
+		B1DC32C31AB7F2300022224D /* GuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		B1DC32C41AB7F2300022224D /* GuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
+		B1DC32C91AB8003A0022224D /* CustomPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPageControl.h; sourceTree = "<group>"; };
+		B1DC32CA1AB8003A0022224D /* CustomPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPageControl.m; sourceTree = "<group>"; };
 		B1E2B87C1AB27FF700D0FCA5 /* SearchViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewVC.h; sourceTree = "<group>"; };
 		B1E2B87D1AB27FF700D0FCA5 /* SearchViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewVC.m; sourceTree = "<group>"; };
 		B1E2B87E1AB27FF700D0FCA5 /* SearchViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewVC.xib; sourceTree = "<group>"; };
@@ -1367,6 +1378,10 @@
 		B14071C41A6CED1900D1792F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1DC32C91AB8003A0022224D /* CustomPageControl.h */,
+				B1DC32CA1AB8003A0022224D /* CustomPageControl.m */,
+				B1DC32C31AB7F2300022224D /* GuideView.h */,
+				B1DC32C41AB7F2300022224D /* GuideView.m */,
 				B140EC7C1A6F7589004D245A /* AdvertisingView.h */,
 				B140EC7D1A6F7589004D245A /* AdvertisingView.m */,
 				B14071CB1A6D015900D1792F /* TapActionView.h */,
@@ -1391,6 +1406,9 @@
 				B1E2B87C1AB27FF700D0FCA5 /* SearchViewVC.h */,
 				B1E2B87D1AB27FF700D0FCA5 /* SearchViewVC.m */,
 				B1E2B87E1AB27FF700D0FCA5 /* SearchViewVC.xib */,
+				B1DC32BE1AB7F13B0022224D /* GuideVC.h */,
+				B1DC32BF1AB7F13B0022224D /* GuideVC.m */,
+				B1DC32C01AB7F13B0022224D /* GuideVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2426,6 +2444,7 @@
 				B15DC88F1A8D88B600298C7D /* UMShareEditViewController.xib in Resources */,
 				B1E2B8941AB2BC6D00D0FCA5 /* SearchViewCell.xib in Resources */,
 				B10A14921AAFDADB002DD2D7 /* CallsRechargeVC.xib in Resources */,
+				B1DC32C21AB7F13B0022224D /* GuideVC.xib in Resources */,
 				B140EC841A6F78C3004D245A /* RegisterVC.xib in Resources */,
 				B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */,
 				B1E6B58D1AAEDD08005CB5AF /* protocolfb.html in Resources */,
@@ -2531,6 +2550,7 @@
 				B158A6F31A9D6BBB00C6FD3F /* JSONModel+networking.m in Sources */,
 				B10A14911AAFDADB002DD2D7 /* CallsRechargeVC.m in Sources */,
 				B14071B61A6CD38E00D1792F /* UIScrollView+MJExtension.m in Sources */,
+				B1DC32CB1AB8003A0022224D /* CustomPageControl.m in Sources */,
 				B1E2B8841AB2897300D0FCA5 /* SBSearchBar.m in Sources */,
 				B1668D481A88A2F4002CB98E /* JTCalendarContentView.m in Sources */,
 				B1E6B5851AAECD78005CB5AF /* TipInfoVC.m in Sources */,
@@ -2607,6 +2627,7 @@
 				B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */,
 				B158A6F51A9D6BBB00C6FD3F /* JSONValueTransformer+CustomTransformer.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
+				B1DC32C51AB7F2300022224D /* GuideView.m in Sources */,
 				B109D5921A72169B00505D32 /* FootPrintsVC.m in Sources */,
 				B151FEA01AA428A700BFC5C3 /* RunningWaterListModel.m in Sources */,
 				B14729B41A8C917100524510 /* Constants.m in Sources */,
@@ -2644,6 +2665,7 @@
 				B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */,
 				B15022EE1AA5A9A5008850F3 /* CalendarViewCell.m in Sources */,
 				B14071391A6CAFF700D1792F /* main.m in Sources */,
+				B1DC32C11AB7F13B0022224D /* GuideVC.m in Sources */,
 				B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */,
 				B152C08B1AA98DC300D18AFB /* CollectListModel.m in Sources */,
 				B1F873201AB1899F00B1D4B0 /* DefaultEmptyView.m in Sources */,

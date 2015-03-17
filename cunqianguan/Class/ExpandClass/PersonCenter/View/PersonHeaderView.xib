@@ -15,7 +15,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nd4-qK-Cxf">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeG-Xt-kCN">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeG-Xt-kCN">
                             <rect key="frame" x="57" y="86" width="14" height="15"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,11 +60,9 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-e3-y3C">
                             <rect key="frame" x="0.0" y="158" width="320" height="2"/>
-                            <color key="backgroundColor" red="0.37584473909999999" green="1" blue="0.27234736840000001" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qG-tW-VBJ">
                             <rect key="frame" x="0.0" y="158" width="50" height="2"/>
-                            <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="GJA-IN-lYI"/>
                                 <constraint firstAttribute="height" constant="2" id="zt0-hj-A5F"/>
@@ -152,7 +150,8 @@
                 <outlet property="msgLabel" destination="AH8-8P-eLy" id="SZA-Bd-neN"/>
                 <outlet property="nameLabel" destination="OP5-cX-emr" id="gcr-AZ-g2M"/>
                 <outlet property="pointImageView" destination="bsI-nK-9bU" id="hMp-2Z-pOe"/>
-                <outlet property="progressView" destination="iiM-e3-y3C" id="VFZ-cq-UBH"/>
+                <outlet property="progressBgView" destination="iiM-e3-y3C" id="YjR-fg-Ncb"/>
+                <outlet property="progressView" destination="8qG-tW-VBJ" id="Her-2l-z33"/>
                 <outlet property="vipImage" destination="MgZ-fJ-qFu" id="4gq-Qd-bY6"/>
             </connections>
             <point key="canvasLocation" x="-997" y="12"/>

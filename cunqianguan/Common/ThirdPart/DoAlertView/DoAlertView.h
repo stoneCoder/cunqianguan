@@ -74,6 +74,7 @@ typedef void(^DoAlertViewHandler)(DoAlertView *alertView);
 @private
     NSString                *_strAlertTitle;
     NSString                *_strAlertBody;
+    NSString                *_placeholderText;
     BOOL                    _bNeedNo;
 
     DoAlertViewHandler      _doYes;
@@ -83,7 +84,7 @@ typedef void(^DoAlertViewHandler)(DoAlertView *alertView);
     UIWindow                *_alertWindow;
     UIView                  *_vAlert;
 }
-
+@property (strong,nonatomic, readonly) UITextField *textField;
 @property (readwrite)   int         nAnimationType;
 @property (readwrite)   int         nContentMode;
 
@@ -139,6 +140,14 @@ typedef void(^DoAlertViewHandler)(DoAlertView *alertView);
            body:(NSString *)strBody
        duration:(double)dDuration
            done:(DoAlertViewHandler)done;
+
+//With TextField, Yes button, No button
+- (void)doTextFieldYesNo:(NSString *)strTitle
+             placeholder:(NSString *)placeholderText
+            cancleButton:(NSString *)cancleTitle
+             otherButton:(NSString *)otherTitle
+                     yes:(DoAlertViewHandler)yes
+                      no:(DoAlertViewHandler)no;
 - (void)hideAlert;
 
 @end

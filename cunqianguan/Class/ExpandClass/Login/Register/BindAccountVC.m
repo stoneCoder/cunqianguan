@@ -48,7 +48,7 @@
     [[LoginConnect sharedLoginConnect] bindOauth:username withPwd:pwd name:_name uuid:_uuid type:_type success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];

@@ -19,4 +19,12 @@ DEFINE_SINGLETON_FOR_HEADER(ExChangeConnect)
 -(void)exchangeGoodsDetail:(NSString *)productId
                    success:(void (^)(id json))success
                    failure:(void (^)( NSError *err))failure;
+
+-(void)exchangeGood:(NSString *)username
+                pwd:(NSString *)password
+          productId:(NSString *)productId
+              phone:(NSString *)phone
+                 qq:(NSString *)qq
+            success:(void (^)(id json))success
+            failure:(void (^)( NSError *err))failure;
 @end

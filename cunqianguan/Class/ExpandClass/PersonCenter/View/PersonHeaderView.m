@@ -39,6 +39,9 @@
     
     _pointImageView.layer.cornerRadius = _pointImageView.frame.size.width/2;
     _pointImageView.layer.masksToBounds = YES;
+    
+    _progressBgView.backgroundColor = UIColorFromRGB(0x3CD3C8);
+    _progressView.backgroundColor = UIColorFromRGB(0x29AEA4);
 }
 
 -(void)loadView:(PersonInfo *)info
@@ -55,6 +58,8 @@
             _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
             _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
             
+            CGRect frame = _progressView.frame;
+            _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, info.userExp/info.nextUserExp*SCREEN_WIDTH, frame.size.height);
             _collectLabel.hidden = NO;
             _msgLabel.hidden = NO;
             _vipImage.hidden = NO;

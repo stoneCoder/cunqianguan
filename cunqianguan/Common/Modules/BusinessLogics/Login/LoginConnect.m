@@ -75,7 +75,7 @@ DEFINE_SINGLETON_FOR_CLASS(LoginConnect)
          failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"bindOauth";
-    NSDictionary *dic =  @{@"email":email,@"pwd":pwd,@"uuid":uuid,@"web":type,@"webname":username};
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"uuid":uuid,@"web":type,@"webname":username};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

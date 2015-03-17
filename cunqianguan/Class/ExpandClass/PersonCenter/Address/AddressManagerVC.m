@@ -9,7 +9,9 @@
 #import "AddressManagerVC.h"
 #import "PersonInfo.h"
 #import "PersonConnect.h"
+#import "ExChangeConnect.h"
 #import "BaseConnect.h"
+#import "Constants.h"
 @interface AddressManagerVC ()<UITextFieldDelegate>
 {
     BOOL _isHaveAddress;
@@ -26,14 +28,20 @@
     _emptyView.backgroundColor = UIColorFromRGB(0xececec);
     //_editView.backgroundColor = UIColorFromRGB(0xececec);
     _info = [PersonInfo sharedPersonInfo];
+    /*显示编辑*/
     if (_info.consignee && ![_info.consignee isEqual:[NSNull null]]) {
         _isHaveAddress = YES;
         _emptyView.hidden = YES;
         _editView.hidden = NO;
-        _subBtn.hidden = YES;
-        [self disabledit:NO];
         [self loadData];
-        [self setUpNavBtn];
+        if (_isExChange) {
+            _subBtn.hidden = NO;
+            [self disabledit:YES];
+        }else{
+            _subBtn.hidden = YES;
+            [self disabledit:NO];
+            [self setUpNavBtn];
+        }
     }else{
         _isHaveAddress = NO;
         _emptyView.hidden = NO;
@@ -106,29 +114,44 @@
     NSString *phone = _phoneText.text;
     
     if (consignee.length == 0 || location.length == 0 || zipCode.length == 0 || qqCode.length == 0 || phone.length == 0) {
-        [self showStringHUD:@"请填写完整" second:2];
+        [self showStringHUD:@"请填写完整" second:1.5];
         return;
     }
     
     [self showHUD:ACTION_LOAD];
-    [[PersonConnect sharedPersonConnect] updateAddress:_info.email pwd:_info.password consignee:consignee location:location zipCode:zipCode qq:qqCode phone:phone success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
-        if ([BaseConnect isSucceeded:dic]) {
-            _info.consignee = consignee;
-            _info.location = location;
-            _info.zipCode = zipCode;
-            _info.qq = qqCode;
-            _info.phone = phone;
-            [_info saveUserData];
-            
-            [self disabledit:NO];
-            _subBtn.hidden = YES;
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
+    if (!_isExChange) {
+        [[PersonConnect sharedPersonConnect] updateAddress:_info.email pwd:_info.password consignee:consignee location:location zipCode:zipCode qq:qqCode phone:phone success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+            if ([BaseConnect isSucceeded:dic]) {
+                _info.consignee = consignee;
+                _info.location = location;
+                _info.zipCode = zipCode;
+                _info.qq = qqCode;
+                _info.phone = phone;
+                [_info saveUserData];
+                
+                [self disabledit:NO];
+                _subBtn.hidden = YES;
+            }
+        } failure:^(NSError *err) {
+            [self hideAllHUD];
+        }];
+    }else{
+        [[ExChangeConnect sharedExChangeConnect] exchangeGood:_info.email pwd:_info.password productId:_productId phone:phone qq:qqCode success:^(id json) {
+            [self hideAllHUD];
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                [self disabledit:NO];
+                _subBtn.hidden = YES;
+                [[NSNotificationCenter defaultCenter] postNotificationName:kExChangeSuccess object:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSError *err) {
+             [self hideAllHUD];
+        }];
+    }
 }
 
 #pragma mark -- UITextFieldDelegate

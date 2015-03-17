@@ -21,6 +21,7 @@
     ProductDetailHeaderView *_headView;
     ExChangeModel *_model;
     ExChangeDetailModel *_detailModel;
+    NSArray *_titleArray;
 }
 
 @end
@@ -63,6 +64,9 @@
     _model = model;
     _detailModel = detailModel;
     [_headView loadData:_model];
+    if (_model.use_types == 1) {
+        _isTrueProduct = NO;
+    }
     [self.tableView reloadData];
 }
 
@@ -134,6 +138,7 @@
                 [_scrollView setContentSize:CGSizeMake(frame.size.width, pics.count*visiableHeight + 100)];
             }
             [_tabView insertSubview:_textView belowSubview:_scrollView];
+            //[self selectIndex:1];
         }else
         {
             [_tabView addSubview:_textView];
@@ -149,12 +154,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        
-        _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
-        _segment.delegate = self;
-        [cell addSubview:_segment];
-        [_segment setItems:@[@"商品详情",@"兑换规则"] isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     }
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
+    _segment.delegate = self;
+    [cell.contentView addSubview:_segment];
+    if (_isTrueProduct) {
+        _titleArray = @[@"商品详情",@"兑换规则"];
+    }else{
+        _titleArray = @[@"兑换规则"];
+    }
+    [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

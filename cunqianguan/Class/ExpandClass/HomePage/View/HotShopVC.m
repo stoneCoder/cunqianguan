@@ -9,6 +9,7 @@
 #import "HotShopVC.h"
 #import "HotShopCell.h"
 #import "HotDetailShopVC.h"
+#import "BMAlert.h"
 
 #import "Constants.h"
 #import "PersonInfo.h"
@@ -116,13 +117,26 @@ static NSString *hotShopCellID = @"HotShopCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [_info isLoginWithPresent:^(BOOL flag) {
-        HotShopModel *model = _data[indexPath.row];
-        NSString *urlPath = model.fanliUrl;
-        HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
-        hotDetailShopVC.leftTitle = model.mallName;
-        hotDetailShopVC.urlPath = urlPath;
-        [self.navigationController pushViewController:hotDetailShopVC animated:YES];
-    } WithType:YES];
+        if (!flag) {
+            [[BMAlert sharedBMAlert] alert:@"登陆后去购物才有返利拿哦" cancle:^(DoAlertView *alertView) {
+                [self pushToDetail:indexPath];
+            } other:^(DoAlertView *alertView) {
+                [self pushToDetail:indexPath];
+            }];
+        }else{
+            [self pushToDetail:indexPath];
+        }
+    } WithType:NO];
+}
+
+-(void)pushToDetail:(NSIndexPath *)indexPath
+{
+    HotShopModel *model = _data[indexPath.row];
+    NSString *urlPath = model.fanliUrl;
+    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+    hotDetailShopVC.leftTitle = model.mallName;
+    hotDetailShopVC.urlPath = urlPath;
+    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
 }
 
 @end

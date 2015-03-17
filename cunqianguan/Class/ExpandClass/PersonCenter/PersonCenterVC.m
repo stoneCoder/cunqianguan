@@ -29,12 +29,14 @@
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
+#import "BaseUtil.h"
 @interface PersonCenterVC ()<PersonHeaderDelegate,PersonFooterDelegate>
 {
     NSDictionary *_localData;
     PersonHeaderView *personHeaderView;
     PersonFooterView *personFooterView;
     PersonInfo *_info;
+    UIView *_popTipView;
 }
 
 @end
@@ -65,6 +67,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     _info = [PersonInfo sharedPersonInfo];
     [personHeaderView loadView:_info];
     [personFooterView loadView:_info];
+    [self setUpProgressView];
     [self.tableView reloadData];
     [self initSignStatus];
 }
@@ -100,8 +103,13 @@ static NSString *FooterViewID = @"PersonFooterView";
     personFooterView.delegate = self;
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
-    
-    [self popView:personHeaderView.progressView.frame];
+}
+
+-(void)setUpProgressView
+{
+    if (_info.userId) {
+        [self popView:personHeaderView.progressView.frame];
+    }
 }
 
 -(void)rightBtnClick:(UIButton *)btn
@@ -113,10 +121,25 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)popView:(CGRect)frame
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    view.backgroundColor = [UIColor redColor];
-    [view setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - view.frame.size.height/2)];
-    [self.tableView addSubview:view];
+    CGFloat height = 20.0f;
+    UIFont *font = [UIFont systemFontOfSize:12.0f];
+    NSString *str = [NSString stringWithFormat:@"%d/%d",_info.userExp,_info.nextUserExp];
+    CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
+    _popTipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:_popTipView.frame];
+    imageView.image = [UIImage imageNamed:@"jifen"];
+    [_popTipView addSubview:imageView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, _popTipView.frame.size.width - 10, height - 10)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.font = font;
+    label.text = str;
+    [imageView addSubview:label];
+    
+    [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
+    [self.tableView addSubview:_popTipView];
 }
 
 
@@ -157,24 +180,27 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.titleLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
-    if (indexPath.section == 0) {
-        switch (indexPath.row) {
-            case 0:
-                cell.infoLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
-                break;
-            case 1:
-                cell.infoLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTb];
-                break;
-            case 2:
-                cell.infoLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
-                break;
-        }
-    }else{
-        cell.infoLabel.hidden = YES;
+    switch (indexPath.section) {
+        case 0:
+            cell.infoLabel.hidden = NO;
+            switch (indexPath.row) {
+                case 0:
+                    cell.infoLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+                    break;
+                case 1:
+                    cell.infoLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTb];
+                    break;
+                case 2:
+                    cell.infoLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
+                    break;
+            }
+            break;
+            default:
+            cell.infoLabel.hidden = YES;
+            break;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -206,6 +232,7 @@ static NSString *FooterViewID = @"PersonFooterView";
                 }else if (indexPath.row == 1){
                     AddressManagerVC *addressManagerVC = [[AddressManagerVC alloc] init];
                     addressManagerVC.leftTitle = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+                    addressManagerVC.isExChange = NO;
                     [self.navigationController pushViewController:addressManagerVC animated:YES];
                 }
                 break;
@@ -298,6 +325,8 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     [[BMAlert sharedBMAlert] alert:@"确认退出？" cancle:^(DoAlertView *alertView) {
         [_info loginOut];
+        [_popTipView removeFromSuperview];
+        _popTipView = nil;
         [self reloadView];
     } other:^(DoAlertView *alertView) {
         

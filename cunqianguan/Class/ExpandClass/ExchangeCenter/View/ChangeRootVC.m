@@ -8,15 +8,21 @@
 
 #import "ChangeRootVC.h"
 #import "ChangeProductVC.h"
+#import "AddressManagerVC.h"
+#import "BMAlert.h"
+#import "DoAlertView.h"
 
 #import "ExChangeConnect.h"
 #import "BaseConnect.h"
 
 #import "ExChangeDetailModel.h"
 #import "PersonInfo.h"
+#import "Constants.h"
+
 @interface ChangeRootVC ()
 {
     ChangeProductVC *_changeProductVC;
+    PersonInfo *_info;
 }
 
 @end
@@ -26,13 +32,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _info = [PersonInfo sharedPersonInfo];
     [self setUpTableView];
     [self loadData:_model.productId];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTips) name:kExChangeSuccess object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kExChangeSuccess object:nil];
 }
 
 -(void)setUpTableView
@@ -65,17 +75,62 @@
 
 -(void)refreshBottomView
 {
-    PersonInfo *info = [PersonInfo sharedPersonInfo];
     NSInteger inSock = _model.in_stock;
     if (inSock == 0) {
         _actionBtn.backgroundColor = [UIColor redColor];
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
-    }else if (info.pointSite < _model.point){
+    }else if (_info.pointSite < _model.point){
         _actionBtn.backgroundColor = [UIColor grayColor];
         [_actionBtn setTitle:@"积分不足" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
     }
+
+//    [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+//        NSDictionary *dic = (NSDictionary *)json;
+//        if ([BaseConnect isSucceeded:dic]) {
+//            
+//        }
+//    } failure:^(id json) {
+//        
+//    }];
+}
+- (IBAction)exChangeProduct:(id)sender
+{
+    //真实货物
+    if (_model.use_types == 0) {
+        AddressManagerVC *addressManagerVC = [[AddressManagerVC alloc] init];
+        addressManagerVC.leftTitle = @"收货地址";
+        addressManagerVC.isExChange = YES;
+        addressManagerVC.productId = _model.productId;
+        [self.navigationController pushViewController:addressManagerVC animated:YES];
+    }else{
+    //虚拟货物
+        [[BMAlert sharedBMAlert] alertTextFieldWithplaceholder:@"请输入所要兑换的手机号码" Cancle:^(DoAlertView *alertView) {
+            NSString *phone = alertView.textField.text;
+            if(phone.length > 0){
+                [self showHUD:ACTION_LOAD];
+                [[ExChangeConnect sharedExChangeConnect] exchangeGood:_info.username pwd:_info.password productId:_model.productId phone:phone qq:@"" success:^(id json) {
+                    [self hideAllHUD];
+                    NSDictionary *dic = (NSDictionary *)json;
+                    if ([BaseConnect isSucceeded:dic]) {
+                        [self showStringHUD:@"兑换成功" second:1.5];
+                    }else{
+                        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+                    }
+                } failure:^(NSError *err) {
+                    [self hideAllHUD];
+                }];
+            }
+        } other:^(DoAlertView *alertView) {
+            
+        }];
+    }
+}
+
+-(void)showTips
+{
+    [self showStringHUD:@"兑换成功" second:1.5];
 }
 
 /*

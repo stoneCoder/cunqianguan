@@ -35,4 +35,17 @@ DEFINE_SINGLETON_FOR_CLASS(BMAlert)
     alertView = nil;
 }
 
+-(void)alertTextFieldWithplaceholder:(NSString *)placeholderText Cancle:(DoActionViewHandler)cancle other:(DoActionViewHandler)other
+{
+    DoAlertView *alertView = [[DoAlertView alloc] init];
+    alertView.nAnimationType = DoTransitionStyleFade;
+    alertView.dRound = 2.0;
+    alertView.bDestructive = NO;
+    [alertView doTextFieldYesNo:@"提示" placeholder:placeholderText cancleButton:@"确定" otherButton:@"取消" yes:^(DoAlertView *alertView) {
+        cancle(alertView);
+    } no:^(DoAlertView *alertView) {
+        other(alertView);
+    }];
+    alertView = nil;
+}
 @end

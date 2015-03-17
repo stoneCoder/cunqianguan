@@ -54,7 +54,7 @@
         self.canGestureScroll = NO;
         self.layer.masksToBounds = YES;
         currentPage = nil;
-        self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(onScrollTimer:) userInfo:nil repeats:YES];
+        self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:4.0f target:self selector:@selector(onScrollTimer:) userInfo:nil repeats:YES];
         [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
     }
     return self;
