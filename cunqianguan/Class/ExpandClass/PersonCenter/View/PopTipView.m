@@ -41,6 +41,7 @@
 -(void)loadViewWith:(NSString *)str
 {
 //    NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
+
     _infoLabel.text = str;
 //    [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
 //    [personHeaderView addSubview:_popTipView];
