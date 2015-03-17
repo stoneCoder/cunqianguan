@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		487112F61AB069730089CE0A /* ShareUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 487112F51AB069730089CE0A /* ShareUtil.m */; };
+		488124521AB84CE700636199 /* PopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 488124511AB84CE700636199 /* PopTipView.m */; };
 		48AC87591AB58233003CEF48 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48AC87581AB58233003CEF48 /* PopoverView.m */; };
 		97DA9493BBBE4D7CFF653414 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2973A8EA4747C20640F7CB2E /* libPods.a */; };
 		B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */; };
@@ -334,6 +335,8 @@
 		2973A8EA4747C20640F7CB2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		487112F41AB069730089CE0A /* ShareUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtil.h; sourceTree = "<group>"; };
 		487112F51AB069730089CE0A /* ShareUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtil.m; sourceTree = "<group>"; };
+		488124501AB84CE700636199 /* PopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTipView.h; sourceTree = "<group>"; };
+		488124511AB84CE700636199 /* PopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTipView.m; sourceTree = "<group>"; };
 		48AC87571AB58233003CEF48 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		48AC87581AB58233003CEF48 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		9E12974C1BF2517CF6783FAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1511,6 +1514,8 @@
 				B1436F8D1A73632D00706772 /* PersonHeaderView.h */,
 				B1436F8E1A73632D00706772 /* PersonHeaderView.m */,
 				B1436F901A73633E00706772 /* PersonHeaderView.xib */,
+				488124501AB84CE700636199 /* PopTipView.h */,
+				488124511AB84CE700636199 /* PopTipView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2567,6 +2572,7 @@
 				487112F61AB069730089CE0A /* ShareUtil.m in Sources */,
 				B15DBA141AA00B41005FBC2C /* JYHDetailModel.m in Sources */,
 				B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */,
+				488124521AB84CE700636199 /* PopTipView.m in Sources */,
 				B140EC7E1A6F7589004D245A /* AdvertisingView.m in Sources */,
 				B14D452D1A708B98005AA895 /* BaseTableView.m in Sources */,
 				B151FE9D1AA4284600BFC5C3 /* RunningWaterModel.m in Sources */,

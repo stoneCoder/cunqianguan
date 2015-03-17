@@ -10,6 +10,7 @@
 #import "PersonInfoCell.h"
 #import "PersonHeaderView.h"
 #import "PersonFooterView.h"
+#import "PopTipView.h"
 
 #import "MoneyViewVC.h"
 #import "MyOrderScrollVC.h"
@@ -36,7 +37,7 @@
     PersonHeaderView *personHeaderView;
     PersonFooterView *personFooterView;
     PersonInfo *_info;
-    UIView *_popTipView;
+    PopTipView *_tipView;
 }
 
 @end
@@ -125,23 +126,10 @@ static NSString *FooterViewID = @"PersonFooterView";
     UIFont *font = [UIFont systemFontOfSize:12.0f];
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
     CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
-    if (!_popTipView) {
-        _popTipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
-    }
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:_popTipView.frame];
-    imageView.image = [UIImage imageNamed:@"jifen"];
-    [_popTipView addSubview:imageView];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, _popTipView.frame.size.width - 10, height - 10)];
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor whiteColor];
-    label.font = font;
-    label.text = str;
-    [imageView addSubview:label];
-    
-    [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
-    [personHeaderView addSubview:_popTipView];
+    _tipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    [_tipView loadViewWith:str];
+    [_tipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _tipView.frame.size.height/2)];
+    [personHeaderView addSubview:_tipView];
 }
 
 
@@ -327,8 +315,8 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     [[BMAlert sharedBMAlert] alert:@"确认退出？" cancle:^(DoAlertView *alertView) {
         [_info loginOut];
-        [_popTipView removeFromSuperview];
-        _popTipView = nil;
+        [_tipView removeFromSuperview];
+        _tipView = nil;
         [self reloadView];
     } other:^(DoAlertView *alertView) {
         

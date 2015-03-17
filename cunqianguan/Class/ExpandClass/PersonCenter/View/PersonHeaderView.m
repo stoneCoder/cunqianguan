@@ -59,7 +59,8 @@
             _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
             
             CGRect frame = _progressView.frame;
-            _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, info.userExp/info.nextUserExp*SCREEN_WIDTH, frame.size.height);
+            CGFloat width = (CGFloat)info.userExp/(CGFloat)info.nextUserExp*self.frame.size.width;
+            _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
             _collectLabel.hidden = NO;
             _msgLabel.hidden = NO;
             _vipImage.hidden = NO;
