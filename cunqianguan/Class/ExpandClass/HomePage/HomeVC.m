@@ -28,6 +28,7 @@
 #import "GoodsViewVC.h"
 #import "PolyScrollVC.h"
 #import "ExChangeScrollVC.h"
+#import "PresentTableFooterView.h"
 
 #import "LoginVC.h"
 #import "BaseNC.h"
@@ -220,15 +221,19 @@
 -(void)setUpPresentTable
 {
     CGFloat visiableY = _pageControl.frame.size.height;
-    _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY) style:UITableViewStyleGrouped];
+    if (SCREEN_HEIGTH < 568) {
+        visiableY = visiableY - 40;
+    }
+    _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY + 100) style:UITableViewStyleGrouped];
     _presentTable.backgroundColor = UIColorFromRGB(0xECECEC);
     _presentTable.scrollEnabled = NO;
     _presentTable.delegate = _presentTable;
     _presentTable.dataSource = _presentTable;
+    _presentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
     [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-    _closeBtn.center = ccp(VIEW_WIDTH/2,visiableY - 40);
+    _closeBtn.center = ccp(VIEW_WIDTH/2,visiableY - 30);
     [_closeBtn addTarget:self action:@selector(hideMenu) forControlEvents:UIControlEventTouchUpInside];
 }
 

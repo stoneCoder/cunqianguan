@@ -46,11 +46,11 @@ static NSString *SearchCellID = @"SearchViewCell";
 
 -(void)setUpNav
 {
-    _searchBar = [[SBSearchBar alloc]initWithFrame:CGRectMake(3, 2, SCREEN_WIDTH - 55,40)];
+    _searchBar = [[SBSearchBar alloc]initWithFrame:CGRectMake(3, 2, SCREEN_WIDTH - 55,35)];
     _searchBar.delegate = self;
     //_searchBar.backgroundColor = [UIColor clearColor];
 
-    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH - 55, 40)];
+    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH - 55, 35)];
     searchView.backgroundColor = [UIColor whiteColor];
     searchView.layer.cornerRadius = 5.0f;
     [searchView addSubview:_searchBar];

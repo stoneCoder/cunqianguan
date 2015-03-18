@@ -151,6 +151,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
         MongoModel *model = _data[indexPath.row];
         returnHomeGoodsVC.goodKey = model.goodkey;
         returnHomeGoodsVC.leftTitle = @"商品详情";
+        returnHomeGoodsVC.type = 1;
         [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
     } WithType:YES];
 }

@@ -7,7 +7,7 @@
 //
 
 #import "PresentTableView.h"
-
+#import "PresentTableFooterView.h"
 @implementation PresentTableView
 
 /*
@@ -29,24 +29,38 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    if (section < 2) {
+        return 10;
+    }else{
+        return 100;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 2) {
+        PresentTableFooterView *footerView = [PresentTableFooterView footView];
+        return footerView;
+    }else{
+        return nil;
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 44)];
+    UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
     headerview.backgroundColor = [UIColor whiteColor];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, self.frame.size.width - 10, 44)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, self.frame.size.width - 10, 40)];
     NSString *titleStr = @"";
     if (section == 0) {
         titleStr = @"什么是返利？";

@@ -10,6 +10,7 @@
 #import "FootPrintsVC.h"
 #import "PopoverView.h"
 #import "UIBarButtonItem+Badge.h"
+#import "ReturnPageTipView.h"
 
 #import "PersonInfo.h"
 #import "MongoConnect.h"
@@ -21,8 +22,9 @@
 #import "BaseUtil.h"
 #import "TBUrlUtil.h"
 #import "ShareUtil.h"
-@interface ReturnHomeGoodsVC ()
+@interface ReturnHomeGoodsVC ()<ReturnPageTipViewDelegate>
 {
+    ReturnPageTipView *_returnPageTipView;
     PersonInfo *_info;
     MongoDetailModel *_model;
     UIBarButtonItem *_footPrintItem;
@@ -40,10 +42,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
+    [self setUpTipView];
     [self setUpWebView];
     [self loadData:_goodKey];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUpNavBar:) name:kWebUrlFinal object:nil];
+    
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"showflgTips"] boolValue] && _type == 1) {
+        //显示提示
+        [UIView animateWithDuration:1.0f animations:^{
+            _returnPageTipView.frame = CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT);
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +99,17 @@
     self.navigationItem.rightBarButtonItems = btnArray;
 }
 
+-(void)setUpTipView
+{
+    _returnPageTipView = [ReturnPageTipView tipView];
+    _returnPageTipView.backgroundColor = UIColorFromRGBA(0x00000, 0.1);
+    _returnPageTipView.delegate = self;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"fanli_tishi" ofType:@"png"];
+    _returnPageTipView.tipImageView.image = [UIImage imageWithContentsOfFile:filePath];
+    _returnPageTipView.frame = CGRectMake(0, SCREEN_HEIGTH, VIEW_WIDTH, VIEW_HEIGHT);
+    [self.view addSubview:_returnPageTipView];
+}
+
 -(void)setUpWebView
 {
     self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - _bottomView.frame.size.height - 64);
@@ -124,6 +148,15 @@
     }
 }
 
+#pragma mark -- ReturnPageTipViewDelegate
+-(void)clickAction
+{
+    [UIView animateWithDuration:1.0f animations:^{
+        _returnPageTipView.frame = CGRectMake(0, VIEW_HEIGHT, VIEW_WIDTH, VIEW_HEIGHT);
+    } completion:^(BOOL finished) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"showflgTips"];
+    }];
+}
 #pragma mark -- Private
 -(void)pushToFootPrint:(id)sender
 {
