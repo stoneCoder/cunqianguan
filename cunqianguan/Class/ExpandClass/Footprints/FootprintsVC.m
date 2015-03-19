@@ -9,16 +9,26 @@
 #import "FootPrintsVC.h"
 #import "FootPrintsCell.h"
 
+#import "PolyGoodsRootVC.h"
+#import "ReturnHomeGoodsVC.h"
+
+#import "MongoConnect.h"
+#import "JYHConnect.h"
 #import "FootConnect.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "PersonInfo.h"
 #import "FootListModel.h"
-@interface FootPrintsVC ()<SWTableViewCellDelegate>
+#import "MongoDetailModel.h"
+#import "JYHDetailModel.h"
+#import "BaseUtil.h"
+#import "TBUrlUtil.h"
+@interface FootPrintsVC ()<SWTableViewCellDelegate,UIWebViewDelegate>
 {
     PersonInfo *_info;
     NSInteger _pageNum;
     NSMutableArray *_data;
+    NSInteger _webPageCount;
 }
 
 @end
@@ -34,6 +44,11 @@ static NSString *CellID=@"FootPrintsCell";
     [self setUpNavbtn];
     [self setUpTableView];
     [self loadData:_pageNum];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,6 +149,75 @@ static NSString *CellID=@"FootPrintsCell";
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FootModel *model = _data[indexPath.row];
+    NSString *goodKey = model.goodkey;
+    if ([BaseUtil isInstallApp:@"taobao://"]) {
+        _webPageCount = 0;
+        //返利够
+        if ([goodKey rangeOfString:@"0_"].location != NSNotFound || [goodKey rangeOfString:@"999_"].location != NSNotFound) {
+            [self showHUD:@"正在前往淘宝App.."];
+            [[MongoConnect sharedMongoConnect] getGoodsDetail:goodKey WithUserId:_info.userId success:^(id json) {
+                NSDictionary *dic = (NSDictionary *)json;
+                if ([BaseConnect isSucceeded:dic]) {
+                    NSDictionary *data = [dic objectForKey:@"data"];
+                    MongoDetailModel *model = [[MongoDetailModel alloc] initWithDictionary:data error:nil];
+                    [self setUpWebView:model.fan_url];
+                }
+            } failure:^(NSError *err) {
+                [self hideAllHUD];
+            }];
+        }else if ([goodKey rangeOfString:@"1000_"].location != NSNotFound){
+            //聚优惠
+            [self showHUD:@"正在前往淘宝App.."];
+            [[JYHConnect sharedJYHConnect] getJYHGoodById:_info.userId andGoodKey:goodKey success:^(id json) {
+                [self hideAllHUD];
+                NSDictionary *dic = (NSDictionary *)json;
+                if ([BaseConnect isSucceeded:dic]) {
+                    NSDictionary *data = [dic objectForKey:@"data"];
+                    JYHDetailModel *detailModel = [[JYHDetailModel alloc] initWithDictionary:data error:nil];
+                    [self setUpWebView:detailModel.fanli_url];
+                }
+            } failure:^(NSError *err) {
+                [self hideAllHUD];
+            }];
+
+        }else{
+            ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+            returnHomeGoodsVC.goodKey = goodKey;
+            returnHomeGoodsVC.leftTitle = @"商品详情";
+            [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+        }
+    }else{
+        //没有安装淘宝客户端
+        if ([goodKey rangeOfString:@"1000_"].location != NSNotFound) {
+            //聚优惠商品
+            PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+            polyGoodsRootVC.goodKey = goodKey;
+            polyGoodsRootVC.leftTitle = @"商品详情";
+            [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
+        }else{
+            ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+            returnHomeGoodsVC.goodKey = goodKey;
+            returnHomeGoodsVC.leftTitle = @"商品详情";
+            [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+        }
+    }
+}
+
+#pragma mark -- Private
+-(void)setUpWebView:(NSString *)urlPath
+{
+    UIWebView *webView = [UIWebView new];
+    webView.hidden = YES;
+    webView.delegate = self;
+    [self.view addSubview:webView];
+    NSURL* url = [NSURL URLWithString:urlPath];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+}
+
 /**
  *  Cell滑动按钮
  *
@@ -198,7 +282,6 @@ static NSString *CellID=@"FootPrintsCell";
         }else{
             [self showStringHUD:@"收藏失败，请重试" second:1.5];
             [self.tableView reloadData];
-
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
@@ -207,6 +290,19 @@ static NSString *CellID=@"FootPrintsCell";
 
 - (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell{
     return YES;
+}
+
+#pragma mark -- UIWebViewDelegate
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *urlPath = webView.request.URL.absoluteString;
+    NSInteger type = [TBUrlUtil matchUrlWithWebSite:urlPath];
+    if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+        [self hideAllHUD];
+        [self.tableView reloadData];
+        NSString *openUrl = [NSString stringWithFormat:@"taobao://%@",[urlPath componentsSeparatedByString:@"://"][1]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:openUrl]];
+    }
 }
 
 @end

@@ -30,10 +30,16 @@
 
 -(void)setUpView
 {
+    _headBgView.layer.cornerRadius  = _headBgView.frame.size.width/2;
+    _headBgView.clipsToBounds = YES;
+    _headBgView.layer.borderWidth = 3;
+    _headBgView.layer.borderColor = UIColorFromRGB(0x31b6ac).CGColor;
+    
     _headImageView.layer.cornerRadius = _headImageView.frame.size.width/2;
     _headImageView.clipsToBounds = YES;
     _headImageView.layer.borderWidth = 3;
-    _headImageView.layer.borderColor = UIColorFromRGB(0x31b6ac).CGColor;
+    _headImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    
     _headImageView.userInteractionEnabled = YES;
     [_headImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateInfo:)]];
     
@@ -51,7 +57,7 @@
             [info saveUserData];
             
             _nameLabel.text = info.username;
-            [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] placeholderImage:[UIImage imageNamed:@"default_person"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
             }];
             _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
@@ -61,6 +67,7 @@
             CGRect frame = _progressView.frame;
             CGFloat width = (CGFloat)info.userExp/(CGFloat)info.nextUserExp*self.frame.size.width;
             _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
+
             _collectLabel.hidden = NO;
             _msgLabel.hidden = NO;
             _vipImage.hidden = NO;

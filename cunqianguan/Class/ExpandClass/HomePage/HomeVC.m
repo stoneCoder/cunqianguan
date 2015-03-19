@@ -372,6 +372,7 @@
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
     rebateHomeVC.leftTitle = @"逛淘宝";
+    rebateHomeVC.isTrueTrance = YES;
     [self.navigationController pushViewController:rebateHomeVC animated:YES];
 }
 

@@ -31,6 +31,7 @@
 
 -(void)setUpTapAction
 {
+    _tipImage.layer.cornerRadius = 2.0f;
     [_taobaoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_zujiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_juyouhuiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];

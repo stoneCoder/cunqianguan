@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -25,30 +25,30 @@
                         <action selector="checkAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="VTh-bj-3hU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEf-Sj-6sJ">
-                    <rect key="frame" x="205" y="9" width="50" height="30"/>
-                    <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="nEf-Sj-6sJ" secondAttribute="height" multiplier="5:3" id="X7f-9B-y5K"/>
-                    </constraints>
-                    <state key="normal" title="取消">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancleAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZjB-t4-Z5z"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGQ-7d-cv8">
                     <rect key="frame" x="263" y="9" width="50" height="30"/>
-                    <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="SGQ-7d-cv8" secondAttribute="height" multiplier="5:3" id="8rF-WA-7GH"/>
                     </constraints>
-                    <state key="normal" title="确定">
+                    <state key="normal" title="删除">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="submitAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Con-k4-5xx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEf-Sj-6sJ">
+                    <rect key="frame" x="205" y="9" width="50" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nEf-Sj-6sJ" secondAttribute="height" multiplier="5:3" id="X7f-9B-y5K"/>
+                    </constraints>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZjB-t4-Z5z"/>
                     </connections>
                 </button>
             </subviews>
@@ -66,7 +66,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cancleBtn" destination="nEf-Sj-6sJ" id="5p3-07-8UD"/>
                 <outlet property="checkBtn" destination="c5m-Tn-Gia" id="T1B-hY-Otf"/>
+                <outlet property="delBtn" destination="SGQ-7d-cv8" id="KWM-g6-IES"/>
             </connections>
             <point key="canvasLocation" x="341" y="470.5"/>
         </view>

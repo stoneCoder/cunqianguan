@@ -172,8 +172,10 @@ static NSString *ProfileCellID = @"ProfileCell";
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             ProfileCell *cell = (ProfileCell *)[self.tableView cellForRowAtIndexPath:indexPath];
             cell.headImageView.image = editedImage;
+            
+            [self showStringHUD:@"修改成功" second:1.5];
         }else{
-            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+            [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];

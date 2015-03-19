@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *collectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *headBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *vipImage;
 
 @property (strong, nonatomic) id<PersonHeaderDelegate> delegate;

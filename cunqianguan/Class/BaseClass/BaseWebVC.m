@@ -51,59 +51,77 @@
 }
 
 #pragma mark -- UIWebViewDelegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+        _isTrueTrance = YES;
+    }
+    return YES;
+}
+
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [self showHUD:DATA_LOAD];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-     __block NSString *userId = _info.userId?_info.userId:@"";
+    __block NSString *userId = _info.userId?_info.userId:@"";
     NSString *accesUrl = webView.request.URL.absoluteString;
-    NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
-    if (type < 4) {
-        __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
-        if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
-        }else{
-           [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
-        }
-        if (!_isAddTrance) {
-            if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
-                productId = [NSString stringWithFormat:@"0_%@",productId];
-            }else if (type == TM_ORI_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL){
-                productId = [NSString stringWithFormat:@"999_%@",productId];
+    if (_isTrueTrance) {
+        NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
+        if (type < 4) {
+            __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
+            if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+            }else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
             }
-            //添加足迹
-            [self addTrace:userId WithProduct:productId andType:type inView:webView];
+            if (!_isAddTrance) {
+                if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
+                    productId = [NSString stringWithFormat:@"0_%@",productId];
+                }else if (type == TM_ORI_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL){
+                    productId = [NSString stringWithFormat:@"999_%@",productId];
+                }
+                //添加足迹
+                [self addTrace:userId WithProduct:productId andType:type inView:webView];
+            }
+        }else{
+            //天天特价
+            if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=1"].location != NSNotFound) {
+                NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL2,MM,[BaseUtil encrypt:userId]];
+                [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
+            }
+            //聚划算
+            if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=2"].location != NSNotFound) {
+                [self hideAllHUD];
+                [self showStringHUD:@"聚划算/天猫超市无返利" second:1.5];
+            }
+            //淘宝旅行
+            if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=3"].location != NSNotFound) {
+                NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL3,MM,[BaseUtil encrypt:userId]];
+                [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
+            }
+            //天猫超市详情页面
+            if ([accesUrl rangeOfString:@"http://tun.tmall.com/"].location != NSNotFound) {
+                //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
+                //
+                //            } other:^(DoAlertView *alertView) {
+                //
+                //            }];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
         }
+
     }else{
-        //天天特价
-        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=1"].location != NSNotFound) {
-            NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL2,MM,[BaseUtil encrypt:userId]];
-            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
+        NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
+        if (type < 4) {
+            [_info saveTraceFlag:@"YES"];
+            if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+            }else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
+            }
         }
-        //聚优惠
-        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=2"].location != NSNotFound) {
-//            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
-//                
-//            } other:^(DoAlertView *alertView) {
-//                
-//            }];
-        }
-        //淘宝旅行
-        if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=3"].location != NSNotFound) {
-            NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",MALL_TB_URL3,MM,[BaseUtil encrypt:userId]];
-            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
-        }
-        //天猫超市详情页面
-        if ([accesUrl rangeOfString:@"http://tun.tmall.com/"].location != NSNotFound) {
-            //            [[BMAlert sharedBMAlert] alert:@"聚划算/天猫超市无返利" cancle:^(DoAlertView *alertView) {
-            //
-            //            } other:^(DoAlertView *alertView) {
-            //
-            //            }];
-        }
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
     }
     [self hideAllHUD];
 }
@@ -114,12 +132,12 @@
     //添加足迹
     [[FootConnect sharedFootConnect] addTrace:userId withGoodKey:productId success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
-        //添加足迹失败
         if ([BaseConnect isSucceeded:dic]) {
             //添加足迹成功
             _isAddTrance = YES;
             [_info saveTraceFlag:@"YES"];
         }else{
+            //添加足迹失败
             //访问淘宝
             if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
                 [self addTaobaoTrace:userId WithProduct:productId];

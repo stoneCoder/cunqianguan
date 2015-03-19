@@ -23,8 +23,21 @@
     AllCheckView *allCheckView = nil;
     if ([nibs count]) {
         allCheckView = [nibs objectAtIndex:0];
+        [allCheckView setUpView];
     }
     return allCheckView;
+}
+
+-(void)setUpView
+{
+    _cancleBtn.layer.cornerRadius = 5.0f;
+    _cancleBtn.layer.borderWidth = 1;
+    _cancleBtn.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    _delBtn.layer.cornerRadius = 5.0f;
+    _delBtn.layer.borderWidth = 1;
+    _delBtn.layer.borderColor = [UIColor redColor].CGColor;
+    
 }
 
 - (IBAction)checkAction:(id)sender

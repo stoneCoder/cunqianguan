@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -97,10 +97,10 @@
                     <rect key="frame" x="242" y="164" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duihuan_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cDw-MH-xKz">
-                            <rect key="frame" x="17" y="10" width="35" height="35"/>
+                            <rect key="frame" x="17" y="6" width="35" height="35"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换中心" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDn-rN-yaz">
-                            <rect key="frame" x="5" y="46" width="60" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDn-rN-yaz">
+                            <rect key="frame" x="20" y="46" width="30" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -108,44 +108,41 @@
                     </subviews>
                     <color key="backgroundColor" red="0.38039215686274508" green="0.8784313725490196" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="eDn-rN-yaz" secondAttribute="bottom" constant="6" id="13g-vq-z7M"/>
-                        <constraint firstAttribute="centerY" secondItem="cDw-MH-xKz" secondAttribute="centerY" constant="7.5" id="SXr-SN-LIt"/>
-                        <constraint firstItem="eDn-rN-yaz" firstAttribute="centerX" secondItem="roW-ml-dAA" secondAttribute="centerX" id="iS1-Ve-1CN"/>
+                        <constraint firstAttribute="centerX" secondItem="eDn-rN-yaz" secondAttribute="centerX" id="S2X-DC-kSx"/>
+                        <constraint firstAttribute="centerY" secondItem="cDw-MH-xKz" secondAttribute="centerY" constant="11.5" id="SXr-SN-LIt"/>
+                        <constraint firstItem="eDn-rN-yaz" firstAttribute="top" secondItem="cDw-MH-xKz" secondAttribute="bottom" constant="5" id="egg-Z5-uBr"/>
                         <constraint firstAttribute="centerX" secondItem="cDw-MH-xKz" secondAttribute="centerX" constant="0.5" id="lU0-o0-ixR"/>
                     </constraints>
                 </view>
                 <view tag="1005" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1r-0p-7Ze">
                     <rect key="frame" x="164" y="242" width="70" height="70"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-z5-a9k">
-                            <rect key="frame" x="18" y="46" width="34" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="OLn-z5-a9k" secondAttribute="height" multiplier="17:9" id="RhR-6Q-bMV"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-z5-a9k">
+                            <rect key="frame" x="20" y="46" width="30" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shangcheng_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-iZ-75f">
-                            <rect key="frame" x="17" y="8" width="35" height="35"/>
+                            <rect key="frame" x="17" y="6" width="35" height="35"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.35294117647058826" green="0.77254901960784317" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="OLn-z5-a9k" firstAttribute="top" secondItem="1Y7-iZ-75f" secondAttribute="bottom" constant="3" id="20R-Or-Sjg"/>
+                        <constraint firstItem="OLn-z5-a9k" firstAttribute="top" secondItem="1Y7-iZ-75f" secondAttribute="bottom" constant="5" id="20R-Or-Sjg"/>
                         <constraint firstAttribute="centerX" secondItem="1Y7-iZ-75f" secondAttribute="centerX" constant="0.5" id="A6B-c7-YtX"/>
                         <constraint firstAttribute="centerX" secondItem="OLn-z5-a9k" secondAttribute="centerX" id="SZh-CH-Z1h"/>
-                        <constraint firstAttribute="centerY" secondItem="1Y7-iZ-75f" secondAttribute="centerY" constant="9.5" id="ZnA-wx-EWt"/>
+                        <constraint firstAttribute="centerY" secondItem="1Y7-iZ-75f" secondAttribute="centerY" constant="11.5" id="ZnA-wx-EWt"/>
                     </constraints>
                 </view>
                 <view tag="1006" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwE-5c-gWs">
                     <rect key="frame" x="242" y="242" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huiyuan_icon" translatesAutoresizingMaskIntoConstraints="NO" id="MH6-WW-Vis">
-                            <rect key="frame" x="17" y="10" width="35" height="35"/>
+                            <rect key="frame" x="17" y="6" width="35" height="35"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-cG-Syp">
-                            <rect key="frame" x="18" y="46" width="30" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-cG-Syp">
+                            <rect key="frame" x="20" y="46" width="30" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -153,10 +150,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.55686274509803924" green="0.70588235294117652" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="7nu-cG-Syp" secondAttribute="centerX" constant="2" id="JqV-vq-Gwd"/>
+                        <constraint firstAttribute="centerX" secondItem="7nu-cG-Syp" secondAttribute="centerX" id="JqV-vq-Gwd"/>
                         <constraint firstAttribute="centerX" secondItem="MH6-WW-Vis" secondAttribute="centerX" constant="0.5" id="XoX-fZ-V2T"/>
-                        <constraint firstAttribute="centerY" secondItem="MH6-WW-Vis" secondAttribute="centerY" constant="7.5" id="eY4-KE-cNn"/>
-                        <constraint firstItem="7nu-cG-Syp" firstAttribute="top" secondItem="MH6-WW-Vis" secondAttribute="bottom" constant="1" id="sbJ-IP-AzA"/>
+                        <constraint firstAttribute="centerY" secondItem="MH6-WW-Vis" secondAttribute="centerY" constant="11.5" id="eY4-KE-cNn"/>
+                        <constraint firstItem="7nu-cG-Syp" firstAttribute="top" secondItem="MH6-WW-Vis" secondAttribute="bottom" constant="5" id="sbJ-IP-AzA"/>
                         <constraint firstAttribute="centerY" secondItem="7nu-cG-Syp" secondAttribute="centerY" constant="-20" id="wrE-hf-zJe"/>
                     </constraints>
                 </view>
@@ -164,9 +161,9 @@
                     <rect key="frame" x="164" y="164" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fanligou_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ft5-ac-rr6">
-                            <rect key="frame" x="17" y="10" width="35" height="30"/>
+                            <rect key="frame" x="17" y="6" width="35" height="35"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="返利购" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bky-hU-eJ0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="返利购" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bky-hU-eJ0">
                             <rect key="frame" x="14" y="46" width="45" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,11 +172,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.1803921568627451" green="0.86274509803921573" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="bky-hU-eJ0" firstAttribute="top" secondItem="ft5-ac-rr6" secondAttribute="bottom" constant="6" id="2wb-GX-iaQ"/>
-                        <constraint firstAttribute="centerX" secondItem="bky-hU-eJ0" secondAttribute="centerX" constant="-1.5" id="FIu-fd-HBt"/>
+                        <constraint firstItem="bky-hU-eJ0" firstAttribute="top" secondItem="ft5-ac-rr6" secondAttribute="bottom" constant="5" id="h7X-x2-OtN"/>
                         <constraint firstAttribute="centerX" secondItem="ft5-ac-rr6" secondAttribute="centerX" constant="0.5" id="kMH-x6-CVJ"/>
-                        <constraint firstAttribute="bottom" secondItem="bky-hU-eJ0" secondAttribute="bottom" constant="6" id="kok-CZ-pBX"/>
-                        <constraint firstAttribute="centerY" secondItem="ft5-ac-rr6" secondAttribute="centerY" constant="10" id="xzr-xm-LjE"/>
+                        <constraint firstAttribute="centerX" secondItem="bky-hU-eJ0" secondAttribute="centerX" constant="-1.5" id="xZK-zt-zUD"/>
+                        <constraint firstAttribute="centerY" secondItem="ft5-ac-rr6" secondAttribute="centerY" constant="11.5" id="xzr-xm-LjE"/>
                     </constraints>
                 </view>
             </subviews>
@@ -230,7 +226,7 @@
                 <outlet property="tipImage" destination="SJL-QT-gjk" id="Yj7-Jl-dJ0"/>
                 <outlet property="zujiView" destination="zDj-74-bYt" id="itU-iw-wYX"/>
             </connections>
-            <point key="canvasLocation" x="-959" y="130"/>
+            <point key="canvasLocation" x="-744" y="111"/>
         </view>
     </objects>
     <resources>

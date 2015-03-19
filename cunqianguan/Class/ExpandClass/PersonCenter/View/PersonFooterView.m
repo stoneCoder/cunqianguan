@@ -31,7 +31,10 @@
 
 -(void)loadView:(PersonInfo *)info
 {
-    _priceLable.text = [NSString stringWithFormat:@"%ld",(long)info.cashAll];
+    NSString *priceText = [NSString stringWithFormat:@"您已累计获得%.2f元",info.cashAll];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(6,priceText.length - 7)];
+    _priceLable.attributedText = str;
 }
 
 - (IBAction)btnAction:(id)sender

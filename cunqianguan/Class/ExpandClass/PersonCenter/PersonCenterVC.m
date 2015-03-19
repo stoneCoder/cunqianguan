@@ -37,7 +37,7 @@
     PersonHeaderView *personHeaderView;
     PersonFooterView *personFooterView;
     PersonInfo *_info;
-    PopTipView *_tipView;
+    PopTipView *_popTipView;
 }
 
 @end
@@ -51,7 +51,9 @@ static NSString *FooterViewID = @"PersonFooterView";
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"话费充值",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
+    [self reloadView];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -67,7 +69,12 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     _info = [PersonInfo sharedPersonInfo];
     [personHeaderView loadView:_info];
-    [personFooterView loadView:_info];
+    if (_info.userId) {
+        personFooterView.hidden = NO;
+        [personFooterView loadView:_info];
+    }else{
+        personFooterView.hidden = YES;
+    }
     [self setUpProgressView];
     [self.tableView reloadData];
     [self initSignStatus];
@@ -115,9 +122,11 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)rightBtnClick:(UIButton *)btn
 {
-    SignVC *signVC = [[SignVC alloc] init];
-    signVC.leftTitle = @"每日签到";
-    [self.navigationController pushViewController:signVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        SignVC *signVC = [[SignVC alloc] init];
+        signVC.leftTitle = @"每日签到";
+        [self.navigationController pushViewController:signVC animated:YES];
+    } WithType:YES];
 }
 
 -(void)popView:(CGRect)frame
@@ -126,10 +135,12 @@ static NSString *FooterViewID = @"PersonFooterView";
     UIFont *font = [UIFont systemFontOfSize:12.0f];
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
     CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
-    _tipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
-    [_tipView loadViewWith:str];
-    [_tipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _tipView.frame.size.height/2)];
-    [personHeaderView addSubview:_tipView];
+    if (!_popTipView) {
+        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    }
+    [_popTipView loadViewWith:str];
+    [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
+    [personHeaderView addSubview:_popTipView];
 }
 
 
@@ -315,9 +326,10 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     [[BMAlert sharedBMAlert] alert:@"确认退出？" cancle:^(DoAlertView *alertView) {
         [_info loginOut];
-        [_tipView removeFromSuperview];
-        _tipView = nil;
         [self reloadView];
+        _popTipView.hidden = YES;
+        _popTipView = nil;
+        [_popTipView removeFromSuperview];
     } other:^(DoAlertView *alertView) {
         
     }];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -34,6 +34,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5T-GY-O7z">
                             <rect key="frame" x="225" y="3" width="84" height="44"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="v5T-GY-O7z" secondAttribute="height" multiplier="21:11" id="WMV-9x-xUM"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="我要兑换">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +48,6 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="v5T-GY-O7z" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="225" id="6u5-In-jN1"/>
                         <constraint firstItem="v5T-GY-O7z" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="3" id="Ao3-Wk-Ym4"/>
                         <constraint firstItem="2h9-Wb-veH" firstAttribute="leading" secondItem="gu4-eu-5Fv" secondAttribute="leading" constant="12" id="DhN-ib-o3i"/>
                         <constraint firstItem="2h9-Wb-veH" firstAttribute="top" secondItem="gu4-eu-5Fv" secondAttribute="top" constant="16" id="HcZ-1b-1gZ"/>

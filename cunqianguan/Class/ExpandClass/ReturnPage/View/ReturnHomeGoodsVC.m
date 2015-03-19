@@ -187,7 +187,7 @@
     
     PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:_moreBtnArray images:_moreImageArray];
     pop.selectRowAtIndex = ^(NSInteger index){
-        if ([BaseUtil isInstallApp:@"taobao://"]) {
+        if ([BaseUtil isInstallApp:@"taobao://"] && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
             switch (index) {
                 case 0:
                     [self loadData:_goodKey];

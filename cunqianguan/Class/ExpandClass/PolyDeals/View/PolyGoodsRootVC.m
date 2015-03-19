@@ -54,7 +54,7 @@
 
 -(void)setUpTableView
 {
-    _actionBtn.layer.cornerRadius = 2;
+    _actionBtn.layer.cornerRadius = 5.0f;
     _actionBtn.layer.masksToBounds = YES;
     _bottomView.layer.shadowOpacity = 0.1;
     _polyGoodsDetailVC = [[PolyGoodsDetailVC alloc] init];

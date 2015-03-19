@@ -10,4 +10,5 @@
 
 @interface BaseWebVC : BaseVC
 @property(strong, nonatomic) IBOutlet UIWebView *webView;
+@property(assign, nonatomic) BOOL isTrueTrance;
 @end

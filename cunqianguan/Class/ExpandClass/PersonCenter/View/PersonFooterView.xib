@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,30 +12,15 @@
             <rect key="frame" x="0.0" y="20" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="245.05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFy-kB-Q9e">
-                    <rect key="frame" x="153" y="25" width="42" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO9-Es-Dn6">
-                    <rect key="frame" x="196" y="21" width="14" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="14" id="VD8-Cb-qii"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8W-Fi-9xr">
-                    <rect key="frame" x="213" y="27" width="12" height="12"/>
+                    <rect key="frame" x="222" y="27" width="12" height="12"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="12" id="A3u-88-7yP"/>
-                        <constraint firstAttribute="width" constant="12" id="tLv-X2-PfJ"/>
+                        <constraint firstAttribute="width" secondItem="g8W-Fi-9xr" secondAttribute="height" multiplier="1:1" id="6nd-zc-Bgp"/>
                     </constraints>
                     <state key="normal" image="tip">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="tip_hover"/>
                     <connections>
                         <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="how-xP-tfJ"/>
                     </connections>
@@ -54,40 +40,33 @@
                         <action selector="loginOutAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="wlb-DI-rIw"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已累计获得" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-4x-9Hl">
-                    <rect key="frame" x="73" y="22" width="78" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已累计获得245.05元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-4x-9Hl">
+                    <rect key="frame" x="87" y="25" width="133" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="bottom" constant="23" id="0dh-K6-KlO"/>
-                <constraint firstItem="j8i-4x-9Hl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="73" id="8QC-8x-reg"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="3" id="KSo-UD-pmC"/>
-                <constraint firstItem="uO9-Es-Dn6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="Lzz-i8-Wux"/>
-                <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="uO9-Es-Dn6" secondAttribute="bottom" constant="22" id="MvI-5w-fCX"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="j8i-4x-9Hl" secondAttribute="trailing" constant="2" id="3bs-DZ-PVa"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="bottom" constant="-14" id="Cps-7M-0ad"/>
+                <constraint firstAttribute="centerX" secondItem="j8i-4x-9Hl" secondAttribute="centerX" constant="6.5" id="Loe-Hn-OEt"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="XNS-Rn-djZ"/>
-                <constraint firstItem="ynq-Oz-Jjy" firstAttribute="top" secondItem="wFy-kB-Q9e" secondAttribute="bottom" constant="25" id="bWz-np-xzT"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="top" constant="5" id="fck-qR-08k"/>
-                <constraint firstItem="wFy-kB-Q9e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="gAQ-Hb-1JN"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="centerY" secondItem="j8i-4x-9Hl" secondAttribute="centerY" id="eiB-6Y-qm1"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m59-02-3hJ"/>
-                <constraint firstItem="wFy-kB-Q9e" firstAttribute="leading" secondItem="j8i-4x-9Hl" secondAttribute="trailing" constant="2" id="p0n-0h-Y6u"/>
-                <constraint firstItem="j8i-4x-9Hl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="pgY-cM-8Gr"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="uO9-Es-Dn6" secondAttribute="trailing" constant="3" id="rmA-h7-ceB"/>
-                <constraint firstItem="uO9-Es-Dn6" firstAttribute="leading" secondItem="wFy-kB-Q9e" secondAttribute="trailing" constant="1" id="sKG-4S-jdG"/>
                 <constraint firstAttribute="bottom" secondItem="ynq-Oz-Jjy" secondAttribute="bottom" constant="10" id="sYF-B8-IVX"/>
-                <constraint firstItem="uO9-Es-Dn6" firstAttribute="leading" secondItem="wFy-kB-Q9e" secondAttribute="trailing" constant="1" id="uw3-X8-1ad"/>
+                <constraint firstAttribute="centerY" secondItem="j8i-4x-9Hl" secondAttribute="centerY" constant="27.5" id="vPR-fU-we1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="priceLable" destination="wFy-kB-Q9e" id="hds-p8-Clv"/>
+                <outlet property="priceLable" destination="j8i-4x-9Hl" id="fDL-MK-TzM"/>
             </connections>
             <point key="canvasLocation" x="-420" y="195"/>
         </view>
     </objects>
     <resources>
         <image name="tip" width="12" height="12"/>
+        <image name="tip_hover" width="12" height="12"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
