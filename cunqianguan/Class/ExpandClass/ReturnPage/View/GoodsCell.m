@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    _titleLabel.numberOfLines = 0;
+    _titleLabel.numberOfLines = 2;
     _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
