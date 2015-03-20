@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -54,7 +54,7 @@
                     <color key="textColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-eG-hpI">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-eG-hpI">
                     <rect key="frame" x="15" y="78" width="290" height="44"/>
                     <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -68,29 +68,21 @@
                         <action selector="transForWebSite:" destination="-1" eventType="touchUpInside" id="alK-vj-pYu"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-V4-802">
-                    <rect key="frame" x="15" y="440" width="290" height="44"/>
-                    <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="转到支付宝">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="transForAlipay:" destination="-1" eventType="touchUpInside" id="vpv-Ig-Raj"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBh-KZ-1wa">
                     <rect key="frame" x="264" y="76" width="24" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-gL-REH">
-                    <rect key="frame" x="15" y="295" width="290" height="50"/>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-gL-REH">
+                    <rect key="frame" x="15" y="122" width="290" height="50"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5L-pD-n7s">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5L-pD-n7s">
                             <rect key="frame" x="10" y="3" width="110" height="44"/>
                             <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="V5L-pD-n7s" secondAttribute="height" multiplier="5:2" id="NVd-ge-ukM"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="提现到银行卡">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,9 +91,12 @@
                                 <action selector="transForBank:" destination="-1" eventType="touchUpInside" id="OUL-Nq-v0n"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-eX-CAB">
+                        <button opaque="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-eX-CAB">
                             <rect key="frame" x="170" y="3" width="110" height="44"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="N7a-eX-CAB" secondAttribute="height" multiplier="5:2" id="hgb-Ka-U0W"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="提现到支付宝">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,11 +106,39 @@
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="V5L-pD-n7s" firstAttribute="leading" secondItem="3zO-gL-REH" secondAttribute="leading" constant="10" id="3Gr-GF-XwY"/>
+                        <constraint firstAttribute="bottom" secondItem="N7a-eX-CAB" secondAttribute="bottom" constant="3" id="FRV-9A-IC3"/>
+                        <constraint firstItem="N7a-eX-CAB" firstAttribute="top" secondItem="3zO-gL-REH" secondAttribute="top" constant="3" id="LD2-XO-a9Z"/>
+                        <constraint firstAttribute="bottom" secondItem="V5L-pD-n7s" secondAttribute="bottom" constant="3" id="Ubg-I4-oP0"/>
+                        <constraint firstAttribute="trailing" secondItem="N7a-eX-CAB" secondAttribute="trailing" constant="10" id="W1N-qp-gxi"/>
+                        <constraint firstAttribute="width" secondItem="3zO-gL-REH" secondAttribute="height" multiplier="29:5" id="dok-v7-bSL"/>
+                        <constraint firstItem="N7a-eX-CAB" firstAttribute="centerY" secondItem="V5L-pD-n7s" secondAttribute="centerY" id="oUS-w8-hSA"/>
+                        <constraint firstItem="V5L-pD-n7s" firstAttribute="top" secondItem="3zO-gL-REH" secondAttribute="top" constant="3" id="qHT-1r-PFk"/>
+                    </constraints>
                 </view>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-V4-802">
+                    <rect key="frame" x="15" y="122" width="290" height="44"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Q1h-V4-802" secondAttribute="height" multiplier="145:22" id="dsA-fJ-xSK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="转到支付宝">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="transForAlipay:" destination="-1" eventType="touchUpInside" id="vpv-Ig-Raj"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="3zO-gL-REH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="3Zo-j5-pqW"/>
                 <constraint firstItem="YSb-Xn-8PN" firstAttribute="trailing" secondItem="OlR-SB-HBf" secondAttribute="trailing" id="DCK-mH-LSS"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="DNK-mn-SSu"/>
+                <constraint firstItem="3zO-gL-REH" firstAttribute="top" secondItem="OlR-SB-HBf" secondAttribute="bottom" constant="15" id="Exb-bd-lwS"/>
+                <constraint firstItem="Q1h-V4-802" firstAttribute="top" secondItem="OlR-SB-HBf" secondAttribute="bottom" constant="15" id="FIQ-hT-rb2"/>
+                <constraint firstAttribute="trailing" secondItem="Q1h-V4-802" secondAttribute="trailing" constant="15" id="G5z-7b-PXp"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="top" secondItem="FwO-3a-CyI" secondAttribute="bottom" constant="12" id="GnP-Vr-OXY"/>
                 <constraint firstItem="OlR-SB-HBf" firstAttribute="leading" secondItem="YSb-Xn-8PN" secondAttribute="leading" id="HfF-iJ-lop"/>
                 <constraint firstItem="M3B-2h-KXU" firstAttribute="trailing" secondItem="YSb-Xn-8PN" secondAttribute="trailing" constant="-17" id="JbE-Hg-Q4y"/>
@@ -131,7 +154,9 @@
                 <constraint firstItem="M3B-2h-KXU" firstAttribute="baseline" secondItem="FwO-3a-CyI" secondAttribute="baseline" id="npX-QM-qHk"/>
                 <constraint firstItem="FwO-3a-CyI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="o8E-Pn-LY0"/>
                 <constraint firstItem="NBh-KZ-1wa" firstAttribute="trailing" secondItem="M3B-2h-KXU" secondAttribute="trailing" id="sgv-cJ-U5y"/>
+                <constraint firstItem="Q1h-V4-802" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="vrG-qB-7p5"/>
                 <constraint firstItem="YSb-Xn-8PN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="vtp-tW-B7Y"/>
+                <constraint firstAttribute="trailing" secondItem="3zO-gL-REH" secondAttribute="trailing" constant="15" id="x5T-O9-VmT"/>
                 <constraint firstItem="xgN-eG-hpI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="x6N-gg-zMa"/>
             </constraints>
             <point key="canvasLocation" x="-52" y="117"/>
