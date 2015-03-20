@@ -284,6 +284,7 @@
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
+		B1931FD81ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */; };
 		B198C18E1AA6E11C0098B9A1 /* BankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B198C18D1AA6E11C0098B9A1 /* BankModel.m */; };
 		B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */; };
 		B1B350251AAA978800D574E3 /* CheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B350241AAA978800D574E3 /* CheckmarkView.m */; };
@@ -838,6 +839,9 @@
 		B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailShopVC.h; sourceTree = "<group>"; };
 		B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailShopVC.m; sourceTree = "<group>"; };
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
+		B1931FD41ABBEB9D00138B13 /* cunqianguan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = cunqianguan.entitlements; sourceTree = "<group>"; };
+		B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
+		B1931FD71ABBECF500138B13 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		B198C18C1AA6E11C0098B9A1 /* BankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankModel.h; sourceTree = "<group>"; };
 		B198C18D1AA6E11C0098B9A1 /* BankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankModel.m; sourceTree = "<group>"; };
 		B19F8B871AA6C29E004BF6FC /* CalenderDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderDayView.h; sourceTree = "<group>"; };
@@ -928,6 +932,7 @@
 				B15DC8BD1A8DBFD100298C7D /* CoreTelephony.framework in Frameworks */,
 				B15DC8BB1A8DBFC700298C7D /* libsqlite3.dylib in Frameworks */,
 				B15DC8B91A8DBFB600298C7D /* CoreGraphics.framework in Frameworks */,
+				B1931FD81ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
 				B15DC8B71A8DBFA900298C7D /* SystemConfiguration.framework in Frameworks */,
 				B15DC8B51A8DBF9E00298C7D /* libiconv.dylib in Frameworks */,
 				B15DC8B31A8DBF9200298C7D /* Security.framework in Frameworks */,
@@ -1153,6 +1158,7 @@
 		B14071351A6CAFF700D1792F /* cunqianguan */ = {
 			isa = PBXGroup;
 			children = (
+				B1931FD41ABBEB9D00138B13 /* cunqianguan.entitlements */,
 				B14071851A6CCD6D00D1792F /* Class */,
 				B140715C1A6CC50400D1792F /* Common */,
 				B140713A1A6CAFF700D1792F /* AppDelegate.h */,
@@ -1216,6 +1222,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B1931FD51ABBECF500138B13 /* UMessage_Sdk_1.1.0 */,
 				B1E2B8811AB2897300D0FCA5 /* SBSearchBar */,
 				B10A14931AAFE272002DD2D7 /* GMDCircleLoader */,
 				48913D8E1AAF1F8500DEA83C /* PopView */,
@@ -2223,6 +2230,15 @@
 			path = Invite;
 			sourceTree = "<group>";
 		};
+		B1931FD51ABBECF500138B13 /* UMessage_Sdk_1.1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */,
+				B1931FD71ABBECF500138B13 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.1.0;
+			sourceTree = "<group>";
+		};
 		B1B350291AAAA0ED00D574E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2372,6 +2388,14 @@
 					B14071321A6CAFF700D1792F = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = LZ6S2F8336;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -2878,6 +2902,7 @@
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/TencentWeibo",
+					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMessage_Sdk_1.1.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2914,6 +2939,7 @@
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/TencentWeibo",
+					"$(PROJECT_DIR)/cunqianguan/Common/ThirdPart/UMessage_Sdk_1.1.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

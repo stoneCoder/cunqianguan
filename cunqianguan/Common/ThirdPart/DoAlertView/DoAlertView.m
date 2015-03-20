@@ -7,7 +7,7 @@
 
 #import "DoAlertView.h"
 #import "UIImage+ResizeMagick.h"    //  Created by Vlad Andersen on 1/5/13.
-
+#import "BaseUtil.h"
 #pragma mark - DoAlertViewController
 
 @interface DoAlertViewController : UIViewController
@@ -257,6 +257,7 @@
         btNo.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [btNo setTitle:_otherTitle forState:UIControlStateNormal];
         [btNo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btNo setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xececec)] forState:UIControlStateHighlighted];
         [btNo addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
         
         [_vAlert addSubview:btNo];
@@ -276,6 +277,7 @@
         btYes.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [btYes setTitle:_cancleTitle forState:UIControlStateNormal];
         [btYes setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btYes setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xececec)] forState:UIControlStateHighlighted];
         [btYes addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
         
         [_vAlert addSubview:btYes];
@@ -385,6 +387,7 @@
         btNo.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [btNo setTitle:_otherTitle forState:UIControlStateNormal];
         [btNo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btNo setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xececec)] forState:UIControlStateHighlighted];
         [btNo addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
         
         [_vAlert addSubview:btNo];
@@ -404,6 +407,7 @@
         btYes.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [btYes setTitle:_cancleTitle forState:UIControlStateNormal];
         [btYes setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btYes setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xececec)] forState:UIControlStateHighlighted];
         [btYes addTarget:self action:@selector(buttonTarget:) forControlEvents:UIControlEventTouchUpInside];
         
         [_vAlert addSubview:btYes];

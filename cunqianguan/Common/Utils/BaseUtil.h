@@ -52,6 +52,9 @@
 + (BOOL)isInstallApp:(NSString *)url;
 
 + (int)getRandomNumber:(int)from to:(int)to;
+
+#pragma mark  transform Color to Image
++ (UIImage *)imageWithColor:(UIColor *)color;
 @end
 
 

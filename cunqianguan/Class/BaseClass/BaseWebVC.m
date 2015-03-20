@@ -71,11 +71,11 @@
         NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
         if (type < 4) {
             __block NSString *productId = [TBUrlUtil getTBItemId:accesUrl];
-            if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
-            }else{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
-            }
+//            if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+//                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+//            }else{
+//                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
+//            }
             if (!_isAddTrance) {
                 if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
                     productId = [NSString stringWithFormat:@"0_%@",productId];
@@ -83,7 +83,7 @@
                     productId = [NSString stringWithFormat:@"999_%@",productId];
                 }
                 //添加足迹
-                [self addTrace:userId WithProduct:productId andType:type inView:webView];
+                [self addTrace:userId WithProduct:productId andType:type finalUrl:accesUrl inView:webView];
             }
         }else{
             //天天特价
@@ -113,6 +113,7 @@
         }
 
     }else{
+        /*本地跳转系统自动加入足迹*/
         NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
         if (type < 4) {
             [_info saveTraceFlag:@"YES"];
@@ -121,13 +122,15 @@
             }else{
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
             }
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
         }
     }
     [self hideAllHUD];
 }
 
 #pragma mark -- Private 添加足迹
--(void)addTrace:(NSString *)userId WithProduct:(NSString *)productId andType:(NSInteger)type inView:(UIWebView *)webView
+-(void)addTrace:(NSString *)userId WithProduct:(NSString *)productId andType:(NSInteger)type finalUrl:(NSString *)accesUrl inView:(UIWebView *)webView
 {
     //添加足迹
     [[FootConnect sharedFootConnect] addTrace:userId withGoodKey:productId success:^(id json) {
@@ -136,14 +139,17 @@
             //添加足迹成功
             _isAddTrance = YES;
             [_info saveTraceFlag:@"YES"];
+            if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+            }
         }else{
             //添加足迹失败
             //访问淘宝
             if (type == TB_ORI_DETAIL_URL || type == TB_REBATE_FINAL_DETAIL_URL) {
-                [self addTaobaoTrace:userId WithProduct:productId];
+                [self addTaobaoTrace:userId WithProduct:productId type:type andFinalUrl:accesUrl];
             }else if (type == TM_ORI_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL){
                 //访问天猫
-                [self addTmallTrace:userId WithProduct:productId inView:webView];
+                [self addTmallTrace:userId WithProduct:productId type:type andFinalUrl:accesUrl inView:webView];
             }
         }
     } failure:^(NSError *err) {
@@ -152,7 +158,7 @@
 }
 
 #pragma mark -- 添加淘宝足迹
--(void)addTaobaoTrace:(NSString *)userId WithProduct:(NSString *)productId
+-(void)addTaobaoTrace:(NSString *)userId WithProduct:(NSString *)productId type:(NSInteger)type andFinalUrl:(NSString *)accesUrl
 {
     //获取淘宝产品信息
     [[FootConnect sharedFootConnect] getTaobaoProductInfo:productId success:^(id json) {
@@ -173,6 +179,11 @@
                     if ([BaseConnect isSucceeded:dic]) {
                         _isAddTrance = YES;
                         [_info saveTraceFlag:@"YES"];
+                        if (type == TB_REBATE_FINAL_DETAIL_URL) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+                        }
+                    }else{
+                         [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
                     }
                 } failure:^(NSError *err) {
                     
@@ -185,7 +196,7 @@
 }
 
 #pragma mark -- 添加天猫足迹
--(void)addTmallTrace:(NSString *)userId WithProduct:(NSString *)productId inView:(UIWebView *)webView
+-(void)addTmallTrace:(NSString *)userId WithProduct:(NSString *)productId type:(NSInteger)type andFinalUrl:(NSString *)accesUrl inView:(UIWebView *)webView
 {
     NSString *price = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('ui-yen')[0].innerHTML"];
     price = [price substringFromIndex:1];
@@ -196,11 +207,15 @@
         if ([BaseConnect isSucceeded:dic]) {
             _isAddTrance = YES;
             [_info saveTraceFlag:@"YES"];
+            if (type == TM_REBATE_FINAL_DETAIL_URL) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
+            }
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
         }
     } failure:^(NSError *err) {
         
     }];
-
 }
 
 /*

@@ -117,6 +117,7 @@
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
 {
     NSString *defaultImageName = @"back";
+    NSString *defaulthighlightImageName = @"back_hover";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     CGRect btnFrame;
     NSString * btnTitleStr=aTitle;
@@ -134,6 +135,8 @@
     [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
     if (highlightImage) {
         [button setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateHighlighted];
+    }else{
+        [button setImage:[UIImage imageNamed:defaulthighlightImageName] forState:UIControlStateHighlighted];
     }
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

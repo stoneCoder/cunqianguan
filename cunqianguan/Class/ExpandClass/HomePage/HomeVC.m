@@ -210,7 +210,7 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     
-    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 160) collectionViewLayout:flowLayout];
+    _gridMenu = [[GridMenu alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 180) collectionViewLayout:flowLayout];
     _gridMenu.backgroundColor = [UIColor whiteColor];
     _gridMenu.dataSource = _gridMenu;
     _gridMenu.delegate = _gridMenu;

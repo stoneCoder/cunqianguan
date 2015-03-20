@@ -19,7 +19,7 @@ DEFINE_SINGLETON_FOR_CLASS(BMAlert)
 {
     DoAlertView *alertView = [[DoAlertView alloc] init];
     alertView.nAnimationType = DoTransitionStyleFade;
-    alertView.dRound = 2.0;
+    alertView.dRound = 10.0;
     alertView.bDestructive = NO;
     if (!other) {
         [alertView doYesNo:@"提示" body:aMessage cancleButton:@"确定" yes:^(DoAlertView *alertView) {
@@ -39,7 +39,7 @@ DEFINE_SINGLETON_FOR_CLASS(BMAlert)
 {
     DoAlertView *alertView = [[DoAlertView alloc] init];
     alertView.nAnimationType = DoTransitionStyleFade;
-    alertView.dRound = 2.0;
+    alertView.dRound = 10.0;
     alertView.bDestructive = NO;
     [alertView doTextFieldYesNo:@"提示" placeholder:placeholderText cancleButton:@"确定" otherButton:@"取消" yes:^(DoAlertView *alertView) {
         cancle(alertView);

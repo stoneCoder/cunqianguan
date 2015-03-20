@@ -7,7 +7,7 @@
 //
 
 #import "BaseNC.h"
-
+#import "BaseUtil.h"
 @interface BaseNC ()
 
 @end
@@ -30,23 +30,35 @@
         [self setNeedsStatusBarAppearanceUpdate];
     }
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationBar setBarTintColor:UIColorFromRGB(0x4DD8CB)];
 
-//    if (iOS7) {
-//         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg_ios7"] forBarMetrics:UIBarMetricsDefault];
-//
-//    } else {
-//         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"title_bg"] forBarMetrics:UIBarMetricsDefault];
-//         self.navigationBar.barTintColor = [UIColor redColor];
-//    }
-   
+    if (iOS7) {
+        [self.navigationBar setBarTintColor:UIColorFromRGB(0x58DED4)];
+        self.navigationController.navigationBar.translucent = NO;
+    }else{
+        [self.navigationController.navigationBar setTintColor:UIColorFromRGB(0x58DED4)];
+    }
+    
+    /*去掉navigationBar底部阴影*/
+    [self.navigationBar.subviews enumerateObjectsUsingBlock:^(UIView *v, NSUInteger idx, BOOL *stop) {
+        if ([NSStringFromClass([v class]) rangeOfString:@"BarBackground"].location != NSNotFound) {
+            [v.subviews enumerateObjectsUsingBlock:^(UIView *v, NSUInteger idx, BOOL *stop) {
+                if ([v isKindOfClass:[UIImageView class]]) {
+                    if (CGRectGetHeight(v.bounds) == 0.5) {
+                        [v removeFromSuperview];
+                        *stop = YES;
+                    }
+                }
+            }];
+            *stop = YES;
+        }
+    }];
 }
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
+
 - (BOOL)prefersStatusBarHidden
 {
     return NO;
