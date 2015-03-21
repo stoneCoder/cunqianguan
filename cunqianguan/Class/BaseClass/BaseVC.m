@@ -141,7 +141,7 @@
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
     

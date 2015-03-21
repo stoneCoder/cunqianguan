@@ -290,10 +290,11 @@
 
 -(void)inviteFriend
 {
-    InviteVC *inviteVC = [[InviteVC alloc] init];
-    inviteVC.leftTitle = @"邀请好友";
-    [self.navigationController pushViewController:inviteVC animated:YES];
-
+    [_info isLoginWithPresent:^(BOOL flag) {
+        InviteVC *inviteVC = [[InviteVC alloc] init];
+        inviteVC.leftTitle = @"邀请好友";
+        [self.navigationController pushViewController:inviteVC animated:YES];
+    } WithType:YES];
 }
 
 /*
@@ -312,7 +313,7 @@
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 10.0;
     
@@ -397,7 +398,7 @@
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 10.0;
     [flowLayout setHeaderReferenceSize:CGSizeMake(320, 180)];

@@ -82,6 +82,7 @@
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName
 {
     NSString *defaultImageName = @"back";
+    NSString *defaulthighlightImageName = @"back_hover";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     CGRect btnFrame;
     NSString * btnTitleStr=aTitle;
@@ -97,11 +98,11 @@
     }
     [button setFrame:btnFrame];
     [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
-    //[button setBackgroundImage:[UIImage imageNamed:@"title_left_btn_sel"] forState:UIControlStateHighlighted];
+    [button setImage:[UIImage imageNamed:defaulthighlightImageName] forState:UIControlStateHighlighted];
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];

@@ -118,7 +118,7 @@
 
 -(void)loadData:(NSString *)key
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
     [[MongoConnect sharedMongoConnect] getGoodsDetail:key WithUserId:_info.userId success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -128,7 +128,7 @@
             [self loadWebView:_model.fan_url];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
     }];
 }
 

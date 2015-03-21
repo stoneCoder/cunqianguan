@@ -41,7 +41,7 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     [self.window makeKeyAndVisible];
     
     [self setUpUMengSDK];
-    //[self setupUMessage];
+    [self setupUMessage];
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"showGuide"]) {
         GuideVC *guideVC = [[GuideVC alloc] initWithNibName:nil bundle:nil];

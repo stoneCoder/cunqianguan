@@ -13,9 +13,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8W-Fi-9xr">
-                    <rect key="frame" x="222" y="27" width="12" height="12"/>
+                    <rect key="frame" x="222" y="22" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="g8W-Fi-9xr" secondAttribute="height" multiplier="1:1" id="6nd-zc-Bgp"/>
+                        <constraint firstAttribute="width" secondItem="g8W-Fi-9xr" secondAttribute="height" multiplier="1:1" id="MPv-Si-1RF"/>
                     </constraints>
                     <state key="normal" image="tip">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,14 +49,13 @@
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="j8i-4x-9Hl" secondAttribute="trailing" constant="2" id="3bs-DZ-PVa"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="top" secondItem="j8i-4x-9Hl" secondAttribute="bottom" constant="-14" id="Cps-7M-0ad"/>
-                <constraint firstAttribute="centerX" secondItem="j8i-4x-9Hl" secondAttribute="centerX" constant="6.5" id="Loe-Hn-OEt"/>
+                <constraint firstAttribute="centerY" secondItem="j8i-4x-9Hl" secondAttribute="centerY" constant="27" id="24y-C8-4Lc"/>
+                <constraint firstItem="j8i-4x-9Hl" firstAttribute="centerY" secondItem="g8W-Fi-9xr" secondAttribute="centerY" id="T36-Ap-bnT"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="XNS-Rn-djZ"/>
-                <constraint firstItem="g8W-Fi-9xr" firstAttribute="centerY" secondItem="j8i-4x-9Hl" secondAttribute="centerY" id="eiB-6Y-qm1"/>
+                <constraint firstAttribute="centerX" secondItem="j8i-4x-9Hl" secondAttribute="centerX" constant="6.5" id="d0f-No-9OE"/>
+                <constraint firstItem="g8W-Fi-9xr" firstAttribute="leading" secondItem="j8i-4x-9Hl" secondAttribute="trailing" constant="2" id="hzj-JI-tnC"/>
                 <constraint firstItem="ynq-Oz-Jjy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m59-02-3hJ"/>
                 <constraint firstAttribute="bottom" secondItem="ynq-Oz-Jjy" secondAttribute="bottom" constant="10" id="sYF-B8-IVX"/>
-                <constraint firstAttribute="centerY" secondItem="j8i-4x-9Hl" secondAttribute="centerY" constant="27.5" id="vPR-fU-we1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

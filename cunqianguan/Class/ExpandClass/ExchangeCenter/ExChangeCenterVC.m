@@ -27,6 +27,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
     PersonInfo *_info;
     NSInteger _type;
     NSInteger _able;
+    BOOL _firstLoad;
 }
 
 - (void)viewDidLoad {
@@ -49,7 +50,9 @@ static NSString *  collectionCellID=@"ExChangeCell";
     }else{
         _able = 0;
     }
-    [self showLoaderView:self.collectionView];
+    if (!_firstLoad) {
+        [self showLoaderView:self.collectionView];
+    }
     [self loadDataWithId:userId andPage:_pageNum];
     
 }
@@ -85,6 +88,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
                 self.defaultEmptyView.emptydetailInfoLabel.text = @"购物和签到均可获得积分哦";
                 self.collectionView.hidden = YES;
             }
+            _firstLoad = YES;
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
@@ -109,7 +113,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 10, 250);
+    return CGSizeMake(VIEW_WIDTH/2 - 15, 250);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

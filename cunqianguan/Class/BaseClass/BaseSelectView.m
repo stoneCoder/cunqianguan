@@ -32,11 +32,11 @@
     return self;
 }
 
--(void)initView:(NSArray *)btnArray
+-(void)initView:(NSArray *)btnArray andVisiableY:(CGFloat)visiableY
 {
     CGFloat width = self.frame.size.width;
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
-    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, heigth)];
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, heigth)];
     [self createBtnWithArray:btnArray];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];

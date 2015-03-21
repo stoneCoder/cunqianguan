@@ -18,6 +18,8 @@
 #import "BaseConnect.h"
 #import "MongoListModel.h"
 
+#import "BaseUtil.h"
+
 static NSString *  collectionCellID=@"GoodsCell";
 static NSString *  collectionHeadID=@"GoodsSectionView";
 @interface ReturnHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate,GoodsSectionViewDelagate>
@@ -101,7 +103,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 -(void)viewWillAppear:(BOOL)animated
 {
     if(headerView.selectCell){
-        headerView.selectCell.backgroundColor = [UIColor whiteColor];
+        headerView.selectCell.selected = NO;
     }
 }
 
@@ -125,7 +127,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 10, 250);
+    return CGSizeMake(VIEW_WIDTH/2 - 15, 250);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -161,7 +163,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 10.0;
         

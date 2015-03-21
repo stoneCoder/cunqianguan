@@ -18,12 +18,42 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
                  goodKey:(NSString *)goodKey
                andUserId:(NSString *)userId
 {
-    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:imageUrl];
-    [UMSocialData defaultData].extConfig.qqData.url = SHARE_QQ_URL(goodKey,userId);
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = SHARE_WC_URL(goodKey,userId);
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = SHARE_QQ_URL(goodKey,userId);
+    NSString *first;
+    if ([goodKey rangeOfString:@"_"].location != NSNotFound) {
+        first = [goodKey componentsSeparatedByString:@"_"][0];
+        goodKey = [goodKey componentsSeparatedByString:@"_"][1];
+    }
+    NSString *shareQQURL = SHARE_QQ_URL(goodKey,userId);
+    NSString *shareWCURL = SHARE_WC_URL(goodKey,userId);
+    NSString *shareWXURL = SHARE_WX_URL(goodKey,userId);
     NSString *shareWebText = SHARE_WB_URL(goodKey, userId);
-    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@%@",content,shareWebText];
+    
+    if ([first integerValue] == 1000 ) { //1000聚优惠
+        shareQQURL = SHARE_QQ_JYH_URL(goodKey, userId);
+        shareWCURL = SHARE_WC_JYH_URL(goodKey, userId);
+        shareWXURL = SHARE_WX_JYH_URL(goodKey, userId);
+        shareWebText = SHARE_WB_JYH_URL(goodKey, userId);
+    }
+    
+    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:imageUrl];
+    
+    /*QQ*/
+    [UMSocialData defaultData].extConfig.qqData.url = shareQQURL;
+    //[UMSocialData defaultData].extConfig.qqData.title = SHARE_TITLE(11.0f,11.0f);
+    [UMSocialData defaultData].extConfig.qqData.shareText = SHARE_CONTENT;
+    
+    /*微信好友*/
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = shareWCURL;
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = SHARE_WX_TITLE;
+    [UMSocialData defaultData].extConfig.wechatSessionData.shareText = SHARE_WX_CONTENT;
+    
+    /*微信朋友圈*/
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareWXURL;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = SHARE_WX_TITLE;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = SHARE_WX_CONTENT;
+    
+    /*微博*/
+    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@%@",SHARE_CONTENT,shareWebText];
     
         //修改集成面板数据
 //        UMSocialSnsPlatform *sinaPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];

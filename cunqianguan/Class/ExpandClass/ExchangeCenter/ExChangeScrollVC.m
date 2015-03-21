@@ -67,7 +67,7 @@
     for (int i = 0; i < _titleArray.count; i++) {
         UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = 10.0;
         

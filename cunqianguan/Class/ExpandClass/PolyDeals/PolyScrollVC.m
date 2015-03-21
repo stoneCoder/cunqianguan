@@ -83,7 +83,7 @@
     for (int i = 0; i < _btnArray.count; i++) {
         UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = 10.0;
         
@@ -98,8 +98,8 @@
 
 -(void)setUpSelectView
 {
-    _selectView = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, _navScrollV.frame.size.height + _navScrollV.frame.origin.y, VIEW_WIDTH, VIEW_HEIGHT)];
-    [_selectView initView:_btnArray];
+    _selectView = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
+    [_selectView initView:_btnArray andVisiableY:_navScrollV.frame.size.height + _navScrollV.frame.origin.y];
     _selectView.delegate = self;
     [_selectView setSelectIndex:_currentIndex];
     [_selectView setHidden:YES];

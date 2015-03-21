@@ -20,25 +20,32 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - MBProgressHUD (0.9)
+  - MBProgressHUD (0.9.1)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - Reachability (3.2)
   - RNCryptor (2.2)
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core (= 3.7.1)
-  - SDWebImage/Core (3.7.1)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4.1)
   - MBProgressHUD (~> 0.9)
+  - NJKWebViewProgress (~> 0.2.3)
   - Reachability (~> 3.2)
   - RNCryptor (~> 2.2)
   - SDWebImage (~> 3.7.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
+  NJKWebViewProgress: 721b57080c840c76f70ff6c2dda4f836ee1b27c1
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   RNCryptor: 4f562062c39f288b99601674f2c50dd44b68d58a
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
 COCOAPODS: 0.35.0

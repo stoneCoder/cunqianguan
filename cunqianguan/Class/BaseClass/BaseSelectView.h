@@ -13,7 +13,7 @@
 @interface BaseSelectView : BaseView
 @property (strong,nonatomic) id<BaseSelectViewDelegate> delegate;
 @property (assign,nonatomic) NSInteger selectIndex;
--(void)initView:(NSArray *)btnArray;
+-(void)initView:(NSArray *)btnArray andVisiableY:(CGFloat)visiableY;
 -(void)showView;
 -(void)hideView;
 @end

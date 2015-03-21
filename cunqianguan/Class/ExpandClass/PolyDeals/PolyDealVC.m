@@ -11,7 +11,6 @@
 #import "TouchPropagatedScrollView.h"
 #import "BaseSegment.h"
 
-#import "BaseSelectView.h"
 #import "PolyGoodsRootVC.h"
 
 #import "BaseConnect.h"
@@ -27,6 +26,7 @@
     NSInteger _pageNum;
     NSInteger _category;
     PersonInfo *_info;
+    BOOL _firstLoad;
 }
 
 @end
@@ -47,7 +47,9 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 {
     [_data removeAllObjects];
     _category = index;
-    [self showLoaderView:self.collectionView];
+    if (!_firstLoad) {
+        [self showLoaderView:self.collectionView];
+    }
     [self loadDataWith:_category andPage:1];
 }
 
@@ -76,6 +78,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
                 [_data removeAllObjects];
             }
             [_data addObjectsFromArray:_listModel.data];
+            _firstLoad = YES;
             [self.collectionView reloadData];
         }
     } failure:^(NSError *err) {
@@ -112,7 +115,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 10, 250);
+    return CGSizeMake(VIEW_WIDTH/2 - 15, 250);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

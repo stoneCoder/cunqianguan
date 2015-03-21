@@ -33,7 +33,7 @@
     btns = [[NSMutableArray alloc] init];
     views = [[NSMutableArray alloc] init];
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = UIColorFromRGB(0x49c6db);
+    view.backgroundColor = UIColorFromRGB(0x58DED4);
     [self addSubview:view];
     self.lineView = view;
 }
@@ -61,7 +61,7 @@
     for (int i = 0; i < items.count; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
-        [btn setTitleColor:UIColorFromRGB(0x49c6db) forState:UIControlStateSelected];
+        [btn setTitleColor:UIColorFromRGB(0x58DED4) forState:UIControlStateSelected];
         [btn setTitleColor:UIColorFromRGB(0x464646) forState:UIControlStateNormal];
         [btn setTitle:items[i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:16];

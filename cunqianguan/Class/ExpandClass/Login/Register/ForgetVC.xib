@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -45,25 +45,24 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_password" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-4C-UoE">
                     <rect key="frame" x="103" y="51" width="114" height="82"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Cis-4C-UoE" secondAttribute="height" multiplier="57:41" id="DCL-EQ-WDv"/>
+                        <constraint firstAttribute="width" secondItem="Cis-4C-UoE" secondAttribute="height" multiplier="57:41" id="Vk4-R9-8Mi"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Cis-4C-UoE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="1Fg-CA-jYD"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4ag-s8-8s0"/>
                 <constraint firstItem="XqJ-fm-Fww" firstAttribute="top" secondItem="3jP-x8-BFW" secondAttribute="bottom" constant="16" id="5vk-kn-Vp6"/>
+                <constraint firstItem="3jP-x8-BFW" firstAttribute="top" secondItem="Cis-4C-UoE" secondAttribute="bottom" constant="27" id="EbT-GN-bKc"/>
                 <constraint firstItem="Psv-wn-GcH" firstAttribute="centerX" secondItem="3jP-x8-BFW" secondAttribute="centerX" id="IvO-KD-IJP"/>
-                <constraint firstItem="3jP-x8-BFW" firstAttribute="top" secondItem="Cis-4C-UoE" secondAttribute="bottom" constant="27" id="JTj-ah-CZf"/>
+                <constraint firstAttribute="centerX" secondItem="Cis-4C-UoE" secondAttribute="centerX" id="TLo-rN-lz1"/>
                 <constraint firstItem="Psv-wn-GcH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="Trp-Bs-ZVU"/>
                 <constraint firstItem="XqJ-fm-Fww" firstAttribute="top" secondItem="Psv-wn-GcH" secondAttribute="bottom" constant="23" id="UCG-eH-jXr"/>
-                <constraint firstAttribute="trailing" secondItem="Cis-4C-UoE" secondAttribute="trailing" constant="103" id="Whh-yd-fOt"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="leading" secondItem="XqJ-fm-Fww" secondAttribute="leading" id="bxu-h3-Zif"/>
-                <constraint firstItem="Cis-4C-UoE" firstAttribute="centerX" secondItem="Psv-wn-GcH" secondAttribute="centerX" id="hk3-zB-1uF"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="trailing" secondItem="XqJ-fm-Fww" secondAttribute="trailing" id="sgw-N9-52g"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="centerY" secondItem="Psv-wn-GcH" secondAttribute="centerY" id="tKp-0H-Zgu"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="tSZ-65-bD6"/>
+                <constraint firstAttribute="centerY" secondItem="Cis-4C-UoE" secondAttribute="centerY" constant="182" id="ybD-Gu-WJz"/>
             </constraints>
             <point key="canvasLocation" x="242" y="130"/>
         </view>

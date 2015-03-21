@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0E-DB-ISh">
                         <rect key="frame" x="22" y="34" width="56" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="M0E-DB-ISh" secondAttribute="height" multiplier="14:5" id="y3t-nh-2V8"/>
+                            <constraint firstAttribute="width" secondItem="M0E-DB-ISh" secondAttribute="height" multiplier="14:5" id="cpa-eF-Sfk"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高返利100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVr-0b-B81">
@@ -35,18 +35,18 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="NVr-0b-B81" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="LRL-s1-7vW"/>
-                <constraint firstItem="NVr-0b-B81" firstAttribute="top" secondItem="M0E-DB-ISh" secondAttribute="bottom" constant="6" id="fpB-Fu-JNf"/>
-                <constraint firstItem="M0E-DB-ISh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="34" id="grf-tA-iaq"/>
-                <constraint firstAttribute="trailing" secondItem="M0E-DB-ISh" secondAttribute="trailing" constant="22" id="njD-IM-8tk"/>
+                <constraint firstAttribute="centerX" secondItem="M0E-DB-ISh" secondAttribute="centerX" id="fHt-Ve-fqb"/>
+                <constraint firstItem="NVr-0b-B81" firstAttribute="top" secondItem="M0E-DB-ISh" secondAttribute="bottom" constant="6" id="lxQ-B5-0bN"/>
+                <constraint firstAttribute="centerY" secondItem="M0E-DB-ISh" secondAttribute="centerY" constant="6" id="nu5-ye-ZgU"/>
+                <constraint firstAttribute="bottom" secondItem="NVr-0b-B81" secondAttribute="bottom" constant="20" id="xka-It-ctG"/>
                 <constraint firstAttribute="trailing" secondItem="NVr-0b-B81" secondAttribute="trailing" constant="4" id="yuj-cU-Wae"/>
-                <constraint firstItem="M0E-DB-ISh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="zws-wj-lqA"/>
             </constraints>
             <size key="customSize" width="127" height="100"/>
             <connections>
                 <outlet property="infoLabel" destination="NVr-0b-B81" id="E5W-lZ-kms"/>
                 <outlet property="logoImageView" destination="M0E-DB-ISh" id="ruI-qB-eh1"/>
             </connections>
-            <point key="canvasLocation" x="296" y="597"/>
+            <point key="canvasLocation" x="342" y="495"/>
         </collectionViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -202,6 +202,15 @@
     [self loadTableData:_menuIdArray[index]];
 }
 
+//-(UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//    [super hitTest:point withEvent:event];
+//    NSLog(@"======%@",NSStringFromCGPoint(point));
+//    if (CGRectContainsPoint(CGRectMake(-6, -6, 36, 36), point)) {
+//        return self;
+//    }
+//    return nil;
+//}
+
 #pragma mark -- UITableViewDelegate && UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

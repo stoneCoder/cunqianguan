@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -75,7 +75,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_2" translatesAutoresizingMaskIntoConstraints="NO" id="vYZ-gk-Rc2">
                     <rect key="frame" x="147" y="12" width="27" height="27"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="vYZ-gk-Rc2" secondAttribute="height" multiplier="1:1" id="Lhg-g6-8fr"/>
+                        <constraint firstAttribute="width" secondItem="vYZ-gk-Rc2" secondAttribute="height" multiplier="1:1" id="b9W-KM-oi2"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_1" translatesAutoresizingMaskIntoConstraints="NO" id="X2Y-Qf-7QS">
@@ -99,19 +99,19 @@
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="centerY" secondItem="hwe-rx-I25" secondAttribute="centerY" id="M5S-ID-Kf8"/>
                 <constraint firstItem="hwe-rx-I25" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TRY-VY-LJQ"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="width" secondItem="PUN-Tu-qfA" secondAttribute="width" id="brr-Ss-Wxh"/>
-                <constraint firstItem="X2Y-Qf-7QS" firstAttribute="centerY" secondItem="vYZ-gk-Rc2" secondAttribute="centerY" id="cc6-kJ-7Xm"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="centerY" secondItem="PUN-Tu-qfA" secondAttribute="centerY" id="eD7-8k-8Cq"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="hom-4a-3HA"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="width" secondItem="hwe-rx-I25" secondAttribute="width" id="jI5-Vm-xuG"/>
                 <constraint firstItem="T3x-Yc-bXm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="k8V-EZ-b1e"/>
                 <constraint firstAttribute="trailing" secondItem="PUN-Tu-qfA" secondAttribute="trailing" constant="16" id="lLn-7Y-y69"/>
-                <constraint firstItem="hwe-rx-I25" firstAttribute="centerX" secondItem="vYZ-gk-Rc2" secondAttribute="centerX" constant="-0.5" id="pia-RM-n9K"/>
+                <constraint firstItem="vYZ-gk-Rc2" firstAttribute="centerY" secondItem="X2Y-Qf-7QS" secondAttribute="centerY" id="lRJ-yc-VLs"/>
                 <constraint firstAttribute="bottom" secondItem="p1L-e7-cG9" secondAttribute="bottom" constant="11" id="pk1-H9-pBH"/>
                 <constraint firstItem="PUN-Tu-qfA" firstAttribute="leading" secondItem="hwe-rx-I25" secondAttribute="trailing" constant="12" id="qbw-sn-bXS"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="centerX" secondItem="X2Y-Qf-7QS" secondAttribute="centerX" constant="-0.5" id="rQS-LP-Mzf"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="height" secondItem="hwe-rx-I25" secondAttribute="height" id="sm3-hK-6B0"/>
                 <constraint firstItem="T3x-Yc-bXm" firstAttribute="centerX" secondItem="PUN-Tu-qfA" secondAttribute="centerX" constant="0.5" id="vGD-NS-J0s"/>
                 <constraint firstItem="p1L-e7-cG9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="vc4-6q-XtB"/>
+                <constraint firstItem="vYZ-gk-Rc2" firstAttribute="centerX" secondItem="hwe-rx-I25" secondAttribute="centerX" constant="0.5" id="yGI-Wr-Oxv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -119,7 +119,7 @@
                 <outlet property="secondLabel" destination="tn0-Km-qzh" id="GF5-CZ-uIe"/>
                 <outlet property="thirdLabel" destination="yxh-6E-1dC" id="e8h-MY-nZd"/>
             </connections>
-            <point key="canvasLocation" x="572" y="260"/>
+            <point key="canvasLocation" x="140" y="316"/>
         </view>
     </objects>
     <resources>

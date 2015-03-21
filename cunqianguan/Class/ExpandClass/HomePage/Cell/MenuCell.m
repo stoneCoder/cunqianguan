@@ -7,11 +7,13 @@
 //
 
 #import "MenuCell.h"
+#import "BaseUtil.h"
 
 @implementation MenuCell
 
 - (void)awakeFromNib {
     // Initialization code
+    self.selectedBackgroundView = [[UIImageView alloc] initWithImage:[BaseUtil imageWithColor:UIColorFromRGB(0xececec)]];
 }
 
 @end

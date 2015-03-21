@@ -33,6 +33,13 @@
     [self hideReturnBtn];
     [self setUpNavBar];
     [self setUpWebView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNavBar) name:kWebUrlFinal object:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kWebUrlFinal object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

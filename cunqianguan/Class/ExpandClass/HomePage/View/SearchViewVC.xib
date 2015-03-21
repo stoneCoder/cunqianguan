@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -130,32 +130,29 @@
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="width" secondItem="8Lx-OE-IQH" secondAttribute="width" id="4VF-hv-iDj"/>
                         <constraint firstAttribute="width" secondItem="ouc-iO-1Ah" secondAttribute="height" multiplier="20:17" id="BzN-Rx-bUt"/>
                         <constraint firstAttribute="trailing" secondItem="Wma-PK-aNk" secondAttribute="trailing" constant="15" id="Chj-pd-5IC"/>
+                        <constraint firstItem="ToE-Go-Bu2" firstAttribute="centerX" secondItem="JYl-ue-RQ9" secondAttribute="centerX" constant="0.5" id="GBG-FR-IVL"/>
                         <constraint firstItem="d8I-or-pQn" firstAttribute="top" secondItem="kSj-yW-XBJ" secondAttribute="bottom" constant="16" id="GWF-rM-Dex"/>
-                        <constraint firstItem="JYl-ue-RQ9" firstAttribute="trailing" secondItem="ToE-Go-Bu2" secondAttribute="trailing" constant="30" id="Lpc-fa-CjY"/>
                         <constraint firstItem="kSj-yW-XBJ" firstAttribute="top" secondItem="ouc-iO-1Ah" secondAttribute="top" constant="26" id="TfZ-cL-6d7"/>
                         <constraint firstItem="ToE-Go-Bu2" firstAttribute="centerY" secondItem="CM5-92-mt8" secondAttribute="centerY" id="V1v-5W-dHu"/>
                         <constraint firstItem="Wma-PK-aNk" firstAttribute="leading" secondItem="ouc-iO-1Ah" secondAttribute="leading" constant="15" id="Vgu-cm-T6U"/>
                         <constraint firstItem="kSj-yW-XBJ" firstAttribute="leading" secondItem="ouc-iO-1Ah" secondAttribute="leading" constant="84" id="W9m-mg-zIM"/>
                         <constraint firstItem="Wma-PK-aNk" firstAttribute="top" secondItem="JYl-ue-RQ9" secondAttribute="bottom" constant="35" id="XRP-wC-HQ9"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="top" secondItem="kSj-yW-XBJ" secondAttribute="bottom" constant="31" id="XVx-zb-tI5"/>
-                        <constraint firstItem="d8I-or-pQn" firstAttribute="trailing" secondItem="8Lx-OE-IQH" secondAttribute="trailing" constant="-30" id="Xwb-k3-zIT"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="leading" secondItem="ouc-iO-1Ah" secondAttribute="leading" constant="16" id="aQR-z9-keN"/>
                         <constraint firstItem="49d-oR-tph" firstAttribute="centerY" secondItem="JaF-ox-TF6" secondAttribute="centerY" id="cWA-0q-9Bx"/>
                         <constraint firstItem="yIa-OS-Oaq" firstAttribute="bottom" secondItem="CM5-92-mt8" secondAttribute="bottom" constant="53" id="dlv-0R-o9a"/>
-                        <constraint firstItem="JYl-ue-RQ9" firstAttribute="leading" secondItem="ToE-Go-Bu2" secondAttribute="leading" constant="-31" id="ejq-Xz-83w"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="centerY" secondItem="8Lx-OE-IQH" secondAttribute="centerY" id="ekr-DZ-94i"/>
                         <constraint firstItem="yIa-OS-Oaq" firstAttribute="leading" secondItem="8Lx-OE-IQH" secondAttribute="trailing" constant="12" id="eyc-DY-4pq"/>
+                        <constraint firstItem="8Lx-OE-IQH" firstAttribute="centerX" secondItem="d8I-or-pQn" secondAttribute="centerX" constant="-0.5" id="gDi-mh-hoW"/>
                         <constraint firstItem="49d-oR-tph" firstAttribute="centerY" secondItem="M8Y-gD-XBk" secondAttribute="centerY" id="hTq-vr-ywI"/>
                         <constraint firstAttribute="trailing" secondItem="kSj-yW-XBJ" secondAttribute="trailing" constant="84" id="j37-5W-OAQ"/>
-                        <constraint firstItem="yIa-OS-Oaq" firstAttribute="leading" secondItem="CM5-92-mt8" secondAttribute="leading" constant="-31" id="jv8-pG-iaL"/>
                         <constraint firstItem="8Lx-OE-IQH" firstAttribute="leading" secondItem="JYl-ue-RQ9" secondAttribute="trailing" constant="12" id="m01-aG-XHB"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="height" secondItem="8Lx-OE-IQH" secondAttribute="height" id="nyQ-ft-HMU"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="width" secondItem="yIa-OS-Oaq" secondAttribute="width" id="oQH-H8-ejN"/>
                         <constraint firstItem="JYl-ue-RQ9" firstAttribute="centerY" secondItem="yIa-OS-Oaq" secondAttribute="centerY" id="oXr-sJ-gYG"/>
                         <constraint firstAttribute="trailing" secondItem="yIa-OS-Oaq" secondAttribute="trailing" constant="16" id="oqC-S9-IGV"/>
+                        <constraint firstItem="CM5-92-mt8" firstAttribute="centerX" secondItem="yIa-OS-Oaq" secondAttribute="centerX" constant="0.5" id="tUw-Xa-K05"/>
                         <constraint firstItem="ToE-Go-Bu2" firstAttribute="centerY" secondItem="d8I-or-pQn" secondAttribute="centerY" id="vSc-po-MgQ"/>
-                        <constraint firstItem="yIa-OS-Oaq" firstAttribute="trailing" secondItem="CM5-92-mt8" secondAttribute="trailing" constant="30" id="xNg-PC-yBv"/>
-                        <constraint firstItem="d8I-or-pQn" firstAttribute="leading" secondItem="8Lx-OE-IQH" secondAttribute="leading" constant="31" id="yCZ-11-j2u"/>
                     </constraints>
                 </view>
             </subviews>
@@ -165,7 +162,7 @@
                 <constraint firstItem="ouc-iO-1Ah" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iZl-PO-eL5"/>
                 <constraint firstAttribute="trailing" secondItem="ouc-iO-1Ah" secondAttribute="trailing" id="lYK-lx-qKA"/>
             </constraints>
-            <point key="canvasLocation" x="361" y="259"/>
+            <point key="canvasLocation" x="-23" y="334"/>
         </view>
     </objects>
     <resources>

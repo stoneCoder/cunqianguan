@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view from its nib.
     [self setUpWebView];
     [self loadWebView];
+    [self hideProgressView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,11 +56,12 @@
 #pragma mark -- UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self hideAllHUD];
+    [self hideLoaderView];
+    //[self hideAllHUD];
 }
 @end
