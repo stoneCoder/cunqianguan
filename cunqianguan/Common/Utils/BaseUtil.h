@@ -39,6 +39,7 @@
 + (NSArray *)readCityTxt;
 
 + (NSString*)encrypt:(NSString*)toBeEncString;
++ (NSString*)decrypt:(NSString*)toBeDecString;
 + (NSString *)hmac_sha1:(NSString *)data secret:(NSString *)key;
 
 + (NSString *)mathTime:(NSInteger)time;

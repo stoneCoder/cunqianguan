@@ -29,13 +29,13 @@
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqJ-fm-Fww">
-                    <rect key="frame" x="15" y="220" width="290" height="44"/>
+                    <rect key="frame" x="15" y="220" width="290" height="42"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="XqJ-fm-Fww" secondAttribute="height" multiplier="145:22" id="PWf-5d-YUU"/>
+                        <constraint firstAttribute="width" secondItem="XqJ-fm-Fww" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="PWf-5d-YUU"/>
                     </constraints>
                     <state key="normal" title="找回密码" backgroundImage="confirmation">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" backgroundImage="confirmation_hover"/>
                     <connections>

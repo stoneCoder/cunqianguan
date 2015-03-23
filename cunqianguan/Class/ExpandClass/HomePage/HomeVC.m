@@ -33,6 +33,7 @@
 #import "LoginVC.h"
 #import "BaseNC.h"
 
+#import "Constants.h"
 #import "BaseConnect.h"
 #import "HomeConnect.h"
 #import "AdListModel.h"
@@ -66,6 +67,8 @@
     [self hideReturnBtn];
     [self initNavBar];
     [self initScrollView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushPersonCenter:) name:kRegistFinish object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -91,6 +94,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kRegistFinish object:nil];
 }
 
 -(void)initNavBar
@@ -329,38 +333,31 @@
     switch (tapView.tag) {
         case 1000:
             //淘宝返利
-            tapView.backgroundColor = UIColorFromRGB(0xed961a);
             [self pushRebateHome];
             break;
         case 1001:
             //足迹
-            tapView.backgroundColor = UIColorFromRGB(0x10b5cd);
             [self pushFootPrints];
             break;
         case 1002:
             //聚优惠
-            tapView.backgroundColor = UIColorFromRGB(0xe83434);
             [self pushPolyHome];
             break;
         case 1003:
             //返利购
-            tapView.backgroundColor = UIColorFromRGB(0x12c2b3);
             [self pushReturnHome];
             break;
         case 1004:
             //兑换中心
-            tapView.backgroundColor = UIColorFromRGB(0x38c470);
             [self pushExChangeCenter];
             break;
         case 1005:
             //商城
-            tapView.backgroundColor = UIColorFromRGB(0x33a5c2);
             [self pushHotShop];
             break;
         case 1006:
             //我的
-            tapView.backgroundColor = UIColorFromRGB(0x5f8bcd);
-            [self pushPersonCenter];
+            [self pushPersonCenter:nil];
             break;
         default:
             break;
@@ -430,10 +427,16 @@
     } WithType:YES];
 }
 
--(void)pushPersonCenter
+-(void)pushPersonCenter:(NSNotification *)notification
 {
     PersonCenterVC *personVC = [[PersonCenterVC alloc] init];
     personVC.leftTitle = @"会员中心";
+    if (notification) {
+        NSString *recviceStr = (NSString *)notification.object;
+        if ([recviceStr isEqualToString:@"RegistFinish"]) {
+            personVC.isRegistFinish = YES;
+        }
+    }
     [self.navigationController pushViewController:personVC animated:YES];
 }
 

@@ -80,7 +80,7 @@
 
 -(void)setUpWebView
 {
-    self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height);
+    self.webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.webView.frame.size.height - 64);
     self.webView.scalesPageToFit = YES;
 }
 

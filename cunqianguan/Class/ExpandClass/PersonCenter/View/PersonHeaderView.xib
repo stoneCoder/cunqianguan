@@ -110,6 +110,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.34509803921568627" green="0.87058823529411766" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="itL-eA-IJO" firstAttribute="centerX" secondItem="OP5-cX-emr" secondAttribute="centerX" constant="4" id="16z-kS-ogK"/>
                         <constraint firstAttribute="centerY" secondItem="itL-eA-IJO" secondAttribute="centerY" constant="30.5" id="3PU-7b-cob"/>

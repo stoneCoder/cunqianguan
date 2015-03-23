@@ -45,6 +45,7 @@ static NSString *  collectionCellID=@"GoodsCell";
     _category = _queryType;
     _parentId = _queryType;
     _pageNum = 1;
+    [self hideReturnBackButton];
     [self setUpLeftBtn:self.leftTitle];
     [self setUpRightBtn];
     [self setUpCollection];
@@ -89,7 +90,7 @@ static NSString *  collectionCellID=@"GoodsCell";
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];

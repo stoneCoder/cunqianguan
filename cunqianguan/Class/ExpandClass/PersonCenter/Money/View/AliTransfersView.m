@@ -105,7 +105,9 @@
         case 1:
             _canMoneyTitleLabel.text = @"可提现金额：";
             _moneyTitleLabel.text = @"提现金额：";
-            _tipLabel.text = @"（提现金额最小为30元）";
+            _tipLabel.numberOfLines = 0;
+            _tipLabel.lineBreakMode = NSLineBreakByCharWrapping;
+            _tipLabel.text = @"(大于等于30且为5的整数倍)";
             break;
     }
     [self loadData];

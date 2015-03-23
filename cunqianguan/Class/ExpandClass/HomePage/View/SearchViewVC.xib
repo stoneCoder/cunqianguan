@@ -99,10 +99,10 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wma-PK-aNk">
-                            <rect key="frame" x="15" y="175" width="290" height="44"/>
+                            <rect key="frame" x="15" y="175" width="290" height="42"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="Wma-PK-aNk" secondAttribute="height" multiplier="145:22" id="iDU-nb-xgw"/>
+                                <constraint firstAttribute="width" secondItem="Wma-PK-aNk" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="iDU-nb-xgw"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="小贴士：如何复制商品标题 &gt;">

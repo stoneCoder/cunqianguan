@@ -58,6 +58,14 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)viewWillAppear:(BOOL)animated
 {
     [self reloadView];
+    if (_isRegistFinish) {
+        [self showStringHUD:@"注册成功" second:1.5];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    _isRegistFinish = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,10 +78,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     _info = [PersonInfo sharedPersonInfo];
     [personHeaderView loadView:_info];
     if (_info.userId) {
-        personFooterView.hidden = NO;
         [personFooterView loadView:_info];
-    }else{
-        personFooterView.hidden = YES;
     }
     [self setUpProgressView];
     [self.tableView reloadData];

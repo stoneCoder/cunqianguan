@@ -35,6 +35,12 @@
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(6,priceText.length - 7)];
     _priceLable.attributedText = str;
+    
+    if (!info.userId) {
+        _quiteBtn.hidden = YES;
+    }else{
+        _quiteBtn.hidden = NO;
+    }
 }
 
 - (IBAction)btnAction:(id)sender

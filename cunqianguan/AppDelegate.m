@@ -12,6 +12,7 @@
 #import "GuideVC.h"
 
 #import "Constants.h"
+#import "PersonInfo.h"
 
 #import "UMessage.h"
 #import "UMSocial.h"
@@ -41,7 +42,7 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     [self.window makeKeyAndVisible];
     
     [self setUpUMengSDK];
-    [self setupUMessage];
+    [self setupUMessageWith:launchOptions];
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"showGuide"]) {
         GuideVC *guideVC = [[GuideVC alloc] initWithNibName:nil bundle:nil];
@@ -63,7 +64,7 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil ,需要 #import "UMSocialSinaHandler.h"
     [UMSocialSinaHandler openSSOWithRedirectURL:nil];
     //打开腾讯微博SSO开关，设置回调地址,需要 #import "UMSocialTencentWeiboHandler.h"
-    //[UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://test.4318.com"];
+    //[UMSocialWechatHandler openSSOWithRedirectUrl:@"http://test.4318.com"];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
@@ -91,8 +92,9 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
 
 
 #pragma mark - 友盟推送集成
-- (void)setupUMessage
+- (void)setupUMessageWith:(NSDictionary *)launchOptions
 {
+     [UMessage startWithAppkey:UMengAppKey launchOptions:launchOptions];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
     if(UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
     {
@@ -141,6 +143,16 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
                   stringByReplacingOccurrencesOfString: @">" withString: @""]
                  stringByReplacingOccurrencesOfString: @" " withString: @""]);
     [UMessage registerDeviceToken:deviceToken];
+    
+    PersonInfo *info = [PersonInfo sharedPersonInfo];
+    [info loadUserData];
+    if (info.userId) {
+        [UMessage addAlias:info.userId type:@"UID" response:^(id responseObject, NSError *error) {
+            if ([[(NSDictionary *)responseObject objectForKey:@"success"] isEqualToString:@"ok" ]) {
+                NSLog(@"添加alias成功");
+            }
+        }];
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

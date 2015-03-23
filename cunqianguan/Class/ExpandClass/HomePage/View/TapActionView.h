@@ -13,13 +13,13 @@
 @end
 
 @interface TapActionView : BaseView
-@property (weak, nonatomic) IBOutlet UIImageView *taobaoView;
-@property (weak, nonatomic) IBOutlet UIImageView *zujiView;
-@property (weak, nonatomic) IBOutlet UIImageView *juyouhuiView;
-@property (weak, nonatomic) IBOutlet UIImageView *fanligouView;
-@property (weak, nonatomic) IBOutlet UIImageView *duihuanView;
-@property (weak, nonatomic) IBOutlet UIImageView *shopView;
-@property (weak, nonatomic) IBOutlet UIView *myView;
+@property (weak, nonatomic) IBOutlet BaseView *taobaoView;
+@property (weak, nonatomic) IBOutlet BaseView *zujiView;
+@property (weak, nonatomic) IBOutlet BaseView *juyouhuiView;
+@property (weak, nonatomic) IBOutlet BaseView *fanligouView;
+@property (weak, nonatomic) IBOutlet BaseView *duihuanView;
+@property (weak, nonatomic) IBOutlet BaseView *shopView;
+@property (weak, nonatomic) IBOutlet BaseView *myView;
 @property (weak, nonatomic) IBOutlet UIImageView *tipImage;
 
 @property (strong,nonatomic) id<TapActionViewDelegate> delegate;

@@ -94,4 +94,30 @@
     [self hideHUD];
     //[[CMAlert sharedCMAlert] alert:@"当前网络不稳定，请检查你的网络!"];
 }
+
+-(void)setNormalBgColor:(UIColor *)normalBgColor andHighlightedBgColor:(UIColor *)highlightedBgColor
+{
+    [self setNormalBgColor:normalBgColor];
+    [self setHighlightedBgColor:highlightedBgColor];
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = _highlightedBgColor;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = _normalBgColor;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = _normalBgColor;
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = _normalBgColor;
+}
+
 @end

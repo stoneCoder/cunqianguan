@@ -65,7 +65,7 @@
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
     [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    //[button setBackgroundImage:[UIImage imageNamed:@"back_button_sel"] forState:UIControlStateHighlighted];
+    [button setBackgroundImage:[UIImage imageNamed:@"back_hover"] forState:UIControlStateHighlighted];
 
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
@@ -137,7 +137,7 @@
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] forState:UIControlStateHighlighted];
+    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     button.imageEdgeInsets = UIEdgeInsetsMake(0, btnFrame.size.width - 22, 0, 0);
     button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);

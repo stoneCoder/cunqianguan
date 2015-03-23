@@ -7,7 +7,7 @@
 //
 
 #import "TapActionView.h"
-
+#import "BaseUtil.h"
 @implementation TapActionView
 
 /*
@@ -33,6 +33,15 @@
 {
     _tipImage.layer.cornerRadius = 2.0f;
 
+    [_taobaoView setNormalBgColor:UIColorFromRGB(0xffa82b) andHighlightedBgColor:UIColorFromRGB(0xed961a)];
+    [_zujiView setNormalBgColor:UIColorFromRGB(0x24cde6) andHighlightedBgColor:UIColorFromRGB(0x10b5cd)];
+    [_juyouhuiView setNormalBgColor:UIColorFromRGB(0xff5c5c) andHighlightedBgColor:UIColorFromRGB(0xe83434)];
+    [_fanligouView setNormalBgColor:UIColorFromRGB(0x2edcce) andHighlightedBgColor:UIColorFromRGB(0x12c2b3)];
+    [_duihuanView setNormalBgColor:UIColorFromRGB(0x61e094) andHighlightedBgColor:UIColorFromRGB(0x38c470)];
+    [_shopView setNormalBgColor:UIColorFromRGB(0x5ac5e0) andHighlightedBgColor:UIColorFromRGB(0x33a5c2)];
+    [_myView setNormalBgColor:UIColorFromRGB(0x8eb4ee) andHighlightedBgColor:UIColorFromRGB(0x5f8bcd)];
+    
+    
     [_taobaoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_zujiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_juyouhuiView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
@@ -40,6 +49,7 @@
     [_duihuanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_shopView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
     [_myView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)]];
+    
 }
 
 -(void)tapView:(UITapGestureRecognizer *)tap
@@ -49,5 +59,4 @@
         [self.delegate tapViewAction:tapView];
     }
 }
-
 @end

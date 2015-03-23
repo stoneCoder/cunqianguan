@@ -9,5 +9,5 @@
 #import "BaseTableVC.h"
 
 @interface PersonCenterVC : BaseTableVC
-
+@property (assign,nonatomic) BOOL isRegistFinish;
 @end

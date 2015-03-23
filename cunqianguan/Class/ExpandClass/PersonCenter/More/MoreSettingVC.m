@@ -107,7 +107,7 @@
         }
     }else if (indexPath.section == 1){
         if(index == 0){
-           
+            [self clearCache];
         }else if(index == 1){
             AboutUsVC *aboutUseVC = [[AboutUsVC alloc] init];
             aboutUseVC.leftTitle = @"关于我们";
@@ -115,6 +115,17 @@
         }
     }
    
+}
+
+-(void)clearCache
+{
+    [self showHUD:ACTION_LOAD];
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        [self hideAllHUD];
+        [self showStringHUD:@"清理成功" second:1];
+        [self.tableView reloadData];
+    }];
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 @end

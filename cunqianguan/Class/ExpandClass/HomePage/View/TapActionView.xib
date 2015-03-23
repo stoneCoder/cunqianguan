@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="20" width="320" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-KQ-MkZ" customClass="UIImageView">
+                <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-KQ-MkZ" customClass="BaseView">
                     <rect key="frame" x="8" y="8" width="148" height="148"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="逛淘宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXq-Y3-Lw2">
@@ -24,7 +24,7 @@
                             <color key="textColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" misplaced="YES" image="taobao_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-nh-Rbl">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="taobao_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-nh-Rbl">
                             <rect key="frame" x="37" y="47" width="72" height="55"/>
                         </imageView>
                     </subviews>
@@ -37,7 +37,7 @@
                         <constraint firstAttribute="centerX" secondItem="0Mi-nh-Rbl" secondAttribute="centerX" constant="1" id="vlR-57-yxi"/>
                     </constraints>
                 </view>
-                <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDj-74-bYt" customClass="UIImageView">
+                <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDj-74-bYt" customClass="BaseView">
                     <rect key="frame" x="164" y="8" width="148" height="148"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuji_icon" translatesAutoresizingMaskIntoConstraints="NO" id="93N-tx-Sk4">
@@ -72,7 +72,7 @@
                         <constraint firstItem="SJL-QT-gjk" firstAttribute="leading" secondItem="zDj-74-bYt" secondAttribute="leading" constant="53" id="zdZ-sT-vRO"/>
                     </constraints>
                 </view>
-                <view tag="1002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klp-eY-eut" customClass="UIImageView">
+                <view tag="1002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klp-eY-eut" customClass="BaseView">
                     <rect key="frame" x="8" y="164" width="148" height="148"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juyouhui_icon" translatesAutoresizingMaskIntoConstraints="NO" id="n1q-ae-qp6">
@@ -93,7 +93,7 @@
                         <constraint firstAttribute="bottom" secondItem="hVG-ml-W9l" secondAttribute="bottom" constant="7" id="Yp6-Pp-Xnl"/>
                     </constraints>
                 </view>
-                <view tag="1004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roW-ml-dAA" customClass="UIImageView">
+                <view tag="1004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roW-ml-dAA" customClass="BaseView">
                     <rect key="frame" x="242" y="164" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duihuan_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cDw-MH-xKz">
@@ -114,7 +114,7 @@
                         <constraint firstAttribute="centerX" secondItem="cDw-MH-xKz" secondAttribute="centerX" constant="0.5" id="lU0-o0-ixR"/>
                     </constraints>
                 </view>
-                <view tag="1005" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1r-0p-7Ze" customClass="UIImageView">
+                <view tag="1005" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1r-0p-7Ze" customClass="BaseView">
                     <rect key="frame" x="164" y="242" width="70" height="70"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-z5-a9k">
@@ -135,7 +135,7 @@
                         <constraint firstAttribute="centerY" secondItem="1Y7-iZ-75f" secondAttribute="centerY" constant="11.5" id="ZnA-wx-EWt"/>
                     </constraints>
                 </view>
-                <view tag="1006" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwE-5c-gWs" customClass="UIImageView">
+                <view tag="1006" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwE-5c-gWs" customClass="BaseView">
                     <rect key="frame" x="242" y="242" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huiyuan_icon" translatesAutoresizingMaskIntoConstraints="NO" id="MH6-WW-Vis">
@@ -157,7 +157,7 @@
                         <constraint firstAttribute="centerY" secondItem="7nu-cG-Syp" secondAttribute="centerY" constant="-20" id="wrE-hf-zJe"/>
                     </constraints>
                 </view>
-                <view tag="1003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAL-aA-vig" customClass="UIImageView">
+                <view tag="1003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAL-aA-vig" customClass="BaseView">
                     <rect key="frame" x="164" y="164" width="70" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fanligou_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ft5-ac-rr6">
@@ -222,11 +222,11 @@
                 <outlet property="juyouhuiView" destination="Klp-eY-eut" id="Eue-So-hDB"/>
                 <outlet property="myView" destination="UwE-5c-gWs" id="yDL-5o-1NB"/>
                 <outlet property="shopView" destination="f1r-0p-7Ze" id="Cr4-0T-hM5"/>
-                <outlet property="taobaoView" destination="Ykq-KQ-MkZ" id="Zof-a1-uT4"/>
+                <outlet property="taobaoView" destination="Ykq-KQ-MkZ" id="EzH-lf-IVH"/>
                 <outlet property="tipImage" destination="SJL-QT-gjk" id="Yj7-Jl-dJ0"/>
-                <outlet property="zujiView" destination="zDj-74-bYt" id="itU-iw-wYX"/>
+                <outlet property="zujiView" destination="zDj-74-bYt" id="vZs-Xh-eqC"/>
             </connections>
-            <point key="canvasLocation" x="-744" y="111"/>
+            <point key="canvasLocation" x="-1046" y="16"/>
         </view>
     </objects>
     <resources>

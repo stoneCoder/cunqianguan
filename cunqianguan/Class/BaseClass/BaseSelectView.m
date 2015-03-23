@@ -37,21 +37,23 @@
     CGFloat width = self.frame.size.width;
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
     _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, heigth)];
-    [self createBtnWithArray:btnArray];
+    [self createBtnWithArray:btnArray andRemaind:btnArray.count%3];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];
 }
 
--(void)createBtnWithArray:(NSArray *)btnArray
+-(void)createBtnWithArray:(NSArray *)btnArray andRemaind:(NSInteger)remainder
 {
     CGFloat visiableX = 0,visiableY = 0,btnWidth = floor(_btnView.frame.size.width/3),btnHeight = 44;
-    for (int i = 0; i < btnArray.count; i++) {
+    for (int i = 0; i < btnArray.count + remainder; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
         btn.backgroundColor = [UIColor whiteColor];
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         btn.layer.borderWidth = 0.5;
         btn.layer.borderColor = UIColorFromRGB(0xececec).CGColor;
-        [btn setTitle:btnArray[i] forState:UIControlStateNormal];
+        if (i < btnArray.count) {
+            [btn setTitle:btnArray[i] forState:UIControlStateNormal];
+        }
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         btn.tag = i;
@@ -64,7 +66,11 @@
         tmpFrame.origin.x = visiableX;
         tmpFrame.origin.y = visiableY;
         btn.frame = tmpFrame;
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        if (i < btnArray.count) {
+            [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        }else{
+            btn.userInteractionEnabled = NO;
+        }
         [_btnView addSubview:btn];
         [_btnViewArray addObject:btn];
         visiableX = btn.frame.origin.x + btnWidth;

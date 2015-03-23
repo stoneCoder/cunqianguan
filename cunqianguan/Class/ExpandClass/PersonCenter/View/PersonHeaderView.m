@@ -80,8 +80,9 @@
         _collectLabel.hidden = YES;
         _msgLabel.hidden = YES;
         _vipImage.hidden = YES;
+        
+        [_headImageView setImage:[UIImage imageNamed:@"default_person"]];
     }
-    
 }
 
 - (IBAction)btnAction:(id)sender
