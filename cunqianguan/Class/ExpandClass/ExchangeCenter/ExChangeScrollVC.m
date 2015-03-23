@@ -88,7 +88,7 @@
     [_scrollView scrollRectToVisible:CGRectMake(index*VIEW_WIDTH, 0, VIEW_WIDTH, VIEW_HEIGHT) animated:YES];
     
     _currentIndex = index;
-    [[self childViewControllers][index] viewDidCurrentView:index];
+    //[[self childViewControllers][index] viewDidCurrentView:index];
 }
 
 #pragma mark -- UIScrollViewDelegate
