@@ -27,9 +27,6 @@ NSInteger const kEnabledColor = 0xff0000;
 // 按钮默认颜色disable
 NSInteger const kDisabledColor = 0xEF7F87;
 
-NSString *const kUploadPath = @"http://192.168.20.240/~zhouqiang/upload_file.php/?";
-
-NSString *const kImagePath = @"http://192.168.20.240/~zhouqiang/";
 
 NSString *const shareURL = @"http://www.baoxianqi.com";
 //友盟AppKey

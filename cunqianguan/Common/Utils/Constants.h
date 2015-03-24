@@ -21,10 +21,6 @@ extern NSInteger const kEnabledColor;
 
 extern NSInteger const kDisabledColor;
 
-extern NSString *const kUploadPath;
-
-extern NSString *const kImagePath;
-
 extern NSString *const shareURL;
 extern NSString *const UMengAppKey;
 

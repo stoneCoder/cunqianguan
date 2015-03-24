@@ -10,6 +10,8 @@
 		487112F61AB069730089CE0A /* ShareUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 487112F51AB069730089CE0A /* ShareUtil.m */; };
 		488124521AB84CE700636199 /* PopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 488124511AB84CE700636199 /* PopTipView.m */; };
 		48AC87591AB58233003CEF48 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48AC87581AB58233003CEF48 /* PopoverView.m */; };
+		48C882DC1AC1830400D2E435 /* SearchViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C882DA1AC1830400D2E435 /* SearchViewVC.m */; };
+		48C882DD1AC1830400D2E435 /* SearchViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C882DB1AC1830400D2E435 /* SearchViewVC.xib */; };
 		97DA9493BBBE4D7CFF653414 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2973A8EA4747C20640F7CB2E /* libPods.a */; };
 		B10922A41AA7F8B80073CE63 /* TGCCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */; };
 		B10922A81AA7FFF30073CE63 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B10922A71AA7FFF30073CE63 /* CityModel.m */; };
@@ -294,8 +296,6 @@
 		B1C1DAB21AC14B21006C22C6 /* HighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAB11AC14B21006C22C6 /* HighlightView.m */; };
 		B1C1DAB81AC14F25006C22C6 /* GuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAB61AC14F25006C22C6 /* GuideVC.m */; };
 		B1C1DAB91AC14F25006C22C6 /* GuideVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C1DAB71AC14F25006C22C6 /* GuideVC.xib */; };
-		B1C1DABD1AC14F47006C22C6 /* SearchViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DABB1AC14F47006C22C6 /* SearchViewVC.m */; };
-		B1C1DABE1AC14F47006C22C6 /* SearchViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C1DABC1AC14F47006C22C6 /* SearchViewVC.xib */; };
 		B1C1DAC51AC16A22006C22C6 /* PolyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAC31AC16A22006C22C6 /* PolyGoodsCell.m */; };
 		B1C1DAC61AC16A22006C22C6 /* PolyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C1DAC41AC16A22006C22C6 /* PolyGoodsCell.xib */; };
 		B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C910631A89E82200AE3F66 /* AliTransfersView.m */; };
@@ -347,6 +347,9 @@
 		488124511AB84CE700636199 /* PopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTipView.m; sourceTree = "<group>"; };
 		48AC87571AB58233003CEF48 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		48AC87581AB58233003CEF48 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		48C882D91AC1830400D2E435 /* SearchViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewVC.h; sourceTree = "<group>"; };
+		48C882DA1AC1830400D2E435 /* SearchViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewVC.m; sourceTree = "<group>"; };
+		48C882DB1AC1830400D2E435 /* SearchViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewVC.xib; sourceTree = "<group>"; };
 		9E12974C1BF2517CF6783FAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B10922A21AA7F8B80073CE63 /* TGCCustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGCCustomPickerView.h; sourceTree = "<group>"; };
 		B10922A31AA7F8B80073CE63 /* TGCCustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGCCustomPickerView.m; sourceTree = "<group>"; };
@@ -862,9 +865,6 @@
 		B1C1DAB51AC14F25006C22C6 /* GuideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideVC.h; sourceTree = "<group>"; };
 		B1C1DAB61AC14F25006C22C6 /* GuideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideVC.m; sourceTree = "<group>"; };
 		B1C1DAB71AC14F25006C22C6 /* GuideVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideVC.xib; sourceTree = "<group>"; };
-		B1C1DABA1AC14F47006C22C6 /* SearchViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewVC.h; path = Search/SearchViewVC.h; sourceTree = "<group>"; };
-		B1C1DABB1AC14F47006C22C6 /* SearchViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewVC.m; path = Search/SearchViewVC.m; sourceTree = "<group>"; };
-		B1C1DABC1AC14F47006C22C6 /* SearchViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewVC.xib; path = Search/SearchViewVC.xib; sourceTree = "<group>"; };
 		B1C1DAC21AC16A22006C22C6 /* PolyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyGoodsCell.h; sourceTree = "<group>"; };
 		B1C1DAC31AC16A22006C22C6 /* PolyGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyGoodsCell.m; sourceTree = "<group>"; };
 		B1C1DAC41AC16A22006C22C6 /* PolyGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolyGoodsCell.xib; sourceTree = "<group>"; };
@@ -965,6 +965,16 @@
 				48AC87581AB58233003CEF48 /* PopoverView.m */,
 			);
 			path = PopView;
+			sourceTree = "<group>";
+		};
+		48C882D81AC1830400D2E435 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				48C882D91AC1830400D2E435 /* SearchViewVC.h */,
+				48C882DA1AC1830400D2E435 /* SearchViewVC.m */,
+				48C882DB1AC1830400D2E435 /* SearchViewVC.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		76D0D892DA74ECAAF7F3E11E /* Frameworks */ = {
@@ -1394,9 +1404,7 @@
 		B14071BE1A6CEC9400D1792F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				B1C1DABA1AC14F47006C22C6 /* SearchViewVC.h */,
-				B1C1DABB1AC14F47006C22C6 /* SearchViewVC.m */,
-				B1C1DABC1AC14F47006C22C6 /* SearchViewVC.xib */,
+				48C882D81AC1830400D2E435 /* Search */,
 				B1C1DAB41AC14F11006C22C6 /* Guide */,
 				B1E2B8851AB2BBFF00D0FCA5 /* Cell */,
 				B14071C41A6CED1900D1792F /* View */,
@@ -2410,7 +2418,7 @@
 				TargetAttributes = {
 					B14071321A6CAFF700D1792F = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = LZ6S2F8336;
+						DevelopmentTeam = 82ZM2GVU85;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2452,6 +2460,7 @@
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B1E2B88D1AB2BC2100D0FCA5 /* HotShopCell.xib in Resources */,
+				48C882DD1AC1830400D2E435 /* SearchViewVC.xib in Resources */,
 				B1F065B21AB90CF40082515D /* PresentTableFooterView.xib in Resources */,
 				B149682B1A8741BA00DBC09B /* BindAccountVC.xib in Resources */,
 				B140721B1A6E3EBE00D1792F /* LoginVC.xib in Resources */,
@@ -2528,7 +2537,6 @@
 				B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */,
 				B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */,
 				B14071CF1A6D019900D1792F /* TapActionView.xib in Resources */,
-				B1C1DABE1AC14F47006C22C6 /* SearchViewVC.xib in Resources */,
 				B1436F8C1A73441400706772 /* PersonFooterView.xib in Resources */,
 				B1668D051A88419E002CB98E /* CollectCell.xib in Resources */,
 				B12D729E1A7B616E0086F70A /* InviteRewardVC.xib in Resources */,
@@ -2625,6 +2633,7 @@
 				B1668D481A88A2F4002CB98E /* JTCalendarContentView.m in Sources */,
 				B1E6B5851AAECD78005CB5AF /* TipInfoVC.m in Sources */,
 				B140EC831A6F78C3004D245A /* RegisterVC.m in Sources */,
+				48C882DC1AC1830400D2E435 /* SearchViewVC.m in Sources */,
 				B14729AE1A8C88D400524510 /* PersonInfo.m in Sources */,
 				B140EC7A1A6F7345004D245A /* SMTextView.m in Sources */,
 				B10922B01AA84B5F0073CE63 /* HotShopVC.m in Sources */,
@@ -2670,7 +2679,6 @@
 				B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */,
 				B158A6F41A9D6BBB00C6FD3F /* JSONKeyMapper.m in Sources */,
 				B152C0841AA940AD00D18AFB /* FootListModel.m in Sources */,
-				B1C1DABD1AC14F47006C22C6 /* SearchViewVC.m in Sources */,
 				B140EC731A6F7345004D245A /* SMPageControl.m in Sources */,
 				B14E30C41A7A1D00005BF0EF /* AccountCell.m in Sources */,
 				B15284461AB41B340028B5D4 /* InviteModel.m in Sources */,
