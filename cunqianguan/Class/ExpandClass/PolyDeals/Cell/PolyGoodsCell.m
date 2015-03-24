@@ -12,8 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    _title.numberOfLines = 0;
-    _title.lineBreakMode = NSLineBreakByCharWrapping;
+    _title.numberOfLines = 1;
+    //_title.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type

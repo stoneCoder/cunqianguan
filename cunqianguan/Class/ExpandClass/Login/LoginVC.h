@@ -7,10 +7,11 @@
 //
 
 #import "BaseVC.h"
-
+typedef void (^LoginSuccessHandler)(int type);
 @interface LoginVC : BaseVC
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *pwd;
 @property (weak, nonatomic) IBOutlet UIButton *clearBtn;
+
 
 @end

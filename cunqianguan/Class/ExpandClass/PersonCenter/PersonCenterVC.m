@@ -38,6 +38,7 @@
     PersonFooterView *personFooterView;
     PersonInfo *_info;
     PopTipView *_popTipView;
+    UIButton *_rightButton;
 }
 
 @end
@@ -77,10 +78,9 @@ static NSString *FooterViewID = @"PersonFooterView";
 {
     _info = [PersonInfo sharedPersonInfo];
     [personHeaderView loadView:_info];
-    if (_info.userId) {
-        [personFooterView loadView:_info];
-    }
-    [self setUpProgressView];
+    [personFooterView loadView:_info];
+    
+    //[self setUpProgressView];
     [self.tableView reloadData];
     [self initSignStatus];
 }
@@ -96,7 +96,12 @@ static NSString *FooterViewID = @"PersonFooterView";
 */
 -(void)setUpNavBtn
 {
-    [self setRigthBarWithDic:@{@"images":@[@"sign"]}];
+    _rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
+    [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign"] forState:UIControlStateNormal];
+    [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign_down"] forState:UIControlStateHighlighted];
+    [_rightButton addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
+    self.navigationItem.rightBarButtonItem = rightBtnItem;
 }
 
 -(void)setUpTableView
@@ -144,7 +149,7 @@ static NSString *FooterViewID = @"PersonFooterView";
         _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
     }
     [_popTipView loadViewWith:str];
-    [_popTipView setCenter:CGPointMake(frame.size.width/2 + 30, frame.origin.y - _popTipView.frame.size.height/2)];
+    [_popTipView setCenter:CGPointMake(frame.size.width - width/2, frame.origin.y - _popTipView.frame.size.height/2)];
     [personHeaderView addSubview:_popTipView];
 }
 
@@ -156,6 +161,13 @@ static NSString *FooterViewID = @"PersonFooterView";
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _info.isSignToday = [[dic objectForKey:@"data"] boolValue];
+            if (_info.isSignToday) {
+                [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign_over"] forState:UIControlStateNormal];
+                [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign_overdown"] forState:UIControlStateHighlighted];
+            }else{
+                [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign"] forState:UIControlStateNormal];
+                [_rightButton setBackgroundImage:[UIImage imageNamed:@"sign_down"] forState:UIControlStateHighlighted];
+            }
             [_info saveUserData];
         }
     } failure:^(NSError *err) {

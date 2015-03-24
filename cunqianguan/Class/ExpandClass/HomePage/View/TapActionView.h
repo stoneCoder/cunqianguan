@@ -7,19 +7,19 @@
 //
 
 #import "BaseView.h"
-
+#import "HighlightView.h"
 @protocol TapActionViewDelegate<NSObject>
 -(void)tapViewAction:(UIView *)tapView;
 @end
 
 @interface TapActionView : BaseView
-@property (weak, nonatomic) IBOutlet BaseView *taobaoView;
-@property (weak, nonatomic) IBOutlet BaseView *zujiView;
-@property (weak, nonatomic) IBOutlet BaseView *juyouhuiView;
-@property (weak, nonatomic) IBOutlet BaseView *fanligouView;
-@property (weak, nonatomic) IBOutlet BaseView *duihuanView;
-@property (weak, nonatomic) IBOutlet BaseView *shopView;
-@property (weak, nonatomic) IBOutlet BaseView *myView;
+@property (weak, nonatomic) IBOutlet HighlightView *taobaoView;
+@property (weak, nonatomic) IBOutlet HighlightView *zujiView;
+@property (weak, nonatomic) IBOutlet HighlightView *juyouhuiView;
+@property (weak, nonatomic) IBOutlet HighlightView *fanligouView;
+@property (weak, nonatomic) IBOutlet HighlightView *duihuanView;
+@property (weak, nonatomic) IBOutlet HighlightView *shopView;
+@property (weak, nonatomic) IBOutlet HighlightView *myView;
 @property (weak, nonatomic) IBOutlet UIImageView *tipImage;
 
 @property (strong,nonatomic) id<TapActionViewDelegate> delegate;

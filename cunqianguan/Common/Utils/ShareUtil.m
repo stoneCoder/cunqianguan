@@ -91,4 +91,30 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
                                        delegate:nil];
 }
 
+//#pragma mark UIWebViewDelegate方法
+///**
+// *开始加重请求拦截
+// */
+//-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    
+//    NSString *urlstr = request.URL.absoluteString;
+//    NSRange range = [urlstr rangeOfString:@"ios://"];
+//    if (range.length!=0) {
+//        NSString *method = [urlstr substringFromIndex:(range.location+range.length)];
+//        SEL selctor = NSSelectorFromString(method);
+//        [self performSelector:selctor withObject:nil];
+//    }
+//    return YES;
+//}
+
++(void)shareForWxInView:(UIViewController *)controller
+{
+    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social" image:nil location:nil urlResource:nil presentedController:controller completion:^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            NSLog(@"分享成功！");
+        }
+    }];
+}
+
 @end

@@ -71,10 +71,12 @@
         if (nextIndex > pages.count) {
             nextIndex = 1;
         }
-        //NSLog(@"last=%d, current=%d, next=%d", lastIndex, currentPageIndex, nextIndex);
+        NSLog(@"last=%lu, current=%lu, next=%lu", (unsigned long)lastIndex, (unsigned long)currentPageIndex, (unsigned long)nextIndex);
+        
         self.lastPage = [pages objectAtIndex:lastIndex-1];
         self.lastPage.hidden = NO;
         self.lastPage.frame = CGRectMake(-self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
+        
         self.nextPage = [pages objectAtIndex:nextIndex-1];
         self.nextPage.hidden = NO;
         self.nextPage.frame = CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);

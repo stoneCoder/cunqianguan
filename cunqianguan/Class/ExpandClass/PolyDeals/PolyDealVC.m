@@ -49,8 +49,8 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     _category = index;
     if (!_firstLoad) {
         [self showLoaderView:self.collectionView];
+        [self loadDataWith:_category andPage:1];
     }
-    [self loadDataWith:_category andPage:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +120,9 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PolyGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
-    [cell loadCell:_data[indexPath.row] withType:0];
+    if (_data.count > 0) {
+         [cell loadCell:_data[indexPath.row] withType:0];
+    }
     cell.tag = indexPath.row;
     return cell;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "BaseSelectView.h"
+
 #define BTN_HEIGTH 44
 @implementation BaseSelectView
 {
@@ -28,6 +29,8 @@
         self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
         self.hidden = YES;
         _btnViewArray = [NSMutableArray array];
+        
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
     }
     return self;
 }
@@ -51,6 +54,12 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         btn.layer.borderWidth = 0.5;
         btn.layer.borderColor = UIColorFromRGB(0xececec).CGColor;
+        
+//        CALayer *border = [CALayer layer];
+//        border.backgroundColor = [UIColor whiteColor].CGColor;
+//        border.frame = CGRectMake(0, visiableX + btnHeight, btnWidth, 0.5);
+//        [btn.layer addSublayer:border];
+        
         if (i < btnArray.count) {
             [btn setTitle:btnArray[i] forState:UIControlStateNormal];
         }

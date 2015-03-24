@@ -13,6 +13,7 @@
 
 #import "AdvertisingView.h"
 #import "SMPageControl.h"
+#import "ScrollFocus.h"
 #import "PresentTableView.h"
 #import "ReturnHomeVC.h"
 #import "RebateHomeVC.h"
@@ -24,6 +25,7 @@
 #import "SearchViewVC.h"
 #import "InviteVC.h"
 
+#import "PresentView.h"
 #import "BaseMutableMenu.h"
 #import "GoodsViewVC.h"
 #import "PolyScrollVC.h"
@@ -43,17 +45,18 @@
 
 #import "AppDelegate.h"
 
-@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage>
+
+
+@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate>
 {
     UIScrollView *_scrollView;
     TapActionView *_actionView;
     UIView *_dimView;
     GridMenu *_gridMenu;
-    SMPageControl *_pageControl;
-    PresentTableView *_presentTable;
-    UIButton *_closeBtn;
+    ScrollFocus *_pageControl;
     NSInteger _openView;
     PersonInfo *_info;
+    PresentView *_presentView;
 }
 
 @end
@@ -67,6 +70,7 @@
     [self hideReturnBtn];
     [self initNavBar];
     [self initScrollView];
+    [self initPresentView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushPersonCenter:) name:kRegistFinish object:nil];
 }
@@ -121,28 +125,31 @@
 
 -(void)initAdView
 {
-    _pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
-    _pageControl.backgroundColor = [UIColor greenColor];
-    AdvertisingView *adView2 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    UIImage *image2 = [UIImage imageNamed:@"banner"];
-    [image2 imageByScalingAndCroppingForSize:_pageControl.frame.size];
-    adView2.imageView.image = image2;
-    [_pageControl insertBannerPages:adView2];
+    //_pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
+    _pageControl =  [[ScrollFocus alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     
-    AdvertisingView *adView = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    UIImage *image = [UIImage imageNamed:@"banner1"];
-    [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
-    adView.imageView.image = image;
-    [adView addTarget:self action:@selector(inviteFriend) forControlEvents:UIControlEventTouchUpInside];
-    [_pageControl insertBannerPages:adView];
-    
-    AdvertisingView *adView1 = [[AdvertisingView alloc] initWithFrame:CGRectZero];
-    UIImage *image1 = [UIImage imageNamed:@"banner2"];
-    [image1 imageByScalingAndCroppingForSize:_pageControl.frame.size];
-    adView1.imageView.image = image1;
-    [adView1 addTarget:self action:@selector(presentHelpView) forControlEvents:UIControlEventTouchUpInside];
-    [_pageControl insertBannerPages:adView1];
-    
+    if (SCREEN_HEIGTH == 480) {
+        _pageControl.imageArray = @[@"banner1",@"banner2"];
+    }else if (SCREEN_HEIGTH == 568){
+        _pageControl.imageArray = @[@"banner1",@"banner2"];
+    }else if (SCREEN_HEIGTH == 667){
+        _pageControl.imageArray = @[@"banner6_01",@"banner6_02"];
+    }else if (SCREEN_HEIGTH == 736){
+        _pageControl.imageArray = @[@"banner1",@"banner2"];
+    }
+    _pageControl.titleArray = @[@"banner1",@"banner2"];
+    _pageControl.autoScroll = YES;
+    [_pageControl didSelectScrollFocusItem:^(NSInteger index) {
+        switch (index) {
+            case 0:
+                [self inviteFriend];
+                break;
+            case 1:
+                [self presentHelpView];
+                break;
+        }
+    }];
+  
     [_scrollView addSubview:_pageControl];
 }
 
@@ -153,6 +160,14 @@
     [_actionView setFrame:CGRectMake(0, visiableY, SCREEN_WIDTH, SCREEN_WIDTH)];
     _actionView.delegate = self;
     [_scrollView addSubview:_actionView];
+}
+
+-(void)initPresentView
+{
+    _presentView = [[PresentView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    _presentView.delegate = self;
+    _presentView.hidden = YES;
+    [self.view addSubview:_presentView];
 }
 
 -(void)loadAdView
@@ -168,7 +183,7 @@
                 [adView.imageView sd_setImageWithURL:[NSURL URLWithString:adModel.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
                 }];
-                [_pageControl insertBannerPages:adView];
+                //[_pageControl insertBannerPages:adView];
             }
         }
     } failure:^(NSError *err) {
@@ -189,16 +204,33 @@
     [self showMenu:_openView];
 }
 
--(void)presentHelpView
-{
-    _openView = 2;
-    [self showMenu:_openView];
-}
-
 -(void)hideMenu
 {
     [self dismissMenu:_openView];
 }
+
+#pragma mark -- PresentViewDelegate
+-(void)presentHelpView
+{
+    [UIView animateWithDuration:0.5f animations:^{
+        _presentView.hidden = NO;
+        _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI);
+        [_presentView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)hidePresentMenu
+{
+    [UIView animateWithDuration:0.5f animations:^{
+        _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI);
+        [_presentView setFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    } completion:^(BOOL finished) {
+        _presentView.hidden = YES;
+    }];
+}
+
 
 -(void)setUpGridMenu
 {
@@ -222,24 +254,24 @@
     [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":array}];
 }
 
--(void)setUpPresentTable
-{
-    CGFloat visiableY = _pageControl.frame.size.height;
-    if (SCREEN_HEIGTH < 568) {
-        visiableY = visiableY - 40;
-    }
-    _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY + 100) style:UITableViewStyleGrouped];
-    _presentTable.backgroundColor = UIColorFromRGB(0xECECEC);
-    _presentTable.scrollEnabled = NO;
-    _presentTable.delegate = _presentTable;
-    _presentTable.dataSource = _presentTable;
-    _presentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
-    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-    _closeBtn.center = ccp(VIEW_WIDTH/2,visiableY - 30);
-    [_closeBtn addTarget:self action:@selector(hideMenu) forControlEvents:UIControlEventTouchUpInside];
-}
+//-(void)setUpPresentTable
+//{
+//    CGFloat visiableY = _pageControl.frame.size.height;
+//    if (SCREEN_HEIGTH < 568) {
+//        visiableY = visiableY - 40;
+//    }
+//    _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY + 100) style:UITableViewStyleGrouped];
+//    _presentTable.backgroundColor = UIColorFromRGB(0xECECEC);
+//    _presentTable.scrollEnabled = NO;
+//    _presentTable.delegate = _presentTable;
+//    _presentTable.dataSource = _presentTable;
+//    _presentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    
+//    _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
+//    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+//    _closeBtn.center = ccp(VIEW_WIDTH/2,visiableY - 30);
+//    [_closeBtn addTarget:self action:@selector(hideMenu) forControlEvents:UIControlEventTouchUpInside];
+//}
 
 -(void)showMenu:(NSInteger)flag
 {
@@ -257,11 +289,11 @@
         if (flag == 1) {
             [self setUpGridMenu];
             [self.view insertSubview:_gridMenu aboveSubview:_dimView];
-        }else if(flag == 2){
+        }/*else if(flag == 2){
             [self setUpPresentTable];
             [self.view insertSubview:_closeBtn aboveSubview:_dimView];
             [self.view insertSubview:_presentTable aboveSubview:_dimView];
-        }
+        }*/
     }
 }
 
@@ -272,20 +304,20 @@
         _dimView.alpha = 0;
         if (flag == 1) {
             _gridMenu.alpha = 0;
-        }else if(flag == 2){
+        }/*else if(flag == 2){
             _closeBtn.alpha = 0;
             _presentTable.alpha = 0;
-        }
+        }*/
     } completion:^(BOOL finished) {
         if (flag == 1) {
             [_gridMenu removeFromSuperview];
             _gridMenu = nil;
-        }else if(flag == 2){
+        }/*else if(flag == 2){
             [_closeBtn removeFromSuperview];
             _closeBtn = nil;
             [_presentTable removeFromSuperview];
             _presentTable = nil;
-        }
+        }*/
         [_dimView removeFromSuperview];
         _dimView = nil;
         _openView = 0;

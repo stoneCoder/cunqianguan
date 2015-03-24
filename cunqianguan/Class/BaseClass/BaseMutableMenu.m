@@ -40,8 +40,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
+        self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.5];
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView:)]];
         self.hidden = YES;
         _btnViewArray = [NSMutableArray array];
     }
@@ -188,6 +188,17 @@
     }
 }
 
+-(void)hideView:(UITapGestureRecognizer *)tap
+{
+#pragma mark  手势事件传递
+    UIView *view = [self hitTest:[tap locationInView:self] withEvent:UIEventTypeTouches];
+    if ([view isKindOfClass:[UITableView class]]) {
+        return;
+    }else if ([view isKindOfClass:[TouchPropagatedScrollView class]]){
+        return;
+    }
+}
+
 -(void)selectTitle:(NSString *)title
 {
 //    _selectBtn = nil;
@@ -203,12 +214,16 @@
 }
 
 //-(UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    [super hitTest:point withEvent:event];
-//    NSLog(@"======%@",NSStringFromCGPoint(point));
-//    if (CGRectContainsPoint(CGRectMake(-6, -6, 36, 36), point)) {
-//        return self;
+//    CGPoint hitPoint = [_btnTableView convertPoint:point fromView:self];
+//    if ([_btnTableView pointInside:hitPoint withEvent:event])
+//    {
+//        return _btnTableView;
 //    }
-//    return nil;
+//    hitPoint = [_scrollView convertPoint:point fromView:self];
+//    if ([_scrollView pointInside:hitPoint withEvent:event]){
+//        return _scrollView;
+//    }
+//    return [super hitTest:point withEvent:event];
 //}
 
 #pragma mark -- UITableViewDelegate && UITableViewDataSource

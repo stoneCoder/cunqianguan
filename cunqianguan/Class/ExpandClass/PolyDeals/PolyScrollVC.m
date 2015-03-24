@@ -159,7 +159,7 @@
     [_selectView setSelectIndex:index];
     _currentIndex = index;
     
-    //[[self childViewControllers][index] viewDidCurrentView:[_btnIdArray[index] integerValue]];
+    [[self childViewControllers][index] viewDidCurrentView:[_btnIdArray[index] integerValue]];
 }
 
 -(void)selectTitle:(NSString *)title

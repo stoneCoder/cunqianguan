@@ -59,21 +59,21 @@
     [super viewWillAppear:animated];
     [self showLoaderView];
     [self.navigationController.navigationBar addSubview:_progressView];
-    [self.webView reload];
+    //[self.webView reload];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
     [_progressView removeFromSuperview];
-    [self.webView loadHTMLString:@"" baseURL:nil];
-    [self.webView stopLoading];
-    [self.webView removeFromSuperview];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self.webView loadHTMLString:@"" baseURL:nil];
+    [self.webView stopLoading];
+    [self.webView removeFromSuperview];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 -(void)showLoaderView:(UIView *)view

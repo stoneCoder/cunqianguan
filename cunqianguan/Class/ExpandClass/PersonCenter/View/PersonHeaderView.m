@@ -9,6 +9,9 @@
 #import "PersonHeaderView.h"
 #import "BaseUtil.h"
 @implementation PersonHeaderView
+{
+    PopTipView *_popTipView;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -56,33 +59,58 @@
     if (info.userId) {
         [info getAvaterWithId:info.userId success:^(id json) {
             [info saveUserData];
-            
-            _nameLabel.text = info.username;
-            [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] placeholderImage:[UIImage imageNamed:@"default_person"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
-            }];
-            _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
-            _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
-            _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
-            
-            CGRect frame = _progressView.frame;
-            CGFloat width = (CGFloat)info.userExp/(CGFloat)info.nextUserExp*self.frame.size.width;
-            _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
-
-            _collectLabel.hidden = NO;
-            _msgLabel.hidden = NO;
-            _vipImage.hidden = NO;
         } failure:^(id json) {
             
         }];
+        
+        _nameLabel.text = info.username;
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] placeholderImage:[UIImage imageNamed:@"default_person"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
+        }];
+        _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
+        _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
+        _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
+        
+        CGRect frame = _progressView.frame;
+        CGFloat width = (CGFloat)info.userExp/(CGFloat)info.nextUserExp*SCREEN_WIDTH;
+        _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
+        
+        _progressView.hidden = NO;
+        _collectLabel.hidden = NO;
+        _msgLabel.hidden = NO;
+        _vipImage.hidden = NO;
+        
+        [self showTipView:_progressView.frame andInfo:info];
     }else{
         _nameLabel.text = @"请登录";
         _collectLabel.hidden = YES;
         _msgLabel.hidden = YES;
         _vipImage.hidden = YES;
-        
+        _popTipView.hidden = YES;
+        _progressView.hidden = YES;
         [_headImageView setImage:[UIImage imageNamed:@"default_person"]];
     }
+}
+
+-(void)showTipView:(CGRect)frame andInfo:(PersonInfo *)info
+{
+    CGFloat height = 20.0f;
+    UIFont *font = [UIFont systemFontOfSize:12.0f];
+    NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)info.userExp,(long)info.nextUserExp];
+    CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
+    if (!_popTipView) {
+        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+    }
+    _popTipView.hidden = NO;
+    [_popTipView loadViewWith:str];
+    CGFloat visiableX;
+    if (frame.size.width < width/2) {
+        visiableX = width/2 + frame.size.width;
+    }else{
+        visiableX = frame.size.width - width/2;
+    }
+    [_popTipView setCenter:CGPointMake(visiableX, frame.origin.y - _popTipView.frame.size.height/2)];
+    [self addSubview:_popTipView];
 }
 
 - (IBAction)btnAction:(id)sender

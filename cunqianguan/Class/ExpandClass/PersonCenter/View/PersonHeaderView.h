@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PersonInfo.h"
-
+#import "PopTipView.h"
 @protocol PersonHeaderDelegate<NSObject>
 -(void)btnAction:(NSInteger)tag;
 -(void)tapHeadImage;

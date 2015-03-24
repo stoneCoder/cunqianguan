@@ -145,7 +145,11 @@
         [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
         } other:nil];
     }];
+}
 
+-(void)loginForHandle:(LoginSuccessHandler *)loginSuccessHandler
+{
+    
 }
 
 -(void)dismisSelf

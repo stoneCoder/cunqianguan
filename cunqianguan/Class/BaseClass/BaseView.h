@@ -36,9 +36,4 @@
  *  功能:接口请求失败
  */
 -(void)failureHideHUD;
-
-
-@property (nonatomic, strong) UIColor *highlightedBgColor;
-@property (nonatomic, strong) UIColor *normalBgColor;
--(void)setNormalBgColor:(UIColor *)normalBgColor andHighlightedBgColor:(UIColor *)highlightedBgColor;
 @end

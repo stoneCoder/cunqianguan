@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "qiehuan.png"
+      "filename" : "sign_overdown.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "qiehuan@2x.png"
+      "filename" : "sign_overdown@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "qiehuan@3x.png"
+      "filename" : "sign_overdown@3x.png"
     }
   ],
   "info" : {

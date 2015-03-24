@@ -52,9 +52,8 @@ static NSString *  collectionCellID=@"ExChangeCell";
     }
     if (!_firstLoad) {
         [self showLoaderView:self.collectionView];
+        [self loadDataWithId:userId andPage:_pageNum];
     }
-    [self loadDataWithId:userId andPage:_pageNum];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,7 +118,9 @@ static NSString *  collectionCellID=@"ExChangeCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ExChangeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     cell.tag = indexPath.row;
-    [cell loadCell:_data[indexPath.row]];
+    if (_data.count > 0) {
+        [cell loadCell:_data[indexPath.row]];
+    }
     return cell;
 }
 
