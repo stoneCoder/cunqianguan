@@ -49,6 +49,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 
 -(void)isLoginWithcompletion:(void (^)(BOOL flag))completion;
 -(void)isLoginWithPresent:(void (^)(BOOL flag))completion WithType:(BOOL)presentType;
+-(void)presentNav:(UIViewController *)controller WithCompletion:(id)completion;
 
 
 - (BOOL)isNewTrace;

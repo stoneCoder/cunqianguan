@@ -157,6 +157,14 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     }
 }
 
+-(void)presentNav:(UIViewController *)controller WithCompletion:(id)completion
+{
+    LoginVC *loginVC = [[LoginVC alloc] init];
+    loginVC.leftTitle = @"登录";
+    BaseNC *nai = [[NSClassFromString(@"BaseNC") alloc] initWithRootViewController:loginVC];
+    [controller presentViewController:nai animated:YES completion:completion];
+}
+
 -(void)getUserInfo:(NSString *)userName withPwd:(NSString *)pwd success:(void (^)(id json))success failure:(void (^)(id json))failure
 {
     NSString *url = @"getUserInfo";

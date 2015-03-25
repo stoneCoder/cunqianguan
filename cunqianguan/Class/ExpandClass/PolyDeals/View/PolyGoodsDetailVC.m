@@ -51,7 +51,7 @@
 
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 104);
     
     _headView = [PolyDetailHeaderView headerView];
@@ -114,6 +114,13 @@
     return 20;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    bgView.backgroundColor = UIColorFromRGB(0xececec);
+    return bgView;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -134,6 +141,7 @@
         UIView *view = [[UIView alloc] initWithFrame:frame];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, heigth)];
+        label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:15.0f];
         label.textColor = UIColorFromRGB(0xABABAB);
         label.numberOfLines = 0;
@@ -169,6 +177,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 44)];
+        label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:17.0f];
         NSString *labelText = @"";
         if (indexPath.section == 0) {
@@ -178,6 +187,11 @@
         }
         label.text = labelText;
         [cell addSubview:label];
+        if (!iOS7) {
+            UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+            bgView.backgroundColor = [UIColor whiteColor];
+            cell.backgroundView = bgView;
+        }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

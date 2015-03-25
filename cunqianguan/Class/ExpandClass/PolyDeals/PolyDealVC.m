@@ -19,6 +19,8 @@
 
 #import "JYHListModel.h"
 #import "JYHModel.h"
+
+#import "BMAlert.h"
 @interface PolyDealVC ()
 {
     NSMutableArray *_data;
@@ -130,13 +132,27 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [_info isLoginWithPresent:^(BOOL flag) {
-        PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
         JYHModel *model = _data[indexPath.row];
         NSString *goodKey = [NSString stringWithFormat:@"1000_%@",model.productId];
-        polyGoodsRootVC.goodKey = goodKey;
-        polyGoodsRootVC.leftTitle = @"商品详情";
-        [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
-    } WithType:YES];
-    
+        /*没有登陆*/
+        if (!flag) {
+            [[BMAlert sharedBMAlert] alert:@"登陆去购物才有返利拿哦" cancleTitle:@"登陆" otherTitle:@"跳过" cancle:^(DoAlertView *alertView) {
+                [_info presentNav:self WithCompletion:nil];
+            } other:^(DoAlertView *alertView) {
+                [self pushToDetail:goodKey];
+            }];
+        }else{
+            /*登陆*/
+            [self pushToDetail:goodKey];
+        }
+    } WithType:NO];
+}
+
+-(void)pushToDetail:(NSString *)goodKey
+{
+    PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+    polyGoodsRootVC.goodKey = goodKey;
+    polyGoodsRootVC.leftTitle = @"商品详情";
+    [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 }
 @end

@@ -48,4 +48,18 @@ DEFINE_SINGLETON_FOR_CLASS(BMAlert)
     }];
     alertView = nil;
 }
+
+-(void)alert:(NSString *)aMessage cancleTitle:(NSString *)canleTitle otherTitle:(NSString *)otherTitle cancle:(DoActionViewHandler)cancle other:(DoActionViewHandler)other
+{
+    DoAlertView *alertView = [[DoAlertView alloc] init];
+    alertView.nAnimationType = DoTransitionStyleFade;
+    alertView.dRound = 10.0;
+    alertView.bDestructive = NO;
+    [alertView doYesNo:@"提示" body:aMessage cancleButton:canleTitle otherButton:otherTitle yes:^(DoAlertView *alertView) {
+        cancle(alertView);
+    } no:^(DoAlertView *alertView) {
+        other(alertView);
+    }];
+    alertView = nil;
+}
 @end

@@ -51,11 +51,13 @@
 */
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 104);
     
     _headView = [ProductDetailHeaderView headerView];
     self.tableView.tableHeaderView = _headView;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)reloadView:(ExChangeModel *)model andDetail:(ExChangeDetailModel *)detailModel
@@ -85,19 +87,23 @@
     return 20;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    bgView.backgroundColor = UIColorFromRGB(0xececec);
+    return bgView;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 400;
-    }
-    return 0;
+    return 400;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
         CGRect frame = [self.tableView rectForFooterInSection:section];
-        frame.origin.y = 0;
+        frame.origin.y = 44;
         _tabView = [[UIView alloc] initWithFrame:frame];
         _textView = [[UITextView alloc] initWithFrame:frame];
         _textView.editable = NO;
