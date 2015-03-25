@@ -88,6 +88,11 @@ static NSString *ProfileCellID = @"ProfileCell";
 {
     
     ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileCellID];
+    if (!iOS7) {
+        UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+        bgView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundView = bgView;
+    }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_info.photo]];

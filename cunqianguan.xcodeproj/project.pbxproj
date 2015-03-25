@@ -282,6 +282,8 @@
 		B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D451A88A2F4002CB98E /* JTCircleView.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
+		B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136951AC255CB00170996 /* ExChangeAttr.m */; };
+		B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136981AC2561500170996 /* ExChangeAttrListModel.m */; };
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
 		B1931FD81ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */; };
@@ -839,6 +841,10 @@
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
+		B17136941AC255CB00170996 /* ExChangeAttr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeAttr.h; sourceTree = "<group>"; };
+		B17136951AC255CB00170996 /* ExChangeAttr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeAttr.m; sourceTree = "<group>"; };
+		B17136971AC2561500170996 /* ExChangeAttrListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeAttrListModel.h; sourceTree = "<group>"; };
+		B17136981AC2561500170996 /* ExChangeAttrListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeAttrListModel.m; sourceTree = "<group>"; };
 		B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailShopVC.h; sourceTree = "<group>"; };
 		B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailShopVC.m; sourceTree = "<group>"; };
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
@@ -1576,6 +1582,10 @@
 				B143796E1A9EB80A00D00625 /* ExChangeListModel.m */,
 				B14B90921AA18DD600E34347 /* ExChangeDetailModel.h */,
 				B14B90931AA18DD600E34347 /* ExChangeDetailModel.m */,
+				B17136941AC255CB00170996 /* ExChangeAttr.h */,
+				B17136951AC255CB00170996 /* ExChangeAttr.m */,
+				B17136971AC2561500170996 /* ExChangeAttrListModel.h */,
+				B17136981AC2561500170996 /* ExChangeAttrListModel.m */,
 			);
 			path = ExChange;
 			sourceTree = "<group>";
@@ -2418,7 +2428,7 @@
 				TargetAttributes = {
 					B14071321A6CAFF700D1792F = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 82ZM2GVU85;
+						DevelopmentTeam = LZ6S2F8336;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2592,6 +2602,7 @@
 				B158A72C1A9DC96900C6FD3F /* CateModel.m in Sources */,
 				B158A6F01A9D6BBB00C6FD3F /* NSArray+JSONModel.m in Sources */,
 				B15022DE1AA55787008850F3 /* SignDataModel.m in Sources */,
+				B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */,
 				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B14B90941AA18DD600E34347 /* ExChangeDetailModel.m in Sources */,
@@ -2720,6 +2731,7 @@
 				B14B90911AA1518400E34347 /* MongoDetailModel.m in Sources */,
 				B1668D4C1A88A2F4002CB98E /* JTCalendarMonthView.m in Sources */,
 				B14071B41A6CD38E00D1792F /* MJRefreshFooterView.m in Sources */,
+				B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */,
 				B140719D1A6CCD7900D1792F /* BaseTableVC.m in Sources */,
 				B10922B91AA851BF0073CE63 /* HotShopModel.m in Sources */,
 				B14968451A875A4500DBC09B /* NSNumber+SWHex.m in Sources */,

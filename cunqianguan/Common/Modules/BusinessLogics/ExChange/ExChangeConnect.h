@@ -13,6 +13,7 @@ DEFINE_SINGLETON_FOR_HEADER(ExChangeConnect)
 
 -(void)getExchangeList:(NSString *)userId
               WithAble:(NSInteger)able
+              category:(NSInteger)category
                success:(void (^)(id json))success
                failure:(void (^)( NSError *err))failure;
 
@@ -27,4 +28,8 @@ DEFINE_SINGLETON_FOR_HEADER(ExChangeConnect)
                  qq:(NSString *)qq
             success:(void (^)(id json))success
             failure:(void (^)( NSError *err))failure;
+
+-(void)getExchangeCateArr:(NSString *)uid
+                  success:(void (^)(id json))success
+                  failure:(void (^)( NSError *err))failure;
 @end

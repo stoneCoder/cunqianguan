@@ -37,6 +37,8 @@
     return 40;
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section < 2) {
@@ -52,8 +54,10 @@
         PresentTableFooterView *footerView = [PresentTableFooterView footView];
         return footerView;
     }else{
-        return nil;
-    }
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+        bgView.backgroundColor = UIColorFromRGB(0xececec);
+        return bgView;
+   }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -61,6 +65,7 @@
     UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
     headerview.backgroundColor = [UIColor whiteColor];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, self.frame.size.width - 10, 40)];
+    titleLabel.backgroundColor = [UIColor clearColor];
     NSString *titleStr = @"";
     if (section == 0) {
         titleStr = @"什么是返利？";
@@ -91,10 +96,13 @@
     }else if (indexPath.section == 2){
         textStr = @"在\"足迹\"里，可以看到商品的具体返利，购买有返利！";
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = textStr;
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 @end

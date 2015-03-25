@@ -70,7 +70,7 @@
     for (int i = 0; i < items.count; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
-        [btn setTitleColor:UIColorFromRGB(0x49c6db) forState:UIControlStateSelected];
+        [btn setTitleColor:UIColorFromRGB(0x2cb8ad) forState:UIControlStateSelected];
         [btn setTitleColor:UIColorFromRGB(0x464646) forState:UIControlStateNormal];
         [btn setTitle:items[i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:16];

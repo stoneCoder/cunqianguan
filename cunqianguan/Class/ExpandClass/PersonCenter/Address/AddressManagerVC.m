@@ -183,17 +183,25 @@
 
 -(void)changeViewPath
 {
+    CGFloat visiableY = 64.0f;
+    if (iOS7) {
+        visiableY = 0;
+    }
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.25];
-    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2);
+    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2 - visiableY);
     [UIView commitAnimations];
 }
 
 -(void)returnNormalPath
 {
+    CGFloat visiableY = 0.0f;
+    if (iOS7) {
+        visiableY = 64.0f;
+    }
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.25];
-    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2.0 + 64);
+    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2.0 + visiableY);
     [UIView commitAnimations];
 }
 @end

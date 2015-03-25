@@ -128,14 +128,15 @@
     //_pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     _pageControl =  [[ScrollFocus alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     
+    
     if (SCREEN_HEIGTH == 480) {
-        _pageControl.imageArray = @[@"banner1",@"banner2"];
+        _pageControl.imageArray = @[@"banner4_01",@"banner4_02"];
     }else if (SCREEN_HEIGTH == 568){
-        _pageControl.imageArray = @[@"banner1",@"banner2"];
+        _pageControl.imageArray = @[@"banner5_01",@"banner5_02"];
     }else if (SCREEN_HEIGTH == 667){
-        _pageControl.imageArray = @[@"banner6_01",@"banner6_02"];
-    }else if (SCREEN_HEIGTH == 736){
         _pageControl.imageArray = @[@"banner1",@"banner2"];
+    }else if (SCREEN_HEIGTH == 736){
+        _pageControl.imageArray = @[@"banner6p_01",@"banner6p_02"];
     }
     _pageControl.titleArray = @[@"banner1",@"banner2"];
     _pageControl.autoScroll = YES;

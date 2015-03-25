@@ -46,8 +46,9 @@
 */
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
@@ -61,21 +62,25 @@
     return 44;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 1;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellID = @"HelpInfoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
+        if (!iOS7) {
+            UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+            bgView.backgroundColor = [UIColor whiteColor];
+            cell.backgroundView = bgView;
+        }
     }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     cell.textLabel.text = _localData[indexPath.row];
+    
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = UIColorFromRGB(0xececec);
     return cell;
 }
 

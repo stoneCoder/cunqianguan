@@ -139,9 +139,15 @@ connectionError:(void (^)(NSError *error))connectionError
     [dic setObject:[BaseUtil hmac_sha1:[BaseUtil toJSONData:dic] secret:@""] forKey:@"hash"];
     
     NSLog(@"request url is ----------> %@, and parameters is ---------> %@",urlStr,dic);
-    
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:10 * 1024 * 1024
+                                                            diskCapacity:5 * 1024 * 1024
+                                                                diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    /*缓存机制*/
+    manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+  
     [manager POST:urlStr parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation,responseObject);
         NSLog(@"success----------->%@",responseObject);
@@ -154,7 +160,14 @@ connectionError:(void (^)(NSError *error))connectionError
 
 +(void) postAbsolutePath:(NSString*)uri Parameters:(NSDictionary *)parameters  success:(void (^)(id json))success failure:(void (^)(NSError * e))failure{
     NSLog(@"request url is ----------> %@, and parameters is ---------> %@",uri,parameters);
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:10 * 1024 * 1024
+                                                            diskCapacity:5 * 1024 * 1024
+                                                                diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    /*缓存机制*/
+    manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
     [manager POST:uri parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);

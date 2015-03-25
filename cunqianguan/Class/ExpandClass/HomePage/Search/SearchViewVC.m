@@ -98,10 +98,8 @@ static NSString *SearchCellID = @"SearchViewCell";
 
 -(void)loadDataWith:(NSString *)text
 {
-    [self showHUD:DATA_LOAD];
     [self saveHistory:text];
     [[HomeConnect sharedHomeConnect] searchByText:text success:^(id json) {
-        [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if (dic.count > 0) {
             [_data removeAllObjects];
@@ -111,7 +109,6 @@ static NSString *SearchCellID = @"SearchViewCell";
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
     }];
 }
 
@@ -168,6 +165,11 @@ static NSString *SearchCellID = @"SearchViewCell";
         NSString *resultStr = _data[indexPath.row];
         url = SEARCH_URL(resultStr,MM,_info.userId);
     }
+    [self pushToWeb:url];
+}
+
+-(void)pushToWeb:(NSString *)url
+{
     HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
     hotDetailShopVC.leftTitle = @"淘宝";
     hotDetailShopVC.urlPath = url;
@@ -183,7 +185,9 @@ static NSString *SearchCellID = @"SearchViewCell";
         [self showStringHUD:@"请填写查询条件" second:2];
         return;
     }
-    [self loadDataWith:searchText];
+
+    NSString *url = SEARCH_URL(searchText,MM,_info.userId);
+    [self pushToWeb:url];
 }
 
 - (BOOL)SBSearchBarShouldBeginEditing:(SBSearchBar *)searchBar
@@ -204,6 +208,14 @@ static NSString *SearchCellID = @"SearchViewCell";
 - (void)SBSearchBarTextDidEndEditing:(SBSearchBar *)searchBar
 {
     
+}
+
+- (BOOL)SBSearchBarChangeCharacters:(NSString *)text
+{
+    if (text.length > 0) {
+        [self loadDataWith:text];
+    }
+    return YES;
 }
 
 #pragma mark -- SearchViewCellDelegate

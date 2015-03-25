@@ -70,7 +70,7 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
                                          appKey:nil
                                       shareText:content
                                      shareImage:nil
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToTencent,nil]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                        delegate:nil];
 }
 

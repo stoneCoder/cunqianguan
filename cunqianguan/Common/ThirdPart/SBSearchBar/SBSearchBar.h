@@ -20,6 +20,7 @@
 - (void)SBSearchBarTextDidBeginEditing:(SBSearchBar *)searchBar;                     // called when text starts editing
 - (BOOL)SBSearchBarShouldEndEditing:(SBSearchBar *)searchBar;                        // return NO to not resign first responder
 - (void)SBSearchBarTextDidEndEditing:(SBSearchBar *)searchBar;                       // called when text ends editing
+- (BOOL)SBSearchBarChangeCharacters:(NSString *)text;
 
 - (void)searchAction:(SBSearchBar *)searchBar;
 

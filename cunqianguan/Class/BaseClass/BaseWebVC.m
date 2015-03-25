@@ -53,7 +53,7 @@
     _progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
-    [self showLoaderView];
+    [self showLoaderView:self.webView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

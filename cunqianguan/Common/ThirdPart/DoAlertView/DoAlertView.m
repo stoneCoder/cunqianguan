@@ -216,6 +216,7 @@
         lbTitle.textAlignment = NSTextAlignmentLeft;
         lbTitle.textColor = [UIColor whiteColor];
         lbTitle.text = _strAlertTitle;
+        lbTitle.backgroundColor = [UIColor clearColor];
         [self setLabelAttributes:lbTitle];
         lbTitle.frame = CGRectMake(visiableX, DO_TITLE_INSET.top, lbTitle.frame.size.width, [self getTextHeight:lbTitle] + 10);
         [vTitle addSubview:lbTitle];
@@ -240,7 +241,8 @@
                                                                 _vAlert.frame.size.width - (DO_LABEL_INSET.left + DO_LABEL_INSET.right) , 0)];
     lbBody.text = _strAlertBody;
     [self setLabelAttributes:lbBody];
-    lbBody.frame = CGRectMake(DO_LABEL_INSET.left, lbBody.frame.origin.y, lbBody.frame.size.width, [self getTextHeight:lbBody]);
+    lbBody.backgroundColor = [UIColor clearColor];
+    lbBody.frame = CGRectMake(DO_LABEL_INSET.left, lbBody.frame.origin.y, lbBody.frame.size.width, [self getTextHeight:lbBody]+5);
     [vBody addSubview:lbBody];
     
     vBody.frame = CGRectMake(0, dHeight - 0.5, _vAlert.frame.size.width,
@@ -345,6 +347,7 @@
                                                                      _vAlert.frame.size.width - visiableX , 0)];
         lbTitle.textAlignment = NSTextAlignmentLeft;
         lbTitle.textColor = [UIColor whiteColor];
+        lbTitle.backgroundColor = [UIColor clearColor];
         lbTitle.text = _strAlertTitle;
         [self setLabelAttributes:lbTitle];
         lbTitle.frame = CGRectMake(visiableX, DO_TITLE_INSET.top, lbTitle.frame.size.width, [self getTextHeight:lbTitle] + 10);
@@ -507,12 +510,17 @@
 
 - (double)getTextHeight:(UILabel *)lbText
 {
+    CGRect rect;
     NSDictionary *attributes = @{NSFontAttributeName:lbText.font};
-    CGRect rect = [lbText.text boundingRectWithSize:CGSizeMake(lbText.frame.size.width, MAXFLOAT)
-                                            options:NSStringDrawingUsesLineFragmentOrigin
-                                         attributes:attributes
-                                            context:nil];
-    
+    if (iOS7) {
+        rect = [lbText.text boundingRectWithSize:CGSizeMake(lbText.frame.size.width, MAXFLOAT)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:attributes
+                                         context:nil];
+    }else{
+        NSAttributedString *str = [[NSAttributedString alloc] initWithString:lbText.text];
+        rect = [str boundingRectWithSize:CGSizeMake(lbText.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin  context:nil];
+    }
     return ceil(rect.size.height);
 }
 

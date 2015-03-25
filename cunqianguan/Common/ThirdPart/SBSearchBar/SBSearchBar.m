@@ -18,7 +18,9 @@
     if (self) {
         self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 5)];
         self.searchTextField.placeholder = @"输入宝贝关键字查返利";
-        self.searchTextField.tintColor =[UIColor blueColor];
+        if (iOS7) {
+            self.searchTextField.tintColor =[UIColor blueColor];
+        }
         self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
         [self.cancelButton setImage:[UIImage imageNamed:@"inner_search_btn"] forState:UIControlStateNormal];
         [self.cancelButton addTarget:self action:@selector(searchBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -115,6 +117,17 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(SBSearchBarTextDidEndEditing:)]) {
         [self.delegate SBSearchBarTextDidEndEditing:self];
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(SBSearchBarChangeCharacters:)]) {
+        [self.delegate SBSearchBarChangeCharacters:string];
+    }
+    if (range.location != NSNotFound) {
+        return YES;
+    }
+    return NO;
 }
 
 

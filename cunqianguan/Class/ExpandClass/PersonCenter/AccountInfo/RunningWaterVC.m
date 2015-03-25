@@ -124,6 +124,12 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RunningWaterCell *cell = [tableView dequeueReusableCellWithIdentifier:RunningWaterCellID];
+    
+    if (!iOS7) {
+        UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+        bgView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundView = bgView;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell loadCell:_data[indexPath.row]];
     return cell;

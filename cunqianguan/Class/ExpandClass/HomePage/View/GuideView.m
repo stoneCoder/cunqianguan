@@ -22,17 +22,33 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.imageViewGuide1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leader_01.png"]];
+        NSString *imageName1 = @"leader_01.png";
+        NSString *imageName2 = @"leader_02.png";
+        NSString *imageName3 = @"leader_03.png";
+        if (SCREEN_HEIGTH == 480) {
+            imageName1 = @"leader4_01.png";
+            imageName2 = @"leader4_02.png";
+            imageName3 = @"leader4_03.png";
+        }else if (SCREEN_HEIGTH == 568){
+            imageName1 = @"leader5_01.png";
+            imageName2 = @"leader5_02.png";
+            imageName3 = @"leader5_03.png";
+        }else if (SCREEN_HEIGTH == 736){
+            imageName1 = @"leader6p_01.png";
+            imageName2 = @"leader6p_02.png";
+            imageName3 = @"leader6p_03.png";
+        }
+        self.imageViewGuide1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName1]];
         self.imageViewGuide1.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
         self.imageViewGuide1.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         self.imageViewGuide1.backgroundColor = UIColorFromRGB(0x4f5d61);
         [self addSubview:self.imageViewGuide1];
-        self.imageViewGuide2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leader_02.png"]];
+        self.imageViewGuide2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName2]];
         self.imageViewGuide2.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
         self.imageViewGuide2.center = CGPointMake(self.frame.size.width*3/2, self.frame.size.height/2);
         self.imageViewGuide2.backgroundColor = UIColorFromRGB(0x3bb4f2);
         [self addSubview:self.imageViewGuide2];
-        self.imageViewGuide3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leader_03.png"]];
+        self.imageViewGuide3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName3]];
         self.imageViewGuide3.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
         self.imageViewGuide3.center = CGPointMake(self.frame.size.width*5/2, self.frame.size.height/2);
         self.imageViewGuide3.backgroundColor = UIColorFromRGB(0xf66969);

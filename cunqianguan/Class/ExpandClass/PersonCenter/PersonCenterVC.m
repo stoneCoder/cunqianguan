@@ -106,7 +106,7 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
     UINib *cellNib = [UINib nibWithNibName:@"PersonInfoCell" bundle:nil];
@@ -193,13 +193,34 @@ static NSString *FooterViewID = @"PersonFooterView";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    if (section == 0) {
+        return 0;
+    }
+    return 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return nil;
+    }else{
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+        bgView.backgroundColor = UIColorFromRGB(0xececec);
+        return bgView;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (!iOS7) {
+        UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+        bgView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundView = bgView;
+    }
+    
     cell.titleLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
     switch (indexPath.section) {
         case 0:

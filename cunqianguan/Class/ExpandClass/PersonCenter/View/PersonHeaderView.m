@@ -33,7 +33,7 @@
 
 -(void)setUpView
 {
-    self.contentView.backgroundColor = UIColorFromRGB(0x58ded4);
+    self.contentView.backgroundColor = UIColorFromRGB(0x32DACD);
     _headBgView.layer.cornerRadius  = _headBgView.frame.size.width/2;
     _headBgView.clipsToBounds = YES;
     _headBgView.layer.borderWidth = 3;

@@ -33,7 +33,7 @@
     
     NSString *priceText = [NSString stringWithFormat:@"￥%.2f",model.price];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];
-    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0,1)];
+    [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:10.0f] range:NSMakeRange(0,1)];
     _priceLabel.attributedText = str;
 }
 @end

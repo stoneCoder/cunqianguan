@@ -110,7 +110,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.34509803921568627" green="0.87058823529411766" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.19607843137254902" green="0.85490196078431369" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="itL-eA-IJO" firstAttribute="centerX" secondItem="OP5-cX-emr" secondAttribute="centerX" constant="4" id="16z-kS-ogK"/>
                         <constraint firstAttribute="centerY" secondItem="itL-eA-IJO" secondAttribute="centerY" constant="30.5" id="3PU-7b-cob"/>
@@ -163,7 +163,7 @@
                 <outlet property="progressView" destination="8qG-tW-VBJ" id="Her-2l-z33"/>
                 <outlet property="vipImage" destination="MgZ-fJ-qFu" id="4gq-Qd-bY6"/>
             </connections>
-            <point key="canvasLocation" x="-777" y="-18"/>
+            <point key="canvasLocation" x="-384" y="1"/>
         </view>
     </objects>
     <resources>

@@ -28,6 +28,9 @@
     
     _titleLabel.text = model.title;
     
+    //NSString *priceText = [NSString stringWithFormat:@"￥%.2f",model.price];
+    //NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:priceText];
+    //[str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:10.0f] range:NSMakeRange(0,1)];
     _priceLabel.text = [NSString stringWithFormat:@"￥%.2f",model.price];
     
     NSString *oldPriceText = [NSString stringWithFormat:@"￥%.2f",model.priceOld];

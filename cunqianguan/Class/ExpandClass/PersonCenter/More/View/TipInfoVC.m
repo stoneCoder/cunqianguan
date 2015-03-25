@@ -30,8 +30,10 @@
 
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)reloadDataWith:(NSDictionary *)dic
@@ -65,11 +67,6 @@
     return 50;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 10;
-}
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
@@ -93,6 +90,7 @@
     cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:textStr];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -100,6 +98,7 @@
     [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textStr.length)];
     cell.textLabel.attributedText = attrStr;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 @end

@@ -48,8 +48,10 @@
 
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
@@ -70,7 +72,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    if (section == 0) {
+        return 0;
+    }
+    return 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section != 0) {
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+        bgView.backgroundColor = UIColorFromRGB(0xececec);
+        return bgView;
+    }
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,12 +94,21 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
+        if (!iOS7) {
+            UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+            bgView.backgroundColor = [UIColor whiteColor];
+            cell.backgroundView = bgView;
+        }
     }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     NSString *imageName = [_localImageData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
     cell.imageView.image = [UIImage imageNamed:imageName];
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
+    
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = UIColorFromRGB(0xececec);
     return cell;
 }
 

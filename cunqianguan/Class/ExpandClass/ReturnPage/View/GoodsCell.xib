@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -16,9 +16,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQQ-eJ-Dle">
                         <rect key="frame" x="5" y="5" width="150" height="150"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="NQQ-eJ-Dle" secondAttribute="height" multiplier="1:1" id="2Gb-IK-rSz"/>
-                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥87.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti5-Ja-kkm">
                         <rect key="frame" x="6" y="183" width="53" height="19"/>
@@ -38,7 +35,7 @@
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="￥99.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7t-tW-5Rw">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="99.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7t-tW-5Rw">
                         <rect key="frame" x="67" y="185" width="44" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Z7t-tW-5Rw" secondAttribute="height" multiplier="44:15" id="QYJ-Oh-3JC"/>
@@ -58,7 +55,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男生秋冬" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Da-38g">
                         <rect key="frame" x="5" y="157" width="150" height="27"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -73,17 +70,19 @@
                 <constraint firstItem="LWt-LC-zUM" firstAttribute="top" secondItem="Z7t-tW-5Rw" secondAttribute="bottom" constant="3" id="BLf-E7-IqH"/>
                 <constraint firstItem="Z7t-tW-5Rw" firstAttribute="leading" secondItem="Ti5-Ja-kkm" secondAttribute="trailing" constant="8" id="DnQ-IH-qqN"/>
                 <constraint firstItem="Ti5-Ja-kkm" firstAttribute="centerY" secondItem="Z7t-tW-5Rw" secondAttribute="centerY" id="F4c-Qw-1rO"/>
-                <constraint firstItem="NQQ-eJ-Dle" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="IcX-h5-QxL"/>
+                <constraint firstItem="NQQ-eJ-Dle" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="K6O-CG-218"/>
+                <constraint firstAttribute="centerY" secondItem="NQQ-eJ-Dle" secondAttribute="centerY" constant="30" id="LSj-lY-xwi"/>
                 <constraint firstItem="LWt-LC-zUM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="MtX-jJ-vEh"/>
                 <constraint firstAttribute="trailing" secondItem="jhh-mQ-pKj" secondAttribute="trailing" constant="5" id="OWj-Nj-08Z"/>
                 <constraint firstAttribute="bottom" secondItem="jhh-mQ-pKj" secondAttribute="bottom" constant="2" id="ZUU-XU-1w9"/>
+                <constraint firstItem="NQQ-eJ-Dle" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="az5-TA-qYC"/>
                 <constraint firstAttribute="trailing" secondItem="A9a-Da-38g" secondAttribute="trailing" constant="5" id="cQb-xR-MDg"/>
-                <constraint firstItem="NQQ-eJ-Dle" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="gsC-z2-UOf"/>
+                <constraint firstAttribute="centerX" secondItem="NQQ-eJ-Dle" secondAttribute="centerX" id="dvh-Y4-89s"/>
                 <constraint firstItem="Z7t-tW-5Rw" firstAttribute="top" secondItem="A9a-Da-38g" secondAttribute="bottom" constant="1" id="hG4-GY-afg"/>
                 <constraint firstAttribute="bottom" secondItem="LWt-LC-zUM" secondAttribute="bottom" constant="2" id="hTQ-Xe-qLa"/>
                 <constraint firstItem="Ti5-Ja-kkm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="igL-6c-dv2"/>
+                <constraint firstAttribute="trailing" secondItem="NQQ-eJ-Dle" secondAttribute="trailing" constant="5" id="r0f-SF-N6M"/>
                 <constraint firstItem="Ti5-Ja-kkm" firstAttribute="top" secondItem="A9a-Da-38g" secondAttribute="bottom" constant="-1" id="t6X-zZ-yFC"/>
-                <constraint firstAttribute="trailing" secondItem="NQQ-eJ-Dle" secondAttribute="trailing" constant="5" id="uNz-zU-dwi"/>
             </constraints>
             <size key="customSize" width="183" height="271"/>
             <connections>

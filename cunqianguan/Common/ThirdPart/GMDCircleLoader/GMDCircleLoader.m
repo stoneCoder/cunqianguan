@@ -51,6 +51,7 @@
     label.textColor = GMD_SPINNER_COLOR;
     label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
+    label.backgroundColor = [UIColor clearColor];
     [hud addSubview:label];
     
     CGFloat visiableY = label.frame.size.height + label.frame.origin.y + 10;
@@ -62,6 +63,7 @@
     tiplabel.textColor = GMD_SPINNER_COLOR;
     tiplabel.textAlignment = NSTextAlignmentCenter;
     tiplabel.text = tip;
+    tiplabel.backgroundColor = [UIColor clearColor];
     [hud addSubview:tiplabel];
     
     

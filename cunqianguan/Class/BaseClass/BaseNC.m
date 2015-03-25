@@ -33,10 +33,11 @@
 
     if (iOS7) {
         //[self.navigationBar setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x58DED4)] forBarMetrics:UIBarMetricsDefault];
-        [self.navigationBar setBarTintColor:UIColorFromRGB(0x58DED4)];
+        [self.navigationBar setBarTintColor:UIColorFromRGB(0x32dacd)];
         self.navigationBar.translucent = NO;
     }else{
-        [self.navigationController.navigationBar setTintColor:UIColorFromRGB(0x58DED4)];
+        [self.navigationBar setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x32dacd)] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setTintColor:UIColorFromRGB(0x32dacd)];
     }
     
     /*去掉navigationBar底部阴影*/

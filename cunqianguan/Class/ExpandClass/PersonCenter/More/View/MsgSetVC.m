@@ -40,11 +40,13 @@ static NSString *msgSetCellId = @"MsgSetCell";
 
 -(void)setUpTableView
 {
-    [self createTableWithStye:UITableViewStyleGrouped];
+    [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
     UINib *cellNib = [UINib nibWithNibName:@"MsgSetCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:msgSetCellId];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 /*
@@ -78,6 +80,11 @@ static NSString *msgSetCellId = @"MsgSetCell";
     cell.tag = indexPath.row;
     NSString *title = _localData[indexPath.row];
     cell.titleLabel.text = title;
+    if (!iOS7) {
+        UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+        bgView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundView = bgView;
+    }
     if (indexPath.row == _localData.count - 1) {
         cell.switchBtn.hidden = YES;
         cell.infoLabel.hidden = NO;

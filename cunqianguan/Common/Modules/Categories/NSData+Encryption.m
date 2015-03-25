@@ -42,83 +42,83 @@
 
 - (NSData *)transposeWithAES128:(NSString *)keyValue andViKey:(NSString *)viKey forOperation:(NSInteger)operation
 {
-    char keyPtr[kCCKeySizeAES128 + 1];
-    memset(keyPtr, 0, sizeof(keyPtr));
-    [keyValue getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
-    
-    char ivPtr[kCCBlockSizeAES128 + 1];
-    memset(ivPtr, 0, sizeof(ivPtr));
-    [viKey getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
-    
-    NSUInteger dataLength = [self length];
-    size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *buffer = malloc(bufferSize);
-    
-    size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt((u_int32_t)operation,
-                                          kCCAlgorithmAES128,
-                                          kCCOptionPKCS7Padding,
-                                          keyPtr,
-                                          kCCBlockSizeAES128,
-                                          ivPtr,
-                                          [self bytes],
-                                          dataLength,
-                                          buffer,
-                                          bufferSize,
-                                          &numBytesCrypted);
-    if (cryptStatus == kCCSuccess) {
-        return [NSData dataWithBytesNoCopy:buffer length:numBytesCrypted];
-    }
-    free(buffer);
-    return nil;
-//    char keyPtr[kCCKeySizeAES128+1];
+//    char keyPtr[kCCKeySizeAES128 + 1];
 //    memset(keyPtr, 0, sizeof(keyPtr));
 //    [keyValue getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
 //    
-//    char ivPtr[kCCBlockSizeAES128+1];
+//    char ivPtr[kCCBlockSizeAES128 + 1];
 //    memset(ivPtr, 0, sizeof(ivPtr));
 //    [viKey getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
 //    
 //    NSUInteger dataLength = [self length];
-//    
-//    int diff = kCCKeySizeAES128 - (dataLength % kCCKeySizeAES128);
-//    int newSize = 0;
-//    
-//    if(diff > 0)
-//    {
-//        newSize = dataLength + diff;
-//    }
-//    
-//    char dataPtr[newSize];
-//    memcpy(dataPtr, [self bytes], [self length]);
-//    for(int i = 0; i < diff; i++)
-//    {
-//        dataPtr[i + dataLength] = 0x20;
-//    }
-//    
-//    size_t bufferSize = newSize + kCCBlockSizeAES128;
+//    size_t bufferSize = dataLength + kCCBlockSizeAES128;
 //    void *buffer = malloc(bufferSize);
-//    memset(buffer, 0, bufferSize);
 //    
 //    size_t numBytesCrypted = 0;
-//    
-//    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
+//    CCCryptorStatus cryptStatus = CCCrypt((u_int32_t)operation,
 //                                          kCCAlgorithmAES128,
-//                                          0x0000,               //No padding
+//                                          kCCOptionPKCS7Padding,
 //                                          keyPtr,
-//                                          kCCKeySizeAES128,
+//                                          kCCBlockSizeAES128,
 //                                          ivPtr,
-//                                          dataPtr,
-//                                          sizeof(dataPtr),
+//                                          [self bytes],
+//                                          dataLength,
 //                                          buffer,
 //                                          bufferSize,
 //                                          &numBytesCrypted);
-//    
 //    if (cryptStatus == kCCSuccess) {
 //        return [NSData dataWithBytesNoCopy:buffer length:numBytesCrypted];
 //    }
 //    free(buffer);
 //    return nil;
+    char keyPtr[kCCKeySizeAES128+1];
+    memset(keyPtr, 0, sizeof(keyPtr));
+    [keyValue getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    char ivPtr[kCCBlockSizeAES128+1];
+    memset(ivPtr, 0, sizeof(ivPtr));
+    [viKey getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    
+    NSUInteger dataLength = [self length];
+    
+    int diff = kCCKeySizeAES128 - (dataLength % kCCKeySizeAES128);
+    int newSize = 0;
+    
+    if(diff > 0)
+    {
+        newSize = dataLength + diff;
+    }
+    
+    char dataPtr[newSize];
+    memcpy(dataPtr, [self bytes], [self length]);
+    for(int i = 0; i < diff; i++)
+    {
+        dataPtr[i + dataLength] = 0x20;
+    }
+    
+    size_t bufferSize = newSize + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    memset(buffer, 0, bufferSize);
+    
+    size_t numBytesCrypted = 0;
+    
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
+                                          kCCAlgorithmAES128,
+                                          0x0000,               //No padding
+                                          keyPtr,
+                                          kCCKeySizeAES128,
+                                          ivPtr,
+                                          dataPtr,
+                                          sizeof(dataPtr),
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesCrypted);
+    
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesCrypted];
+    }
+    free(buffer);
+    return nil;
 }
 
 - (NSData *)decryptWithKeyAES128:(NSString *)keyValue andViKey:(NSString *)viKey forOperation:(NSInteger)operation

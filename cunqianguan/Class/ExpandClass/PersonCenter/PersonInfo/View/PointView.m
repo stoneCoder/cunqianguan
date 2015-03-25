@@ -59,6 +59,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.detailTextLabel.textColor = UIColorFromRGB(0x969696);
     NSString *fanStr = @"50%";
     if (indexPath.row == 1) {
         fanStr = @"55%";

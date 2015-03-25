@@ -39,7 +39,7 @@
     _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
     _segment.backgroundColor = [UIColor whiteColor];
     _segment.delegate = self;
-    [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
+    [_segment setItems:_titleArray isShowLine:YES WithSelectPlace:ShowSelectPlaceFromBottom];
     [self.view addSubview:_segment];
 }
 
