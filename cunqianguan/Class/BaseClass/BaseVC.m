@@ -291,7 +291,7 @@
 
 -(void)setTitleImage:(UIImage *)image
 {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 78, 22)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 78, 24)];
     imageView.image = image;
     self.navigationItem.titleView = imageView;
 }

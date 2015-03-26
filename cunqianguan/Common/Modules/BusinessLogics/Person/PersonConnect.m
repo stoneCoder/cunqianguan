@@ -321,6 +321,18 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
     } failure:^(id json) {
         failure(json);
     } withView:nil];
- 
+}
+
+-(void)tapOpenRedBag:(NSString *)userId
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"responseActivity";
+    NSDictionary *dic = @{@"uid":userId,@"aid":@(1)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
 }
 @end

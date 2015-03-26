@@ -39,6 +39,10 @@
 		B12D72A31A7B799F0086F70A /* PersonInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D72A11A7B799F0086F70A /* PersonInfoVC.m */; };
 		B12D72A41A7B799F0086F70A /* PersonInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12D72A21A7B799F0086F70A /* PersonInfoVC.xib */; };
 		B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D72A81A7B7AFD0086F70A /* PointView.m */; };
+		B13C085E1AC3D5A100DC0676 /* RedBagView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13C085D1AC3D5A100DC0676 /* RedBagView.m */; };
+		B13C08621AC3D5C500DC0676 /* RedBagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13C08611AC3D5C500DC0676 /* RedBagView.xib */; };
+		B13C08651AC3EF6800DC0676 /* RedBagOpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13C08641AC3EF6800DC0676 /* RedBagOpenView.m */; };
+		B13C08671AC3EF7500DC0676 /* RedBagOpenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13C08661AC3EF7500DC0676 /* RedBagOpenView.xib */; };
 		B14071391A6CAFF700D1792F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B14071381A6CAFF700D1792F /* main.m */; };
 		B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B140713B1A6CAFF700D1792F /* AppDelegate.m */; };
 		B14071441A6CAFF700D1792F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14071431A6CAFF700D1792F /* Images.xcassets */; };
@@ -396,6 +400,12 @@
 		B12D72A21A7B799F0086F70A /* PersonInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoVC.xib; sourceTree = "<group>"; };
 		B12D72A71A7B7AFD0086F70A /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
 		B12D72A81A7B7AFD0086F70A /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
+		B13C085C1AC3D5A100DC0676 /* RedBagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagView.h; sourceTree = "<group>"; };
+		B13C085D1AC3D5A100DC0676 /* RedBagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagView.m; sourceTree = "<group>"; };
+		B13C08611AC3D5C500DC0676 /* RedBagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedBagView.xib; sourceTree = "<group>"; };
+		B13C08631AC3EF6800DC0676 /* RedBagOpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagOpenView.h; sourceTree = "<group>"; };
+		B13C08641AC3EF6800DC0676 /* RedBagOpenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagOpenView.m; sourceTree = "<group>"; };
+		B13C08661AC3EF7500DC0676 /* RedBagOpenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedBagOpenView.xib; sourceTree = "<group>"; };
 		B14071331A6CAFF700D1792F /* cunqianguan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cunqianguan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14071371A6CAFF700D1792F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14071381A6CAFF700D1792F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1560,6 +1570,12 @@
 				B1436F901A73633E00706772 /* PersonHeaderView.xib */,
 				488124501AB84CE700636199 /* PopTipView.h */,
 				488124511AB84CE700636199 /* PopTipView.m */,
+				B13C085C1AC3D5A100DC0676 /* RedBagView.h */,
+				B13C085D1AC3D5A100DC0676 /* RedBagView.m */,
+				B13C08611AC3D5C500DC0676 /* RedBagView.xib */,
+				B13C08631AC3EF6800DC0676 /* RedBagOpenView.h */,
+				B13C08641AC3EF6800DC0676 /* RedBagOpenView.m */,
+				B13C08661AC3EF7500DC0676 /* RedBagOpenView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2542,7 +2558,9 @@
 				B14071441A6CAFF700D1792F /* Images.xcassets in Resources */,
 				B14D453C1A70A4EE005AA895 /* GoodsCell.xib in Resources */,
 				B109D5A01A722DB000505D32 /* ExChangeCenterVC.xib in Resources */,
+				B13C08671AC3EF7500DC0676 /* RedBagOpenView.xib in Resources */,
 				B15D44D81A78B777008B8F4B /* RunningWaterCell.xib in Resources */,
+				B13C08621AC3D5C500DC0676 /* RedBagView.xib in Resources */,
 				B14FE5EE1A7CADED002BF122 /* FootPrintsCell.xib in Resources */,
 				B14FE5F41A7CB40F002BF122 /* CollectVC.xib in Resources */,
 				B15032641A8B3A82000A61FA /* FavoriteCell.xib in Resources */,
@@ -2594,6 +2612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13C085E1AC3D5A100DC0676 /* RedBagView.m in Sources */,
 				B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */,
 				B14968481A875A4500DBC09B /* NSData+SWJSON.m in Sources */,
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
@@ -2630,6 +2649,7 @@
 				B158A70E1A9D78AA00C6FD3F /* JYHConnect.m in Sources */,
 				B1668D4A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m in Sources */,
 				B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */,
+				B13C08651AC3EF6800DC0676 /* RedBagOpenView.m in Sources */,
 				B1668D471A88A2F4002CB98E /* JTCalendarAppearance.m in Sources */,
 				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,
 				B14071B81A6CD38E00D1792F /* UIView+MJExtension.m in Sources */,

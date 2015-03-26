@@ -46,13 +46,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 104);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 124);
     
     _headView = [PolyDetailHeaderView headerView];
     self.tableView.tableHeaderView = _headView;
@@ -101,12 +101,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                return 44.0f;
+            }else{
+                return [self mathCellHeigth] + 10;
+            }
+            break;
+        case 1:
+            if (indexPath.row == 0) {
+                return 44.0f;
+            }else{
+                return [self mathCollectionHeigth];
+            }
+            break;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -121,52 +137,52 @@
     return bgView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return [self mathCellHeigth] + 10;
-    }else if (section == 1){
-        return [self mathCollectionHeigth];
-    }
-    return 0;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    if (section == 0) {
+//        return [self mathCellHeigth] + 10;
+//    }else if (section == 1){
+//        return [self mathCollectionHeigth];
+//    }
+//    return 0;
+//}
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    if (section == 0) {
-        CGFloat heigth = [self mathCellHeigth];
-        CGRect frame = [self.tableView rectForFooterInSection:section];
-        frame.origin.y = 0;
-        frame.size.height = heigth;
-        UIView *view = [[UIView alloc] initWithFrame:frame];
-        view.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, heigth)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont systemFontOfSize:15.0f];
-        label.textColor = UIColorFromRGB(0xABABAB);
-        label.numberOfLines = 0;
-        label.lineBreakMode = NSLineBreakByCharWrapping;
-        label.text = _detailModel.xiaob;
-        [view addSubview:label];
-        return view;
-    }else if (section == 1){
-        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.minimumLineSpacing = 0;
-        
-        CGFloat heigth = [self mathCollectionHeigth];
-        _favoriteView = [[FavoriteView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, heigth) collectionViewLayout:flowLayout];
-        _favoriteView.backgroundColor = [UIColor whiteColor];
-        _favoriteView.dataSource = _favoriteView;
-        _favoriteView.delegate = _favoriteView;
-        _favoriteView.favoriteViewDelegate = self;
-        [_favoriteView setUpFavoriteData:_collectionArray];
-        return _favoriteView;
-    }
-    return nil;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    if (section == 0) {
+//        CGFloat heigth = [self mathCellHeigth];
+//        CGRect frame = [self.tableView rectForFooterInSection:section];
+//        frame.origin.y = 0;
+//        frame.size.height = heigth;
+//        UIView *view = [[UIView alloc] initWithFrame:frame];
+//        view.backgroundColor = [UIColor whiteColor];
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, heigth)];
+//        label.backgroundColor = [UIColor clearColor];
+//        label.font = [UIFont systemFontOfSize:15.0f];
+//        label.textColor = UIColorFromRGB(0xABABAB);
+//        label.numberOfLines = 0;
+//        label.lineBreakMode = NSLineBreakByCharWrapping;
+//        label.text = _detailModel.xiaob;
+//        [view addSubview:label];
+//        return view;
+//    }else if (section == 1){
+//        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+//        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+//        flowLayout.minimumInteritemSpacing = 0;
+//        flowLayout.minimumLineSpacing = 0;
+//        
+//        CGFloat heigth = [self mathCollectionHeigth];
+//        _favoriteView = [[FavoriteView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, heigth) collectionViewLayout:flowLayout];
+//        _favoriteView.backgroundColor = [UIColor whiteColor];
+//        _favoriteView.dataSource = _favoriteView;
+//        _favoriteView.delegate = _favoriteView;
+//        _favoriteView.favoriteViewDelegate = self;
+//        [_favoriteView setUpFavoriteData:_collectionArray];
+//        return _favoriteView;
+//    }
+//    return nil;
+//}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -175,26 +191,76 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 44)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont systemFontOfSize:17.0f];
-        NSString *labelText = @"";
-        if (indexPath.section == 0) {
-           labelText  = @"小编语";
-        }else if (indexPath.section == 1){
-            labelText = @"大家正在抢";
-        }
-        label.text = labelText;
-        [cell addSubview:label];
-        if (!iOS7) {
-            UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
-            bgView.backgroundColor = [UIColor whiteColor];
-            cell.backgroundView = bgView;
-        }
+    }
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 44)];
+                label.backgroundColor = [UIColor clearColor];
+                label.font = [UIFont systemFontOfSize:17.0f];
+                label.text = @"小编语";
+                [cell addSubview:label];
+            }else if (indexPath.row == 1){
+                [cell addSubview:[self createEditorView]];
+            }
+            break;
+        case 1:
+            if (indexPath.row == 0) {
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 44)];
+                label.backgroundColor = [UIColor clearColor];
+                label.font = [UIFont systemFontOfSize:17.0f];
+                label.text = @"大家正在抢";
+                [cell addSubview:label];
+            }else if (indexPath.row == 1){
+                [cell addSubview:[self createCollectionView]];
+            }
+            break;
+    }
+
+    if (!iOS7) {
+        UIView *bgView =  [[UIView alloc] initWithFrame:cell.frame];
+        bgView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundView = nil;
+        cell.backgroundView = bgView;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+#pragma mark -- Private
+-(UIView *)createEditorView
+{
+    CGFloat heigth = [self mathCellHeigth];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, heigth)];
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, VIEW_WIDTH - 40, heigth)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15.0f];
+    label.textColor = UIColorFromRGB(0xABABAB);
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByCharWrapping;
+    label.text = _detailModel.xiaob;
+    [view addSubview:label];
+    return view;
+}
+
+-(UIView *)createCollectionView
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 5, 5, 5)];
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 0;
+    
+    CGFloat heigth = [self mathCollectionHeigth];
+    _favoriteView = [[FavoriteView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, heigth) collectionViewLayout:flowLayout];
+    _favoriteView.backgroundColor = [UIColor whiteColor];
+    _favoriteView.dataSource = _favoriteView;
+    _favoriteView.delegate = _favoriteView;
+    _favoriteView.favoriteViewDelegate = self;
+    [_favoriteView setUpFavoriteData:_collectionArray];
+    return _favoriteView;
 }
 
 #pragma mark -- FavoriteViewDelegate
@@ -207,5 +273,12 @@
     [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 }
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat sectionHeaderHeight = 20;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
 @end

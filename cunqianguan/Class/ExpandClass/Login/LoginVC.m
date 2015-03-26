@@ -122,6 +122,7 @@
         __weak NSString *weakPwd = pwd;
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
             /*获取个人资料*/
             PersonInfo *person = [PersonInfo sharedPersonInfo];
             person.password = pwd;

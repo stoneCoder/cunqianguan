@@ -37,7 +37,7 @@
     _info = [PersonInfo sharedPersonInfo];
     _isAddTrance = NO;
     if (self.webView == nil) {
-        CGRect frame = CGRectMake(0, 0, VIEW_WIDTH, [UIScreen mainScreen].bounds.size.height);
+        CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH);
         self.webView = [[UIWebView alloc] initWithFrame:frame];
         [self.view addSubview:self.webView];
     }

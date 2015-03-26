@@ -31,7 +31,7 @@
 
 -(void)setUpView
 {
-    _nameView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
+    _nameView.backgroundColor = [UIColor whiteColor];
     _scrollView.scrollEnabled = NO;
 }
 

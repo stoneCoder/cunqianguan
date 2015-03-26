@@ -32,6 +32,17 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+}
+
 -(void)createTableWithStye:(UITableViewStyle)style
 {
     if (self.tableView == nil) {
@@ -42,8 +53,9 @@
         self.tableView.backgroundColor = UIColorFromRGB(0xececec);
         [self.view addSubview:self.tableView];
     }
-    if (iOS7) {
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (!iOS7) {
+        self.tableView.backgroundColor = UIColorFromRGB(0xececec);
+        self.tableView.backgroundView = nil;
     }
 }
 

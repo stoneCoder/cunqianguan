@@ -103,7 +103,8 @@
     //1 开枪中   2 今日10点  3即将开始 其它 抢光
     NSInteger type = _detailModel.status;
     if (type == 1) {
-        _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
         [_actionBtn setTitle:@"去抢购" forState:UIControlStateNormal];
         NSString *grabText = [NSString stringWithFormat:@"%ld人正在抢",(long)_detailModel.qcount];
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:grabText];
@@ -113,13 +114,15 @@
         [self startTimer:[NSNumber numberWithInteger:type]];
     }else if (type == 2){
         _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
         [_actionBtn setTitle:@"今日10点" forState:UIControlStateNormal];
         
         _actionBtn.userInteractionEnabled = NO;
         
         [self startTimer:[NSNumber numberWithInteger:type]];
     }else if (type == 3){
-        _actionBtn.backgroundColor = [UIColor whiteColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
         [_actionBtn setTitle:@"即将开始" forState:UIControlStateNormal];
         [_actionBtn setTitleColor:UIColorFromRGB(0xD0D0D0) forState:UIControlStateNormal];
@@ -130,7 +133,7 @@
         
         [self startTimer:[NSNumber numberWithInteger:_detailModel.status]];
     }else{
-        _actionBtn.backgroundColor = [UIColor lightGrayColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xb4b4b4)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
         _grabLabel.hidden = YES;

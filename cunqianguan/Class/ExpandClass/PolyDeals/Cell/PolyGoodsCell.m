@@ -7,7 +7,7 @@
 //
 
 #import "PolyGoodsCell.h"
-
+#import "UIImage+Resize.h"
 @implementation PolyGoodsCell
 
 - (void)awakeFromNib {

@@ -62,10 +62,12 @@
     [[LoginConnect sharedLoginConnect] registByAccount:email userName:username withPwd:pwd success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
             /*注册完成自动登陆*/
             [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
                 NSDictionary *dic = (NSDictionary *)json;
                 if ([BaseConnect isSucceeded:dic]) {
+                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
                     /*获取个人资料*/
                     PersonInfo *person = [PersonInfo sharedPersonInfo];
                     person.password = pwd;

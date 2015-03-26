@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RedBagOpenView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_bag_open" translatesAutoresizingMaskIntoConstraints="NO" id="Sim-Oh-yyY">
+                    <rect key="frame" x="-27" y="107" width="375" height="333"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Sim-Oh-yyY" secondAttribute="height" multiplier="125:111" id="8J3-75-s7Q"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-z3-P2G">
+                    <rect key="frame" x="265" y="106" width="25" height="25"/>
+                    <state key="normal" image="red_close">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="UOL-e0-0Pd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功领取5元红包奖励！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biP-KP-5Qw">
+                    <rect key="frame" x="86" y="312" width="148" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邀请好友还可获得最高110元现金奖励" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f80-Bo-myt">
+                    <rect key="frame" x="76" y="338" width="168" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf0-iG-L64">
+                    <rect key="frame" x="70" y="380" width="180" height="42"/>
+                    <state key="normal" image="invite_btn">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="inviteAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="OuH-za-deJ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.00元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMn-bx-Aec">
+                    <rect key="frame" x="102" y="250" width="116" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" red="1" green="0.94117647059999998" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Brt-z3-P2G" firstAttribute="centerY" secondItem="Sim-Oh-yyY" secondAttribute="centerY" constant="-155" id="5eU-NV-OMp"/>
+                <constraint firstItem="f80-Bo-myt" firstAttribute="centerX" secondItem="biP-KP-5Qw" secondAttribute="centerX" id="7VG-DW-nlw"/>
+                <constraint firstItem="biP-KP-5Qw" firstAttribute="top" secondItem="JMn-bx-Aec" secondAttribute="bottom" constant="14" id="9br-WC-8YY"/>
+                <constraint firstAttribute="centerY" secondItem="Sim-Oh-yyY" secondAttribute="centerY" constant="0.5" id="Hqk-JT-gP6"/>
+                <constraint firstItem="JMn-bx-Aec" firstAttribute="centerX" secondItem="biP-KP-5Qw" secondAttribute="centerX" id="ITx-EP-BiO"/>
+                <constraint firstAttribute="centerX" secondItem="Sim-Oh-yyY" secondAttribute="centerX" constant="-0.5" id="MyV-0f-4yh"/>
+                <constraint firstItem="Brt-z3-P2G" firstAttribute="centerX" secondItem="Sim-Oh-yyY" secondAttribute="centerX" constant="117" id="Q5s-26-qZX"/>
+                <constraint firstItem="Sim-Oh-yyY" firstAttribute="centerY" secondItem="JMn-bx-Aec" secondAttribute="centerY" constant="-0.5" id="UAF-hd-tTX"/>
+                <constraint firstAttribute="centerY" secondItem="hf0-iG-L64" secondAttribute="centerY" constant="-127" id="ayn-Dn-shh"/>
+                <constraint firstItem="f80-Bo-myt" firstAttribute="centerX" secondItem="hf0-iG-L64" secondAttribute="centerX" id="jFg-fe-JJb"/>
+                <constraint firstItem="Sim-Oh-yyY" firstAttribute="centerX" secondItem="JMn-bx-Aec" secondAttribute="centerX" constant="0.5" id="lOr-bD-DF3"/>
+                <constraint firstItem="f80-Bo-myt" firstAttribute="top" secondItem="biP-KP-5Qw" secondAttribute="bottom" constant="9" id="m0v-cd-aAa"/>
+            </constraints>
+            <connections>
+                <outlet property="cashLabel" destination="JMn-bx-Aec" id="1QF-nL-V2O"/>
+                <outlet property="successLabel" destination="biP-KP-5Qw" id="cSU-8Y-xOF"/>
+            </connections>
+            <point key="canvasLocation" x="518" y="471"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="invite_btn" width="180" height="42"/>
+        <image name="red_bag_open" width="375" height="333"/>
+        <image name="red_close" width="25" height="25"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

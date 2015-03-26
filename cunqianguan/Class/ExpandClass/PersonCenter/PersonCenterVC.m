@@ -26,12 +26,15 @@
 #import "CallsRechargeVC.h"
 #import "BMAlert.h"
 
+#import "RedBagView.h"
+#import "RedBagOpenView.h"
+
 #import "SignVC.h"
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "BaseUtil.h"
-@interface PersonCenterVC ()<PersonHeaderDelegate,PersonFooterDelegate>
+@interface PersonCenterVC ()<PersonHeaderDelegate,PersonFooterDelegate,RedBagViewDelegate,RedBagOpenViewDelegate>
 {
     NSDictionary *_localData;
     PersonHeaderView *personHeaderView;
@@ -39,6 +42,8 @@
     PersonInfo *_info;
     PopTipView *_popTipView;
     UIButton *_rightButton;
+    RedBagView *_redBagView;
+    RedBagOpenView *_redBagOpenView;
 }
 
 @end
@@ -52,6 +57,8 @@ static NSString *FooterViewID = @"PersonFooterView";
     _localData = @{@"0":@[@"现金",@"淘宝集分宝",@"我的积分"],@"1":@[@"我的订单",@"账户明细"],@"2":@[@"收款账号",@"收货地址"],@"3":@[@"邀请好友",@"话费充值",@"更多"]};
     [self setUpNavBtn];
     [self setUpTableView];
+    [self setUpRedBag];
+    [self setUpRedBagOpen];
     [self reloadView];
 }
 
@@ -61,6 +68,11 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self reloadView];
     if (_isRegistFinish) {
         [self showStringHUD:@"注册成功" second:1.5];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rewardNotice"] boolValue]) {
+        [self showRedBagView:_redBagView];
+    }else{
+        [self.view bringSubviewToFront:self.tableView];
     }
 }
 
@@ -130,6 +142,22 @@ static NSString *FooterViewID = @"PersonFooterView";
     }
 }
 
+-(void)setUpRedBag
+{
+    _redBagView = [RedBagView initBagView];
+    _redBagView.delegate = self;
+    _redBagView.hidden = YES;
+    [self.view insertSubview:_redBagView belowSubview:self.tableView];
+}
+
+-(void)setUpRedBagOpen
+{
+    _redBagOpenView = [RedBagOpenView initBagOpenView];
+    _redBagOpenView.delegate = self;
+    _redBagOpenView.hidden = YES;
+    [self.view insertSubview:_redBagOpenView belowSubview:self.tableView];
+}
+
 -(void)rightBtnClick:(UIButton *)btn
 {
     [_info isLoginWithPresent:^(BOOL flag) {
@@ -173,6 +201,64 @@ static NSString *FooterViewID = @"PersonFooterView";
     } failure:^(NSError *err) {
         
     }];
+}
+
+#pragma mark -- RedBagViewDelegate
+-(void)closeRedBagView
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"rewardNotice"];
+    [self hideRedBagView:_redBagView andDuration:0.25f];
+}
+
+-(void)tapToOpenRedBag
+{
+    [[PersonConnect sharedPersonConnect] tapOpenRedBag:_info.userId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [self hideRedBagView:_redBagView andDuration:0.1f];
+            [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"rewardNotice"];
+            [self showRedBagView:_redBagOpenView];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
+#pragma mark -- RedBagOpenViewDelegate
+-(void)closeOpenView
+{
+    [self hideRedBagView:_redBagOpenView andDuration:0.25f];
+}
+
+-(void)inviteFriend
+{
+    InviteVC *inviteVC = [[InviteVC alloc] init];
+    inviteVC.leftTitle = @"邀请好友";
+    [self.navigationController pushViewController:inviteVC animated:YES];
+}
+
+-(void)hideRedBagView:(UIView *)view andDuration:(CGFloat)duration
+{
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:duration];
+    [animation setType:kCATransitionFade];
+    [animation setFillMode:kCAFillModeForwards];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+    [view.layer addAnimation:animation forKey:nil];
+    view.hidden = YES;
+    [self.view bringSubviewToFront:self.tableView];
+}
+
+-(void)showRedBagView:(UIView *)view
+{
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.25f];
+    [animation setType:kCATransitionFade];
+    [animation setFillMode:kCAFillModeForwards];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [view.layer addAnimation:animation forKey:nil];
+    view.hidden = NO;
+    [self.view bringSubviewToFront:view];
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
@@ -371,6 +457,15 @@ static NSString *FooterViewID = @"PersonFooterView";
     } other:^(DoAlertView *alertView) {
         
     }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat sectionHeaderHeight = 20;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
 }
 
 @end

@@ -44,7 +44,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 -(void)viewDidCurrentView:(NSInteger)index andCategroy:(NSInteger)category;
 {
     _type = index;
-    [_data removeAllObjects];
+    //[_data removeAllObjects];
     NSString *userId = _info.userId;
     if (index == 0) {
         _able = 1;
@@ -114,7 +114,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 15, 250);
+    return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

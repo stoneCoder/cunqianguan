@@ -45,8 +45,6 @@
 
 #import "AppDelegate.h"
 
-
-
 @interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate>
 {
     UIScrollView *_scrollView;
@@ -86,6 +84,9 @@
         [_dimView removeFromSuperview];
         _dimView = nil;
         _openView = 0;
+    }
+    if (_presentView) {
+        [self hidePresentMenu];
     }
 }
 
@@ -213,7 +214,7 @@
 #pragma mark -- PresentViewDelegate
 -(void)presentHelpView
 {
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         _presentView.hidden = NO;
         _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI);
         [_presentView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
@@ -465,12 +466,16 @@
     PersonCenterVC *personVC = [[PersonCenterVC alloc] init];
     personVC.leftTitle = @"会员中心";
     if (notification) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
         NSString *recviceStr = (NSString *)notification.object;
         if ([recviceStr isEqualToString:@"RegistFinish"]) {
             personVC.isRegistFinish = YES;
         }
+        [self.navigationController pushViewController:personVC animated:NO];
+    }else{
+        [self.navigationController pushViewController:personVC animated:YES];
     }
-    [self.navigationController pushViewController:personVC animated:YES];
+    
 }
 
 @end

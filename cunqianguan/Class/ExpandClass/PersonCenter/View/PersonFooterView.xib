@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="20" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8W-Fi-9xr">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8W-Fi-9xr">
                     <rect key="frame" x="222" y="22" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="g8W-Fi-9xr" secondAttribute="height" multiplier="1:1" id="6nd-zc-Bgp"/>

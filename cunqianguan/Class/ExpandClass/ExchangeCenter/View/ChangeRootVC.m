@@ -18,7 +18,7 @@
 #import "ExChangeDetailModel.h"
 #import "PersonInfo.h"
 #import "Constants.h"
-
+#import "BaseUtil.h"
 @interface ChangeRootVC ()
 {
     ChangeProductVC *_changeProductVC;
@@ -81,7 +81,7 @@
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
     }else if (_info.pointSite < _model.point){
-        _actionBtn.backgroundColor = [UIColor grayColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xB4B4B4)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"积分不足" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
     }
