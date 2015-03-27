@@ -56,7 +56,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男生秋冬" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Da-38g">
                         <rect key="frame" x="5" y="157" width="150" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -66,7 +66,6 @@
             <constraints>
                 <constraint firstItem="A9a-Da-38g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="64h-KK-Yon"/>
                 <constraint firstItem="LWt-LC-zUM" firstAttribute="top" secondItem="Ti5-Ja-kkm" secondAttribute="bottom" constant="1" id="9dq-zK-Lf5"/>
-                <constraint firstItem="A9a-Da-38g" firstAttribute="top" secondItem="NQQ-eJ-Dle" secondAttribute="bottom" constant="2" id="AjZ-ZH-klE"/>
                 <constraint firstItem="LWt-LC-zUM" firstAttribute="top" secondItem="Z7t-tW-5Rw" secondAttribute="bottom" constant="3" id="BLf-E7-IqH"/>
                 <constraint firstItem="Z7t-tW-5Rw" firstAttribute="leading" secondItem="Ti5-Ja-kkm" secondAttribute="trailing" constant="8" id="DnQ-IH-qqN"/>
                 <constraint firstItem="Ti5-Ja-kkm" firstAttribute="centerY" secondItem="Z7t-tW-5Rw" secondAttribute="centerY" id="F4c-Qw-1rO"/>
@@ -74,6 +73,7 @@
                 <constraint firstAttribute="centerY" secondItem="NQQ-eJ-Dle" secondAttribute="centerY" constant="30" id="LSj-lY-xwi"/>
                 <constraint firstItem="LWt-LC-zUM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="MtX-jJ-vEh"/>
                 <constraint firstAttribute="trailing" secondItem="jhh-mQ-pKj" secondAttribute="trailing" constant="5" id="OWj-Nj-08Z"/>
+                <constraint firstItem="A9a-Da-38g" firstAttribute="top" secondItem="NQQ-eJ-Dle" secondAttribute="bottom" constant="2" id="X8o-2K-GKB"/>
                 <constraint firstAttribute="bottom" secondItem="jhh-mQ-pKj" secondAttribute="bottom" constant="2" id="ZUU-XU-1w9"/>
                 <constraint firstItem="NQQ-eJ-Dle" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="az5-TA-qYC"/>
                 <constraint firstAttribute="trailing" secondItem="A9a-Da-38g" secondAttribute="trailing" constant="5" id="cQb-xR-MDg"/>

@@ -18,5 +18,11 @@ DEFINE_SINGLETON_FOR_HEADER(ShareUtil)
 
 + (void)presentInviteView:(UIViewController *)controller
                   content:(NSString *)content
-                   strUrl:(NSString *)urlPath;
+                   image:(UIImage *)image;
+
++(void)shareForWxInView:(UIViewController *)controller
+                content:(NSString *)content
+               imageUrl:(NSString *)imageUrl
+               shareUrl:(NSString *)url
+                success:(void (^)(NSInteger responseCode))success;
 @end

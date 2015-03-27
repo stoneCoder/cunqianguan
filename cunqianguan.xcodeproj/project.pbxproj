@@ -155,6 +155,8 @@
 		B14E30C61A7A1D0D005BF0EF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30C51A7A1D0D005BF0EF /* AccountCell.xib */; };
 		B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14E30C91A7A262E005BF0EF /* AccountEditVC.m */; };
 		B14E30CC1A7A262E005BF0EF /* AccountEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */; };
+		B14F36821AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = B14F36811AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m */; };
+		B14F36861AC52B7E00CD513A /* NotificationWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14F36851AC52B7E00CD513A /* NotificationWebVC.m */; };
 		B14FE5E41A7C77A9002BF122 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5E21A7C77A9002BF122 /* ProfileCell.m */; };
 		B14FE5E51A7C77A9002BF122 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14FE5E31A7C77A9002BF122 /* ProfileCell.xib */; };
 		B14FE5E91A7C7FA4002BF122 /* VPImageCropperVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FE5E81A7C7FA4002BF122 /* VPImageCropperVC.m */; };
@@ -616,6 +618,10 @@
 		B14E30C81A7A262E005BF0EF /* AccountEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditVC.h; sourceTree = "<group>"; };
 		B14E30C91A7A262E005BF0EF /* AccountEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditVC.m; sourceTree = "<group>"; };
 		B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditVC.xib; sourceTree = "<group>"; };
+		B14F36801AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"; sourceTree = "<group>"; };
+		B14F36811AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m"; sourceTree = "<group>"; };
+		B14F36841AC52B7E00CD513A /* NotificationWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationWebVC.h; sourceTree = "<group>"; };
+		B14F36851AC52B7E00CD513A /* NotificationWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWebVC.m; sourceTree = "<group>"; };
 		B14FE5E11A7C77A9002BF122 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
 		B14FE5E21A7C77A9002BF122 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 		B14FE5E31A7C77A9002BF122 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
@@ -1308,6 +1314,8 @@
 		B14071711A6CC8E900D1792F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B14F36801AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h */,
+				B14F36811AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m */,
 				B1E6B57F1AAECB8D005CB5AF /* UIImage+Resize.h */,
 				B1E6B5801AAECB8D005CB5AF /* UIImage+Resize.m */,
 				B1B350261AAA9C6A00D574E3 /* UIBarButtonItem+Badge.h */,
@@ -1420,6 +1428,7 @@
 		B14071BE1A6CEC9400D1792F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				B14F36831AC52B6B00CD513A /* Notification */,
 				48C882D81AC1830400D2E435 /* Search */,
 				B1C1DAB41AC14F11006C22C6 /* Guide */,
 				B1E2B8851AB2BBFF00D0FCA5 /* Cell */,
@@ -1776,6 +1785,15 @@
 				B14E30CA1A7A262E005BF0EF /* AccountEditVC.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B14F36831AC52B6B00CD513A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				B14F36841AC52B7E00CD513A /* NotificationWebVC.h */,
+				B14F36851AC52B7E00CD513A /* NotificationWebVC.m */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		B14FE5E61A7C7FA4002BF122 /* VPImageCropper */ = {
@@ -2747,6 +2765,7 @@
 				B14729B41A8C917100524510 /* Constants.m in Sources */,
 				B1668D4B1A88A2F4002CB98E /* JTCalendarMenuView.m in Sources */,
 				B15D44E21A78CBD0008B8F4B /* MessageInfoCell.m in Sources */,
+				B14F36821AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m in Sources */,
 				B1436F801A732D3C00706772 /* PersonInfoCell.m in Sources */,
 				B14B90911AA1518400E34347 /* MongoDetailModel.m in Sources */,
 				B1668D4C1A88A2F4002CB98E /* JTCalendarMonthView.m in Sources */,
@@ -2815,6 +2834,7 @@
 				B140EC771A6F7345004D245A /* SMTabBar.m in Sources */,
 				B15D44C51A788C8F008B8F4B /* TaoOrderCell.m in Sources */,
 				B14968311A8758E800DBC09B /* NSDate+Helper.m in Sources */,
+				B14F36861AC52B7E00CD513A /* NotificationWebVC.m in Sources */,
 				B1F065B01AB90C9C0082515D /* PresentTableFooterView.m in Sources */,
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,

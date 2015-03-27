@@ -76,17 +76,27 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
 
 + (void)presentInviteView:(UIViewController *)controller
                   content:(NSString *)content
-                  strUrl:(NSString *)urlPath
+                  image:(UIImage *)shareImage
 {
-    [UMSocialData defaultData].extConfig.qqData.url = urlPath;
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = urlPath;
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = urlPath;
-    [UMSocialData defaultData].extConfig.sinaData.shareText = urlPath;
+    /*QQ*/
+    [UMSocialData defaultData].extConfig.qqData.title = INVITE_TITLE;
+    [UMSocialData defaultData].extConfig.qqData.shareText = INVITE_CONTENT;
+    
+    /*微信好友*/
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = INVITE_TITLE;
+    [UMSocialData defaultData].extConfig.wechatSessionData.shareText = INVITE_CONTENT;
+    
+    /*微信朋友圈*/
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = INVITE_TITLE;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = INVITE_CONTENT;
+    
+    /*微博*/
+    [UMSocialData defaultData].extConfig.sinaData.shareText = INVITE_CONTENT;
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:nil
                                       shareText:content
-                                     shareImage:nil
+                                     shareImage:shareImage
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                        delegate:nil];
 }
@@ -109,8 +119,16 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
 //}
 
 +(void)shareForWxInView:(UIViewController *)controller
+                content:(NSString *)content
+               imageUrl:(NSString *)imageUrl
+               shareUrl:(NSString *)url
+                success:(void (^)(NSInteger responseCode))success
 {
-    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social" image:nil location:nil urlResource:nil presentedController:controller completion:^(UMSocialResponseEntity *response){
+    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:imageUrl];
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
+    
+    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:content image:nil location:nil urlResource:nil presentedController:controller completion:^(UMSocialResponseEntity *response){
+        success(response.responseCode);
         if (response.responseCode == UMSResponseCodeSuccess) {
             NSLog(@"分享成功！");
         }

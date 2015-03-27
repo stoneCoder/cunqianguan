@@ -188,6 +188,18 @@
                     finishInfoVC.username = snsAccount.userName;
                     finishInfoVC.type = @"wb";
                     [self.navigationController pushViewController:finishInfoVC animated:YES];
+                }else{
+                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
+                    NSString *userId = snsAccount.usid;
+                    /*获取个人资料*/
+                    PersonInfo *person = [PersonInfo sharedPersonInfo];
+                    person.isThirdLogin = YES;
+                    if (userId.length > 20) {
+                        userId = [userId substringToIndex:20];
+                    }
+                    person.password = userId;
+                    [person loginSuccessWith:[dic objectForKey:@"data"]];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }
             } failure:^(NSError *err) {
                 
@@ -215,6 +227,18 @@
                     finishInfoVC.username = snsAccount.userName;
                     finishInfoVC.type = @"qq";
                     [self.navigationController pushViewController:finishInfoVC animated:YES];
+                }else{
+                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
+                    NSString *userId = snsAccount.usid;
+                    /*获取个人资料*/
+                    PersonInfo *person = [PersonInfo sharedPersonInfo];
+                    person.isThirdLogin = YES;
+                    if (userId.length > 20) {
+                        userId = [userId substringToIndex:20];
+                    }
+                    person.password = userId;
+                    [person loginSuccessWith:[dic objectForKey:@"data"]];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }
             } failure:^(NSError *err) {
                 
@@ -224,6 +248,7 @@
         }
     });
 }
+
 
 - (IBAction)clearAction:(id)sender
 {

@@ -17,7 +17,7 @@ DEFINE_SINGLETON_FOR_CLASS(LoginConnect)
               failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"login";
-    NSDictionary *dic =  @{@"email":aAccount,@"password":pwd};
+    NSDictionary *dic =  @{@"email":aAccount,@"password":pwd,@"ios":@"YES"};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {
@@ -32,7 +32,7 @@ DEFINE_SINGLETON_FOR_CLASS(LoginConnect)
                failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"register";
-    NSDictionary *dic =  @{@"email":aAccount,@"username":username,@"password":pwd};
+    NSDictionary *dic =  @{@"email":aAccount,@"username":username,@"password":pwd,@"ios":@"YES"};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

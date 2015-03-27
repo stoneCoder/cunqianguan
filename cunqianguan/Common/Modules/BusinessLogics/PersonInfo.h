@@ -37,6 +37,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 @property (nonatomic, assign) BOOL isBindQQ;
 @property (nonatomic, assign) BOOL isBindSina;
 @property (nonatomic, assign) BOOL isSignToday;
+@property (nonatomic, assign) BOOL isThirdLogin;
 
 
 -(void)loginSuccessWith:(NSDictionary *)dic;

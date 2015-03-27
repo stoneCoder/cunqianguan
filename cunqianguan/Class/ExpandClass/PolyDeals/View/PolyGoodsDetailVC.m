@@ -56,6 +56,8 @@
     
     _headView = [PolyDetailHeaderView headerView];
     self.tableView.tableHeaderView = _headView;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)reloadView:(JYHDetailModel *)model

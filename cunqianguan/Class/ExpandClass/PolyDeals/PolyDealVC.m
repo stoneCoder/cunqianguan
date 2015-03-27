@@ -20,6 +20,7 @@
 #import "JYHListModel.h"
 #import "JYHModel.h"
 
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 #import "BMAlert.h"
 @interface PolyDealVC ()
 {
@@ -29,10 +30,10 @@
     NSInteger _category;
     PersonInfo *_info;
     BOOL _firstLoad;
+    NSMutableDictionary *_polyGoodsCells;
 }
-
 @end
-static NSString *  collectionCellID=@"PolyGoodsCell";
+static NSString *  polyCollectionCellID=@"PolyGoodsCell";
 @implementation PolyDealVC
 
 - (void)viewDidLoad {
@@ -42,6 +43,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
     _data = [NSMutableArray array];
     _pageNum = 1;
     _category = 0;
+    _polyGoodsCells = [NSMutableDictionary dictionary];
     [self setUpCollection];
 }
 
@@ -65,7 +67,7 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 {
     self.collectionView.backgroundColor = UIColorFromRGB(0xECECEC);
     UINib *cellNib = [UINib nibWithNibName:@"PolyGoodsCell" bundle:nil];
-    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:collectionCellID];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:polyCollectionCellID];
     [self setRefreshEnabled:YES];
 }
 
@@ -117,15 +119,20 @@ static NSString *  collectionCellID=@"PolyGoodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
+    PolyGoodsCell *cell = [PolyGoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([PolyGoodsCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row] withType:0];
+        }
+    }];
+    return CGSizeMake(SCREEN_WIDTH/2 - 15, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    PolyGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    PolyGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:polyCollectionCellID forIndexPath:indexPath];
     if (_data.count > 0) {
          [cell loadCell:_data[indexPath.row] withType:0];
     }
-    cell.tag = indexPath.row;
     return cell;
 }
 

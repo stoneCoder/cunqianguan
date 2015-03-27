@@ -24,6 +24,7 @@
 #import "HotShopVC.h"
 #import "SearchViewVC.h"
 #import "InviteVC.h"
+#import "NotificationWebVC.h"
 
 #import "PresentView.h"
 #import "BaseMutableMenu.h"
@@ -71,6 +72,8 @@
     [self initPresentView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushPersonCenter:) name:kRegistFinish object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationView:) name:kNotificationPush object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -100,6 +103,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kRegistFinish object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationPush object:nil];
 }
 
 -(void)initNavBar
@@ -476,6 +480,21 @@
         [self.navigationController pushViewController:personVC animated:YES];
     }
     
+}
+
+-(void)pushNotificationView:(NSNotification *)notification
+{
+    if (notification) {
+        if ([notification.object isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *remoteDic = (NSDictionary *)notification.object;
+            if ([[remoteDic objectForKey:@"url"] length] > 0) {
+                NotificationWebVC *notificationWebVC = [[NotificationWebVC alloc] init];
+                notificationWebVC.leftTitle = [remoteDic objectForKey:@"from"];
+                notificationWebVC.remoteDic = remoteDic;
+                [self.navigationController pushViewController:notificationWebVC animated:YES];
+            }
+        }
+    }
 }
 
 @end

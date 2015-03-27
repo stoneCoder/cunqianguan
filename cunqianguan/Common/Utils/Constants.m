@@ -35,8 +35,8 @@ NSString *const UMengAppKey = @"54dd53cefd98c57dcf000736";
 NSString *const WeChatAppKey = @"d79893620d4851faea30eb26e1221cbc";
 NSString *const WeChatAppID  = @"wx9af45d9c2a6fd036";
 //QQ AppKey&AppID
-NSString *const QQAppKey = @"dA20dR13RcQV3GnR";
-NSString *const QQAppID = @"1102956721";
+NSString *const QQAppKey = @"823fc4d88e9b56c06717f57c4ccae5fc";
+NSString *const QQAppID = @"100287080";
 
 NSString *const MM = @"mm_27280417_3404443_14496902";
 NSString *const aiTaoUrl = @"http://ai.m.taobao.com?pid=";
@@ -57,5 +57,6 @@ NSString *const SEARCH_URL = @"http://suggest.taobao.com/sug?code=utf-8&callback
 NSString *const kWebUrlFinal = @"kWebUrlFinal";
 NSString *const kExChangeSuccess = @"kExChangeSuccess";
 NSString *const kRegistFinish = @"kRegistFinish";
+NSString *const kNotificationPush = @"kNotificationPush";
 
 

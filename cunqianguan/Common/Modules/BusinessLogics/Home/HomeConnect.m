@@ -51,4 +51,18 @@ DEFINE_SINGLETON_FOR_CLASS(HomeConnect)
         failure(e);
     }];
 }
+
+-(void)getPushRead:(NSString *)userId
+            msgKey:(NSString *)msgKey
+           success:(void (^)(id json))success
+           failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getPushRead";
+    NSDictionary *dic = @{@"uid":userId,@"msgkey":msgKey};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

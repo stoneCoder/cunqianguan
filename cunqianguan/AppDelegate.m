@@ -44,6 +44,8 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     [self setUpUMengSDK];
     [self setupUMessageWith:launchOptions];
     
+    [self actionWithMsgClick:launchOptions];
+    
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"showGuide"]) {
         GuideVC *guideVC = [[GuideVC alloc] initWithNibName:nil bundle:nil];
         [nav presentViewController:guideVC animated:NO completion:^{
@@ -136,6 +138,14 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     [UMessage setChannel:@"App Store"];
 }
 
+-(void)actionWithMsgClick:(NSDictionary *)launchOptions
+{
+    NSDictionary* remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotification && remoteNotification.count > 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPush object:remoteNotification];
+    }
+}
+
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
@@ -157,6 +167,11 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+    if (application.applicationState == UIApplicationStateInactive) {
+        if (userInfo && userInfo.count > 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPush object:userInfo];
+        }
+    }
     [UMessage didReceiveRemoteNotification:userInfo];
 }
 

@@ -50,4 +50,5 @@ extern NSString *const SEARCH_URL;
 extern NSString *const kWebUrlFinal;
 extern NSString *const kExChangeSuccess;
 extern NSString *const kRegistFinish;
+extern NSString *const kNotificationPush;
 

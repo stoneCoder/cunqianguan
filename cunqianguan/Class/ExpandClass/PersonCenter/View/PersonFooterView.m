@@ -8,6 +8,7 @@
 
 #import "PersonFooterView.h"
 #import "TipInfoVC.h"
+#import "BaseUtil.h"
 @implementation PersonFooterView
 
 /*
@@ -24,9 +25,17 @@
     PersonFooterView *personFooterView = nil;
     if ([nibs count]) {
         personFooterView = [nibs objectAtIndex:0];
-        //[tapActionView setUpTapAction];
+        [personFooterView setUpView];
     }
     return personFooterView;
+}
+
+-(void)setUpView
+{
+    [_quiteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+    [_quiteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
+    _quiteBtn.layer.cornerRadius = 5.0f;
+    _quiteBtn.layer.masksToBounds = YES;
 }
 
 -(void)loadView:(PersonInfo *)info

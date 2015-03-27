@@ -22,4 +22,9 @@ DEFINE_SINGLETON_FOR_HEADER(HomeConnect)
 -(void)searchByText:(NSString *)text
             success:(void (^)(id json))success
             failure:(void (^)( NSError *err))failure;
+
+-(void)getPushRead:(NSString *)userId
+            msgKey:(NSString *)msgKey
+           success:(void (^)(id json))success
+           failure:(void (^)( NSError *err))failure;
 @end

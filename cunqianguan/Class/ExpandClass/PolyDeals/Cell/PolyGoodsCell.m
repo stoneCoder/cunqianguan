@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     _title.numberOfLines = 1;
-    //_title.lineBreakMode = NSLineBreakByCharWrapping;
+    _title.lineBreakMode = NSLineBreakByTruncatingTail;  
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type

@@ -7,8 +7,8 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-//#define API @"http://www.baoxianqi.com/MobileApi/"
-#define API @"http://deve.baoxianqi.com/MobileApi/"
+#define API @"http://www.baoxianqi.com/MobileApi/"
+//#define API @"http://deve.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
@@ -76,3 +76,6 @@ return shared##className; \
 #define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wb&uid=%@",BASE_URL,goodKey,userId];
 
 #define SEARCH_URL(searchText,mm,userId) [NSString stringWithFormat:@"http://ai.m.taobao.com/search.html?q=%@&pid=%@&unid=%@",searchText,mm,userId]
+
+#define INVITE_TITLE @"保鲜期送102+5元红包啦！"
+#define INVITE_CONTENT @"我刚在保鲜期领取到5元红包咯，注册就能领；用手机APP购物更有最高达9成返利额！不同于传统返利操作，新的足迹功能帮您轻松购物，一键返现，邀请好友还奖100元现金哦！大家赶快参与体验吧！"

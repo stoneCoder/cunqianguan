@@ -12,6 +12,7 @@
 #import "ReturnHomeGoodsVC.h"
 #import "GoodsViewVC.h"
 #import "MenuCell.h"
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 
 #import "PersonInfo.h"
 #import "MongoConnect.h"
@@ -127,6 +128,12 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    GoodsCell *cell = [GoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([GoodsCell class])];
+//    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+//        if (_data.count > 0) {
+//            [cell loadCell:_data[indexPath.row]];
+//        }
+//    }];
     return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
 }
 
