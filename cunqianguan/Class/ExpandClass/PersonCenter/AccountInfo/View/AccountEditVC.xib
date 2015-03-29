@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -17,6 +17,8 @@
                 <outlet property="bankNumText" destination="wLa-vY-vAN" id="82f-2p-u9F"/>
                 <outlet property="bankPwdText" destination="GhI-cu-NPA" id="coo-2W-34d"/>
                 <outlet property="bankText" destination="Ws7-ed-Rbd" id="bPb-Ur-Leb"/>
+                <outlet property="bindAliBtn" destination="0Qz-0D-dDs" id="Uk8-Yd-OJx"/>
+                <outlet property="bindBankBtn" destination="CYd-6e-8eF" id="xlq-7J-2ED"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -121,14 +123,14 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-6e-8eF">
-                            <rect key="frame" x="15" y="251" width="290" height="44"/>
+                            <rect key="frame" x="15" y="251" width="290" height="42"/>
                             <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="CYd-6e-8eF" secondAttribute="height" multiplier="145:22" id="faQ-I9-bPU"/>
+                                <constraint firstAttribute="width" secondItem="CYd-6e-8eF" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="faQ-I9-bPU"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="绑定银行卡">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="bindBankCard:" destination="-1" eventType="touchUpInside" id="B6n-WE-vrr"/>
@@ -179,7 +181,7 @@
                         <constraint firstItem="e68-Mu-v1b" firstAttribute="top" secondItem="REu-jG-RJk" secondAttribute="bottom" constant="11" id="aIh-iL-0jf"/>
                         <constraint firstItem="REu-jG-RJk" firstAttribute="centerY" secondItem="wLa-vY-vAN" secondAttribute="centerY" constant="-1" id="akV-oC-7Wj"/>
                         <constraint firstItem="v3X-F8-LmM" firstAttribute="leading" secondItem="HCe-bD-o78" secondAttribute="leading" id="bdh-Rm-Mju"/>
-                        <constraint firstItem="CYd-6e-8eF" firstAttribute="centerY" secondItem="R2D-S5-umf" secondAttribute="centerY" constant="-1" id="d1n-HY-pXd"/>
+                        <constraint firstItem="CYd-6e-8eF" firstAttribute="centerY" secondItem="R2D-S5-umf" secondAttribute="centerY" constant="-2" id="d1n-HY-pXd"/>
                         <constraint firstItem="0Ug-kZ-dtV" firstAttribute="top" secondItem="oiW-TV-E64" secondAttribute="bottom" constant="10" id="daG-oT-whA"/>
                         <constraint firstItem="uBU-gM-yCy" firstAttribute="centerY" secondItem="v3X-F8-LmM" secondAttribute="centerY" constant="-1" id="dvI-Cc-JKr"/>
                         <constraint firstItem="HCe-bD-o78" firstAttribute="top" secondItem="MEc-7P-Zee" secondAttribute="bottom" constant="10" id="dze-rt-JGc"/>
@@ -246,14 +248,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-0D-dDs">
-                            <rect key="frame" x="15" y="131" width="290" height="44"/>
+                            <rect key="frame" x="15" y="131" width="290" height="42"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="0Qz-0D-dDs" secondAttribute="height" multiplier="145:22" id="9vD-Tv-lXq"/>
+                                <constraint firstAttribute="width" secondItem="0Qz-0D-dDs" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="9vD-Tv-lXq"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="绑定支付宝">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="bindAlipay:" destination="-1" eventType="touchUpInside" id="cuq-kb-79a"/>

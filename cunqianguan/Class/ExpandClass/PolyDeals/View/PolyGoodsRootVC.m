@@ -113,7 +113,6 @@
         
         [self startTimer:[NSNumber numberWithInteger:type]];
     }else if (type == 2){
-        _actionBtn.backgroundColor = [UIColor redColor];
         [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
         [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
         [_actionBtn setTitle:@"今日10点" forState:UIControlStateNormal];

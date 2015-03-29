@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cardNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (strong, nonatomic) IBOutlet UIButton *cancleBtn;
+@property (strong, nonatomic) IBOutlet UIButton *subBtn;
 
 +(BankTransfersView *)transfersView;
 -(void)showView; 

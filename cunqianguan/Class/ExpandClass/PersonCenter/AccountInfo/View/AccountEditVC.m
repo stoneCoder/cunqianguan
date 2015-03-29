@@ -61,11 +61,21 @@
         case ViewTypeWithAipay:
             _AlipayView.hidden = NO;
             _bankCardView.hidden = YES;
+            
+            [_bindAliBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+            [_bindAliBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+            _bindAliBtn.layer.cornerRadius = 5.0f;
+            _bindAliBtn.layer.masksToBounds = YES;
             break;
         case ViewTypeWithBank:
             _AlipayView.hidden = YES;
             _bankCardView.hidden = NO;
             _bankCardView.backgroundColor = self.view.backgroundColor;
+            
+            [_bindBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+            [_bindBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
+            _bindBankBtn.layer.cornerRadius = 5.0f;
+            _bindBankBtn.layer.masksToBounds = YES;
             break;
         default:
             break;

@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totelMoneyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totelInviteLabel;
+@property (strong, nonatomic) IBOutlet UIButton *inviteBtn;
+@property (strong, nonatomic) IBOutlet UIButton *watchInviteBtn;
 
 @end

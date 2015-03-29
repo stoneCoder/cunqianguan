@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, ViewType) {
 @property (weak, nonatomic) IBOutlet UIView *cashView;
 @property (weak, nonatomic) IBOutlet UIButton *integralBtn;
 @property (weak, nonatomic) IBOutlet UIButton *taoBtn;
+@property (strong, nonatomic) IBOutlet UIButton *withdrawBankBtn;
+@property (strong, nonatomic) IBOutlet UIButton *withdrawTaoBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bottomView;
 

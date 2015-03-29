@@ -91,7 +91,6 @@ static NSString *FooterViewID = @"PersonFooterView";
     _info = [PersonInfo sharedPersonInfo];
     [personHeaderView loadView:_info];
     [personFooterView loadView:_info];
-    
     //[self setUpProgressView];
     [self.tableView reloadData];
     [self initSignStatus];
@@ -135,13 +134,6 @@ static NSString *FooterViewID = @"PersonFooterView";
     self.tableView.tableFooterView = personFooterView;
 }
 
--(void)setUpProgressView
-{
-    if (_info.userId) {
-        [self popView:personHeaderView.progressView.frame];
-    }
-}
-
 -(void)setUpRedBag
 {
     _redBagView = [RedBagView initBagView];
@@ -167,19 +159,27 @@ static NSString *FooterViewID = @"PersonFooterView";
     } WithType:YES];
 }
 
--(void)popView:(CGRect)frame
-{
-    CGFloat height = 20.0f;
-    UIFont *font = [UIFont systemFontOfSize:12.0f];
-    NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
-    CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
-    if (!_popTipView) {
-        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
-    }
-    [_popTipView loadViewWith:str];
-    [_popTipView setCenter:CGPointMake(frame.size.width - width/2, frame.origin.y - _popTipView.frame.size.height/2)];
-    [personHeaderView addSubview:_popTipView];
-}
+
+//-(void)setUpProgressView
+//{
+//    if (_info.userId) {
+//        [self popView:personHeaderView.progressView.frame];
+//    }
+//}
+//
+//-(void)popView:(CGRect)frame
+//{
+//    CGFloat height = 20.0f;
+//    UIFont *font = [UIFont systemFontOfSize:12.0f];
+//    NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)_info.userExp,(long)_info.nextUserExp];
+//    CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
+//    if (!_popTipView) {
+//        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, 200, height)];
+//    }
+//    [_popTipView loadViewWith:str];
+//    [_popTipView setCenter:CGPointMake(frame.size.width - width/2, frame.origin.y - _popTipView.frame.size.height/2)];
+//    [personHeaderView addSubview:_popTipView];
+//}
 
 
 -(void)initSignStatus

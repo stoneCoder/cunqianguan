@@ -51,7 +51,9 @@
     _pointImageView.layer.masksToBounds = YES;
     
     _progressBgView.backgroundColor = UIColorFromRGB(0x3CD3C8);
+    _progressView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _progressView.backgroundColor = UIColorFromRGB(0x29AEA4);
+    [self addSubview:_progressView];
 }
 
 -(void)loadView:(PersonInfo *)info
@@ -71,7 +73,7 @@
         _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
         _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];
         
-        CGRect frame = _progressView.frame;
+        CGRect frame = _progressBgView.frame;
         CGFloat width = (CGFloat)info.userExp/(CGFloat)info.nextUserExp*SCREEN_WIDTH;
         _progressView.frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
         
@@ -104,11 +106,15 @@
     _popTipView.hidden = NO;
     [_popTipView loadViewWith:str];
     CGFloat visiableX;
-    if (frame.size.width < width/2) {
-        visiableX = width/2 + frame.size.width;
+    CGFloat progressWidth = frame.size.width;
+    if(progressWidth < width/2){
+        visiableX = width/2;
+    }else if (progressWidth + width > SCREEN_WIDTH) {
+        visiableX =  SCREEN_WIDTH - width/2;
     }else{
-        visiableX = frame.size.width - width/2;
+        visiableX =  progressWidth;
     }
+    
     [_popTipView setCenter:CGPointMake(visiableX, frame.origin.y - _popTipView.frame.size.height/2)];
     [self addSubview:_popTipView];
 }
@@ -127,10 +133,4 @@
         [_delegate tapHeadImage];
     }
 }
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-}
-
 @end

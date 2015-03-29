@@ -77,14 +77,14 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EJ-bs-rEZ">
-                            <rect key="frame" x="15" y="363" width="290" height="44"/>
+                            <rect key="frame" x="15" y="363" width="290" height="42"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="5EJ-bs-rEZ" secondAttribute="height" multiplier="145:22" id="xkR-lR-6HM"/>
+                                <constraint firstAttribute="width" secondItem="5EJ-bs-rEZ" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="xkR-lR-6HM"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="立即签到">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="signAction:" destination="-1" eventType="touchUpInside" id="jww-Tu-gNo"/>
@@ -111,7 +111,7 @@
                         <constraint firstItem="svH-wZ-KED" firstAttribute="top" secondItem="eeO-8O-CMj" secondAttribute="top" id="EpK-mv-OLu"/>
                         <constraint firstItem="svH-wZ-KED" firstAttribute="width" secondItem="eeO-8O-CMj" secondAttribute="width" id="Rup-kt-x6i"/>
                         <constraint firstAttribute="trailing" secondItem="FxM-72-Bnv" secondAttribute="trailing" constant="15" id="Sak-sp-nHp"/>
-                        <constraint firstItem="FxM-72-Bnv" firstAttribute="top" secondItem="5EJ-bs-rEZ" secondAttribute="bottom" constant="18" id="Vg9-Sb-RA5"/>
+                        <constraint firstItem="FxM-72-Bnv" firstAttribute="top" secondItem="5EJ-bs-rEZ" secondAttribute="bottom" constant="20" id="Vg9-Sb-RA5"/>
                         <constraint firstAttribute="trailing" secondItem="5EJ-bs-rEZ" secondAttribute="trailing" constant="15" id="YJr-uv-9ge"/>
                         <constraint firstAttribute="trailing" secondItem="svH-wZ-KED" secondAttribute="trailing" id="YfZ-Fx-wpC"/>
                         <constraint firstItem="5EJ-bs-rEZ" firstAttribute="leading" secondItem="eeO-8O-CMj" secondAttribute="leading" constant="15" id="arQ-D2-zMd"/>

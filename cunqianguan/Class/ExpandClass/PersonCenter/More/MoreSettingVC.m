@@ -108,7 +108,7 @@
     cell.textLabel.text = [_localData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.section]][indexPath.row];
     
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
-    cell.selectedBackgroundView.backgroundColor = UIColorFromRGB(0xececec);
+    cell.selectedBackgroundView.backgroundColor = UIColorFromRGB(0xbcbcbc);
     return cell;
 }
 

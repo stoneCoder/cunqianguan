@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *canMoneyTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (strong, nonatomic) IBOutlet UIButton *cancleBtn;
+@property (strong, nonatomic) IBOutlet UIButton *subBtn;
 
 
 +(AliTransfersView *)transfersView;

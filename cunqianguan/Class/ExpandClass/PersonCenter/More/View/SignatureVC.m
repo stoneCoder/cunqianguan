@@ -10,6 +10,7 @@
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
+#import "BaseUtil.h"
 @interface SignatureVC ()<UITextViewDelegate>
 {
     PersonInfo *_info;
@@ -42,8 +43,12 @@
     self.textView.layer.borderWidth = 0.5;
     self.textView.delegate = self;
     
-    
     self.placeholderLabel.text = self.placeholder;
+    
+    [_subBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+    [_subBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
+    _subBtn.layer.cornerRadius = 5.0f;
+    _subBtn.layer.masksToBounds = YES;
     
 }
 

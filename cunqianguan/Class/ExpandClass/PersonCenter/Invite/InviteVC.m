@@ -25,10 +25,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
+    _inviteBtn.layer.cornerRadius = 5.0f;
+    _inviteBtn.layer.masksToBounds = YES;
+    _watchInviteBtn.layer.cornerRadius = 5.0f;
+    _watchInviteBtn.layer.masksToBounds = YES;
     _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜期网后，只要在7天内注册，均为有效。";
     _pointLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _pointLabel.numberOfLines = 0;
     [self loadDataWith:_info.userId andType:0];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    _scrollView.alwaysBounceVertical = NO;
 }
 
 - (void)didReceiveMemoryWarning {

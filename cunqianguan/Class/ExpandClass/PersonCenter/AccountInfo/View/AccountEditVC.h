@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, ViewType) {
 @property (weak, nonatomic) IBOutlet UITextField *bankText;
 @property (weak, nonatomic) IBOutlet UITextField *bankNumText;
 @property (weak, nonatomic) IBOutlet UITextField *bankPwdText;
+@property (strong, nonatomic) IBOutlet UIButton *bindBankBtn;
+@property (strong, nonatomic) IBOutlet UIButton *bindAliBtn;
 
 @property (assign,nonatomic) NSInteger viewType;
 @property (strong, nonatomic) BankModel *model;

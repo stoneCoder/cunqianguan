@@ -45,6 +45,16 @@
     _numText.delegate = self;
     _pwdText.delegate = self;
     
+    _cancleBtn.layer.borderWidth = 1.0f;
+    _cancleBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    [_cancleBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x07B8AD)] forState:UIControlStateNormal];
+    [_cancleBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xBCBCBC)] forState:UIControlStateHighlighted];
+    
+    _subBtn.layer.borderWidth = 1.0f;
+    _subBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    [_subBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x07B8AD)] forState:UIControlStateNormal];
+    [_subBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xBCBCBC)] forState:UIControlStateHighlighted];
+    
 }
 - (IBAction)cancleAction:(id)sender
 {

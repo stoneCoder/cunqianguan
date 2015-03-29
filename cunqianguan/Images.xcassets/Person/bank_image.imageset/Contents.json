@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "invite_bg.jpg"
+      "filename" : "bank_image.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "invite_bg@2x.jpg"
+      "filename" : "bank_image@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "invite_bg@3x.jpg"
+      "filename" : "bank_image@3x.png"
     }
   ],
   "info" : {

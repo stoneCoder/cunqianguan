@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -94,7 +94,7 @@
                                 <constraint firstAttribute="width" secondItem="hcZ-Bk-RSr" secondAttribute="height" multiplier="3:1" id="qCg-A1-MJu"/>
                             </constraints>
                             <state key="normal" title="取消">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="cancleAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Gx-Ev-69x"/>
@@ -170,7 +170,7 @@
                                 <constraint firstAttribute="width" secondItem="Wfe-zj-TiS" secondAttribute="height" multiplier="3:1" id="izm-N7-8Cw"/>
                             </constraints>
                             <state key="normal" title="确定">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="submitAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="pXu-GW-kqf"/>
@@ -231,6 +231,7 @@
             </constraints>
             <connections>
                 <outlet property="bankNameLabel" destination="l3C-0B-WNV" id="voX-Ql-Rce"/>
+                <outlet property="cancleBtn" destination="hcZ-Bk-RSr" id="GTr-ed-SZS"/>
                 <outlet property="cardNumLabel" destination="uRT-TZ-2vb" id="XMZ-K1-dFZ"/>
                 <outlet property="cityLabel" destination="V15-k7-j3N" id="JWo-hf-thX"/>
                 <outlet property="contentView" destination="Llv-8D-Nw0" id="4m1-Sm-O3H"/>
@@ -238,6 +239,7 @@
                 <outlet property="nameLabel" destination="y6F-RW-8Go" id="NjJ-jS-5fP"/>
                 <outlet property="numText" destination="a8b-QJ-O9K" id="0xK-xq-4QT"/>
                 <outlet property="pwdText" destination="9bC-3x-c5i" id="WrL-hS-WIE"/>
+                <outlet property="subBtn" destination="Wfe-zj-TiS" id="tuS-sc-9Nw"/>
             </connections>
             <point key="canvasLocation" x="-457" y="413"/>
         </view>

@@ -96,10 +96,15 @@ static NSString *AccountCellID = @"AccountCell";
     [cell setCellHeight:cell.frame.size.height];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
+        cell.infoImage.image = [UIImage imageNamed:@"ali_image"];
         [cell.cellBtn setTitle:@"修改支付宝账号" forState:UIControlStateNormal];
+        [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+        [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
     }else if (indexPath.row == 1){
+        cell.infoImage.image = [UIImage imageNamed:@"bank_image"];
         [cell.cellBtn setTitle:@"修改银行卡账号" forState:UIControlStateNormal];
-        [cell.cellBtn setBackgroundColor:UIColorFromRGB(0xF14349)];
+        [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+        [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
     }
     if (_model) {
         if (indexPath.row == 0) {

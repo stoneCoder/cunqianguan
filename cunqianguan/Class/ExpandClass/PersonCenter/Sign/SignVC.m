@@ -79,6 +79,11 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 
 -(void)setUpBtn
 {
+    _actionBtn.layer.cornerRadius = 5.0f;
+    _actionBtn.layer.masksToBounds = YES;
+    [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    
     if (_info.isSignToday) {
         [_actionBtn setTitle:@"今日已签到" forState:UIControlStateNormal];
         [_actionBtn setBackgroundColor:[UIColor grayColor]];

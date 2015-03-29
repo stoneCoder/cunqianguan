@@ -12,6 +12,7 @@
 #import "ExChangeScrollVC.h"
 #import "BMAlert.h"
 
+#import "BaseUtil.h"
 #import "PersonInfo.h"
 @interface MoneyViewVC ()
 {
@@ -28,10 +29,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self refreshViewWithType:_type];
-    
+    [self setUpBtn];
     [self createAliView];
     [self createBankView];
     
+}
+
+-(void)setUpBtn
+{
+    /*去兑换商品*/
+    [_integralBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_integralBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    _integralBtn.layer.cornerRadius = 5.0f;
+    _integralBtn.layer.masksToBounds = YES;
+    
+    /*转到支付宝*/
+    [_taoBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_taoBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    _taoBtn.layer.cornerRadius = 5.0f;
+    _taoBtn.layer.masksToBounds = YES;
+    
+    /*提现到支付宝*/
+    [_withdrawTaoBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_withdrawTaoBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    _withdrawTaoBtn.layer.cornerRadius = 5.0f;
+    _withdrawTaoBtn.layer.masksToBounds = YES;
+    
+    /*提现到银行卡*/
+    [_withdrawBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
+    [_withdrawBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
+    _withdrawBankBtn.layer.cornerRadius = 5.0f;
+    _withdrawBankBtn.layer.masksToBounds = YES;
 }
 
 -(void)createAliView
