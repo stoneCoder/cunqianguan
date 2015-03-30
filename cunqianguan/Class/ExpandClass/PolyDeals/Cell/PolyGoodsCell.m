@@ -11,9 +11,7 @@
 @implementation PolyGoodsCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    _title.numberOfLines = 1;
-    _title.lineBreakMode = NSLineBreakByTruncatingTail;  
+    // Initialization code 
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type

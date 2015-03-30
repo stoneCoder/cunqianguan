@@ -7,8 +7,8 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#define API @"http://www.baoxianqi.com/MobileApi/"
-//#define API @"http://deve.baoxianqi.com/MobileApi/"
+//#define API @"http://www.baoxianqi.com/MobileApi/"
+#define API @"http://deve.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \

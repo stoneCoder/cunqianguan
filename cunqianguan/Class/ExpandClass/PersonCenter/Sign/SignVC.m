@@ -86,7 +86,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     
     if (_info.isSignToday) {
         [_actionBtn setTitle:@"今日已签到" forState:UIControlStateNormal];
-        [_actionBtn setBackgroundColor:[UIColor grayColor]];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor grayColor]] forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
     }
 }
@@ -109,7 +109,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             [_actionBtn setTitle:@"今日已签到" forState:UIControlStateNormal];
-            [_actionBtn setBackgroundColor:[UIColor grayColor]];
+            [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor grayColor]] forState:UIControlStateNormal];
             _info.isSignToday = 1;
             [_info saveUserData];
             [self loadDataWithTime:[BaseUtil convertStringFromDate:[NSDate date] WithType:@"yyyy-MM"]];

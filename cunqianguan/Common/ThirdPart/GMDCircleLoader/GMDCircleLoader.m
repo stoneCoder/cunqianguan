@@ -64,7 +64,9 @@
     tiplabel.textAlignment = NSTextAlignmentCenter;
     tiplabel.text = tip;
     tiplabel.backgroundColor = [UIColor clearColor];
+    [tiplabel setCenter:CGPointMake(hud.frame.size.width/2, label.frame.origin.y + label.frame.size.height + 20)];
     [hud addSubview:tiplabel];
+    
     
     
     [hud start];

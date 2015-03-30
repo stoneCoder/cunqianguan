@@ -101,7 +101,10 @@
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)info.userExp,(long)info.nextUserExp];
     CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];
     if (!_popTipView) {
-        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width + 10, height)];
+        _popTipView = [[PopTipView alloc] initWithFrame:CGRectMake(0, 0, width +10, height)];
+    }else{
+        width = width + 10;
+        _popTipView.frame = CGRectMake(0, 0, width, height);
     }
     _popTipView.hidden = NO;
     [_popTipView loadViewWith:str];

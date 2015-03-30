@@ -41,7 +41,7 @@
                                         <constraint firstAttribute="width" secondItem="49d-oR-tph" secondAttribute="height" multiplier="9:4" id="XA2-e9-qcW"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -61,7 +61,7 @@
                                         <constraint firstAttribute="width" secondItem="JaF-ox-TF6" secondAttribute="height" multiplier="9:4" id="s0c-wx-2eX"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -81,7 +81,7 @@
                                         <constraint firstAttribute="width" secondItem="M8Y-gD-XBk" secondAttribute="height" multiplier="9:4" id="OT3-Of-Xdq"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -102,7 +102,7 @@
                             <rect key="frame" x="15" y="175" width="290" height="42"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="Wma-PK-aNk" secondAttribute="height" multiplier="145:22" constant="13.181818181818187" id="iDU-nb-xgw"/>
+                                <constraint firstAttribute="height" constant="42" id="4YT-2v-bpn"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="小贴士：如何复制商品标题 &gt;">

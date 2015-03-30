@@ -32,7 +32,6 @@
     [self setUpBtn];
     [self createAliView];
     [self createBankView];
-    
 }
 
 -(void)setUpBtn
@@ -78,7 +77,6 @@
     }
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -121,14 +119,12 @@
             break;
         case ViewTypeWithIntegral:
             _firstLabel.text = @"积分收入";
-            _secondLabel.hidden = YES;
-            _secondNumLabel.hidden = YES;
+            _infoView.hidden = YES;
+            _pointView.hidden = NO;
             _cashView.hidden = YES;
             _integralBtn.hidden = NO;
             _taoBtn.hidden = YES;
-            _bottomView.hidden = YES;
-            _firstNumLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
-            _secondNumLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointTbTo];
+            _pointLabel.text = [NSString stringWithFormat:@"%ld分",(long)_info.pointSite];
             break;
     }
     

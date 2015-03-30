@@ -83,11 +83,12 @@
     [self initAdView];
     [self initActionView];
     _actionView.tipImage.hidden = ![_info isNewTrace];
-    if (_dimView) {
-        [_dimView removeFromSuperview];
-        _dimView = nil;
-        _openView = 0;
-    }
+    [self hideMenu];
+//    if (_dimView) {
+//        [_dimView removeFromSuperview];
+//        _dimView = nil;
+//        _openView = 0;
+//    }
     if (_presentView) {
         [self hidePresentMenu];
     }

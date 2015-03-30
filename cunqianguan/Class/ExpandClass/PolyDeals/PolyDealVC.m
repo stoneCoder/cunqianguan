@@ -124,7 +124,7 @@ static NSString *  polyCollectionCellID=@"PolyGoodsCell";
         if (_data.count > 0) {
             [cell loadCell:_data[indexPath.row] withType:0];
         }
-    }];
+    } collectionViewWidth:SCREEN_WIDTH/2 - 15];
     return CGSizeMake(SCREEN_WIDTH/2 - 15, height);
 }
 

@@ -292,6 +292,7 @@
 		B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136981AC2561500170996 /* ExChangeAttrListModel.m */; };
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
+		B18A978A1AC8E38100993B7F /* UIImageView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = B18A97891AC8E38100993B7F /* UIImageView+Borders.m */; };
 		B1931FD81ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */; };
 		B198C18E1AA6E11C0098B9A1 /* BankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B198C18D1AA6E11C0098B9A1 /* BankModel.m */; };
 		B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */; };
@@ -864,6 +865,8 @@
 		B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailShopVC.h; sourceTree = "<group>"; };
 		B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailShopVC.m; sourceTree = "<group>"; };
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
+		B18A97881AC8E38100993B7F /* UIImageView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Borders.h"; sourceTree = "<group>"; };
+		B18A97891AC8E38100993B7F /* UIImageView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Borders.m"; sourceTree = "<group>"; };
 		B1931FD41ABBEB9D00138B13 /* cunqianguan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = cunqianguan.entitlements; sourceTree = "<group>"; };
 		B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		B1931FD71ABBECF500138B13 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
@@ -1330,6 +1333,8 @@
 				B14071731A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m */,
 				B14071741A6CC90400D1792F /* UIView+UIViewExt.h */,
 				B14071751A6CC90400D1792F /* UIView+UIViewExt.m */,
+				B18A97881AC8E38100993B7F /* UIImageView+Borders.h */,
+				B18A97891AC8E38100993B7F /* UIImageView+Borders.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2856,6 +2861,7 @@
 				B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B10922BC1AA852910073CE63 /* HotShopListModel.m in Sources */,
+				B18A978A1AC8E38100993B7F /* UIImageView+Borders.m in Sources */,
 				B1E6B57E1AAE9521005CB5AF /* TBUrlUtil.m in Sources */,
 				B1C1DAAF1AC1439A006C22C6 /* PresentView.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,

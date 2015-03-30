@@ -48,7 +48,7 @@
     btns = [[NSMutableArray alloc] init];
     views = [[NSMutableArray alloc] init];
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = UIColorFromRGB(0x49c6db);
+    view.backgroundColor = UIColorFromRGB(0x2cb8ad);
     [self addSubview:view];
     self.lineView = view;
 }

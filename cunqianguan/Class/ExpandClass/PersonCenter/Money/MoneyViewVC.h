@@ -23,7 +23,10 @@ typedef NS_ENUM(NSInteger, ViewType) {
 @property (strong, nonatomic) IBOutlet UIButton *withdrawBankBtn;
 @property (strong, nonatomic) IBOutlet UIButton *withdrawTaoBtn;
 
-@property (weak, nonatomic) IBOutlet UIImageView *bottomView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIView *pointView;
+@property (weak, nonatomic) IBOutlet UILabel *pointTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointLabel;
 
 @property (assign,nonatomic) NSInteger type;
 @end
