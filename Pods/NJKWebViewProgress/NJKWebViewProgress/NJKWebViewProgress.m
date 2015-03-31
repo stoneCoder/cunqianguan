@@ -11,7 +11,7 @@ NSString *completeRPCURL = @"webviewprogressproxy:///complete";
 
 const float NJKInitialProgressValue = 0.1f;
 const float NJKInteractiveProgressValue = 0.5f;
-const float NJKFinalProgressValue = 0.9f;
+const float NJKFinalProgressValue = 1.0f;
 
 @implementation NJKWebViewProgress
 {

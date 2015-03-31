@@ -31,6 +31,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonInfo)
 @property (nonatomic, assign) NSInteger pointSite;
 @property (nonatomic, assign) CGFloat cashAll;
 @property (nonatomic, assign) NSInteger messageCount;
+@property (nonatomic, assign) NSInteger orderCount;
 @property (nonatomic, assign) NSInteger pointTbTo;
 @property (nonatomic, assign) NSInteger cashTo;
 @property (nonatomic, assign) BOOL isBindAli;

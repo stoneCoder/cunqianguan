@@ -44,6 +44,7 @@
     UIButton *_rightButton;
     RedBagView *_redBagView;
     RedBagOpenView *_redBagOpenView;
+    BOOL _isNewOrder;
 }
 
 @end
@@ -59,12 +60,12 @@ static NSString *FooterViewID = @"PersonFooterView";
     [self setUpTableView];
     [self setUpRedBag];
     [self setUpRedBagOpen];
-    [self reloadView];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self reloadView];
     if (_isRegistFinish) {
         [self showStringHUD:@"注册成功" second:1.5];
@@ -89,10 +90,28 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)reloadView
 {
     _info = [PersonInfo sharedPersonInfo];
-    [personHeaderView loadView:_info];
-    [personFooterView loadView:_info];
-    //[self setUpProgressView];
-    [self.tableView reloadData];
+    NSInteger oldMsgCount = _info.messageCount;
+    NSInteger oldOrderCount = _info.orderCount;
+    [_info getUserInfo:_info.email withPwd:_info.password success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            if (oldMsgCount < _info.messageCount) {
+                personHeaderView.pointImageView.hidden = NO;
+            }else{
+                personHeaderView.pointImageView.hidden = YES;
+            }
+            if (oldOrderCount < _info.orderCount) {
+                _isNewOrder = YES;
+            }else{
+                _isNewOrder = NO;
+            }
+            [personHeaderView loadView:_info];
+            [personFooterView loadView:_info];
+            [self.tableView reloadData];
+        }
+    } failure:^(id json) {
+        
+    }];
     [self initSignStatus];
 }
 
@@ -323,7 +342,13 @@ static NSString *FooterViewID = @"PersonFooterView";
                     break;
             }
             break;
-            default:
+        case 1:
+            if (indexPath.row == 0 && _isNewOrder) {
+                cell.poingImage.hidden = NO;
+            }
+            break;
+        default:
+            cell.poingImage.hidden = YES;
             cell.infoLabel.hidden = YES;
             break;
     }

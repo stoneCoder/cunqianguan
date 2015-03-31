@@ -189,6 +189,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _pointSite = [[data objectForKey:@"point_site"] integerValue];
             _cashAll = [[data objectForKey:@"cash_all"] floatValue];
             _messageCount = [[data objectForKey:@"message_count"] integerValue];
+            _orderCount = [[data objectForKey:@"order_count"] integerValue];
             _pointTbTo = [[data objectForKey:@"point_tb_to"] integerValue];
             _cashTo = [[data objectForKey:@"cash_to"] integerValue];
             _isBindAli = [[data objectForKey:@"isbind_tb"] boolValue];
