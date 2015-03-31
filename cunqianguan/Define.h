@@ -34,6 +34,7 @@ return shared##className; \
 #pragma mark - 适配
 // 判断是否为iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define IS_IOS7 ([[UIDevice currentDevice].systemVersion doubleValue] <= 7.1)
 //判断是否时iphone5
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width

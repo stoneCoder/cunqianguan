@@ -262,6 +262,14 @@
 		B15DC8BD1A8DBFD100298C7D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15DC8BC1A8DBFD100298C7D /* CoreTelephony.framework */; };
 		B15DC8BF1A8DBFDB00298C7D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B15DC8BE1A8DBFDB00298C7D /* libstdc++.dylib */; };
 		B15DC8C11A8DBFE500298C7D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B15DC8C01A8DBFE500298C7D /* libz.dylib */; };
+		B160ED1B1ACA24190024D7FA /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED1A1ACA24190024D7FA /* TestCell.m */; };
+		B160ED1E1ACA698D0024D7FA /* RankingListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED1D1ACA698D0024D7FA /* RankingListView.m */; };
+		B160ED281ACA6F400024D7FA /* RankingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED261ACA6F400024D7FA /* RankingTitleCell.m */; };
+		B160ED291ACA6F400024D7FA /* RankingTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B160ED271ACA6F400024D7FA /* RankingTitleCell.xib */; };
+		B160ED2D1ACA6F7B0024D7FA /* RankingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED2B1ACA6F7B0024D7FA /* RankingListCell.m */; };
+		B160ED2E1ACA6F7B0024D7FA /* RankingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B160ED2C1ACA6F7B0024D7FA /* RankingListCell.xib */; };
+		B160ED311ACA73DA0024D7FA /* RankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED301ACA73DA0024D7FA /* RankingModel.m */; };
+		B160ED341ACA74310024D7FA /* RankingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B160ED331ACA74310024D7FA /* RankingListModel.m */; };
 		B161D7AF1A8097B7000F8DEF /* BaseSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7AE1A8097B7000F8DEF /* BaseSelectView.m */; };
 		B161D7C21A80BED8000F8DEF /* GoodsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B161D7C01A80BED8000F8DEF /* GoodsViewVC.m */; };
 		B161D7C31A80BED8000F8DEF /* GoodsViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161D7C11A80BED8000F8DEF /* GoodsViewVC.xib */; };
@@ -810,6 +818,20 @@
 		B15DC8BC1A8DBFD100298C7D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B15DC8BE1A8DBFDB00298C7D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		B15DC8C01A8DBFE500298C7D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B160ED191ACA24190024D7FA /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
+		B160ED1A1ACA24190024D7FA /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		B160ED1C1ACA698D0024D7FA /* RankingListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListView.h; sourceTree = "<group>"; };
+		B160ED1D1ACA698D0024D7FA /* RankingListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListView.m; sourceTree = "<group>"; };
+		B160ED251ACA6F400024D7FA /* RankingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingTitleCell.h; sourceTree = "<group>"; };
+		B160ED261ACA6F400024D7FA /* RankingTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingTitleCell.m; sourceTree = "<group>"; };
+		B160ED271ACA6F400024D7FA /* RankingTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingTitleCell.xib; sourceTree = "<group>"; };
+		B160ED2A1ACA6F7B0024D7FA /* RankingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListCell.h; sourceTree = "<group>"; };
+		B160ED2B1ACA6F7B0024D7FA /* RankingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListCell.m; sourceTree = "<group>"; };
+		B160ED2C1ACA6F7B0024D7FA /* RankingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingListCell.xib; sourceTree = "<group>"; };
+		B160ED2F1ACA73DA0024D7FA /* RankingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingModel.h; sourceTree = "<group>"; };
+		B160ED301ACA73DA0024D7FA /* RankingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingModel.m; sourceTree = "<group>"; };
+		B160ED321ACA74310024D7FA /* RankingListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListModel.h; sourceTree = "<group>"; };
+		B160ED331ACA74310024D7FA /* RankingListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListModel.m; sourceTree = "<group>"; };
 		B161D7AD1A8097B7000F8DEF /* BaseSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectView.h; sourceTree = "<group>"; };
 		B161D7AE1A8097B7000F8DEF /* BaseSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectView.m; sourceTree = "<group>"; };
 		B161D7BF1A80BED8000F8DEF /* GoodsViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsViewVC.h; sourceTree = "<group>"; };
@@ -1141,6 +1163,8 @@
 				B12D729A1A7B616E0086F70A /* InviteRewardVC.h */,
 				B12D729B1A7B616E0086F70A /* InviteRewardVC.m */,
 				B12D729C1A7B616E0086F70A /* InviteRewardVC.xib */,
+				B160ED1C1ACA698D0024D7FA /* RankingListView.h */,
+				B160ED1D1ACA698D0024D7FA /* RankingListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1667,6 +1691,10 @@
 				B15284451AB41B340028B5D4 /* InviteModel.m */,
 				B15284471AB41BA00028B5D4 /* InviteListModel.h */,
 				B15284481AB41BA00028B5D4 /* InviteListModel.m */,
+				B160ED2F1ACA73DA0024D7FA /* RankingModel.h */,
+				B160ED301ACA73DA0024D7FA /* RankingModel.m */,
+				B160ED321ACA74310024D7FA /* RankingListModel.h */,
+				B160ED331ACA74310024D7FA /* RankingListModel.m */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1851,6 +1879,8 @@
 				B15032601A8B3A82000A61FA /* FavoriteCell.h */,
 				B15032611A8B3A82000A61FA /* FavoriteCell.m */,
 				B15032621A8B3A82000A61FA /* FavoriteCell.xib */,
+				B160ED191ACA24190024D7FA /* TestCell.h */,
+				B160ED1A1ACA24190024D7FA /* TestCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2239,6 +2269,19 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		B160ED1F1ACA6C160024D7FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B160ED251ACA6F400024D7FA /* RankingTitleCell.h */,
+				B160ED261ACA6F400024D7FA /* RankingTitleCell.m */,
+				B160ED271ACA6F400024D7FA /* RankingTitleCell.xib */,
+				B160ED2A1ACA6F7B0024D7FA /* RankingListCell.h */,
+				B160ED2B1ACA6F7B0024D7FA /* RankingListCell.m */,
+				B160ED2C1ACA6F7B0024D7FA /* RankingListCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B1668D001A884188002CB98E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2292,6 +2335,7 @@
 		B16868C21A7B244D00D37944 /* Invite */ = {
 			isa = PBXGroup;
 			children = (
+				B160ED1F1ACA6C160024D7FA /* Cell */,
 				B12D72991A7B60BA0086F70A /* View */,
 				B16868C31A7B25F100D37944 /* InviteVC.h */,
 				B16868C41A7B25F100D37944 /* InviteVC.m */,
@@ -2505,7 +2549,9 @@
 			files = (
 				B1C910691A89E96000AE3F66 /* AliTransfersView.xib in Resources */,
 				B1498AE21A7730E2001260EC /* ChangeProductVC.xib in Resources */,
+				B160ED2E1ACA6F7B0024D7FA /* RankingListCell.xib in Resources */,
 				B150324E1A8B217F000A61FA /* PolyGoodsDetailVC.xib in Resources */,
+				B160ED291ACA6F400024D7FA /* RankingTitleCell.xib in Resources */,
 				B15D44E41A78CBDC008B8F4B /* MessageInfoCell.xib in Resources */,
 				B1436F7B1A7326F400706772 /* PersonCenterVC.xib in Resources */,
 				B1E2B88D1AB2BC2100D0FCA5 /* HotShopCell.xib in Resources */,
@@ -2637,15 +2683,18 @@
 			files = (
 				B13C085E1AC3D5A100DC0676 /* RedBagView.m in Sources */,
 				B1498AE11A7730E2001260EC /* ChangeProductVC.m in Sources */,
+				B160ED1E1ACA698D0024D7FA /* RankingListView.m in Sources */,
 				B14968481A875A4500DBC09B /* NSData+SWJSON.m in Sources */,
 				B14072151A6E386900D1792F /* GridMenu.m in Sources */,
 				B1B350281AAA9C6A00D574E3 /* UIBarButtonItem+Badge.m in Sources */,
+				B160ED2D1ACA6F7B0024D7FA /* RankingListCell.m in Sources */,
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B158A72C1A9DC96900C6FD3F /* CateModel.m in Sources */,
 				B158A6F01A9D6BBB00C6FD3F /* NSArray+JSONModel.m in Sources */,
 				B15022DE1AA55787008850F3 /* SignDataModel.m in Sources */,
 				B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */,
 				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
+				B160ED341ACA74310024D7FA /* RankingListModel.m in Sources */,
 				B140719F1A6CCD7900D1792F /* BaseView.m in Sources */,
 				B14B90941AA18DD600E34347 /* ExChangeDetailModel.m in Sources */,
 				B14E30C01A7A1AF5005BF0EF /* AccountVC.m in Sources */,
@@ -2744,6 +2793,7 @@
 				B1436F8F1A73632D00706772 /* PersonHeaderView.m in Sources */,
 				B149684A1A875A4500DBC09B /* NSString+SWJSON.m in Sources */,
 				B140EC791A6F7345004D245A /* SMTabBarItem.m in Sources */,
+				B160ED1B1ACA24190024D7FA /* TestCell.m in Sources */,
 				B1E6B56A1AAE7A50005CB5AF /* SignatureVC.m in Sources */,
 				B109D57D1A71EA1B00505D32 /* TouchPropagatedScrollView.m in Sources */,
 				B15022EA1AA5A95D008850F3 /* CalendarView.m in Sources */,
@@ -2825,6 +2875,7 @@
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,
 				B158A6F61A9D6BBB00C6FD3F /* JSONValueTransformer.m in Sources */,
 				B158A6F11A9D6BBB00C6FD3F /* JSONAPI.m in Sources */,
+				B160ED281ACA6F400024D7FA /* RankingTitleCell.m in Sources */,
 				B158A7151A9D7C1600C6FD3F /* JYHListModel.m in Sources */,
 				B1E6B55C1AAE7448005CB5AF /* SFHFKeychainUtils.m in Sources */,
 				B15DBA1A1AA00DF7005FBC2C /* JYHAttrModel.m in Sources */,
@@ -2855,6 +2906,7 @@
 				B1436F7A1A7326F400706772 /* PersonCenterVC.m in Sources */,
 				B12D72A91A7B7AFD0086F70A /* PointView.m in Sources */,
 				B1498AF01A776225001260EC /* ChangeRootVC.m in Sources */,
+				B160ED311ACA73DA0024D7FA /* RankingModel.m in Sources */,
 				B151FEA31AA42DBA00BFC5C3 /* RunningWaterScrollVC.m in Sources */,
 				B14071841A6CCC2C00D1792F /* IBActionSheet.m in Sources */,
 				B15D449C1A7874F5008B8F4B /* MyOrderVC.m in Sources */,

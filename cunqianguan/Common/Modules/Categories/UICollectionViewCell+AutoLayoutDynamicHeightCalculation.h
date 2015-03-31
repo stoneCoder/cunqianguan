@@ -26,6 +26,8 @@ typedef void (^UICollectionViewCellAutoLayoutRenderBlock)(void);
  */
 + (instancetype)heightCalculationCellFromNibWithName:(NSString *)name;
 
++ (instancetype)heightCalculationCellFromClassWithName:(NSString *)name;
+
 /**
  *  Returns the height of the receiver after rendering with your model data and applying an AutoLayout pass
  *

@@ -103,6 +103,7 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if(headerView.selectCell){
         headerView.selectCell.selected = NO;
     }

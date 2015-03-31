@@ -7,6 +7,7 @@
 //
 
 #import "BaseCollectionVC.h"
+#import "BaseNC.h"
 #import "UIScrollView+MJRefresh.h"
 #import "BaseUtil.h"
 #import "GMDCircleLoader.h"
@@ -40,6 +41,11 @@
         self.automaticallyAdjustsScrollViewInsets = YES;
     }
     [self setUpEmptyView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [((BaseNC *)self.navigationController) setUpNavBgColor];
 }
 
 -(void)setUpEmptyView

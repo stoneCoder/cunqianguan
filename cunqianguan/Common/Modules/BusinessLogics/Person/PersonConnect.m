@@ -335,4 +335,16 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getInviteBang:(NSDictionary *)dic
+             success:(void (^)(id json))success
+             failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getInviteBang";
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

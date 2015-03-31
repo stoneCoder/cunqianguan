@@ -75,7 +75,6 @@
         titleStr = @"新玩法";
     }
     titleLabel.text = titleStr;
-    titleLabel.backgroundColor = [UIColor clearColor];
     [headerview addSubview:titleLabel];
     return headerview;
 }

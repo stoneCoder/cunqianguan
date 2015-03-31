@@ -9,5 +9,8 @@
 #import "InviteListModel.h"
 
 @implementation InviteListModel
-
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
 @end

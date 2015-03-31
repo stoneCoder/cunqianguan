@@ -12,9 +12,13 @@
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "ShareUtil.h"
+#import "RankingListView.h"
+#import "RankingListModel.h"
 @interface InviteVC ()
 {
     PersonInfo *_info;
+    RankingListView *_rankingListView;
+    RankingListModel *_listModel;
 }
 
 @end
@@ -32,17 +36,46 @@
     _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜期网后，只要在7天内注册，均为有效。";
     _pointLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _pointLabel.numberOfLines = 0;
+    
+    _rankingListView = [[RankingListView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    [_scrollView addSubview:_rankingListView];
+    
     [self loadDataWith:_info.userId andType:0];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    _scrollView.alwaysBounceVertical = NO;
+    [self loadRankingViewData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidLayoutSubviews
+{
+    CGFloat height = _rankingListView.frame.size.height;
+    if (IS_IOS7 && height >0) {
+        CGSize size = _scrollView.contentSize;
+        CGFloat contentHeight = size.height + height + 20;
+        _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, contentHeight);
+    }
+}
+
+-(void)loadRankingViewData
+{
+    [[PersonConnect sharedPersonConnect] getInviteBang:[NSDictionary dictionary] success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            _listModel = [[RankingListModel alloc] initWithDictionary:dic error:nil];
+            CGFloat height = ([_listModel.data count] +1)*44;
+            _rankingListView.frame = CGRectMake(16, _pointLabel.frame.size.height+_pointLabel.frame.origin.y+20, SCREEN_WIDTH - 32, height - 5);
+            [_rankingListView setUpTable:_listModel.data];
+            
+            CGSize size = _scrollView.contentSize;
+            CGFloat contentHeight = size.height + height + 20;
+            _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, contentHeight);
+        }
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 -(void)loadDataWith:(NSString *)userId andType:(NSInteger)type

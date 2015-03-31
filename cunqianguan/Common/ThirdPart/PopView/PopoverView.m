@@ -52,9 +52,22 @@
         self.frame = [self getViewFrame];
         
         [self addSubview:self.tableView];
+        [self viewDidLayoutSubviews];
         
     }
     return self;
+}
+
+/*IOS8 设置separator置顶*/
+-(void)viewDidLayoutSubviews
+{
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
 }
 
 -(CGRect)getViewFrame
@@ -218,6 +231,20 @@
 {
     return ROW_HEIGHT;
 }
+
+/*IOS8 设置separator置顶*/
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (iOS7) {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:UIEdgeInsetsZero];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:UIEdgeInsetsZero];
+        }
+    }
+}
+
 
 
 

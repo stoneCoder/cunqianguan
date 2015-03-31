@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC.h"
+#import "BaseNC.h"
 #import "CMAlert.h"
 #import "BaseUtil.h"
 #import "DefaultEmptyView.h"
@@ -43,6 +44,11 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     [self setUpEmptyView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [((BaseNC *)self.navigationController) setUpNavBgColor];
 }
 
 -(void)setUpEmptyView

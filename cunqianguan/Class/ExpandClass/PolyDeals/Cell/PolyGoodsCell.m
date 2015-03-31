@@ -11,12 +11,15 @@
 @implementation PolyGoodsCell
 
 - (void)awakeFromNib {
-    // Initialization code 
+    // Initialization code
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        _productImage.frame = CGRectMake(0, 0, SCREEN_WIDTH/2 -15, SCREEN_WIDTH/2 -15);
+        _productImage.image = image;
+    }];
     if (type == 0) {
         _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)model.qcount];
         _hotTipImage.hidden = NO;

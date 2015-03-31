@@ -8,5 +8,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseNC : UINavigationController
-
+-(void)setUpNavBgColor;
 @end

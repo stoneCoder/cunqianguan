@@ -18,6 +18,13 @@
     return heightCalculationCell;
 }
 
++ (instancetype)heightCalculationCellFromClassWithName:(NSString *)name
+{
+    UICollectionViewCell *heightCalculationCell = [[NSClassFromString(name) alloc] init];
+    [heightCalculationCell moveInterfaceBuilderLayoutConstraintsToContentView];
+    return heightCalculationCell;
+}
+
 #pragma mark Moving Constraints
 
 - (void)moveInterfaceBuilderLayoutConstraintsToContentView

@@ -56,11 +56,22 @@
     [self showLoaderView:self.webView];
 }
 
+-(void)setUpNavBg
+{
+    if (iOS7) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+        self.navigationController.navigationBar.translucent = NO;
+    }else{
+        [self.navigationController.navigationBar setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar addSubview:_progressView];
-    //[self.webView reload];
+    [self setUpNavBg];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
