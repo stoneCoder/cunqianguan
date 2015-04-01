@@ -12,9 +12,7 @@
 #import "PopoverView.h"
 
 #import "PersonInfo.h"
-
-
-
+#import "Constants.h"
 @interface HotDetailShopVC ()
 {
     PersonInfo *_info;
@@ -35,6 +33,8 @@
     [self setUpNavBar];
     [self setUpWebView];
     [self loadViewWithData:_urlPath];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNavBar) name:kWebUrlFinal object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -46,6 +46,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kWebUrlFinal object:nil];
 }
 
 /*
