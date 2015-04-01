@@ -36,6 +36,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNavBar) name:kWebUrlFinal object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshNavBar];
+}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -49,17 +55,17 @@
 
 -(void)setUpNavBar
 {
-    [self setReturnBtnTitle:@"淘宝" WithImage:@"home" andHighlightImage:@"home_hover" edgeInsetsWithTitle:15];
+    [self setReturnBtnTitle:@"淘宝" titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
      //足迹按钮
     UIButton *footBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [footBtn setBackgroundImage:[UIImage imageNamed:@"jiaoya"] forState:UIControlStateNormal];
-    [footBtn setBackgroundImage:[UIImage imageNamed:@"jiaoya_hover"] forState:UIControlStateHighlighted];
+    [footBtn setBackgroundImage:[UIImage imageNamed:@"foot_web"] forState:UIControlStateNormal];
+    [footBtn setBackgroundImage:[UIImage imageNamed:@"foot_web_down"] forState:UIControlStateHighlighted];
     [footBtn addTarget:self action:@selector(pushToFootPrint:) forControlEvents:UIControlEventTouchUpInside];
     _footPrintItem = [[UIBarButtonItem alloc] initWithCustomView:footBtn];
     //更多按钮
     UIButton *moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
-    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_btn"] forState:UIControlStateNormal];
-    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_btn_hover"] forState:UIControlStateHighlighted];
+    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_web"] forState:UIControlStateNormal];
+    [moreBtn setBackgroundImage:[UIImage imageNamed:@"more_web_down"] forState:UIControlStateHighlighted];
     [moreBtn addTarget:self action:@selector(moreAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *moreButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
     
@@ -108,12 +114,14 @@
 -(void)moreAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    CGPoint point = CGPointMake(CGRectGetWidth(btn.frame)/2 + btn.frame.origin.x, btn.frame.origin.y + btn.frame.size.height + 20);
+    CGPoint point = CGPointMake(CGRectGetWidth(btn.frame)/2 + btn.frame.origin.x, btn.frame.origin.y + btn.frame.size.height + 32);
      _moreBtnArray = @[@"刷新"];
     _moreImageArray = @[@"refresh_btn"];
     
     
     PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:_moreBtnArray images:_moreImageArray];
+    pop.layer.cornerRadius = 5.0f;
+    pop.layer.masksToBounds = YES;
     pop.selectRowAtIndex = ^(NSInteger index){
             switch (index) {
                 case 0:

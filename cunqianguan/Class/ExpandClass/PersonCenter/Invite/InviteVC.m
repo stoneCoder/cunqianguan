@@ -12,6 +12,7 @@
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "ShareUtil.h"
+#import "BaseUtil.h"
 #import "RankingListView.h"
 #import "RankingListModel.h"
 @interface InviteVC ()
@@ -28,11 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setUpBtn];
     _info = [PersonInfo sharedPersonInfo];
-    _inviteBtn.layer.cornerRadius = 5.0f;
-    _inviteBtn.layer.masksToBounds = YES;
-    _watchInviteBtn.layer.cornerRadius = 5.0f;
-    _watchInviteBtn.layer.masksToBounds = YES;
+
     _pointLabel.text = @"注：当用户通过您的邀请链接访问保鲜期网后，只要在7天内注册，均为有效。";
     _pointLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _pointLabel.numberOfLines = 0;
@@ -47,6 +46,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setUpBtn
+{
+    [_inviteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_inviteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    _inviteBtn.layer.cornerRadius = 5.0f;
+    _inviteBtn.layer.masksToBounds = YES;
+    
+    [_watchInviteBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_watchInviteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xebebeb)] forState:UIControlStateHighlighted];
+    _watchInviteBtn.layer.borderWidth = 1.0f;
+    _watchInviteBtn.layer.borderColor = UIColorFromRGB(0xaaaaaa).CGColor;
+    _watchInviteBtn.layer.cornerRadius = 5.0f;
+    _watchInviteBtn.layer.masksToBounds = YES;
 }
 
 -(void)viewDidLayoutSubviews

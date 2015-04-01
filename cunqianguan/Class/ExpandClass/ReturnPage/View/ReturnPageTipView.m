@@ -7,7 +7,7 @@
 //
 
 #import "ReturnPageTipView.h"
-
+#import "BaseUtil.h"
 @implementation ReturnPageTipView
 
 /*
@@ -39,7 +39,10 @@
 
 -(void)setUpView
 {
-    _tipBtn.layer.cornerRadius = 2.0f;
+    [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+    [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
+    _tipBtn.layer.cornerRadius = 5.0f;
+    _tipBtn.layer.masksToBounds = YES;
 }
 
 - (IBAction)btnAction:(id)sender

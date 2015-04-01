@@ -12,6 +12,7 @@
 #import "LocalWebVC.h"
 #import "HotDetailShopVC.h"
 
+#import "BaseUtil.h"
 #import "Constants.h"
 #import "PersonInfo.h"
 #import "HomeConnect.h"
@@ -46,10 +47,10 @@ static NSString *SearchCellID = @"SearchViewCell";
 
 -(void)setUpNav
 {
-    _searchBar = [[SBSearchBar alloc]initWithFrame:CGRectMake(3, 2, SCREEN_WIDTH - 55,35)];
+    _searchBar = [[SBSearchBar alloc]initWithFrame:CGRectMake(3, 2, SCREEN_WIDTH - 55,30)];
     _searchBar.delegate = self;
 
-    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH - 55, 35)];
+    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH - 55, 30)];
     searchView.backgroundColor = [UIColor whiteColor];
     searchView.layer.cornerRadius = 5.0f;
     [searchView addSubview:_searchBar];
@@ -60,9 +61,12 @@ static NSString *SearchCellID = @"SearchViewCell";
 -(void)setUpTipView
 {
     _tipView.backgroundColor = self.view.backgroundColor;
-    _firstView.layer.cornerRadius = 2.0f;
-    _secondView.layer.cornerRadius = 2.0f;
-    _thirdView.layer.cornerRadius = 2.0f;
+    _firstView.layer.cornerRadius = 5.0f;
+    _firstView.layer.masksToBounds = YES;
+    _secondView.layer.cornerRadius = 5.0f;
+    _secondView.layer.masksToBounds = YES;
+    _thirdView.layer.cornerRadius = 5.0f;
+    _thirdView.layer.masksToBounds = YES;
     
     _firstLabel.numberOfLines = 0;
     _firstLabel.lineBreakMode = NSLineBreakByCharWrapping;
@@ -70,6 +74,13 @@ static NSString *SearchCellID = @"SearchViewCell";
     _secondLabel.lineBreakMode = NSLineBreakByCharWrapping;
     _thirdLabel.numberOfLines = 0;
     _thirdLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xebebeb)] forState:UIControlStateHighlighted];
+    _tipBtn.layer.borderWidth = 1.0f;
+    _tipBtn.layer.borderColor = UIColorFromRGB(0xaaaaaa).CGColor;
+    _tipBtn.layer.cornerRadius = 5.0f;
+    _tipBtn.layer.masksToBounds = YES;
 }
 
 -(void)setUpTableView

@@ -38,5 +38,14 @@
     
     _thirdLabel.numberOfLines = 0;
     _thirdLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    _firstView.layer.cornerRadius = 5.0f;
+    _firstView.layer.masksToBounds = YES;
+    
+    _secondView.layer.cornerRadius = 5.0f;
+    _secondView.layer.masksToBounds = YES;
+    
+    _thirdView.layer.cornerRadius = 5.0f;
+    _thirdView.layer.masksToBounds = YES;
 }
 @end

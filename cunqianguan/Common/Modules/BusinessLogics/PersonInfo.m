@@ -98,7 +98,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     self.username = [dic objectForKey:@"username"];
     self.email = [dic objectForKey:@"email"];
     if ([SFHFKeychainUtils storeUsername:self.email andPassword:self.password forServiceName:SERVICE_NAME updateExisting:YES error:&error]) {
-        [[NSUserDefaults standardUserDefaults] setObject:self.email forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.email forKey:@"email"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self saveUserData];
     } else {
@@ -121,6 +121,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     NSError *error = nil;
     if ([SFHFKeychainUtils deleteItemForUsername:self.email andServiceName:SERVICE_NAME error:&error]) {
         self.userId = nil;
+        self.email = nil;
         self.username = nil;
         self.password = nil;
         self.cashAll = 0;

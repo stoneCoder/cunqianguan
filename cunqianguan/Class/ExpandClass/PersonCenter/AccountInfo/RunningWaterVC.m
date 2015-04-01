@@ -7,7 +7,6 @@
 //
 
 #import "RunningWaterVC.h"
-#import "BaseSegment.h"
 #import "RunningWaterCell.h"
 
 #import "PersonConnect.h"
@@ -16,9 +15,8 @@
 
 #import "RunningWaterListModel.h"
 
-@interface RunningWaterVC ()<CCSegmentDelegate>
+@interface RunningWaterVC ()
 {
-    BaseSegment *_segment;
     UIView *_headView;
     
     PersonInfo *_info;
@@ -64,7 +62,7 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - 10);
     
     UINib *CellNib = [UINib nibWithNibName:@"RunningWaterCell" bundle:nil];
     [self.tableView registerNib:CellNib forCellReuseIdentifier:RunningWaterCellID];

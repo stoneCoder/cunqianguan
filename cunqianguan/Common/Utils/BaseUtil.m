@@ -371,8 +371,9 @@ static NSString *const hmacPassword = @"4318sqzs";
 {
     if ([BaseUtil checkCardNo:cardNum]) {
         NSString *firstStr = [cardNum substringWithRange:NSMakeRange(0,4)];
-        NSString *secondStr = [cardNum substringWithRange:NSMakeRange(cardNum.length - 5,4)];
-        cardNum = [NSString stringWithFormat:@"%@ ******** %@",firstStr,secondStr];
+        NSString *secondStr = [cardNum substringWithRange:NSMakeRange(4,4)];
+        NSString *thirdStr = [cardNum substringWithRange:NSMakeRange(cardNum.length - 5,4)];
+        cardNum = [NSString stringWithFormat:@"%@ %@ **** %@",firstStr,secondStr,thirdStr];
     }
     return cardNum;
 }

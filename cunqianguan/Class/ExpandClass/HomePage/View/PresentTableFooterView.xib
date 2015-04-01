@@ -21,11 +21,11 @@
                                 <constraint firstAttribute="width" secondItem="tn0-Km-qzh" secondAttribute="height" multiplier="9:4" id="nzC-sg-Fy4"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="tn0-Km-qzh" secondAttribute="bottom" constant="13" id="EeG-dG-bfv"/>
                         <constraint firstItem="tn0-Km-qzh" firstAttribute="leading" secondItem="hwe-rx-I25" secondAttribute="leading" constant="8" id="KOD-S8-OIw"/>
@@ -41,11 +41,11 @@
                                 <constraint firstAttribute="width" secondItem="yxh-6E-1dC" secondAttribute="height" multiplier="9:4" id="2zh-If-iaP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="yxh-6E-1dC" secondAttribute="trailing" constant="8" id="7x6-gr-gPS"/>
                         <constraint firstItem="yxh-6E-1dC" firstAttribute="leading" secondItem="PUN-Tu-qfA" secondAttribute="leading" constant="8" id="K6z-PT-ftU"/>
@@ -61,11 +61,11 @@
                                 <constraint firstAttribute="width" secondItem="Oje-ut-nMz" secondAttribute="height" multiplier="9:4" id="XyA-dJ-A6b"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Oje-ut-nMz" secondAttribute="trailing" constant="8" id="0jD-w0-LgT"/>
                         <constraint firstAttribute="bottom" secondItem="Oje-ut-nMz" secondAttribute="bottom" constant="13" id="SDL-8h-zlX"/>
@@ -116,8 +116,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="firstLabel" destination="Oje-ut-nMz" id="AwA-Ez-Npy"/>
+                <outlet property="firstView" destination="p1L-e7-cG9" id="tXm-rN-xix"/>
                 <outlet property="secondLabel" destination="tn0-Km-qzh" id="GF5-CZ-uIe"/>
+                <outlet property="secondView" destination="hwe-rx-I25" id="4R0-wK-1WK"/>
                 <outlet property="thirdLabel" destination="yxh-6E-1dC" id="e8h-MY-nZd"/>
+                <outlet property="thirdView" destination="PUN-Tu-qfA" id="4za-1w-aFb"/>
             </connections>
             <point key="canvasLocation" x="140" y="316"/>
         </view>

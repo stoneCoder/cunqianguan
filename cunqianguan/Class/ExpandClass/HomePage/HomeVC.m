@@ -24,6 +24,8 @@
 #import "HotShopVC.h"
 #import "SearchViewVC.h"
 #import "InviteVC.h"
+#import "AccountVC.h"
+#import "SignVC.h"
 #import "NotificationWebVC.h"
 
 #import "PresentView.h"
@@ -43,6 +45,7 @@
 #import "AdModel.h"
 #import "PersonInfo.h"
 #import "UIImage+Resize.h"
+#import "PopoverView.h"
 
 #import "AppDelegate.h"
 
@@ -109,7 +112,7 @@
 
 -(void)initNavBar
 {
-    [self setLeftBtnWithImage:@{@"nomarl":@"left_menu",@"highlight":@"left_menu_hover"}];
+    [self setLeftBtnWithImage:@{@"nomarl":@"more_home",@"highlight":@"more_home_down"}];
     //设置navigationbar右边按钮
     UIButton *rigthButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [rigthButton setBackgroundImage:[UIImage imageNamed:@"right_search"] forState:UIControlStateNormal];
@@ -207,13 +210,64 @@
 
 - (void)leftBtnClicked:(id)sender
 {
-    _openView = 1;
-    [self showMenu:_openView];
+    UIButton *btn = (UIButton *)sender;
+    CGPoint point = CGPointMake(CGRectGetWidth(btn.frame)/2 + btn.frame.origin.x, btn.frame.origin.y + btn.frame.size.height + 32);
+    PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:@[@"每日签到",@"我的订单",@"邀请好友"] images:@[@"sign_more",@"order_more",@"invite_more"] selectImage:@[@"sign_more_down",@"order_more_down",@"invite_more_down"]];
+    pop.layer.cornerRadius = 5.0f;
+    pop.layer.masksToBounds = YES;
+    pop.selectRowAtIndex = ^(NSInteger index){
+        switch (index) {
+            case 0:
+                /*每日签到*/
+                [self pushToSign];
+                break;
+            case 1:
+                /*我的订单*/
+                [self pushToMyOrder];
+                break;
+            case 2:
+                /*邀请好友*/
+                [self pushToInvite];
+                break;
+        }
+    };
+    [pop show];
+
+    //_openView = 1;
+    //[self showMenu:_openView];
 }
 
 -(void)hideMenu
 {
     [self dismissMenu:_openView];
+}
+
+#pragma mark -- Private
+-(void)pushToSign
+{
+    [_info isLoginWithcompletion:^(BOOL flag) {
+        SignVC *signVC = [[SignVC alloc] init];
+        signVC.leftTitle = @"每日签到";
+        [self.navigationController pushViewController:signVC animated:YES];
+    }];
+}
+
+-(void)pushToMyOrder
+{
+    [_info isLoginWithcompletion:^(BOOL flag) {
+        AccountVC *accountVC = [[AccountVC alloc] init];
+        accountVC.leftTitle = @"我的订单";
+        [self.navigationController pushViewController:accountVC animated:YES];
+    }];
+}
+
+-(void)pushToInvite
+{
+    [_info isLoginWithcompletion:^(BOOL flag) {
+        InviteVC *inviteVC = [[InviteVC alloc] init];
+        inviteVC.leftTitle = @"邀请好友";
+        [self.navigationController pushViewController:inviteVC animated:YES];
+    }];
 }
 
 #pragma mark -- PresentViewDelegate

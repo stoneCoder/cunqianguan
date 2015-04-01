@@ -32,13 +32,6 @@
     // Do any additional setup after loading the view.
 
     [self setUpNavBgColor];
-    
-    /*去掉navigationBar底部阴影*/
-    for (UIView *view in [[[self.navigationBar subviews] objectAtIndex:0] subviews]) {
-        if ([view isKindOfClass:[UIImageView class]]) view.hidden = YES;
-        
-    }
-
 }
 
 -(void)setUpNavBgColor
@@ -50,11 +43,13 @@
         [self.navigationBar setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x32dacd)] forBarMetrics:UIBarMetricsDefault];
         [self.navigationController.navigationBar setTintColor:UIColorFromRGB(0x32dacd)];
     }
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
+    
+    /*去掉navigationBar底部阴影*/
+    for (UIView *view in [[[self.navigationBar subviews] objectAtIndex:0] subviews]) {
+        if ([view isKindOfClass:[UIImageView class]]) view.hidden = YES;
+    }
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (BOOL)prefersStatusBarHidden

@@ -32,6 +32,7 @@
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName;
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage;
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets;
+-(void)setReturnBtnTitle:(NSString *)aTitle titleColor:(UIColor *)titleColor highlightedTileColor:(UIColor *)highlightedTileColor WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets;
 /**
  *  功能:是否显示返回按钮
  */

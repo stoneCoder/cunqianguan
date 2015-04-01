@@ -83,7 +83,10 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
             }
             [_data addObjectsFromArray:listModel.moneylog];
             if (_data.count == 0) {
+                self.defaultEmptyView.translatesAutoresizingMaskIntoConstraints = YES;
                 self.defaultEmptyView.frame = self.tableView.frame;
+                [self.defaultEmptyView setNeedsLayout];
+                [self.defaultEmptyView layoutIfNeeded];
                 self.defaultEmptyView.hidden = NO;
                 self.tableView.hidden = YES;
             }

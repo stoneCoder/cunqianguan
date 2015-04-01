@@ -11,6 +11,7 @@
 @interface PopoverView : UIView
 
 -(id)initWithPoint:(CGPoint)point titles:(NSArray *)titles images:(NSArray *)images;
+-(id)initWithPoint:(CGPoint)point titles:(NSArray *)titles images:(NSArray *)images selectImage:(NSArray *)selectImages;
 -(void)show;
 -(void)dismiss;
 -(void)dismiss:(BOOL)animated;

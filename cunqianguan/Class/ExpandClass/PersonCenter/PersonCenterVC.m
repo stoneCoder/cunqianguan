@@ -90,28 +90,35 @@ static NSString *FooterViewID = @"PersonFooterView";
 -(void)reloadView
 {
     _info = [PersonInfo sharedPersonInfo];
-    NSInteger oldMsgCount = _info.messageCount;
-    NSInteger oldOrderCount = _info.orderCount;
-    [_info getUserInfo:_info.email withPwd:_info.password success:^(id json) {
-        NSDictionary *dic = (NSDictionary *)json;
-        if ([BaseConnect isSucceeded:dic]) {
-            if (oldMsgCount < _info.messageCount) {
-                personHeaderView.pointImageView.hidden = NO;
-            }else{
-                personHeaderView.pointImageView.hidden = YES;
-            }
-            if (oldOrderCount < _info.orderCount) {
-                _isNewOrder = YES;
-            }else{
-                _isNewOrder = NO;
-            }
-            [personHeaderView loadView:_info];
-            [personFooterView loadView:_info];
-            [self.tableView reloadData];
-        }
-    } failure:^(id json) {
+    if (_info.userId) {
+        NSInteger oldMsgCount = _info.messageCount;
+        NSInteger oldOrderCount = _info.orderCount;
         
-    }];
+        [_info getUserInfo:_info.email withPwd:[_info getAccountPassword:_info.email] success:^(id json) {
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                if (oldMsgCount < _info.messageCount) {
+                    personHeaderView.pointImageView.hidden = NO;
+                }else{
+                    personHeaderView.pointImageView.hidden = YES;
+                }
+                if (oldOrderCount < _info.orderCount) {
+                    _isNewOrder = YES;
+                }else{
+                    _isNewOrder = NO;
+                }
+                [personHeaderView loadView:_info];
+                [personFooterView loadView:_info];
+                [self.tableView reloadData];
+            }
+        } failure:^(id json) {
+            
+        }];
+    }else{
+        [personHeaderView loadView:_info];
+        [personFooterView loadView:_info];
+        [self.tableView reloadData];
+    }
     [self initSignStatus];
 }
 
@@ -479,6 +486,7 @@ static NSString *FooterViewID = @"PersonFooterView";
         _popTipView.hidden = YES;
         _popTipView = nil;
         [_popTipView removeFromSuperview];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } other:^(DoAlertView *alertView) {
         
     }];

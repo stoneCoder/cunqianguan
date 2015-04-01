@@ -8,12 +8,11 @@
 
 #import "PopoverView.h"
 
-
-#define kArrowHeight 10.f
-#define kArrowCurvature 6.f
-#define SPACE 2.f
-#define ROW_HEIGHT 44.f
-#define TITLE_FONT [UIFont systemFontOfSize:16]
+#define kArrowHeight 6.f
+#define kArrowCurvature 2.f
+#define SPACE 0.f
+#define ROW_HEIGHT 43.f
+#define TITLE_FONT [UIFont systemFontOfSize:14]
 #define RGB(r, g, b)    [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 
 @interface PopoverView ()<UITableViewDataSource, UITableViewDelegate>
@@ -21,6 +20,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, strong) NSArray *selectImageArray;
 @property (nonatomic) CGPoint showPoint;
 
 @property (nonatomic, strong) UIButton *handerView;
@@ -34,9 +34,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.borderColor = RGB(200, 199, 204);
+        self.borderColor = UIColorFromRGB(0x444444);//RGB(200, 199, 204);
         self.backgroundColor = [UIColor clearColor];
-        
     }
     return self;
 }
@@ -52,22 +51,24 @@
         self.frame = [self getViewFrame];
         
         [self addSubview:self.tableView];
-        [self viewDidLayoutSubviews];
-        
     }
     return self;
 }
 
-/*IOS8 设置separator置顶*/
--(void)viewDidLayoutSubviews
+-(id)initWithPoint:(CGPoint)point titles:(NSArray *)titles images:(NSArray *)images selectImage:(NSArray *)selectImages
 {
-    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    self = [super init];
+    if (self) {
+        self.showPoint = point;
+        self.titleArray = titles;
+        self.imageArray = images;
+        self.selectImageArray = selectImages;
+        
+        self.frame = [self getViewFrame];
+        
+        [self addSubview:self.tableView];
     }
-    
-    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
-    }
+    return self;
 }
 
 -(CGRect)getViewFrame
@@ -164,7 +165,7 @@
     rect.origin.x = SPACE;
     rect.origin.y = kArrowHeight + SPACE;
     rect.size.width -= SPACE * 2;
-    rect.size.height -= (SPACE - kArrowHeight);
+    rect.size.height -= (SPACE + kArrowHeight);
     
     self.tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStylePlain];
     _tableView.delegate = self;
@@ -174,8 +175,14 @@
     _tableView.showsHorizontalScrollIndicator = NO;
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.scrollEnabled = NO;
-    _tableView.backgroundColor = [UIColor clearColor];
-//    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _tableView.separatorColor = UIColorFromRGB(0x666666);
+    _tableView.layer.cornerRadius = 5.0f;
+    _tableView.layer.masksToBounds = YES;
+    //_tableView.backgroundColor = UIColorFromRGB(0x444444);
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    
+    //_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     return _tableView;
 }
@@ -200,19 +207,30 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-    cell.backgroundView = [[UIView alloc] init];
-    cell.backgroundView.backgroundColor = RGB(245, 245, 245);
+//    cell.backgroundView = [[UIView alloc] init];
+//    cell.backgroundView.backgroundColor = RGB(245, 245, 245);
     
     if ([_imageArray count] == [_titleArray count]) {
         cell.imageView.image = [UIImage imageNamed:[_imageArray objectAtIndex:indexPath.row]];
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:16];
-    cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];
-    
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (self.selectImageArray && [self.selectImageArray count] > 0) {
+        cell.imageView.highlightedImage = [UIImage imageNamed:[_selectImageArray objectAtIndex:indexPath.row]];
     }
     
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.textColor = UIColorFromRGB(0xffffff);
+    cell.textLabel.highlightedTextColor = UIColorFromRGB(0x9a9a9a);
+    cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];
+    cell.backgroundColor = UIColorFromRGB(0x444444);
+    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = cell.backgroundColor;
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 18);
+    }
     return cell;
 }
 
@@ -232,22 +250,10 @@
     return ROW_HEIGHT;
 }
 
-/*IOS8 设置separator置顶*/
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iOS7) {
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            [cell setSeparatorInset:UIEdgeInsetsZero];
-        }
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:UIEdgeInsetsZero];
-        }
-    }
+    return YES;
 }
-
-
-
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -286,7 +292,7 @@
     [popoverPath addLineToPoint:CGPointMake(xMin, yMax)];//左下角
     
     //填充颜色
-    [RGB(245, 245, 245) setFill];
+    [self.borderColor setFill];
     [popoverPath fill];
     
     [popoverPath closePath];

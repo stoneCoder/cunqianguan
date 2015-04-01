@@ -53,7 +53,7 @@
     
     frame = self.cancelButton.frame;
     frame.origin.x = CGRectGetWidth(self.frame) - CGRectGetWidth(frame) - 10;
-    frame.origin.y = CGRectGetHeight(self.frame)/2 - CGRectGetHeight(frame)/2;
+    frame.origin.y = CGRectGetHeight(self.frame)/2 - CGRectGetHeight(frame)/2 - 2;
     self.cancelButton.frame = frame;
     
 }

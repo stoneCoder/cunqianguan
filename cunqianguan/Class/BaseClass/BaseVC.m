@@ -122,6 +122,50 @@
 
 -(void)setReturnBtnTitle:(NSString *)aTitle WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
 {
+    [self setReturnBtnTitle:aTitle titleColor:nil highlightedTileColor:nil WithImage:imageName andHighlightImage:highlightImage edgeInsetsWithTitle:insets];
+//    NSString *defaultImageName = @"back";
+//    NSString *defaulthighlightImageName = @"back_hover";
+//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
+//    CGRect btnFrame;
+//    NSString * btnTitleStr=aTitle;
+//    if (btnTitleStr.length > 0) {
+//        btnTitleStr = [NSString stringWithFormat:@"%@",aTitle];
+//        float width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
+//        btnFrame = CGRectMake(0,0,width + 22 + insets,22);
+//    }else{
+//        btnFrame = CGRectMake(0,0,22,22);
+//    }
+//    if (imageName.length > 0) {
+//        defaultImageName = imageName;
+//    }
+//    [button setFrame:btnFrame];
+//    [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
+//    if (highlightImage) {
+//        [button setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateHighlighted];
+//    }else{
+//        [button setImage:[UIImage imageNamed:defaulthighlightImageName] forState:UIControlStateHighlighted];
+//    }
+//    [button setTitle:btnTitleStr forState:UIControlStateNormal];
+//    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
+//    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+//    button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+//    button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
+//    
+//    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
+//        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//        negativeSpacer.width = -10;
+//        self.navigationItem.leftBarButtonItems = @[negativeSpacer, btnItem];
+//    }else{
+//        self.navigationItem.leftBarButtonItem = btnItem;
+//        
+//    }
+//    [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)setReturnBtnTitle:(NSString *)aTitle titleColor:(UIColor *)titleColor highlightedTileColor:(UIColor *)highlightedTileColor WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
+{
     NSString *defaultImageName = @"back";
     NSString *defaulthighlightImageName = @"back_hover";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -145,9 +189,17 @@
         [button setImage:[UIImage imageNamed:defaulthighlightImageName] forState:UIControlStateHighlighted];
     }
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    if (titleColor) {
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
+    }else{
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+    if (titleColor) {
+        [button setTitleColor:highlightedTileColor forState:UIControlStateHighlighted];
+    }else{
+        [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+    }
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
     
@@ -162,7 +214,6 @@
     }
     [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
-
 #pragma mark - 返回
 /**
  * 设置Default返回

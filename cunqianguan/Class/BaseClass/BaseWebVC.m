@@ -65,6 +65,13 @@
         [self.navigationController.navigationBar setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     }
+    
+    /*去掉navigationBar底部阴影*/
+    for (UIView *view in [[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews]) {
+        if ([view isKindOfClass:[UIImageView class]]) view.hidden = NO;
+    }
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)viewWillAppear:(BOOL)animated

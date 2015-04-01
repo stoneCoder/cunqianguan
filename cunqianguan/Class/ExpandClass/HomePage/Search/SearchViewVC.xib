@@ -9,11 +9,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewVC">
             <connections>
                 <outlet property="firstLabel" destination="M8Y-gD-XBk" id="a5A-3J-UPh"/>
-                <outlet property="firstView" destination="JYl-ue-RQ9" id="vJI-Tj-qll"/>
+                <outlet property="firstView" destination="JYl-ue-RQ9" id="lXm-lW-eTM"/>
                 <outlet property="secondLabel" destination="49d-oR-tph" id="dRX-bf-zcm"/>
                 <outlet property="secondView" destination="8Lx-OE-IQH" id="HQv-zh-MUt"/>
                 <outlet property="thirdLabel" destination="JaF-ox-TF6" id="SdS-19-QWD"/>
                 <outlet property="thirdView" destination="yIa-OS-Oaq" id="FnL-61-shT"/>
+                <outlet property="tipBtn" destination="Wma-PK-aNk" id="3lR-G0-9dG"/>
                 <outlet property="tipView" destination="ouc-iO-1Ah" id="LcG-Lz-CHI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,7 +30,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去足迹拿返利更便捷哦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSj-yW-XBJ">
                             <rect key="frame" x="84" y="26" width="152" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.70588235294117652" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lx-OE-IQH">
