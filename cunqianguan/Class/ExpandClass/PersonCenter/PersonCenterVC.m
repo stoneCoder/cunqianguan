@@ -93,7 +93,7 @@ static NSString *FooterViewID = @"PersonFooterView";
     if (_info.userId) {
         NSInteger oldMsgCount = _info.messageCount;
         NSInteger oldOrderCount = _info.orderCount;
-        
+
         [_info getUserInfo:_info.email withPwd:[_info getAccountPassword:_info.email] success:^(id json) {
             NSDictionary *dic = (NSDictionary *)json;
             if ([BaseConnect isSucceeded:dic]) {

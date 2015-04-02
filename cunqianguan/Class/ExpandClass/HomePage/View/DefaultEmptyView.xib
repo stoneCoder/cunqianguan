@@ -13,19 +13,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_message" translatesAutoresizingMaskIntoConstraints="NO" id="cIL-GP-paW">
-                    <rect key="frame" x="99" y="127" width="122" height="122"/>
+                    <rect key="frame" x="99" y="168" width="122" height="122"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cIL-GP-paW" secondAttribute="height" multiplier="1:1" id="pfT-6R-PRP"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-Mq-WMZ">
-                    <rect key="frame" x="132" y="269" width="56" height="17"/>
+                    <rect key="frame" x="132" y="310" width="56" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DD-jU-rZU">
-                    <rect key="frame" x="84" y="271" width="153" height="18"/>
+                    <rect key="frame" x="84" y="332" width="153" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="3DD-jU-rZU" secondAttribute="height" multiplier="17:2" id="7hI-q8-aFY"/>
                     </constraints>
@@ -36,7 +36,7 @@
                     </state>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="淘宝订单需要付款后才能看到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z59-Rf-4AW">
-                    <rect key="frame" x="69" y="301" width="182" height="17"/>
+                    <rect key="frame" x="69" y="342" width="182" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -44,12 +44,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="cIL-GP-paW" secondAttribute="centerY" constant="86" id="4eR-6M-sLc"/>
-                <constraint firstItem="Z59-Rf-4AW" firstAttribute="top" secondItem="3DD-jU-rZU" secondAttribute="bottom" constant="12" id="JRB-aA-Wbo"/>
-                <constraint firstItem="3DD-jU-rZU" firstAttribute="top" secondItem="cIL-GP-paW" secondAttribute="bottom" constant="22" id="LdZ-o3-eg8"/>
+                <constraint firstItem="3DD-jU-rZU" firstAttribute="top" secondItem="cIL-GP-paW" secondAttribute="bottom" constant="42" id="LdZ-o3-eg8"/>
                 <constraint firstAttribute="centerX" secondItem="cIL-GP-paW" secondAttribute="centerX" id="PTf-dU-Erw"/>
                 <constraint firstItem="hcQ-Mq-WMZ" firstAttribute="top" secondItem="cIL-GP-paW" secondAttribute="bottom" constant="20" id="UGS-hn-lvr"/>
                 <constraint firstItem="cIL-GP-paW" firstAttribute="centerX" secondItem="hcQ-Mq-WMZ" secondAttribute="centerX" id="VY9-C0-aGz"/>
+                <constraint firstAttribute="centerY" secondItem="cIL-GP-paW" secondAttribute="centerY" constant="45" id="ahy-gy-gm7"/>
+                <constraint firstAttribute="centerX" secondItem="cIL-GP-paW" secondAttribute="centerX" id="bmP-Yu-upQ"/>
+                <constraint firstItem="Z59-Rf-4AW" firstAttribute="top" secondItem="hcQ-Mq-WMZ" secondAttribute="bottom" constant="15" id="fSq-QA-HAq"/>
                 <constraint firstItem="hcQ-Mq-WMZ" firstAttribute="centerX" secondItem="Z59-Rf-4AW" secondAttribute="centerX" id="glD-PE-tsD"/>
                 <constraint firstItem="cIL-GP-paW" firstAttribute="centerX" secondItem="3DD-jU-rZU" secondAttribute="centerX" id="tY7-XO-hze"/>
             </constraints>

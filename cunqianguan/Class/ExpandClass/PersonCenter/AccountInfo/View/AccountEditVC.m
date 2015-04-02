@@ -55,7 +55,7 @@
 }
 */
 
--(void)refreshViewWith:(ViewType)viewType
+-(void)refreshViewWith:(EditViewType)viewType
 {
     switch (viewType) {
         case ViewTypeWithAipay:

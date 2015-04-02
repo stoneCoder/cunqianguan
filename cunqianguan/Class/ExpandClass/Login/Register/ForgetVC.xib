@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -62,7 +62,7 @@
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="trailing" secondItem="XqJ-fm-Fww" secondAttribute="trailing" id="sgw-N9-52g"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="centerY" secondItem="Psv-wn-GcH" secondAttribute="centerY" id="tKp-0H-Zgu"/>
                 <constraint firstItem="3jP-x8-BFW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="tSZ-65-bD6"/>
-                <constraint firstAttribute="centerY" secondItem="Cis-4C-UoE" secondAttribute="centerY" constant="182" id="ybD-Gu-WJz"/>
+                <constraint firstItem="Cis-4C-UoE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="uxk-wM-OV5"/>
             </constraints>
             <point key="canvasLocation" x="242" y="130"/>
         </view>

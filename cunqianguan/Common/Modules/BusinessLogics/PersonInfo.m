@@ -172,7 +172,6 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     NSDictionary *dic = @{@"email":userName,@"password":pwd};
     
     [BaseConnect post:url Parameters:dic success:^(id json) {
-        success(json);
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:json]) {
             NSDictionary *data = [dic objectForKey:@"data"];
@@ -198,6 +197,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _isBindSina = [[data objectForKey:@"isbind_sina"] boolValue];
             [self saveUserData];
         }
+         success(json);
     } failure:^(id json) {
         failure(json);
     } connectionError:^(NSError *error) {

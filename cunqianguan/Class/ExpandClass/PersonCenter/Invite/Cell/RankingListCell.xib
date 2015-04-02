@@ -21,13 +21,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19222元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ero-5D-U66">
-                        <rect key="frame" x="258" y="14" width="47" height="15"/>
+                        <rect key="frame" x="228" y="14" width="47" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dn0-Gd-P8B">
-                        <rect key="frame" x="15" y="12" width="20" height="20"/>
+                        <rect key="frame" x="26" y="12" width="20" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="1" backgroundImage="invite_tb1">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,9 +37,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerX" secondItem="QBR-y8-Fju" secondAttribute="centerX" id="PP7-iV-nPh"/>
-                    <constraint firstAttribute="trailing" secondItem="Ero-5D-U66" secondAttribute="trailing" constant="15" id="TYL-Cv-HYc"/>
+                    <constraint firstAttribute="trailing" secondItem="Ero-5D-U66" secondAttribute="trailing" constant="45" id="TYL-Cv-HYc"/>
                     <constraint firstAttribute="bottom" secondItem="Ero-5D-U66" secondAttribute="bottom" constant="14" id="Uyy-c9-9Gl"/>
-                    <constraint firstItem="Dn0-Gd-P8B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bVh-L0-8e4"/>
+                    <constraint firstItem="Dn0-Gd-P8B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="bVh-L0-8e4"/>
                     <constraint firstItem="Dn0-Gd-P8B" firstAttribute="centerY" secondItem="Ero-5D-U66" secondAttribute="centerY" id="pIs-36-J3k"/>
                     <constraint firstItem="Dn0-Gd-P8B" firstAttribute="centerY" secondItem="QBR-y8-Fju" secondAttribute="centerY" id="v3G-aw-gEY"/>
                 </constraints>

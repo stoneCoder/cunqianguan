@@ -7,7 +7,7 @@
 //
 
 #import "BaseView.h"
-
+#import "BankModel.h"
 @interface AliTransfersView : BaseView<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numText;
 @property (weak, nonatomic) IBOutlet UITextField *pwdText;
@@ -18,9 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (strong, nonatomic) IBOutlet UIButton *cancleBtn;
 @property (strong, nonatomic) IBOutlet UIButton *subBtn;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 
 +(AliTransfersView *)transfersView;
--(void)showView:(NSInteger)type; //1 现金提现到支付宝 2 集分宝提现到支付宝
+-(void)showView:(NSInteger)type WithModel:(BankModel *)bankModel; //1 现金提现到支付宝 2 集分宝提现到支付宝
 -(void)hideView;
 @end

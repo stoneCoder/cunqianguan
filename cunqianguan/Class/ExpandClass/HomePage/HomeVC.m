@@ -13,7 +13,7 @@
 
 #import "AdvertisingView.h"
 #import "SMPageControl.h"
-#import "ScrollFocus.h"
+#import "SDCycleScrollView.h"
 #import "PresentTableView.h"
 #import "ReturnHomeVC.h"
 #import "RebateHomeVC.h"
@@ -24,7 +24,7 @@
 #import "HotShopVC.h"
 #import "SearchViewVC.h"
 #import "InviteVC.h"
-#import "AccountVC.h"
+#import "MyOrderScrollVC.h"
 #import "SignVC.h"
 #import "NotificationWebVC.h"
 
@@ -49,16 +49,18 @@
 
 #import "AppDelegate.h"
 
-@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate>
+
+@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate,SDCycleScrollViewDelegate>
 {
     UIScrollView *_scrollView;
     TapActionView *_actionView;
     UIView *_dimView;
     GridMenu *_gridMenu;
-    ScrollFocus *_pageControl;
+    //ScrollFocus *_pageControl;
     NSInteger _openView;
     PersonInfo *_info;
     PresentView *_presentView;
+    SDCycleScrollView *_pageControl;
 }
 
 @end
@@ -132,9 +134,8 @@
     [self.view addSubview:_scrollView];
 }
 
--(void)initAdView
+/*-(void)initAdView
 {
-    //_pageControl = [[SMPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     _pageControl =  [[ScrollFocus alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH)];
     
     
@@ -160,6 +161,26 @@
         }
     }];
   
+    [_scrollView addSubview:_pageControl];
+}*/
+
+-(void)initAdView
+{
+    NSArray *imageArray;
+    if (SCREEN_HEIGTH == 480) {
+        imageArray = @[[UIImage imageNamed:@"banner4_01"],[UIImage imageNamed:@"banner4_02"]];
+    }else if (SCREEN_HEIGTH == 568){
+        imageArray = @[[UIImage imageNamed:@"banner5_01"],[UIImage imageNamed:@"banner5_02"]];
+    }else if (SCREEN_HEIGTH == 667){
+        imageArray = @[[UIImage imageNamed:@"banner1"],[UIImage imageNamed:@"banner2"]];
+    }else if (SCREEN_HEIGTH == 736){
+        imageArray = @[[UIImage imageNamed:@"banner6p_01"],[UIImage imageNamed:@"banner6p_02"]];
+    }
+    _pageControl = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH) imagesGroup:imageArray];
+    _pageControl.autoScrollTimeInterval = 5.0f;
+    _pageControl.delegate = self;
+    _pageControl.dotImage = [UIImage imageNamed:@"qiehuan_home"];
+    _pageControl.currentDotImage = [UIImage imageNamed:@"qiehuan_hover"];
     [_scrollView addSubview:_pageControl];
 }
 
@@ -193,7 +214,6 @@
                 [adView.imageView sd_setImageWithURL:[NSURL URLWithString:adModel.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     [image imageByScalingAndCroppingForSize:_pageControl.frame.size];
                 }];
-                //[_pageControl insertBannerPages:adView];
             }
         }
     } failure:^(NSError *err) {
@@ -255,9 +275,9 @@
 -(void)pushToMyOrder
 {
     [_info isLoginWithcompletion:^(BOOL flag) {
-        AccountVC *accountVC = [[AccountVC alloc] init];
-        accountVC.leftTitle = @"我的订单";
-        [self.navigationController pushViewController:accountVC animated:YES];
+        MyOrderScrollVC *myOrderScrollVC = [[MyOrderScrollVC alloc] init];
+        myOrderScrollVC.leftTitle = @"我的订单";
+        [self.navigationController pushViewController:myOrderScrollVC animated:YES];
     }];
 }
 
@@ -268,6 +288,19 @@
         inviteVC.leftTitle = @"邀请好友";
         [self.navigationController pushViewController:inviteVC animated:YES];
     }];
+}
+
+#pragma mark -- SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            [self inviteFriend];
+            break;
+        case 1:
+            [self presentHelpView];
+            break;
+    }
 }
 
 #pragma mark -- PresentViewDelegate
@@ -314,25 +347,6 @@
     _gridMenu.gridMenuDelegate = self;
     [_gridMenu setUpMenuData:@{@"gridName":menuNameArray,@"gridImage":array}];
 }
-
-//-(void)setUpPresentTable
-//{
-//    CGFloat visiableY = _pageControl.frame.size.height;
-//    if (SCREEN_HEIGTH < 568) {
-//        visiableY = visiableY - 40;
-//    }
-//    _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY + 100) style:UITableViewStyleGrouped];
-//    _presentTable.backgroundColor = UIColorFromRGB(0xECECEC);
-//    _presentTable.scrollEnabled = NO;
-//    _presentTable.delegate = _presentTable;
-//    _presentTable.dataSource = _presentTable;
-//    _presentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    
-//    _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
-//    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-//    _closeBtn.center = ccp(VIEW_WIDTH/2,visiableY - 30);
-//    [_closeBtn addTarget:self action:@selector(hideMenu) forControlEvents:UIControlEventTouchUpInside];
-//}
 
 -(void)showMenu:(NSInteger)flag
 {

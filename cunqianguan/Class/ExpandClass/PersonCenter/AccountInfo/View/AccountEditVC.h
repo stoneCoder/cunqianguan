@@ -8,7 +8,7 @@
 
 #import "BaseVC.h"
 #import "BankModel.h"
-typedef NS_ENUM(NSInteger, ViewType) {
+typedef NS_ENUM(NSInteger, EditViewType) {
     ViewTypeWithAipay,
     ViewTypeWithBank,
 };

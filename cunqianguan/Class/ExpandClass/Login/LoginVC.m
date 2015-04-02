@@ -234,7 +234,7 @@
                     PersonInfo *person = [PersonInfo sharedPersonInfo];
                     person.isThirdLogin = YES;
                     if (userId.length > 20) {
-                        userId = [userId substringToIndex:20];
+                        userId = [BaseUtil encrypt:[userId substringToIndex:20]];
                     }
                     person.password = userId;
                     [person loginSuccessWith:[dic objectForKey:@"data"]];

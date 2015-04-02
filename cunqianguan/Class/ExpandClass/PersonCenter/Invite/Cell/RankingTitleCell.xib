@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuy-0r-9ew">
-                        <rect key="frame" x="15" y="13" width="26" height="16"/>
+                        <rect key="frame" x="25" y="13" width="26" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获得的奖励金额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1b-7v-Y7B">
-                        <rect key="frame" x="221" y="13" width="91" height="16"/>
+                        <rect key="frame" x="214" y="13" width="91" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,9 +39,9 @@
                     <constraint firstItem="I3N-vW-38M" firstAttribute="centerY" secondItem="Kuy-0r-9ew" secondAttribute="centerY" id="7ks-hK-4uf"/>
                     <constraint firstItem="I3N-vW-38M" firstAttribute="centerY" secondItem="x1b-7v-Y7B" secondAttribute="centerY" id="Y8Q-Gr-ihW"/>
                     <constraint firstAttribute="centerX" secondItem="I3N-vW-38M" secondAttribute="centerX" id="dXt-Jo-bIL"/>
-                    <constraint firstItem="Kuy-0r-9ew" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="emE-If-nJP"/>
+                    <constraint firstItem="Kuy-0r-9ew" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="emE-If-nJP"/>
                     <constraint firstItem="x1b-7v-Y7B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="pji-yK-uMr"/>
-                    <constraint firstAttribute="trailing" secondItem="x1b-7v-Y7B" secondAttribute="trailing" constant="8" id="tCl-oT-1oz"/>
+                    <constraint firstAttribute="trailing" secondItem="x1b-7v-Y7B" secondAttribute="trailing" constant="15" id="tCl-oT-1oz"/>
                     <constraint firstItem="Kuy-0r-9ew" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="ta6-ab-XAX"/>
                 </constraints>
             </tableViewCellContentView>

@@ -241,15 +241,16 @@
             [self hideAllHUD];
             NSDictionary *dic = (NSDictionary *)json;
             if ([BaseConnect isSucceeded:dic]) {
-                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
-                    NSDictionary *dic = (NSDictionary *)json;
-                    if ([BaseConnect isSucceeded:dic]) {
-                        _isFav = 1;
-                        [self showStringHUD:@"收藏成功" second:1.5];
-                    }
-                } failure:^(id json) {
-                    
-                }];
+                _isFav = 1;
+                [self showStringHUD:@"收藏成功" second:1.5];
+//                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+//                    NSDictionary *dic = (NSDictionary *)json;
+//                    if ([BaseConnect isSucceeded:dic]) {
+//                        
+//                    }
+//                } failure:^(id json) {
+//                    
+//                }];
             }else{
                 [self showStringHUD:@"收藏失败，请重试" second:1.5];
             }
@@ -262,15 +263,16 @@
             [self hideAllHUD];
             NSDictionary *dic = (NSDictionary *)json;
             if ([BaseConnect isSucceeded:dic]) {
-                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
-                    NSDictionary *dic = (NSDictionary *)json;
-                    if ([BaseConnect isSucceeded:dic]) {
-                        _isFav = 0;
-                        [self showStringHUD:@"取消收藏成功" second:1.5];
-                    }
-                } failure:^(id json) {
-                    
-                }];
+                _isFav = 0;
+                [self showStringHUD:@"取消收藏成功" second:1.5];
+//                [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+//                    NSDictionary *dic = (NSDictionary *)json;
+//                    if ([BaseConnect isSucceeded:dic]) {
+//                        
+//                    }
+//                } failure:^(id json) {
+//                    
+//                }];
             }else{
                 [self showStringHUD:@"取消收藏失败，请重试" second:1.5];
             }

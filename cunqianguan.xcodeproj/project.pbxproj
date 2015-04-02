@@ -301,6 +301,14 @@
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
 		B18A978A1AC8E38100993B7F /* UIImageView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = B18A97891AC8E38100993B7F /* UIImageView+Borders.m */; };
+		B18DCDC51ACD3B3C00D68761 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */; };
+		B18DCDC61ACD3B3C00D68761 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDB81ACD3B3C00D68761 /* TAAbstractDotView.m */; };
+		B18DCDC71ACD3B3C00D68761 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDBA1ACD3B3C00D68761 /* TAAnimatedDotView.m */; };
+		B18DCDC81ACD3B3C00D68761 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDBC1ACD3B3C00D68761 /* TADotView.m */; };
+		B18DCDC91ACD3B3C00D68761 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDBE1ACD3B3C00D68761 /* TAPageControl.m */; };
+		B18DCDCA1ACD3B3C00D68761 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDC01ACD3B3C00D68761 /* SDCollectionViewCell.m */; };
+		B18DCDCB1ACD3B3C00D68761 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDC21ACD3B3C00D68761 /* SDCycleScrollView.m */; };
+		B18DCDCC1ACD3B3C00D68761 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDC41ACD3B3C00D68761 /* UIView+SDExtension.m */; };
 		B1931FD81ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */; };
 		B198C18E1AA6E11C0098B9A1 /* BankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B198C18D1AA6E11C0098B9A1 /* BankModel.m */; };
 		B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F8B881AA6C29E004BF6FC /* CalenderDayView.m */; };
@@ -889,6 +897,22 @@
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
 		B18A97881AC8E38100993B7F /* UIImageView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Borders.h"; sourceTree = "<group>"; };
 		B18A97891AC8E38100993B7F /* UIImageView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Borders.m"; sourceTree = "<group>"; };
+		B18DCDB41ACD3B3C00D68761 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		B18DCDB71ACD3B3C00D68761 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		B18DCDB81ACD3B3C00D68761 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		B18DCDB91ACD3B3C00D68761 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		B18DCDBA1ACD3B3C00D68761 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		B18DCDBB1ACD3B3C00D68761 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		B18DCDBC1ACD3B3C00D68761 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		B18DCDBD1ACD3B3C00D68761 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		B18DCDBE1ACD3B3C00D68761 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		B18DCDBF1ACD3B3C00D68761 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		B18DCDC01ACD3B3C00D68761 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		B18DCDC11ACD3B3C00D68761 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		B18DCDC21ACD3B3C00D68761 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		B18DCDC31ACD3B3C00D68761 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		B18DCDC41ACD3B3C00D68761 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		B1931FD41ABBEB9D00138B13 /* cunqianguan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = cunqianguan.entitlements; sourceTree = "<group>"; };
 		B1931FD61ABBECF500138B13 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		B1931FD71ABBECF500138B13 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
@@ -1287,6 +1311,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B18DCDB31ACD3B3C00D68761 /* SDCycleScrollView */,
 				B1931FD51ABBECF500138B13 /* UMessage_Sdk_1.1.0 */,
 				B1E2B8811AB2897300D0FCA5 /* SBSearchBar */,
 				B10A14931AAFE272002DD2D7 /* GMDCircleLoader */,
@@ -2344,6 +2369,37 @@
 			path = Invite;
 			sourceTree = "<group>";
 		};
+		B18DCDB31ACD3B3C00D68761 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				B18DCDB41ACD3B3C00D68761 /* NSData+SDDataCache.h */,
+				B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */,
+				B18DCDB61ACD3B3C00D68761 /* PageControl */,
+				B18DCDBF1ACD3B3C00D68761 /* SDCollectionViewCell.h */,
+				B18DCDC01ACD3B3C00D68761 /* SDCollectionViewCell.m */,
+				B18DCDC11ACD3B3C00D68761 /* SDCycleScrollView.h */,
+				B18DCDC21ACD3B3C00D68761 /* SDCycleScrollView.m */,
+				B18DCDC31ACD3B3C00D68761 /* UIView+SDExtension.h */,
+				B18DCDC41ACD3B3C00D68761 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		B18DCDB61ACD3B3C00D68761 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				B18DCDB71ACD3B3C00D68761 /* TAAbstractDotView.h */,
+				B18DCDB81ACD3B3C00D68761 /* TAAbstractDotView.m */,
+				B18DCDB91ACD3B3C00D68761 /* TAAnimatedDotView.h */,
+				B18DCDBA1ACD3B3C00D68761 /* TAAnimatedDotView.m */,
+				B18DCDBB1ACD3B3C00D68761 /* TADotView.h */,
+				B18DCDBC1ACD3B3C00D68761 /* TADotView.m */,
+				B18DCDBD1ACD3B3C00D68761 /* TAPageControl.h */,
+				B18DCDBE1ACD3B3C00D68761 /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		B1931FD51ABBECF500138B13 /* UMessage_Sdk_1.1.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2691,6 +2747,7 @@
 				B140721A1A6E3EBE00D1792F /* LoginVC.m in Sources */,
 				B158A72C1A9DC96900C6FD3F /* CateModel.m in Sources */,
 				B158A6F01A9D6BBB00C6FD3F /* NSArray+JSONModel.m in Sources */,
+				B18DCDC51ACD3B3C00D68761 /* NSData+SDDataCache.m in Sources */,
 				B15022DE1AA55787008850F3 /* SignDataModel.m in Sources */,
 				B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */,
 				B150325E1A8B3992000A61FA /* FavoriteView.m in Sources */,
@@ -2771,6 +2828,7 @@
 				B158A6ED1A9D6BBB00C6FD3F /* JSONModelArray.m in Sources */,
 				B1C910641A89E82200AE3F66 /* AliTransfersView.m in Sources */,
 				B14E30AB1A79BE46005BF0EF /* AddressManagerVC.m in Sources */,
+				B18DCDCB1ACD3B3C00D68761 /* SDCycleScrollView.m in Sources */,
 				B140713C1A6CAFF700D1792F /* AppDelegate.m in Sources */,
 				B14E30CB1A7A262E005BF0EF /* AccountEditVC.m in Sources */,
 				48AC87591AB58233003CEF48 /* PopoverView.m in Sources */,
@@ -2778,6 +2836,7 @@
 				B1C1DAAC1AC122D6006C22C6 /* ScrollFocus.m in Sources */,
 				B140719E1A6CCD7900D1792F /* BaseVC.m in Sources */,
 				B140EC6F1A6F7345004D245A /* SMIndication.m in Sources */,
+				B18DCDC71ACD3B3C00D68761 /* TAAnimatedDotView.m in Sources */,
 				B1498AE61A775795001260EC /* ProductDetailHeaderView.m in Sources */,
 				B140EC701A6F7345004D245A /* SMNavigationBar.m in Sources */,
 				B158A6F41A9D6BBB00C6FD3F /* JSONKeyMapper.m in Sources */,
@@ -2811,6 +2870,7 @@
 				B140EC7B1A6F7345004D245A /* SMViewController.m in Sources */,
 				B14E30BB1A79FB24005BF0EF /* MoneyViewVC.m in Sources */,
 				B1C1DAB21AC14B21006C22C6 /* HighlightView.m in Sources */,
+				B18DCDC61ACD3B3C00D68761 /* TAAbstractDotView.m in Sources */,
 				B15D44D71A78B777008B8F4B /* RunningWaterCell.m in Sources */,
 				B158A6F51A9D6BBB00C6FD3F /* JSONValueTransformer+CustomTransformer.m in Sources */,
 				B14D45481A70D254005AA895 /* GoodsSectionView.m in Sources */,
@@ -2839,7 +2899,9 @@
 				B14071CD1A6D015900D1792F /* TapActionView.m in Sources */,
 				B140EC711A6F7345004D245A /* SMNavigationController.m in Sources */,
 				B14729A11A8C799B00524510 /* DoAlertView.m in Sources */,
+				B18DCDC91ACD3B3C00D68761 /* TAPageControl.m in Sources */,
 				B1E2B88C1AB2BC2100D0FCA5 /* HotShopCell.m in Sources */,
+				B18DCDCA1ACD3B3C00D68761 /* SDCollectionViewCell.m in Sources */,
 				B10A148C1AAFCD20002DD2D7 /* AboutUsVC.m in Sources */,
 				B14379731A9EC1F300D00625 /* FootConnect.m in Sources */,
 				B1668D461A88A2F4002CB98E /* JTCalendar.m in Sources */,
@@ -2859,10 +2921,12 @@
 				B1F873201AB1899F00B1D4B0 /* DefaultEmptyView.m in Sources */,
 				B158A7121A9D7A7400C6FD3F /* JYHModel.m in Sources */,
 				B152C0811AA93F2400D18AFB /* FootModel.m in Sources */,
+				B18DCDC81ACD3B3C00D68761 /* TADotView.m in Sources */,
 				B109D5A51A722E7D00505D32 /* ExChangeCell.m in Sources */,
 				B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */,
 				B158A71D1A9DA34A00C6FD3F /* MongoModel.m in Sources */,
 				B14071B71A6CD38E00D1792F /* UIScrollView+MJRefresh.m in Sources */,
+				B18DCDCC1ACD3B3C00D68761 /* UIView+SDExtension.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
 				B1E2B89E1AB2DC6B00D0FCA5 /* MyOrderScrollVC.m in Sources */,
 				B158A6EC1A9D6BBB00C6FD3F /* JSONModel.m in Sources */,

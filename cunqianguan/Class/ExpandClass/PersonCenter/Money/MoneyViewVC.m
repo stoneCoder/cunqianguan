@@ -7,6 +7,7 @@
 //
 
 #import "MoneyViewVC.h"
+#import "AccountEditVC.h"
 #import "AliTransfersView.h"
 #import "BankTransfersView.h"
 #import "ExChangeScrollVC.h"
@@ -14,6 +15,9 @@
 
 #import "BaseUtil.h"
 #import "PersonInfo.h"
+#import "BaseConnect.h"
+#import "PersonConnect.h"
+#import "BankModel.h"
 @interface MoneyViewVC ()
 {
     AliTransfersView *_aliTransfersView;
@@ -133,6 +137,7 @@
 
 - (IBAction)transForBank:(id)sender
 {
+    [self createBankView];
     NSInteger cashAll = _info.cashAll;
     if (cashAll < 30) {
         [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
@@ -142,8 +147,31 @@
         }];
         return;
     }
-    [self createBankView];
-    [_bankTransfersView showView];
+    [self loadDataWithsuccess:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            BankModel *model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+            if (model.bank) {
+                 [_bankTransfersView showViewWithModel:model];
+            }else{
+                [[BMAlert sharedBMAlert] alert:@"您未绑定银行卡" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                    AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
+                    accountEditVC.leftTitle = @"修改银行卡账号";
+                    accountEditVC.viewType = ViewTypeWithBank;
+                    accountEditVC.model = model;
+                    [self.navigationController pushViewController:accountEditVC animated:YES];
+                } other:^(DoAlertView *alertView) {
+                    
+                }];
+            }
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+            return;
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+    return;
 }
 
 - (IBAction)transForWebSite:(id)sender
@@ -157,34 +185,91 @@
 {
     UIButton *btn = (UIButton *)sender;
     [self createAliView];
-    switch (btn.tag) {
-        case 1000:
-            /*现金收入*/
-            if (_info.cashAll < 30) {
-                [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
-                    
-                } other:^(DoAlertView *alertView) {
-                    
-                }];
+    if (btn.tag == 1000) {
+        /*现金收入*/
+        if (_info.cashAll < 30) {
+            [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
+                
+            } other:^(DoAlertView *alertView) {
+                
+            }];
+            return;
+        }
+        [self loadDataWithsuccess:^(id json) {
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                BankModel *model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+                if (model.alipay) {
+                    [_aliTransfersView showView:1 WithModel:model];
+                }else{
+                    [[BMAlert sharedBMAlert] alert:@"您未绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                        AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
+                        accountEditVC.leftTitle = @"修改支付宝账号";
+                        accountEditVC.viewType = ViewTypeWithAipay;
+                        accountEditVC.model = model;
+                        [self.navigationController pushViewController:accountEditVC animated:YES];
+                    } other:^(DoAlertView *alertView) {
+                        
+                    }];
+                }
+            }else{
+                [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
                 return;
             }
-            [_aliTransfersView showView:1];
-            break;
-        case 1001:
-            /*集分宝收入*/
-            if (_info.pointSite < 100) {
-                [[BMAlert sharedBMAlert] alert:@"您的集分宝小于100元，无法提现！" cancle:^(DoAlertView *alertView) {
-                    
-                } other:^(DoAlertView *alertView) {
-                    
-                }];
+        } failure:^(NSError *err) {
+            
+        }];
+        return;
+    }else if (btn.tag == 1001){
+        /*集分宝收入*/
+        //if(_info.a)
+        if (_info.pointSite < 100) {
+            [[BMAlert sharedBMAlert] alert:@"您的集分宝小于100元，无法提现！" cancle:^(DoAlertView *alertView) {
+                
+            } other:^(DoAlertView *alertView) {
+                
+            }];
+            return;
+        }
+        [self loadDataWithsuccess:^(id json) {
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                BankModel *model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+                if (model.alipay) {
+                    [_aliTransfersView showView:2 WithModel:model];
+                }else{
+                    [[BMAlert sharedBMAlert] alert:@"您未绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                        AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
+                        accountEditVC.leftTitle = @"修改支付宝账号";
+                        accountEditVC.viewType = ViewTypeWithAipay;
+                        accountEditVC.model = model;
+                        [self.navigationController pushViewController:accountEditVC animated:YES];
+                    } other:^(DoAlertView *alertView) {
+                        
+                    }];
+                }
+            }else{
+                [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
                 return;
             }
-            [_aliTransfersView showView:2];
-            break;
+        } failure:^(NSError *err) {
+            
+        }];
+        return;
     }
 }
 
 #pragma mark -- Private
-
+-(void)loadDataWithsuccess:(void (^)(id json))success
+                   failure:(void (^)( NSError *err))failure
+{
+    [self showHUD:DATA_LOAD];
+    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
+        success(json);
+        [self hideAllHUD];
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+        failure(err);
+    }];
+}
 @end

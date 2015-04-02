@@ -10,7 +10,6 @@
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
-#import "BankModel.h"
 #import "BaseUtil.h"
 @implementation AliTransfersView
 {
@@ -42,8 +41,12 @@
     _info = [PersonInfo sharedPersonInfo];
     self.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
+    _contentView.backgroundColor = UIColorFromRGB(0x2db8ad);
     _numText.delegate = self;
     _pwdText.delegate = self;
+    
+    _tipLabel.numberOfLines = 0;
+    _tipLabel.lineBreakMode = NSLineBreakByCharWrapping;
     
     _cancleBtn.layer.borderWidth = 1.0f;
     _cancleBtn.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -101,22 +104,25 @@
     [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:_type success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+        if ([BaseConnect isSucceeded:dic]) {
+            _numText.text = @"";
+            _pwdText.text = @"";
+        }
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
     
 }
 
--(void)showView:(NSInteger)type
+-(void)showView:(NSInteger)type WithModel:(BankModel *)bankModel
 {
     _type = type;
+    _model = bankModel;
     switch (type) {
         case 1:
             _canMoneyTitleLabel.text = @"可提现金额：";
             _moneyTitleLabel.text = @"提现金额：";
-            _tipLabel.numberOfLines = 0;
-            _tipLabel.lineBreakMode = NSLineBreakByCharWrapping;
             _tipLabel.text = @"(大于等于30且为5的整数倍)";
             break;
     }
@@ -137,24 +143,25 @@
 
 -(void)loadData
 {
-    [self showHUD:DATA_LOAD];
-    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        if ([BaseConnect isSucceeded:dic]) {
-            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
-            _aliNumLabel.text = _model.alipay;
-            if (_type == 1) {
-                _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
-            }else if (_type == 2){
-                _moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)_info.pointSite];
-            }
-            _numText.text = @"";
-            _pwdText.text = @"";
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
+    _aliNumLabel.text = _model.alipay;
+    if (_type == 1) {
+        _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+    }else if (_type == 2){
+        _moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)_info.pointSite];
+    }
+    _numText.text = @"";
+    _pwdText.text = @"";
+//    [self showHUD:DATA_LOAD];
+//    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
+//        [self hideAllHUD];
+//        NSDictionary *dic = (NSDictionary *)json;
+//        if ([BaseConnect isSucceeded:dic]) {
+//            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+//            
+//        }
+//    } failure:^(NSError *err) {
+//        [self hideAllHUD];
+//    }];
 }
 
 #pragma mark -- UITextfiledDelegate

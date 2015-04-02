@@ -229,7 +229,7 @@
     cell.selectedBackgroundView.backgroundColor = cell.backgroundColor;
     
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 18);
+        cell.separatorInset = UIEdgeInsetsMake(0, 18, 0, 18);
     }
     return cell;
 }

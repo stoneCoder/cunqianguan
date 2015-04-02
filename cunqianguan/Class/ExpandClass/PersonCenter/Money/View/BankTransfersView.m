@@ -12,7 +12,7 @@
 #import "PersonInfo.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
-#import "BankModel.h"
+
 @implementation BankTransfersView
 {
     PersonInfo *_info;
@@ -41,6 +41,7 @@
     _info = [PersonInfo sharedPersonInfo];
     self.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.3];
+    _contentView.backgroundColor = UIColorFromRGB(0x2db8ad);
     _numText.delegate = self;
     _pwdText.delegate = self;
     
@@ -84,25 +85,8 @@
     [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
-}
-
--(void)loadData
-{
-    [self showHUD:DATA_LOAD];
-    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
         if ([BaseConnect isSucceeded:dic]) {
-            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
-            _nameLabel.text = _model.name;
-            _cityLabel.text = _model.city;
-            _bankNameLabel.text = _model.bankname;
-            _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
-            _cardNumLabel.text = [BaseUtil transformBankCard:_model.bank];
             _numText.text = @"";
             _pwdText.text = @"";
         }
@@ -111,8 +95,32 @@
     }];
 }
 
--(void)showView
+-(void)loadData
 {
+    _nameLabel.text = _model.name;
+    _cityLabel.text = _model.city;
+    _bankNameLabel.text = _model.bankname;
+    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+    _cardNumLabel.text = [BaseUtil transformBankCard:_model.bank];
+    _numText.text = @"";
+    _pwdText.text = @"";
+    
+//    [self showHUD:DATA_LOAD];
+//    [[PersonConnect sharedPersonConnect] getUserBankInfo:_info.email andPwd:_info.password success:^(id json) {
+//        [self hideAllHUD];
+//        NSDictionary *dic = (NSDictionary *)json;
+//        if ([BaseConnect isSucceeded:dic]) {
+//            _model = [[BankModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil];
+//            
+//        }
+//    } failure:^(NSError *err) {
+//        [self hideAllHUD];
+//    }];
+}
+
+-(void)showViewWithModel:(BankModel *)bankModel
+{
+    _model = bankModel;
     [self loadData];
     [UIView animateWithDuration:0.25 animations:^{
         self.hidden = NO;
@@ -132,7 +140,7 @@
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.25];
-    self.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 64);
+    self.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 85);
     [UIView commitAnimations];
 }
 

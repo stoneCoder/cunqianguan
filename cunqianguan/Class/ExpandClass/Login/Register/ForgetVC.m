@@ -11,7 +11,7 @@
 #import "BaseConnect.h"
 #import "BMAlert.h"
 
-@interface ForgetVC ()
+@interface ForgetVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailtext;
 
 @end
@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _emailtext.delegate = self;
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 
@@ -65,6 +66,50 @@
 -(void)hideKeyBoard
 {
     [_emailtext resignFirstResponder];
+    [self returnNormalPath];
+}
+
+#pragma mark -- UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == _emailtext){
+        [self changeViewPath];
+    }
+    return YES;
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == _emailtext) {
+        [textField resignFirstResponder];
+        [self returnNormalPath];
+    }
+    return YES;
+}
+
+
+-(void)changeViewPath
+{
+    CGFloat visiableY = 64.0f;
+    if (iOS7) {
+        visiableY = 0;
+    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.25];
+    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2 - visiableY);
+    [UIView commitAnimations];
+}
+
+-(void)returnNormalPath
+{
+    CGFloat visiableY = 0.0f;
+    if (iOS7) {
+        visiableY = 64.0f;
+    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.25];
+    self.view.center = CGPointMake(VIEW_WIDTH/2.0, VIEW_HEIGHT/2.0 + visiableY);
+    [UIView commitAnimations];
 }
 
 @end
