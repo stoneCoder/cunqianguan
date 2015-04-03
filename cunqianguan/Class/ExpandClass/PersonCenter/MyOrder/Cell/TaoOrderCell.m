@@ -19,6 +19,8 @@
 */
 - (void)awakeFromNib {
     // Initialization code
+    _infoLabel.numberOfLines = 2;
+    _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -30,8 +32,6 @@
     _orderNumLabel.text = [NSString stringWithFormat:@"订单号：%@",model.trade_id];
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     _infoLabel.text = model.title;
-    _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    _infoLabel.numberOfLines = 0;
     
     NSString *moneyText = [NSString stringWithFormat:@"返%ld集分宝",(long)model.fanli];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:moneyText];

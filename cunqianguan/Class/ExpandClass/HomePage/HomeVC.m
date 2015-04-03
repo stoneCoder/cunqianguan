@@ -307,20 +307,27 @@
 {
     [UIView animateWithDuration:0.25f animations:^{
         _presentView.hidden = NO;
-        _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI/2);
         [_presentView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
     } completion:^(BOOL finished) {
-        
+        [UIView animateWithDuration:0.25f animations:^{
+            _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI/2);
+        } completion:^(BOOL finished) {
+            
+        }];
     }];
 }
 
 -(void)hidePresentMenu
 {
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI);
-        [_presentView setFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
     } completion:^(BOOL finished) {
-        _presentView.hidden = YES;
+        [UIView animateWithDuration:0.25f animations:^{
+            [_presentView setFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
+            _presentView.hidden = YES;
+        } completion:^(BOOL finished) {
+            
+        }];
     }];
 }
 

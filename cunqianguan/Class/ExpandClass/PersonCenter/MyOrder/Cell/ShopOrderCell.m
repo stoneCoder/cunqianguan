@@ -36,9 +36,11 @@
             break;
         case 1:
             typeStr = @"已返利";
+            _typeLabel.backgroundColor = UIColorFromRGB(0x2db8ad);
             break;
         case 2:
             typeStr = @"待返利";
+            _typeLabel.backgroundColor = UIColorFromRGB(0xff9c00);
             break;
     }
     _typeLabel.text = typeStr;

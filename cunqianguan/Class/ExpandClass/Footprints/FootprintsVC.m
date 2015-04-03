@@ -29,6 +29,7 @@
     NSInteger _pageNum;
     NSMutableArray *_data;
     NSInteger _webPageCount;
+    UIButton *_rightBtn;
 }
 
 @end
@@ -60,6 +61,13 @@ static NSString *CellID=@"FootPrintsCell";
 -(void)setUpNavbtn
 {
     [self setRigthBarWithDic:@{@"images":@[@"refresh"],@"imageshover":@[@"refresh_hover"]}];
+   
+//    _rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
+//    [_rightBtn setBackgroundImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+//    [_rightBtn setBackgroundImage:[UIImage imageNamed:selectName] forState:UIControlStateHighlighted];
+//    [_rightBtn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+//    self.navigationItem.leftBarButtonItem = leftBtnItem;
 }
 
 -(void)setUpTableView
@@ -84,7 +92,12 @@ static NSString *CellID=@"FootPrintsCell";
 */
 -(void)rightBtnClick:(UIButton *)btn
 {
-    [self loadData:1];
+    [UIView animateWithDuration:0.25f animations:^{
+        btn.transform = CGAffineTransformMakeRotation(M_PI/2);
+    } completion:^(BOOL finished) {
+        btn.transform = CGAffineTransformMakeRotation(M_PI);
+        [self loadData:1];
+    }];
 }
 
 -(void)loadData:(NSInteger)page
@@ -133,7 +146,7 @@ static NSString *CellID=@"FootPrintsCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    return 158;
 }
 
 
