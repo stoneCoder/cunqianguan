@@ -8,8 +8,8 @@
 
 #import "BaseMutableMenu.h"
 
-#define LEFT_BTN_WIDTH 92
-#define LEFT_BTN_HEIGHT 62
+#define LEFT_BTN_WIDTH 88
+#define LEFT_BTN_HEIGHT 52
 #define BTN_HEIGHT 30
 #define BTN_SPACING 15
 
