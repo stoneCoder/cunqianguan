@@ -13,6 +13,8 @@
 {
     UIView *_btnView;
     NSMutableArray *_btnViewArray;
+    CGRect _animotionFrame;
+    CGFloat _animotionY;
 }
 
 /*
@@ -39,7 +41,9 @@
 {
     CGFloat width = self.frame.size.width;
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
-    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, heigth)];
+    _animotionY = visiableY;
+    _animotionFrame = CGRectMake(0, visiableY, width, heigth);
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY - 64, width, heigth)];
     [self createBtnWithArray:btnArray andRemaind:btnArray.count%3];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];
@@ -54,11 +58,7 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         btn.layer.borderWidth = 0.5;
         btn.layer.borderColor = UIColorFromRGB(0xececec).CGColor;
-        
-//        CALayer *border = [CALayer layer];
-//        border.backgroundColor = [UIColor whiteColor].CGColor;
-//        border.frame = CGRectMake(0, visiableX + btnHeight, btnWidth, 0.5);
-//        [btn.layer addSublayer:border];
+
         
         if (i < btnArray.count) {
             [btn setTitle:btnArray[i] forState:UIControlStateNormal];
@@ -90,6 +90,8 @@
 -(void)showView
 {
     [UIView animateWithDuration:0.2 animations:^{
+        _animotionFrame.origin.y = _animotionY;
+        _btnView.frame = _animotionFrame;
         self.hidden = NO;
     }];
 }
@@ -97,8 +99,10 @@
 -(void)hideView
 {
     [UIView animateWithDuration:0.2 animations:^{
-        self.hidden = YES;
+        _animotionFrame.origin.y = _animotionY - 64;
+         _btnView.frame = _animotionFrame;
     } completion:^(BOOL finished) {
+        self.hidden = YES;
         //[self removeFromSuperview];
     }];
     

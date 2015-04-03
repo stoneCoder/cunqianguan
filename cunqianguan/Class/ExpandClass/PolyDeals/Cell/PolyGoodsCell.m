@@ -12,14 +12,15 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.mas_width);
+        make.height.mas_equalTo(_productImage.mas_width);
+    }];
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        _productImage.frame = CGRectMake(0, 0, SCREEN_WIDTH/2 -15, SCREEN_WIDTH/2 -15);
-        _productImage.image = image;
-    }];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     if (type == 0) {
         _qLabel.text = [NSString stringWithFormat:@"%ld人在抢",(long)model.qcount];
         _hotTipImage.hidden = NO;
@@ -37,4 +38,6 @@
     [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:10.0f] range:NSMakeRange(0,1)];
     _priceLabel.attributedText = str;
 }
+
+
 @end

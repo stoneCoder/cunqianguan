@@ -6,6 +6,7 @@
 //
 
 #import "TouchPropagatedScrollView.h"
+#import "UIView+Borders.h"
 @interface TouchPropagatedScrollView ()
 {
     NSMutableArray *btns;
@@ -102,12 +103,22 @@
     }
     UIButton *btn = [btns objectAtIndex:_selectIndex];
     btn.selected = NO;
+
+    if (_isBorderStyle) {
+        [btn addRightBorderWithWidth:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
+    }
+    
     if (_isShowSelectBackgroundColor) {
         btn.backgroundColor = UIColorFromRGB(0xececec);
     }
     _selectIndex = selectIndex;
     btn = [btns objectAtIndex:_selectIndex];
     btn.selected = YES;
+
+    if (_isBorderStyle) {
+        [btn addRightBorderWithWidth:1.0f andColor:[UIColor whiteColor]];
+    }
+    
     if (_isShowSelectBackgroundColor) {
         btn.backgroundColor = [UIColor whiteColor];
     }
@@ -191,6 +202,11 @@
                 break;
             case VerticalDirection:
                 view.frame  = CGRectMake(0, height * i, self.bounds.size.width, height);
+                if (_isBorderStyle) {
+                    [view addBottomBorderWithHeight:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
+                    [view addRightBorderWithWidth:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
+                }
+                
                 break;
             default:
                 break;
@@ -204,6 +220,7 @@
                 case VerticalDirection:
                     self.lineView.frame = CGRectMake(0, _selectIndex * view.frame.size.height, lineViewWidth, lineViewHeight);
                     self.lineView.center = CGPointMake(self.lineView.center.x, ((_selectIndex+1)*2-1) * (view.frame.size.height/2));
+                    [view addRightBorderWithWidth:1.0f andColor:[UIColor whiteColor]];
                     break;
                 default:
                     break;

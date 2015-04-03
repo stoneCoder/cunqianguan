@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, DirectionType) {
 @property (nonatomic, strong) NSArray *items;
 @property (assign,nonatomic) NSInteger DirectionType;
 @property (assign,nonatomic) BOOL isShowSelectBackgroundColor;
+@property (assign, nonatomic) BOOL isBorderStyle;
 @property (nonatomic) NSUInteger selectIndex;
 
 @property (strong, nonatomic) id<SegmentDelegate> segmentDelegate;

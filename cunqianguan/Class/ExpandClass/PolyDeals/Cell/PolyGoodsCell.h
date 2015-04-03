@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *hotTipImage;
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *height;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *width;
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type;
 @end

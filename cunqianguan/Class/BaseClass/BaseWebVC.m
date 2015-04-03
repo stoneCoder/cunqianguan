@@ -92,7 +92,7 @@
     [self.webView loadHTMLString:@"" baseURL:nil];
     [self.webView stopLoading];
     [self.webView removeFromSuperview];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    //[[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 -(void)showLoaderView:(UIView *)view

@@ -50,7 +50,7 @@
 #import "AppDelegate.h"
 
 
-@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate,SDCycleScrollViewDelegate>
+@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate>
 {
     UIScrollView *_scrollView;
     TapActionView *_actionView;
@@ -168,20 +168,31 @@
 {
     NSArray *imageArray;
     if (SCREEN_HEIGTH == 480) {
-        imageArray = @[[UIImage imageNamed:@"banner4_01"],[UIImage imageNamed:@"banner4_02"]];
+        imageArray = @[@"banner4_01",@"banner4_02"];
     }else if (SCREEN_HEIGTH == 568){
-        imageArray = @[[UIImage imageNamed:@"banner5_01"],[UIImage imageNamed:@"banner5_02"]];
+        imageArray = @[@"banner5_01",@"banner5_02"];
     }else if (SCREEN_HEIGTH == 667){
-        imageArray = @[[UIImage imageNamed:@"banner1"],[UIImage imageNamed:@"banner2"]];
+        imageArray = @[@"banner1",@"banner2"];
     }else if (SCREEN_HEIGTH == 736){
-        imageArray = @[[UIImage imageNamed:@"banner6p_01"],[UIImage imageNamed:@"banner6p_02"]];
+        imageArray = @[@"banner6p_01",@"banner6p_02"];
     }
     _pageControl = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH) imagesGroup:imageArray];
     _pageControl.autoScrollTimeInterval = 5.0f;
-    _pageControl.delegate = self;
     _pageControl.dotImage = [UIImage imageNamed:@"qiehuan_home"];
     _pageControl.currentDotImage = [UIImage imageNamed:@"qiehuan_hover"];
     [_scrollView addSubview:_pageControl];
+    
+    __weak HomeVC *weakSelf = self;
+    _pageControl.selectItemBlock = ^(NSInteger index){
+        switch (index) {
+            case 0:
+                [weakSelf inviteFriend];
+                break;
+            case 1:
+                [weakSelf presentHelpView];
+                break;
+        }
+    };
 }
 
 -(void)initActionView
@@ -198,7 +209,8 @@
     _presentView = [[PresentView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
     _presentView.delegate = self;
     _presentView.hidden = YES;
-    [self.view addSubview:_presentView];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:_presentView];
 }
 
 -(void)loadAdView
@@ -290,25 +302,12 @@
     }];
 }
 
-#pragma mark -- SDCycleScrollViewDelegate
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
-{
-    switch (index) {
-        case 0:
-            [self inviteFriend];
-            break;
-        case 1:
-            [self presentHelpView];
-            break;
-    }
-}
-
 #pragma mark -- PresentViewDelegate
 -(void)presentHelpView
 {
     [UIView animateWithDuration:0.25f animations:^{
         _presentView.hidden = NO;
-        _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI);
+        _presentView.closeBtn.transform = CGAffineTransformMakeRotation(M_PI/2);
         [_presentView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
     } completion:^(BOOL finished) {
         

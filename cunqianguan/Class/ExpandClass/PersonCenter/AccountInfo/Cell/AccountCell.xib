@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-8P-mg3">
-                                <rect key="frame" x="0.0" y="54" width="290" height="44"/>
+                                <rect key="frame" x="0.0" y="57" width="290" height="42"/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,11 +45,11 @@
                             <constraint firstAttribute="trailing" secondItem="Nl9-Bu-6wA" secondAttribute="trailing" constant="6" id="2cB-HI-sME"/>
                             <constraint firstItem="JTS-9g-IXA" firstAttribute="top" secondItem="U8I-ZM-ED3" secondAttribute="top" constant="12" id="9UA-5a-sXo"/>
                             <constraint firstAttribute="width" secondItem="WRK-8P-mg3" secondAttribute="width" id="DGA-rf-i5c"/>
-                            <constraint firstAttribute="bottom" secondItem="WRK-8P-mg3" secondAttribute="bottom" id="aIo-aW-EF0"/>
+                            <constraint firstAttribute="bottom" secondItem="WRK-8P-mg3" secondAttribute="bottom" constant="-1" id="aIo-aW-EF0"/>
                             <constraint firstItem="WRK-8P-mg3" firstAttribute="leading" secondItem="U8I-ZM-ED3" secondAttribute="leading" id="cWT-Cp-arN"/>
                             <constraint firstItem="JTS-9g-IXA" firstAttribute="centerY" secondItem="Nl9-Bu-6wA" secondAttribute="centerY" id="ggI-DN-Pdg"/>
-                            <constraint firstItem="WRK-8P-mg3" firstAttribute="top" secondItem="JTS-9g-IXA" secondAttribute="bottom" constant="12" id="h4s-MS-eBK"/>
-                            <constraint firstAttribute="centerY" secondItem="WRK-8P-mg3" secondAttribute="centerY" constant="-27" id="hjq-UZ-sn6"/>
+                            <constraint firstItem="WRK-8P-mg3" firstAttribute="top" secondItem="JTS-9g-IXA" secondAttribute="bottom" constant="15" id="h4s-MS-eBK"/>
+                            <constraint firstAttribute="centerY" secondItem="WRK-8P-mg3" secondAttribute="centerY" constant="-29" id="hjq-UZ-sn6"/>
                             <constraint firstItem="JTS-9g-IXA" firstAttribute="leading" secondItem="U8I-ZM-ED3" secondAttribute="leading" constant="14" id="t87-yZ-kTu"/>
                         </constraints>
                     </view>

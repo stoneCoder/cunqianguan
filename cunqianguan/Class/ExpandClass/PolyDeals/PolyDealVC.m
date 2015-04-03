@@ -119,13 +119,14 @@ static NSString *  polyCollectionCellID=@"PolyGoodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
     PolyGoodsCell *cell = [PolyGoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([PolyGoodsCell class])];
     CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
         if (_data.count > 0) {
             [cell loadCell:_data[indexPath.row] withType:0];
         }
-    } collectionViewWidth:SCREEN_WIDTH/2 - 15];
-    return CGSizeMake(SCREEN_WIDTH/2 - 15, height);
+    } collectionViewWidth:width];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,6 +134,7 @@ static NSString *  polyCollectionCellID=@"PolyGoodsCell";
     if (_data.count > 0) {
          [cell loadCell:_data[indexPath.row] withType:0];
     }
+    [cell layoutIfNeeded];
     return cell;
 }
 

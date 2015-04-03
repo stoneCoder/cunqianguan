@@ -15,19 +15,13 @@ typedef enum {
 
 @class SDCycleScrollView;
 
-@protocol SDCycleScrollViewDelegate <NSObject>
-
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;
-
-@end
-
+typedef void (^SDCycleScrollViewDidSelectItemBlock)(NSInteger atIndex);
 @interface SDCycleScrollView : UIView
 
 @property (nonatomic, strong) NSArray *localizationImagesGroup; // 本地图片数组
-@property (nonatomic, strong) NSArray *imageURLsGroup;
 @property (nonatomic, strong) NSArray *titlesGroup;
 @property (nonatomic, assign) CGFloat autoScrollTimeInterval;
-@property (nonatomic, weak) id<SDCycleScrollViewDelegate> delegate;
+@property (nonatomic, strong) SDCycleScrollViewDidSelectItemBlock selectItemBlock;
 
 // 自定义样式
 @property (nonatomic, assign) SDCycleScrollViewPageContolAliment pageControlAliment; // 分页控件位置
@@ -40,10 +34,5 @@ typedef enum {
 @property (nonatomic, strong) UIImage *currentDotImage;
 @property (nonatomic, strong) UIImage *dotImage;
 
-
-
 + (instancetype)cycleScrollViewWithFrame:(CGRect)frame imagesGroup:(NSArray *)imagesGroup;
-
-+ (instancetype)cycleScrollViewWithFrame:(CGRect)frame imageURLsGroup:(NSArray *)imageURLsGroup;
-
 @end

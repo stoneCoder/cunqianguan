@@ -8,10 +8,12 @@
 
 #import "BaseMutableMenu.h"
 
-#define LEFT_BTN_WIDTH 88
-#define LEFT_BTN_HEIGHT 44
-#define BTN_SPACING 10
+#define LEFT_BTN_WIDTH 92
+#define LEFT_BTN_HEIGHT 62
+#define BTN_HEIGHT 30
+#define BTN_SPACING 15
 
+#import "BaseUtil.h"
 #import "BaseConnect.h"
 #import "MongoConnect.h"
 #import "CateModel.h"
@@ -40,7 +42,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:0.5];
+        self.backgroundColor = UIColorFromRGB(0xc8c8c8);
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView:)]];
         self.hidden = YES;
         _btnViewArray = [NSMutableArray array];
@@ -58,11 +60,14 @@
     _menuIdArray = [NSMutableArray arrayWithArray:idArray];
     [_menuIdArray removeObjectAtIndex:0];
     
-    _scrollView = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, LEFT_BTN_WIDTH, self.frame.size.height)];
+    CGFloat height = LEFT_BTN_HEIGHT * [menuArray count];
+    _scrollView = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, LEFT_BTN_WIDTH, height)];
+    _scrollView.backgroundColor = UIColorFromRGB(0xf0f0f0);
     [_scrollView setDirectionType:directionType];
     [_scrollView setIsShowSelectBackgroundColor:YES];
+    [_scrollView setIsBorderStyle:YES];
     [_scrollView setShowsVerticalScrollIndicator:NO];
-    [_scrollView setContentSize:CGSizeMake(LEFT_BTN_WIDTH, LEFT_BTN_HEIGHT * [menuArray count])];
+    [_scrollView setContentSize:CGSizeMake(LEFT_BTN_WIDTH, height)];
     [_scrollView setItems:menuArray isShowLine:YES];
     _scrollView.segmentDelegate = self;
     [self addSubview:_scrollView];
@@ -77,8 +82,11 @@
     _btnTableView.delegate = self;
     _btnTableView.dataSource = self;
     _btnTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _btnTableView.backgroundColor = [UIColor whiteColor];
     _btnTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     _btnTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+//    _btnTableView.layer.borderWidth = 1.0f;
+//    _btnTableView.layer.borderColor = UIColorFromRGB(0xC7C7C7).CGColor;
     [self addSubview:_btnTableView];
     
     
@@ -112,21 +120,27 @@
         [_btnView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }
     
-    CGFloat visiableX = 10,visiableY = 10,spaceNum = 10,btnWidth = (btnViewWidth - 40)/3,btnHeight = 44;
+    CGFloat visiableX = BTN_SPACING,visiableY = BTN_SPACING,spaceNum = BTN_SPACING,btnWidth = (btnViewWidth - BTN_SPACING*4)/3,btnHeight = BTN_HEIGHT;
     for (int i = 0; i < btnArray.count; i++) {
         CateModel *model = btnArray[i];
         MutableButton *btn = [[MutableButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
-        btn.layer.cornerRadius = 3;
-        btn.layer.masksToBounds = YES;
-        btn.backgroundColor = UIColorFromRGB(0XECECEC);
-        btn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
         btn.titleLabel.numberOfLines = 0;
         btn.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
         [btn setTitle:model.gname forState:UIControlStateNormal];
         btn.tag = [model.gid integerValue];
         btn.parentId = [_parentId integerValue];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        
+        [btn setTitleColor:UIColorFromRGB(0x6f6f6f) forState:UIControlStateNormal];
+        [btn setTitleColor:UIColorFromRGB(0xffffff) forState:UIControlStateSelected];
+        [btn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xf0f0f0)] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x50d6cc)] forState:UIControlStateSelected];
+        
+        btn.layer.borderWidth = 1.0f;
+        btn.layer.borderColor = UIColorFromRGB(0xc3c3c3).CGColor;
+        btn.layer.cornerRadius = 5.0f;
+        btn.layer.masksToBounds = YES;
+        
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:section];
         btn.indexPath = indexPath;
@@ -156,12 +170,11 @@
         return;
     }
     _selectBtn.selected = NO;
-    _selectBtn.backgroundColor = UIColorFromRGB(0xececec);
+    _selectBtn.layer.borderColor = UIColorFromRGB(0xc3c3c3).CGColor;
     
-  
     _selectBtn = btn;
     btn.selected = YES;
-    btn.backgroundColor = UIColorFromRGB(0x40D0C2);
+    btn.layer.borderColor = UIColorFromRGB(0x1b8e8b).CGColor;
     
     if (_delegate && [_delegate respondsToSelector:@selector(clickAction:)]) {
         [_delegate clickAction:btn];
@@ -232,20 +245,30 @@
     return [_tableBtnData count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return [_tableBtnData[section] objectForKey:@"name"];
+    return 40;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _btnTableView.frame.size.width, 40)];
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(20, 18, _btnTableView.frame.size.width - 20, 13)];
+    lable.textColor = UIColorFromRGB(0x898989);
+    lable.font = [UIFont systemFontOfSize:13.0f];
+    lable.text = [_tableBtnData[section] objectForKey:@"name"];
+    lable.backgroundColor = [UIColor clearColor];
+    [view addSubview:lable];
+    return view;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 20;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -289,7 +312,7 @@
 }
 -(CGFloat)calculateHeigthForRow:(NSInteger)count
 {
-    CGFloat rowHeigth,heigth = LEFT_BTN_HEIGHT + BTN_SPACING;;
+    CGFloat rowHeigth,heigth = BTN_HEIGHT + BTN_SPACING;;
     if (count%3 > 0) {
          rowHeigth = heigth *(count/3 + 1) + BTN_SPACING;
     }else{

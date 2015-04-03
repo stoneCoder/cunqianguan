@@ -1,14 +1,14 @@
 //
-//  UIImageView+Borders.h
-//  cunqianguan
+//  UIView+Borders.h
 //
-//  Created by 四三一八 on 15/3/30.
-//  Copyright (c) 2015年 4318. All rights reserved.
+//  Created by Aaron Ng on 12/28/13.
+//  Copyright (c) 2013 Delve. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (Borders)
+@interface UIView (Borders)
+
 /* Create your borders and assign them to a property on a view when you can via the create methods when possible. Otherwise you might end up with multiple borders being created.
  */
 
@@ -83,4 +83,5 @@
 -(UIView*)createViewBackedLeftBorderWithWidth: (CGFloat)width color:(UIColor*)color leftOffset:(CGFloat)leftOffset topOffset:(CGFloat)topOffset andBottomOffset:(CGFloat)bottomOffset;
 -(void)addLeftBorderWithWidth: (CGFloat)width color:(UIColor*)color leftOffset:(CGFloat)leftOffset topOffset:(CGFloat)topOffset andBottomOffset:(CGFloat)bottomOffset;
 -(void)addViewBackedLeftBorderWithWidth: (CGFloat)width color:(UIColor*)color leftOffset:(CGFloat)leftOffset topOffset:(CGFloat)topOffset andBottomOffset:(CGFloat)bottomOffset;
+
 @end

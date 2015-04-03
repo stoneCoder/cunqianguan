@@ -58,9 +58,10 @@
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
     self.bounds = CGRectMake(0.0f, 0.0f, width, CGRectGetHeight(self.bounds));
+    self.contentView.bounds = self.bounds;
     [self setNeedsLayout];
     [self layoutIfNeeded];
-    CGSize calculatedSize = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize calculatedSize = [self systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return calculatedSize.height;
 }
 @end

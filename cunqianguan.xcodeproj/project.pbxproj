@@ -300,7 +300,6 @@
 		B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136981AC2561500170996 /* ExChangeAttrListModel.m */; };
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
-		B18A978A1AC8E38100993B7F /* UIImageView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = B18A97891AC8E38100993B7F /* UIImageView+Borders.m */; };
 		B18DCDC51ACD3B3C00D68761 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */; };
 		B18DCDC61ACD3B3C00D68761 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDB81ACD3B3C00D68761 /* TAAbstractDotView.m */; };
 		B18DCDC71ACD3B3C00D68761 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDBA1ACD3B3C00D68761 /* TAAnimatedDotView.m */; };
@@ -316,6 +315,7 @@
 		B1B350281AAA9C6A00D574E3 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B350271AAA9C6A00D574E3 /* UIBarButtonItem+Badge.m */; };
 		B1B3502C1AAAA10800D574E3 /* AllCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B3502B1AAAA10800D574E3 /* AllCheckView.m */; };
 		B1B3502E1AAAA11600D574E3 /* AllCheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B3502D1AAAA11600D574E3 /* AllCheckView.xib */; };
+		B1B7BAA41ACE8FFD0007FAEB /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */; };
 		B1C1DAAC1AC122D6006C22C6 /* ScrollFocus.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAAB1AC122D6006C22C6 /* ScrollFocus.m */; };
 		B1C1DAAF1AC1439A006C22C6 /* PresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAAE1AC1439A006C22C6 /* PresentView.m */; };
 		B1C1DAB21AC14B21006C22C6 /* HighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAB11AC14B21006C22C6 /* HighlightView.m */; };
@@ -895,8 +895,6 @@
 		B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailShopVC.h; sourceTree = "<group>"; };
 		B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailShopVC.m; sourceTree = "<group>"; };
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
-		B18A97881AC8E38100993B7F /* UIImageView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Borders.h"; sourceTree = "<group>"; };
-		B18A97891AC8E38100993B7F /* UIImageView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Borders.m"; sourceTree = "<group>"; };
 		B18DCDB41ACD3B3C00D68761 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		B18DCDB71ACD3B3C00D68761 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -927,6 +925,8 @@
 		B1B3502A1AAAA10800D574E3 /* AllCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCheckView.h; sourceTree = "<group>"; };
 		B1B3502B1AAAA10800D574E3 /* AllCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCheckView.m; sourceTree = "<group>"; };
 		B1B3502D1AAAA11600D574E3 /* AllCheckView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCheckView.xib; sourceTree = "<group>"; };
+		B1B7BAA21ACE8FFD0007FAEB /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
+		B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
 		B1C1DAAA1AC122D6006C22C6 /* ScrollFocus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollFocus.h; sourceTree = "<group>"; };
 		B1C1DAAB1AC122D6006C22C6 /* ScrollFocus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollFocus.m; sourceTree = "<group>"; };
 		B1C1DAAD1AC1439A006C22C6 /* PresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentView.h; sourceTree = "<group>"; };
@@ -1366,6 +1366,8 @@
 		B14071711A6CC8E900D1792F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B1B7BAA21ACE8FFD0007FAEB /* UIView+Borders.h */,
+				B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */,
 				B14F36801AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h */,
 				B14F36811AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.m */,
 				B1E6B57F1AAECB8D005CB5AF /* UIImage+Resize.h */,
@@ -1382,8 +1384,6 @@
 				B14071731A6CC90400D1792F /* AFHTTPRequestOperationManager+Progress.m */,
 				B14071741A6CC90400D1792F /* UIView+UIViewExt.h */,
 				B14071751A6CC90400D1792F /* UIView+UIViewExt.m */,
-				B18A97881AC8E38100993B7F /* UIImageView+Borders.h */,
-				B18A97891AC8E38100993B7F /* UIImageView+Borders.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2929,6 +2929,7 @@
 				B18DCDCC1ACD3B3C00D68761 /* UIView+SDExtension.m in Sources */,
 				B140EC6C1A6F7345004D245A /* SMBarButtonItem.m in Sources */,
 				B1E2B89E1AB2DC6B00D0FCA5 /* MyOrderScrollVC.m in Sources */,
+				B1B7BAA41ACE8FFD0007FAEB /* UIView+Borders.m in Sources */,
 				B158A6EC1A9D6BBB00C6FD3F /* JSONModel.m in Sources */,
 				B152C0881AA98A3600D18AFB /* CollectModel.m in Sources */,
 				B1E2B89B1AB2C99F00D0FCA5 /* ACUtilities.m in Sources */,
@@ -2977,7 +2978,6 @@
 				B149682A1A8741BA00DBC09B /* BindAccountVC.m in Sources */,
 				B109D5811A71EA5E00505D32 /* PolyDealVC.m in Sources */,
 				B10922BC1AA852910073CE63 /* HotShopListModel.m in Sources */,
-				B18A978A1AC8E38100993B7F /* UIImageView+Borders.m in Sources */,
 				B1E6B57E1AAE9521005CB5AF /* TBUrlUtil.m in Sources */,
 				B1C1DAAF1AC1439A006C22C6 /* PresentView.m in Sources */,
 				B140717C1A6CC9D000D1792F /* BaseUtil.m in Sources */,

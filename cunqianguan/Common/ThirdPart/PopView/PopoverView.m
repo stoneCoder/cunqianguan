@@ -179,8 +179,7 @@
     _tableView.layer.cornerRadius = 5.0f;
     _tableView.layer.masksToBounds = YES;
     //_tableView.backgroundColor = UIColorFromRGB(0x444444);
-    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    _tableView.tableFooterView = [[UIView alloc] init];
     
     //_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -192,6 +191,16 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[UIView alloc] init];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -207,9 +216,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-//    cell.backgroundView = [[UIView alloc] init];
-//    cell.backgroundView.backgroundColor = RGB(245, 245, 245);
-    
     if ([_imageArray count] == [_titleArray count]) {
         cell.imageView.image = [UIImage imageNamed:[_imageArray objectAtIndex:indexPath.row]];
     }
@@ -222,8 +228,6 @@
     cell.textLabel.highlightedTextColor = UIColorFromRGB(0x9a9a9a);
     cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];
     cell.backgroundColor = UIColorFromRGB(0x444444);
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = cell.backgroundColor;

@@ -158,6 +158,8 @@ static NSString *FooterViewID = @"PersonFooterView";
     personFooterView.delegate = self;
     personFooterView.backgroundColor = self.tableView.backgroundColor;
     self.tableView.tableFooterView = personFooterView;
+    
+    self.tableView.separatorColor = UIColorFromRGB(0xececec);
 }
 
 -(void)setUpRedBag

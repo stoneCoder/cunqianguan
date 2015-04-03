@@ -35,6 +35,16 @@
     return 44;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[UIView alloc] init];
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headView =  [[UIView alloc] initWithFrame:[tableView rectForHeaderInSection:section]];
@@ -54,8 +64,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellID];
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",(long)(indexPath.row + 1)];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",indexPath.row + 1]];
+//    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+//    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",(long)(indexPath.row + 1)];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];

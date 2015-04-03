@@ -1,14 +1,15 @@
 //
-//  UIImageView+Borders.m
-//  cunqianguan
+//  UIView+Borders.m
 //
-//  Created by 四三一八 on 15/3/30.
-//  Copyright (c) 2015年 4318. All rights reserved.
+//  Created by Aaron Ng on 12/28/13.
+//  Copyright (c) 2013 Delve. All rights reserved.
 //
 
-#import "UIImageView+Borders.h"
+#import "UIView+Borders.h"
 
-@implementation UIImageView (Borders)
+
+@implementation UIView(Borders)
+
 //////////
 // Top
 //////////
@@ -244,4 +245,6 @@
     [border setBackgroundColor:color];
     return border;
 }
+
+
 @end

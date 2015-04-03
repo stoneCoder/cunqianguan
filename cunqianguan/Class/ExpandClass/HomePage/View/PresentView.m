@@ -27,7 +27,7 @@
 {
     
     CGFloat visiableHeight = 360.0f;
-    CGFloat visiableY = SCREEN_HEIGTH - visiableHeight - 64;
+    CGFloat visiableY = SCREEN_HEIGTH - visiableHeight;
     _presentTable = [[PresentTableView alloc] initWithFrame:CGRectMake(0, visiableY, self.frame.size.width,visiableHeight) style:UITableViewStylePlain];
     _presentTable.backgroundColor = UIColorFromRGB(0xECECEC);
     _presentTable.scrollEnabled = NO;

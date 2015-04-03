@@ -44,9 +44,9 @@ return shared##className; \
 
 #pragma mark - 其他
 #define ccp CGPointMake
-#define DATA_LOAD @"加载中。。"
-#define LOGIN_LOAD @"登陆中。。"
-#define ACTION_LOAD @"处理中。。"
+#define DATA_LOAD @"加载中..."
+#define LOGIN_LOAD @"登陆中..."
+#define ACTION_LOAD @"处理中..."
 #define HUD_SHOW_SECOND 2
 #define PAGE_COUNT 20
 #define MENU_ARRAY @[@"热卖", @"女装", @"鞋包", @"美妆", @"美食", @"配饰", @"数码", @"居家", @"母婴", @"男装"]
@@ -71,10 +71,10 @@ return shared##className; \
 #define SHARE_WC_JYH_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 #define SHARE_WB_JYH_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 
-#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=qz&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wx&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wc&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wb&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=qz&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wx&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wc&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wb&uid=%@",BASE_URL,goodKey,userId];
 
 #define SEARCH_URL(searchText,mm,userId) [NSString stringWithFormat:@"http://ai.m.taobao.com/search.html?q=%@&pid=%@&unid=%@",searchText,mm,userId]
 
