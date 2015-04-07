@@ -105,7 +105,7 @@
     btn.selected = NO;
 
     if (_isBorderStyle) {
-        [btn addRightBorderWithWidth:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
+        [btn addRightBorderWithWidth:0.5f andColor:UIColorFromRGB(0xc3c3c3)];
     }
     
     if (_isShowSelectBackgroundColor) {
@@ -116,7 +116,7 @@
     btn.selected = YES;
 
     if (_isBorderStyle) {
-        [btn addRightBorderWithWidth:1.0f andColor:[UIColor whiteColor]];
+        [btn addRightBorderWithWidth:0.5f andColor:[UIColor whiteColor]];
     }
     
     if (_isShowSelectBackgroundColor) {
@@ -203,8 +203,8 @@
             case VerticalDirection:
                 view.frame  = CGRectMake(0, height * i, self.bounds.size.width, height);
                 if (_isBorderStyle) {
-                    [view addBottomBorderWithHeight:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
-                    [view addRightBorderWithWidth:1.0f andColor:UIColorFromRGB(0xc3c3c3)];
+                    [view addBottomBorderWithHeight:0.5f andColor:UIColorFromRGB(0xc3c3c3)];
+                    [view addRightBorderWithWidth:0.5f andColor:UIColorFromRGB(0xc3c3c3)];
                 }
                 
                 break;

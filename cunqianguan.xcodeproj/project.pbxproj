@@ -316,6 +316,7 @@
 		B1B3502C1AAAA10800D574E3 /* AllCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B3502B1AAAA10800D574E3 /* AllCheckView.m */; };
 		B1B3502E1AAAA11600D574E3 /* AllCheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B3502D1AAAA11600D574E3 /* AllCheckView.xib */; };
 		B1B7BAA41ACE8FFD0007FAEB /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */; };
+		B1BC00FA1AD37973006566DA /* JMHoledView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BC00F91AD37973006566DA /* JMHoledView.m */; };
 		B1C1DAAC1AC122D6006C22C6 /* ScrollFocus.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAAB1AC122D6006C22C6 /* ScrollFocus.m */; };
 		B1C1DAAF1AC1439A006C22C6 /* PresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAAE1AC1439A006C22C6 /* PresentView.m */; };
 		B1C1DAB21AC14B21006C22C6 /* HighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C1DAB11AC14B21006C22C6 /* HighlightView.m */; };
@@ -927,6 +928,8 @@
 		B1B3502D1AAAA11600D574E3 /* AllCheckView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCheckView.xib; sourceTree = "<group>"; };
 		B1B7BAA21ACE8FFD0007FAEB /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
 		B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
+		B1BC00F81AD37973006566DA /* JMHoledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMHoledView.h; sourceTree = "<group>"; };
+		B1BC00F91AD37973006566DA /* JMHoledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMHoledView.m; sourceTree = "<group>"; };
 		B1C1DAAA1AC122D6006C22C6 /* ScrollFocus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollFocus.h; sourceTree = "<group>"; };
 		B1C1DAAB1AC122D6006C22C6 /* ScrollFocus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollFocus.m; sourceTree = "<group>"; };
 		B1C1DAAD1AC1439A006C22C6 /* PresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentView.h; sourceTree = "<group>"; };
@@ -1311,6 +1314,7 @@
 		B140715F1A6CC50400D1792F /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B1BC00F71AD37973006566DA /* JMHoledView */,
 				B18DCDB31ACD3B3C00D68761 /* SDCycleScrollView */,
 				B1931FD51ABBECF500138B13 /* UMessage_Sdk_1.1.0 */,
 				B1E2B8811AB2897300D0FCA5 /* SBSearchBar */,
@@ -2419,6 +2423,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B1BC00F71AD37973006566DA /* JMHoledView */ = {
+			isa = PBXGroup;
+			children = (
+				B1BC00F81AD37973006566DA /* JMHoledView.h */,
+				B1BC00F91AD37973006566DA /* JMHoledView.m */,
+			);
+			path = JMHoledView;
+			sourceTree = "<group>";
+		};
 		B1C1DAB41AC14F11006C22C6 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
@@ -2959,6 +2972,7 @@
 				B1F065B01AB90C9C0082515D /* PresentTableFooterView.m in Sources */,
 				B15D44B61A787E03008B8F4B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				B15D44D11A78B313008B8F4B /* RunningWaterVC.m in Sources */,
+				B1BC00FA1AD37973006566DA /* JMHoledView.m in Sources */,
 				B162D60A1A81A34000692A6C /* BaseWebVC.m in Sources */,
 				B1E6B5791AAE89BB005CB5AF /* MsgSetVC.m in Sources */,
 				B109D59F1A722DB000505D32 /* ExChangeCenterVC.m in Sources */,

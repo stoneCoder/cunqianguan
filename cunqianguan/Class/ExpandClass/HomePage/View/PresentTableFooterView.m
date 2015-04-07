@@ -30,14 +30,26 @@
 
 -(void)setUpView
 {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 3;// 字体的行间距
+    
     _firstLabel.numberOfLines = 0;
     _firstLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:_firstLabel.text];
+    [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _firstLabel.text.length)];
+    _firstLabel.attributedText = attrStr;
     
     _secondLabel.numberOfLines = 0;
     _secondLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *secondAttrStr = [[NSMutableAttributedString alloc] initWithString:_secondLabel.text];
+    [secondAttrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _secondLabel.text.length)];
+    _secondLabel.attributedText = secondAttrStr;
     
     _thirdLabel.numberOfLines = 0;
     _thirdLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *thirdAttrStr = [[NSMutableAttributedString alloc] initWithString:_thirdLabel.text];
+    [thirdAttrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _thirdLabel.text.length)];
+    _thirdLabel.attributedText = thirdAttrStr;
     
     _firstView.layer.cornerRadius = 5.0f;
     _firstView.layer.masksToBounds = YES;

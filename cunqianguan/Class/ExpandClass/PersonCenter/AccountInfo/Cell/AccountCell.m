@@ -20,6 +20,7 @@
 - (void)awakeFromNib {
     // Initialization code
     _cellBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    self.contentView.backgroundColor = UIColorFromRGB(0xececec);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

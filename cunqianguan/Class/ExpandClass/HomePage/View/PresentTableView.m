@@ -64,9 +64,9 @@
 {
     UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
     headerview.backgroundColor = [UIColor whiteColor];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, self.frame.size.width - 10, 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 2, self.frame.size.width - 10, 40)];
     titleLabel.textColor = UIColorFromRGB(0x3c3c3c);
-    titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    titleLabel.font = [UIFont systemFontOfSize:18.0f];
     titleLabel.backgroundColor = [UIColor clearColor];
     NSString *titleStr = @"";
     if (section == 0) {
@@ -75,7 +75,7 @@
         titleStr = @"怎么拿返利？";
     }else if (section == 2){
         titleLabel.textColor = UIColorFromRGB(0xff5656);
-        titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+        titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
         titleStr = @"新玩法";
     }
     titleLabel.text = titleStr;
@@ -103,17 +103,17 @@
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:textStr];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 5;// 字体的行间距
-    paragraphStyle.paragraphSpacing = 5;
+    paragraphStyle.lineSpacing = 2;// 字体的行间距
+    //paragraphStyle.paragraphSpacing = 5;
     [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textStr.length)];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont systemFontOfSize:11.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:13.0f];
     cell.textLabel.textColor = UIColorFromRGB(0x3c3c3c);
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = textStr;
+    cell.textLabel.attributedText = attrStr;
     cell.contentView.backgroundColor = [UIColor whiteColor];
     return cell;
 }

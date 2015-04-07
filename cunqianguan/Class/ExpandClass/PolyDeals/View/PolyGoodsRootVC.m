@@ -16,6 +16,7 @@
 #import "BaseConnect.h"
 #import "BaseUtil.h"
 #import "ShareUtil.h"
+#import "UIView+Borders.h"
 @interface PolyGoodsRootVC ()
 {
     PolyGoodsDetailVC *_polyGoodsDetailVC;
@@ -54,9 +55,7 @@
 
 -(void)setUpTableView
 {
-    _actionBtn.layer.cornerRadius = 5.0f;
-    _actionBtn.layer.masksToBounds = YES;
-    _bottomView.layer.shadowOpacity = 0.1;
+    //_bottomView.layer.shadowOpacity = 0.1;
     _polyGoodsDetailVC = [[PolyGoodsDetailVC alloc] init];
     [self addChildViewController:_polyGoodsDetailVC];
     [self.view insertSubview:_polyGoodsDetailVC.view belowSubview:_bottomView];
@@ -99,7 +98,8 @@
 -(void)refreshBottomView
 {
     _countDownTime = _detailModel.time;
-    _actionBtn.layer.cornerRadius = 3.0f;
+    _actionBtn.layer.cornerRadius = 5.0f;
+    _actionBtn.layer.masksToBounds = YES;
     //1 开枪中   2 今日10点  3即将开始 其它 抢光
     NSInteger type = _detailModel.status;
     if (type == 1) {

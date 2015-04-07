@@ -92,10 +92,10 @@ static NSString *CellID=@"FootPrintsCell";
 */
 -(void)rightBtnClick:(UIButton *)btn
 {
-    [UIView animateWithDuration:0.25f animations:^{
-        btn.transform = CGAffineTransformMakeRotation(M_PI/2);
-    } completion:^(BOOL finished) {
+    [UIView animateWithDuration:0.5f animations:^{
         btn.transform = CGAffineTransformMakeRotation(M_PI);
+    } completion:^(BOOL finished) {
+        btn.transform = CGAffineTransformMakeRotation(M_PI*2);
         [self loadData:1];
     }];
 }

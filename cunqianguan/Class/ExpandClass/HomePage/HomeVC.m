@@ -34,6 +34,7 @@
 #import "PolyScrollVC.h"
 #import "ExChangeScrollVC.h"
 #import "PresentTableFooterView.h"
+#import "JMHoledView.h"
 
 #import "LoginVC.h"
 #import "BaseNC.h"
@@ -46,11 +47,12 @@
 #import "PersonInfo.h"
 #import "UIImage+Resize.h"
 #import "PopoverView.h"
+#import "BMAlert.h"
 
 #import "AppDelegate.h"
 
 
-@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate>
+@interface HomeVC ()<TapActionViewDelegate,GridMenuDeleage,PresentViewDelegate,JMHoledViewDelegate>
 {
     UIScrollView *_scrollView;
     TapActionView *_actionView;
@@ -61,6 +63,7 @@
     PersonInfo *_info;
     PresentView *_presentView;
     SDCycleScrollView *_pageControl;
+    JMHoledView *_holedView;
 }
 
 @end
@@ -74,7 +77,6 @@
     [self hideReturnBtn];
     [self initNavBar];
     [self initScrollView];
-    [self initPresentView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushPersonCenter:) name:kRegistFinish object:nil];
     
@@ -94,15 +96,14 @@
 //        _dimView = nil;
 //        _openView = 0;
 //    }
-    if (_presentView) {
-        [self hidePresentMenu];
-    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^(void){
 //        [self loadAdView];
 //    });
+    //[self initHoledView];
+    [self initPresentView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,8 +130,8 @@
 
 -(void)initScrollView
 {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
-    [_scrollView setContentSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGTH + 1)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64)];
+    [_scrollView setContentSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGTH - 63)];
     [self.view addSubview:_scrollView];
 }
 
@@ -209,8 +210,29 @@
     _presentView = [[PresentView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGTH, SCREEN_WIDTH, SCREEN_HEIGTH)];
     _presentView.delegate = self;
     _presentView.hidden = YES;
+    [self.view.window addSubview:_presentView];
+}
+
+-(void)initHoledView
+{
+    _holedView = [[JMHoledView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+    _holedView.holeViewDelegate = self;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview:_presentView];
+    [window addSubview:_holedView];
+    
+    CGRect taoFrame = _actionView.taobaoView.frame;
+    CGRect frame = [_actionView.taobaoView convertRect:CGRectZero toView:window];
+    
+    UIView *view = [[UIView alloc] init];
+    view.layer.borderWidth = 2.0f;
+    view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.backgroundColor = [UIColor clearColor];
+    [_holedView addHCustomView:view onRect:CGRectMake(frame.origin.x, frame.origin.y, taoFrame.size.width, taoFrame.size.height)isBorder:YES];
+    
+    UIView *test = [[UIView alloc] init];
+    test.backgroundColor = [UIColor whiteColor];
+    CGRect fanligouFrame = [_actionView.fanligouView convertRect:CGRectZero toView:window];
+    [_holedView addHCustomView:test onRect:CGRectMake(fanligouFrame.origin.x , fanligouFrame.origin.y, 20, 20)];
 }
 
 -(void)loadAdView
@@ -231,6 +253,13 @@
     } failure:^(NSError *err) {
         
     }];
+}
+
+#pragma mark - JMHoledViewDelegate
+
+- (void)holedView:(JMHoledView *)holedView didSelectHoleAtIndex:(NSUInteger)index
+{
+    NSLog(@"%s %ld", __PRETTY_FUNCTION__,(long)index);
 }
 
 #pragma mark -- Private
@@ -480,6 +509,19 @@
 
 #pragma mark -- push view fuction
 -(void)pushRebateHome
+{
+    [[BMAlert sharedBMAlert] alert:@"登陆后去购物才有返利拿哦" cancleTitle:@"登陆" otherTitle:@"跳过" cancle:^(DoAlertView *alertView) {
+        [_info isLoginWithcompletion:^(BOOL flag) {
+            if (flag) {
+                [self pushToTaoWeb];
+            }
+        }];
+    } other:^(DoAlertView *alertView) {
+        [self pushToTaoWeb];
+    }];
+}
+
+-(void)pushToTaoWeb
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
     rebateHomeVC.leftTitle = @"逛淘宝";

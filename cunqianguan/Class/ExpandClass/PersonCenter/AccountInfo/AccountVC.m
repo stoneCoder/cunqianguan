@@ -75,9 +75,14 @@ static NSString *AccountCellID = @"AccountCell";
 }
 
 #pragma mark -- UITableViewDataSource && UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,35 +90,45 @@ static NSString *AccountCellID = @"AccountCell";
     return 108;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[UIView alloc] init];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:AccountCellID];
-    cell.tag = indexPath.row;
+    cell.tag = indexPath.section;
     cell.cellDelegate = self;
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
     [cell setCellHeight:cell.frame.size.height];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         cell.infoImage.image = [UIImage imageNamed:@"ali_image"];
         [cell.cellBtn setTitle:@"修改支付宝账号" forState:UIControlStateNormal];
         [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
         [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
-    }else if (indexPath.row == 1){
+    }else if (indexPath.section == 1){
         cell.infoImage.image = [UIImage imageNamed:@"bank_image"];
         [cell.cellBtn setTitle:@"修改银行卡账号" forState:UIControlStateNormal];
         [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
         [cell.cellBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
     }
     if (_model) {
-        if (indexPath.row == 0) {
+        if (indexPath.section == 0) {
             if (_model.alipay) {
                 cell.infoLabel.text = _model.alipay;
             }else{
                 cell.infoLabel.text = @"未绑定";
             }
-        }else if (indexPath.row == 1){
+        }else if (indexPath.section == 1){
             if (_model.bank) {
                 cell.infoLabel.text = [BaseUtil transformBankCard:_model.bank];
             }else{

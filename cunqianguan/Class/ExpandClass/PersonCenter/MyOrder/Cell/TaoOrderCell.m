@@ -21,6 +21,7 @@
     // Initialization code
     _infoLabel.numberOfLines = 2;
     _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.contentView.backgroundColor = UIColorFromRGB(0xececec);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

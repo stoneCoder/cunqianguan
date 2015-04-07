@@ -68,17 +68,33 @@ static NSString *SearchCellID = @"SearchViewCell";
     _thirdView.layer.cornerRadius = 5.0f;
     _thirdView.layer.masksToBounds = YES;
     
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 3;// 字体的行间距
+    
     _firstLabel.numberOfLines = 0;
     _firstLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:_firstLabel.text];
+    [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _firstLabel.text.length)];
+    _firstLabel.attributedText = attrStr;
+    
     _secondLabel.numberOfLines = 0;
     _secondLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *secondAttrStr = [[NSMutableAttributedString alloc] initWithString:_secondLabel.text];
+    [secondAttrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _secondLabel.text.length)];
+    _secondLabel.attributedText = secondAttrStr;
+    
     _thirdLabel.numberOfLines = 0;
     _thirdLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableAttributedString *thirdAttrStr = [[NSMutableAttributedString alloc] initWithString:_thirdLabel.text];
+    [thirdAttrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _thirdLabel.text.length)];
+    _thirdLabel.attributedText = thirdAttrStr;
+    
     
     [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [_tipBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xebebeb)] forState:UIControlStateHighlighted];
-    _tipBtn.layer.borderWidth = 1.0f;
-    _tipBtn.layer.borderColor = UIColorFromRGB(0xaaaaaa).CGColor;
+    _tipBtn.layer.borderWidth = 0.5f;
+    _tipBtn.layer.borderColor = UIColorFromRGB(0xcecece).CGColor;
     _tipBtn.layer.cornerRadius = 5.0f;
     _tipBtn.layer.masksToBounds = YES;
 }

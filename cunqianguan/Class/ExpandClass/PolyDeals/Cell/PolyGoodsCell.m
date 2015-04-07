@@ -12,10 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(self.mas_width);
-        make.height.mas_equalTo(_productImage.mas_width);
-    }];
+//    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(self.mas_width);
+//        make.height.mas_equalTo(_productImage.mas_width);
+//    }];
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type

@@ -154,7 +154,7 @@
             if (model.bank) {
                  [_bankTransfersView showViewWithModel:model];
             }else{
-                [[BMAlert sharedBMAlert] alert:@"您未绑定银行卡" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                [[BMAlert sharedBMAlert] alert:@"您还没有绑定银行卡" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
                     AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
                     accountEditVC.leftTitle = @"修改银行卡账号";
                     accountEditVC.viewType = ViewTypeWithBank;
@@ -202,7 +202,7 @@
                 if (model.alipay) {
                     [_aliTransfersView showView:1 WithModel:model];
                 }else{
-                    [[BMAlert sharedBMAlert] alert:@"您未绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                    [[BMAlert sharedBMAlert] alert:@"您还没有绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
                         AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
                         accountEditVC.leftTitle = @"修改支付宝账号";
                         accountEditVC.viewType = ViewTypeWithAipay;
@@ -223,8 +223,8 @@
     }else if (btn.tag == 1001){
         /*集分宝收入*/
         //if(_info.a)
-        if (_info.pointSite < 100) {
-            [[BMAlert sharedBMAlert] alert:@"您的集分宝小于100元，无法提现！" cancle:^(DoAlertView *alertView) {
+        if (_info.pointTb < 100) {
+            [[BMAlert sharedBMAlert] alert:@"您的集分宝不足100，无法提现！" cancle:^(DoAlertView *alertView) {
                 
             } other:^(DoAlertView *alertView) {
                 
@@ -238,7 +238,7 @@
                 if (model.alipay) {
                     [_aliTransfersView showView:2 WithModel:model];
                 }else{
-                    [[BMAlert sharedBMAlert] alert:@"您未绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
+                    [[BMAlert sharedBMAlert] alert:@"您还没有绑定支付宝" cancleTitle:@"去绑定" otherTitle:@"取消" cancle:^(DoAlertView *alertView) {
                         AccountEditVC *accountEditVC = [[AccountEditVC alloc] init];
                         accountEditVC.leftTitle = @"修改支付宝账号";
                         accountEditVC.viewType = ViewTypeWithAipay;

@@ -10,7 +10,7 @@
 
 #define LEFT_BTN_WIDTH 88
 #define LEFT_BTN_HEIGHT 52
-#define BTN_HEIGHT 30
+#define BTN_HEIGHT 40
 #define BTN_SPACING 15
 
 #import "BaseUtil.h"
@@ -85,8 +85,6 @@
     _btnTableView.backgroundColor = [UIColor whiteColor];
     _btnTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     _btnTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-//    _btnTableView.layer.borderWidth = 1.0f;
-//    _btnTableView.layer.borderColor = UIColorFromRGB(0xC7C7C7).CGColor;
     [self addSubview:_btnTableView];
     
     
@@ -124,7 +122,7 @@
     for (int i = 0; i < btnArray.count; i++) {
         CateModel *model = btnArray[i];
         MutableButton *btn = [[MutableButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
-        btn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:13.0f];
         btn.titleLabel.numberOfLines = 0;
         btn.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
         [btn setTitle:model.gname forState:UIControlStateNormal];
@@ -133,10 +131,12 @@
         
         [btn setTitleColor:UIColorFromRGB(0x6f6f6f) forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xffffff) forState:UIControlStateSelected];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [btn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xf0f0f0)] forState:UIControlStateNormal];
         [btn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x50d6cc)] forState:UIControlStateSelected];
+        [btn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x50d6cc)] forState:UIControlStateHighlighted];
         
-        btn.layer.borderWidth = 1.0f;
+        btn.layer.borderWidth = 0.5f;
         btn.layer.borderColor = UIColorFromRGB(0xc3c3c3).CGColor;
         btn.layer.cornerRadius = 5.0f;
         btn.layer.masksToBounds = YES;

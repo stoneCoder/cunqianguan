@@ -43,7 +43,7 @@
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
     _animotionY = visiableY;
     _animotionFrame = CGRectMake(0, visiableY, width, heigth);
-    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY - 64, width, heigth)];
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY - 64, width, 0)];
     [self createBtnWithArray:btnArray andRemaind:btnArray.count%3];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];
@@ -89,7 +89,7 @@
 
 -(void)showView
 {
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:5 animations:^{
         _animotionFrame.origin.y = _animotionY;
         _btnView.frame = _animotionFrame;
         self.hidden = NO;
@@ -98,7 +98,7 @@
 
 -(void)hideView
 {
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:5 animations:^{
         _animotionFrame.origin.y = _animotionY - 64;
          _btnView.frame = _animotionFrame;
     } completion:^(BOOL finished) {

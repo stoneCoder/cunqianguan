@@ -57,8 +57,8 @@
     
     [_watchInviteBtn setBackgroundImage:[BaseUtil imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [_watchInviteBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xebebeb)] forState:UIControlStateHighlighted];
-    _watchInviteBtn.layer.borderWidth = 1.0f;
-    _watchInviteBtn.layer.borderColor = UIColorFromRGB(0xaaaaaa).CGColor;
+    _watchInviteBtn.layer.borderWidth = 0.5f;
+    _watchInviteBtn.layer.borderColor = UIColorFromRGB(0xcecece).CGColor;
     _watchInviteBtn.layer.cornerRadius = 5.0f;
     _watchInviteBtn.layer.masksToBounds = YES;
 }

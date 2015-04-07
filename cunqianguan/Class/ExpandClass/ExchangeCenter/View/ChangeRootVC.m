@@ -47,9 +47,7 @@
 
 -(void)setUpTableView
 {
-    _actionBtn.layer.cornerRadius = 2;
-    _actionBtn.layer.masksToBounds = YES;
-    _bottomView.layer.shadowOpacity = 0.1;
+    //_bottomView.layer.shadowOpacity = 0.1;
     _changeProductVC = [[ChangeProductVC alloc] init];
     [self addChildViewController:_changeProductVC];
     [self.view insertSubview:_changeProductVC.view belowSubview:_bottomView];
@@ -76,14 +74,20 @@
 -(void)refreshBottomView
 {
     NSInteger inSock = _model.in_stock;
+    _actionBtn.layer.cornerRadius = 5.0f;
+    _actionBtn.layer.masksToBounds = YES;
     if (inSock == 0) {
-        _actionBtn.backgroundColor = [UIColor redColor];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
     }else if (_info.pointSite < _model.point){
-        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xB4B4B4)] forState:UIControlStateNormal];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xb4b4b4)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"积分不足" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
+    }else{
+        /*我要兑换*/
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
+        [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
     }
 
 //    [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {

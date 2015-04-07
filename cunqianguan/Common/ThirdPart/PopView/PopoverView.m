@@ -230,10 +230,10 @@
     cell.backgroundColor = UIColorFromRGB(0x444444);
     
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
-    cell.selectedBackgroundView.backgroundColor = cell.backgroundColor;
+    cell.selectedBackgroundView.backgroundColor = UIColorFromRGB(0x444444);
     
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
-        cell.separatorInset = UIEdgeInsetsMake(0, 18, 0, 18);
+        cell.separatorInset = UIEdgeInsetsMake(0, 16, 0, 18);
     }
     return cell;
 }
