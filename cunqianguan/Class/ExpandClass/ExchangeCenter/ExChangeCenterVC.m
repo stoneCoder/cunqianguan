@@ -10,6 +10,7 @@
 #import "ExChangeCell.h"
 #import "ChangeProductVC.h"
 #import "ChangeRootVC.h"
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 
 #import "ExChangeConnect.h"
 #import "BaseConnect.h"
@@ -114,7 +115,14 @@ static NSString *  collectionCellID=@"ExChangeCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
+    ExChangeCell *cell = [ExChangeCell heightCalculationCellFromNibWithName:NSStringFromClass([ExChangeCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row]];
+        }
+    } collectionViewWidth:width];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

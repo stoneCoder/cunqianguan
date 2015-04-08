@@ -54,9 +54,9 @@
 -(void)setupScrollView
 {
     CGFloat visiableY = _segment.frame.size.height;
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, SCREEN_HEIGTH - visiableY - 64)];
     _scrollView.delegate = self;
-    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH *[_titleArray count], VIEW_HEIGHT - visiableY)];
+    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH *[_titleArray count], SCREEN_HEIGTH - visiableY - 64)];
     [_scrollView setPagingEnabled:YES];
     [_scrollView setShowsHorizontalScrollIndicator:NO];
     [self.view addSubview:_scrollView];

@@ -48,9 +48,9 @@
 -(void)setupScrollView
 {
     CGFloat visiableY = _segment.frame.size.height;
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY - 64)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, visiableY, VIEW_WIDTH, SCREEN_HEIGTH - visiableY - 64)];
     _scrollView.delegate = self;
-    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH *[_titleArray count], VIEW_HEIGHT - visiableY - 64)];
+    [_scrollView setContentSize:CGSizeMake(VIEW_WIDTH *[_titleArray count], SCREEN_HEIGTH - visiableY - 64)];
     [_scrollView setPagingEnabled:YES];
     [_scrollView setShowsHorizontalScrollIndicator:NO];
     [self.view addSubview:_scrollView];
@@ -58,7 +58,7 @@
     for (int i = 0; i < _titleArray.count; i++) {
         RunningWaterVC *runningWaterVC = [[RunningWaterVC alloc] init];
         [self addChildViewController:runningWaterVC];
-        runningWaterVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, VIEW_HEIGHT - visiableY - 64);
+        runningWaterVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
         [_scrollView addSubview:runningWaterVC.view];
     }
     [[self childViewControllers][0] viewDidCurrentView:0];

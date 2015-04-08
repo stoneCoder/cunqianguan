@@ -10,6 +10,7 @@
 #import "GoodsCell.h"
 #import "ReturnHomeGoodsVC.h"
 #import "BaseMutableMenu.h"
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 
 #import "BaseUtil.h"
 #import "PersonInfo.h"
@@ -192,7 +193,14 @@ static NSString *  collectionCellID=@"GoodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
+    GoodsCell *cell = [GoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([GoodsCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row]];
+        }
+    }];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

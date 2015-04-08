@@ -129,13 +129,14 @@ static NSString *  collectionHeadID=@"GoodsSectionView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    GoodsCell *cell = [GoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([GoodsCell class])];
-//    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
-//        if (_data.count > 0) {
-//            [cell loadCell:_data[indexPath.row]];
-//        }
-//    }];
-    return CGSizeMake(VIEW_WIDTH/2 - 15, 220);
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
+    GoodsCell *cell = [GoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([GoodsCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row]];
+        }
+    }];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

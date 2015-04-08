@@ -12,8 +12,12 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    _titleLabel.numberOfLines = 0;
+    _titleLabel.numberOfLines = 2;
     _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    [_productImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo((SCREEN_WIDTH - 30)/2 - 10);
+    }];
     
     _checkmarkView = [[CheckmarkView alloc] initWithFrame:CGRectMake(10, 10, 24.0, 24.0)];
     _checkmarkView.autoresizingMask = UIViewAutoresizingNone;

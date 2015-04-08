@@ -12,8 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    _titleLabel.numberOfLines = 0;
-    _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo((SCREEN_WIDTH - 30)/2);
+    }];
 }
 
 -(void)loadCell:(ExChangeModel *)model

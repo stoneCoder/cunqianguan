@@ -14,6 +14,10 @@
     // Initialization code
     _titleLabel.numberOfLines = 2;
     _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo((SCREEN_WIDTH - 30)/2 - 10);
+    }];
 }
 
 -(void)loadCell:(MongoModel *)mongoModel

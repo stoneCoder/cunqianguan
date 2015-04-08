@@ -7,7 +7,6 @@
 //
 
 #import "PolyTomorrowVC.h"
-#import "GoodsCell.h"
 #import "PolyGoodsRootVC.h"
 #import "PolyGoodsCell.h"
 #import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"

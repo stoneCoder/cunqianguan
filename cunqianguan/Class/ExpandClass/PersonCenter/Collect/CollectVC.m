@@ -9,6 +9,7 @@
 #import "CollectVC.h"
 #import "CollectCell.h"
 #import "AllCheckView.h"
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 
 #import "PersonConnect.h"
 #import "BaseConnect.h"
@@ -137,7 +138,15 @@ static NSString *collectID = @"CollectCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 10, 250);
+    
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
+    CollectCell *cell = [CollectCell heightCalculationCellFromNibWithName:NSStringFromClass([CollectCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row]];
+        }
+    }];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
