@@ -192,8 +192,8 @@
 
 - (void)removeHoles
 {
-    [self.holes removeAllObjects];
     [self removeCustomViews];
+    [self.holes removeAllObjects];
     [self setNeedsDisplay];
 }
 

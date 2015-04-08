@@ -10,13 +10,13 @@
 #import "GoodsCell.h"
 #import "PolyGoodsRootVC.h"
 #import "PolyGoodsCell.h"
+#import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
+
 
 #import "PersonInfo.h"
 #import "JYHConnect.h"
 #import "BaseConnect.h"
 #import "JYHListModel.h"
-
-
 
 static NSString *collectionCellID = @"PolyGoodsCell";
 @interface PolyTomorrowVC ()
@@ -110,7 +110,14 @@ static NSString *collectionCellID = @"PolyGoodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(VIEW_WIDTH/2 - 10, 220);
+    CGFloat width = (SCREEN_WIDTH - 30)/2;
+    PolyGoodsCell *cell = [PolyGoodsCell heightCalculationCellFromNibWithName:NSStringFromClass([PolyGoodsCell class])];
+    CGFloat height = [cell heightAfterAutoLayoutPassAndRenderingWithBlock:^{
+        if (_data.count > 0) {
+            [cell loadCell:_data[indexPath.row] withType:0];
+        }
+    } collectionViewWidth:width];
+    return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

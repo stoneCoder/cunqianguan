@@ -99,7 +99,7 @@
 -(void)setUpSelectView
 {
     _selectView = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
-    [_selectView initView:_btnArray andVisiableY:_navScrollV.frame.size.height + _navScrollV.frame.origin.y + 64];
+    [_selectView initView:_btnArray andVisiableY:_navScrollV.frame.size.height + _navScrollV.frame.origin.y+ 64];
     _selectView.delegate = self;
     [_selectView setSelectIndex:_currentIndex];
     [_selectView setHidden:YES];

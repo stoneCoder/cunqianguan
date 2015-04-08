@@ -52,6 +52,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{
         [self setHasRead];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kHomeTipShow object:nil];
     }];
 }
 

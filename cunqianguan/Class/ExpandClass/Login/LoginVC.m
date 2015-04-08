@@ -278,6 +278,13 @@
     return YES;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    _userimage.highlighted = (textField == _username);
+    _pwdimage.highlighted = (textField == _pwd);
+    return YES;
+}
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     if(textField.returnKeyType == UIReturnKeyNext)

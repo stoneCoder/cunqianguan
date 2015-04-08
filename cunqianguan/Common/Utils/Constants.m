@@ -58,5 +58,6 @@ NSString *const kWebUrlFinal = @"kWebUrlFinal";
 NSString *const kExChangeSuccess = @"kExChangeSuccess";
 NSString *const kRegistFinish = @"kRegistFinish";
 NSString *const kNotificationPush = @"kNotificationPush";
+NSString *const kHomeTipShow = @"kHomeTipShow";
 
 

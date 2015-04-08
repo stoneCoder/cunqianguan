@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -11,6 +11,8 @@
             <connections>
                 <outlet property="clearBtn" destination="zpO-kW-M2N" id="xRJ-df-W3A"/>
                 <outlet property="pwd" destination="yKV-ES-OL8" id="f00-Kc-Ib4"/>
+                <outlet property="pwdimage" destination="Dyy-ed-Ysx" id="iqS-s7-rTV"/>
+                <outlet property="userimage" destination="aIl-rG-G29" id="9AE-9m-kEb"/>
                 <outlet property="username" destination="z1I-bZ-Amb" id="pL9-EI-npk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -67,7 +69,7 @@
                                 <action selector="showPwdAction:" destination="-1" eventType="touchUpInside" id="i7m-vO-qFz"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="Dyy-ed-Ysx">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" highlightedImage="password_choose" translatesAutoresizingMaskIntoConstraints="NO" id="Dyy-ed-Ysx">
                             <rect key="frame" x="28" y="74" width="14" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Dyy-ed-Ysx" secondAttribute="height" multiplier="14:15" id="aCc-jw-bBh"/>
@@ -88,7 +90,7 @@
                                 <action selector="forgetPwdAction:" destination="-1" eventType="touchUpInside" id="ubN-5W-eK5"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghu" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-rG-G29">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghu" highlightedImage="yonghu_choose" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-rG-G29">
                             <rect key="frame" x="28" y="31" width="14" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="aIl-rG-G29" secondAttribute="height" multiplier="14:15" id="LeO-YH-RAp"/>
@@ -234,12 +236,14 @@
         <image name="confirmation" width="339" height="37"/>
         <image name="confirmation_hover" width="339" height="37"/>
         <image name="password" width="14" height="15"/>
+        <image name="password_choose" width="14" height="15"/>
         <image name="pwd_hidden" width="33" height="17"/>
         <image name="pwd_show" width="33" height="17"/>
         <image name="text_bottom" width="339" height="44"/>
         <image name="text_top" width="339" height="44"/>
         <image name="weibo" width="45" height="45"/>
         <image name="yonghu" width="14" height="15"/>
+        <image name="yonghu_choose" width="14" height="15"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

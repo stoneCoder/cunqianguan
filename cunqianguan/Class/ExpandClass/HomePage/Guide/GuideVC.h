@@ -9,6 +9,7 @@
 #import "BaseVC.h"
 #import "GuideView.h"
 #import "CustomPageControl.h"
+#import "Constants.h"
 @interface GuideVC : BaseVC<UIScrollViewDelegate>
 @property (strong, nonatomic) GuideView *guideView;
 @property (strong, nonatomic) CustomPageControl *pageControl;

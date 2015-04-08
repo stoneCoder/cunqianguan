@@ -106,7 +106,6 @@
 
 -(void)setUpSelectView:(NSArray *)btnArray
 {
-    
     _selectView = [[BaseSelectView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, SCREEN_HEIGTH)];
     [_selectView initView:btnArray andVisiableY:64];
     _selectView.delegate = self;
@@ -114,7 +113,6 @@
     [_selectView setHidden:YES];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:_selectView];
-    //[self.view insertSubview:_selectView aboveSubview:_scrollView];
 }
 
 

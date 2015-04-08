@@ -51,4 +51,5 @@ extern NSString *const kWebUrlFinal;
 extern NSString *const kExChangeSuccess;
 extern NSString *const kRegistFinish;
 extern NSString *const kNotificationPush;
+extern NSString *const kHomeTipShow;
 

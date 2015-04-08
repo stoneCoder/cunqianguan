@@ -64,6 +64,7 @@
     PresentView *_presentView;
     SDCycleScrollView *_pageControl;
     JMHoledView *_holedView;
+    BOOL _homeTip;
 }
 
 @end
@@ -81,6 +82,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushPersonCenter:) name:kRegistFinish object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationView:) name:kNotificationPush object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushHomeTipView:) name:kHomeTipShow object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -102,7 +105,7 @@
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^(void){
 //        [self loadAdView];
 //    });
-    //[self initHoledView];
+    
     [self initPresentView];
 }
 
@@ -111,6 +114,7 @@
     // Dispose of any resources that can be recreated.
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kRegistFinish object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationPush object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kHomeTipShow object:nil];
 }
 
 -(void)initNavBar
@@ -220,6 +224,12 @@
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:_holedView];
     
+    [self initTaoTipView:_holedView WithParentView:window];
+    
+}
+
+-(void)initTaoTipView:(JMHoledView *)holedView WithParentView:(UIWindow *)window
+{
     CGRect taoFrame = _actionView.taobaoView.frame;
     CGRect frame = [_actionView.taobaoView convertRect:CGRectZero toView:window];
     
@@ -227,12 +237,27 @@
     view.layer.borderWidth = 2.0f;
     view.layer.borderColor = [UIColor whiteColor].CGColor;
     view.backgroundColor = [UIColor clearColor];
-    [_holedView addHCustomView:view onRect:CGRectMake(frame.origin.x, frame.origin.y, taoFrame.size.width, taoFrame.size.height)isBorder:YES];
+    [holedView addHCustomView:view onRect:CGRectMake(frame.origin.x, frame.origin.y, taoFrame.size.width, taoFrame.size.height)isBorder:YES];
     
-    UIView *test = [[UIView alloc] init];
-    test.backgroundColor = [UIColor whiteColor];
+    UIImageView *taoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taobao_tishi"]];
     CGRect fanligouFrame = [_actionView.fanligouView convertRect:CGRectZero toView:window];
-    [_holedView addHCustomView:test onRect:CGRectMake(fanligouFrame.origin.x , fanligouFrame.origin.y, 20, 20)];
+    [holedView addHCustomView:taoImage onRect:CGRectMake(fanligouFrame.origin.x , fanligouFrame.origin.y - 50, taoImage.frame.size.width, taoImage.frame.size.height)];
+}
+
+-(void)initZujiView:(JMHoledView *)holedView WithParentView:(UIWindow *)window
+{
+    CGRect zujiFrame = _actionView.zujiView.frame;
+    CGRect frame = [_actionView.zujiView convertRect:CGRectZero toView:window];
+    
+    UIView *view = [[UIView alloc] init];
+    view.layer.borderWidth = 2.0f;
+    view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.backgroundColor = [UIColor clearColor];
+    [holedView addHCustomView:view onRect:CGRectMake(frame.origin.x, frame.origin.y, zujiFrame.size.width, zujiFrame.size.height)isBorder:YES];
+    
+    UIImageView *zujiImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zuji_tishi"]];
+    CGRect fanligouFrame = [_actionView.juyouhuiView convertRect:CGRectZero toView:window];
+    [holedView addHCustomView:zujiImage onRect:CGRectMake(fanligouFrame.origin.x , fanligouFrame.origin.y - 50, zujiImage.frame.size.width, zujiImage.frame.size.height)];
 }
 
 -(void)loadAdView
@@ -259,7 +284,16 @@
 
 - (void)holedView:(JMHoledView *)holedView didSelectHoleAtIndex:(NSUInteger)index
 {
-    NSLog(@"%s %ld", __PRETTY_FUNCTION__,(long)index);
+    if (index == 1 && !_homeTip) {
+        [holedView removeHoles];
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [self initZujiView:holedView WithParentView:window];
+        _homeTip = YES;
+    }else if (index == 1 && _homeTip){
+        [holedView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"homeTip"];
+    }
 }
 
 #pragma mark -- Private
@@ -510,15 +544,17 @@
 #pragma mark -- push view fuction
 -(void)pushRebateHome
 {
-    [[BMAlert sharedBMAlert] alert:@"登陆后去购物才有返利拿哦" cancleTitle:@"登陆" otherTitle:@"跳过" cancle:^(DoAlertView *alertView) {
-        [_info isLoginWithcompletion:^(BOOL flag) {
-            if (flag) {
+    [_info isLoginWithPresent:^(BOOL flag) {
+        if (!flag) {
+            [[BMAlert sharedBMAlert] alert:@"登陆后去购物才有返利拿哦" cancleTitle:@"登陆" otherTitle:@"跳过" cancle:^(DoAlertView *alertView) {
+                [_info presentNav:self WithCompletion:nil];
+            } other:^(DoAlertView *alertView) {
                 [self pushToTaoWeb];
-            }
-        }];
-    } other:^(DoAlertView *alertView) {
-        [self pushToTaoWeb];
-    }];
+            }];
+        }else{
+            [self pushToTaoWeb];
+        }
+    } WithType:NO];
 }
 
 -(void)pushToTaoWeb
@@ -611,6 +647,13 @@
                 [self.navigationController pushViewController:notificationWebVC animated:YES];
             }
         }
+    }
+}
+
+-(void)pushHomeTipView:(NSNotification *)notification
+{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"homeTip"]) {
+        [self initHoledView];
     }
 }
 

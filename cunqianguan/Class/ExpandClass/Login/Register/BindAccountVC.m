@@ -17,6 +17,8 @@
 @interface BindAccountVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *pwdtext;
+@property (weak, nonatomic) IBOutlet UIImageView *userimage;
+@property (weak, nonatomic) IBOutlet UIImageView *pwdimage;
 
 @end
 
@@ -77,6 +79,13 @@
 }
 
 #pragma mark -- UITextfiledDelegate
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField
+{
+    _userimage.highlighted = (textField == _username);
+    _pwdimage.highlighted = (textField == _pwdtext);
+    return YES;
+}
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     if(textField == _username)

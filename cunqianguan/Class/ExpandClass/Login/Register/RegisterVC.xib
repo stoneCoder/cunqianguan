@@ -8,8 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC">
             <connections>
+                <outlet property="emailimage" destination="cAY-XI-KXo" id="iXP-VL-nUm"/>
                 <outlet property="emailtext" destination="ZeC-XD-B9S" id="eRn-z0-5tH"/>
+                <outlet property="pwdimage" destination="dO1-gt-e73" id="px4-Sz-9QI"/>
                 <outlet property="pwdtext" destination="r7Q-7F-3K5" id="EO4-yW-2SO"/>
+                <outlet property="userimage" destination="Gsx-kb-p2X" id="Sny-XG-uL2"/>
                 <outlet property="username" destination="Erj-i6-9Bq" id="9GT-kY-b05"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +34,7 @@
                         <constraint firstAttribute="width" secondItem="VFX-vI-vl6" secondAttribute="height" multiplier="145:22" id="bM8-Pe-hvI"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emial" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-XI-KXo">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emial" highlightedImage="emial_choose" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-XI-KXo">
                     <rect key="frame" x="31" y="73" width="14" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cAY-XI-KXo" secondAttribute="height" multiplier="14:15" id="K5W-9U-X5S"/>
@@ -48,7 +51,7 @@
                         <constraint firstAttribute="width" secondItem="edR-0c-1jh" secondAttribute="height" multiplier="145:22" id="tOa-YP-9GX"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-gt-e73">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" highlightedImage="password_choose" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-gt-e73">
                     <rect key="frame" x="31" y="116" width="14" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="dO1-gt-e73" secondAttribute="height" multiplier="14:15" id="FMM-df-MoQ"/>
@@ -59,7 +62,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghu" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-kb-p2X">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghu" highlightedImage="yonghu_choose" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-kb-p2X">
                     <rect key="frame" x="31" y="31" width="14" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Gsx-kb-p2X" secondAttribute="height" multiplier="14:15" id="2Yx-IT-znH"/>
@@ -155,11 +158,14 @@
         <image name="confirmation" width="339" height="37"/>
         <image name="confirmation_hover" width="339" height="37"/>
         <image name="emial" width="14" height="15"/>
+        <image name="emial_choose" width="14" height="15"/>
         <image name="password" width="14" height="15"/>
+        <image name="password_choose" width="14" height="15"/>
         <image name="text_bottom" width="339" height="44"/>
         <image name="text_center" width="339" height="44"/>
         <image name="text_top" width="339" height="44"/>
         <image name="yonghu" width="14" height="15"/>
+        <image name="yonghu_choose" width="14" height="15"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

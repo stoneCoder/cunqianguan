@@ -7,14 +7,14 @@
 //
 
 #import "BaseSelectView.h"
-
+#import "UIView+Borders.h"
 #define BTN_HEIGTH 44
 @implementation BaseSelectView
 {
     UIView *_btnView;
     NSMutableArray *_btnViewArray;
     CGRect _animotionFrame;
-    CGFloat _animotionY;
+    CGFloat _animotionHeight;
 }
 
 /*
@@ -41,10 +41,10 @@
 {
     CGFloat width = self.frame.size.width;
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
-    _animotionY = visiableY;
-    _animotionFrame = CGRectMake(0, visiableY, width, heigth);
-    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY - 64, width, 0)];
-    [self createBtnWithArray:btnArray andRemaind:btnArray.count%3];
+    _animotionHeight = heigth;
+    _animotionFrame = CGRectMake(0, visiableY, width, 0);
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, 0)];
+    [self createBtnWithArray:btnArray andRemaind:btnArray.count%3+1];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];
 }
@@ -56,10 +56,9 @@
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(visiableX, visiableY,btnWidth, btnHeight)];
         btn.backgroundColor = [UIColor whiteColor];
         btn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
-        btn.layer.borderWidth = 0.5;
-        btn.layer.borderColor = UIColorFromRGB(0xececec).CGColor;
+        [btn addRightBorderWithWidth:0.5f andColor:UIColorFromRGB(0xececec)];
+        [btn addBottomBorderWithHeight:0.5f andColor:UIColorFromRGB(0xececec)];
 
-        
         if (i < btnArray.count) {
             [btn setTitle:btnArray[i] forState:UIControlStateNormal];
         }
@@ -89,26 +88,22 @@
 
 -(void)showView
 {
-    [UIView animateWithDuration:5 animations:^{
-        _animotionFrame.origin.y = _animotionY;
-        _btnView.frame = _animotionFrame;
-        self.hidden = NO;
-    }];
+        [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+            self.hidden = NO;
+            _animotionFrame.size.height = _animotionHeight;
+            _btnView.frame = _animotionFrame;
+        } completion:^(BOOL finished) {
+        }];
 }
 
 -(void)hideView
 {
-    [UIView animateWithDuration:5 animations:^{
-        _animotionFrame.origin.y = _animotionY - 64;
-         _btnView.frame = _animotionFrame;
+    [UIView animateWithDuration:0.25f  delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        _animotionFrame.size.height = 0;
+        _btnView.frame = _animotionFrame;
     } completion:^(BOOL finished) {
         self.hidden = YES;
-        //[self removeFromSuperview];
     }];
-    
-//    if (_delegate && [_delegate respondsToSelector:@selector(popoverViewDidDismiss:)]) {
-//        [_delegate popoverViewDidDismiss:self];
-//    }
 }
 
 -(void)btnClick:(UIButton *)btn

@@ -39,7 +39,7 @@
 {
     [_image mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREEN_WIDTH/2 - 15);
-        make.height.mas_equalTo(SCREEN_WIDTH/2 - 15);
+        make.height.mas_equalTo(_image.mas_width);
         
         make.top.equalTo(self).with.offset(0);
         make.left.equalTo(self).with.offset(0);

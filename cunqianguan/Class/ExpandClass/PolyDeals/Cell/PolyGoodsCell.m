@@ -7,15 +7,13 @@
 //
 
 #import "PolyGoodsCell.h"
-#import "UIImage+Resize.h"
 @implementation PolyGoodsCell
 
 - (void)awakeFromNib {
     // Initialization code
-//    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.mas_equalTo(self.mas_width);
-//        make.height.mas_equalTo(_productImage.mas_width);
-//    }];
+    [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo((SCREEN_WIDTH - 30)/2);
+    }];
 }
 
 -(void)loadCell:(JYHModel *)model withType:(NSInteger)type
