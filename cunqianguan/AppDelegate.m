@@ -38,6 +38,7 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
     
     HomeVC *homeVC = [[HomeVC alloc] init];
     BaseNC *nav = [[BaseNC alloc] initWithRootViewController:homeVC];
+    
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     

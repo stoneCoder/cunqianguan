@@ -7,11 +7,13 @@
 //
 
 #import "MyOrderVC.h"
+#import "ReturnHomeGoodsVC.h"
 #import "BaseSegment.h"
 
 #import "TaoOrderCell.h"
 #import "ShopOrderCell.h"
 
+#import "BaseUtil.h"
 #import "PersonConnect.h"
 #import "BaseConnect.h"
 #import "PersonInfo.h"
@@ -156,6 +158,19 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
         return cell;
     }
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+      OrderModel *model = _data[indexPath.row];
+      NSString *goodKey = model.goodkey;
+      UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+      if ([cell isKindOfClass:[TaoOrderCell class]] && goodKey.length > 0) {
+          ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+          returnHomeGoodsVC.goodKey = goodKey;
+          returnHomeGoodsVC.leftTitle = @"商品详情";
+          [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+      }
 }
 
 

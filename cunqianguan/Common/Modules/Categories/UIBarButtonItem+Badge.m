@@ -105,11 +105,11 @@ NSString const *badgeValueKey = @"badgeValueKey";
     [self updateBadgeFrame];
     
     // Animate the size modification if needed
-    NSTimeInterval duration = animated ? 0.2 : 0;
+    NSTimeInterval duration = animated ? 0.5 : 0;
 //    [UIView animateWithDuration:duration animations:^{
 //        [self updateBadgeFrame];
 //    }];
-    self.badge.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    self.badge.transform = CGAffineTransformMakeScale(2.3, 2.3);
     [UIView animateWithDuration:duration animations:^{
         self.badge.transform = CGAffineTransformMakeScale(0.8, 0.8);
     } completion:^(BOOL finished){

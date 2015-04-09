@@ -195,11 +195,11 @@
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    if (titleColor) {
-        [button setTitleColor:highlightedTileColor forState:UIControlStateHighlighted];
-    }else{
-        [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
-    }
+//    if (titleColor) {
+//        [button setTitleColor:highlightedTileColor forState:UIControlStateHighlighted];
+//    }else{
+//        [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+//    }
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
     

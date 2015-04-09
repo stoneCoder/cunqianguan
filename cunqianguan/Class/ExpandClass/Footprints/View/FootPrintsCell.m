@@ -49,7 +49,7 @@
     }
     NSMutableAttributedString *fanliStr = [[NSMutableAttributedString alloc] initWithString:fanliText];
     if (model.commissionRate  > 0 ) {
-        [fanliStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2EB7AD) range:NSMakeRange(7, fanliText.length - 7)];
+        [fanliStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2EB7AD) range:NSMakeRange(7, fanliText.length - 11)];
     }
     _fanliLabel.attributedText = fanliStr;
     

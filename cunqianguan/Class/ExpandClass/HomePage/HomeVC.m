@@ -181,7 +181,7 @@
     }else if (SCREEN_HEIGTH == 736){
         imageArray = @[@"banner6p_01",@"banner6p_02"];
     }
-    _pageControl = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - SCREEN_WIDTH) imagesGroup:imageArray];
+    _pageControl = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64 - SCREEN_WIDTH) imagesGroup:imageArray];
     _pageControl.autoScrollTimeInterval = 5.0f;
     _pageControl.dotImage = [UIImage imageNamed:@"qiehuan_home"];
     _pageControl.currentDotImage = [UIImage imageNamed:@"qiehuan_hover"];

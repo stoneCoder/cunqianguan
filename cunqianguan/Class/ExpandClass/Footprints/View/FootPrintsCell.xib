@@ -18,10 +18,10 @@
                         <rect key="frame" x="12" y="12" width="296" height="146"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOG-2h-zid">
-                                <rect key="frame" x="0.0" y="33" width="300" height="1"/>
+                                <rect key="frame" x="0.0" y="33" width="296" height="1"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="2Su-Z4-xw4"/>
+                                    <constraint firstAttribute="height" constant="1" id="ojB-ey-9ag"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vky-1b-mkF">
@@ -36,19 +36,10 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现代加厚丝毛地摊客厅地毯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npt-dU-z5F">
-                                <rect key="frame" x="8" y="8" width="284" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Npt-dU-z5F" secondAttribute="height" multiplier="142:9" id="DKd-Jd-rXq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购买后最高返利" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyk-nR-qBY">
                                 <rect key="frame" x="126" y="89" width="150" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014-03-02浏览" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmo-yf-Lw7">
@@ -63,26 +54,35 @@
                                 <color key="textColor" red="1" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现代加厚丝毛地摊客厅地毯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npt-dU-z5F">
+                                <rect key="frame" x="8" y="8" width="284" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Npt-dU-z5F" secondAttribute="height" multiplier="142:9" id="DKd-Jd-rXq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="jHy-Px-nqx" secondAttribute="centerY" constant="4" id="1t8-Ne-DRr"/>
                             <constraint firstAttribute="trailing" secondItem="Qmo-yf-Lw7" secondAttribute="trailing" constant="12" id="3yu-HO-riD"/>
-                            <constraint firstItem="aOG-2h-zid" firstAttribute="top" secondItem="Npt-dU-z5F" secondAttribute="bottom" constant="7" id="8ms-iK-jrh"/>
                             <constraint firstItem="QUm-hF-mdo" firstAttribute="baseline" secondItem="jHy-Px-nqx" secondAttribute="baseline" constant="-2" id="AFY-Ig-w63"/>
                             <constraint firstItem="vky-1b-mkF" firstAttribute="leading" secondItem="aQ1-et-KjG" secondAttribute="leading" constant="12" id="DJU-nD-K5h"/>
                             <constraint firstItem="Npt-dU-z5F" firstAttribute="top" secondItem="aQ1-et-KjG" secondAttribute="top" constant="8" id="ELJ-xl-9d9"/>
-                            <constraint firstItem="vky-1b-mkF" firstAttribute="top" secondItem="aOG-2h-zid" secondAttribute="bottom" constant="12" id="EPW-J8-xfd"/>
                             <constraint firstItem="Npt-dU-z5F" firstAttribute="leading" secondItem="aQ1-et-KjG" secondAttribute="leading" constant="8" id="EVM-2v-0QD"/>
                             <constraint firstItem="jHy-Px-nqx" firstAttribute="leading" secondItem="vky-1b-mkF" secondAttribute="trailing" constant="24" id="Fay-9z-Gq9"/>
+                            <constraint firstItem="vky-1b-mkF" firstAttribute="top" secondItem="aOG-2h-zid" secondAttribute="bottom" constant="12" id="Jkk-Nb-BEC"/>
                             <constraint firstItem="Fyk-nR-qBY" firstAttribute="leading" secondItem="jHy-Px-nqx" secondAttribute="leading" id="NNS-YP-nUt"/>
                             <constraint firstAttribute="trailing" secondItem="Npt-dU-z5F" secondAttribute="trailing" constant="4" id="R8P-f1-SiA"/>
-                            <constraint firstAttribute="trailing" secondItem="aOG-2h-zid" secondAttribute="trailing" constant="-4" id="dP4-c0-act"/>
+                            <constraint firstItem="aOG-2h-zid" firstAttribute="leading" secondItem="aQ1-et-KjG" secondAttribute="leading" id="aiM-US-CL8"/>
+                            <constraint firstAttribute="trailing" secondItem="aOG-2h-zid" secondAttribute="trailing" id="bU2-UH-LCR"/>
                             <constraint firstItem="Fyk-nR-qBY" firstAttribute="top" secondItem="jHy-Px-nqx" secondAttribute="bottom" constant="8" id="flf-l7-u9f"/>
                             <constraint firstAttribute="bottom" secondItem="Qmo-yf-Lw7" secondAttribute="bottom" constant="12" id="klU-UE-uzA"/>
-                            <constraint firstItem="aOG-2h-zid" firstAttribute="leading" secondItem="aQ1-et-KjG" secondAttribute="leading" id="lUq-mk-R13"/>
                             <constraint firstAttribute="trailing" secondItem="Fyk-nR-qBY" secondAttribute="trailing" constant="20" id="mvC-qB-VBS"/>
                             <constraint firstAttribute="bottom" secondItem="vky-1b-mkF" secondAttribute="bottom" constant="10" id="qDP-FJ-w0n"/>
+                            <constraint firstItem="aOG-2h-zid" firstAttribute="top" secondItem="Npt-dU-z5F" secondAttribute="bottom" constant="7" id="wtk-2W-AAd"/>
                             <constraint firstItem="QUm-hF-mdo" firstAttribute="leading" secondItem="jHy-Px-nqx" secondAttribute="trailing" constant="12" id="xeh-Mn-8EF"/>
                         </constraints>
                     </view>

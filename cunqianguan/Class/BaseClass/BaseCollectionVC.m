@@ -108,7 +108,7 @@
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+    //[button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -143,7 +143,7 @@
     [button setTitle:btnTitleStr forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
-    [button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
+    //[button setTitleColor:UIColorFromRGB(0x1a9c92) forState:UIControlStateHighlighted];
     button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     button.imageEdgeInsets = UIEdgeInsetsMake(0, btnFrame.size.width - 22, 0, 0);
     button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);

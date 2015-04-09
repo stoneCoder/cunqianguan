@@ -71,9 +71,10 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     _infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _infoLabel.numberOfLines = 0;
     
+    _infoLabel.textColor = UIColorFromRGB(0x989898);
     NSString *infoText = @"每日在保鲜期网站或手机端签到可得积分。连续签到5天即可获得超值奖励！使用手机端签到任意一天，即可在获得超值奖励的同时获得额外奖励！期间如果中断，将会重新从第一天开始。";
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:infoText];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(19,15)];
+    [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0xff5656) range:NSMakeRange(19,15)];
     _infoLabel.attributedText = str;
 }
 

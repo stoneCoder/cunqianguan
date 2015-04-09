@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *trade_id;
 @property (assign, nonatomic) NSInteger type;
+@property (strong, nonatomic) NSString *goodkey;
 @end

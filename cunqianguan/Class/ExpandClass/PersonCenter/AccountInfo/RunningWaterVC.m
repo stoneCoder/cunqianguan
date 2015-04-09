@@ -62,7 +62,7 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 -(void)setUpTableView
 {
     [self createTableWithStye:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, VIEW_HEIGHT - 10);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 108);
     
     UINib *CellNib = [UINib nibWithNibName:@"RunningWaterCell" bundle:nil];
     [self.tableView registerNib:CellNib forCellReuseIdentifier:RunningWaterCellID];

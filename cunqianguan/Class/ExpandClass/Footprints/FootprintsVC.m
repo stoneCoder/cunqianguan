@@ -160,6 +160,7 @@ static NSString *CellID=@"FootPrintsCell";
     [cell setCellHeight:cell.frame.size.height];
     cell.tag = indexPath.row;
     [cell loadCell:_data[indexPath.row]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
