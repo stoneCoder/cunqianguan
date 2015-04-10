@@ -14,6 +14,10 @@
 -(void)setRefreshEnabled:(BOOL)enabled;
 -(void)refresh;
 -(void)moreFresh;
+
+-(void)showLoaderView;
+-(void)showLoaderView:(UIView *)view;
+-(void)hideLoaderView;
 @end
 
 

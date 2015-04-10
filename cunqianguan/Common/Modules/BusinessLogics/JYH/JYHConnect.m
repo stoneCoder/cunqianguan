@@ -58,4 +58,20 @@ DEFINE_SINGLETON_FOR_CLASS(JYHConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getTeJiaGoodsById:(NSString *)userId
+            withCategory:(NSInteger)category
+                 andPage:(NSInteger)pageNum
+                 success:(void (^)(id json))success
+                 failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getTeJiaGoodsById";
+    userId = userId?userId:@"";
+    NSDictionary *dic =  @{@"uid":userId,@"cid":@(category),@"page":@(pageNum),@"perpage":@(PAGE_COUNT)};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

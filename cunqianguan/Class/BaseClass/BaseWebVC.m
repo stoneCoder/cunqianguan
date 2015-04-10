@@ -168,7 +168,7 @@
                 }
                 //聚划算
                 if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=2"].location != NSNotFound) {
-                    [self showStringHUD:@"聚划算/天猫超市无返利" second:1.5];
+                    [self showStringHUD:@"聚划算无返利" second:1.5];
                 }
                 //淘宝旅行
                 if ([accesUrl rangeOfString:@"http://ai.m.taobao.com/bu.html"].location != NSNotFound && [accesUrl rangeOfString:@"&id=3"].location != NSNotFound) {

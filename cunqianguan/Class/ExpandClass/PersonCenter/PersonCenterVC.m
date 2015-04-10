@@ -341,7 +341,7 @@ static NSString *FooterViewID = @"PersonFooterView";
             cell.infoLabel.hidden = NO;
             switch (indexPath.row) {
                 case 0:
-                    cell.infoLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+                    cell.infoLabel.text = [NSString stringWithFormat:@"%.2f元",_info.cash];
                     break;
                 case 1:
                     cell.infoLabel.text = [NSString stringWithFormat:@"%ld个",(long)_info.pointTb];

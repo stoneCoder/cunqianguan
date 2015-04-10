@@ -27,4 +27,10 @@ DEFINE_SINGLETON_FOR_HEADER(JYHConnect)
                        andPage:(NSInteger)pageNum
                        success:(void (^)(id json))success
                        failure:(void (^)( NSError *err))failure;
+
+-(void)getTeJiaGoodsById:(NSString *)userId
+                withCategory:(NSInteger)category
+                 andPage:(NSInteger)pageNum
+                 success:(void (^)(id json))success
+                 failure:(void (^)( NSError *err))failure;
 @end

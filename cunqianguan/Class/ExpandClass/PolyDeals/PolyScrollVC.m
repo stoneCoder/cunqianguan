@@ -11,6 +11,8 @@
 #import "BaseSelectView.h"
 #import "PolyDealVC.h"
 #import "PolyTomorrowVC.h"
+
+#import "PolyDealTableVC.h"
 @interface PolyScrollVC ()<SegmentDelegate,BaseSelectViewDelegate,UIScrollViewDelegate>
 {
     TouchPropagatedScrollView *_navScrollV;
@@ -28,8 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _btnArray = MENU_ARRAY;
-    _btnIdArray = MENU_ID;
+    _btnArray = TABLE_MENU_ARRAY;
+    _btnIdArray = TABLE_MENU_ID;
     [self setUpRightBtn];
     [self setUpSliderView];
     [self setupScrollView];
@@ -81,13 +83,18 @@
     [self.view addSubview:_scrollView];
     
     for (int i = 0; i < _btnArray.count; i++) {
-        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.minimumLineSpacing = 10.0;
-        
-        PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
+//        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+//        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//        [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
+//        flowLayout.minimumInteritemSpacing = 0;
+//        flowLayout.minimumLineSpacing = 10.0;
+//        
+//        PolyDealVC *polyDealVC = [[PolyDealVC alloc] initWithCollectionViewLayout:flowLayout];
+//        polyDealVC.leftTitle = _btnArray[i];
+//        [self addChildViewController:polyDealVC];
+//        polyDealVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);
+//        [_scrollView addSubview:polyDealVC.view];
+        PolyDealTableVC *polyDealVC = [[PolyDealTableVC alloc] init];
         polyDealVC.leftTitle = _btnArray[i];
         [self addChildViewController:polyDealVC];
         polyDealVC.view.frame = CGRectMake(i*VIEW_WIDTH, 0, VIEW_WIDTH, _scrollView.frame.size.height);

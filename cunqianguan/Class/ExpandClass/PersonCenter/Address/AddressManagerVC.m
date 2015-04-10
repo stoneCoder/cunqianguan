@@ -125,6 +125,7 @@
             NSDictionary *dic = (NSDictionary *)json;
             [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
             if ([BaseConnect isSucceeded:dic]) {
+                [self returnNormalPath];
                 _info.consignee = consignee;
                 _info.location = location;
                 _info.zipCode = zipCode;

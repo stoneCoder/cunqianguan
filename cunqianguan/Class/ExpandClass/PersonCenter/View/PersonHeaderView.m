@@ -8,6 +8,7 @@
 
 #import "PersonHeaderView.h"
 #import "BaseUtil.h"
+#import "BaseConnect.h"
 @implementation PersonHeaderView
 {
     PopTipView *_popTipView;
@@ -60,15 +61,19 @@
 {
     if (info.userId) {
         [info getAvaterWithId:info.userId success:^(id json) {
-            [info saveUserData];
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                [info saveUserData];
+            }
+            
+            [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] placeholderImage:[UIImage imageNamed:@"default_person"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
+            }];
         } failure:^(id json) {
             
         }];
         
         _nameLabel.text = info.username;
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:info.photo] placeholderImage:[UIImage imageNamed:@"default_person"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            _headImageView.image = [BaseUtil imageWithImage:image scaledToSize:_headImageView.frame.size];
-        }];
         _collectLabel.text = [NSString stringWithFormat:@"%ld",(long)info.collectionCount];
         _msgLabel.text = [NSString stringWithFormat:@"%ld",(long)info.messageCount];
         _vipImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)info.level]];

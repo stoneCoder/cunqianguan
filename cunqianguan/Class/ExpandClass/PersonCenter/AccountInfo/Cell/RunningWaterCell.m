@@ -22,9 +22,12 @@
 
 -(void)loadCell:(RunningWaterModel *)model
 {
-    
-    _timeLabel.text = [NSString stringWithFormat:@"%@ %@",[model.date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],[model.time stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-    
+    if (!model.time) {
+         _timeLabel.text = [NSString stringWithFormat:@"%@",[model.date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    }else{
+         _timeLabel.text = [NSString stringWithFormat:@"%@ %@",[model.date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],[model.time stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    }
+   
     _titleLabel.text = model.content;
     
     _infoLabel.text = model.status;

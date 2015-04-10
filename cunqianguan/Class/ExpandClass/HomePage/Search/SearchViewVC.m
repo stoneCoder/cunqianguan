@@ -125,12 +125,11 @@ static NSString *SearchCellID = @"SearchViewCell";
 
 -(void)loadDataWith:(NSString *)text
 {
-    [self saveHistory:text];
     [[HomeConnect sharedHomeConnect] searchByText:text success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if (dic.count > 0) {
             [_data removeAllObjects];
-            [_searchBar.searchTextField resignFirstResponder];
+            //[_searchBar.searchTextField resignFirstResponder];
             [_data addObjectsFromArray:[dic objectForKey:@"result"]];
             self.tableView.hidden = NO;
             [self.tableView reloadData];
@@ -185,13 +184,16 @@ static NSString *SearchCellID = @"SearchViewCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *url;
+    NSString *resultStr;
     if ([_data[indexPath.row] isKindOfClass:[NSArray class]]) {
         NSArray *cellData = _data[indexPath.row];
-        url = SEARCH_URL(cellData[0],MM,_info.userId);
+        resultStr = cellData[0];
+        url = SEARCH_URL(resultStr,MM,_info.userId);
     }else if ([_data[indexPath.row] isKindOfClass:[NSString class]]){
-        NSString *resultStr = _data[indexPath.row];
+        resultStr = _data[indexPath.row];
         url = SEARCH_URL(resultStr,MM,_info.userId);
     }
+    [self saveHistory:resultStr];
     [self pushToWeb:url];
 }
 
@@ -212,7 +214,7 @@ static NSString *SearchCellID = @"SearchViewCell";
         [self showStringHUD:@"请填写查询条件" second:2];
         return;
     }
-
+    [self saveHistory:searchText];
     NSString *url = SEARCH_URL(searchText,MM,_info.userId);
     [self pushToWeb:url];
 }

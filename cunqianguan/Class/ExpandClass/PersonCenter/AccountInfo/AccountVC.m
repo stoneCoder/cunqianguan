@@ -127,12 +127,14 @@ static NSString *AccountCellID = @"AccountCell";
                 cell.infoLabel.text = _model.alipay;
             }else{
                 cell.infoLabel.text = @"未绑定";
+                [cell.cellBtn setTitle:@"设置支付宝账号" forState:UIControlStateNormal];
             }
         }else if (indexPath.section == 1){
             if (_model.bank) {
                 cell.infoLabel.text = [BaseUtil transformBankCard:_model.bank];
             }else{
                 cell.infoLabel.text = @"未绑定";
+                [cell.cellBtn setTitle:@"设置银行卡账号" forState:UIControlStateNormal];
             }
         }
     }else{

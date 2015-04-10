@@ -191,7 +191,7 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
             _messageCount = [[data objectForKey:@"message_count"] integerValue];
             _orderCount = [[data objectForKey:@"order_count"] integerValue];
             _pointTbTo = [[data objectForKey:@"point_tb_to"] integerValue];
-            _cashTo = [[data objectForKey:@"cash_to"] integerValue];
+            _cashTo = [[data objectForKey:@"cash_to"] floatValue];
             _isBindAli = [[data objectForKey:@"isbind_tb"] boolValue];
             _isBindQQ = [[data objectForKey:@"isbind_qq"] boolValue];
             _isBindSina = [[data objectForKey:@"isbind_sina"] boolValue];
@@ -217,12 +217,12 @@ DEFINE_SINGLETON_FOR_CLASS(PersonInfo)
     NSDictionary *dic = @{@"uid":userId};
     
     [BaseConnect post:url Parameters:dic success:^(id json) {
-        success(json);
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:json]) {
             NSDictionary *data = [dic objectForKey:@"data"];
             _photo = [data objectForKey:@"avatar"];
         }
+        success(json);
     } failure:^(id json) {
         failure(json);
     } connectionError:^(NSError *error) {

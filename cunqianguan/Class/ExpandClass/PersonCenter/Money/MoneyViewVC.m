@@ -108,8 +108,8 @@
             _integralBtn.hidden = YES;
             _taoBtn.hidden = YES;
             
-            _firstNumLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
-            _secondNumLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashTo];
+            _firstNumLabel.text = [NSString stringWithFormat:@"%.2f元",_info.cash];
+            _secondNumLabel.text = [NSString stringWithFormat:@"%.2f元",_info.cashTo];
             break;
         case ViewTypeWithTao:
             _firstLabel.text = @"淘宝集分宝收入";
@@ -187,7 +187,7 @@
     [self createAliView];
     if (btn.tag == 1000) {
         /*现金收入*/
-        if (_info.cashAll < 30) {
+        if (_info.cash < 30) {
             [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
                 
             } other:^(DoAlertView *alertView) {
