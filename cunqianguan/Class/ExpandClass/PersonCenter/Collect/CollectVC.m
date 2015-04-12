@@ -126,9 +126,14 @@ static NSString *collectID = @"CollectCell";
 
 -(void)deleteModel:(id)sender
 {
-    _isEditModel = YES;
-    _checkView.hidden = NO;
-    [self.collectionView reloadData];
+    if (!_isEditModel) {
+        _isEditModel = YES;
+        _checkView.hidden = NO;
+        [self.collectionView reloadData];
+    }else{
+        [self cancleAction];
+    }
+   
 }
 
 #pragma mark -- UICollectionDelegate && UICollectionDataSource

@@ -40,7 +40,7 @@ static NSString *polyGoodsTableCellID = @"PolyGoodsTableCell";
 {
     _category = index;
     if (!_firstLoad) {
-        [self showLoaderView];
+        [self showLoaderView:self.tableView];
         [self loadDataWith:_category andPage:1];
     }
 }

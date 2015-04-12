@@ -50,6 +50,8 @@
     _subBtn.layer.cornerRadius = 5.0f;
     _subBtn.layer.masksToBounds = YES;
     
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,10 +71,16 @@
             _textView.text = @"";
             _subBtn.backgroundColor = [UIColor lightGrayColor];
             _subBtn.userInteractionEnabled = NO;
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
+}
+
+-(void)tapView
+{
+    [_textView resignFirstResponder];
 }
 
 #pragma mark -- UITextViewDeleagte

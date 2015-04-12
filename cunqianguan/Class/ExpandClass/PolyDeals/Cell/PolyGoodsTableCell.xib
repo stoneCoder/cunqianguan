@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,6 +17,9 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Jh-Kh-QkW">
                         <rect key="frame" x="10" y="10" width="140" height="92"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="5Jh-Kh-QkW" secondAttribute="height" multiplier="35:23" id="g20-dJ-0MY"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9B-Rw-qf2">
                         <rect key="frame" x="160" y="10" width="152" height="20"/>
@@ -33,7 +37,6 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥19.90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVO-AI-UMx">
                         <rect key="frame" x="160" y="87" width="44" height="15"/>
-                        <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,7 +55,6 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥19.90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QF-tf-Wpv">
                         <rect key="frame" x="160" y="62" width="64" height="22"/>
-                        <color key="backgroundColor" red="1" green="0.6588235294" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="1" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -69,7 +71,6 @@
                     <constraint firstItem="pLH-zN-Jnj" firstAttribute="leading" secondItem="K9B-Rw-qf2" secondAttribute="leading" id="IGJ-DS-AAt"/>
                     <constraint firstItem="PVO-AI-UMx" firstAttribute="leading" secondItem="5Jh-Kh-QkW" secondAttribute="trailing" constant="10" id="TCM-q8-EGo"/>
                     <constraint firstItem="5Jh-Kh-QkW" firstAttribute="bottom" secondItem="PVO-AI-UMx" secondAttribute="bottom" id="XSx-1o-AMW"/>
-                    <constraint firstAttribute="centerX" secondItem="5Jh-Kh-QkW" secondAttribute="centerX" constant="80" id="fNw-iJ-kJq"/>
                     <constraint firstAttribute="trailing" secondItem="z4P-LU-lsu" secondAttribute="trailing" constant="10" id="ftC-Cu-1cI"/>
                     <constraint firstItem="9QF-tf-Wpv" firstAttribute="top" secondItem="pLH-zN-Jnj" secondAttribute="bottom" constant="3" id="lFr-jQ-1PJ"/>
                     <constraint firstAttribute="bottom" secondItem="5Jh-Kh-QkW" secondAttribute="bottom" constant="10" id="moG-3s-gAA"/>

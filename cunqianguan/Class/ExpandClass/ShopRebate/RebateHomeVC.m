@@ -95,9 +95,18 @@
 {
     if ([self.webView canGoBack]) {
         [self.webView goBack];
+        if (!self.isReturnBack) {
+            [self setWebViewReturnBtnTitle:@"淘宝" titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
+            self.isReturnBack = YES;
+        }
     }else{
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+-(void)closeAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -- Private

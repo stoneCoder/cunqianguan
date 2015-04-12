@@ -82,7 +82,7 @@ NSString const *badgeValueKey = @"badgeValueKey";
     
     // Using const we make sure the badge doesn't get too smal
     minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width;
-    self.badge.frame = CGRectMake(self.badgeOriginX, self.badgeOriginY, minWidth + padding, minHeight + padding);
+    self.badge.frame = CGRectMake(self.badgeOriginX, self.badgeOriginY, /*minWidth + padding*/minHeight + padding, minHeight + padding);
     self.badge.layer.cornerRadius = (minHeight + padding) / 2;
     self.badge.layer.masksToBounds = YES;
 }

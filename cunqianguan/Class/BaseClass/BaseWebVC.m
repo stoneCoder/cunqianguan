@@ -74,6 +74,75 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
+-(void)setWebViewReturnBtnTitle:(NSString *)aTitle titleColor:(UIColor *)titleColor highlightedTileColor:(UIColor *)highlightedTileColor WithImage:(NSString *)imageName andHighlightImage:(NSString *)highlightImage edgeInsetsWithTitle:(CGFloat)insets
+{
+    /*返回按钮*/
+    NSString *defaultImageName = @"back";
+    NSString *defaulthighlightImageName = @"back_hover";
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
+    CGRect btnFrame;
+    float width;
+    NSString * btnTitleStr=aTitle;
+    if (btnTitleStr.length > 0) {
+        btnTitleStr = [NSString stringWithFormat:@"%@",aTitle];
+        width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
+        btnFrame = CGRectMake(0,0,width + 22 + insets,22);
+    }else{
+        btnFrame = CGRectMake(0,0,22,22);
+    }
+    if (imageName.length > 0) {
+        defaultImageName = imageName;
+    }
+    [button setFrame:btnFrame];
+    [button setImage:[UIImage imageNamed:defaultImageName] forState:UIControlStateNormal];
+    if (highlightImage) {
+        [button setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateHighlighted];
+    }else{
+        [button setImage:[UIImage imageNamed:defaulthighlightImageName] forState:UIControlStateHighlighted];
+    }
+    [button setTitle:btnTitleStr forState:UIControlStateNormal];
+    if (titleColor) {
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
+    }else{
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+    [button setTitle:btnTitleStr forState:UIControlStateHighlighted];
+    button.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, insets, 0, 0);
+    [button addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    /*关闭按钮*/
+    UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+    btnTitleStr = @"关闭";
+    width = [BaseUtil getWidthByString:btnTitleStr font:button.titleLabel.font allheight:22 andMaxWidth:200];
+    btnFrame = CGRectMake(0,0,width,22);
+    [closeBtn setFrame:btnFrame];
+    [closeBtn setTitle:btnTitleStr forState:UIControlStateNormal];
+    [closeBtn setTitleColor:UIColorFromRGB(0x3c3c3c) forState:UIControlStateNormal];
+    closeBtn.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
+    [closeBtn addTarget:self action:@selector(popViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
+    
+    if (iOS7) {//iOS7 custom leftBarButtonItem 偏移
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -10;
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer,btnItem,closeButtonItem];
+    }else{
+        self.navigationItem.leftBarButtonItems = @[btnItem,closeButtonItem];
+    }
+}
+
+-(void)leftBtnClicked:(id)sender
+{
+    
+}
+
+-(void)popViewAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -89,9 +158,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    [self.webView loadHTMLString:@"" baseURL:nil];
-    [self.webView stopLoading];
-    [self.webView removeFromSuperview];
+    //[self.webView loadHTMLString:@"" baseURL:nil];
+    //[self.webView stopLoading];
+    //[self.webView removeFromSuperview];
     //[[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
