@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-Lt-quI">
-                            <rect key="frame" x="0.0" y="171" width="320" height="105"/>
+                            <rect key="frame" x="0.0" y="220" width="320" height="105"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-nd-5TL">
                                     <rect key="frame" x="160" y="17" width="1" height="80"/>
@@ -88,19 +88,19 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="invite_banner" translatesAutoresizingMaskIntoConstraints="NO" id="6ra-5e-bAl">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="6ra-5e-bAl" secondAttribute="height" multiplier="320:171" id="zT5-ck-mbr"/>
+                                <constraint firstAttribute="width" secondItem="6ra-5e-bAl" secondAttribute="height" multiplier="16:11" id="hjb-vq-2Vo"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：当用户通过您的邀请链接访问保鲜期网后，只要在7天内注册，均为有效。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-eq-n3n">
-                            <rect key="frame" x="15" y="440" width="290" height="15"/>
+                            <rect key="frame" x="15" y="489" width="290" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9h-WW-FSy">
-                            <rect key="frame" x="30" y="366" width="260" height="42"/>
+                            <rect key="frame" x="30" y="415" width="260" height="42"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="查看邀请奖励">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,7 +111,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-Q4-tco">
-                            <rect key="frame" x="30" y="308" width="260" height="42"/>
+                            <rect key="frame" x="30" y="357" width="260" height="42"/>
                             <color key="backgroundColor" red="0.33725490200000002" green="0.84705882349999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="cp8-ov-EoZ"/>
@@ -131,7 +131,7 @@
                         <constraint firstItem="bNA-Lt-quI" firstAttribute="top" secondItem="6ra-5e-bAl" secondAttribute="bottom" id="6jv-11-AWc"/>
                         <constraint firstItem="bNA-Lt-quI" firstAttribute="leading" secondItem="eiC-Gf-h9v" secondAttribute="leading" id="7O8-Px-L6o"/>
                         <constraint firstItem="iXz-Q4-tco" firstAttribute="height" secondItem="R9h-WW-FSy" secondAttribute="height" id="89o-Tp-jZd"/>
-                        <constraint firstAttribute="bottom" secondItem="L7d-eq-n3n" secondAttribute="bottom" constant="93" id="9q3-c9-VIf"/>
+                        <constraint firstAttribute="bottom" secondItem="L7d-eq-n3n" secondAttribute="bottom" constant="44" id="9q3-c9-VIf"/>
                         <constraint firstItem="L7d-eq-n3n" firstAttribute="leading" secondItem="eiC-Gf-h9v" secondAttribute="leading" constant="15" id="AhS-F8-K5q"/>
                         <constraint firstItem="iXz-Q4-tco" firstAttribute="width" secondItem="R9h-WW-FSy" secondAttribute="width" id="B8M-Kn-qSJ"/>
                         <constraint firstAttribute="trailing" secondItem="R9h-WW-FSy" secondAttribute="trailing" constant="30" id="D1Z-uH-jwQ"/>
@@ -157,11 +157,11 @@
                 <constraint firstItem="eiC-Gf-h9v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gWE-2N-TU1"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="293" y="585"/>
+            <point key="canvasLocation" x="368" y="581"/>
         </view>
     </objects>
     <resources>
-        <image name="invite_banner" width="250" height="171"/>
+        <image name="invite_banner" width="320" height="220"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

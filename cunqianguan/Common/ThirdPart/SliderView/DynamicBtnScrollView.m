@@ -5,22 +5,22 @@
 //  Copyright (c) 2014年 chen. All rights reserved.
 //
 
-#import "TouchPropagatedScrollView.h"
+#import "DynamicBtnScrollView.h"
 #import "UIView+Borders.h"
 #import "BaseUtil.h"
-@interface TouchPropagatedScrollView ()
+@interface DynamicBtnScrollView ()
 {
     NSMutableArray *btns;
     NSMutableArray *views;
     float lineViewWidth;
     float lineViewHeight;
-    BOOL _isShowLine;
+    BOOL _isShowSeparatorLine;
 }
 
 @property (nonatomic, weak) UIView * lineView;
 @end
 
-@implementation TouchPropagatedScrollView
+@implementation DynamicBtnScrollView
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -40,21 +40,14 @@
     self.lineView = view;
 }
 
-- (void)setItems:(NSArray *)items isShowLine:(BOOL)isShowLine
+- (void)setItems:(NSArray *)items withItemWidth:(NSArray *)itemWidth isShowSeparatorLine:(BOOL)isShowSeparatorLine
 {
-    _isShowLine = isShowLine;
-    if (_DirectionType == HorizontalDirection) {
-        lineViewHeight = 2;
-        lineViewWidth = self.contentSize.width / items.count;
-    }else if (_DirectionType == VerticalDirection){
-        lineViewHeight = self.contentSize.height / items.count;
-        lineViewWidth = 5;
-    }
-    
+    _isShowSeparatorLine = isShowSeparatorLine;
     if ([items isEqualToArray:_items]) {
         return;
     }
     _items = items;
+    _itemsWidth = itemWidth;
     for (UIView *view in btns) {
         [view removeFromSuperview];
     }
@@ -79,8 +72,15 @@
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
         [btns addObject:btn];
+        
+        if (_DirectionType == HorizontalDirection) {
+            lineViewHeight = 2;
+        }else if (_DirectionType == VerticalDirection){
+            lineViewHeight = [_itemsWidth[i] floatValue];
+            lineViewWidth = 5;
+        }
     }
-    if (_isShowLine) {
+    if (_isShowSeparatorLine) {
         for (int i = 1; i < items.count; i++) {
             UIView *fenggeView = [[UIView alloc] init];
             fenggeView.backgroundColor = UIColorFromRGB(0xececec);
@@ -128,9 +128,14 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.25];
     }
+    
+    CGRect frame = self.lineView.frame;
+    frame.size.width = btn.frame.size.width;
+    self.lineView.frame = frame;
+    
     switch (_DirectionType) {
         case HorizontalDirection:
-            self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (btn.frame.size.width/2), self.lineView.center.y);
+            self.lineView.center = CGPointMake(btn.frame.origin.x + btn.frame.size.width/2, self.lineView.center.y);
             break;
         case VerticalDirection:
             self.lineView.center = CGPointMake(self.lineView.center.x, ((_selectIndex+1)*2-1) * (btn.frame.size.height/2));
@@ -176,30 +181,35 @@
 {
     [super layoutSubviews];
     
+    CGFloat visiableX = 0;
     float width = self.contentSize.width / btns.count;
     float height = self.contentSize.height / btns.count;
-    if (_isShowLine) {
+    if (_isShowSeparatorLine) {
         for (int i = 1; i < btns.count; i++) {
             UIView *view = [views objectAtIndex:i-1];
+            visiableX += [_itemsWidth[i-1] floatValue];
             switch (_DirectionType) {
                 case HorizontalDirection:
-                    view.frame  = CGRectMake(width * i, 0, 1, self.bounds.size.height / 2);
+                    view.frame  = CGRectMake(visiableX, 0, 1, self.bounds.size.height / 2);
                     view.center = CGPointMake(view.center.x, self.bounds.size.height / 2);
                     break;
                 case VerticalDirection:
                     view.frame  = CGRectMake(0, height * i, self.bounds.size.width, 1);
-                    //view.center = CGPointMake(self.bounds.size.width / 2, view.center.y);
                     break;
                 default:
                     break;
             }
         }
     }
+    
+    visiableX = 0;
     for (int i = 0; i < btns.count; i++) {
         UIView *view = [btns objectAtIndex:i];
+        width = [_itemsWidth[i] floatValue];
+        lineViewWidth = width;
         switch (_DirectionType) {
             case HorizontalDirection:
-                view.frame  = CGRectMake(width * i, 0, width, self.bounds.size.height);
+                view.frame  = CGRectMake(visiableX, 0, width, self.bounds.size.height);
                 break;
             case VerticalDirection:
                 view.frame  = CGRectMake(0, height * i, self.bounds.size.width, height);
@@ -216,7 +226,7 @@
             switch (_DirectionType) {
                 case HorizontalDirection:
                     self.lineView.frame = CGRectMake(_selectIndex * view.frame.size.width, self.bounds.size.height - self.lineView.frame.size.height, lineViewWidth, lineViewHeight);
-                    self.lineView.center = CGPointMake(((_selectIndex+1)*2-1) * (view.frame.size.width/2), self.lineView.center.y);
+                    self.lineView.center = CGPointMake(view.frame.origin.x + view.frame.size.width/2, self.lineView.center.y);
                     break;
                 case VerticalDirection:
                     self.lineView.frame = CGRectMake(0, _selectIndex * view.frame.size.height, lineViewWidth, lineViewHeight);
@@ -228,6 +238,7 @@
             }
             
         }
+        visiableX += [_itemsWidth[i] floatValue];
     }
 }
 
@@ -237,21 +248,13 @@
         return;
     }
     [self setSelectIndex:btn.tag animated:YES];
-    [self selectTitle:btn.titleLabel.text];
     [self selectIndex:btn.tag];
-}
-
--(void)selectTitle:(NSString *)title;
-{
-    if (self.segmentDelegate && [self.segmentDelegate respondsToSelector:@selector(selectIndex:)]) {
-        [self.segmentDelegate selectTitle:title];
-    }
 }
 
 -(void)selectIndex:(NSInteger)index
 {
-    if (self.segmentDelegate && [self.segmentDelegate respondsToSelector:@selector(selectIndex:)]) {
-        [self.segmentDelegate selectIndex:index];
+    if (self.dynamicDelegate && [self.dynamicDelegate respondsToSelector:@selector(selectIndex:)]) {
+        [self.dynamicDelegate selectIndex:index];
     }
 }
 

@@ -15,7 +15,7 @@
     
     [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREEN_WIDTH/2 - 20);
-        make.height.mas_equalTo(@((SCREEN_WIDTH/2 - 20)*19/29));
+        //make.height.mas_equalTo(@((SCREEN_WIDTH/2 - 20)/1.52174));
     }];
     
     _titleLabel.numberOfLines = 2;
@@ -30,7 +30,7 @@
 
 -(void)loadData:(TeJiaModel *)model
 {
-    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"tejia_load_default"]];
+    [_productImage sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"tejia_load_more"]];
     
     _titleLabel.text = model.title;
     

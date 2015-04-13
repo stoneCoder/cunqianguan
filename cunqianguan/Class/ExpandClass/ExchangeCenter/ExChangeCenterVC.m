@@ -138,6 +138,7 @@ static NSString *  collectionCellID=@"ExChangeCell";
 {
     ChangeRootVC *changeRootVC = [[ChangeRootVC alloc] init];
     changeRootVC.model = _data[indexPath.row];
+    changeRootVC.isCanChange = _able;
     changeRootVC.leftTitle = @"商品详情";
     [self.navigationController pushViewController:changeRootVC animated:YES];
 }

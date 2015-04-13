@@ -80,7 +80,7 @@
         [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"抢光了" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;
-    }else if (_info.pointSite < _model.point){
+    }else if (!_isCanChange){
         [_actionBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xb4b4b4)] forState:UIControlStateNormal];
         [_actionBtn setTitle:@"积分不足" forState:UIControlStateNormal];
         _actionBtn.userInteractionEnabled = NO;

@@ -297,6 +297,7 @@
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
 		B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136951AC255CB00170996 /* ExChangeAttr.m */; };
 		B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136981AC2561500170996 /* ExChangeAttrListModel.m */; };
+		B18128631ADB67CB00C5C4BE /* DynamicBtnScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18128621ADB67CB00C5C4BE /* DynamicBtnScrollView.m */; };
 		B183DF301AB023A900DEA345 /* HotDetailShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */; };
 		B183DF311AB023A900DEA345 /* HotDetailShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */; };
 		B18DCDC51ACD3B3C00D68761 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B18DCDB51ACD3B3C00D68761 /* NSData+SDDataCache.m */; };
@@ -896,6 +897,8 @@
 		B17136951AC255CB00170996 /* ExChangeAttr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeAttr.m; sourceTree = "<group>"; };
 		B17136971AC2561500170996 /* ExChangeAttrListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeAttrListModel.h; sourceTree = "<group>"; };
 		B17136981AC2561500170996 /* ExChangeAttrListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeAttrListModel.m; sourceTree = "<group>"; };
+		B18128611ADB67CB00C5C4BE /* DynamicBtnScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicBtnScrollView.h; sourceTree = "<group>"; };
+		B18128621ADB67CB00C5C4BE /* DynamicBtnScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicBtnScrollView.m; sourceTree = "<group>"; };
 		B183DF2D1AB023A900DEA345 /* HotDetailShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailShopVC.h; sourceTree = "<group>"; };
 		B183DF2E1AB023A900DEA345 /* HotDetailShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailShopVC.m; sourceTree = "<group>"; };
 		B183DF2F1AB023A900DEA345 /* HotDetailShopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDetailShopVC.xib; sourceTree = "<group>"; };
@@ -1109,6 +1112,8 @@
 		B109D57A1A71EA1B00505D32 /* SliderView */ = {
 			isa = PBXGroup;
 			children = (
+				B18128611ADB67CB00C5C4BE /* DynamicBtnScrollView.h */,
+				B18128621ADB67CB00C5C4BE /* DynamicBtnScrollView.m */,
 				B109D57B1A71EA1B00505D32 /* TouchPropagatedScrollView.h */,
 				B109D57C1A71EA1B00505D32 /* TouchPropagatedScrollView.m */,
 				B16587F91A7F673B0032071C /* MutableButton.h */,
@@ -2973,6 +2978,7 @@
 				B1E2B89B1AB2C99F00D0FCA5 /* ACUtilities.m in Sources */,
 				B143796F1A9EB80A00D00625 /* ExChangeListModel.m in Sources */,
 				B1C910671A89E83500AE3F66 /* BankTransfersView.m in Sources */,
+				B18128631ADB67CB00C5C4BE /* DynamicBtnScrollView.m in Sources */,
 				B1B350251AAA978800D574E3 /* CheckmarkView.m in Sources */,
 				B158A7191A9DA18000C6FD3F /* MongoConnect.m in Sources */,
 				B140EC881A6F83D0004D245A /* ForgetVC.m in Sources */,

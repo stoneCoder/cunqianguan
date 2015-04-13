@@ -13,9 +13,12 @@
 #import "PolyTomorrowVC.h"
 
 #import "PolyDealTableVC.h"
-@interface PolyScrollVC ()<SegmentDelegate,BaseSelectViewDelegate,UIScrollViewDelegate>
+#import "DynamicBtnScrollView.h"
+#import "BaseUtil.h"
+@interface PolyScrollVC ()<DynamicBtnScrollViewDelegate,BaseSelectViewDelegate,UIScrollViewDelegate>
 {
-    TouchPropagatedScrollView *_navScrollV;
+    //TouchPropagatedScrollView *_navScrollV;
+    DynamicBtnScrollView *_navScrollV;
     UIScrollView *_scrollView;
     BaseSelectView *_selectView;
     NSArray *_btnArray;
@@ -61,15 +64,38 @@
     [self.view addSubview:selectBtn];
     
     
-    _navScrollV = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
-    _navScrollV.segmentDelegate = self;
+//    _navScrollV = [[TouchPropagatedScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
+//    _navScrollV.segmentDelegate = self;
+//    _navScrollV.backgroundColor = [UIColor whiteColor];
+//    [_navScrollV setShowsHorizontalScrollIndicator:NO];
+//    
+//    [_navScrollV setContentSize:CGSizeMake(btnW * [_btnArray count], btnH)];
+//    [_navScrollV setItems:_btnArray isShowLine:YES];
+    
+    _navScrollV = [[DynamicBtnScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
+    _navScrollV.dynamicDelegate = self;
     _navScrollV.backgroundColor = [UIColor whiteColor];
     [_navScrollV setShowsHorizontalScrollIndicator:NO];
     
-    [_navScrollV setContentSize:CGSizeMake(btnW * [_btnArray count], btnH)];
-    [_navScrollV setItems:_btnArray isShowLine:YES];
-    
+    NSDictionary *dic = [self calculateWidth:_btnArray andHeight:btnH];
+    [_navScrollV setContentSize:CGSizeMake([[dic objectForKey:@"totalWidth"] integerValue], btnH)];
+    [_navScrollV setItems:_btnArray withItemWidth:[dic objectForKey:@"widthArray"] isShowSeparatorLine:YES];
+
     [self.view addSubview:_navScrollV];
+}
+
+#pragma mark -- Private 计算按钮宽度
+-(NSDictionary *)calculateWidth:(NSArray *)titleArray andHeight:(CGFloat)height
+{
+    CGFloat totalWidth = 0;
+    NSMutableArray *widthArray = [NSMutableArray array];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectZero];
+    for (int i = 0; i < titleArray.count; i++) {
+        CGFloat width = [BaseUtil getWidthByString:titleArray[i] font:btn.titleLabel.font allheight:height andMaxWidth:100] + 30;
+        [widthArray addObject:[NSNumber numberWithFloat:width]];
+        totalWidth += width;
+    }
+    return @{@"widthArray":widthArray,@"totalWidth":@(totalWidth)};
 }
 
 -(void)setupScrollView
@@ -154,7 +180,7 @@
     [self selectIndex:index];
 }
 
-#pragma mark -- SegmentDelegate
+#pragma mark -- DynamicBtnScrollViewDelegate
 -(void)selectIndex:(NSInteger)index
 {
     if (_currentIndex == index) {
@@ -169,11 +195,6 @@
     _currentIndex = index;
     
     [[self childViewControllers][index] viewDidCurrentView:[_btnIdArray[index] integerValue]];
-}
-
--(void)selectTitle:(NSString *)title
-{
-    
 }
 
 #pragma mark -- UIScrollViewDelegate

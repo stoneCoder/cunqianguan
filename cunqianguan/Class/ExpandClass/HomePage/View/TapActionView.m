@@ -31,7 +31,8 @@
 
 -(void)setUpTapAction
 {
-    _tipImage.layer.cornerRadius = 3.0f;
+    _tipImage.layer.cornerRadius = _tipImage.frame.size.height/2;
+    _tipImage.backgroundColor = UIColorFromRGB(0xff5656);
 
     [_taobaoView setNormalBgColor:UIColorFromRGB(0xffa82b) andHighlightedBgColor:UIColorFromRGB(0xed961a)];
     [_zujiView setNormalBgColor:UIColorFromRGB(0x24cde6) andHighlightedBgColor:UIColorFromRGB(0x10b5cd)];

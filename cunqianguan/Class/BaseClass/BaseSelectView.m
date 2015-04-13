@@ -44,7 +44,7 @@
     _animotionHeight = heigth;
     _animotionFrame = CGRectMake(0, visiableY, width, 0);
     _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, 0)];
-    [self createBtnWithArray:btnArray andRemaind:btnArray.count%3+1];
+    [self createBtnWithArray:btnArray andRemaind:[self calculateNum:btnArray.count]];
     _btnView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_btnView];
 }
@@ -130,6 +130,7 @@
     selectBtn.backgroundColor = UIColorFromRGB(0x22AC9D);
 }
 
+#pragma mark -- Private
 -(CGFloat)calculateHeigthForRow:(NSInteger)count
 {
     CGFloat rowHeigth,heigth = BTN_HEIGTH;
@@ -139,5 +140,14 @@
         rowHeigth = heigth*(count/3);
     }
     return rowHeigth;
+}
+
+-(int)calculateNum:(NSInteger)count
+{
+    int num = 0;
+    if (count%3 > 0) {
+        num = 3 - count%3;
+    }
+    return num;
 }
 @end

@@ -55,7 +55,7 @@
 
 -(void)setUpNavBar
 {
-    [self setReturnBtnTitle:@"淘宝" titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
+    [self setReturnBtnTitle:self.leftTitle titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
      //足迹按钮
     UIButton *footBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,22,22)];
     [footBtn setBackgroundImage:[UIImage imageNamed:@"foot_web"] forState:UIControlStateNormal];
@@ -96,7 +96,7 @@
     if ([self.webView canGoBack]) {
         [self.webView goBack];
         if (!self.isReturnBack) {
-            [self setWebViewReturnBtnTitle:@"淘宝" titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
+            [self setWebViewReturnBtnTitle:self.leftTitle titleColor:UIColorFromRGB(0x3c3c3c) highlightedTileColor:UIColorFromRGB(0x000000) WithImage:@"back_web" andHighlightImage:@"back_web_down" edgeInsetsWithTitle:0];
             self.isReturnBack = YES;
         }
     }else{

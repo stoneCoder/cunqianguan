@@ -119,7 +119,7 @@
     btnFrame = CGRectMake(0,0,width,22);
     [closeBtn setFrame:btnFrame];
     [closeBtn setTitle:btnTitleStr forState:UIControlStateNormal];
-    [closeBtn setTitleColor:UIColorFromRGB(0x3c3c3c) forState:UIControlStateNormal];
+    [closeBtn setTitleColor:titleColor forState:UIControlStateNormal];
     closeBtn.titleLabel.font=[UIFont boldSystemFontOfSize:17.0];
     [closeBtn addTarget:self action:@selector(popViewAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];

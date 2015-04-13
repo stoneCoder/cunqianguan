@@ -53,18 +53,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJL-QT-gjk">
-                            <rect key="frame" x="53" y="119" width="5" height="5"/>
+                            <rect key="frame" x="53" y="113" width="7" height="7"/>
                             <color key="backgroundColor" red="0.93333333330000001" green="0.2666666667" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="5" id="I2t-aB-fvL"/>
-                                <constraint firstAttribute="height" constant="5" id="qR3-eg-8aT"/>
+                                <constraint firstAttribute="width" constant="7" id="I2t-aB-fvL"/>
+                                <constraint firstAttribute="height" constant="7" id="qR3-eg-8aT"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.14117647058823529" green="0.80392156862745101" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="1nw-sE-N3c" secondAttribute="bottom" constant="8" id="3aP-RH-D7O"/>
-                        <constraint firstAttribute="bottom" secondItem="SJL-QT-gjk" secondAttribute="bottom" constant="24" id="9gO-kg-zHf"/>
+                        <constraint firstAttribute="bottom" secondItem="SJL-QT-gjk" secondAttribute="bottom" constant="28" id="9gO-kg-zHf"/>
                         <constraint firstItem="1nw-sE-N3c" firstAttribute="leading" secondItem="zDj-74-bYt" secondAttribute="leading" constant="12" id="NaE-6G-0YO"/>
                         <constraint firstAttribute="trailing" secondItem="1nw-sE-N3c" secondAttribute="trailing" constant="68" id="QzS-Ya-uad"/>
                         <constraint firstAttribute="centerY" secondItem="93N-tx-Sk4" secondAttribute="centerY" constant="-2" id="cfe-4P-0wz"/>
