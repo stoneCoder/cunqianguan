@@ -100,7 +100,7 @@
     _nameLabel.text = _model.name;
     _cityLabel.text = _model.city;
     _bankNameLabel.text = _model.bankname;
-    _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+    _moneyLabel.text = [NSString stringWithFormat:@"%.2f元",_info.cash];
     _cardNumLabel.text = [BaseUtil transformBankCard:_model.bank];
     _numText.text = @"";
     _pwdText.text = @"";

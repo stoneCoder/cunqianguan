@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *isNewBtn;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *goTmallBtn;
 
 
 -(void)loadData:(TeJiaModel *)model;

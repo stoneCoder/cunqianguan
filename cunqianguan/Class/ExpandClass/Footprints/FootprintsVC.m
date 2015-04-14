@@ -168,7 +168,11 @@ static NSString *CellID=@"FootPrintsCell";
 {
     FootModel *model = _data[indexPath.row];
     NSString *goodKey = model.goodkey;
-    if ([BaseUtil isInstallApp:@"taobao://"]) {
+    
+    BOOL isOpenOtherApp = [BaseUtil isInstallApp:@"taobao://"];
+    #pragma mark -- 关闭淘宝APP打开
+    isOpenOtherApp = NO;
+    if (isOpenOtherApp) {
         _webPageCount = 0;
         //返利够
         if ([goodKey rangeOfString:@"0_"].location != NSNotFound || [goodKey rangeOfString:@"999_"].location != NSNotFound) {

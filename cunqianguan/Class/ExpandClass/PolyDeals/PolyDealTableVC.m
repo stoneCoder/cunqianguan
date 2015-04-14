@@ -8,6 +8,7 @@
 
 #import "PolyDealTableVC.h"
 #import "PolyGoodsTableCell.h"
+#import "HotDetailShopVC.h"
 
 #import "PersonInfo.h"
 #import "JYHConnect.h"
@@ -57,6 +58,7 @@ static NSString *polyGoodsTableCellID = @"PolyGoodsTableCell";
     UINib *cellNib = [UINib nibWithNibName:@"PolyGoodsTableCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:polyGoodsTableCellID];
     self.tableView.backgroundColor = UIColorFromRGB(0xececec);
+    self.tableView.separatorColor = UIColorFromRGB(0xe6e6e6);
     [self setRefreshEnabled:YES];
 }
 /*
@@ -143,7 +145,12 @@ static NSString *polyGoodsTableCellID = @"PolyGoodsTableCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    TeJiaModel *model = _data[indexPath.row];
+    NSString *urlPath = model.url;
+    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+    hotDetailShopVC.leftTitle = @"商品详情";
+    hotDetailShopVC.urlPath = urlPath;
+    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
 }
 
 

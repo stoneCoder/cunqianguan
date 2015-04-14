@@ -11,6 +11,7 @@
 #import "BaseSelectView.h"
 #import "PolyDealVC.h"
 #import "PolyTomorrowVC.h"
+#import "UIView+Borders.h"
 
 #import "PolyDealTableVC.h"
 #import "DynamicBtnScrollView.h"
@@ -58,6 +59,7 @@
     CGFloat btnH = 44.0f;
     UIButton *selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [selectBtn setFrame:CGRectMake(self.view.frame.size.width - btnW, 0, btnW, btnH)];
+    [selectBtn addBottomBorderWithHeight:0.5f andColor:UIColorFromRGB(0xe6e6e6)];
     [selectBtn setImage:[UIImage imageNamed:@"zhankai"] forState:UIControlStateNormal];
     [selectBtn setBackgroundColor:[UIColor whiteColor]];
     [selectBtn addTarget:self action:@selector(showSelectView:) forControlEvents:UIControlEventTouchUpInside];
@@ -73,6 +75,7 @@
 //    [_navScrollV setItems:_btnArray isShowLine:YES];
     
     _navScrollV = [[DynamicBtnScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - btnW, 44)];
+    [_navScrollV addBottomBorderWithHeight:0.5f andColor:UIColorFromRGB(0xe6e6e6)];
     _navScrollV.dynamicDelegate = self;
     _navScrollV.backgroundColor = [UIColor whiteColor];
     [_navScrollV setShowsHorizontalScrollIndicator:NO];
@@ -91,7 +94,7 @@
     NSMutableArray *widthArray = [NSMutableArray array];
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectZero];
     for (int i = 0; i < titleArray.count; i++) {
-        CGFloat width = [BaseUtil getWidthByString:titleArray[i] font:btn.titleLabel.font allheight:height andMaxWidth:100] + 30;
+        CGFloat width = [BaseUtil getWidthByString:titleArray[i] font:btn.titleLabel.font allheight:height andMaxWidth:100] + 20;
         [widthArray addObject:[NSNumber numberWithFloat:width]];
         totalWidth += width;
     }

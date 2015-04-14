@@ -51,7 +51,7 @@
     _pointImageView.layer.cornerRadius = _pointImageView.frame.size.width/2;
     _pointImageView.layer.masksToBounds = YES;
     
-    _progressBgView.backgroundColor = UIColorFromRGB(0x3CD3C8);
+    _progressBgView.backgroundColor = UIColorFromRGB(0x33ccbf);
     _progressView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _progressView.backgroundColor = UIColorFromRGB(0x29AEA4);
     [self addSubview:_progressView];
@@ -101,7 +101,7 @@
 
 -(void)showTipView:(CGRect)frame andInfo:(PersonInfo *)info
 {
-    CGFloat height = 20.0f;
+    CGFloat height = 28.0f;
     UIFont *font = [UIFont systemFontOfSize:12.0f];
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)info.userExp,(long)info.nextUserExp];
     CGFloat width = [BaseUtil getWidthByString:str font:font allheight:height andMaxWidth:150];

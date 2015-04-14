@@ -181,7 +181,10 @@
         collectImageName = @"shoucang_hover";
     }
     NSInteger type = [TBUrlUtil matchUrlWithWebSite:_finalUrl];
-    if ([BaseUtil isInstallApp:@"taobao://"] && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
+    BOOL isOpenOtherApp = [BaseUtil isInstallApp:@"taobao://"];
+    #pragma mark -- 关闭淘宝APP打开
+    isOpenOtherApp = NO;
+    if (isOpenOtherApp && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
         _moreBtnArray = @[@"刷新",@"淘宝App打开",@"收藏",@"分享"];
         _moreImageArray = @[@"refresh_btn",@"tao_btn",collectImageName,@"share_btn"];
     }else{
@@ -193,7 +196,7 @@
     pop.layer.cornerRadius = 5.0f;
     pop.layer.masksToBounds = YES;
     pop.selectRowAtIndex = ^(NSInteger index){
-        if ([BaseUtil isInstallApp:@"taobao://"] && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
+        if (isOpenOtherApp && (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL)) {
             switch (index) {
                 case 0:
                     [self loadData:_goodKey];

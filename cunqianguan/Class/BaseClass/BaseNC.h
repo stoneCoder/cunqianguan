@@ -7,5 +7,6 @@
 //
 #import <UIKit/UIKit.h>
 @interface BaseNC : UINavigationController
+//@property (nonatomic,assign) BOOL isScale;
 -(void)setUpNavBgColor;
 @end

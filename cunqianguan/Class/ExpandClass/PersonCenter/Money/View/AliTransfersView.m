@@ -145,9 +145,9 @@
 {
     _aliNumLabel.text = _model.alipay;
     if (_type == 1) {
-        _moneyLabel.text = [NSString stringWithFormat:@"%ld元",(long)_info.cashAll];
+        _moneyLabel.text = [NSString stringWithFormat:@"%.2f元",_info.cash];
     }else if (_type == 2){
-        _moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)_info.pointSite];
+        _moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)_info.pointTb];
     }
     _numText.text = @"";
     _pwdText.text = @"";

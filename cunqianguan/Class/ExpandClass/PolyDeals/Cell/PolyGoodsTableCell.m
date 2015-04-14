@@ -20,6 +20,9 @@
     
     _titleLabel.numberOfLines = 2;
     _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    _goTmallBtn.layer.cornerRadius = 3.0f;
+    _goTmallBtn.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

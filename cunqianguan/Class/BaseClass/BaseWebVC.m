@@ -135,7 +135,7 @@
 
 -(void)leftBtnClicked:(id)sender
 {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)popViewAction:(id)sender
@@ -258,7 +258,7 @@
             /*聚优惠/返利够进入*/
             NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
             if (type < 4) {
-                [_info saveTraceFlag:@"YES"];
+                //[_info saveTraceFlag:@"YES"];
                 if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
                 }else{

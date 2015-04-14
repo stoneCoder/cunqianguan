@@ -578,7 +578,7 @@
 -(void)pushPolyHome
 {
     PolyScrollVC *polyScrollVC = [[PolyScrollVC alloc] init];
-    polyScrollVC.leftTitle = @"聚优惠";
+    polyScrollVC.leftTitle = @"特价专享";
     [self.navigationController pushViewController:polyScrollVC animated:YES];
 }
 

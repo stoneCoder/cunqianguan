@@ -14,6 +14,7 @@
 #import "FinishInfoVC.h"
 #import "BindAccountVC.h"
 
+#import "Constants.h"
 #import "PersonInfo.h"
 #import "LoginConnect.h"
 #import "BaseUtil.h"
@@ -199,7 +200,9 @@
                     }
                     person.password = userId;
                     [person loginSuccessWith:[dic objectForKey:@"data"]];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
+                    }];
                 }
             } failure:^(NSError *err) {
                 
@@ -238,7 +241,9 @@
                     }
                     person.password = userId;
                     [person loginSuccessWith:[dic objectForKey:@"data"]];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
+                    }];
                 }
             } failure:^(NSError *err) {
                 

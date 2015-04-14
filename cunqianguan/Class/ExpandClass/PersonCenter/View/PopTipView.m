@@ -29,7 +29,7 @@
         _bgImageView.image = [UIImage imageNamed:@"jifen"];
         [self addSubview:_bgImageView];
         
-        _infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, self.frame.size.width - 10, 10)];
+        _infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.frame.size.width - 10, 10)];
         _infoLabel.backgroundColor = [UIColor clearColor];
         _infoLabel.textColor = [UIColor whiteColor];
         _infoLabel.font = [UIFont systemFontOfSize:12.0f];

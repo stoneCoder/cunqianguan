@@ -10,6 +10,7 @@
 #import "CollectCell.h"
 #import "AllCheckView.h"
 #import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
+#import "ReturnHomeGoodsVC.h"
 
 #import "PersonConnect.h"
 #import "BaseConnect.h"
@@ -175,7 +176,14 @@ static NSString *collectID = @"CollectCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if (!_isEditModel) {
+        ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
+        CollectModel *model = _data[indexPath.row];
+        returnHomeGoodsVC.goodKey = model.goodkey;
+        returnHomeGoodsVC.leftTitle = @"商品详情";
+        returnHomeGoodsVC.type = 1;
+        [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
+    }
 }
 
 #pragma mark --  CheckmarkViewDelegate
