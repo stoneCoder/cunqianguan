@@ -47,6 +47,9 @@
     if(model.commissionRate == 0){
         fanliText = @"无返利";
     }
+    if (model.tejie) {
+        fanliText = @"购买后最高返利100个集分宝";
+    }
     NSMutableAttributedString *fanliStr = [[NSMutableAttributedString alloc] initWithString:fanliText];
     if (model.commissionRate  > 0 ) {
         [fanliStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2EB7AD) range:NSMakeRange(7, fanliText.length - 11)];

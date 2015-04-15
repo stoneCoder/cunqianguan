@@ -16,4 +16,5 @@
 @property (assign, nonatomic) CGFloat price;
 @property (assign, nonatomic) CGFloat priceOld;
 @property (strong, nonatomic) NSString *title;
+@property (assign, nonatomic) BOOL tejie;
 @end
