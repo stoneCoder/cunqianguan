@@ -47,7 +47,7 @@
     _typeLabel.text = typeStr;
     
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        //_productImage.image = [image imageByScalingAndCroppingForSize:_productImage.frame.size];
+        _productImage.image = [image resizeImageToSize:_productImage.frame.size resizeMode:enSvResizeAspectFit];
     }];
     _priceLabel.text = [NSString stringWithFormat:@"%.2f元",model.pay_price];
     _moneyLable.text = [NSString stringWithFormat:@"%ld元",(long)model.fanli];

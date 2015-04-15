@@ -7,7 +7,6 @@
 //
 
 #import "PolyGoodsTableCell.h"
-
 @implementation PolyGoodsTableCell
 
 - (void)awakeFromNib {

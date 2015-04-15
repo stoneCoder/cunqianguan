@@ -14,6 +14,7 @@
 #import "JYHConnect.h"
 #import "BaseConnect.h"
 #import "TeJiaListModel.h"
+
 @interface PolyDealTableVC ()
 {
     PersonInfo *_info;

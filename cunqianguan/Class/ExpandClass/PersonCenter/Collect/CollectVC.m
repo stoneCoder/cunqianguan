@@ -11,6 +11,7 @@
 #import "AllCheckView.h"
 #import "UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h"
 #import "ReturnHomeGoodsVC.h"
+#import "HotDetailShopVC.h"
 
 #import "PersonConnect.h"
 #import "BaseConnect.h"
@@ -177,6 +178,12 @@ static NSString *collectID = @"CollectCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!_isEditModel) {
+//        CollectModel *model = _data[indexPath.row];
+//        NSString *urlPath = model.itemUrl;
+//        HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+//        hotDetailShopVC.leftTitle = @"商品详情";
+//        hotDetailShopVC.urlPath = urlPath;
+//        [self.navigationController pushViewController:hotDetailShopVC animated:YES];
         ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
         CollectModel *model = _data[indexPath.row];
         returnHomeGoodsVC.goodKey = model.goodkey;

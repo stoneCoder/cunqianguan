@@ -11,6 +11,7 @@
 #import "BaseSegment.h"
 #import "ExChangeModel.h"
 #import "Constants.h"
+#import "UIImage+Resize.h"
 @interface ChangeProductVC ()<CCSegmentDelegate>
 {
     BOOL _isTrueProduct;
@@ -160,18 +161,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
+        _segment.backgroundColor = [UIColor whiteColor];
+        _segment.delegate = self;
+        [cell.contentView addSubview:_segment];
+        if (_isTrueProduct) {
+            _titleArray = @[@"商品详情",@"兑换规则"];
+        }else{
+            _titleArray = @[@"兑换规则"];
+        }
+        [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     }
-    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
-    _segment.backgroundColor = [UIColor whiteColor];
-    _segment.delegate = self;
-    [cell.contentView addSubview:_segment];
-    if (_isTrueProduct) {
-        _titleArray = @[@"商品详情",@"兑换规则"];
-    }else{
-        _titleArray = @[@"兑换规则"];
-    }
-    [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -199,6 +201,7 @@
     CGRect frame = _tabView.frame;
     _textView = [[UITextView alloc] initWithFrame:frame];
     _textView.editable = NO;
+    _textView.scrollEnabled = NO;
     if (_detailModel.rules.count > 0) {
         NSArray *rules = _detailModel.rules[0];
         NSString *str = @"兑换说明\n";
@@ -221,6 +224,7 @@
     
     if (_isTrueProduct) {
         _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+        _scrollView.delegate = self;
         _scrollView.backgroundColor = [UIColor whiteColor];
         [_tabView addSubview:_scrollView];
         if (_detailModel.pics.count > 0) {
@@ -228,7 +232,9 @@
             CGFloat visiableY = 0,visiableHeight = 150;
             for (int i = 0; i < pics.count; i++) {
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, visiableY, frame.size.width, visiableHeight)];
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",shareURL,pics[i]]]];
+                [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",shareURL,pics[i]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+                }];
                 [_scrollView addSubview:imageView];
                 visiableY = imageView.frame.size.height + imageView.frame.origin.y;
             }
@@ -243,11 +249,21 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat sectionHeaderHeight = 20;
-//    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-//        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-//    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-//        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-//    }
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        _scrollView.scrollEnabled = YES;
+    }else{
+        if (scrollView.contentOffset.y <= 0) {
+            _scrollView.scrollEnabled = NO;
+        }else{
+            _scrollView.scrollEnabled = YES;
+        }
+    }
+    
+    CGFloat sectionHeaderHeight = 20;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
 }
 @end

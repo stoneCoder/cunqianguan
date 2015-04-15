@@ -25,7 +25,9 @@ static NSString *msgSetCellId = @"MsgSetCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if ([BaseUtil isInstallApp:@"taobao://"]) {
+    BOOL isOpenOtherApp = [BaseUtil isInstallApp:@"taobao://"];
+    isOpenOtherApp = NO;
+    if (isOpenOtherApp) {
         _localData = @[@"用淘宝客户端打开",@"消息提醒",@"通知时段"];
     }else{
         _localData = @[@"消息提醒",@"通知时段"];

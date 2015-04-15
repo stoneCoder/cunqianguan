@@ -210,18 +210,18 @@ static NSString *CellID=@"FootPrintsCell";
         }
     }else{
         //没有安装淘宝客户端
-        if ([goodKey rangeOfString:@"1000_"].location != NSNotFound) {
-            //聚优惠商品
-            PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
-            polyGoodsRootVC.goodKey = goodKey;
-            polyGoodsRootVC.leftTitle = @"商品详情";
-            [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
-        }else{
+//        if ([goodKey rangeOfString:@"1000_"].location != NSNotFound) {
+//            //聚优惠商品
+//            PolyGoodsRootVC *polyGoodsRootVC = [[PolyGoodsRootVC alloc] init];
+//            polyGoodsRootVC.goodKey = goodKey;
+//            polyGoodsRootVC.leftTitle = @"商品详情";
+//            [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
+//        }else{
             ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
             returnHomeGoodsVC.goodKey = goodKey;
             returnHomeGoodsVC.leftTitle = @"商品详情";
             [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
-        }
+        //}
     }
 }
 

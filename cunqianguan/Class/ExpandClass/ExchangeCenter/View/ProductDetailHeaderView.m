@@ -34,10 +34,9 @@
 {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     CGRect frame = _scrollview.frame;
-    frame.size.width = SCREEN_WIDTH;
     imageView.frame = frame;
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.pic_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+        imageView.image = [image resizeImageToSize:imageView.frame.size resizeMode:enSvResizeAspectFill];
     }];
     [_scrollview addSubview:imageView];
     

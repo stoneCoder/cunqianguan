@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 /*IOS8 设置separator置顶*/
@@ -111,7 +112,7 @@
     _bgView.backgroundColor = UIColorFromRGB(0xf0f0f0);
     if (view) {
         _bgView.frame = view.frame;
-        [view addSubview:_bgView];
+        [self.view insertSubview:_bgView aboveSubview:view];
     }else{
         CGRect frame = self.view.frame;
         frame.origin.y = 0;

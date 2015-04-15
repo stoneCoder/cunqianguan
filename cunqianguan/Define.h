@@ -8,7 +8,7 @@
 //
 
 //#define API @"http://www.baoxianqi.com/MobileApi/"
-#define API @"http://deve.baoxianqi.com/MobileApi/"
+#define API @"http://tmp.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \

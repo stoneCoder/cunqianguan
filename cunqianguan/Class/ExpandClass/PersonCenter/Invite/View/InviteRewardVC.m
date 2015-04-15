@@ -56,9 +56,15 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setRefreshEnabled:YES];
     
-    CGFloat visiableY = _topView.frame.size.height + _topView.frame.origin.y + 30;
-    self.tableView.frame = CGRectMake(10,visiableY, SCREEN_WIDTH - 20, SCREEN_HEIGTH - visiableY - 64);
 }
+
+-(void)viewDidLayoutSubviews
+{
+    CGFloat visiableY = _topView.frame.size.height + _topView.frame.origin.y + 30;
+    self.tableView.frame = CGRectMake(0,visiableY, SCREEN_WIDTH, SCREEN_HEIGTH - visiableY - 64);
+    self.defaultEmptyView.frame = self.tableView.frame;
+}
+
 
 #pragma mark -- 加载数据
 -(void)loadDataWith:(NSString *)userId andPage:(NSInteger)page
@@ -83,7 +89,6 @@ static NSString *InviteRewardCellID = @"InviteRewardCell";
             }
             [_data addObjectsFromArray:listModel.moneylog];
             if (_data.count == 0) {
-                self.defaultEmptyView.frame = self.tableView.frame;
                 self.defaultEmptyView.hidden = NO;
                 self.tableView.hidden = YES;
             }
