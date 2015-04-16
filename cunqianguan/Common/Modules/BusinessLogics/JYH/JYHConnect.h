@@ -33,4 +33,9 @@ DEFINE_SINGLETON_FOR_HEADER(JYHConnect)
                  andPage:(NSInteger)pageNum
                  success:(void (^)(id json))success
                  failure:(void (^)( NSError *err))failure;
+
+-(void)getTaoLinkById:(NSString *)userId
+          withGoodKey:(NSString *)goodKey
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure;
 @end

@@ -36,7 +36,7 @@
     // Do any additional setup after loading the view.
     _btnArray = TABLE_MENU_ARRAY;
     _btnIdArray = TABLE_MENU_ID;
-    [self setUpRightBtn];
+    //[self setUpRightBtn];
     [self setUpSliderView];
     [self setupScrollView];
     [self setUpSelectView];

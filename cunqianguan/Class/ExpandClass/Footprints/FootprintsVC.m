@@ -44,6 +44,7 @@ static NSString *CellID=@"FootPrintsCell";
     _data = [NSMutableArray array];
     [self setUpNavbtn];
     [self setUpTableView];
+    [self showLoaderView:self.tableView];
     [self loadData:_pageNum];
 }
 
@@ -102,9 +103,10 @@ static NSString *CellID=@"FootPrintsCell";
 
 -(void)loadData:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
     [[FootConnect sharedFootConnect] getTraceGoods:_info.userId withPage:page success:^(id json) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             FootListModel *listModel = [[FootListModel alloc] initWithDictionary:dic error:nil];
@@ -121,7 +123,8 @@ static NSString *CellID=@"FootPrintsCell";
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

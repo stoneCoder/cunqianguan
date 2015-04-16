@@ -76,7 +76,7 @@
     }
     switch (_type) {
         case 1:
-            if([money integerValue] > _info.cashAll){
+            if([money integerValue] > _info.cash){
                 [self showStringHUD:@"提现数量不能大于可提现数量！" second:2];
                 return;
             }
@@ -87,7 +87,7 @@
             }
             break;
         case 2:
-            if([money integerValue] > _info.pointSite){
+            if([money integerValue] > _info.pointTb){
                 [self showStringHUD:@"提现数量不能大于可提现数量！" second:2];
                 return;
             }

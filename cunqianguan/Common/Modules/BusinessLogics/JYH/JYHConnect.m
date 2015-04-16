@@ -74,4 +74,18 @@ DEFINE_SINGLETON_FOR_CLASS(JYHConnect)
         failure(json);
     } withView:nil];
 }
+
+-(void)getTaoLinkById:(NSString *)userId
+          withGoodKey:(NSString *)goodKey
+              success:(void (^)(id json))success
+              failure:(void (^)( NSError *err))failure
+{
+    NSString *url = @"getTaoLink";
+    NSDictionary *dic =  @{@"uid":userId,@"goodkey":goodKey};
+    [BaseConnect post:url Parameters:dic success:^(id json) {
+        success(json);
+    } failure:^(id json) {
+        failure(json);
+    } withView:nil];
+}
 @end

@@ -10,5 +10,5 @@
 #import "HotShopModel.h"
 @interface HotDetailShopVC : BaseWebVC
 @property (strong, nonatomic) NSString *urlPath;
-
+@property (assign, nonatomic) BOOL isfixUrl;
 @end

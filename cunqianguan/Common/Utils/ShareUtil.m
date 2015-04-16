@@ -21,7 +21,7 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
     NSString *first;
     if ([goodKey rangeOfString:@"_"].location != NSNotFound) {
         first = [goodKey componentsSeparatedByString:@"_"][0];
-        goodKey = [goodKey componentsSeparatedByString:@"_"][1];
+        //goodKey = [goodKey componentsSeparatedByString:@"_"][1];
     }
     NSString *shareQQURL = SHARE_QQ_URL(goodKey,userId);
     NSString *shareWCURL = SHARE_WC_URL(goodKey,userId);
@@ -38,9 +38,13 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
     [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:imageUrl];
     
     /*QQ*/
-    [UMSocialData defaultData].extConfig.qqData.url = shareQQURL;
+    //[UMSocialData defaultData].extConfig.qqData.url = shareQQURL;
     //[UMSocialData defaultData].extConfig.qqData.title = SHARE_TITLE(11.0f,11.0f);
-    [UMSocialData defaultData].extConfig.qqData.shareText = SHARE_CONTENT;
+    //[UMSocialData defaultData].extConfig.qqData.shareText = SHARE_CONTENT;
+    
+    [UMSocialData defaultData].extConfig.qzoneData.url = shareQQURL;
+    [UMSocialData defaultData].extConfig.qzoneData.title = content;
+    [UMSocialData defaultData].extConfig.qzoneData.shareText = SHARE_CONTENT;
     
     /*微信好友*/
     [UMSocialData defaultData].extConfig.wechatSessionData.url = shareWCURL;
@@ -81,17 +85,21 @@ DEFINE_SINGLETON_FOR_CLASS(ShareUtil)
     /*QQ*/
     [UMSocialData defaultData].extConfig.qqData.title = INVITE_TITLE;
     [UMSocialData defaultData].extConfig.qqData.shareText = INVITE_CONTENT;
+    [UMSocialData defaultData].extConfig.qqData.url = content;
+    
     
     /*微信好友*/
     [UMSocialData defaultData].extConfig.wechatSessionData.title = INVITE_TITLE;
     [UMSocialData defaultData].extConfig.wechatSessionData.shareText = INVITE_CONTENT;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = content;
     
     /*微信朋友圈*/
     [UMSocialData defaultData].extConfig.wechatTimelineData.title = INVITE_TITLE;
     [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = INVITE_CONTENT;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = content;
     
     /*微博*/
-    [UMSocialData defaultData].extConfig.sinaData.shareText = INVITE_CONTENT;
+    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@%@",INVITE_CONTENT,content];
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:nil

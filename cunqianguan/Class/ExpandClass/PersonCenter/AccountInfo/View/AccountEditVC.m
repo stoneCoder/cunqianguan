@@ -95,10 +95,14 @@
     pwd = [BaseUtil encrypt:pwd];
     NSLog(@"%@<---------->%@",_selectSubModel,_selectTopModel);
     [self showHUD:ACTION_LOAD];
-    [[PersonConnect sharedPersonConnect] updateBankAccount:_info.email pwd:pwd bankaccount:bankNum consignee:name area:_selectSubModel.cityId bank:0 success:^(id json) {
+    [[PersonConnect sharedPersonConnect] updateBankAccount:_info.email pwd:pwd bankaccount:bankNum consignee:name area:_selectSubModel.cityId bank:1 success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showHUD:[dic objectForKey:@"info"] animated:2];
+        if ([BaseConnect isSucceeded:dic]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        }
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
@@ -119,7 +123,11 @@
     [[PersonConnect sharedPersonConnect] updateAlipay:_info.email pwd:alipayPwd aliaccount:alipayNum success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        if ([BaseConnect isSucceeded:dic]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self showStringHUD:[dic objectForKey:@"info"] second:2];
+        }
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];

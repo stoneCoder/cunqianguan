@@ -163,7 +163,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
       OrderModel *model = _data[indexPath.row];
-      NSString *goodKey = model.goodkey;
+      NSString *goodKey = [NSString stringWithFormat:@"0_%@",model.goodkey];
       UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
       if ([cell isKindOfClass:[TaoOrderCell class]] && goodKey.length > 0) {
           ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];

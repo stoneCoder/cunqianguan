@@ -10,8 +10,10 @@
 #import "PolyGoodsTableCell.h"
 #import "HotDetailShopVC.h"
 
+#import "Constants.h"
 #import "PersonInfo.h"
 #import "JYHConnect.h"
+#import "FootConnect.h"
 #import "BaseConnect.h"
 #import "TeJiaListModel.h"
 
@@ -146,12 +148,41 @@ static NSString *polyGoodsTableCellID = @"PolyGoodsTableCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TeJiaModel *model = _data[indexPath.row];
-    NSString *urlPath = model.url;
-    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
-    hotDetailShopVC.leftTitle = @"商品详情";
-    hotDetailShopVC.urlPath = urlPath;
-    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
+    [_info isLoginWithPresent:^(BOOL flag) {
+        __block TeJiaModel *model = _data[indexPath.row];
+        [[JYHConnect sharedJYHConnect] getTaoLinkById:_info.userId withGoodKey:model.numId success:^(id json) {
+            NSDictionary *dic = (NSDictionary *)json;
+            if ([BaseConnect isSucceeded:dic]) {
+                
+                //[self addTrace:_info.userId WithProduct:model.numId];
+                NSString *urlPath = [[dic objectForKey:@"data"] objectForKey:@"url"];
+                HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+                hotDetailShopVC.leftTitle = @"商品详情";
+                hotDetailShopVC.urlPath = urlPath;
+                hotDetailShopVC.isfixUrl = YES;
+                hotDetailShopVC.isTrueTrance = YES;
+                [self.navigationController pushViewController:hotDetailShopVC animated:YES];
+            }
+        } failure:^(NSError *err) {
+            
+        }];
+    } WithType:YES];
+}
+
+#pragma mark -- Private 添加足迹
+-(void)addTrace:(NSString *)userId WithProduct:(NSString *)productId
+{
+    //添加足迹
+    [[FootConnect sharedFootConnect] addTrace:userId withGoodKey:productId success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            //添加足迹成功
+            [_info saveTraceFlag:@"YES"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:nil];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 

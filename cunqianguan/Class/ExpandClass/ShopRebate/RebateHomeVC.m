@@ -85,7 +85,7 @@
 
 -(void)refreshView
 {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@&uid=%@",aiTaoUrl,MM,_info.userId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@&unid=%@",aiTaoUrl,MM,_info.userId];
     NSURL* url = [NSURL URLWithString:urlStr];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];

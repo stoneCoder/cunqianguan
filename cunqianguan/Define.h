@@ -7,8 +7,8 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-//#define API @"http://www.baoxianqi.com/MobileApi/"
-#define API @"http://tmp.baoxianqi.com/MobileApi/"
+#define API @"http://www.baoxianqi.com/MobileApi/"
+//#define API @"http://tmp.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
@@ -63,6 +63,7 @@ return shared##className; \
 #define TIPS_ARRAY @[@"小贴士：见你所爱，勿忘收藏",@"小贴士：长按商品，即取消收藏",@"小贴士：足迹，留下您所浏览的商品返利",@"小贴士：淘宝新规，确认收货才见订单",@"小贴士：同类APP，保鲜期返利最高哦",@"小贴士：凡返利购商品，俱详细返利比",@"小贴士：手机签到，得额外奖励"]
 
 #define SHARE_CONTEXT(money) [NSString stringWithFormat:@"只要%.2f元,刚刚在 @保鲜期官网 上发现了这个宝贝，非常喜欢，还有返利，赶快来抢吧！",money];
+#define NEW_SHARE_CONTEXT(title,fanli) [NSString stringWithFormat:@"真返钱啦！我买了%@竟然返我%d集分宝，能省就省，积少成多，小伙伴们快来这里参与吧",title,fanli];
 #define BASE_URL @"http://www.baoxianqi.com/"
 
 #define SHARE_WX_TITLE @"保鲜期APP手机购物高达90%的返利金额，更有新玩法（我的足迹）助您易GO即返！下载即送5元红包！"
@@ -76,10 +77,10 @@ return shared##className; \
 #define SHARE_WC_JYH_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 #define SHARE_WB_JYH_URL(goodKey,userId) [NSString stringWithFormat:@"%@juyouhui/goods?id=%@&pf=wc&uid=%@",BASE_URL,goodKey,userId];
 
-#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=qz&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wx&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wc&uid=%@",BASE_URL,goodKey,userId];
-#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@fanligou/%@.html?&pf=wb&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_QQ_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=qz&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WX_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wx&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WC_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wc&uid=%@",BASE_URL,goodKey,userId];
+#define SHARE_WB_URL(goodKey,userId) [NSString stringWithFormat:@"%@item/%@.html?&pf=wb&uid=%@",BASE_URL,goodKey,userId];
 
 #define SEARCH_URL(searchText,mm,userId) [NSString stringWithFormat:@"http://ai.m.taobao.com/search.html?q=%@&pid=%@&unid=%@",searchText,mm,userId]
 
