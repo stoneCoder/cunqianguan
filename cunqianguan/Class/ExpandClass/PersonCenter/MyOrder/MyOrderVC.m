@@ -26,6 +26,7 @@
     NSInteger _pageNum;
     PersonInfo *_info;
     OrderListModel *_listModel;
+    BOOL _firstLoad;
 }
 
 @end
@@ -52,7 +53,10 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 -(void)viewDidCurrentView:(NSInteger)type
 {
     _orderType = type;
-    [self loadDataWith:_orderType andPage:_pageNum];
+    if (!_firstLoad) {
+        [self showLoaderView:self.tableView];
+        [self loadDataWith:_orderType andPage:_pageNum];
+    }
 }
 
 /*
@@ -82,9 +86,10 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
 /*type 0 淘宝 1 商城*/
 -(void)loadDataWith:(NSInteger)type andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
     [[PersonConnect sharedPersonConnect] getOrderInfo:_info.email pwd:_info.password withType:type andPage:page success:^(id json) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[OrderListModel alloc] initWithDictionary:dic error:nil];
@@ -103,7 +108,8 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 

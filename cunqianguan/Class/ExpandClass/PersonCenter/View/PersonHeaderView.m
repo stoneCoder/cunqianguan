@@ -55,6 +55,8 @@
     _progressView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _progressView.backgroundColor = UIColorFromRGB(0x29AEA4);
     [self addSubview:_progressView];
+    
+    _nameLabel.text = @"  ";
 }
 
 -(void)loadView:(PersonInfo *)info

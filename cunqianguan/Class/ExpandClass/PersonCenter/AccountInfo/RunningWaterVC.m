@@ -24,6 +24,7 @@
     NSInteger _pageNum;
     RunningWaterListModel *_listModel;
     NSMutableArray *_data;
+    BOOL _firstLoad;
 }
 
 @end
@@ -47,7 +48,10 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 -(void)viewDidCurrentView:(NSInteger)type
 {
     _type = type;
-    [self loadData:_type andPage:_pageNum];
+    if (!_firstLoad) {
+        [self showLoaderView:self.tableView];
+        [self loadData:_type andPage:_pageNum];
+    }
 }
 
 /*
@@ -73,9 +77,10 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
 
 -(void)loadData:(NSInteger)type andPage:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
     [[PersonConnect sharedPersonConnect] getUserMoneyInfo:_info.email pwd:_info.password WithType:type andPage:page success:^(id json) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[RunningWaterListModel alloc] initWithDictionary:dic error:nil];
@@ -90,7 +95,8 @@ static NSString *RunningWaterCellID = @"RunningWaterCell";
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
     }];
 }
 
