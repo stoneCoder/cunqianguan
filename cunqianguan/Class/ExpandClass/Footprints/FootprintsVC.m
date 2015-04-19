@@ -292,15 +292,17 @@ static NSString *CellID=@"FootPrintsCell";
         NSDictionary *dic = (NSDictionary *)json;
         __block NSString *resultStr = [dic objectForKey:@"info"];
         if ([BaseConnect isSucceeded:dic]) {
-            [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
-                NSDictionary *dic = (NSDictionary *)json;
-                if ([BaseConnect isSucceeded:dic]) {
-                    [self showStringHUD:resultStr second:1.5];
-                    [self.tableView reloadData];
-                }
-            } failure:^(id json) {
-                
-            }];
+            [self showStringHUD:resultStr second:1.5];
+            [self.tableView reloadData];
+//            [_info getUserInfo:_info.username withPwd:_info.password success:^(id json) {
+//                NSDictionary *dic = (NSDictionary *)json;
+//                if ([BaseConnect isSucceeded:dic]) {
+//                    [self showStringHUD:resultStr second:1.5];
+//                    [self.tableView reloadData];
+//                }
+//            } failure:^(id json) {
+//                
+//            }];
         }else{
             [self showStringHUD:@"收藏失败，请重试" second:1.5];
             [self.tableView reloadData];

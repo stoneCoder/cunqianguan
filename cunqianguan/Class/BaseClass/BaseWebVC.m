@@ -258,7 +258,7 @@
             /*聚优惠/返利够进入*/
             NSInteger type = [TBUrlUtil matchUrlWithWebSite:accesUrl];
             if (type < 4) {
-                //[_info saveTraceFlag:@"YES"];
+                [_info saveTraceFlag:@"YES"];
                 if (type == TB_REBATE_FINAL_DETAIL_URL || type == TM_REBATE_FINAL_DETAIL_URL) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:kWebUrlFinal object:accesUrl];
                 }else{
@@ -419,7 +419,9 @@
 -(void)addTmallTrace:(NSString *)userId WithProduct:(NSString *)productId type:(NSInteger)type andFinalUrl:(NSString *)accesUrl inView:(UIWebView *)webView
 {
     NSString *price = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('ui-yen')[0].innerHTML"];
-    price = [price substringFromIndex:1];
+    if (price.length > 0) {
+        price = [price substringFromIndex:1];
+    }
     NSString *pic_url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('s-showcase').getElementsByTagName('img')[0].src"];
     NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('s-title').getElementsByTagName('h1')[0].innerHTML"];
     [[FootConnect sharedFootConnect] addTrace:userId goodKey:productId title:title picUrl:pic_url price:price success:^(id json) {

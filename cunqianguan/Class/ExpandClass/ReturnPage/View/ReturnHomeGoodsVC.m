@@ -59,6 +59,12 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self refreshNavBar];
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
