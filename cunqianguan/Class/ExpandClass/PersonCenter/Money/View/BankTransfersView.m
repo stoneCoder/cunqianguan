@@ -80,19 +80,25 @@
         [self showStringHUD:@"提现金额需大于等于30且为5的整数倍！" second:2];
         return;
     }
-    pwd = [BaseUtil encrypt:pwd];
-    [self showHUD:ACTION_LOAD];
-    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
-        if ([BaseConnect isSucceeded:dic]) {
-            _numText.text = @"";
-            _pwdText.text = @"";
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(cashToBank:pwd:)]) {
+        [_delegate cashToBank:money pwd:pwd];
+    }
+//    pwd = [BaseUtil encrypt:pwd];
+//    [self showHUD:ACTION_LOAD];
+//    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
+//        [self hideAllHUD];
+//        NSDictionary *dic = (NSDictionary *)json;
+//        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+//        if ([BaseConnect isSucceeded:dic]) {
+//            _numText.text = @"";
+//            _pwdText.text = @"";
+//            
+//            [self hideView];
+//        }
+//    } failure:^(NSError *err) {
+//        [self hideAllHUD];
+//    }];
 }
 
 -(void)loadData

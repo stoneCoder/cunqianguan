@@ -11,7 +11,9 @@
 
 #import "PolyGoodsRootVC.h"
 #import "ReturnHomeGoodsVC.h"
+#import "HotDetailShopVC.h"
 
+#import "Constants.h"
 #import "MongoConnect.h"
 #import "JYHConnect.h"
 #import "FootConnect.h"
@@ -220,11 +222,18 @@ static NSString *CellID=@"FootPrintsCell";
 //            polyGoodsRootVC.leftTitle = @"商品详情";
 //            [self.navigationController pushViewController:polyGoodsRootVC animated:YES];
 //        }else{
+        
+        //}
+        if (model.commissionRate == 0) {
+           /*无返利跳转*/
+            NSString *url = SEARCH_URL(model.title,MM,_info.userId);
+            [self pushToWeb:url];
+        }else{
             ReturnHomeGoodsVC *returnHomeGoodsVC = [[ReturnHomeGoodsVC alloc] init];
             returnHomeGoodsVC.goodKey = goodKey;
             returnHomeGoodsVC.leftTitle = @"商品详情";
             [self.navigationController pushViewController:returnHomeGoodsVC animated:YES];
-        //}
+        }
     }
 }
 
@@ -240,6 +249,13 @@ static NSString *CellID=@"FootPrintsCell";
     [webView loadRequest:request];
 }
 
+-(void)pushToWeb:(NSString *)url
+{
+    HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
+    hotDetailShopVC.leftTitle = @"淘宝";
+    hotDetailShopVC.urlPath = url;
+    [self.navigationController pushViewController:hotDetailShopVC animated:YES];
+}
 /**
  *  Cell滑动按钮
  *

@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, EditViewType) {
 @interface AccountEditVC : BaseVC
 @property (weak, nonatomic) IBOutlet UIView *AlipayView;
 @property (weak, nonatomic) IBOutlet UIView *bankCardView;
+@property (weak, nonatomic) IBOutlet UITextField *aliPayNameText;
 @property (weak, nonatomic) IBOutlet UITextField *aliPayText;
 @property (weak, nonatomic) IBOutlet UITextField *aliPayPwdText;
 @property (weak, nonatomic) IBOutlet UITextField *bankNameText;

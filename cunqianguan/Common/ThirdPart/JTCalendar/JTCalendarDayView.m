@@ -167,7 +167,7 @@ static NSString *kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         for (int i = 0; i < dateArray.count; i++) {
             SignModel *model = dateArray[i];
             NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.showdayios];
-            NSLog(@"%@<-------------->%@<-------------->%d",date,self.date,model.issign);
+            //NSLog(@"%@<-------------->%@<-------------->%d",date,self.date,model.issign);
             if ([self.date isEqualToDate:date]) {
                 if (!isSelected && model.issign) {
                     [self didTouch:model.issign];

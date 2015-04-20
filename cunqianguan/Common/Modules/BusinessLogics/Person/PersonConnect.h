@@ -90,6 +90,7 @@ DEFINE_SINGLETON_FOR_HEADER(PersonConnect)
 -(void)updateAlipay:(NSString *)email
                 pwd:(NSString *)pwd
          aliaccount:(NSString *)account
+            aliName:(NSString *)aliName
             success:(void (^)(id json))success
             failure:(void (^)( NSError *err))failure;
 

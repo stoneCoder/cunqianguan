@@ -99,6 +99,7 @@ static NSString *ShopOrderCellID = @"ShopOrderCell";
             [_data addObjectsFromArray:_listModel.data];
             if (type == 0 && _data.count == 0) {
                 self.defaultEmptyView.hidden = NO;
+                self.defaultEmptyView.emptydetailInfoLabel.text = @"根据淘宝新规，确认收货后才能看到订单";
                 self.defaultEmptyView.emptydetailInfoLabel.hidden = NO;
                 self.tableView.hidden = YES;
             }else if (type == 1 && _data.count == 0){

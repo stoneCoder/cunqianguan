@@ -30,6 +30,12 @@ static NSString *AccountCellID = @"AccountCell";
     // Do any additional setup after loading the view from its nib.
     _info = [PersonInfo sharedPersonInfo];
     [self setUpTableView];
+    //[self loadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self loadData];
 }
 

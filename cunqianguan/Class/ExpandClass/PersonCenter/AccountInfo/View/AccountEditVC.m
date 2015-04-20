@@ -62,6 +62,11 @@
             _AlipayView.hidden = NO;
             _bankCardView.hidden = YES;
             
+            if (_model.alipay.length > 0) {
+                [_bindAliBtn setTitle:@"修改支付宝" forState:UIControlStateNormal];
+            }else{
+                [_bindAliBtn setTitle:@"设置支付宝" forState:UIControlStateNormal];
+            }
             [_bindAliBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x2db8ad)] forState:UIControlStateNormal];
             [_bindAliBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0x179a90)] forState:UIControlStateHighlighted];
             _bindAliBtn.layer.cornerRadius = 5.0f;
@@ -72,6 +77,11 @@
             _bankCardView.hidden = NO;
             _bankCardView.backgroundColor = self.view.backgroundColor;
             
+            if (_model.bank.length > 0) {
+                [_bindBankBtn setTitle:@"修改银行卡" forState:UIControlStateNormal];
+            }else{
+                [_bindBankBtn setTitle:@"设置银行卡" forState:UIControlStateNormal];
+            }
             [_bindBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xed4142)] forState:UIControlStateNormal];
             [_bindBankBtn setBackgroundImage:[BaseUtil imageWithColor:UIColorFromRGB(0xd22223)] forState:UIControlStateHighlighted];
             _bindBankBtn.layer.cornerRadius = 5.0f;
@@ -111,16 +121,17 @@
 
 - (IBAction)bindAlipay:(id)sender
 {
+    NSString *alipayName = _aliPayNameText.text;
     NSString *alipayNum = _aliPayText.text;
     NSString *alipayPwd = _aliPayPwdText.text;
-    if (alipayNum.length == 0 || alipayPwd.length == 0) {
+    if (alipayName.length == 0 || alipayNum.length == 0 || alipayPwd.length == 0) {
         [self showStringHUD:@"请填写完整" second:2];
         return;
     }
     
     [self showHUD:ACTION_LOAD];
     alipayPwd = [BaseUtil encrypt:alipayPwd];
-    [[PersonConnect sharedPersonConnect] updateAlipay:_info.email pwd:alipayPwd aliaccount:alipayNum success:^(id json) {
+    [[PersonConnect sharedPersonConnect] updateAlipay:_info.email pwd:alipayPwd aliaccount:alipayNum aliName:alipayName success:^(id json) {
         [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
@@ -230,7 +241,9 @@
 {
     switch (_viewType) {
         case ViewTypeWithAipay:
-            if (textField == _aliPayText) {
+            if (textField == _aliPayNameText) {
+                [_aliPayText becomeFirstResponder];
+            }else if (textField == _aliPayText) {
                 [_aliPayPwdText becomeFirstResponder];
             }else if (textField == _aliPayPwdText){
                 [_aliPayPwdText resignFirstResponder];

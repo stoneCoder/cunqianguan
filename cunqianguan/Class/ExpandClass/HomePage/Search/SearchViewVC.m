@@ -208,7 +208,7 @@ static NSString *SearchCellID = @"SearchViewCell";
 #pragma mark -- SBSearchBarDelegate
 - (void)searchAction:(SBSearchBar *)searchBar
 {
-    NSLog(@"%@------------->",searchBar.text);
+    [searchBar.searchTextField resignFirstResponder];
     NSString *searchText = searchBar.text;
     if (searchText.length == 0) {
         [self showStringHUD:@"请填写查询条件" second:2];
@@ -245,6 +245,12 @@ static NSString *SearchCellID = @"SearchViewCell";
         [self loadDataWith:text];
     }
     return YES;
+}
+
+-(void)SBSearchBarSearchButtonClicked:(SBSearchBar *)searchBar
+{
+    [searchBar.searchTextField resignFirstResponder];
+    [self searchAction:searchBar];
 }
 
 #pragma mark -- SearchViewCellDelegate

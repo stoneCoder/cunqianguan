@@ -8,6 +8,9 @@
 
 #import "BaseView.h"
 #import "BankModel.h"
+@protocol BankTransfersViewDelegate<NSObject>
+-(void)cashToBank:(NSString *)money pwd:(NSString *)pwd;
+@end
 @interface BankTransfersView : BaseView<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numText;
 @property (weak, nonatomic) IBOutlet UITextField *pwdText;
@@ -20,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 @property (strong, nonatomic) IBOutlet UIButton *cancleBtn;
 @property (strong, nonatomic) IBOutlet UIButton *subBtn;
+@property (strong, nonatomic) id<BankTransfersViewDelegate> delegate;
 
 +(BankTransfersView *)transfersView;
 -(void)showViewWithModel:(BankModel *)bankModel;

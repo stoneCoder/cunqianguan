@@ -99,19 +99,25 @@
             break;
     }
     
-    [self showHUD:ACTION_LOAD];
-    pwd = [BaseUtil encrypt:pwd];
-    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:_type success:^(id json) {
-        [self hideAllHUD];
-        NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
-        if ([BaseConnect isSucceeded:dic]) {
-            _numText.text = @"";
-            _pwdText.text = @"";
-        }
-    } failure:^(NSError *err) {
-        [self hideAllHUD];
-    }];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(cashToAlipay:pwd:andType:)]) {
+        [_delegate cashToAlipay:money pwd:pwd andType:_type];
+    }
+//    [self showHUD:ACTION_LOAD];
+//    pwd = [BaseUtil encrypt:pwd];
+//    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:_type success:^(id json) {
+//        [self hideAllHUD];
+//        NSDictionary *dic = (NSDictionary *)json;
+//        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+//        if ([BaseConnect isSucceeded:dic]) {
+//            _numText.text = @"";
+//            _pwdText.text = @"";
+//            
+//            [self hideView];
+//        }
+//    } failure:^(NSError *err) {
+//        [self hideAllHUD];
+//    }];
     
 }
 

@@ -220,11 +220,12 @@ DEFINE_SINGLETON_FOR_CLASS(PersonConnect)
 -(void)updateAlipay:(NSString *)email
                 pwd:(NSString *)pwd
          aliaccount:(NSString *)account
+            aliName:(NSString *)aliName
             success:(void (^)(id json))success
             failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"updateAlipay";
-    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"alipay_account":account};
+    NSDictionary *dic =  @{@"email":email,@"password":pwd,@"alipay_account":account,@"realname":aliName};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

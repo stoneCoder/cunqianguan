@@ -18,7 +18,7 @@
 #import "BaseConnect.h"
 #import "PersonConnect.h"
 #import "BankModel.h"
-@interface MoneyViewVC ()
+@interface MoneyViewVC ()<AliTransfersViewDelegate,BankTransfersViewDelegate>
 {
     AliTransfersView *_aliTransfersView;
     BankTransfersView *_bankTransfersView;
@@ -36,6 +36,12 @@
     [self setUpBtn];
     [self createAliView];
     [self createBankView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshViewWithType:_type];
 }
 
 -(void)setUpBtn
@@ -69,6 +75,7 @@
 {
     if (!_aliTransfersView) {
         _aliTransfersView = [AliTransfersView transfersView];
+        _aliTransfersView.delegate = self;
         [self.view addSubview:_aliTransfersView];
     }
 }
@@ -77,6 +84,7 @@
 {
     if (!_bankTransfersView) {
         _bankTransfersView = [BankTransfersView transfersView];
+        _bankTransfersView.delegate = self;
         [self.view addSubview:_bankTransfersView];
     }
 }
@@ -222,7 +230,6 @@
         return;
     }else if (btn.tag == 1001){
         /*集分宝收入*/
-        //if(_info.a)
         if (_info.pointTb < 100) {
             [[BMAlert sharedBMAlert] alert:@"您的集分宝不足100，无法提现！" cancle:^(DoAlertView *alertView) {
                 
@@ -270,6 +277,39 @@
     } failure:^(NSError *err) {
         [self hideAllHUD];
         failure(err);
+    }];
+}
+
+#pragma mark -- 取现操作
+-(void)cashToAlipay:(NSString *)money pwd:(NSString *)pwd andType:(NSInteger)type
+{
+    [self showHUD:ACTION_LOAD];
+    pwd = [BaseUtil encrypt:pwd];
+    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:type success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+        if ([BaseConnect isSucceeded:dic]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+-(void)cashToBank:(NSString *)money pwd:(NSString *)pwd
+{
+    [self showHUD:ACTION_LOAD];
+    pwd = [BaseUtil encrypt:pwd];
+    [[PersonConnect sharedPersonConnect] getUserExtract:_info.email andPwd:pwd withMoney:[money integerValue] type:0 success:^(id json) {
+        [self hideAllHUD];
+        NSDictionary *dic = (NSDictionary *)json;
+        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+        if ([BaseConnect isSucceeded:dic]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
     }];
 }
 @end

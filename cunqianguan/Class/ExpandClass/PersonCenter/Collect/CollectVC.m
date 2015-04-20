@@ -235,7 +235,7 @@ static NSString *collectID = @"CollectCell";
 
 -(void)submitAction
 {
-    NSLog(@"%@------------->",_checkArray);
+    //NSLog(@"%@------------->",_checkArray);
     if (_checkArray.count == 0) {
         [self showStringHUD:@"请选择需删除选项" second:2];
     }else{

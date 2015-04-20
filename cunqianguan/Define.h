@@ -7,8 +7,8 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-#define API @"http://www.baoxianqi.com/MobileApi/"
-//#define API @"http://tmp.baoxianqi.com/MobileApi/"
+//#define API @"http://www.baoxianqi.com/MobileApi/"
+#define API @"http://tmp.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
@@ -54,7 +54,7 @@ return shared##className; \
 #define MENU_ID @[@"10", @"2", @"5", @"9", @"7", @"6", @"8",@"3", @"4", @"1"];
 
 #define TABLE_MENU_ARRAY @[@"特价热卖", @"9.9包邮",@"女装", @"鞋包", @"美妆", @"美食", @"配饰", @"数码", @"居家", @"母婴", @"男装"]
-#define TABLE_MENU_ID @[@"0",@"99", @"1", @"2", @"3", @"4", @"5", @"6",@"7", @"8", @"9"];
+#define TABLE_MENU_ID @[@"0",@"99", @"5", @"2", @"7", @"9", @"1", @"10",@"3", @"8", @"4"];
 
 #define SELECT_ARRAY  @[@"全部",@"时尚女装",@"流行男装",@"母婴玩具",@"数码家电",@"家居家纺",@"美容护肤",@"美食茗茶"];
 #define SELECT_ID @[@"0",@"1", @"8", @"16", @"22", @"29",@"36", @"43"];

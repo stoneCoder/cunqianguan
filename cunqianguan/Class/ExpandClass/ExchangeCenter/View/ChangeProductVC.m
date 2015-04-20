@@ -162,17 +162,18 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
-        _segment.backgroundColor = [UIColor whiteColor];
-        _segment.delegate = self;
-        [cell.contentView addSubview:_segment];
-        if (_isTrueProduct) {
-            _titleArray = @[@"商品详情",@"兑换规则"];
-        }else{
-            _titleArray = @[@"兑换规则"];
-        }
-        [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     }
+    
+    _segment = [[BaseSegment alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 44)];
+    _segment.backgroundColor = [UIColor whiteColor];
+    _segment.delegate = self;
+    [cell.contentView addSubview:_segment];
+    if (_isTrueProduct) {
+        _titleArray = @[@"商品详情",@"兑换规则"];
+    }else{
+        _titleArray = @[@"兑换规则"];
+    }
+    [_segment setItems:_titleArray isShowLine:NO WithSelectPlace:ShowSelectPlaceFromBottom];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
