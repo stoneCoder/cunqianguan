@@ -49,44 +49,52 @@
     [self showHUD:LOGIN_LOAD];
     
     [[LoginConnect sharedLoginConnect] bindOauth:username withPwd:pwd name:_name uuid:_uuid type:_type success:^(id json) {
-        [self hideAllHUD];
         NSDictionary *dic = (NSDictionary *)json;
-        [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
         if ([BaseConnect isSucceeded:dic]) {
-            /*注册完成自动登陆*/
-            [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
-                NSDictionary *dic = (NSDictionary *)json;
-                if ([BaseConnect isSucceeded:dic]) {
-                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
-                    /*获取个人资料*/
-                    PersonInfo *person = [PersonInfo sharedPersonInfo];
-                    person.password = pwd;
-                    [person loginSuccessWith:[dic objectForKey:@"data"]];
-                    [person getUserInfo:username withPwd:pwd success:^(id json) {
-                        [self hideAllHUD];
-                        if([BaseConnect isSucceeded:json]){
-                            [self dismissViewControllerAnimated:NO completion:^{
-                                [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:@"RegistFinish"];
-                            }];
-                        }
-                    } failure:^(id json) {
-                        [self hideAllHUD];
-                    }];
-                }else{
-                    [self hideAllHUD];
-                    [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
-                    return;
-                }
-            } failure:^(NSError *err) {
-                [self hideAllHUD];
-                [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
-                } other:nil];
-            }];
+            [self bindFinishAutoLogin:username andPwd:pwd];
+        }else{
+           [self hideAllHUD];
+           [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
     }];
 }
+
+#pragma mark -- 绑定完成完成自动登陆
+-(void)bindFinishAutoLogin:(NSString *)username andPwd:(NSString *)pwd
+{
+    /*绑定完成自动登陆*/
+    [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
+            /*获取个人资料*/
+            PersonInfo *person = [PersonInfo sharedPersonInfo];
+            person.password = pwd;
+            [person loginSuccessWith:[dic objectForKey:@"data"]];
+            [person getUserInfo:username withPwd:pwd success:^(id json) {
+                [self hideAllHUD];
+                if([BaseConnect isSucceeded:json]){
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:@"RegistFinish"];
+                    }];
+                }
+            } failure:^(id json) {
+                [self hideAllHUD];
+            }];
+        }else{
+            [self hideAllHUD];
+            [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
+            return;
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+        [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+        } other:nil];
+    }];
+}
+
 - (IBAction)protocolAction:(id)sender {
     LocalWebVC *loaclWebVC = [[LocalWebVC alloc] init];
     loaclWebVC.leftTitle = @"用户协议";

@@ -68,6 +68,10 @@
     [self.view addSubview:_accountVC.view];
     
     _registerVC = [[RegisterVC alloc] init];
+    _registerVC.uuid = _uuid;
+    _registerVC.name = _username;
+    _registerVC.type = _type;
+    _registerVC.isThirdRegist = YES;
     [_registerVC.view setFrame:CGRectMake(0, visiableY, VIEW_WIDTH, VIEW_HEIGHT - visiableY)];
     _registerVC.view.backgroundColor = UIColorFromRGB(0xececec);
     [self addChildViewController:_registerVC];

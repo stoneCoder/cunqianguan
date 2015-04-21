@@ -7,8 +7,8 @@
 //  Copyright (c) 2015年 4318. All rights reserved.
 //
 
-//#define API @"http://www.baoxianqi.com/MobileApi/"
-#define API @"http://tmp.baoxianqi.com/MobileApi/"
+#define API @"http://www.baoxianqi.com/MobileApi/"
+//#define API @"http://tmp.baoxianqi.com/MobileApi/"
 #pragma mark - 单例
 
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
@@ -47,7 +47,7 @@ return shared##className; \
 #define DATA_LOAD @"加载中..."
 #define LOGIN_LOAD @"登陆中..."
 #define ACTION_LOAD @"处理中..."
-#define HUD_SHOW_SECOND 2
+#define HUD_SHOW_SECOND 1.5
 #define PAGE_COUNT 20
 
 #define MENU_ARRAY @[@"热卖", @"女装", @"鞋包", @"美妆", @"美食", @"配饰", @"数码", @"居家", @"母婴", @"男装"]

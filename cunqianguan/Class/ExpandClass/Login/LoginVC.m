@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.  
     [self initNavBar];
     [self setUpTextField];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
@@ -180,34 +180,35 @@
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             if (![snsAccount.usid isEqual:[NSNull null]]) {
-                [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
-                    NSDictionary *dic = (NSDictionary *)json;
-                    /*绑定过*/
-                    if (![BaseConnect isSucceeded:dic]) {
-                        FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
-                        finishInfoVC.leftTitle = @"注册";
-                        finishInfoVC.uuid = snsAccount.usid;
-                        finishInfoVC.username = snsAccount.userName;
-                        finishInfoVC.type = @"wb";
-                        [self.navigationController pushViewController:finishInfoVC animated:YES];
-                    }else{
-                        [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
-                        NSString *userId = snsAccount.usid;
-                        /*获取个人资料*/
-                        PersonInfo *person = [PersonInfo sharedPersonInfo];
-                        person.isThirdLogin = YES;
-                        if (userId.length > 20) {
-                            userId = [userId substringToIndex:20];
-                        }
-                        person.password = userId;
-                        [person loginSuccessWith:[dic objectForKey:@"data"]];
-                        [self dismissViewControllerAnimated:NO completion:^{
-                            [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
-                        }];
-                    }
-                } failure:^(NSError *err) {
-                    
-                }];
+                [self thirdLoginFinish:snsAccount andType:@"wb"];
+//                [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
+//                    NSDictionary *dic = (NSDictionary *)json;
+//                    /*绑定过*/
+//                    if (![BaseConnect isSucceeded:dic]) {
+//                        FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
+//                        finishInfoVC.leftTitle = @"注册";
+//                        finishInfoVC.uuid = snsAccount.usid;
+//                        finishInfoVC.username = snsAccount.userName;
+//                        finishInfoVC.type = @"wb";
+//                        [self.navigationController pushViewController:finishInfoVC animated:YES];
+//                    }else{
+//                        [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
+//                        NSString *userId = snsAccount.usid;
+//                        /*获取个人资料*/
+//                        PersonInfo *person = [PersonInfo sharedPersonInfo];
+//                        person.isThirdLogin = YES;
+//                        if (userId.length > 20) {
+//                            userId = [userId substringToIndex:20];
+//                        }
+//                        person.password = userId;
+//                        [person loginSuccessWith:[dic objectForKey:@"data"]];
+//                        [self dismissViewControllerAnimated:NO completion:^{
+//                            [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
+//                        }];
+//                    }
+//                } failure:^(NSError *err) {
+//                    
+//                }];
             }else{
                 [self hideAllHUD];
                 [self showStringHUD:@"授权失败" second:1.5];
@@ -225,38 +226,77 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
-                NSDictionary *dic = (NSDictionary *)json;
-                /*绑定过*/
-                if (![BaseConnect isSucceeded:dic]) {
-                    FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
-                    finishInfoVC.leftTitle = @"注册";
-                    finishInfoVC.uuid = snsAccount.usid;
-                    finishInfoVC.username = snsAccount.userName;
-                    finishInfoVC.type = @"qq";
-                    [self.navigationController pushViewController:finishInfoVC animated:YES];
-                }else{
-                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
-                    NSString *userId = snsAccount.usid;
-                    /*获取个人资料*/
-                    PersonInfo *person = [PersonInfo sharedPersonInfo];
-                    person.isThirdLogin = YES;
-                    if (userId.length > 20) {
-                        userId = [BaseUtil encrypt:[userId substringToIndex:20]];
-                    }
-                    person.password = userId;
-                    [person loginSuccessWith:[dic objectForKey:@"data"]];
-                    [self dismissViewControllerAnimated:NO completion:^{
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
-                    }];
-                }
-            } failure:^(NSError *err) {
-                
-            }];
+            if (![snsAccount.usid isEqual:[NSNull null]]) {
+                [self thirdLoginFinish:snsAccount andType:@"qq"];
+            }else{
+                [self hideAllHUD];
+                [self showStringHUD:@"授权失败" second:1.5];
+            }
+//            [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
+//                NSDictionary *dic = (NSDictionary *)json;
+//                /*绑定过*/
+//                if (![BaseConnect isSucceeded:dic]) {
+//                    FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
+//                    finishInfoVC.leftTitle = @"注册";
+//                    finishInfoVC.uuid = snsAccount.usid;
+//                    finishInfoVC.username = snsAccount.userName;
+//                    finishInfoVC.type = @"qq";
+//                    [self.navigationController pushViewController:finishInfoVC animated:YES];
+//                }else{
+//                    [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
+//                    NSString *userId = snsAccount.usid;
+//                    /*获取个人资料*/
+//                    PersonInfo *person = [PersonInfo sharedPersonInfo];
+//                    person.isThirdLogin = YES;
+//                    if (userId.length > 20) {
+//                        userId = [BaseUtil encrypt:[userId substringToIndex:20]];
+//                    }
+//                    person.password = userId;
+//                    [person loginSuccessWith:[dic objectForKey:@"data"]];
+//                    [self dismissViewControllerAnimated:NO completion:^{
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
+//                    }];
+//                }
+//            } failure:^(NSError *err) {
+//                
+//            }];
         }else{
             
         }
     });
+}
+
+#pragma mark -- 第三方登陆获取授权成功
+-(void)thirdLoginFinish:(UMSocialAccountEntity *)snsAccount andType:(NSString *)type
+{
+    [[LoginConnect sharedLoginConnect] getUserByOauth:snsAccount.usid success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        /*绑定过*/
+        if (![BaseConnect isSucceeded:dic]) {
+            FinishInfoVC *finishInfoVC = [[FinishInfoVC alloc] init];
+            finishInfoVC.leftTitle = @"注册";
+            finishInfoVC.uuid = snsAccount.usid;
+            finishInfoVC.username = snsAccount.userName;
+            finishInfoVC.type = type;
+            [self.navigationController pushViewController:finishInfoVC animated:YES];
+        }else{
+            [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"]  forKey:@"rewardNotice"];
+            NSString *userId = snsAccount.usid;
+            /*获取个人资料*/
+            PersonInfo *person = [PersonInfo sharedPersonInfo];
+            person.isThirdLogin = YES;
+            if (userId.length > 20) {
+                userId = [userId substringToIndex:20];
+            }
+            person.password = [BaseUtil encrypt:userId];
+            [person loginSuccessWith:[dic objectForKey:@"data"]];
+            [self dismissViewControllerAnimated:NO completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:nil];
+            }];
+        }
+    } failure:^(NSError *err) {
+        
+    }];
 }
 
 

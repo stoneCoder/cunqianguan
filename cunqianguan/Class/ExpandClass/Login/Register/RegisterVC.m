@@ -62,10 +62,35 @@
     }
     pwd = [BaseUtil encrypt:pwd];
     [self showHUD:ACTION_LOAD];
+    
     [[LoginConnect sharedLoginConnect] registByAccount:email userName:username withPwd:pwd success:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
+            if (_isThirdRegist) {
+                /*绑定第三方账号*/
+                [self registForThird:email andPwd:pwd];
+            }else{
+                /*普通注册*/
+                [self registFinishAutoLogin:username andPwd:pwd];
+            }
+        }else{
+            [self hideAllHUD];
+            [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+        [[BMAlert sharedBMAlert] alert:@"网络连接异常" cancle:^(DoAlertView *alertView) {
+        } other:nil];
+    }];
+}
+
+#pragma mark -- 注册第三方绑定
+-(void)registForThird:(NSString *)username andPwd:(NSString *)pwd
+{
+    [[LoginConnect sharedLoginConnect] bindOauth:username withPwd:pwd name:_name uuid:_uuid type:_type success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
             /*注册完成自动登陆*/
             [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
                 NSDictionary *dic = (NSDictionary *)json;
@@ -78,9 +103,9 @@
                     [person getUserInfo:username withPwd:pwd success:^(id json) {
                         [self hideAllHUD];
                         if([BaseConnect isSucceeded:json]){
-                           [self dismissViewControllerAnimated:NO completion:^{
-                               [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:@"RegistFinish"];
-                           }];
+                            [self dismissViewControllerAnimated:NO completion:^{
+                                [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:@"RegistFinish"];
+                            }];
                         }
                     } failure:^(id json) {
                         [self hideAllHUD];
@@ -97,7 +122,39 @@
             }];
         }else{
             [self hideAllHUD];
-            [self showStringHUD:[dic objectForKey:@"info"] second:1.5];
+            [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
+        }
+    } failure:^(NSError *err) {
+        [self hideAllHUD];
+    }];
+}
+
+#pragma mark -- 注册完成自动登陆
+-(void)registFinishAutoLogin:(NSString *)username andPwd:(NSString *)pwd
+{
+    /*注册完成自动登陆*/
+    [[LoginConnect sharedLoginConnect] loginByAccount:username withPwd:pwd success:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([BaseConnect isSucceeded:dic]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[dic objectForKey:@"data"] objectForKey:@"rewardNotice"] forKey:@"rewardNotice"];
+            /*获取个人资料*/
+            PersonInfo *person = [PersonInfo sharedPersonInfo];
+            person.password = pwd;
+            [person loginSuccessWith:[dic objectForKey:@"data"]];
+            [person getUserInfo:username withPwd:pwd success:^(id json) {
+                [self hideAllHUD];
+                if([BaseConnect isSucceeded:json]){
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistFinish object:@"RegistFinish"];
+                    }];
+                }
+            } failure:^(id json) {
+                [self hideAllHUD];
+            }];
+        }else{
+            [self hideAllHUD];
+            [self showStringHUD:[dic objectForKey:@"info"] second:HUD_SHOW_SECOND];
+            return;
         }
     } failure:^(NSError *err) {
         [self hideAllHUD];
@@ -105,6 +162,7 @@
         } other:nil];
     }];
 }
+
 - (IBAction)protocolAction:(id)sender
 {
     LocalWebVC *loaclWebVC = [[LocalWebVC alloc] init];

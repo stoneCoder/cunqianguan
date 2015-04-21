@@ -17,7 +17,11 @@ DEFINE_SINGLETON_FOR_CLASS(LoginConnect)
               failure:(void (^)( NSError *err))failure
 {
     NSString *url = @"login";
-    NSDictionary *dic =  @{@"email":aAccount,@"password":pwd,@"ios":@"YES"};
+    
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    deviceToken = deviceToken?deviceToken:@"";
+    
+    NSDictionary *dic =  @{@"email":aAccount,@"password":pwd,@"ios":@"YES",@"uniquekey":deviceToken};
     [BaseConnect post:url Parameters:dic success:^(id json) {
         success(json);
     } failure:^(id json) {

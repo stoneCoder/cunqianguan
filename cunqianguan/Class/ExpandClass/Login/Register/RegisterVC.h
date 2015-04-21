@@ -9,5 +9,8 @@
 #import "BaseVC.h"
 
 @interface RegisterVC : BaseVC
-
+@property (strong, nonatomic) NSString *uuid;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *type;
+@property (assign, nonatomic) BOOL isThirdRegist;
 @end

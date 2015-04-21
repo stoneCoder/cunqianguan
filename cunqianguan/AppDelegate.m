@@ -155,6 +155,9 @@ static NSString *const AppKey = @"54dd53cefd98c57dcf000736";
                  stringByReplacingOccurrencesOfString: @" " withString: @""]);
     [UMessage registerDeviceToken:deviceToken];
     
+    /*本地储存*/
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSString alloc] initWithData:deviceToken encoding:NSASCIIStringEncoding] forKey:@"deviceToken"];
+    
     PersonInfo *info = [PersonInfo sharedPersonInfo];
     [info loadUserData];
     if (info.userId) {
