@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -42,16 +42,10 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="待返利：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-Hs-JK4">
-                                <rect key="frame" x="126" y="82" width="60" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="待返利：254元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-Hs-JK4">
+                                <rect key="frame" x="126" y="82" width="101" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.54元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFS-Rj-3VF">
-                                <rect key="frame" x="191" y="82" width="45" height="18"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.61176470588235299" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号：20141592033513" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-Su-BLy">
@@ -72,8 +66,6 @@
                             <constraint firstAttribute="trailing" secondItem="2LT-2Q-eeD" secondAttribute="trailing" id="1xF-Ur-0MV"/>
                             <constraint firstAttribute="trailing" secondItem="Vgb-qA-ulg" secondAttribute="trailing" constant="12" id="9Xa-SW-u5z"/>
                             <constraint firstItem="2LT-2Q-eeD" firstAttribute="top" secondItem="EUM-Su-BLy" secondAttribute="bottom" constant="8" id="AC0-zk-dwX"/>
-                            <constraint firstItem="jFS-Rj-3VF" firstAttribute="leading" secondItem="bLR-Hs-JK4" secondAttribute="trailing" constant="5" id="CYF-Sp-nHJ"/>
-                            <constraint firstItem="jFS-Rj-3VF" firstAttribute="centerY" secondItem="bLR-Hs-JK4" secondAttribute="centerY" id="D1m-nS-KBn"/>
                             <constraint firstItem="UnN-qX-MhQ" firstAttribute="leading" secondItem="bLR-Hs-JK4" secondAttribute="leading" id="PXq-Oj-Of0"/>
                             <constraint firstItem="UnN-qX-MhQ" firstAttribute="leading" secondItem="Xon-39-f2Y" secondAttribute="trailing" constant="24" id="QR8-Ey-LFh"/>
                             <constraint firstAttribute="trailing" secondItem="EUM-Su-BLy" secondAttribute="trailing" constant="12" id="TzR-am-fRr"/>
@@ -101,8 +93,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="moneyLable" destination="jFS-Rj-3VF" id="xBF-ai-4aL"/>
+                <outlet property="moneyLable" destination="bLR-Hs-JK4" id="Gt6-Qz-t6e"/>
                 <outlet property="orderNumLabel" destination="EUM-Su-BLy" id="euO-vn-mwr"/>
+                <outlet property="priceLabel" destination="UnN-qX-MhQ" id="fyr-af-x9l"/>
                 <outlet property="productImage" destination="Xon-39-f2Y" id="d1N-34-wUU"/>
                 <outlet property="timeLabel" destination="Vgb-qA-ulg" id="T2p-zj-BXF"/>
                 <outlet property="typeLabel" destination="JCn-aw-qlt" id="grC-WQ-VdP"/>

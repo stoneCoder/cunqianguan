@@ -10,7 +10,7 @@
 @protocol OrderModel @end
 @interface OrderModel : JSONModel
 @property (strong, nonatomic) NSString *date;
-@property (assign, nonatomic) NSInteger fanli;
+@property (assign, nonatomic) CGFloat fanli;
 @property (strong, nonatomic) NSString *mall;
 @property (assign, nonatomic) CGFloat pay_price;
 @property (strong, nonatomic) NSString *pic_url;
@@ -19,4 +19,5 @@
 @property (strong, nonatomic) NSString *trade_id;
 @property (assign, nonatomic) NSInteger type;
 @property (strong, nonatomic) NSString *goodkey;
+@property (assign, nonatomic) NSInteger status;
 @end

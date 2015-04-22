@@ -146,7 +146,7 @@
 - (IBAction)transForBank:(id)sender
 {
     [self createBankView];
-    NSInteger cashAll = _info.cashAll;
+    CGFloat cashAll = _info.cash;
     if (cashAll < 30) {
         [[BMAlert sharedBMAlert] alert:@"您的现金小于30元，无法提现！" cancle:^(DoAlertView *alertView) {
             

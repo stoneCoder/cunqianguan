@@ -37,6 +37,7 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
     _data = [NSMutableArray array];
     _pageNum = 1;
     [self setUpTableView];
+    [self showLoaderView:self.tableView];
     [self loadData:_pageNum];
 }
 
@@ -68,9 +69,10 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 
 -(void)loadData:(NSInteger)page
 {
-    [self showHUD:DATA_LOAD];
+    //[self showHUD:DATA_LOAD];
     [[PersonConnect sharedPersonConnect] getMessageInfo:_info.userId withPage:page success:^(id json) {
-        [self hideAllHUD];
+        //[self hideAllHUD];
+        [self hideLoaderView];
         NSDictionary *dic = (NSDictionary *)json;
         if ([BaseConnect isSucceeded:dic]) {
             _listModel = [[MsgListModel alloc] initWithDictionary:dic error:nil];
@@ -85,7 +87,8 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
             [self.tableView reloadData];
         }
     } failure:^(NSError *err) {
-        [self hideAllHUD];
+        [self hideLoaderView];
+        //[self hideAllHUD];
     }];
 }
 

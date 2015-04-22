@@ -64,7 +64,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellID];
     }
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",indexPath.row + 1]];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"vip_0%ld",(long)indexPath.row + 1]];
 //    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
 //    cell.textLabel.text = [NSString stringWithFormat:@"VIP%ld",(long)(indexPath.row + 1)];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

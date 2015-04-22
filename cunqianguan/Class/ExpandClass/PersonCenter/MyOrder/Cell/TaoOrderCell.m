@@ -34,7 +34,7 @@
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.pic_url] placeholderImage:[UIImage imageNamed:@"load_default"]];
     _infoLabel.text = model.title;
     
-    NSString *moneyText = [NSString stringWithFormat:@"返%ld集分宝",(long)model.fanli];
+    NSString *moneyText = [NSString stringWithFormat:@"返%.f集分宝",model.fanli];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:moneyText];
     [str addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2db8ad) range:NSMakeRange(1,moneyText.length - 4)];
     _moneyLabel.attributedText = str;
