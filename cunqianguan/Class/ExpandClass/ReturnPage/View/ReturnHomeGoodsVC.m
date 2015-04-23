@@ -298,7 +298,7 @@
 -(void)shareProduct
 {
     //NSString *shareContent = SHARE_CONTEXT(_model.price);
-    NSString *shareContent = NEW_SHARE_CONTEXT(_model.title,_model.fanli);
+    NSString *shareContent = NEW_SHARE_CONTEXT(_model.title,(long)_model.fanli);
     [ShareUtil presentShareView:self content:shareContent imageUrl:_model.pic_url goodKey:_goodKey andUserId:[BaseUtil encrypt:_info.userId]];
 }
 

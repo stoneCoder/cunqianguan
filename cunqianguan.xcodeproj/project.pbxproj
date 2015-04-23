@@ -295,6 +295,8 @@
 		B1668D4F1A88A2F4002CB98E /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1668D451A88A2F4002CB98E /* JTCircleView.m */; };
 		B16868C61A7B25F100D37944 /* InviteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B16868C41A7B25F100D37944 /* InviteVC.m */; };
 		B16868C71A7B25F100D37944 /* InviteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16868C51A7B25F100D37944 /* InviteVC.xib */; };
+		B16D4DED1AE8953C00CC80F4 /* MsgInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D4DEC1AE8953C00CC80F4 /* MsgInfoCell.m */; };
+		B16D4DF31AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D4DF21AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.m */; };
 		B17136961AC255CB00170996 /* ExChangeAttr.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136951AC255CB00170996 /* ExChangeAttr.m */; };
 		B17136991AC2561500170996 /* ExChangeAttrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B17136981AC2561500170996 /* ExChangeAttrListModel.m */; };
 		B18128631ADB67CB00C5C4BE /* DynamicBtnScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B18128621ADB67CB00C5C4BE /* DynamicBtnScrollView.m */; };
@@ -893,6 +895,10 @@
 		B16868C31A7B25F100D37944 /* InviteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteVC.h; sourceTree = "<group>"; };
 		B16868C41A7B25F100D37944 /* InviteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteVC.m; sourceTree = "<group>"; };
 		B16868C51A7B25F100D37944 /* InviteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteVC.xib; sourceTree = "<group>"; };
+		B16D4DEB1AE8953C00CC80F4 /* MsgInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgInfoCell.h; sourceTree = "<group>"; };
+		B16D4DEC1AE8953C00CC80F4 /* MsgInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgInfoCell.m; sourceTree = "<group>"; };
+		B16D4DF11AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		B16D4DF21AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		B17136941AC255CB00170996 /* ExChangeAttr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeAttr.h; sourceTree = "<group>"; };
 		B17136951AC255CB00170996 /* ExChangeAttr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExChangeAttr.m; sourceTree = "<group>"; };
 		B17136971AC2561500170996 /* ExChangeAttrListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExChangeAttrListModel.h; sourceTree = "<group>"; };
@@ -1391,6 +1397,8 @@
 		B14071711A6CC8E900D1792F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B16D4DF11AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.h */,
+				B16D4DF21AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.m */,
 				B1B7BAA21ACE8FFD0007FAEB /* UIView+Borders.h */,
 				B1B7BAA31ACE8FFD0007FAEB /* UIView+Borders.m */,
 				B14F36801AC5273C00CD513A /* UICollectionViewCell+AutoLayoutDynamicHeightCalculation.h */,
@@ -2221,6 +2229,8 @@
 				B15D44E01A78CBD0008B8F4B /* MessageInfoCell.h */,
 				B15D44E11A78CBD0008B8F4B /* MessageInfoCell.m */,
 				B15D44E31A78CBDC008B8F4B /* MessageInfoCell.xib */,
+				B16D4DEB1AE8953C00CC80F4 /* MsgInfoCell.h */,
+				B16D4DEC1AE8953C00CC80F4 /* MsgInfoCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2802,6 +2812,7 @@
 				B140EC6D1A6F7345004D245A /* SMButton.m in Sources */,
 				B140719A1A6CCD7900D1792F /* BaseCollectionVC.m in Sources */,
 				B15032571A8B3025000A61FA /* PolyGoodsRootVC.m in Sources */,
+				B16D4DED1AE8953C00CC80F4 /* MsgInfoCell.m in Sources */,
 				B12D729D1A7B616E0086F70A /* InviteRewardVC.m in Sources */,
 				B15284491AB41BA00028B5D4 /* InviteListModel.m in Sources */,
 				B152C07C1AA9368700D18AFB /* RebateHomeVC.m in Sources */,
@@ -2820,6 +2831,7 @@
 				B158A70E1A9D78AA00C6FD3F /* JYHConnect.m in Sources */,
 				B1668D4A1A88A2F4002CB98E /* JTCalendarMenuMonthView.m in Sources */,
 				B19F8B891AA6C29E004BF6FC /* CalenderDayView.m in Sources */,
+				B16D4DF31AE8D60A00CC80F4 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				B13C08651AC3EF6800DC0676 /* RedBagOpenView.m in Sources */,
 				B1668D471A88A2F4002CB98E /* JTCalendarAppearance.m in Sources */,
 				B14FE5F31A7CB40F002BF122 /* CollectVC.m in Sources */,

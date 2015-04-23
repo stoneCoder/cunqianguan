@@ -8,6 +8,8 @@
 
 #import "MessageInfoVC.h"
 #import "MessageInfoCell.h"
+#import "MsgInfoCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 #import "PersonConnect.h"
 #import "BaseConnect.h"
@@ -60,9 +62,11 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
     [self createTableWithStye:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH - 64);
     
-    UINib *CellNib = [UINib nibWithNibName:@"MessageInfoCell" bundle:nil];
-    [self.tableView registerNib:CellNib forCellReuseIdentifier:MessageInfoCellID];
+//    UINib *CellNib = [UINib nibWithNibName:@"MessageInfoCell" bundle:nil];
+//    [self.tableView registerNib:CellNib forCellReuseIdentifier:MessageInfoCellID];
     
+    [self.tableView registerClass:[MsgInfoCell class] forCellReuseIdentifier:MessageInfoCellID];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setRefreshEnabled:YES];
 }
@@ -114,22 +118,30 @@ static NSString *MessageInfoCellID = @"MessageInfoCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MsgModel *model = _data[indexPath.row];
-    return [self mathCellHeigth:model.contents];
+    //return [self mathCellHeigth:model.contents];
+    CGFloat height =  [tableView fd_heightForCellWithIdentifier:MessageInfoCellID configuration:^(id cell) {
+        [(MsgInfoCell *)cell loadCell:model];
+    }];
+    return height;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    MessageInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:MessageInfoCellID];
+    MsgInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:MessageInfoCellID];
+//    MessageInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:MessageInfoCellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.rightUtilityButtons = [self cellRightButtons];
     cell.delegate = self;
     cell.tag = indexPath.row;
-     MsgModel *model = _data[indexPath.row];
+    MsgModel *model = _data[indexPath.row];
     [cell loadCell:model];
     cell.containingTableView = tableView;
     [cell hideUtilityButtonsAnimated:NO];
-    [cell setCellHeight:[self mathCellHeigth:model.contents]];
+    //[cell setCellHeight:[self mathCellHeigth:model.contents]];
+    [cell setCellHeight:[tableView fd_heightForCellWithIdentifier:MessageInfoCellID configuration:^(id cell) {
+        [(MsgInfoCell *)cell loadCell:model];
+    }]];
     return cell;
 }
 
