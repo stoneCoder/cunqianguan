@@ -21,6 +21,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+#pragma mark  修复IOS7 autolayout报错
+        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         self.contentView.backgroundColor = UIColorFromRGB(0xececec);
         [self setUpView];
     }

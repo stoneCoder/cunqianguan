@@ -9,6 +9,7 @@
 #import "PolyDealTableVC.h"
 #import "PolyGoodsTableCell.h"
 #import "HotDetailShopVC.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 #import "Constants.h"
 #import "PersonInfo.h"
@@ -113,26 +114,29 @@ static NSString *polyGoodsTableCellID = @"PolyGoodsTableCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static PolyGoodsTableCell *cell = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        cell = [self.tableView dequeueReusableCellWithIdentifier:polyGoodsTableCellID];
-    });
-    
-    if (_data.count > 0) {
-        [cell loadData:_data[indexPath.row]];
-    }
-    
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
-    
-    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    
-    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    height += 1;
+//    static PolyGoodsTableCell *cell = nil;
+//    static dispatch_once_t onceToken;
+//    
+//    dispatch_once(&onceToken, ^{
+//        cell = [self.tableView dequeueReusableCellWithIdentifier:polyGoodsTableCellID];
+//    });
+//    
+//    if (_data.count > 0) {
+//        [cell loadData:_data[indexPath.row]];
+//    }
+//    
+//    [cell setNeedsUpdateConstraints];
+//    [cell updateConstraintsIfNeeded];
+//    
+//    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+//    [cell setNeedsLayout];
+//    [cell layoutIfNeeded];
+//    
+//    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    height += 1;
+    CGFloat height =  [tableView fd_heightForCellWithIdentifier:polyGoodsTableCellID configuration:^(id cell) {
+        [(PolyGoodsTableCell *)cell loadData:_data[indexPath.row]];
+    }];
     return height;
 }
 

@@ -11,7 +11,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
+    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [_productImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREEN_WIDTH/2 - 20);
         //make.height.mas_equalTo(@((SCREEN_WIDTH/2 - 20)/1.52174));
