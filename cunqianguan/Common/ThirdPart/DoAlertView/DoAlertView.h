@@ -69,7 +69,7 @@ typedef NS_ENUM(int, DoAlertViewContentType) {
 @class DoAlertView;
 typedef void(^DoAlertViewHandler)(DoAlertView *alertView);
 
-@interface DoAlertView : UIView <MKMapViewDelegate>
+@interface DoAlertView : UIView <MKMapViewDelegate,UITextFieldDelegate>
 {
 @private
     NSString                *_strAlertTitle;

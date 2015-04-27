@@ -43,10 +43,10 @@
     CGFloat heigth = [self calculateHeigthForRow:btnArray.count];
     _animotionHeight = heigth;
     _animotionFrame = CGRectMake(0, visiableY, width, 0);
-    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, 0)];
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, visiableY, width, heigth)];
     [self createBtnWithArray:btnArray andRemaind:[self calculateNum:btnArray.count]];
     _btnView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:_btnView];
+    //[self addSubview:_btnView];
 }
 
 -(void)createBtnWithArray:(NSArray *)btnArray andRemaind:(NSInteger)remainder
@@ -88,22 +88,48 @@
 
 -(void)showView
 {
-        [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
-            self.hidden = NO;
-            _animotionFrame.size.height = _animotionHeight;
-            _btnView.frame = _animotionFrame;
-        } completion:^(BOOL finished) {
-        }];
+    [self animateView:_btnView show:YES complete:^{
+        
+    }];
 }
+
 
 -(void)hideView
 {
-    [UIView animateWithDuration:0.25f  delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
-        _animotionFrame.size.height = 0;
-        _btnView.frame = _animotionFrame;
-    } completion:^(BOOL finished) {
-        self.hidden = YES;
+    [self animateView:_btnView show:NO complete:^{
+        
     }];
+}
+
+- (void)animateView:(UIView *)view show:(BOOL)show complete:(void(^)())complete {
+    
+    if (show) {
+        self.hidden = NO;
+        if (view) {
+            view.frame = CGRectMake(_animotionFrame.origin.x, _animotionFrame.origin.y, _animotionFrame.size.width, 0);
+            [self addSubview:view];
+        }
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            if (view) {
+                view.frame = CGRectMake(_animotionFrame.origin.x, _animotionFrame.origin.y, _animotionFrame.size.width, _animotionHeight);
+            }
+        } completion:^(BOOL finished) {
+        
+        }];
+    } else {
+        [UIView animateWithDuration:0.2 animations:^{
+            if (view) {
+                view.frame = CGRectMake(_animotionFrame.origin.x, _animotionFrame.origin.y, _animotionFrame.size.width, 0);
+            }
+        } completion:^(BOOL finished) {
+            self.hidden = YES;
+            if (view) {
+                [view removeFromSuperview];
+            }
+        }];
+    }
+    complete();
 }
 
 -(void)btnClick:(UIButton *)btn

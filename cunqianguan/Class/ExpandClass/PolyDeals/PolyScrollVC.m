@@ -141,7 +141,6 @@
     [_selectView setHidden:YES];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:_selectView];
-    //[self.view insertSubview:_selectView aboveSubview:_scrollView];
 }
 
 /*

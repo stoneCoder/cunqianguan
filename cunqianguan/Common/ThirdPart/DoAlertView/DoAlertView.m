@@ -371,6 +371,7 @@
     // Body text ----------------------------------------------------------------------------------------------------
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(DO_LABEL_INSET.left, DO_LABEL_INSET.top + dContentOffset,
                                                                 _vAlert.frame.size.width - (DO_LABEL_INSET.left + DO_LABEL_INSET.right) , 0)];
+    _textField.delegate = self;
     _textField.placeholder = _placeholderText;
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.frame = CGRectMake(DO_LABEL_INSET.left, _textField.frame.origin.y, _textField.frame.size.width, 35);
@@ -758,4 +759,10 @@
     });
 }
 
+#pragma mark -- UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

@@ -114,7 +114,7 @@
             NSString *phone = alertView.textField.text;
             if(phone.length > 0){
                 [self showHUD:ACTION_LOAD];
-                [[ExChangeConnect sharedExChangeConnect] exchangeGood:_info.username pwd:_info.password productId:_model.productId phone:phone qq:@"" success:^(id json) {
+                [[ExChangeConnect sharedExChangeConnect] exchangeGood:_info.email pwd:_info.password productId:_model.productId phone:phone qq:@"" success:^(id json) {
                     [self hideAllHUD];
                     NSDictionary *dic = (NSDictionary *)json;
                     if ([BaseConnect isSucceeded:dic]) {
