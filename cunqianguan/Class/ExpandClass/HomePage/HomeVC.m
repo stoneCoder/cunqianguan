@@ -560,7 +560,7 @@
 -(void)pushToTaoWeb
 {
     RebateHomeVC *rebateHomeVC = [[RebateHomeVC alloc] init];
-    rebateHomeVC.leftTitle = @"逛淘宝";
+    rebateHomeVC.leftTitle = @"购物";
     rebateHomeVC.isTrueTrance = YES;
     [self.navigationController pushViewController:rebateHomeVC animated:YES];
 }

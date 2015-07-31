@@ -84,5 +84,8 @@ return shared##className; \
 
 #define SEARCH_URL(searchText,mm,userId) [NSString stringWithFormat:@"http://ai.m.taobao.com/search.html?q=%@&pid=%@&unid=%@",searchText,mm,userId]
 
-#define INVITE_TITLE @"保鲜期送102+5元红包啦！"
-#define INVITE_CONTENT @"我刚在保鲜期领取到5元红包咯，注册就能领；用手机APP购物更有最高达9成返利额！不同于传统返利操作，新的足迹功能帮您轻松购物，一键返现，邀请好友还奖100元现金哦！大家赶快参与体验吧！"
+#define INVITE_TITLE @"快,到保鲜期注册领5元红包！"
+#define INVITE_CONTENT @"我刚在保鲜期领到5元红包咯,注册就能领;用手机APP购物返利最高90%！足迹新玩法一键返现，邀请好友还奖100元现金哦！"
+
+//#define INVITE_TITLE @"保鲜期送102+5元红包啦！"
+//#define INVITE_CONTENT @"我刚在保鲜期领取到5元红包咯，注册就能领；用手机APP购物更有最高达9成返利额！不同于传统返利操作，新的足迹功能帮您轻松购物，一键返现，邀请好友还奖100元现金哦！大家赶快参与体验吧！"

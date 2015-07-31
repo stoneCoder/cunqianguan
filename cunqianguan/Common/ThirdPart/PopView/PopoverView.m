@@ -178,7 +178,7 @@
     _tableView.separatorColor = UIColorFromRGB(0x666666);
     _tableView.layer.cornerRadius = 5.0f;
     _tableView.layer.masksToBounds = YES;
-    //_tableView.backgroundColor = UIColorFromRGB(0x444444);
+    _tableView.backgroundColor = UIColorFromRGB(0x444444);
     _tableView.tableFooterView = [[UIView alloc] init];
     
     //_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -224,6 +224,7 @@
     }
     
     cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = UIColorFromRGB(0xffffff);
     cell.textLabel.highlightedTextColor = UIColorFromRGB(0x9a9a9a);
     cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];

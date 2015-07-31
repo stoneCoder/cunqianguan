@@ -71,18 +71,34 @@ static CGFloat const kAnimateDuration = 1;
 
 - (void)animateToActiveState
 {
-    [UIView animateWithDuration:kAnimateDuration delay:0 usingSpringWithDamping:.5 initialSpringVelocity:-20 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.backgroundColor = _dotColor;
-        self.transform = CGAffineTransformMakeScale(1.4, 1.4);
-    } completion:nil];
+#warning 修改IOS6不兼容BUG
+    if (iOS7) {
+        [UIView animateWithDuration:kAnimateDuration delay:0 usingSpringWithDamping:.5 initialSpringVelocity:-20 options:UIViewAnimationOptionCurveLinear animations:^{
+            self.backgroundColor = _dotColor;
+            self.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        } completion:nil];
+    }else{
+        [UIView animateWithDuration:kAnimateDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            self.backgroundColor = _dotColor;
+            self.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        } completion:nil];
+    }
 }
 
 - (void)animateToDeactiveState
 {
-    [UIView animateWithDuration:kAnimateDuration delay:0 usingSpringWithDamping:.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.backgroundColor = [UIColor clearColor];
-        self.transform = CGAffineTransformIdentity;
-    } completion:nil];
+#warning 修改IOS6不兼容BUG
+    if (iOS7) {
+        [UIView animateWithDuration:kAnimateDuration delay:0 usingSpringWithDamping:.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            self.backgroundColor = [UIColor clearColor];
+            self.transform = CGAffineTransformIdentity;
+        } completion:nil];
+    }else{
+        [UIView animateWithDuration:kAnimateDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            self.backgroundColor = [UIColor clearColor];
+            self.transform = CGAffineTransformIdentity;
+        } completion:nil];
+    }
 }
 
 @end

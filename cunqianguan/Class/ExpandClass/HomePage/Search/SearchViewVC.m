@@ -200,7 +200,7 @@ static NSString *SearchCellID = @"SearchViewCell";
 -(void)pushToWeb:(NSString *)url
 {
     HotDetailShopVC *hotDetailShopVC = [[HotDetailShopVC alloc] init];
-    hotDetailShopVC.leftTitle = @"淘宝";
+    hotDetailShopVC.leftTitle = @"购物";
     hotDetailShopVC.urlPath = url;
     [self.navigationController pushViewController:hotDetailShopVC animated:YES];
 }

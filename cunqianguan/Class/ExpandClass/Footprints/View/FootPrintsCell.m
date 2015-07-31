@@ -30,6 +30,7 @@
 
 -(void)loadCell:(FootModel *)model
 {
+    BOOL isAli = YES;
     [_productImage sd_setImageWithURL:[NSURL URLWithString:model.picUrl]];
     _titleLable.text = model.title;
     
@@ -50,8 +51,14 @@
     if (model.tejie) {
         fanliText = @"购买后最高返利100个集分宝";
     }
+    NSString *goodKey = model.goodkey;
+    /*非淘宝天猫产品*/
+    if ([goodKey rangeOfString:@"0_"].location == NSNotFound && [goodKey rangeOfString:@"999_"].location == NSNotFound) {
+        isAli = NO;
+        fanliText =  [NSString stringWithFormat:@"最高返%ld%%",(long)model.commissionRate];
+    }
     NSMutableAttributedString *fanliStr = [[NSMutableAttributedString alloc] initWithString:fanliText];
-    if (model.commissionRate  > 0 ) {
+    if (model.commissionRate  > 0 && isAli) {
         [fanliStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x2EB7AD) range:NSMakeRange(7, fanliText.length - 11)];
     }
     _fanliLabel.attributedText = fanliStr;
